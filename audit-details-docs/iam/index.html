@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>CDP Audit Event Details Documentation: iam</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Roboto", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1em 0;
+      }
+
+      h3 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h4 {
+        font-weight: bold;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #008cff;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0; /* No indent on first p in td */
+      }
+
+      /* Table of fields */
+      .field-table td:nth-child(1) { /* Field */
+        width: 10em;
+      }
+      .field-table td:nth-child(2) { /* Type */
+        width: 12em;
+      }
+      .field-table td:nth-child(3) { /* Description */
+        width: auto;
+      }
+
+      /* Table of extensions */
+      .extension-table td:nth-child(1) { /* Extension */
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) { /* Type */
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) { /* Base */
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) { /* Number */
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) { /* Description */
+        width: auto;
+      }
+
+      /* Table of enum values. */
+      .enum-table td:nth-child(1) { /* Name */
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) { /* Number */
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) { /* Description */
+        width: auto;
+      }
+
+      /* Table of scalar value types. */
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+      /* Table of contents. */
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+      /* File heading div */
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 1.5em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+      /* The 'M', 'E' and 'X' badges in the ToC */
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: white;
+        background-color: #ff8400;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    <!-- User custom CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">CDP Audit Event Details Documentation: iam</h1>
+
+    <p>
+      The structures documented here appear in audit events created by the
+      "iam" event source (service).
+    </p>
+
+    
+
+    
+    
+      
+        
+        
+        
+        
+        
+        
+          
+          
+        
+        
+        
+          
+          
+          
+          
+        
+      
+        
+        
+        
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        
+        
+          
+          
+          
+            
+            
+              
+            
+          
+          
+        
+      
+        
+        
+        
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        
+        
+          
+          
+          
+            
+            
+              
+            
+          
+          
+        
+      
+        
+        
+        
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        
+        
+          
+          
+          
+            
+            
+              
+            
+          
+          
+        
+      
+        
+        
+        
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        
+        
+          
+          
+          
+            
+            
+              
+            
+          
+          
+        
+      
+        
+        
+        
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        
+        
+          
+          
+          
+            
+            
+              
+            
+          
+          
+        
+      
+    
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+        
+        
+          
+          <li>
+            <a href="#event_name_AssignRoleServiceEvent"><span class="badge">E</span>AssignRoleServiceEvent</a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="#event_name_CreateGroupServiceEvent"><span class="badge">E</span>CreateGroupServiceEvent</a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="#event_name_CreateUserServiceEvent"><span class="badge">E</span>CreateUserServiceEvent</a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="#event_name_DeleteGroupServiceEvent"><span class="badge">E</span>DeleteGroupServiceEvent</a>
+          </li>
+          
+        
+          
+        
+          
+          <li>
+            <a href="#event_name_UnassignRoleServiceEvent"><span class="badge">E</span>UnassignRoleServiceEvent</a>
+          </li>
+          
+        
+        <li><a href="#other_messages"><span class="badge">M</span>Other messages</a></li>
+        
+          
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    <div class="file-heading">
+      <h2>Details Definitions by Event Name</h2>
+    </div>
+
+    
+    
+    
+      
+      
+    
+    
+      
+
+      <h3 id="event_name_AssignRoleServiceEvent">AssignRoleServiceEvent</h3>
+
+      
+      
+        
+        
+        
+        
+          
+          
+          
+            
+
+            
+            
+              
+            
+
+            
+            <h4>Base event details</h4>
+            
+
+            
+              <table class="field-table">
+                <thead>
+                  <tr><td>Field</td><td>Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>roleName</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The role name or CRN requested to be assigned. </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>assignee</td>
+                      <td><a href="#audit.ums.Assignee">Assignee</a></td>
+                      <td><p>The assignee. </p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+
+            
+          
+        
+      
+    
+      
+
+      <h3 id="event_name_CreateGroupServiceEvent">CreateGroupServiceEvent</h3>
+
+      
+      
+        
+        
+        
+        
+          
+          
+          
+            
+
+            
+            
+              
+            
+
+            
+            <h4>Base event details</h4>
+            
+
+            
+              <table class="field-table">
+                <thead>
+                  <tr><td>Field</td><td>Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>groupName</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The name of the group to create. </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>syncMembershipOnUserLogin</td>
+                      <td><a href="#bool">bool</a></td>
+                      <td><p>Whether sync-membership-on-user-login is enabled or disabled for the group. </p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+
+            
+          
+        
+      
+    
+      
+
+      <h3 id="event_name_CreateUserServiceEvent">CreateUserServiceEvent</h3>
+
+      
+      
+        
+        
+        
+        
+          
+          
+          
+            
+
+            
+            
+              
+            
+
+            
+            <h4>Base event details</h4>
+            
+
+            
+              <table class="field-table">
+                <thead>
+                  <tr><td>Field</td><td>Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>identityProviderCrn</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The identity provider CRN </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>identityProviderUserId</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The identity provider user ID provided by the identity provider to CDP. </p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+
+            
+          
+        
+      
+    
+      
+
+      <h3 id="event_name_DeleteGroupServiceEvent">DeleteGroupServiceEvent</h3>
+
+      
+      
+        
+        
+        
+        
+          
+          
+          
+            
+
+            
+            
+              
+            
+
+            
+            <h4>Base event details</h4>
+            
+
+            
+              <table class="field-table">
+                <thead>
+                  <tr><td>Field</td><td>Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>groupName</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The group name or CRN requested to be deleted. </p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+
+            
+          
+        
+      
+    
+      
+
+      <h3 id="event_name_UnassignRoleServiceEvent">UnassignRoleServiceEvent</h3>
+
+      
+      
+        
+        
+        
+        
+          
+          
+          
+            
+
+            
+            
+              
+            
+
+            
+            <h4>Base event details</h4>
+            
+
+            
+              <table class="field-table">
+                <thead>
+                  <tr><td>Field</td><td>Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>roleName</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The role name or CRN requested to be unassigned. </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>assignee</td>
+                      <td><a href="#audit.ums.Assignee">Assignee</a></td>
+                      <td><p>The assignee. </p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+
+            
+          
+        
+      
+    
+      
+
+      <h3 id="event_name_Other messages">Other messages</h3>
+
+      
+      
+        
+        
+        
+        
+          
+          
+          
+            
+
+            
+            
+              
+            
+
+            
+            <h4 id="audit.ums.Assignee">Assignee : An assignee for a role.</h4>
+            
+
+            
+              <table class="field-table">
+                <thead>
+                  <tr><td>Field</td><td>Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>machineUserName</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The machine user name or CRN. </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>userId</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The user ID or CRN. </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>groupName</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The group name or CRN. </p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+
+            
+          
+        
+      
+    
+
+    
+
+      
+
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>Field Type</td><td>JSON Type Description</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td>number</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td>number</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td>true or false</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>string</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>string with padded base 64 encoding of bytes</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+
