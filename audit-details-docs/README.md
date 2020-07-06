@@ -1,6 +1,6 @@
 # CDP Control Plane Audit Event Details Documentation
 
-*Version: 0.9.11-538-g2f62623*
+*Version: 0.9.12*
 
 Each CDP control plane audit event source defines its own structures for
 event-specific details, which are provided as JSON for some types of events.
