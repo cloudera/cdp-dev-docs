@@ -17,9 +17,9 @@ For overall CDP documentation, visit [docs.cloudera.com](https://docs.cloudera.c
 
 ## CDP CLI
 
-The CDP command line interface (CLI) is [available from PyPI](https://pypi.org/project/cdpcli/).
+The CDP command line interface (CLI) is [available from PyPI](https://pypi.org/project/cdpcli/). Instructions for installation are [available from CDP Management Console help documentation](https://docs.cloudera.com/management-console/cloud/cli/topics/mc-installing-cdp-client.html).
 
-Once the CLI is installed, you can `import cdpcli` in your own Python code to use the CLI as a Python SDK.
+Once the CLI is installed, you can `import cdpcli` in your own Python code to use the CLI as a Python SDK. This mode of use is not yet fully supported, so be aware that the internal CLI code may change in the future.
 
 ## Documentation expansion in progress
 
