@@ -790,12 +790,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_instancegroup">InstanceGroup</a></li>
 <li><a href="#_listworkspacesrequest">ListWorkspacesRequest</a></li>
 <li><a href="#_listworkspacesresponse">ListWorkspacesResponse</a></li>
+<li><a href="#_overlaynetwork">OverlayNetwork</a></li>
 <li><a href="#_provisionk8srequest">ProvisionK8sRequest</a></li>
 <li><a href="#_provisiontag">ProvisionTag</a></li>
 <li><a href="#_revokeworkspaceaccessrequest">RevokeWorkspaceAccessRequest</a></li>
 <li><a href="#_revokeworkspaceaccessresponse">RevokeWorkspaceAccessResponse</a></li>
 <li><a href="#_rootvolume">RootVolume</a></li>
 <li><a href="#_tag">Tag</a></li>
+<li><a href="#_topology">Topology</a></li>
 <li><a href="#_upgradeworkspacerequest">UpgradeWorkspaceRequest</a></li>
 <li><a href="#_upgradeworkspaceresponse">UpgradeWorkspaceResponse</a></li>
 <li><a href="#_workspace">Workspace</a></li>
@@ -2197,7 +2199,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>removeStorage</strong><br>
-<em>required</em></p>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.</p>
@@ -3083,6 +3085,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_overlaynetwork">OverlayNetwork</h3>
+<div class="paragraph">
+<p>Contains the information about overlay network.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>plugin</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The plugin specifies specific cni vendor, ex: calico, weave etc.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>topology</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The options for overlay topology.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_topology">Topology</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_provisionk8srequest">ProvisionK8sRequest</h3>
 <div class="paragraph">
 <p>Request object for workspace provision.</p>
@@ -3123,6 +3171,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_instancegroup">InstanceGroup</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>network</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The overlay network for an AWS Kubernetes cluster&#8217;s CNI.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_overlaynetwork">OverlayNetwork</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3352,6 +3412,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_topology">Topology</h3>
+<div class="paragraph">
+<p>Contains the information about topology.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>subnets</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The options for subnets.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -4071,7 +4165,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-06 08:42:02 -0700
+Last updated 2020-07-28 10:53:41 -0700
 </div>
 </div>
 <br>
