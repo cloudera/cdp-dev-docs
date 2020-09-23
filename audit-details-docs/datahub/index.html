@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>CDP Audit Event Details Documentation: datahub</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Roboto", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1em 0;
+      }
+
+      h3 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h4 {
+        font-weight: bold;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #008cff;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0; /* No indent on first p in td */
+      }
+
+      /* Table of fields */
+      .field-table td:nth-child(1) { /* Field */
+        width: 10em;
+      }
+      .field-table td:nth-child(2) { /* Type */
+        width: 12em;
+      }
+      .field-table td:nth-child(3) { /* Description */
+        width: auto;
+      }
+
+      /* Table of extensions */
+      .extension-table td:nth-child(1) { /* Extension */
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) { /* Type */
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) { /* Base */
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) { /* Number */
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) { /* Description */
+        width: auto;
+      }
+
+      /* Table of enum values. */
+      .enum-table td:nth-child(1) { /* Name */
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) { /* Number */
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) { /* Description */
+        width: auto;
+      }
+
+      /* Table of scalar value types. */
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+      /* Table of contents. */
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+      /* File heading div */
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 1.5em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+      /* The 'M', 'E' and 'X' badges in the ToC */
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: white;
+        background-color: #ff8400;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    <!-- User custom CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">CDP Audit Event Details Documentation: datahub</h1>
+
+    <p>
+      The structures documented here appear in audit events created by the
+      "datahub" event source (service).
+    </p>
+
+    
+
+    
+    
+      
+        
+        
+        
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        
+        
+          
+          
+          
+            
+            
+              
+            
+          
+          
+        
+      
+    
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+        
+        
+          
+          <li>
+            <a href="#event_name_AuditEventDetails"><span class="badge">E</span>AuditEventDetails</a>
+          </li>
+          
+        
+        <li><a href="#other_messages"><span class="badge">M</span>Other messages</a></li>
+        
+          
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    <div class="file-heading">
+      <h2>Details Definitions by Event Name</h2>
+    </div>
+
+    
+    
+    
+    
+      
+
+      <h3 id="event_name_AuditEventDetails">AuditEventDetails</h3>
+
+      
+      
+        
+        
+        
+        
+          
+          
+          
+            
+
+            
+            
+              
+            
+
+            
+            <h4>Base event details</h4>
+            
+
+            
+              <table class="field-table">
+                <thead>
+                  <tr><td>Field</td><td>Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>clusterCrn</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The Data Hub or Data Lake CRN </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>userCrn</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The identity provider user ID provided by the identity provider to CDP. This user initiated the action. </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>environmentCrn</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The environment CRN </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>timestamp</td>
+                      <td><a href="#int64">int64</a></td>
+                      <td><p>The long value of the event timestamp. Returns the time in milliseconds when the event happened. </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>clusterName</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The name of the Data Hub or Data Lake resource </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>flowState</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The state of the resource creation flow<br>
+States for Data Hubs:<br>
+INIT_STATE<br>
+START_CREATION_EVENT<br>
+CLUSTER_CREATION_FINISHED_EVENT<br>
+STACK_CREATION_FAILED_STATE<br>
+CLUSTER_CREATION_FAILED_STATE<br>
+TERMINATION_EVENT<br>
+TERMINATION_FINALIZED_EVENT<br>
+TERMINATION_FAILED_STATE<br>
+CLUSTER_TERMINATION_FAILED_STATE<br>
+STACK_START_EVENT<br>
+CLUSTER_START_FINISHED_STATE<br>
+CLUSTER_START_FAILED_STATE<br>
+START_FAILED_STATE<br>
+STACK_STOP_EVENT<br>
+STOP_FINALIZED_EVENT<br>
+STOP_FAILED_STATE<br>
+CLUSTER_STOP_FAILED_STATE<br>
+MANUAL_STACK_REPAIR_TRIGGER_EVENT<br>
+REPAIR_SERVICE_NOTIFIED_EVENT<br>
+MANUAL_STACK_REPAIR_TRIGGER_FAILED_STATE<br>
+DECOMMISSION_EVENT<br>
+DOWNSCALE_FINALIZED_EVENT<br>
+CLUSTER_DOWNSCALE_FAILED_STATE<br>
+START_VALIDATION_FLOW_EVENT<br>
+VALIDATION_FLOW_FINISHED_EVENT<br>
+VALIDATION_FAILED_STATE<br> </p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>flowId</td>
+                      <td><a href="#string">string</a></td>
+                      <td><p>The id of the resource creation flow </p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+
+            
+          
+        
+      
+    
+
+    
+
+      
+
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>Field Type</td><td>JSON Type Description</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td>number</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td>number</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>string containing the number (with no decimal portion)</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td>true or false</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>string</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>string with padded base 64 encoding of bytes</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+
