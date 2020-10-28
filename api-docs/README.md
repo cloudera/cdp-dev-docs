@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.17*
+*Version: 0.9.18*
 
 [CHANGELOG](CHANGELOG.md)
 
@@ -13,6 +13,7 @@ Available documentation is listed by service below.
 * [environments](./environments/index.html)
 * [iam](./iam/index.html)
 * [ml](./ml/index.html)
+* [opdb](./opdb/index.html)
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).

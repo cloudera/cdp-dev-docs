@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.17*
+*Version: 0.9.18*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -20,6 +20,7 @@ API requests must be signed according to the
 * [environments.yaml](./environments.yaml)
 * [iam.yaml](./iam.yaml)
 * [ml.yaml](./ml.yaml)
+* [opdb.yaml](./opdb.yaml)
 
 See all the files at once in this site's
 [Github repository](https://github.com/cloudera/cdp-dev-docs/tree/master/api-docs/swagger).

@@ -1,5 +1,19 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.18 (2020-10-28)
+
+FEATURES:
+
+* ml: New operations: `getKubeConfig`, `listWorkspaceAccess`.
+* odb: **New service!** The new 'opdb' API interacts with Cloudera Operational Database Experience.
+
+IMPROVEMENTS:
+
+* datahub: New fields in `Instance` objects: `privateIp` and `publicIp`.
+* datalake: New fields in `Instance` objects: `privateIp` and `publicIp`.
+* environments: New fields in `Credential` objects: `awsCredentialProperties` and `azureCredentialProperties`.
+* iam: New request field for `setWorkloadPassword` operation: `actorCrn`. This enables setting a workload password for a user other than the caller.
+
 ## 0.9.17 (2020-10-13)
 
 BACKWARD INCOMPATIBILITIES:
