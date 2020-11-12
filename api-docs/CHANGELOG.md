@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.19 (2020-11-12)
+
+FEATURES:
+
+* environments: 2 new operations: collectFreeipaDiagnostics, getFreeipaLogDescriptors
+* datalake: 3 new operations: collectDatalakeDiagnostics, getDatalakeLogDecriptors, rotateAutoTlsCertificates
+* datahub: 3 new operations: collectDatahubDiagnostics, getDatahubLogDecriptors, rotateAutoTlsCertificates
+* opdb: Creating and listing diagnostic bundles.
+
 ## 0.9.18 (2020-10-28)
 
 FEATURES:
