@@ -1,12 +1,19 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.20 (2020-11-24)
+
+NOTES:
+
+* iam: The maximum number of records that may be returned from `listAccessKeys` has increased from 100 to 500.
+* iam: The maximum number of records that may be returned from `listUsers` has increased from 100 to 500.
+
 ## 0.9.19 (2020-11-12)
 
 FEATURES:
 
-* environments: 2 new operations: collectFreeipaDiagnostics, getFreeipaLogDescriptors
-* datalake: 3 new operations: collectDatalakeDiagnostics, getDatalakeLogDecriptors, rotateAutoTlsCertificates
-* datahub: 3 new operations: collectDatahubDiagnostics, getDatahubLogDecriptors, rotateAutoTlsCertificates
+* environments: 2 new operations: `collectFreeipaDiagnostics`, `getFreeipaLogDescriptors`.
+* datalake: 3 new operations: `collectDatalakeDiagnostics`, `getDatalakeLogDecriptors`, `rotateAutoTlsCertificates`
+* datahub: 3 new operations: `collectDatahubDiagnostics`, `getDatahubLogDecriptors`, `rotateAutoTlsCertificates`
 * opdb: Creating and listing diagnostic bundles.
 
 ## 0.9.18 (2020-10-28)
