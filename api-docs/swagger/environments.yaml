@@ -1095,6 +1095,9 @@ definitions:
       workloadAnalytics:
         type: boolean
         description: When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+      reportDeploymentLogs:
+        type: boolean
+        description: When true, this will report additional diagnostic information back to Cloudera.
       freeIpa:
         $ref: '#/definitions/AWSFreeIpaCreationRequest'
         description: The FreeIPA creation request for the environment
@@ -1291,6 +1294,9 @@ definitions:
       workloadAnalytics:
         type: boolean
         description: When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+      reportDeploymentLogs:
+        type: boolean
+        description: When true, this will report additional diagnostic information back to Cloudera.
       freeIpa:
         $ref: '#/definitions/AzureFreeIpaCreationRequest'
         description: The FreeIPA creation request for the environment
@@ -1305,6 +1311,9 @@ definitions:
       resourceGroupName:
         type: string
         description: Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.
+      createPrivateEndpoints:
+        type: boolean
+        description: When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
   ExistingAzureNetworkRequest:
     type: object
     description: Request object for creating an Azure environment using existing VNet and subnets.
@@ -1467,6 +1476,9 @@ definitions:
           s3GuardTableName:
             type: string
             description: The name for the DynamoDB table backing S3Guard.
+      reportDeploymentLogs:
+        type: boolean
+        description: When true, this will report additional diagnostic information back to Cloudera.
       freeipa:
         type: object
         description: Details of FreeIPA instance associated with this environment.
