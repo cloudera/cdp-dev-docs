@@ -1,5 +1,30 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.22 (2020-12-15)
+
+BACKWARD INCOMPATIBILITIES
+
+* dw: Made `clusterID` field of `DescribeClusterRequest` required; the operation would not work without it previously
+
+IMPROVEMENTS:
+
+* dw: Fixed description of the `ListVwsRequest` object
+* dw: Added `autoSuspendTimeoutSeconds`, `enableHA`, `disableAutoSuspend`, `triggerScaleUpDelaySeconds` `triggerScaleDownDelaySeconds` properties to `AutoscalingOptions` object
+* dw: Added `enableFeng`, `installViz` properties to `CreateVwRequest` object
+* environments: Added `getEnvironmentUserSyncState` operation
+
+## 0.9.21 (2020-12-09)
+
+FEATURES:
+
+* datahub: New autoscaling operations: `createAuditScaleRules`, `updateAutoScaleRules`, `describeAutoScaleRules`, `deleteAuditScaleRules`, `listAutoScaleHistory`
+* environments: Added `createPrivateEndpoints` option to environment creation requests
+* environments: Added `reportDeploymentLogs` option to environment creation requests
+
+NOTES:
+
+* audit: The service definition is now annotated for service-side auditing. This has no effect on client interaction.
+
 ## 0.9.20 (2020-11-24)
 
 NOTES:
