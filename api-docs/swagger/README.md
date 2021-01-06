@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.22*
+*Version: 0.9.23*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -27,5 +27,5 @@ See all the files at once in this site's
 
 ----
 
-Documentation Copyright © 2020 Cloudera, Inc. All rights reserved.
+Documentation Copyright © 2021 Cloudera, Inc. All rights reserved.
 

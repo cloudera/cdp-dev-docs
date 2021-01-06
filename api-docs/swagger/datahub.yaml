@@ -251,6 +251,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datahub/renewCertificate:
+    post:
+      summary: Renew certificate on datahub cluster by name or CRN
+      description: Renew certificate on datahub cluster by name or CRN
+      operationId: renewCertificate
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RenewCertificateRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RenewCertificateResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/datahub/repairCluster:
     post:
       summary: Repairs a cluster.
@@ -1552,6 +1573,15 @@ definitions:
   RetryClusterResponse:
     type: object
     description: Response object for retry cluster request.
+  RenewCertificateRequest:
+    type: object
+    description: Request object for renew datahub certificate request.
+    required:
+      - clusterName
+    properties:
+      clusterName:
+        type: string
+        description: The name or CRN of the cluster.
   RepairClusterRequest:
     type: object
     description: Request object for repair cluster request.
@@ -2382,3 +2412,6 @@ definitions:
   RotateAutoTlsCertificatesResponse:
     type: object
     description: Response object to rotate autotls certificates on datahub's hosts.
+  RenewCertificateResponse:
+    type: object
+    description: Response object for renew certificate request.

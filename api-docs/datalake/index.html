@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="copyright" content="Copyright © 2020 Cloudera, Inc. All rights reserved.">
+<meta name="copyright" content="Copyright © 2021 Cloudera, Inc. All rights reserved.">
 <title>Cloudera Datalake Service</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
@@ -781,60 +781,67 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_13">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_repairdatalake">Repairs a datalake.</a>
+<li><a href="#_renewcertificate">Renew certificate on Datalake cluster by name or CRN</a>
 <ul class="sectlevel3">
 <li><a href="#_description_14">Description</a></li>
 <li><a href="#_parameters_14">Parameters</a></li>
 <li><a href="#_responses_14">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoredatalake">Restore the datalake from backup taken.</a>
+<li><a href="#_repairdatalake">Repairs a datalake.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_15">Description</a></li>
 <li><a href="#_parameters_15">Parameters</a></li>
 <li><a href="#_responses_15">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoredatalakestatus">Check the status of datalake restore operation.</a>
+<li><a href="#_restoredatalake">Restore the datalake from backup taken.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_16">Description</a></li>
 <li><a href="#_parameters_16">Parameters</a></li>
 <li><a href="#_responses_16">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_retrydatalake">Retry last failed operation on a datalake.</a>
+<li><a href="#_restoredatalakestatus">Check the status of datalake restore operation.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_17">Description</a></li>
 <li><a href="#_parameters_17">Parameters</a></li>
 <li><a href="#_responses_17">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_rotateautotlscertificates">Rotate autotls certificates on the datalake&#8217;s hosts</a>
+<li><a href="#_retrydatalake">Retry last failed operation on a datalake.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_18">Description</a></li>
 <li><a href="#_parameters_18">Parameters</a></li>
 <li><a href="#_responses_18">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatalake">Start Datalake</a>
+<li><a href="#_rotateautotlscertificates">Rotate autotls certificates on the datalake&#8217;s hosts</a>
 <ul class="sectlevel3">
 <li><a href="#_description_19">Description</a></li>
 <li><a href="#_parameters_19">Parameters</a></li>
 <li><a href="#_responses_19">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopdatalake">Stop Datalake</a>
+<li><a href="#_startdatalake">Start Datalake</a>
 <ul class="sectlevel3">
 <li><a href="#_description_20">Description</a></li>
 <li><a href="#_parameters_20">Parameters</a></li>
 <li><a href="#_responses_20">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<li><a href="#_stopdatalake">Stop Datalake</a>
 <ul class="sectlevel3">
 <li><a href="#_description_21">Description</a></li>
 <li><a href="#_parameters_21">Parameters</a></li>
 <li><a href="#_responses_21">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_22">Description</a></li>
+<li><a href="#_parameters_22">Parameters</a></li>
+<li><a href="#_responses_22">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -887,6 +894,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listruntimesrequest">ListRuntimesRequest</a></li>
 <li><a href="#_listruntimesresponse">ListRuntimesResponse</a></li>
 <li><a href="#_productversion">ProductVersion</a></li>
+<li><a href="#_renewcertificaterequest">RenewCertificateRequest</a></li>
+<li><a href="#_renewcertificateresponse">RenewCertificateResponse</a></li>
 <li><a href="#_repairdatalakerequest">RepairDatalakeRequest</a></li>
 <li><a href="#_repairdatalakeresponse">RepairDatalakeResponse</a></li>
 <li><a href="#_restoredatalakerequest">RestoreDatalakeRequest</a></li>
@@ -2080,6 +2089,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_renewcertificate">Renew certificate on Datalake cluster by name or CRN</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datalake/renewCertificate</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_14">Description</h4>
+<div class="paragraph">
+<p>Renew certificate on Datalake cluster by name or CRN</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_14">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_renewcertificaterequest">RenewCertificateRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_14">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_renewcertificateresponse">RenewCertificateResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_repairdatalake">Repairs a datalake.</h3>
 <div class="literalblock">
 <div class="content">
@@ -2087,13 +2182,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_15">Description</h4>
 <div class="paragraph">
 <p>Repairs a datalake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_14">Parameters</h4>
+<h4 id="_parameters_15">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2124,7 +2219,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_15">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2173,13 +2268,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_16">Description</h4>
 <div class="paragraph">
 <p>Restore the datalake from a backup that was taken. Backup to be used for restore is identified based on the information provided in the restore request. BackupId and BackupName are mutually exclusive. Only one of them can be provided. If both are provided, BackupId takes precedence.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_15">Parameters</h4>
+<h4 id="_parameters_16">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2210,7 +2305,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_16">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2259,13 +2354,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
 <p>Identifies the restore operation based on the inputs provided and gets the status. RestoreId and BackupName are mutually exclusive. Only one of them can be provided.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_16">Parameters</h4>
+<h4 id="_parameters_17">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2296,7 +2391,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2345,13 +2440,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_17">Description</h4>
+<h4 id="_description_18">Description</h4>
 <div class="paragraph">
 <p>Retry last failed operation on a datalake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_17">Parameters</h4>
+<h4 id="_parameters_18">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2382,7 +2477,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_17">Responses</h4>
+<h4 id="_responses_18">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2431,13 +2526,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Rotate autotls certificates on the datalake&#8217;s hosts</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_18">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2468,7 +2563,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2517,13 +2612,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_19">Description</h4>
+<h4 id="_description_20">Description</h4>
 <div class="paragraph">
 <p>Deprecated, please use 'cdp environments start-environment' instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_19">Parameters</h4>
+<h4 id="_parameters_20">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2554,7 +2649,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_19">Responses</h4>
+<h4 id="_responses_20">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2603,13 +2698,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_20">Description</h4>
+<h4 id="_description_21">Description</h4>
 <div class="paragraph">
 <p>Deprecated, please use 'cdp environments stop-environment' instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_20">Parameters</h4>
+<h4 id="_parameters_21">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2640,7 +2735,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_20">Responses</h4>
+<h4 id="_responses_21">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2689,13 +2784,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_21">Description</h4>
+<h4 id="_description_22">Description</h4>
 <div class="paragraph">
 <p>OS or data platform upgrade for the SDX cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_21">Parameters</h4>
+<h4 id="_parameters_22">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2726,7 +2821,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_21">Responses</h4>
+<h4 id="_responses_22">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5356,6 +5451,49 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_renewcertificaterequest">RenewCertificateRequest</h3>
+<div class="paragraph">
+<p>Request object for renew datalake certificate request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datalakeName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the datalake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_renewcertificateresponse">RenewCertificateResponse</h3>
+<div class="paragraph">
+<p>Response object for renew certificate request.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_repairdatalakerequest">RepairDatalakeRequest</h3>
 <div class="paragraph">
 <p>Request object for repair datalake request.</p>
@@ -6170,12 +6308,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-15 12:43:45 -0800
+Last updated 2021-01-06 09:47:14 -0800
 </div>
 </div>
 <br>
 <p style="margin-left: 2em">
-  Copyright © 2020 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
+  Copyright © 2021 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
 </p>
 </body>
 </html>

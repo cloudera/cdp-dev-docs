@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="copyright" content="Copyright © 2020 Cloudera, Inc. All rights reserved.">
+<meta name="copyright" content="Copyright © 2021 Cloudera, Inc. All rights reserved.">
 <title>Cloudera Data hub Service</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
@@ -872,60 +872,67 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_26">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_repaircluster">Repairs a cluster.</a>
+<li><a href="#_renewcertificate">Renew certificate on datahub cluster by name or CRN</a>
 <ul class="sectlevel3">
 <li><a href="#_description_27">Description</a></li>
 <li><a href="#_parameters_27">Parameters</a></li>
 <li><a href="#_responses_27">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_retrycluster">Retries creation of a failed workload cluster.</a>
+<li><a href="#_repaircluster">Repairs a cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_28">Description</a></li>
 <li><a href="#_parameters_28">Parameters</a></li>
 <li><a href="#_responses_28">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_rotateautotlscertificates">Rotate autotls certificates on the datahub&#8217;s hosts</a>
+<li><a href="#_retrycluster">Retries creation of a failed workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_29">Description</a></li>
 <li><a href="#_parameters_29">Parameters</a></li>
 <li><a href="#_responses_29">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_scalecluster">Scales a cluster by adding or removing cluster nodes.</a>
+<li><a href="#_rotateautotlscertificates">Rotate autotls certificates on the datahub&#8217;s hosts</a>
 <ul class="sectlevel3">
 <li><a href="#_description_30">Description</a></li>
 <li><a href="#_parameters_30">Parameters</a></li>
 <li><a href="#_responses_30">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startcluster">Starts a stopped workload cluster.</a>
+<li><a href="#_scalecluster">Scales a cluster by adding or removing cluster nodes.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_31">Description</a></li>
 <li><a href="#_parameters_31">Parameters</a></li>
 <li><a href="#_responses_31">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopcluster">Stops a workload cluster.</a>
+<li><a href="#_startcluster">Starts a stopped workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_32">Description</a></li>
 <li><a href="#_parameters_32">Parameters</a></li>
 <li><a href="#_responses_32">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
+<li><a href="#_stopcluster">Stops a workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_33">Description</a></li>
 <li><a href="#_parameters_33">Parameters</a></li>
 <li><a href="#_responses_33">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
+<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_34">Description</a></li>
 <li><a href="#_parameters_34">Parameters</a></li>
 <li><a href="#_responses_34">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
+<ul class="sectlevel3">
+<li><a href="#_description_35">Description</a></li>
+<li><a href="#_parameters_35">Parameters</a></li>
+<li><a href="#_responses_35">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1021,6 +1028,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listrecipesresponse">ListRecipesResponse</a></li>
 <li><a href="#_recipe">Recipe</a></li>
 <li><a href="#_recipesummary">RecipeSummary</a></li>
+<li><a href="#_renewcertificaterequest">RenewCertificateRequest</a></li>
+<li><a href="#_renewcertificateresponse">RenewCertificateResponse</a></li>
 <li><a href="#_repairclusterrequest">RepairClusterRequest</a></li>
 <li><a href="#_repairclusterresponse">RepairClusterResponse</a></li>
 <li><a href="#_repairinstancesrequest">RepairInstancesRequest</a></li>
@@ -3333,6 +3342,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_renewcertificate">Renew certificate on datahub cluster by name or CRN</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datahub/renewCertificate</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_27">Description</h4>
+<div class="paragraph">
+<p>Renew certificate on datahub cluster by name or CRN</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_27">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_renewcertificaterequest">RenewCertificateRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_27">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_renewcertificateresponse">RenewCertificateResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_repaircluster">Repairs a cluster.</h3>
 <div class="literalblock">
 <div class="content">
@@ -3340,13 +3435,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_27">Description</h4>
+<h4 id="_description_28">Description</h4>
 <div class="paragraph">
 <p>Repairs a cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_27">Parameters</h4>
+<h4 id="_parameters_28">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3377,7 +3472,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_27">Responses</h4>
+<h4 id="_responses_28">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3426,13 +3521,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_28">Description</h4>
+<h4 id="_description_29">Description</h4>
 <div class="paragraph">
 <p>When stack provisioning or cluster creation fails, retryCluster allows you to resume the process from the last failed step.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_28">Parameters</h4>
+<h4 id="_parameters_29">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3463,7 +3558,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_28">Responses</h4>
+<h4 id="_responses_29">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3512,13 +3607,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_29">Description</h4>
+<h4 id="_description_30">Description</h4>
 <div class="paragraph">
 <p>Rotate autotls certificates on the datahub&#8217;s hosts</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_29">Parameters</h4>
+<h4 id="_parameters_30">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3549,7 +3644,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_29">Responses</h4>
+<h4 id="_responses_30">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3598,13 +3693,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_30">Description</h4>
+<h4 id="_description_31">Description</h4>
 <div class="paragraph">
 <p>Scales a cluster by adding or removing cluster nodes.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_30">Parameters</h4>
+<h4 id="_parameters_31">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3635,7 +3730,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_30">Responses</h4>
+<h4 id="_responses_31">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3684,13 +3779,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_31">Description</h4>
+<h4 id="_description_32">Description</h4>
 <div class="paragraph">
 <p>Starts a stopped workload cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_31">Parameters</h4>
+<h4 id="_parameters_32">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3721,7 +3816,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_31">Responses</h4>
+<h4 id="_responses_32">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3770,13 +3865,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_32">Description</h4>
+<h4 id="_description_33">Description</h4>
 <div class="paragraph">
 <p>Stops a workload cluster. When a cluster is put in the stopped state, cluster VMs are given back to the cloud provider. To provision new VMs, start the cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_32">Parameters</h4>
+<h4 id="_parameters_33">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3807,7 +3902,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_32">Responses</h4>
+<h4 id="_responses_33">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3856,13 +3951,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_33">Description</h4>
+<h4 id="_description_34">Description</h4>
 <div class="paragraph">
 <p>Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_33">Parameters</h4>
+<h4 id="_parameters_34">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3893,7 +3988,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_33">Responses</h4>
+<h4 id="_responses_34">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3942,13 +4037,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_34">Description</h4>
+<h4 id="_description_35">Description</h4>
 <div class="paragraph">
 <p>Modify AutoScaling for a DataHub cluster</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_34">Parameters</h4>
+<h4 id="_parameters_35">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3979,7 +4074,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_34">Responses</h4>
+<h4 id="_responses_35">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9108,6 +9203,49 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_renewcertificaterequest">RenewCertificateRequest</h3>
+<div class="paragraph">
+<p>Request object for renew datahub certificate request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_renewcertificateresponse">RenewCertificateResponse</h3>
+<div class="paragraph">
+<p>Response object for renew certificate request.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_repairclusterrequest">RepairClusterRequest</h3>
 <div class="paragraph">
 <p>Request object for repair cluster request.</p>
@@ -9728,12 +9866,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-15 12:43:45 -0800
+Last updated 2021-01-06 09:47:14 -0800
 </div>
 </div>
 <br>
 <p style="margin-left: 2em">
-  Copyright © 2020 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
+  Copyright © 2021 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
 </p>
 </body>
 </html>

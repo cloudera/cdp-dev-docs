@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.22*
+*Version: 0.9.23*
 
 [CHANGELOG](CHANGELOG.md)
 
@@ -23,5 +23,5 @@ For even more technical details, or to generate your own documentation or client
 
 ----
 
-Documentation Copyright © 2020 Cloudera, Inc. All rights reserved.
+Documentation Copyright © 2021 Cloudera, Inc. All rights reserved.
 

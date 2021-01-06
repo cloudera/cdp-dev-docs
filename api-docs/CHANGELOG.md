@@ -1,5 +1,16 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.23 (2020-01-06)
+
+IMPROVEMENTS:
+
+* environments: Added DELETED_BY_PROVIDER, UNHEALTHY, and DELETE_REQUESTED FreeIPA statuses
+
+FEATURES:
+
+* datahub: Added `renewCertificate` operation
+* datalake: Added `renewCertificate` operation
+
 ## 0.9.22 (2020-12-15)
 
 BACKWARD INCOMPATIBILITIES
