@@ -1,6 +1,22 @@
 # CDP Control Plane Public API Changelog
 
-## 0.9.23 (2020-01-06)
+## 0.9.24 (2021-01-20)
+
+BACKWARD INCOMPATIBILITIES:
+
+* iam: The `getAccount` endpoint is no longer associated with a right. This allows any user to call the endpoint, including those with no roles / rights.
+
+IMPROVEMENTS:
+
+* environments: New field in `StartEnvironmentRequest`: `withDatahubStart`.
+* iam: The `samlMetadataDocument` field in `CreateSamlProviderRequest` is now optional, allowing creation of a SAML provider without providing any metadata.
+
+NOTES:
+
+* iam: Replaced the term 'Altus' with 'CDP' in API summaries and descriptions. Some descriptions related to the 'groups' parameter were outdated and updated with additional information. Updated "groups" SAML assertion attribute URN.
+* audit, datahub, datalake, environments, iam, odb: Removed entitlement annotations for service-side auditing. This has no effect on API usage.
+
+## 0.9.23 (2021-01-06)
 
 IMPROVEMENTS:
 
