@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.25 (2021-02-03)
+
+FEATURES:
+
+* de: **New service!**
+
+IMPROVEMENTS:
+
+* ml: added nfsVersion option for createWorkspace operation
+
 ## 0.9.24 (2021-01-20)
 
 BACKWARD INCOMPATIBILITIES:

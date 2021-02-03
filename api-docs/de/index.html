@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="copyright" content="Copyright © 2021 Cloudera, Inc. All rights reserved.">
-<title>Cloudera Machine Learning</title>
+<title>Cloudera Data Engineering</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
 @import url(//fonts.googleapis.com/css?family=Noticia+Text:400,400italic);
@@ -675,7 +675,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Cloudera Machine Learning</h1>
+<h1>Cloudera Data Engineering</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -690,137 +690,100 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </li>
 <li><a href="#_paths">Paths</a>
 <ul class="sectlevel2">
-<li><a href="#_createworkspace">Create a Cloudera Machine Learning workspace.</a>
+<li><a href="#_createvc">Create Virtual Cluster</a>
 <ul class="sectlevel3">
 <li><a href="#_description">Description</a></li>
 <li><a href="#_parameters">Parameters</a></li>
 <li><a href="#_responses">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deleteworkspace">Delete Cloudera Machine Learning Workspace.</a>
+<li><a href="#_deletevc">Delete Virtual Cluster</a>
 <ul class="sectlevel3">
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_parameters_2">Parameters</a></li>
 <li><a href="#_responses_2">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_describeworkspace">Describe Cloudera Machine Learning Workspace.</a>
+<li><a href="#_describeservice">Describe Cloudera Data Engineering(CDE) Service</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getauditevents">Gets all the events belong to a workspace crn.</a>
+<li><a href="#_describevc">Describe Virtual Cluster</a>
 <ul class="sectlevel3">
 <li><a href="#_description_4">Description</a></li>
 <li><a href="#_parameters_4">Parameters</a></li>
 <li><a href="#_responses_4">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getkubeconfig">ListWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_disableservice">Disable Cloudera Data Engineering(CDE) Service</a>
 <ul class="sectlevel3">
 <li><a href="#_description_5">Description</a></li>
 <li><a href="#_parameters_5">Parameters</a></li>
 <li><a href="#_responses_5">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getlatestworkspaceversion">GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.</a>
+<li><a href="#_enableservice">Enable Cloudera Data Engineering(CDE) Service</a>
 <ul class="sectlevel3">
 <li><a href="#_description_6">Description</a></li>
 <li><a href="#_parameters_6">Parameters</a></li>
 <li><a href="#_responses_6">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getlogs">Gets all the logs belong to a request id.</a>
+<li><a href="#_getkubeconfig">Get Kubeconfig for the CDE service</a>
 <ul class="sectlevel3">
 <li><a href="#_description_7">Description</a></li>
 <li><a href="#_parameters_7">Parameters</a></li>
 <li><a href="#_responses_7">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_grantworkspaceaccess">GrantWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_listservices">List Cloudera Data Engineering(CDE) Services</a>
 <ul class="sectlevel3">
 <li><a href="#_description_8">Description</a></li>
 <li><a href="#_parameters_8">Parameters</a></li>
 <li><a href="#_responses_8">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listworkspaceaccess">ListWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_listvcs">List Virtual Clusters</a>
 <ul class="sectlevel3">
 <li><a href="#_description_9">Description</a></li>
 <li><a href="#_parameters_9">Parameters</a></li>
 <li><a href="#_responses_9">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listworkspaces">List Cloudera Machine Learning workspaces.</a>
-<ul class="sectlevel3">
-<li><a href="#_description_10">Description</a></li>
-<li><a href="#_parameters_10">Parameters</a></li>
-<li><a href="#_responses_10">Responses</a></li>
-</ul>
-</li>
-<li><a href="#_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</a>
-<ul class="sectlevel3">
-<li><a href="#_description_11">Description</a></li>
-<li><a href="#_parameters_11">Parameters</a></li>
-<li><a href="#_responses_11">Responses</a></li>
-</ul>
-</li>
-<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
-<ul class="sectlevel3">
-<li><a href="#_description_12">Description</a></li>
-<li><a href="#_parameters_12">Parameters</a></li>
-<li><a href="#_responses_12">Responses</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
-<li><a href="#_auditevent">AuditEvent</a></li>
-<li><a href="#_auditevents">AuditEvents</a></li>
-<li><a href="#_auditlog">AuditLog</a></li>
-<li><a href="#_auditlogs">AuditLogs</a></li>
-<li><a href="#_autoscaling">Autoscaling</a></li>
-<li><a href="#_createworkspacerequest">CreateWorkspaceRequest</a></li>
-<li><a href="#_createworkspaceresponse">CreateWorkspaceResponse</a></li>
-<li><a href="#_deleteworkspacerequest">DeleteWorkspaceRequest</a></li>
-<li><a href="#_deleteworkspaceresponse">DeleteWorkspaceResponse</a></li>
-<li><a href="#_describeworkspacerequest">DescribeWorkspaceRequest</a></li>
-<li><a href="#_describeworkspaceresponse">DescribeWorkspaceResponse</a></li>
+<li><a href="#_chartvalueoverridesrequest">ChartValueOverridesRequest</a></li>
+<li><a href="#_chartvalueoverridesresponse">ChartValueOverridesResponse</a></li>
+<li><a href="#_createvcrequest">CreateVcRequest</a></li>
+<li><a href="#_createvcresponse">CreateVcResponse</a></li>
+<li><a href="#_deletevcrequest">DeleteVcRequest</a></li>
+<li><a href="#_deletevcresponse">DeleteVcResponse</a></li>
+<li><a href="#_describeservicerequest">DescribeServiceRequest</a></li>
+<li><a href="#_describeserviceresponse">DescribeServiceResponse</a></li>
+<li><a href="#_describevcrequest">DescribeVcRequest</a></li>
+<li><a href="#_describevcresponse">DescribeVcResponse</a></li>
+<li><a href="#_disableservicerequest">DisableServiceRequest</a></li>
+<li><a href="#_disableserviceresponse">DisableServiceResponse</a></li>
+<li><a href="#_enableservicerequest">EnableServiceRequest</a></li>
+<li><a href="#_enableserviceresponse">EnableServiceResponse</a></li>
 <li><a href="#_error">Error</a></li>
-<li><a href="#_existingdatabaseconfig">ExistingDatabaseConfig</a></li>
-<li><a href="#_getauditeventsrequest">GetAuditEventsRequest</a></li>
-<li><a href="#_getauditeventsresponse">GetAuditEventsResponse</a></li>
 <li><a href="#_getkubeconfigrequest">GetKubeconfigRequest</a></li>
 <li><a href="#_getkubeconfigresponse">GetKubeconfigResponse</a></li>
-<li><a href="#_getlatestworkspaceversionrequest">GetLatestWorkspaceVersionRequest</a></li>
-<li><a href="#_getlatestworkspaceversionresponse">GetLatestWorkspaceVersionResponse</a></li>
-<li><a href="#_getlogsrequest">GetLogsRequest</a></li>
-<li><a href="#_getlogsresponse">GetLogsResponse</a></li>
-<li><a href="#_grantworkspaceaccessrequest">GrantWorkspaceAccessRequest</a></li>
-<li><a href="#_grantworkspaceaccessresponse">GrantWorkspaceAccessResponse</a></li>
-<li><a href="#_healthinfo">HealthInfo</a></li>
-<li><a href="#_instance">Instance</a></li>
-<li><a href="#_instancegroup">InstanceGroup</a></li>
-<li><a href="#_listworkspaceaccessrequest">ListWorkspaceAccessRequest</a></li>
-<li><a href="#_listworkspaceaccessresponse">ListWorkspaceAccessResponse</a></li>
-<li><a href="#_listworkspacesrequest">ListWorkspacesRequest</a></li>
-<li><a href="#_listworkspacesresponse">ListWorkspacesResponse</a></li>
-<li><a href="#_overlaynetwork">OverlayNetwork</a></li>
-<li><a href="#_provisionk8srequest">ProvisionK8sRequest</a></li>
-<li><a href="#_provisiontag">ProvisionTag</a></li>
-<li><a href="#_revokeworkspaceaccessrequest">RevokeWorkspaceAccessRequest</a></li>
-<li><a href="#_revokeworkspaceaccessresponse">RevokeWorkspaceAccessResponse</a></li>
-<li><a href="#_rootvolume">RootVolume</a></li>
-<li><a href="#_tag">Tag</a></li>
-<li><a href="#_topology">Topology</a></li>
-<li><a href="#_upgradeworkspacerequest">UpgradeWorkspaceRequest</a></li>
-<li><a href="#_upgradeworkspaceresponse">UpgradeWorkspaceResponse</a></li>
-<li><a href="#_workspace">Workspace</a></li>
-<li><a href="#_workspaceinstancegroup">WorkspaceInstanceGroup</a></li>
-<li><a href="#_workspacesummary">WorkspaceSummary</a></li>
+<li><a href="#_listservicesrequest">ListServicesRequest</a></li>
+<li><a href="#_listservicesresponse">ListServicesResponse</a></li>
+<li><a href="#_listvcsrequest">ListVcsRequest</a></li>
+<li><a href="#_listvcsresponse">ListVcsResponse</a></li>
+<li><a href="#_servicedescription">ServiceDescription</a></li>
+<li><a href="#_serviceresources">ServiceResources</a></li>
+<li><a href="#_servicesummary">ServiceSummary</a></li>
+<li><a href="#_vcdescription">VcDescription</a></li>
+<li><a href="#_vcresources">VcResources</a></li>
+<li><a href="#_vcsummary">VcSummary</a></li>
 </ul>
 </li>
 </ul>
@@ -831,7 +794,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Install and manage Cloudera Machine Learning applications.</p>
+<p>Create and manage Cloudera Data Engineering Services.</p>
 </div>
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
@@ -878,16 +841,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_paths">Paths</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_createworkspace">Create a Cloudera Machine Learning workspace.</h3>
+<h3 id="_createvc">Create Virtual Cluster</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/ml/createWorkspace</pre>
+<pre>POST /api/v1/de/createVc</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description">Description</h4>
 <div class="paragraph">
-<p>Provision a Kubernetes cluster and install the Cloudera Machine Learning application in it.</p>
+<p>Creates a virtual cluster and returns creation response.</p>
 </div>
 </div>
 <div class="sect3">
@@ -915,7 +878,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_createworkspacerequest">CreateWorkspaceRequest</a></p>
+<p><a href="#_createvcrequest">CreateVcRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -945,7 +908,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_createworkspaceresponse">CreateWorkspaceResponse</a></p>
+<p><a href="#_createvcresponse">CreateVcResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -964,16 +927,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deleteworkspace">Delete Cloudera Machine Learning Workspace.</h3>
+<h3 id="_deletevc">Delete Virtual Cluster</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/ml/deleteWorkspace</pre>
+<pre>POST /api/v1/de/deleteVc</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_2">Description</h4>
 <div class="paragraph">
-<p>Deletes a Cloudera Machine Learning workspace.</p>
+<p>Deletes a virtual cluster and returns deletion response.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1001,7 +964,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_deleteworkspacerequest">DeleteWorkspaceRequest</a></p>
+<p><a href="#_deletevcrequest">DeleteVcRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1031,7 +994,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_deleteworkspaceresponse">DeleteWorkspaceResponse</a></p>
+<p><a href="#_deletevcresponse">DeleteVcResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1050,16 +1013,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_describeworkspace">Describe Cloudera Machine Learning Workspace.</h3>
+<h3 id="_describeservice">Describe Cloudera Data Engineering(CDE) Service</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/ml/describeWorkspace</pre>
+<pre>POST /api/v1/de/describeService</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_3">Description</h4>
 <div class="paragraph">
-<p>Describes a Cloudera Machine Learning workspace.</p>
+<p>Returns details of CDE service.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1087,7 +1050,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describeworkspacerequest">DescribeWorkspaceRequest</a></p>
+<p><a href="#_describeservicerequest">DescribeServiceRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1117,7 +1080,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describeworkspaceresponse">DescribeWorkspaceResponse</a></p>
+<p><a href="#_describeserviceresponse">DescribeServiceResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1136,16 +1099,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getauditevents">Gets all the events belong to a workspace crn.</h3>
+<h3 id="_describevc">Describe Virtual Cluster</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/ml/getAuditEvents</pre>
+<pre>POST /api/v1/de/describeVc</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_4">Description</h4>
 <div class="paragraph">
-<p>Gets all the events belong to a workspace crn.</p>
+<p>Returns a description for the specified virtual cluster.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1173,7 +1136,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_getauditeventsrequest">GetAuditEventsRequest</a></p>
+<p><a href="#_describevcrequest">DescribeVcRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1203,7 +1166,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_getauditeventsresponse">GetAuditEventsResponse</a></p>
+<p><a href="#_describevcresponse">DescribeVcResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1222,20 +1185,192 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getkubeconfig">ListWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
+<h3 id="_disableservice">Disable Cloudera Data Engineering(CDE) Service</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/ml/getKubeconfig</pre>
+<pre>POST /api/v1/de/disableService</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_5">Description</h4>
 <div class="paragraph">
-<p>Lists users that can perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
+<p>Returns delete response.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_parameters_5">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_disableservicerequest">DisableServiceRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_5">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_disableserviceresponse">DisableServiceResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enableservice">Enable Cloudera Data Engineering(CDE) Service</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/de/enableService</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_6">Description</h4>
+<div class="paragraph">
+<p>Returns enabling response.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_6">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_enableservicerequest">EnableServiceRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_6">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_enableserviceresponse">EnableServiceResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getkubeconfig">Get Kubeconfig for the CDE service</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/de/getKubeconfig</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_7">Description</h4>
+<div class="paragraph">
+<p>Returns kubeconfig.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_7">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1266,7 +1401,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_5">Responses</h4>
+<h4 id="_responses_7">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1308,188 +1443,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getlatestworkspaceversion">GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.</h3>
+<h3 id="_listservices">List Cloudera Data Engineering(CDE) Services</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/ml/getLatestWorkspaceVersion</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_6">Description</h4>
-<div class="paragraph">
-<p>Retrieves the latest version that Cloudera Machine Learning deploys to workspaces.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_6">Parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>input</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_getlatestworkspaceversionrequest">GetLatestWorkspaceVersionRequest</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_6">Responses</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Expected response to a valid request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_getlatestworkspaceversionresponse">GetLatestWorkspaceVersionResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The default response on an error.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_error">Error</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_getlogs">Gets all the logs belong to a request id.</h3>
-<div class="literalblock">
-<div class="content">
-<pre>POST /api/v1/ml/getLogs</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_7">Description</h4>
-<div class="paragraph">
-<p>Gets all the logs belong to a request id.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_7">Parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>input</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_getlogsrequest">GetLogsRequest</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_7">Responses</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Expected response to a valid request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_getlogsresponse">GetLogsResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The default response on an error.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_error">Error</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_grantworkspaceaccess">GrantWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
-<div class="literalblock">
-<div class="content">
-<pre>POST /api/v1/ml/grantWorkspaceAccess</pre>
+<pre>POST /api/v1/de/listServices</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_8">Description</h4>
 <div class="paragraph">
-<p>Grants an AWS user to perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
+<p>Returns list of cde services.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1517,7 +1480,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_grantworkspaceaccessrequest">GrantWorkspaceAccessRequest</a></p>
+<p><a href="#_listservicesrequest">ListServicesRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1547,7 +1510,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_grantworkspaceaccessresponse">GrantWorkspaceAccessResponse</a></p>
+<p><a href="#_listservicesresponse">ListServicesResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1566,16 +1529,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listworkspaceaccess">ListWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
+<h3 id="_listvcs">List Virtual Clusters</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/ml/listWorkspaceAccess</pre>
+<pre>POST /api/v1/de/listVcs</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_9">Description</h4>
 <div class="paragraph">
-<p>Lists users that can perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
+<p>Returns a list of virtual clusters for a given CDE service.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1603,7 +1566,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listworkspaceaccessrequest">ListWorkspaceAccessRequest</a></p>
+<p><a href="#_listvcsrequest">ListVcsRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1633,265 +1596,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listworkspaceaccessresponse">ListWorkspaceAccessResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The default response on an error.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_error">Error</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_listworkspaces">List Cloudera Machine Learning workspaces.</h3>
-<div class="literalblock">
-<div class="content">
-<pre>POST /api/v1/ml/listWorkspaces</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_10">Description</h4>
-<div class="paragraph">
-<p>List Cloudera Machine Learning workspaces.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_10">Parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>input</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listworkspacesrequest">ListWorkspacesRequest</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_10">Responses</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Expected response to a valid request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listworkspacesresponse">ListWorkspacesResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The default response on an error.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_error">Error</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
-<div class="literalblock">
-<div class="content">
-<pre>POST /api/v1/ml/revokeWorkspaceAccess</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_11">Description</h4>
-<div class="paragraph">
-<p>Revokes an AWS user to perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_11">Parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>input</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_revokeworkspaceaccessrequest">RevokeWorkspaceAccessRequest</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_11">Responses</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Expected response to a valid request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_revokeworkspaceaccessresponse">RevokeWorkspaceAccessResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The default response on an error.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_error">Error</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</h3>
-<div class="literalblock">
-<div class="content">
-<pre>POST /api/v1/ml/upgradeWorkspace</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_12">Description</h4>
-<div class="paragraph">
-<p>Upgrades a Cloudera Machine Learning workspace to the latest available version.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_12">Parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>input</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_upgradeworkspacerequest">UpgradeWorkspaceRequest</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_12">Responses</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Expected response to a valid request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_upgradeworkspaceresponse">UpgradeWorkspaceResponse</a></p>
+<p><a href="#_listvcsresponse">ListVcsResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1915,9 +1620,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_auditevent">AuditEvent</h3>
+<h3 id="_chartvalueoverridesrequest">ChartValueOverridesRequest</h3>
 <div class="paragraph">
-<p>Audit event descibes an performed or performing in a given workspace.</p>
+<p>Object containing chart value overrides for enabling a CDE service or creation of virtual clusters.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1935,35 +1640,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>action</strong><br>
-<em>required</em></p>
+<p><strong>chartName</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Action the user has generated.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>createdDate</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Time at creation of event.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requestID</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Unique request ID to keep track of event.</p>
+<p>Name of the chart that has to be overridden, for eg- "dex-app", "dex-base".</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1971,23 +1652,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>userCrn</strong><br>
-<em>required</em></p>
+<p><strong>overrides</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UserCrn to track which user has caused the event.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Workspace crn where the event observed.</p>
+<p>Space separated key-value pairs for overriding chart values. The key and the value must be separated using a colon(:) For eg- "airflow.enabled:true safari.enabled:true".</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1997,9 +1666,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_auditevents">AuditEvents</h3>
+<h3 id="_chartvalueoverridesresponse">ChartValueOverridesResponse</h3>
 <div class="paragraph">
-<p>AuditEvents contains all the audit events for a given workspace crn.</p>
+<p>Response object containing chart value overrides.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2017,23 +1686,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>events</strong><br>
-<em>required</em></p>
+<p><strong>chartName</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>AuditEvent belong to the workspace crn.</p>
+<p>Name of the chart that has to be overridden, for eg- "dex-app", "dex-base".</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_auditevent">AuditEvent</a> &gt; array</p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>required</em></p>
+<p><strong>overrides</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Workspace crn unique for the set of audit events.</p>
+<p>Space separated key value-pairs for overriding chart values. The key and the value must be separated using a colon(:) For eg- "airflow.enabled:true safari.enabled:true".</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2043,9 +1712,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_auditlog">AuditLog</h3>
+<h3 id="_createvcrequest">CreateVcRequest</h3>
 <div class="paragraph">
-<p>Audit log represents an individual log.</p>
+<p>Request object for CreateVc method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2063,23 +1732,59 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>createdDate</strong><br>
-<em>required</em></p>
+<p><strong>chartValueOverrides</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Time at which the log is created.</p>
+<p>Chart overrides for creating a virtual cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
+<p>&lt; <a href="#_chartvalueoverridesrequest">ChartValueOverridesRequest</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>log</strong><br>
+<p><strong>clusterId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Log description.</p>
+<p>Cluster id of the CDE service where virtual cluster has to be created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cpuRequests</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cpu requests for autoscaling.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memoryRequests</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Memory requests for autoscaling - eg. 30Gi.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the virtual cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2089,9 +1794,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_auditlogs">AuditLogs</h3>
+<h3 id="_createvcresponse">CreateVcResponse</h3>
 <div class="paragraph">
-<p>AuditLogs contains all the logs for a given request id.</p>
+<p>Response object for CreateVc method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2109,35 +1814,57 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>count</strong><br>
+<p><strong>Vc</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Created Virtual Cluster</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_vcdescription">VcDescription</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_deletevcrequest">DeleteVcRequest</h3>
+<div class="paragraph">
+<p>Request object for DeleteVc method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Total number of logs associated with the request id.</p>
+<p>Cluster id of the CDE service where virtual cluster was enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>logs</strong><br>
+<p><strong>vcId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Contains all the logs for a given request id.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_auditlog">AuditLog</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requestID</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The request ID associated with a long-running operation to fetch the logs for.</p>
+<p>Virtual cluster id</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2147,9 +1874,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_autoscaling">Autoscaling</h3>
+<h3 id="_deletevcresponse">DeleteVcResponse</h3>
 <div class="paragraph">
-<p>Configuration for instance auto scaling.</p>
+<p>Response object for DeleteVc method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2167,177 +1894,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enabled</strong><br>
+<p><strong>status</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The boolean flag to enable the auto scaling.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>maxInstances</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The maximum number of instance for auto scaling.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>minInstances</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The minimum number of instance for auto scaling.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_createworkspacerequest">CreateWorkspaceRequest</h3>
-<div class="paragraph">
-<p>Request object for the CreateWorkspace method.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>disableTLS</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enableMonitoring</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The boolean flag is used to enable mlonitoring. By default monitoring is disabled.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to create.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>existingDatabaseConfig</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optional configurations for an existing Postgres to export model metrics to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_existingdatabaseconfig">ExistingDatabaseConfig</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>existingNFS</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally use an existing NFS by providing the hostname and desired path (Azure and Private Cloud only).</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>loadBalancerIPWhitelists</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The whitelist of ips for loadBalancer.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>nfsVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The NFS Protocol version of the NFS server we are using for Azure and Private Cloud.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>provisionK8sRequest</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The request for Kubernetes workspace provision.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_provisionk8srequest">ProvisionK8sRequest</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>usePublicLoadBalancer</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The boolean flag to request public load balancer. By default private load balancer is used.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to create.</p>
+<p>status of virtual cluster deletion.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2347,18 +1908,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_createworkspaceresponse">CreateWorkspaceResponse</h3>
+<h3 id="_describeservicerequest">DescribeServiceRequest</h3>
 <div class="paragraph">
-<p>Response object for the CreateWorkspace method.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_deleteworkspacerequest">DeleteWorkspaceRequest</h3>
-<div class="paragraph">
-<p>Request object for the DeleteWorkspace method.</p>
+<p>Request object for DescribeService method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2376,11 +1928,159 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster id of the service to be described.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_describeserviceresponse">DescribeServiceResponse</h3>
+<div class="paragraph">
+<p>Response object for DescribeService method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>service</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to delete.</p>
+<p>Description of the service</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_servicedescription">ServiceDescription</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_describevcrequest">DescribeVcRequest</h3>
+<div class="paragraph">
+<p>DescribeVc request object.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster id of the CDE service where vc was created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Virtual cluster id.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_describevcresponse">DescribeVcResponse</h3>
+<div class="paragraph">
+<p>DescribeVc response object.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vc</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Description of the virtual cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_vcdescription">VcDescription</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_disableservicerequest">DisableServiceRequest</h3>
+<div class="paragraph">
+<p>DisableService request object.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>cluster Id of the service to disable.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2389,67 +2089,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>force</strong><br>
-<em>required</em></p>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.</p>
+<p>Force disable cde service.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>removeStorage</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to delete.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_deleteworkspaceresponse">DeleteWorkspaceResponse</h3>
+<h3 id="_disableserviceresponse">DisableServiceResponse</h3>
 <div class="paragraph">
-<p>Response object for the DeleteWorkspace method.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_describeworkspacerequest">DescribeWorkspaceRequest</h3>
-<div class="paragraph">
-<p>Request object for the DescribeWorkspace method.</p>
+<p>DisableService response object.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2467,35 +2123,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
+<p><strong>status</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to describe.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to describe. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to describe.</p>
+<p>Status of deletion</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2505,9 +2137,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_describeworkspaceresponse">DescribeWorkspaceResponse</h3>
+<h3 id="_enableservicerequest">EnableServiceRequest</h3>
 <div class="paragraph">
-<p>Response object for the DescribeWorkspace method.</p>
+<p>Request object for Enable Service method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2525,14 +2157,230 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspace</strong><br>
+<p><strong>chartValueOverrides</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Chart overrides for enabling a service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_chartvalueoverridesrequest">ChartValueOverridesRequest</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enablePublicEndpoint</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Creates a CDE endpoint (Load Balancer) in a publicly accessible subnet. If set false, the endpoint will be created in a private subnet and you will need to setup access to the endpoint manually in your cloud account.<br>
+<strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enableWorkloadAnalytics</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>If set false, diagnostic information about job and query execution is sent to Cloudera Workload Manager. Anonymization can be configured under Environments / Shared Resources / Telemetry. Refer documentation for more info at <a href="https://docs.cloudera.com/workload-manager/cloud/index.html" class="bare">https://docs.cloudera.com/workload-manager/cloud/index.html</a>.<br>
+<strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>env</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The workspace.</p>
+<p>CDP environment where cde service should be enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_workspace">Workspace</a></p>
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>initialInstances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Initial Instances when the service is enabled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>initialSpotInstances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Initial spot Instances when the service is enabled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceType</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Instance type of the cluster for CDE Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>maximumInstances</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Maximum Instances for the CDE Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>maximumSpotInstances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Maximum Spot Instances for the CDE Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>minimumInstances</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Minimum Instances for the CDE Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>minimumSpotInstances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Minimum Spot instances for the CDE Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the CDE Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>provisionerid</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>If provided deployment will occur to a pre-provisioned cluster; also known as an 'unmanaged' cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>rootVolumeSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>EBS volume size in GB.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>useSsd</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Instance local storage (SSD) would be used for the workload filesystem (Example - spark local directory). In case the workload requires more space than what&#8217;s available in the instance storage, please use an instance type with sufficient instance local storage or choose an instance type without SSD and configure the EBS volume size. Currently supported only for aws services.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>whitelistIps</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of CIDRs that would be allowed to access kubernetes master API server.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_enableserviceresponse">EnableServiceResponse</h3>
+<div class="paragraph">
+<p>Response object for EnableService request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>service</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Service details of the created service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_servicedescription">ServiceDescription</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2585,159 +2433,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_existingdatabaseconfig">ExistingDatabaseConfig</h3>
-<div class="paragraph">
-<p>Configurations for bringing an existing database for model metrics</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>existingDatabaseHost</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally provide a Postgresql database host to export model metrics to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>existingDatabaseName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally provide a Postgresql database name to export model metrics to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>existingDatabasePassword</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally provide a Postgresql database password to use when exporting model metrics.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>existingDatabasePort</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally provide a Postgresql database port to export model metrics to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>existingDatabaseUser</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally provide a Postgresql database user to use when exporting model metrics.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_getauditeventsrequest">GetAuditEventsRequest</h3>
-<div class="paragraph">
-<p>GetAuditEventsRequest to get all audit events for a given workspace crn.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Workspace crn for which audit events to be fetched.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_getauditeventsresponse">GetAuditEventsResponse</h3>
-<div class="paragraph">
-<p>GetAuditEventsResponse containes all the audit events for a given workspace crn.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>auditEvents</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Contains all the audit events for a given workspace crn.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_auditevents">AuditEvents</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_getkubeconfigrequest">GetKubeconfigRequest</h3>
 <div class="paragraph">
-<p>Request object for the GetKubeconfig method.</p>
+<p>GetKubeconfig request object.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2755,35 +2453,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>optional</em></p>
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to list access.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to list access.</p>
+<p>cluster id of the cde service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2795,7 +2469,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_getkubeconfigresponse">GetKubeconfigResponse</h3>
 <div class="paragraph">
-<p>Response object for the GetKubeconfig method.</p>
+<p>GetKubeconfig response object.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2814,10 +2488,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>kubeconfig</strong><br>
-<em>required</em></p>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of users that have access.</p>
+<p>kubeconfig for the cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2827,18 +2501,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_getlatestworkspaceversionrequest">GetLatestWorkspaceVersionRequest</h3>
+<h3 id="_listservicesrequest">ListServicesRequest</h3>
 <div class="paragraph">
-<p>Request object for GetLatestWorkspaceVersion.</p>
+<p>Request object for ListServices method.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getlatestworkspaceversionresponse">GetLatestWorkspaceVersionResponse</h3>
+<h3 id="_listservicesresponse">ListServicesResponse</h3>
 <div class="paragraph">
-<p>Response object for GetLatestWorkspaceVersion.</p>
+<p>Response object for ListServices method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2856,11 +2530,45 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>version</strong><br>
+<p><strong>services</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of services.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_servicesummary">ServiceSummary</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listvcsrequest">ListVcsRequest</h3>
+<div class="paragraph">
+<p>ListVcs request object.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The latest version of a workspace that is used when deploying Cloudera Machine Learning workspaces.</p>
+<p>Cluster id of the service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2870,9 +2578,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_getlogsrequest">GetLogsRequest</h3>
+<h3 id="_listvcsresponse">ListVcsResponse</h3>
 <div class="paragraph">
-<p>GetLogsRequestfor getting logs for a request ID.</p>
+<p>ListVcs response object.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2890,47 +2598,57 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>fetchAll</strong><br>
+<p><strong>vcs</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Flag to fetch all logs.</p>
+<p>List of virtual clusters.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
+<p>&lt; <a href="#_vcsummary">VcSummary</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_servicedescription">ServiceDescription</h3>
+<div class="paragraph">
+<p>Detailed description of a CDE service.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>chartValueOverrides</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Chart overrides for the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_chartvalueoverridesresponse">ChartValueOverridesResponse</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>offset</strong><br>
+<p><strong>cloudPlatform</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>offset from which the logs should be fetched.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>pageSize</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Limit the number of logs.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requestID</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Unique Key to identify a set of logs.</p>
+<p>The cloud platform where the CDE service is enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2938,79 +2656,95 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>required</em></p>
+<p><strong>clusterFqdn</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>WorkspaceCrn the requestID belongs to.</p>
+<p>FQDN of the CDE service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_getlogsresponse">GetLogsResponse</h3>
-<div class="paragraph">
-<p>GetLogsResponse contains all the logs for a given request id.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>auditLogs</strong><br>
+<p><strong>clusterId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Contains all the logs for a given request id.</p>
+<p>Cluster Id of the CDE Service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_auditlogs">AuditLogs</a></p>
+<p>string</p>
 </div></div></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_grantworkspaceaccessrequest">GrantWorkspaceAccessRequest</h3>
-<div class="paragraph">
-<p>Request object for the GrantWorkspaceAccess method.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>arn</strong><br>
+<p><strong>creatorCrn</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The aws user ARN to grant access to the corresponding EKS cluster. (Deprecated: Use identifier instead).</p>
+<p>CRN of the creator.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>creatorEmail</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Email address of the creator of the CDE service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>dataLakeAtlasUIEndpoint</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Endpoint of Data Lake Atlas.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>dataLakeFileSystems</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Data lake file system.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enablingTime</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Timestamp of service enabling.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environmentCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3019,290 +2753,22 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>environmentName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDP Environment Name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>logLocation</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>identifier</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud provider user id which will be granted access to the workspace&#8217;s Kubernetes cluster.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to grant access to. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to grant access to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_grantworkspaceaccessresponse">GrantWorkspaceAccessResponse</h3>
-<div class="paragraph">
-<p>Response object for the GrantWorkspaceAccess method.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>kubeconfig</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Kubernetes config file</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_healthinfo">HealthInfo</h3>
-<div class="paragraph">
-<p>Healthinfo object contains the health information of a resource.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>details</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The detail of the health info.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>isHealthy</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The boolean that indicates the health status.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>message</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The message to show for the health info.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>resourceName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The resource name being checked.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>updatedAt</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The unix timestamp for the heartbeat.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_instance">Instance</h3>
-<div class="paragraph">
-<p>Represents each instance in an instance group.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>availabilityZone</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Availability zone the instance belongs to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceId</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Unique instance Id generated by the cloud provider.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_instancegroup">InstanceGroup</h3>
-<div class="paragraph">
-<p>Contains the necessary info for an instance group.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>autoscaling</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The auto scaling configuration.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_autoscaling">Autoscaling</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>ingressRules</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The networking rules for the ingress.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceCount</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The initial number of instance node.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceTier</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The tier of the instance i.e. on-demand/spot.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceType</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud provider instance type for the node instance.</p>
+<p>Location for the log files of jobs.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3311,10 +2777,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>name</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The unique name of the instance group.</p>
+<p>Name of the CDE Service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3322,23 +2788,47 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>rootVolume</strong><br>
+<p><strong>resources</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The root volume of the instance.</p>
+<p>Resources details of CDE Service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_rootvolume">RootVolume</a></p>
+<p><a href="#_serviceresources">ServiceResources</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Status of the CDE service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tenantId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDE tenant ID</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_listworkspaceaccessrequest">ListWorkspaceAccessRequest</h3>
+<h3 id="_serviceresources">ServiceResources</h3>
 <div class="paragraph">
-<p>Request object for the ListWorkspace method.</p>
+<p>Object to store resources for a CDE service.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3356,11 +2846,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
+<p><strong>initial_instances</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
+<p>Initial instances for the CDE service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3368,11 +2858,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
+<p><strong>initial_spot_instances</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to list access. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
+<p>Initial Spot Instances for the CDE Service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3380,11 +2870,71 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
+<p><strong>instance_type</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to list access.</p>
+<p>Instance type of the CDE service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>max_instances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Maximum instances for the CDE service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>max_spot_instances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Maximum Number of Spot instances.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>min_instances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Minimum Instances for the CDE service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>min_spot_instances</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Minimum number of spot instances for the CDE service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>root_vol_size</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Root Volume Size.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3394,9 +2944,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_listworkspaceaccessresponse">ListWorkspaceAccessResponse</h3>
+<h3 id="_servicesummary">ServiceSummary</h3>
 <div class="paragraph">
-<p>Response object for the ListWorkspaceAccess method.</p>
+<p>Summary of a CDE service.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3414,606 +2964,35 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>users</strong><br>
+<p><strong>clusterId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of users that have access.</p>
+<p>Cluster Id of the CDE Service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>string</p>
 </div></div></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_listworkspacesrequest">ListWorkspacesRequest</h3>
-<div class="paragraph">
-<p>Request object for the ListWorkspaces method.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_listworkspacesresponse">ListWorkspacesResponse</h3>
-<div class="paragraph">
-<p>Response object for the ListWorkspaces method.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaces</strong><br>
+<p><strong>creatorEmail</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of workspaces.</p>
+<p>Email Address of the CDE creator.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_workspacesummary">WorkspaceSummary</a> &gt; array</p>
+<p>string</p>
 </div></div></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_overlaynetwork">OverlayNetwork</h3>
-<div class="paragraph">
-<p>Contains the information about overlay network.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>plugin</strong><br>
+<p><strong>enablingTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The plugin specifies specific cni vendor, ex: calico, weave etc.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>topology</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The options for overlay topology.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_topology">Topology</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_provisionk8srequest">ProvisionK8sRequest</h3>
-<div class="paragraph">
-<p>Request object for workspace provision.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to create.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceGroups</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The instance groups.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_instancegroup">InstanceGroup</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>network</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The overlay network for an AWS Kubernetes cluster&#8217;s CNI.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_overlaynetwork">OverlayNetwork</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tags</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tags to add to the cloud provider resources created. This is in addition to any tags added by Cloudera.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_provisiontag">ProvisionTag</a> &gt; array</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_provisiontag">ProvisionTag</h3>
-<div class="paragraph">
-<p>Contains a single tag entry that will be configured on cloud resources associated with a workspace.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>key</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name for the tag.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>value</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The value for the tag.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_revokeworkspaceaccessrequest">RevokeWorkspaceAccessRequest</h3>
-<div class="paragraph">
-<p>Request object for the RevokeWorkspace method.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>arn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The aws user ARN to revoke access to the corresponding EKS cluster. (Deprecated: Use identifier instead).</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>identifier</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud provider user id which will be granted access to the workspace&#8217;s Kubernetes cluster.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to revoke access to. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to revoke access to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_revokeworkspaceaccessresponse">RevokeWorkspaceAccessResponse</h3>
-<div class="paragraph">
-<p>Response object for the RevokeWorkspaceAccess method.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_rootvolume">RootVolume</h3>
-<div class="paragraph">
-<p>Configuration for instance root device volume</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>size</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The volume size in GB.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int64)</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_tag">Tag</h3>
-<div class="paragraph">
-<p>Contains a single tag entry associated with a workspace.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>key</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name for the tag.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>value</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The value for the tag.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_topology">Topology</h3>
-<div class="paragraph">
-<p>Contains the information about topology.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>subnets</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The options for subnets.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_upgradeworkspacerequest">UpgradeWorkspaceRequest</h3>
-<div class="paragraph">
-<p>Request object for the UpgradeWorkspace method.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>mlVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of workspace to upgrade to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceCrn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>workspaceName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_upgradeworkspaceresponse">UpgradeWorkspaceResponse</h3>
-<div class="paragraph">
-<p>Response object for the UpgradeWorkspace method.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_workspace">Workspace</h3>
-<div class="paragraph">
-<p>A ML workspace, which includes the cluster and storage.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cloudPlatform</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud platform of the environment that was used to create this workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>clusterBaseDomain</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The basedomain of the cluster.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>creationDate</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Creation date of workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>creatorCrn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the creator of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>crn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>endpointPublicAccess</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>To check if the cluster is publicly accessible or not.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentCrn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>CRN of the environment.</p>
+<p>Timestamp of service enabling.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4025,7 +3004,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace&#8217;s environment.</p>
+<p>CDP Environment Name.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4033,11 +3012,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>failureMessage</strong><br>
-<em>optional</em></p>
+<p><strong>name</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Failure message from the most recent failure that has occurred during workspace provisioning.</p>
+<p>Name of the CDE Service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4045,167 +3024,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>filesystemID</strong><br>
+<p><strong>status</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>filesystemID used by the workspace</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>governanceEnabled</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether governance is enabled.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>healthInfoLists</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The health info information of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_healthinfo">HealthInfo</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>httpsEnabled</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>To Display if Https is enabled or not.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceGroups</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The instance groups.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_workspaceinstancegroup">WorkspaceInstanceGroup</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceStatus</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The workspace&#8217;s current status.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceUrl</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>URL of the workspace&#8217;s user interface.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>k8sClusterName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Kubernetes cluster name.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>loadBalancerIPWhitelists</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>IP whitelist for loadBalancer.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>modelMetricsEnabled</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether model metrics is enabled.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>monitoringEnabled</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If usage monitoring is enabled or not on this workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tags</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tags provided by the user at the time of workspace creation.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_tag">Tag</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>version</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of Cloudera Machine Learning that was installed on the workspace.</p>
+<p>Status of the CDE service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4215,9 +3038,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_workspaceinstancegroup">WorkspaceInstanceGroup</h3>
+<h3 id="_vcdescription">VcDescription</h3>
 <div class="paragraph">
-<p>Instance group information to show in workspace details.</p>
+<p>CDE virtual cluster summary.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -4235,23 +3058,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceCount</strong><br>
-<em>required</em></p>
+<p><strong>VcUiUrl</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The initial number of instance node.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceGroupName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The unique name of the instance group.</p>
+<p>URL of the CDE Virtual Cluster UI.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4259,11 +3070,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceType</strong><br>
+<p><strong>chartValueOverrides</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Chart overrides for the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_chartvalueoverridesresponse">ChartValueOverridesResponse</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud provider instance type for the node instance.</p>
+<p>Cluster ID of the CDE service that contains the Virtual Cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4271,59 +3094,155 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instances</strong><br>
-<em>required</em></p>
+<p><strong>creationTime</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Instances in the instance group.</p>
+<p>Time of creation of the virtual Cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_instance">Instance</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>maxInstances</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The maximum number of instances that can be deployed to this instance group.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>minInstances</strong><br>
-<em>required</em></p>
+<p><strong>creatorEmail</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The minimum number of instances that can be deployed to this instance group. If the value is 0, the group might be empty.</p>
+<p>Email address of the creator of Virtual Cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tags</strong><br>
+<p><strong>creatorID</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the creator of Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>creatorName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the creator of the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>historyServerUrl</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Spark History Server URL for the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>livyServerUrl</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Livy Server URL for the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resources</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Resources details of CDE Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_vcresources">VcResources</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>safariUrl</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Safari URL for the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Status of the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcApiUrl</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Url for the Virtual Cluster APIs.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tags are key/value pairs that are applied to all tag-able resources deployed in the workspace&#8217;s cloud environment.</p>
+<p>Virtual Cluster ID.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_tag">Tag</a> &gt; array</p>
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the CDE Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_workspacesummary">WorkspaceSummary</h3>
+<h3 id="_vcresources">VcResources</h3>
 <div class="paragraph">
-<p>A Cloudera Machine Learning workspace which includes the deployed configuration details.</p>
+<p>Object to store resources for a CDE service</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -4341,35 +3260,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cloudPlatform</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud platform of the environment that was used to create this workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>creationDate</strong><br>
+<p><strong>actualCpuRequests</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Creation date of workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>creatorCrn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the creator of the workspace.</p>
+<p>Actual CPU request for the VC. This accounts for other dex apps(eg. livy, airflow), that run in the virtual cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4377,47 +3272,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>crn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentCrn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>CRN of the environment.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace&#8217;s environment.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>failureMessage</strong><br>
+<p><strong>actualMemoryRequests</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Failure message from the most recent failure that has occurred during workspace provisioning.</p>
+<p>Actual Memory request for the VC. This accounts for other dex apps(eg. livy, airflow), that run in the virtual cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4425,47 +3284,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>filesystemID</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workspace uses.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>healthInfoLists</strong><br>
+<p><strong>cpuRequests</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The health info information of the workspace.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_healthinfo">HealthInfo</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>httpsEnabled</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Indicates if HTTPs communication was enabled on this workspace when provisioned.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace.</p>
+<p>The CPU requests for VC for running spark jobs.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4473,71 +3296,117 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceStatus</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The workspace&#8217;s current status.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>instanceUrl</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>URL of the workspace&#8217;s user interface.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>k8sClusterName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Kubernetes cluster name.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>loadBalancerIPWhitelists</strong><br>
+<p><strong>memRequests</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The whitelist of ips for loadBalancer.</p>
+<p>The Memory requests for VC for running spark jobs.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_vcsummary">VcSummary</h3>
+<div class="paragraph">
+<p>CDE virtual cluster summary.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>VcUiUrl</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Url for the Virtual Cluster UI.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>monitoringEnabled</strong><br>
+<p><strong>clusterId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If usage monitoring is enabled or not on this workspace.</p>
+<p>Cluster ID of the CDE service that contains the virtual cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>version</strong><br>
+<p><strong>creatorEmail</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Email Address of the Creator.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>creatorName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the Creator.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Status of the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of Cloudera Machine Learning that was installed on the workspace.</p>
+<p>Virtual Cluster ID.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the CDE Virtual Cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
