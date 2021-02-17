@@ -1,5 +1,22 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.26 (2021-02-17)
+
+FEATURES:
+
+* datahub: 2 new operations: `collectCmDiagnostics`, `getCmRoles`.
+* datalake: 2 new operations: `collectCmDiagnostics`, `getCmRoles`.
+
+IMPROVEMENTS:
+
+* iam: SAML provider data in responses includes service provider SAML metadata.
+
+NOTES:
+
+* audit: Updated documentation for API audit event response parameters. This has no effect on auditing usage.
+* ml: Removed entitlement annotation for service-side auditing. This has no effect on API usage.
+* all services: A link to Cloudera's terms of service is provided in API definitions. This is for informational purposes only.
+
 ## 0.9.25 (2021-02-03)
 
 FEATURES:

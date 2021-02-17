@@ -5,11 +5,12 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.1-SNAPSHOT
+  version: 0.9.26 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
   description: Interact with the Cloudera Operational Database service
+  termsOfService: https://www.cloudera.com/legal/commercial-terms-and-conditions.html
 schemes:
   - https
 consumes:
@@ -221,6 +222,27 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
+  /api/v1/opdb/updateDatabase:
+    post:
+      summary: Updates the database
+      description: Update an operational database in an environment
+      operationId: updateDatabase
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateDatabaseRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateDatabaseResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
 definitions:
   Error:
     type: object
@@ -318,6 +340,87 @@ definitions:
       databaseName:
         type: string
         description: database name
+      autoScalingParameters:
+        description: Parameters to configure the AutoScaling
+        $ref: '#/definitions/AutoScalingParameters'
+      dnsForwardDomain:
+        type: string
+        description: Domain to forward unbound DNS traffic
+      dnsForwardNsIp:
+        type: string
+        description: Name server IP for unbound DNS forwarding
+  UpdateDatabaseRequest:
+    type: object
+    description: A request to update the database
+    required:
+      - environmentName
+      - databaseName
+    properties:
+      environmentName:
+        type: string
+        description: environment name
+      databaseName:
+        type: string
+        description: database name
+      autoScalingParameters:
+        description: Parameters to configure the scaling policy
+        $ref: '#/definitions/AutoScalingParameters'
+  AutoScalingParameters:
+    type: object
+    description: A Parameters to configure AutoScaling
+    properties:
+      targetedValueForMetric:
+        type: integer
+        format: int64
+        description: The target value of the metric a user expect to maintain for the cluster
+      maxWorkersForDatabase:
+        type: integer
+        format: int32
+        description: Maximum number of worker nodes as per this metrics can be scaled up to.
+      maxWorkersPerBatch:
+        type: integer
+        format: int32
+        description: Maximum number of worker nodes as per this metrics can be scaled up to in one batch.
+      minWorkersForDatabase:
+        type: integer
+        format: int32
+        description: Minimum number of worker nodes as per this metrics can be scaled down to.
+      evaluationPeriod:
+        type: integer
+        format: int64
+        description: Period of metrics(in seconds) needs to be considered.
+      minimumBlockCacheGb:
+        type: integer
+        format: int32
+        description: The amount of block cache, in Gigabytes, which the database should have.
+  AutoScalingConfig:
+    type: object
+    description: A config for Autoscaling
+    properties:
+      targetedValueForMetric:
+        type: integer
+        format: int64
+        description: The target value of the metric a user expect to maintain for the cluster
+      maxWorkersForDatabase:
+        type: integer
+        format: int32
+        description: Maximum number of worker nodes as per this metrics can be scaled up to.
+      maxWorkersPerBatch:
+        type: integer
+        format: int32
+        description: Maximum number of worker nodes as per this metrics can be scaled up to in one batch.
+      minWorkersForDatabase:
+        type: integer
+        format: int32
+        description: Minimum number of worker nodes as per this metrics can be scaled down to.
+      evaluationPeriod:
+        type: integer
+        format: int64
+        description: Period of metrics(in seconds) needs to be considered.
+      minimumBlockCacheGb:
+        type: integer
+        format: int32
+        description: The amount of block cache, in Gigabytes, which the database should have.
   CreateDatabaseResponse:
     type: object
     description: A response which gives status of the database creation
@@ -327,6 +430,9 @@ definitions:
       databaseDetails:
         description: Details of the Database created
         $ref: '#/definitions/DatabaseDetails'
+  UpdateDatabaseResponse:
+    type: object
+    description: A response to database update request
   DropDatabaseRequest:
     type: object
     description: A request to drop the database
@@ -474,6 +580,9 @@ definitions:
       internalName:
         type: string
         description: Internal cluster name for this database
+      autoScalingConfig:
+        description: The autoscaling config
+        $ref: '#/definitions/AutoScalingConfig'
   DescribeDatabaseRequest:
     type: object
     description: request to get details of the database in a particular environment

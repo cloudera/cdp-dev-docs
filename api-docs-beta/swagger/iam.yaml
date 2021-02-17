@@ -6,11 +6,12 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.1-SNAPSHOT
+  version: 0.9.26 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
   description: Cloudera CDP IAM is a web service that you can use to manage users and user permissions under your CDP account.
+  termsOfService: https://www.cloudera.com/legal/commercial-terms-and-conditions.html
 schemes:
   - https
 consumes:
@@ -1247,6 +1248,54 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /iam/unsetWorkloadPasswordPolicy:
+    post:
+      summary: Unset workload password policy for the account.
+      description: Unset the workload password for the account. Changes to the workload password policy only affect passwords that are set after the policy has been updated.
+      operationId: unsetWorkloadPasswordPolicy
+      x-no-compatibility-guarantee: true
+      x-right: iam/unsetWorkloadPasswordPolicy
+      x-entitlement: WORKLOAD_PASSWORD_POLICY
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UnsetWorkloadPasswordPolicyRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UnsetWorkloadPasswordPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /iam/setAuthenticationPolicy:
+    post:
+      summary: Set the authentication policy for the account.
+      description: Set the authentication policy for the account. Check each request parameter for its default values. Changes to the authentication policy only affect authentications that are done after the policy has been updated.
+      operationId: setAuthenticationPolicy
+      x-no-compatibility-guarantee: true
+      x-right: iam/setAuthenticationPolicy
+      x-entitlement: AUTHENTICATION_POLICY
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SetAuthenticationPolicyRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/SetAuthenticationPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /iam/addSshPublicKey:
     post:
       summary: Adds an SSH public key for an actor.
@@ -1635,6 +1684,9 @@ definitions:
       samlMetadataDocument:
         type: string
         description: The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for listSamlProviders API response.
+      cdpSpMetadata:
+        type: string
+        description: The Service Provider SAML metadata specific to this CDP SAML provider. This field will only be set for createSamlProvider and describeSamlProvider API calls.
   SshPublicKey:
     type: object
     description: Information about an SSH public key.
@@ -2973,6 +3025,34 @@ definitions:
   SetWorkloadPasswordResponse:
     type: object
     description: Response object for a set workload password request.
+  PasswordPolicy:
+    type: object
+    description: An object representing password policy options.
+    x-no-compatibility-guarantee: true
+    properties:
+      maxPasswordLifetimeDays:
+        type: integer
+        format: int32
+        minimum: 0
+        description: The max lifetime of passwords, in days. If set to '0' passwords never expires.
+      minPasswordLength:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 256
+        description: The min length of a password. Can be any number between 1 and 256. The default minimum password length is 1.
+      mustIncludeUpperCaseCharacters:
+        type: boolean
+        description: Whether passwords must include upper case characters. The default is 'false'.
+      mustIncludeLowerCaseCharacters:
+        type: boolean
+        description: Whether passwords must include lower case characters. The default is 'false'.
+      mustIncludeNumbers:
+        type: boolean
+        description: Whether passwords must include numbers. The default is 'false'.
+      mustIncludeSymbols:
+        type: boolean
+        description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'. The default is 'false'.
   SetWorkloadPasswordPolicyRequest:
     type: object
     description: Request object for a set workload password policy request.
@@ -2983,9 +3063,61 @@ definitions:
         format: int32
         minimum: 0
         description: The max lifetime of passwords, in days. If set to '0' passwords never expires.
+      globalPasswordPolicy:
+        type: object
+        $ref: '#/definitions/PasswordPolicy'
+        x-no-compatibility-guarantee: true
+        description: The global password policy object. If set, maxPasswordLifetimeDays is ignored, and if not set the default values for the different password policies are used. See PasswordPolicy for more details on the different default values.
+      machineUsersPasswordPolicy:
+        type: object
+        $ref: '#/definitions/PasswordPolicy'
+        x-no-compatibility-guarantee: true
+        description: The password policy object for machine users. If set, this will be used for enforcing password complexity for machine users instead of the global password policy.
   SetWorkloadPasswordPolicyResponse:
     type: object
     description: Response object for a set workload password policy request.
+    x-no-compatibility-guarantee: true
+  UnsetWorkloadPasswordPolicyRequest:
+    type: object
+    description: Request object for a unset workload password policy request.
+    x-no-compatibility-guarantee: true
+    properties: {}
+  UnsetWorkloadPasswordPolicyResponse:
+    type: object
+    description: Response object for a unset workload password policy request.
+    x-no-compatibility-guarantee: true
+  SetAuthenticationPolicyRequest:
+    type: object
+    description: Request object for a set authentication policy request.
+    x-no-compatibility-guarantee: true
+    properties:
+      accessKeyInactivityDurationSec:
+        type: integer
+        format: int32
+        minimum: 0
+        description: The inactivity duration, in seconds, of the access key, which would invalidate the access key due to no activity. Set the value to '0' to use system default inactivity duration (which is 1 hour for CDP). There's no invalidation because of no activity if the value is greater or equal to expiration. The value will be set to '0' if not provided.
+        x-no-compatibility-guarantee: true
+      accessKeyExpirationSec:
+        type: integer
+        format: int32
+        minimum: 0
+        description: The expiration, in seconds, of the access key. Set the value to '0' to use system default expiration (which is 12 hours for CDP). The value will be set to '0' if not provided.
+        x-no-compatibility-guarantee: true
+      sessionTokenInactivityDurationSec:
+        type: integer
+        format: int32
+        minimum: 0
+        description: The inactivity duration, in seconds, of the UI session token, which would invalidate the session token due to no activity. Set the value to '0' to use system default inactivity duration (which is 1 hour for CDP). There's no invalidation because of no activity if the value is greater or equal to expiration. The value will be set to '0' if not provided.
+        x-no-compatibility-guarantee: true
+      sessionTokenExpirationSec:
+        type: integer
+        format: int32
+        minimum: 0
+        description: The expiration, in seconds, of the UI session token. Set the value to '0' to use system default expiration (which is 12 hours for CDP). The value will be set to '0' if not provided.
+        x-no-compatibility-guarantee: true
+  SetAuthenticationPolicyResponse:
+    type: object
+    description: Response object for a set authentication policy request.
     x-no-compatibility-guarantee: true
   AddSshPublicKeyRequest:
     type: object
