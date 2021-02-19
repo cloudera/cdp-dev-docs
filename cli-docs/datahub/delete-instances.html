@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>delete-instances &#8212; CDP CLI 0.9.26 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="delete-recipes" href="delete-recipes.html" />
+    <link rel="prev" title="delete-cluster-templates" href="delete-cluster-templates.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="delete-recipes.html" title="delete-recipes"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="delete-cluster-templates.html" title="delete-cluster-templates"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">delete-instances</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="delete-instances">
+<span id="cli-cdp-datahub-delete-instances"></span><h1>delete-instances<a class="headerlink" href="#delete-instances" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Deletes instances for the specified cluster.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  delete-instances
+--cluster-name &lt;value&gt;
+--instance-ids &lt;value&gt;
+<span class="o">[</span>--force <span class="p">|</span> --no-force<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-name</span></code> (string)
+The name or CRN of the cluster for which instances are to be deleted.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--instance-ids</span></code> (array)
+The instance-ids to be deleted from the cluster.</p>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--force</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-force</span></code> (boolean)
+Whether the termination would be forced or not. If it is true, the termination would not be stopped by other - usually blocking - circumstances. Defaults to false.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>cluster -&gt; (object)</p>
+<blockquote>
+<div><p>Information about a cluster.</p>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the cluster.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the cluster.</p>
+</div></blockquote>
+<p>creationDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date when the cluster was created.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the stack.</p>
+</div></blockquote>
+<p>clusterStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the cluster.</p>
+</div></blockquote>
+<p>nodeCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The cluster node count.</p>
+</div></blockquote>
+<p>instanceGroups -&gt; (array)</p>
+<blockquote>
+<div><p>The instance details.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>The type of the instance group which also contains the actual instance(s)</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the instance group where the given instance is located.</p>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>Some information about the given instance.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Object which holds some details of an instance for the given cluster.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the given instance.</p>
+</div></blockquote>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>The health state of the instance. UNHEALTHY represents instances with unhealthy services, lost instances, or failed operations.</p>
+</div></blockquote>
+<p>privateIp -&gt; (string)</p>
+<blockquote>
+<div><p>The private ip of the given instance.</p>
+</div></blockquote>
+<p>publicIp -&gt; (string)</p>
+<blockquote>
+<div><p>The public ip of the given instance.</p>
+</div></blockquote>
+<p>fqdn -&gt; (string)</p>
+<blockquote>
+<div><p>The FQDN for the instance</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the instance. This includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>workloadType -&gt; (string)</p>
+<blockquote>
+<div><p>The workload type for the cluster.</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>The cloud platform.</p>
+</div></blockquote>
+<p>imageDetails -&gt; (object)</p>
+<blockquote>
+<div><p>The details of the image used for cluster instances.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the image used for cluster instances.</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the image used for cluster instances. This is internally generated by the cloud provider to uniquely identify the image.</p>
+</div></blockquote>
+<p>catalogUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The image catalog URL.</p>
+</div></blockquote>
+<p>catalogName -&gt; (string)</p>
+<blockquote>
+<div><p>The image catalog name.</p>
+</div></blockquote>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the environment.</p>
+</div></blockquote>
+<p>credentialCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the credential.</p>
+</div></blockquote>
+<p>datalakeCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the attached datalake.</p>
+</div></blockquote>
+<p>clusterTemplateCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the cluster template used for the cluster creation.</p>
+</div></blockquote>
+<p>statusReason -&gt; (string)</p>
+<blockquote>
+<div><p>The status reason.</p>
+</div></blockquote>
+<p>clouderaManager -&gt; (object)</p>
+<blockquote>
+<div><p>Cloudera Manager details.</p>
+<p>version -&gt; (string)</p>
+<blockquote>
+<div><p>Cloudera Manager version.</p>
+</div></blockquote>
+<p>platformVersion -&gt; (string)</p>
+<blockquote>
+<div><p>CDP Platform version.</p>
+</div></blockquote>
+</div></blockquote>
+<p>endpoints -&gt; (object)</p>
+<blockquote>
+<div><p>Object which holds the exposed endpoints for the given cluster.</p>
+<p>endpoints -&gt; (array)</p>
+<blockquote>
+<div><p>The endpoints.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Object which holds the exposed endpoint.</p>
+<p>serviceName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the exposed service</p>
+</div></blockquote>
+<p>serviceUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The server url for the given exposed service’s API.</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>The more consumable name of the exposed service.</p>
+</div></blockquote>
+<p>knoxService -&gt; (string)</p>
+<blockquote>
+<div><p>The related knox entry.</p>
+</div></blockquote>
+<p>mode -&gt; (string)</p>
+<blockquote>
+<div><p>The SSO mode of the given service.</p>
+</div></blockquote>
+<p>open -&gt; (boolean)</p>
+<blockquote>
+<div><p>The access status of the given endpoint. Whether its open or not.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">delete-instances</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="delete-cluster-templates.html"
+                        title="previous chapter">delete-cluster-templates</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="delete-recipes.html"
+                        title="next chapter">delete-recipes</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="delete-recipes.html" title="delete-recipes"
+             >next</a></li>
+        <li class="right" >
+          <a href="delete-cluster-templates.html" title="delete-cluster-templates"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">delete-instances</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

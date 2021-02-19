@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set &#8212; CDP CLI 0.9.26 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="datahub" href="../datahub/index.html" />
+    <link rel="prev" title="list" href="list.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../datahub/index.html" title="datahub"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list.html" title="list"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">configure</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="set">
+<span id="cli-cdp-configure-set"></span><h1>set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Set a configuration value from the config file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span> <span class="pre">set</span></code> command can be used to set a single configuration
+value in the CDP config file.  The <code class="docutils literal notranslate"><span class="pre">set</span></code> command supports both the
+<em>qualified</em> and <em>unqualified</em> config values documented in the <code class="docutils literal notranslate"><span class="pre">get</span></code> command
+(see <code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span> <span class="pre">get</span> <span class="pre">help</span></code> for more information).</p>
+<p>To set a single value, provide the configuration name followed by the
+configuration value.</p>
+<p>If the config file does not exist, one will automatically be created.  If the
+configuration value already exists in the config file, it will updated with the
+new configuration value.</p>
+<p>Setting a value for the <code class="docutils literal notranslate"><span class="pre">cdp_access_key_id</span></code> or <code class="docutils literal notranslate"><span class="pre">cdp_private_key</span></code> will
+result in the value being writen to the shared credentials file
+(<code class="docutils literal notranslate"><span class="pre">~/.cdp/credentials</span></code>).  All other values will be written to the config file
+(default location is <code class="docutils literal notranslate"><span class="pre">~/.cdp/config</span></code>).</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cdp configure <span class="nb">set</span> varname value <span class="o">[</span>--profile profile-name<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">varname</span></code> (string)
+The name of the config value to set.</p>
+<p><code class="docutils literal notranslate"><span class="pre">value</span></code> (string)
+The value to set.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Given an empty config file, the following commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cdp configure <span class="nb">set</span> cdp_access_key_id default_access_key
+$ cdp configure <span class="nb">set</span> cdp_private_key default_private_key
+$ cdp configure <span class="nb">set</span> default.ca_bundle /path/to/ca-bundle.pem
+$ cdp configure <span class="nb">set</span> foobar.farboo.true
+</pre></div>
+</div>
+<p>will produce the following config file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>default<span class="o">]</span>
+<span class="nv">ca_bundle</span> <span class="o">=</span> /path/to/ca-bundle.pem
+
+<span class="o">[</span>foobar<span class="o">]</span>
+<span class="nv">farboo</span> <span class="o">=</span> <span class="nb">true</span>
+</pre></div>
+</div>
+<p>and the following <code class="docutils literal notranslate"><span class="pre">~/.cdp/credentials</span></code> file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>default<span class="o">]</span>
+<span class="nv">cdp_access_key_id</span> <span class="o">=</span> default_access_key
+<span class="nv">cdp_private_key</span> <span class="o">=</span> default_private_key
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">set</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list.html"
+                        title="previous chapter">list</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../datahub/index.html"
+                        title="next chapter">datahub</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../datahub/index.html" title="datahub"
+             >next</a></li>
+        <li class="right" >
+          <a href="list.html" title="list"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >configure</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>collect-cm-diagnostics &#8212; CDP CLI 0.9.26 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="collect-datalake-diagnostics" href="collect-datalake-diagnostics.html" />
+    <link rel="prev" title="backup-datalake-status" href="backup-datalake-status.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="collect-datalake-diagnostics.html" title="collect-datalake-diagnostics"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="backup-datalake-status.html" title="backup-datalake-status"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">collect-cm-diagnostics</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="collect-cm-diagnostics">
+<span id="cli-cdp-datalake-collect-cm-diagnostics"></span><h1>collect-cm-diagnostics<a class="headerlink" href="#collect-cm-diagnostics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Start Datalake Cloudera Manager based diagnostics collection</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  collect-cm-diagnostics
+--crn &lt;value&gt;
+--destination &lt;value&gt;
+<span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--case-number &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--roles &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--start-date &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--end-date &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--update-package <span class="p">|</span> --no-update-package<span class="o">]</span>
+<span class="o">[</span>--storage-validation <span class="p">|</span> --no-storage-validation<span class="o">]</span>
+<span class="o">[</span>--monitor-metrics-collection <span class="p">|</span> --no-monitor-metrics-collection<span class="o">]</span>
+<span class="o">[</span>--bundle-size-limit &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--crn</span></code> (string)
+CRN of the Datalake cluster.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--destination</span></code> (string)
+Destination of the diagnostics collection (Support, Own cloud storage, Engineering or collect only on the nodes)</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Possible values:</dt><dd><p>SUPPORT
+CLOUD_STORAGE
+LOCAL</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)
+Additional information / title for the diagnostics collection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--case-number</span></code> (string)
+Optional support case number in case of SUPPORT destination, otherwise only act as additional data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--roles</span></code> (array)
+Array of roles for which to get logs and metrics. If set, this restricts the roles for log and metrics collection.</p>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--start-date</span></code> (datetime)
+Restrict collected logs and metrics (from the provided date timestamp).</p>
+<p><code class="docutils literal notranslate"><span class="pre">--end-date</span></code> (datetime)
+Restrict collected logs and metrics (until the provided date timestamp).</p>
+<p><code class="docutils literal notranslate"><span class="pre">--update-package</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-update-package</span></code> (boolean)
+If enabled, required package (cdp-telemetry) will be upgraded or installed on the nodes. (useful if package is not installed or needs to be upgraded) Network is required for this operation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--storage-validation</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-storage-validation</span></code> (boolean)
+Enable/disable node level storage validation (can be disabled for example, if you have too many hosts and do not want to do too much parallel writes to s3/abfs)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--monitor-metrics-collection</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-monitor-metrics-collection</span></code> (boolean)
+Flag to enable collection of metrics for chart display in CM based diagnostics collection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--bundle-size-limit</span></code> (integer)
+Diagnostics bundle size limit in MB.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">collect-cm-diagnostics</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="backup-datalake-status.html"
+                        title="previous chapter">backup-datalake-status</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="collect-datalake-diagnostics.html"
+                        title="next chapter">collect-datalake-diagnostics</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="collect-datalake-diagnostics.html" title="collect-datalake-diagnostics"
+             >next</a></li>
+        <li class="right" >
+          <a href="backup-datalake-status.html" title="backup-datalake-status"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">collect-cm-diagnostics</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

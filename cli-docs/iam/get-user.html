@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get-user &#8212; CDP CLI 0.9.26 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-access-keys" href="list-access-keys.html" />
+    <link rel="prev" title="get-account-messages" href="get-account-messages.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-access-keys.html" title="list-access-keys"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="get-account-messages.html" title="get-account-messages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-user</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get-user">
+<span id="cli-cdp-iam-get-user"></span><h1>get-user<a class="headerlink" href="#get-user" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Gets information on a user. If no user name is specified. The user name is determined from the access key used to make the request.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-user
+<span class="o">[</span>--user-id &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--user-id</span></code> (string)
+The ID of the user to get information about. If it is not included, it defaults to the user making the request.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>user -&gt; (object)</p>
+<blockquote>
+<div><p>Information about a Cloudera CDP user.</p>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>The stable, unique identifier of the user.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the user.</p>
+</div></blockquote>
+<p>email -&gt; (string)</p>
+<blockquote>
+<div><p>The user’s email address.</p>
+</div></blockquote>
+<p>firstName -&gt; (string)</p>
+<blockquote>
+<div><p>The user’s first name.</p>
+</div></blockquote>
+<p>lastName -&gt; (string)</p>
+<blockquote>
+<div><p>The user’s last name.</p>
+</div></blockquote>
+<p>creationDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date when this user record was created.</p>
+</div></blockquote>
+<p>accountAdmin -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the user is an administrator of their CDP account.</p>
+</div></blockquote>
+<p>identityProviderCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The identity provider that the user belongs to. It can be “Cloudera-Default”, “Cloudera-Administration”, or a customer defined IdP.</p>
+</div></blockquote>
+<p>lastInteractiveLogin -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date of the user’s last interactive login.</p>
+</div></blockquote>
+<p>workloadUsername -&gt; (string)</p>
+<blockquote>
+<div><p>The username used in all the workload clusters of the user.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-user</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="get-account-messages.html"
+                        title="previous chapter">get-account-messages</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-access-keys.html"
+                        title="next chapter">list-access-keys</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-access-keys.html" title="list-access-keys"
+             >next</a></li>
+        <li class="right" >
+          <a href="get-account-messages.html" title="get-account-messages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-user</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

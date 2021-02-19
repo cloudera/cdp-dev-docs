@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>configure &#8212; CDP CLI 0.9.26 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get" href="get.html" />
+    <link rel="prev" title="list-events" href="../audit/list-events.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get.html" title="get"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../audit/list-events.html" title="list-events"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">configure</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configure">
+<span id="cli-cdp-configure"></span><h1>configure<a class="headerlink" href="#configure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Configure CDP CLI options. If this command is run with no
+arguments, you will be prompted for configuration values such as your CDP
+access key ID and your CDP private key.  You can configure a named profile
+using the <code class="docutils literal notranslate"><span class="pre">--profile</span></code> argument.</p>
+<p>When you are prompted for information, the current value will be displayed in
+<code class="docutils literal notranslate"><span class="pre">[brackets]</span></code>.  If the config item has no value, it be displayed as
+<code class="docutils literal notranslate"><span class="pre">[None]</span></code>.  To keep an existing value, hit enter when prompted.</p>
+</div>
+<div class="section" id="configuration-files-and-variables">
+<h2>Configuration Files and Variables<a class="headerlink" href="#configuration-files-and-variables" title="Permalink to this headline">¶</a></h2>
+<p>Two files store configuration options. If either file does not exist when you
+run this command, the CDP CLI creates it for you.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">configure</span></code> command only work with values from these files. It
+does not use any configuration values from environment variables or the IAM
+role.</p>
+<p>The files are stored in INI format, where each section corresponds to a profile.
+The special profile named “default” is used by the CDP CLI when a profile is
+not provided using the <code class="docutils literal notranslate"><span class="pre">--profile</span></code> argument.</p>
+<p>The <strong>credentials file</strong> stores credential information in the following
+variables:</p>
+<ul class="simple">
+<li><p><strong>cdp_access_key_id</strong> - The CDP access key ID part of your credentials</p></li>
+<li><p><strong>cdp_private_key</strong> - The CDP private key part of your credentials</p></li>
+</ul>
+<p>By default, the credentials file is found at <code class="docutils literal notranslate"><span class="pre">~/.cdp/credentials</span></code>.</p>
+<p>The <strong>config file</strong> stores other information, in the following variables:</p>
+<ul class="simple">
+<li><p><strong>cdp_endpoint_url</strong> - The base URL for CDP API services</p></li>
+<li><p><strong>endpoint_url</strong> - The base URL for other, legacy CDP API services
+(<code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span></code> does not prompt for this value)</p></li>
+</ul>
+<p>When using CDP Public Cloud, you do not need to provide values for these
+variables. Otherwise, ask your CDP administrator for the correct URLs.</p>
+<p>By default, the config file is found at <code class="docutils literal notranslate"><span class="pre">~/.cdp/config</span></code>.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cdp configure <span class="o">[</span>--profile profile-name<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><em>None</em></p>
+</div>
+<div class="section" id="available-commands">
+<h2>Available Commands<a class="headerlink" href="#available-commands" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get.html">get</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list.html">list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="set.html">set</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>To create a new default configuration for CDP Public Cloud:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cdp configure
+CDP Access Key ID <span class="o">[</span>None<span class="o">]</span>: accesskey
+CDP Private Key <span class="o">[</span>None<span class="o">]</span>: privatekey
+CDP Endpoint URL <span class="o">(</span>blank <span class="k">for</span> public cloud<span class="o">)</span> <span class="o">[</span>None<span class="o">]</span>:
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">configure</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#configuration-files-and-variables">Configuration Files and Variables</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#available-commands">Available Commands</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../audit/list-events.html"
+                        title="previous chapter">list-events</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get.html"
+                        title="next chapter">get</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get.html" title="get"
+             >next</a></li>
+        <li class="right" >
+          <a href="../audit/list-events.html" title="list-events"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.26 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">configure</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>
