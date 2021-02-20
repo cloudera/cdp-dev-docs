@@ -8,6 +8,7 @@ This repository houses detailed developer-oriented documentation for
 * [beta API documentation](./api-docs-beta)
 * [audit event details documentation](./audit-details-docs)
 * [Java SDK javadoc](https://cloudera.github.io/cdp-sdk-java/)
+* [CLI documentation](./cli-docs)
 
 For overall CDP documentation, visit [docs.cloudera.com](https://docs.cloudera.com/).
 
