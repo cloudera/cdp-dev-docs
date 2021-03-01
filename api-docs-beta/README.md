@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.26 (BETA)*
+*Version: 0.9.27 (BETA)*
 
 Available documentation is listed by service below.
 
@@ -8,6 +8,7 @@ Available documentation is listed by service below.
 * [datahub](./datahub/index.html)
 * [datalake](./datalake/index.html)
 * [de](./de/index.html)
+* [df](./df/index.html)
 * [dw](./dw/index.html)
 * [environments](./environments/index.html)
 * [iam](./iam/index.html)

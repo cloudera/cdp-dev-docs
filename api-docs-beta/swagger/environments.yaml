@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.26 (BETA)
+  version: 0.9.27 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -1192,7 +1192,7 @@ definitions:
           type: string
       endpointAccessGatewayScheme:
         type: string
-        description: The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+        description: The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
         enum:
           - PUBLIC
           - PRIVATE
@@ -1762,6 +1762,17 @@ definitions:
         uniqueItems: true
         items:
           type: string
+      endpointAccessGatewayScheme:
+        type: string
+        description: The scheme for the endpoint gateway. PUBLIC indicates an external endpoint that can be accessed over the Internet.
+        enum:
+          - PUBLIC
+          - PRIVATE
+      endpointAccessGatewaySubnetIds:
+        type: array
+        items:
+          type: string
+        description: The subnets to use for endpoint access gateway.
       aws:
         description: AWS network parameters.
         $ref: '#/definitions/NetworkAwsParams'
