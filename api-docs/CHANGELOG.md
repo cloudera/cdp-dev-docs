@@ -1,5 +1,23 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.27 (2021-03-01)
+
+FEATURES:
+
+* de: New field in `EnableServiceRequest`: `tags`.
+* de: New field in `CreateVcRequest`: `runtimeSpotComponent`.
+* iam: The `deleteUser` operation no longer requires an entitlement.
+
+IMPROVEMENTS:
+
+* datalake: New field in `DatalakeDetails`, part of `DescribeDatalakeResponse`: `shape`.
+
+NOTES:
+
+* audit: The identityProviderSessionId field in the interactive login audit event is deprecated. It never contained a useful value and will not be populated in the future.
+* iam: Many operations are annotated with their form factors. This is related to upcoming improvements to private cloud support, and has no effect on API usage currently.
+* iam: Machine user names are no longer permitted to begin with two underscore characters.
+
 ## 0.9.26 (2021-02-17)
 
 FEATURES:

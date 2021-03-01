@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.26*
+*Version: 0.9.27*
 
 [CHANGELOG](CHANGELOG.md)
 
