@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-saml-providers &#8212; CDP CLI 0.9.27 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-ssh-public-keys" href="list-ssh-public-keys.html" />
+    <link rel="prev" title="list-roles" href="list-roles.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-ssh-public-keys.html" title="list-ssh-public-keys"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-roles.html" title="list-roles"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-saml-providers</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-saml-providers">
+<span id="cli-cdp-iam-list-saml-providers"></span><h1>list-saml-providers<a class="headerlink" href="#list-saml-providers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Lists SAML providers in CDP account.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-saml-providers
+<span class="o">[</span>--saml-provider-names &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--saml-provider-names</span></code> (array)
+The SAML providers names or CRNs to retrieve. If empty all SAML providers will be returned.</p>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--page-size</span></code> (integer)
+The size of each page.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)
+A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>samlProviders -&gt; (array)</p>
+<blockquote>
+<div><p>The SAML providers.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Information used to connect a CDP account to an external identity provider.</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN of the SAML provider in CDP.</p>
+</div></blockquote>
+<p>creationDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date when this SAML provider record was created.</p>
+</div></blockquote>
+<p>samlProviderName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the SAML provider.</p>
+</div></blockquote>
+<p>samlProviderId -&gt; (string)</p>
+<blockquote>
+<div><p>The unique ID of the saml provider.</p>
+</div></blockquote>
+<p>syncGroupsOnLogin -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the <a class="reference external" href="https://cdp.cloudera.com/SAML/Attributes/groups">https://cdp.cloudera.com/SAML/Attributes/groups</a> SAML assertion.</p>
+</div></blockquote>
+<p>samlMetadataDocument -&gt; (string)</p>
+<blockquote>
+<div><p>The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for list-saml-providers API response.</p>
+</div></blockquote>
+<p>cdpSpMetadata -&gt; (string)</p>
+<blockquote>
+<div><p>The Service Provider SAML metadata specific to this CDP SAML provider. This field will only be set for create-saml-provider and describeSamlProvider API calls.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>nextToken -&gt; (string)</p>
+<blockquote>
+<div><p>The token to use when requesting the next set of results. If not present, there are no additional results.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-saml-providers</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-roles.html"
+                        title="previous chapter">list-roles</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-ssh-public-keys.html"
+                        title="next chapter">list-ssh-public-keys</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-ssh-public-keys.html" title="list-ssh-public-keys"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-roles.html" title="list-roles"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-saml-providers</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

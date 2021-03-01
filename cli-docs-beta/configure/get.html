@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get &#8212; CDP CLI 0.9.27 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list" href="list.html" />
+    <link rel="prev" title="configure" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list.html" title="list"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="configure"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">configure</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get">
+<span id="cli-cdp-configure-get"></span><h1>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Get a configuration value from the config file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span> <span class="pre">get</span></code> command can be used to print a configuration value in
+the CDP config file.  The <code class="docutils literal notranslate"><span class="pre">get</span></code> command supports two types of configuration
+values, <em>unqualified</em> and <em>qualified</em> config values.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span> <span class="pre">get</span></code> only looks at values in the CDP configuration
+file.  It does <strong>not</strong> resolve configuration variables specified anywhere else,
+including environment variables, command line arguments, etc.</p>
+<div class="section" id="unqualified-names">
+<h3>Unqualified Names<a class="headerlink" href="#unqualified-names" title="Permalink to this headline">¶</a></h3>
+<p>Every value in the CDP configuration file must be placed in a section (denoted
+by <code class="docutils literal notranslate"><span class="pre">[section-name]</span></code> in the config file).  To retrieve a value from the
+config file, the section name and the config name must be known.</p>
+<p>An unqualified configuration name refers to a name that is not scoped to a
+specific section in the configuration file.  Sections are specified by
+separating parts with the <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> character (<code class="docutils literal notranslate"><span class="pre">section.config-name</span></code>).  An
+unqualified name will be scoped to the current profile.  For example,
+<code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span> <span class="pre">get</span> <span class="pre">cdp_access_key_id</span></code> will retrieve the <code class="docutils literal notranslate"><span class="pre">cdp_access_key_id</span></code>
+from the current profile,  or the <code class="docutils literal notranslate"><span class="pre">default</span></code> profile if no profile is
+specified.  You can still provide a <code class="docutils literal notranslate"><span class="pre">--profile</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">cdp</span>
+<span class="pre">configure</span> <span class="pre">get</span></code> command.  For example, <code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span> <span class="pre">get</span> <span class="pre">region</span> <span class="pre">--profile</span>
+<span class="pre">testing</span></code> will print the region value for the <code class="docutils literal notranslate"><span class="pre">testing</span></code> profile.</p>
+</div>
+<div class="section" id="qualified-names">
+<h3>Qualified Names<a class="headerlink" href="#qualified-names" title="Permalink to this headline">¶</a></h3>
+<p>A qualified name is a name that has at least one <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> character in the name.
+This name provides a way to specify the config section from which to retrieve
+the config variable.  When a qualified name is provided to <code class="docutils literal notranslate"><span class="pre">cdp</span> <span class="pre">configure</span>
+<span class="pre">get</span></code>, the currently specified profile is ignored.  Section names that have
+the format <code class="docutils literal notranslate"><span class="pre">[profile</span> <span class="pre">profile-name]</span></code> can be specified by using the
+<code class="docutils literal notranslate"><span class="pre">profile.profile-name.config-name</span></code> syntax, and the default profile can be
+specified using the <code class="docutils literal notranslate"><span class="pre">default.config-name</span></code> syntax.</p>
+</div>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cdp configure get varname <span class="o">[</span>--profile profile-name<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">varname</span></code> (string)
+The name of the config value to retrieve.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you had the following config file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>default<span class="o">]</span>
+<span class="nv">cdp_access_key_id</span><span class="o">=</span>default_access_key
+<span class="nv">cdp_private_key</span><span class="o">=</span>default_private_key
+
+<span class="o">[</span>foobar<span class="o">]</span>
+<span class="nv">farboo</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="o">[</span>profile testing<span class="o">]</span>
+<span class="nv">cdp_access_key_id</span><span class="o">=</span>testing_access_key
+<span class="nv">cdp_private_key</span><span class="o">=</span>testing_private_key
+</pre></div>
+</div>
+<p>The following commands would have the corresponding output:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cdp configure get cdp_access_key_id
+default_access_key
+
+$ cdp configure get default.cdp_access_key_id
+default_access_key
+
+$ cdp configure get cdp_access_key_id --profile testing
+testing_access_key
+
+$ cdp configure get profile.testing.cdp_access_key_id
+testing_access_key
+
+$ cdp configure get foobar.farboo
+<span class="nb">true</span>
+
+$ cdp configure get preview.does-not-exist
+$
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get</a><ul>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#unqualified-names">Unqualified Names</a></li>
+<li><a class="reference internal" href="#qualified-names">Qualified Names</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">configure</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list.html"
+                        title="next chapter">list</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list.html" title="list"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="configure"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >configure</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

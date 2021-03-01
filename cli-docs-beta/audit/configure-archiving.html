@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>configure-archiving &#8212; CDP CLI 0.9.27 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get-archiving-config" href="get-archiving-config.html" />
+    <link rel="prev" title="archive-audit-events" href="archive-audit-events.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-archiving-config.html" title="get-archiving-config"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="archive-audit-events.html" title="archive-audit-events"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">audit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">configure-archiving</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configure-archiving">
+<span id="cli-cdp-audit-configure-archiving"></span><h1>configure-archiving<a class="headerlink" href="#configure-archiving" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Configures the audit system for archiving audit events to an external cloud storage service, replacing any existing configuration. Also returns the current configuration.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  configure-archiving
+--storage-location &lt;value&gt;
+--credential-name &lt;value&gt;
+--enabled <span class="p">|</span> --no-enabled
+<span class="o">[</span>--storage-region &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--verify-only <span class="p">|</span> --no-verify-only<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--storage-location</span></code> (string)
+The destination for the logs, e.g. S3 bucket name</p>
+<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)
+The credential name or CRN to use</p>
+<p><code class="docutils literal notranslate"><span class="pre">--enabled</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enabled</span></code> (boolean)
+Flag to enable/disable the archiving process</p>
+<p><code class="docutils literal notranslate"><span class="pre">--storage-region</span></code> (string)
+The region to work with when accessing the logs, e.g. S3 region</p>
+<p><code class="docutils literal notranslate"><span class="pre">--verify-only</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-verify-only</span></code> (boolean)
+Whether to only verify the configuration, and not update it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>configuration -&gt; (object)</p>
+<blockquote>
+<div><p>Object for holding archiving configuration information for the audit service.</p>
+<p>storageLocation -&gt; (string)</p>
+<blockquote>
+<div><p>The destination for the logs, e.g. S3 bucket name</p>
+</div></blockquote>
+<p>credentialName -&gt; (string)</p>
+<blockquote>
+<div><p>The credential name or CRN to use</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to enable/disable the archiving process</p>
+</div></blockquote>
+<p>storageRegion -&gt; (string)</p>
+<blockquote>
+<div><p>The region to work with when accessing the logs, e.g. S3 region</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">configure-archiving</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="archive-audit-events.html"
+                        title="previous chapter">archive-audit-events</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get-archiving-config.html"
+                        title="next chapter">get-archiving-config</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-archiving-config.html" title="get-archiving-config"
+             >next</a></li>
+        <li class="right" >
+          <a href="archive-audit-events.html" title="archive-audit-events"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >audit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">configure-archiving</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

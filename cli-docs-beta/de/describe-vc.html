@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>describe-vc &#8212; CDP CLI 0.9.27 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="disable-service" href="disable-service.html" />
+    <link rel="prev" title="describe-service" href="describe-service.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="disable-service.html" title="disable-service"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="describe-service.html" title="describe-service"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-vc</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="describe-vc">
+<span id="cli-cdp-de-describe-vc"></span><h1>describe-vc<a class="headerlink" href="#describe-vc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Returns a description for the specified virtual cluster.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-vc
+--cluster-id &lt;value&gt;
+--vc-id &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)
+Cluster id of the CDE service where vc was created.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--vc-id</span></code> (string)
+Virtual cluster id.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>vc -&gt; (object)</p>
+<blockquote>
+<div><p>CDE virtual cluster summary.</p>
+<p>vcId -&gt; (string)</p>
+<blockquote>
+<div><p>Virtual Cluster ID.</p>
+</div></blockquote>
+<p>vcName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the CDE Virtual Cluster.</p>
+</div></blockquote>
+<p>clusterId -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster ID of the CDE service that contains the Virtual Cluster.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the Virtual Cluster.</p>
+</div></blockquote>
+<p>resources -&gt; (object)</p>
+<blockquote>
+<div><p>Object to store resources for a CDE service</p>
+<p>cpuRequests -&gt; (string)</p>
+<blockquote>
+<div><p>The CPU requests for VC for running spark jobs.</p>
+</div></blockquote>
+<p>memRequests -&gt; (string)</p>
+<blockquote>
+<div><p>The Memory requests for VC for running spark jobs.</p>
+</div></blockquote>
+<p>actualCpuRequests -&gt; (string)</p>
+<blockquote>
+<div><p>Actual CPU request for the VC. This accounts for other dex apps(eg. livy, airflow), that run in the virtual cluster.</p>
+</div></blockquote>
+<p>actualMemoryRequests -&gt; (string)</p>
+<blockquote>
+<div><p>Actual Memory request for the VC. This accounts for other dex apps(eg. livy, airflow), that run in the virtual cluster.</p>
+</div></blockquote>
+</div></blockquote>
+<p>creatorEmail -&gt; (string)</p>
+<blockquote>
+<div><p>Email address of the creator of Virtual Cluster.</p>
+</div></blockquote>
+<p>creatorID -&gt; (string)</p>
+<blockquote>
+<div><p>ID of the creator of Virtual Cluster.</p>
+</div></blockquote>
+<p>creatorName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the creator of the Virtual Cluster.</p>
+</div></blockquote>
+<p>vcApiUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Url for the Virtual Cluster APIs.</p>
+</div></blockquote>
+<p>VcUiUrl -&gt; (string)</p>
+<blockquote>
+<div><p>URL of the CDE Virtual Cluster UI.</p>
+</div></blockquote>
+<p>historyServerUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Spark History Server URL for the Virtual Cluster.</p>
+</div></blockquote>
+<p>livyServerUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Livy Server URL for the Virtual Cluster.</p>
+</div></blockquote>
+<p>safariUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Safari URL for the Virtual Cluster.</p>
+</div></blockquote>
+<p>creationTime -&gt; (string)</p>
+<blockquote>
+<div><p>Time of creation of the virtual Cluster.</p>
+</div></blockquote>
+<p>chartValueOverrides -&gt; (array)</p>
+<blockquote>
+<div><p>Chart overrides for the Virtual Cluster.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Response object containing chart value overrides.</p>
+<p>chartName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the chart that has to be overridden, for eg- “dex-app”, “dex-base”.</p>
+</div></blockquote>
+<p>overrides -&gt; (string)</p>
+<blockquote>
+<div><p>Space separated key value-pairs for overriding chart values. The key and the value must be separated using a colon(:) For eg- “airflow.enabled:true safari.enabled:true”.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-vc</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="describe-service.html"
+                        title="previous chapter">describe-service</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="disable-service.html"
+                        title="next chapter">disable-service</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="disable-service.html" title="disable-service"
+             >next</a></li>
+        <li class="right" >
+          <a href="describe-service.html" title="describe-service"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.27 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-vc</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>
