@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.28 (2021-03-03)
+
+IMPROVEMENTS:
+
+* dw: New field in `CreateClusterRequest`: `usePrivateLoadBalancer`. All-private VPC cluster creation is now possible.
+
 ## 0.9.27 (2021-03-01)
 
 FEATURES:
