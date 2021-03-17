@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-aws-environment &#8212; CDP CLI 0.9.28 documentation</title>
+    <title>create-aws-environment &#8212; CDP CLI 0.9.29 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>
@@ -56,6 +56,8 @@
 <span class="o">[</span>--network-cidr &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--vpc-id &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--subnet-ids &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--endpoint-access-gateway-scheme &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--endpoint-access-gateway-subnet-ids &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--s3-guard-table-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-tunnel <span class="p">|</span> --no-enable-tunnel<span class="o">]</span>
@@ -123,6 +125,21 @@ The network CIDR. This will create a VPC along with subnets in multiple Availabi
 The Amazon VPC ID. Mutually exclusive with networkCidr.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--subnet-ids</span></code> (array)
 One or more subnet ids within the VPC. Mutually exclusive with networkCidr.</p>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-scheme</span></code> (string)
+The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Possible values:</dt><dd><p>PUBLIC
+PRIVATE</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-subnet-ids</span></code> (array)
+The subnets to use for endpoint access gateway.</p>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
@@ -211,6 +228,15 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>subnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>Subnet names or ids of the network.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>endpointAccessGatewayScheme -&gt; (string)</p>
+<blockquote>
+<div><p>The scheme for the endpoint gateway. PUBLIC indicates an external endpoint that can be accessed over the Internet.</p>
+</div></blockquote>
+<p>endpointAccessGatewaySubnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>The subnets to use for endpoint access gateway.</p>
 <p>(string)</p>
 </div></blockquote>
 <p>aws -&gt; (object)</p>
@@ -467,7 +493,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.28 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>
