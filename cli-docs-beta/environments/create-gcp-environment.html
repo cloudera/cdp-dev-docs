@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-gcp-environment &#8212; CDP CLI 0.9.28 (BETA) documentation</title>
+    <title>create-gcp-environment &#8212; CDP CLI 0.9.29 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="create-gcp-credential.html" title="create-gcp-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.28 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
       </ul>
@@ -59,6 +59,7 @@
 <span class="o">[</span>--enable-tunnel <span class="p">|</span> --no-enable-tunnel<span class="o">]</span>
 <span class="o">[</span>--workload-analytics <span class="p">|</span> --no-workload-analytics<span class="o">]</span>
 <span class="o">[</span>--report-deployment-logs <span class="p">|</span> --no-report-deployment-logs<span class="o">]</span>
+<span class="o">[</span>--free-ipa &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--tags &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
@@ -80,15 +81,14 @@ Whether to associate public ip’s to the resources within the network.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--existing-network-params</span></code> (object)
 Request object for creating an GCP environment using existing VPC and subnets.</p>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">networkName</span><span class="o">=</span>string,subnetNames<span class="o">=</span>string,string,sharedProjectId<span class="o">=</span>string,sharedProjectName<span class="o">=</span>string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">networkName</span><span class="o">=</span>string,subnetNames<span class="o">=</span>string,string,sharedProjectId<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
   <span class="s2">&quot;networkName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;subnetNames&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-  <span class="s2">&quot;sharedProjectId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;sharedProjectName&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="s2">&quot;sharedProjectId&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -126,6 +126,18 @@ Whether to enable SSH tunnelling for the environment.</p>
 When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)
 When true, this will report additional diagnostic information back to Cloudera.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)
+Request object for creating FreeIPA in the environment.</p>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;instanceCountByGroup&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)
 Tags that can be attached to GCP resources. Please refer to Google documentation for the rules <a class="reference external" href="https://cloud.google.com/compute/docs/labeling-resources#label_format">https://cloud.google.com/compute/docs/labeling-resources#label_format</a>.</p>
 <p>Shorthand Syntax:</p>
@@ -483,7 +495,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-gcp-credential.html" title="create-gcp-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.28 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
       </ul>

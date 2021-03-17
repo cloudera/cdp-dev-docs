@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>collect-freeipa-diagnostics &#8212; CDP CLI 0.9.28 (BETA) documentation</title>
+    <title>collect-freeipa-diagnostics &#8212; CDP CLI 0.9.29 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="change-environment-credential.html" title="change-environment-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.28 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">collect-freeipa-diagnostics</a></li> 
       </ul>
@@ -57,6 +57,8 @@
 <span class="o">[</span>--additional-logs &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--hosts &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--host-groups &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--exclude-hosts &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--skip-unresponsive-hosts <span class="p">|</span> --no-skip-unresponsive-hosts<span class="o">]</span>
 <span class="o">[</span>--include-salt-logs <span class="p">|</span> --no-include-salt-logs<span class="o">]</span>
 <span class="o">[</span>--update-package <span class="p">|</span> --no-update-package<span class="o">]</span>
 <span class="o">[</span>--storage-validation <span class="p">|</span> --no-storage-validation<span class="o">]</span>
@@ -122,6 +124,14 @@ Array of host groups, collection will run only on the dedicated hosts that belon
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--exclude-hosts</span></code> (array)
+Array of host names (fqdn or IP address), collection will not run on the excluded hosts.</p>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--skip-unresponsive-hosts</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-unresponsive-hosts</span></code> (boolean)
+Skip unhealthy hosts from the diagnostics collection.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--include-salt-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-include-salt-logs</span></code> (boolean)
 Include salt minion/master/api system logs in the diagnostics collection.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--update-package</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-update-package</span></code> (boolean)
@@ -185,7 +195,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="change-environment-credential.html" title="change-environment-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.28 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">collect-freeipa-diagnostics</a></li> 
       </ul>
