@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.28
+  version: 0.9.29
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -457,6 +457,48 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/CollectDatalakeDiagnosticsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datalake/listDatalakeDiagnostics:
+    post:
+      summary: List recent Datalake diagnostics collections
+      description: List recent Datalake diagnostics collection
+      operationId: listDatalakeDiagnostics
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDatalakeDiagnosticsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDatalakeDiagnosticsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datalake/cancelDatalakeDiagnostics:
+    post:
+      summary: Cancel running Datalake diagnostics collections
+      description: Cancel running Datalake diagnostics collection
+      operationId: cancelDatalakeDiagnostics
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CancelDatalakeDiagnosticsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/CancelDatalakeDiagnosticsResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1483,6 +1525,15 @@ definitions:
         uniqueItems: true
         items:
           type: string
+      excludeHosts:
+        type: array
+        description: Array of host names (fqdn or IP address), collection will not run on the excluded hosts.
+        uniqueItems: true
+        items:
+          type: string
+      skipUnresponsiveHosts:
+        type: boolean
+        description: Skip unhealthy hosts from the diagnostics collection.
       includeSaltLogs:
         type: boolean
         description: Include salt minion/master/api system logs in the diagnostics collection.
@@ -1497,6 +1548,90 @@ definitions:
   CollectDatalakeDiagnosticsResponse:
     type: object
     description: Response object for collecting DataLake diagnostics.
+  ListDatalakeDiagnosticsRequest:
+    type: object
+    description: Request object for listing recent Datalake diagnostics collections.
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: CRN of the Datalake cluster.
+  ListDatalakeDiagnosticsResponse:
+    type: object
+    description: Response object for listing recent Datalake diagnostics collections.
+    properties:
+      collections:
+        type: array
+        description: description.
+        items:
+          $ref: '#/definitions/DatalakeDiagnosticsCollectionResponse'
+  DatalakeDiagnosticsCollectionResponse:
+    type: object
+    description: Response object for diagnostic collection flow details.
+    properties:
+      status:
+        type: string
+        description: Status of the diagnostics collection flow.
+        enum:
+          - RUNNING
+          - FAILED
+          - FINISHED
+          - CANCELLED
+      flowId:
+        type: string
+        description: Flow ID of the diagnostics collection flow.
+      flowState:
+        type: string
+        description: Current state of the diagnostics collection flow.
+      created:
+        type: string
+        format: date-time
+        description: Creation date of the diagnostics collection flow.
+      progressPercentage:
+        type: integer
+        description: Progress percentage of the diagnostics collection flow (maximum value if finished).
+        format: int32
+      collectionDetails:
+        $ref: '#/definitions/DatalakeDiagnosticsCollectionDetailsResponse'
+        description: Additional details about the diagnostics collection.
+  DatalakeDiagnosticsCollectionDetailsResponse:
+    type: object
+    description: Response object for diagnostic collection collection details.
+    properties:
+      case:
+        type: string
+        description: Case number for the diagnostics collection.
+      output:
+        type: string
+        description: Output destination of the diagnostics collection.
+      destination:
+        type: string
+        description: Destination type of the diagnostics collection.
+      description:
+        type: string
+        description: Description of the diagnostics collection.
+      accountId:
+        type: string
+        description: Account Id that was used for the diagnostics collection.
+      resourceCrn:
+        type: string
+        description: Crn of the cluster.
+      clusterVersion:
+        type: string
+        description: Version of the cluster that was used for the diagnostics collection.
+  CancelDatalakeDiagnosticsRequest:
+    type: object
+    description: Request object for cancel running Datalake diagnostics collections.
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: CRN of the Datalake cluster.
+  CancelDatalakeDiagnosticsResponse:
+    type: object
+    description: Response object for cancel running Datalake diagnostics collections.
   CollectCmDiagnosticsRequest:
     type: object
     description: Request object for collecting DataLake diagnostics.

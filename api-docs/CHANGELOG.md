@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.29 (2021-03-17)
+
+FEATURES:
+
+* datahub: New `listDatahubDiagnostics` and `cancelDatahubDiagnostics` commands, also added `excludeHosts` and `skipUnresponsiveHosts` parameters to `collectDatahubDiagnostics` command.
+* datalake: New `listDatalakeDiagnostics` and `cancelDatalakeDiagnostics` commands, also added `excludeHosts` and `skipUnresponsiveHosts` parameters to `collectDatalakeDiagnostics` command.
+* environments: New `listFreeipaDiagnostics` and `cancelFreeipaDiagnostics` commands, also added `excludeHosts` and `skipUnresponsiveHosts` parameters to `collectFreeipaDiagnostics` command.
+* environments: New fields added to `CreateAWSEnvironmentRequest`: `endpointAccessGatewayScheme` and `endpointAccessGatewaySubnetIds`. The same fields are also added to the `Network` object.
+* ml: New fields in `CreateWorkspaceRequest`: `enableGovernance`, `enableModelMetrics`.
+
 ## 0.9.28 (2021-03-03)
 
 IMPROVEMENTS:
