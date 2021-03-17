@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.28 (BETA)
+  version: 0.9.29 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -840,6 +840,48 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/environments2/listFreeipaDiagnostics:
+    post:
+      summary: List recent FreeIPA diagnostics collections
+      description: List recent FreeIPA diagnostics collection
+      operationId: listFreeipaDiagnostics
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListFreeipaDiagnosticsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListFreeipaDiagnosticsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/cancelFreeipaDiagnostics:
+    post:
+      summary: Cancel running FreeIPA diagnostics collections
+      description: Cancel running FreeIPA diagnostics collection
+      operationId: cancelFreeipaDiagnostics
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CancelFreeipaDiagnosticsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/CancelFreeipaDiagnosticsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/environments2/getAuditCredentialPrerequisites:
     post:
       summary: This API provides the audit credential prerequisites for the given cloud provider.
@@ -1523,6 +1565,9 @@ definitions:
       reportDeploymentLogs:
         type: boolean
         description: When true, this will report additional diagnostic information back to Cloudera.
+      freeIpa:
+        $ref: '#/definitions/GCPFreeIpaCreationRequest'
+        description: The FreeIPA creation request for the environment
       tags:
         type: array
         description: Tags that can be attached to GCP resources. Please refer to Google documentation for the rules https://cloud.google.com/compute/docs/labeling-resources#label_format.
@@ -1554,6 +1599,7 @@ definitions:
     required:
       - networkName
       - subnetNames
+      - sharedProjectId
     properties:
       networkName:
         type: string
@@ -1566,11 +1612,7 @@ definitions:
           type: string
       sharedProjectId:
         type: string
-        description: The ID of the Google project associated with the VPC. This parameter will become mandatory once sharedProjectName deprecated field is removed.
-      sharedProjectName:
-        type: string
-        description: Deprecated. This parameter will be removed in future releases. Please use sharedProjectId instead. Even if this parameter is supplied, it will be used as sharedProjectId.
-        x-deprecated: true
+        description: The ID of the Google project associated with the VPC.
   ChangeEnvironmentCredentialRequest:
     type: object
     description: Request object for a change environment credentials request.
@@ -2583,6 +2625,14 @@ definitions:
         type: integer
         format: int32
         description: The number of FreeIPA instances to create per group when creating FreeIPA in the environment
+  GCPFreeIpaCreationRequest:
+    description: Request object for creating FreeIPA in the environment.
+    type: object
+    properties:
+      instanceCountByGroup:
+        type: integer
+        format: int32
+        description: The number of FreeIPA instances to create per group when creating FreeIPA in the environment
   TagRequest:
     description: A label that can be attached to some resources.
     type: object
@@ -2941,6 +2991,15 @@ definitions:
         uniqueItems: true
         items:
           type: string
+      excludeHosts:
+        type: array
+        description: Array of host names (fqdn or IP address), collection will not run on the excluded hosts.
+        uniqueItems: true
+        items:
+          type: string
+      skipUnresponsiveHosts:
+        type: boolean
+        description: Skip unhealthy hosts from the diagnostics collection.
       includeSaltLogs:
         type: boolean
         description: Include salt minion/master/api system logs in the diagnostics collection.
@@ -2955,6 +3014,90 @@ definitions:
   CollectFreeipaDiagnosticsResponse:
     type: object
     description: Response object for collecting FreeIPA diagnostics.
+  ListFreeipaDiagnosticsRequest:
+    type: object
+    description: Request object for listing recent FreeIPA diagnostics collections.
+    required:
+      - environmentName
+    properties:
+      environmentName:
+        type: string
+        description: The name or CRN of the environment.
+  ListFreeipaDiagnosticsResponse:
+    type: object
+    description: Response object for listing recent FreeIPA diagnostics collections.
+    properties:
+      collections:
+        type: array
+        description: description.
+        items:
+          $ref: '#/definitions/FreeipaDiagnosticsCollectionResponse'
+  FreeipaDiagnosticsCollectionResponse:
+    type: object
+    description: Response object for diagnostic collection flow details.
+    properties:
+      status:
+        type: string
+        description: Status of the diagnostics collection flow.
+        enum:
+          - RUNNING
+          - FAILED
+          - FINISHED
+          - CANCELLED
+      flowId:
+        type: string
+        description: Flow ID of the diagnostics collection flow.
+      flowState:
+        type: string
+        description: Current state of the diagnostics collection flow.
+      created:
+        type: string
+        format: date-time
+        description: Creation date of the diagnostics collection flow.
+      progressPercentage:
+        type: integer
+        description: Progress percentage of the diagnostics collection flow (maximum value if finished).
+        format: int32
+      collectionDetails:
+        $ref: '#/definitions/FreeipaDiagnosticsCollectionDetailsResponse'
+        description: Additional details about the diagnostics collection.
+  FreeipaDiagnosticsCollectionDetailsResponse:
+    type: object
+    description: Response object for diagnostic collection details.
+    properties:
+      case:
+        type: string
+        description: Case number for the diagnostics collection.
+      output:
+        type: string
+        description: Output destination of the diagnostics collection.
+      destination:
+        type: string
+        description: Destination type of the diagnostics collection.
+      description:
+        type: string
+        description: Description of the diagnostics collection.
+      accountId:
+        type: string
+        description: Account Id that was used for the diagnostics collection.
+      resourceCrn:
+        type: string
+        description: Crn of the Freeipa cluster.
+      clusterVersion:
+        type: string
+        description: Version of the cluster that was used for the diagnostics collection.
+  CancelFreeipaDiagnosticsRequest:
+    type: object
+    description: Request object for cancel running FreeIPA diagnostics collections.
+    required:
+      - environmentName
+    properties:
+      environmentName:
+        type: string
+        description: The name or CRN of the environment.
+  CancelFreeipaDiagnosticsResponse:
+    type: object
+    description: Response object for cancel running FreeIPA diagnostics collections.
   GetFreeipaLogDescriptorsRequest:
     type: object
     description: Request object for obtaining log descriptors. (that are used for diagnostics collection)

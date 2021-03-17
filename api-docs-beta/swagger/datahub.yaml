@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.28 (BETA)
+  version: 0.9.29 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -757,6 +757,48 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datahub/listDatahubDiagnostics:
+    post:
+      summary: List recent Datahub diagnostics collections
+      description: List recent Datahub diagnostics collection
+      operationId: listDatahubDiagnostics
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDatahubDiagnosticsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDatahubDiagnosticsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datahub/cancelDatahubDiagnostics:
+    post:
+      summary: Cancel running Datahub diagnostics collections
+      description: Cancel running Datahub diagnostics collection
+      operationId: cancelDatahubDiagnostics
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CancelDatahubDiagnosticsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/CancelDatahubDiagnosticsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/datahub/collectCmDiagnostics:
     post:
       summary: Start Datahub Cloudera Manager based diagnostics collection
@@ -1417,6 +1459,13 @@ definitions:
       recoveryMode:
         type: string
         description: Recovery mode for the instance group.
+  DatahubDatabaseType:
+    type: string
+    description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
+    enum:
+      - HA
+      - NON_HA
+      - NONE
   CreateAWSClusterRequest:
     type: object
     description: Request object for create AWS cluster request.
@@ -1455,7 +1504,7 @@ definitions:
         type: string
         description: JSON template to use for cluster creation. This is different from cluster template and would be removed in the future.
       datahubDatabase:
-        type: string
+        $ref: '#/definitions/DatahubDatabaseType'
         description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
   CreateAWSClusterResponse:
     type: object
@@ -1504,7 +1553,7 @@ definitions:
         type: string
         description: JSON template to use for cluster creation. This is different from cluster template and would be removed in the future.
       datahubDatabase:
-        type: string
+        $ref: '#/definitions/DatahubDatabaseType'
         description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
   CreateAzureClusterResponse:
     type: object
@@ -1552,6 +1601,9 @@ definitions:
       requestTemplate:
         type: string
         description: JSON template to use for cluster creation. This is different from cluster template and would be removed in the future.
+      datahubDatabase:
+        $ref: '#/definitions/DatahubDatabaseType'
+        description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
   CreateGCPClusterResponse:
     type: object
     description: Response object for create GCP cluster request.
@@ -2537,6 +2589,15 @@ definitions:
         uniqueItems: true
         items:
           type: string
+      excludeHosts:
+        type: array
+        description: Array of host names (fqdn or IP address), collection will not run on the excluded hosts.
+        uniqueItems: true
+        items:
+          type: string
+      skipUnresponsiveHosts:
+        type: boolean
+        description: Skip unhealthy hosts from the diagnostics collection.
       includeSaltLogs:
         type: boolean
         description: Include salt minion/master/api system logs in the diagnostics collection.
@@ -2551,6 +2612,90 @@ definitions:
   CollectDatahubDiagnosticsResponse:
     type: object
     description: Response object for collecting DataHub diagnostics.
+  ListDatahubDiagnosticsRequest:
+    type: object
+    description: Request object for listing recent Datahub diagnostics collections.
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: CRN of the DataHub cluster.
+  ListDatahubDiagnosticsResponse:
+    type: object
+    description: Response object for listing recent Datahub diagnostics collections.
+    properties:
+      collections:
+        type: array
+        description: description.
+        items:
+          $ref: '#/definitions/DatahubDiagnosticsCollectionResponse'
+  DatahubDiagnosticsCollectionResponse:
+    type: object
+    description: Response object for diagnostic collection flow details.
+    properties:
+      status:
+        type: string
+        description: Status of the diagnostics collection flow.
+        enum:
+          - RUNNING
+          - FAILED
+          - FINISHED
+          - CANCELLED
+      flowId:
+        type: string
+        description: Flow ID of the diagnostics collection flow.
+      flowState:
+        type: string
+        description: Current state of the diagnostics collection flow.
+      created:
+        type: string
+        format: date-time
+        description: Creation date of the diagnostics collection flow.
+      progressPercentage:
+        type: integer
+        description: Progress percentage of the diagnostics collection flow (maximum value if finished).
+        format: int32
+      collectionDetails:
+        $ref: '#/definitions/DatahubDiagnosticsCollectionDetailsResponse'
+        description: Additional details about the diagnostics collection.
+  DatahubDiagnosticsCollectionDetailsResponse:
+    type: object
+    description: Response object for diagnostic collection details.
+    properties:
+      case:
+        type: string
+        description: Case number for the diagnostics collection.
+      output:
+        type: string
+        description: Output destination of the diagnostics collection.
+      destination:
+        type: string
+        description: Destination type of the diagnostics collection.
+      description:
+        type: string
+        description: Description of the diagnostics collection.
+      accountId:
+        type: string
+        description: Account Id that was used for the diagnostics collection.
+      resourceCrn:
+        type: string
+        description: Crn of the cluster.
+      clusterVersion:
+        type: string
+        description: Version of the cluster that was used for the diagnostics collection.
+  CancelDatahubDiagnosticsRequest:
+    type: object
+    description: Request object for cancel running Datahub diagnostics collections.
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: CRN of the DataHub cluster.
+  CancelDatahubDiagnosticsResponse:
+    type: object
+    description: Response object for cancel running Datahub diagnostics collections.
   GetDatahubLogDescriptorsRequest:
     type: object
     description: Request object for obtaining log descriptors. (that are used for diagnostics collection)
