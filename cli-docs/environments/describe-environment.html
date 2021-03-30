@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-environment &#8212; CDP CLI 0.9.29 documentation</title>
+    <title>describe-environment &#8212; CDP CLI 0.9.30 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="delete-proxy-config.html" title="delete-proxy-config"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.30 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-environment</a></li> 
       </ul>
@@ -136,6 +136,22 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <div><p>Whether to associate public ip’s to the resources within the network.</p>
 </div></blockquote>
 </div></blockquote>
+<p>gcp -&gt; (object)</p>
+<blockquote>
+<div><p>GCP network parameters.</p>
+<p>networkName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the GCP VPC.</p>
+</div></blockquote>
+<p>usePublicIp -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to associate public ip’s to the resources within the network.</p>
+</div></blockquote>
+<p>sharedProjectId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the Google project associated with the VPC.</p>
+</div></blockquote>
+</div></blockquote>
 <p>networkCidr -&gt; (string)</p>
 <blockquote>
 <div><p>The range of private IPv4 addresses that resources will use under this network.</p>
@@ -197,6 +213,18 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <div><p>The managed identity associated with the logger. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
 </div></blockquote>
 </div></blockquote>
+<p>gcpDetails -&gt; (object)</p>
+<blockquote>
+<div><p>GCP-specific log storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. This should be a gs:// url.</p>
+</div></blockquote>
+<p>serviceAccountEmail -&gt; (string)</p>
+<blockquote>
+<div><p>Email ID of the service account associated with the logging instances.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 <p>authentication -&gt; (object)</p>
 <blockquote>
@@ -252,6 +280,14 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>s3GuardTableName -&gt; (string)</p>
 <blockquote>
 <div><p>The name for the DynamoDB table backing S3Guard.</p>
+</div></blockquote>
+</div></blockquote>
+<p>gcpDetails -&gt; (object)</p>
+<blockquote>
+<div><p>GCP specific environment configuration information.</p>
+<p>sharedProjectId -&gt; (string)</p>
+<blockquote>
+<div><p>ID of the Google project where the resources are created.</p>
 </div></blockquote>
 </div></blockquote>
 <p>reportDeploymentLogs -&gt; (boolean)</p>
@@ -366,14 +402,14 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="delete-proxy-config.html" title="delete-proxy-config"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.30 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-environment</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Cloudera, Inc..
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
     </div>
   </body>
 </html>
