@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.30 (2021-03-30)
+
+FEATURES:
+
+* environments: GCP APIs are added: `createGCPEnvironment` and `createGCPCredential`
+* datalake: GCP APIs are added: `createGCPCluster` and
+* datahub: GCP APIs are added: `createGCPCluster` and
+
 ## 0.9.29 (2021-03-17)
 
 FEATURES:

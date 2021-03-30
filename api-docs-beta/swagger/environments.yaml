@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.29 (BETA)
+  version: 0.9.30 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -87,7 +87,6 @@ paths:
       summary: Creates a new GCP environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.
       description: Creates a new GCP environment.
       operationId: createGCPEnvironment
-      x-no-compatibility-guarantee: true
       x-entitlement: CDP_GCP
       parameters:
         - name: input
@@ -150,7 +149,6 @@ paths:
     post:
       summary: Creates a new GCP credential that can be attatched to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.
       description: Creates a new GCP credential.
-      x-no-compatibility-guarantee: true
       x-entitlement: CDP_GCP
       operationId: createGCPCredential
       parameters:
@@ -1040,7 +1038,6 @@ definitions:
   CreateGCPCredentialResponse:
     type: object
     description: Response object for a create GCP credential request.
-    x-no-compatibility-guarantee: true
     required:
       - credential
     properties:
@@ -1050,7 +1047,6 @@ definitions:
   CreateGCPCredentialRequest:
     type: object
     description: Request object for a create GCP credential request.
-    x-no-compatibility-guarantee: true
     required:
       - credentialName
       - credentialKey
@@ -1105,7 +1101,6 @@ definitions:
       gcpCredentialProperties:
         type: object
         description: The credential properties that closely related to those that have been created on GCP.
-        x-no-compatibility-guarantee: true
         $ref: '#/definitions/GCPCredentialProperties'
   AwsCredentialProperties:
     type: object
@@ -1130,7 +1125,6 @@ definitions:
   GCPCredentialProperties:
     type: object
     description: The credential properties that closely related to those that have created on GCP.
-    x-no-compatibility-guarantee: true
     properties:
       keyType:
         type: string
@@ -1573,6 +1567,9 @@ definitions:
         description: Tags that can be attached to GCP resources. Please refer to Google documentation for the rules https://cloud.google.com/compute/docs/labeling-resources#label_format.
         items:
           $ref: '#/definitions/GcpTagRequest'
+      proxyConfigName:
+        type: string
+        description: Name of the proxy config to use for the environment.
   ExistingAzureNetworkRequest:
     type: object
     description: Request object for creating an Azure environment using existing VNet and subnets.
@@ -1755,6 +1752,13 @@ definitions:
           s3GuardTableName:
             type: string
             description: The name for the DynamoDB table backing S3Guard.
+      gcpDetails:
+        type: object
+        description: GCP specific environment configuration information.
+        properties:
+          sharedProjectId:
+            type: string
+            description: ID of the Google project where the resources are created.
       reportDeploymentLogs:
         type: boolean
         description: When true, this will report additional diagnostic information back to Cloudera.
@@ -1891,10 +1895,6 @@ definitions:
       sharedProjectId:
         type: string
         description: The ID of the Google project associated with the VPC.
-      sharedProjectName:
-        type: string
-        description: Deprecated. This parameter will be removed in future releases.
-        x-deprecated: true
   DeleteEnvironmentRequest:
     type: object
     description: Request object for a delete environment request.
