@@ -1,5 +1,20 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.31 (2021-04-13)
+
+BACKWARD INCOMPATIBILITIES:
+
+* de: The `provisionerid` field in `EnableServiceRequest` has been removed, as it was never supported. There is no replacement.
+
+IMPROVEMENTS:
+
+* datalake: New field in `RestoreDatalakeRequest`: `backupLocationOverride`.
+
+NOTES:
+
+* audit: The listEvents operation has additional annotations pertaining to the paging of results. This does not change API usage, but can allow clients to automatically accumulate several pages of data to satisfy a single overall query.
+* datalake: An unnecessary empty set of properties in the definition of UpgradeDatalakeResponse was removed. This has no effect on API usage.
+
 ## 0.9.30 (2021-03-30)
 
 FEATURES:
