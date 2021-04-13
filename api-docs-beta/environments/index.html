@@ -998,11 +998,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_44">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_testaccounttelemetryrules">Test anonymization rules (for account telemetry) against text input.</a>
+<li><a href="#_synchronizeallenvironments">Synchronizes all environments in the calling account.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_45">Description</a></li>
 <li><a href="#_parameters_45">Parameters</a></li>
 <li><a href="#_responses_45">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_testaccounttelemetryrules">Test anonymization rules (for account telemetry) against text input.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_46">Description</a></li>
+<li><a href="#_parameters_46">Parameters</a></li>
+<li><a href="#_responses_46">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1143,6 +1150,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_syncstatusresponse">SyncStatusResponse</a></li>
 <li><a href="#_syncuserrequest">SyncUserRequest</a></li>
 <li><a href="#_syncuserresponse">SyncUserResponse</a></li>
+<li><a href="#_synchronizeallenvironmentsrequest">SynchronizeAllEnvironmentsRequest</a></li>
+<li><a href="#_synchronizeallenvironmentsresponse">SynchronizeAllEnvironmentsResponse</a></li>
 <li><a href="#_tagrequest">TagRequest</a></li>
 <li><a href="#_testaccounttelemetryrulesrequest">TestAccountTelemetryRulesRequest</a></li>
 <li><a href="#_testaccounttelemetryrulesresponse">TestAccountTelemetryRulesResponse</a></li>
@@ -1161,7 +1170,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.30 (BETA)</p>
+<p><em>Version</em> : 0.9.31 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4987,6 +4996,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_synchronizeallenvironments">Synchronizes all environments in the calling account.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/environments2/synchronizeAllEnvironments</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_45">Description</h4>
+<div class="paragraph">
+<p>Invokes the automated user sync service to synchronize all environments in the calling account.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_45">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_synchronizeallenvironmentsrequest">SynchronizeAllEnvironmentsRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_45">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_synchronizeallenvironmentsresponse">SynchronizeAllEnvironmentsResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_testaccounttelemetryrules">Test anonymization rules (for account telemetry) against text input.</h3>
 <div class="literalblock">
 <div class="content">
@@ -4994,13 +5089,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_45">Description</h4>
+<h4 id="_description_46">Description</h4>
 <div class="paragraph">
 <p>Test anonymization rules (for account telemetry) against text input.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_45">Parameters</h4>
+<h4 id="_parameters_46">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5031,7 +5126,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_45">Responses</h4>
+<h4 id="_responses_46">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -12739,6 +12834,24 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_synchronizeallenvironmentsrequest">SynchronizeAllEnvironmentsRequest</h3>
+<div class="paragraph">
+<p>Request object for synchronizing all environments.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_synchronizeallenvironmentsresponse">SynchronizeAllEnvironmentsResponse</h3>
+<div class="paragraph">
+<p>Response object for synchronizing all environments.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_tagrequest">TagRequest</h3>
 <div class="paragraph">
 <p>A label that can be attached to some resources.</p>
@@ -12869,7 +12982,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-30 09:37:56 -0700
+Last updated 2021-04-13 13:52:44 -0700
 </div>
 </div>
 <br>

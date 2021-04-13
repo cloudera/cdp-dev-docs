@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.30 (BETA)
+  version: 0.9.31 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -435,6 +435,30 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/GetKeytabResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/synchronizeAllEnvironments:
+    post:
+      summary: Synchronizes all environments in the calling account.
+      description: Invokes the automated user sync service to synchronize all environments in the calling account.
+      operationId: synchronizeAllEnvironments
+      x-no-compatibility-guarantee: true
+      x-right: environments/synchronizeAllEnvironments
+      x-entitlement: WORKLOAD_IAM_SYNC
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SynchronizeAllEnvironmentsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/SynchronizeAllEnvironmentsResponse'
         default:
           description: The default response on an error.
           schema:
@@ -2185,6 +2209,14 @@ definitions:
       contents:
         type: string
         description: The contents of the keytab encoded as a base64 string.
+  SynchronizeAllEnvironmentsRequest:
+    type: object
+    description: Request object for synchronizing all environments.
+    x-no-compatibility-guarantee: true
+  SynchronizeAllEnvironmentsResponse:
+    type: object
+    description: Response object for synchronizing all environments.
+    x-no-compatibility-guarantee: true
   GetIdBrokerMappingsRequest:
     type: object
     description: Request object for getting ID Broker mappings for an environment.

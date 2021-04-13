@@ -108,7 +108,7 @@ eyJhY2Nlc3Nfa2V5X2lkIjogIjFiMDY5YWJjLTc2MzgtNDUwMi1iZTY0LWM2OTRjZDM2OGNjMSIsICJh
 
 ## Step 4. Add the signature to the HTTP request
 
-After calculating the signature string and the encoded authorization parameters string, add them to the API request using the `Authorization` HTTP header.
+After calculating the signature string and the encoded authorization parameters string, add them to the API request using the `x-altus-auth` HTTP header.
 
 The value for the header is the concatenation of the encoded authentication parameters string and the signature string, separated by a single period character.
 
@@ -122,7 +122,7 @@ Also, ensure that the following related headers are set:
 * "x-altus-date" must be set to the same timestamp value used in constructing the canonical request string
 
 ```
-Authorization: eyJhY2Nlc3Nfa2V5X2lkIjogIjFiMDY5YWJjLTc2MzgtNDUwMi1iZTY0LWM2OTRjZDM2OGNjMSIsICJhdXRoX21ldGhvZCI6ICJlZDI1NTE5djEifQ==.3iDOInVdC1dYT2MDgiWKqZsYDbhSSZacV9B6uCnq3rlFeIIkWfE4za2t-PJbbPPiFcvZEuJcPbfy6hbbo-wmDQ==
+x-altus-auth: eyJhY2Nlc3Nfa2V5X2lkIjogIjFiMDY5YWJjLTc2MzgtNDUwMi1iZTY0LWM2OTRjZDM2OGNjMSIsICJhdXRoX21ldGhvZCI6ICJlZDI1NTE5djEifQ==.3iDOInVdC1dYT2MDgiWKqZsYDbhSSZacV9B6uCnq3rlFeIIkWfE4za2t-PJbbPPiFcvZEuJcPbfy6hbbo-wmDQ==
 Content-Type: application/json
 x-altus-date: Tue, 3 Jun 2008 11:05:30 GMT
 ```

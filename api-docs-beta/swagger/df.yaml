@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.30 (BETA)
+  version: 0.9.31 (BETA)
   title: Cloudera DataFlow Environment Service
   license:
     name: Apache 2.0
@@ -385,6 +385,7 @@ paths:
       description: Lists deployments.
       operationId: listDeployments
       x-entitlement: DFX
+      x-paging-default-max-items: 20
       parameters:
         - name: input
           in: body
@@ -406,6 +407,7 @@ paths:
       description: Lists environments.
       operationId: listEnvironments
       x-entitlement: DFX
+      x-paging-default-max-items: 20
       parameters:
         - name: input
           in: body
@@ -794,9 +796,13 @@ definitions:
       pageSize:
         type: integer
         format: int32
+        minimum: 20
+        maximum: 100
+        x-paging-page-size: true
         description: The page size.
       pageToken:
         type: string
+        x-paging-input-token: true
         description: The page token.
       metricsTimePeriod:
         type: string
@@ -817,9 +823,11 @@ definitions:
     properties:
       nextPageToken:
         type: string
+        x-paging-output-token: true
         description: The page token for requesting the next page of results.
       deployments:
         type: array
+        x-paging-result: true
         items:
           $ref: '#/definitions/DeploymentSummary'
         description: The listing of deployments in this page
@@ -938,6 +946,9 @@ definitions:
   GetEventDetailForDeploymentRequest:
     type: object
     description: A request to get event details for development
+    required:
+      - deploymentCrn
+      - eventCrn
     properties:
       deploymentCrn:
         type: string
@@ -1334,9 +1345,13 @@ definitions:
       pageSize:
         type: integer
         format: int32
+        minimum: 20
+        maximum: 100
+        x-paging-page-size: true
         description: The page size.
       pageToken:
         type: string
+        x-paging-input-token: true
         description: The page token.
   ListEnvironmentsResponse:
     type: object
@@ -1344,11 +1359,13 @@ definitions:
     properties:
       environments:
         type: array
+        x-paging-result: true
         items:
           $ref: '#/definitions/EnvironmentSummary'
         description: The environments.
       nextPageToken:
         type: string
+        x-paging-output-token: true
         description: The page token for requesting the next page of results.
   ListTargetEnvironmentsForNewDeploymentsRequest:
     type: object

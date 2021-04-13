@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.30 (BETA)
+  version: 0.9.31 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -1428,6 +1428,127 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /iam/assignAzureCloudIdentity:
+    post:
+      summary: Assign an Azure cloud identity to an actor or group.
+      description: Assign an Azure cloud identity, i.e. an object ID (OID), to an actor or group.
+      operationId: assignAzureCloudIdentity
+      x-no-compatibility-guarantee: true
+      x-right: iam/assignAzureCloudIdentity
+      x-entitlement: CDP_CLOUD_IDENTITY_MAPPING
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AssignAzureCloudIdentityRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/AssignAzureCloudIdentityResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /iam/unassignAzureCloudIdentity:
+    post:
+      summary: Unassign an Azure cloud identity from an actor or group.
+      description: Unassign an Azure cloud identity, i.e. an object ID (OID), from an actor or group.
+      operationId: unassignAzureCloudIdentity
+      x-no-compatibility-guarantee: true
+      x-right: iam/unassignAzureCloudIdentity
+      x-entitlement: CDP_CLOUD_IDENTITY_MAPPING
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UnassignAzureCloudIdentityRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UnassignAzureCloudIdentityResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /iam/assignServicePrincipalAzureCloudIdentity:
+    post:
+      summary: Assign an Azure cloud identity to a service principal.
+      description: Assign an Azure cloud identity, i.e. an object ID (OID), to a service principal.
+      operationId: assignServicePrincipalAzureCloudIdentity
+      x-no-compatibility-guarantee: true
+      x-right: iam/assignServicePrincipalAzureCloudIdentity
+      x-entitlement: CDP_CLOUD_IDENTITY_MAPPING
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AssignServicePrincipalAzureCloudIdentityRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/AssignServicePrincipalAzureCloudIdentityResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /iam/unassignServicePrincipalAzureCloudIdentity:
+    post:
+      summary: Unassign an Azure cloud identity from a service principal.
+      description: Unassign an Azure cloud identity, i.e. an object ID (OID), from a service principal.
+      operationId: unassignServicePrincipalAzureCloudIdentity
+      x-no-compatibility-guarantee: true
+      x-right: iam/unassignServicePrincipalAzureCloudIdentity
+      x-entitlement: CDP_CLOUD_IDENTITY_MAPPING
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UnassignServicePrincipalAzureCloudIdentityRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UnassignServicePrincipalAzureCloudIdentityResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /iam/listServicePrincipalCloudIdentities:
+    post:
+      summary: List cloud identity mappings for service principals.
+      description: List cloud identity mappings for service principals.
+      operationId: listServicePrincipalCloudIdentities
+      x-no-compatibility-guarantee: true
+      x-right: iam/listServicePrincipalCloudIdentities
+      x-entitlement: CDP_CLOUD_IDENTITY_MAPPING
+      x-paging-default-max-items: 100
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListServicePrincipalCloudIdentitiesRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListServicePrincipalCloudIdentitiesResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /iam/generateWorkloadAuthToken:
     post:
       summary: Generates an authentication token for workload APIs.
@@ -1536,6 +1657,12 @@ definitions:
         type: string
         description: The username used in all the workload clusters of the user.
         x-no-compatibility-guarantee: true
+      azureCloudIdentities:
+        type: array
+        items:
+          $ref: '#/definitions/AzureCloudIdentity'
+        description: The list of Azure cloud identities assigned to the user.
+        x-no-compatibility-guarantee: true
   MachineUser:
     type: object
     description: Information about a Cloudera CDP machine user.
@@ -1561,6 +1688,12 @@ definitions:
       workloadUsername:
         type: string
         description: The username used in all the workload clusters of the machine user.
+        x-no-compatibility-guarantee: true
+      azureCloudIdentities:
+        type: array
+        items:
+          $ref: '#/definitions/AzureCloudIdentity'
+        description: The list of Azure cloud identities assigned to the machine user.
         x-no-compatibility-guarantee: true
   AccessKey:
     type: object
@@ -1723,6 +1856,12 @@ definitions:
       syncMembershipOnUserLogin:
         type: boolean
         description: Whether group membership is synced when a user logs in. The default is to sync group membership.
+      azureCloudIdentities:
+        type: array
+        items:
+          $ref: '#/definitions/AzureCloudIdentity'
+        description: The list of Azure cloud identities assigned to the group.
+        x-no-compatibility-guarantee: true
   SamlProvider:
     type: object
     description: Information used to connect a CDP account to an external identity provider.
@@ -1776,6 +1915,19 @@ definitions:
       publicKey:
         type: string
         description: The SSH public key string. Only populated for DescribeSshPublicKeyResponses. This is the same string that was used when the key was added.
+  AzureCloudIdentity:
+    type: object
+    description: An Azure cloud identity.
+    x-no-compatibility-guarantee: true
+    required:
+      - objectId
+    properties:
+      objectId:
+        type: string
+        description: The Azure object ID (OID).
+      environmentCrn:
+        type: string
+        description: The CRN of the environment this Azure cloud identity is associated with. If omitted, this cloud identity is associated with all Azure environments.
   GetUserRequest:
     type: object
     description: Request object for a get user request.
@@ -3151,7 +3303,6 @@ definitions:
     type: object
     description: Request object for a unset workload password policy request.
     x-no-compatibility-guarantee: true
-    properties: {}
   UnsetWorkloadPasswordPolicyResponse:
     type: object
     description: Response object for a unset workload password policy request.
@@ -3267,6 +3418,134 @@ definitions:
   DeleteSshPublicKeyResponse:
     type: object
     description: Response object for delete SSH public key.
+  AssignAzureCloudIdentityRequest:
+    type: object
+    description: Request object for an assign Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+    required:
+      - assigneeCrn
+      - objectId
+    properties:
+      assigneeCrn:
+        type: string
+        description: The CRN of the actor or group that the cloud identity will be assigned to.
+      objectId:
+        type: string
+        description: The Azure object ID (OID) to assign to the actor or group.
+  AssignAzureCloudIdentityResponse:
+    type: object
+    description: Response object for an assign Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+  UnassignAzureCloudIdentityRequest:
+    type: object
+    description: Request object for an unassign Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+    required:
+      - assigneeCrn
+    properties:
+      assigneeCrn:
+        type: string
+        description: The CRN of the actor or group from which the cloud identity will be unassigned.
+  UnassignAzureCloudIdentityResponse:
+    type: object
+    description: Response object for an unassign Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+  AssignServicePrincipalAzureCloudIdentityRequest:
+    type: object
+    description: Request object for an assign service principal Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+    required:
+      - servicePrincipal
+      - environmentCrn
+      - objectId
+    properties:
+      servicePrincipal:
+        type: string
+        description: The name of the service principal that the cloud identity will be assigned to.
+      environmentCrn:
+        type: string
+        description: The CRN of the environment for which the cloud identity assignment will be in effect.
+      objectId:
+        type: string
+        description: The Azure object ID (OID) to assign to the service principal.
+  AssignServicePrincipalAzureCloudIdentityResponse:
+    type: object
+    description: Response object for an assign service principal Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+  UnassignServicePrincipalAzureCloudIdentityRequest:
+    type: object
+    description: Request object for an unassign service principal Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+    required:
+      - servicePrincipal
+      - environmentCrn
+    properties:
+      servicePrincipal:
+        type: string
+        description: The name of the service principal from which the cloud identity will be unassigned.
+      environmentCrn:
+        type: string
+        description: The CRN of the environment for which the cloud identity to unassign is in effect.
+  UnassignServicePrincipalAzureCloudIdentityResponse:
+    type: object
+    description: Response object for an unassign service principal Azure cloud identity request.
+    x-no-compatibility-guarantee: true
+  ListServicePrincipalCloudIdentitiesRequest:
+    type: object
+    description: Request object for a list service principal cloud identities request.
+    x-no-compatibility-guarantee: true
+    properties:
+      servicePrincipals:
+        type: array
+        items:
+          type: string
+        description: The service principals for which cloud identity mappings should be listed. If omitted, mappings for all service principals are listed.
+      environmentCrn:
+        type: string
+        description: The CRN of the environment for which cloud identity mappings should be listed. If omitted, mappings for all environments are listed.
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 100
+        x-paging-page-size: true
+        description: The size of each page.
+      startingToken:
+        type: string
+        x-paging-input-token: true
+        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response.
+  ServicePrincipalCloudIdentities:
+    type: object
+    description: Cloud identity mappings for a service principal.
+    x-no-compatibility-guarantee: true
+    required:
+      - servicePrincipal
+    properties:
+      servicePrincipal:
+        type: string
+        description: The name of the service principal that the cloud identities are assigned to.
+      azureCloudIdentities:
+        type: array
+        items:
+          $ref: '#/definitions/AzureCloudIdentity'
+        description: The list of Azure cloud identities assigned to the service principal.
+  ListServicePrincipalCloudIdentitiesResponse:
+    type: object
+    description: Response object for a list service principal cloud identities request.
+    x-no-compatibility-guarantee: true
+    required:
+      - servicePrincipalCloudIdentities
+    properties:
+      servicePrincipalCloudIdentities:
+        type: array
+        items:
+          $ref: '#/definitions/ServicePrincipalCloudIdentities'
+        x-paging-result: true
+        description: The list of service principal cloud identity mappings.
+      nextToken:
+        type: string
+        x-paging-output-token: true
+        description: The token to use when requesting the next set of results. If not present, there are no additional results.
   GenerateWorkloadAuthTokenRequest:
     type: object
     description: Request object for GenerateWorkloadAuthToken method.
