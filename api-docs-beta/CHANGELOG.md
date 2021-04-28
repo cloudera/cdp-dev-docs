@@ -1,5 +1,21 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.32 (2021-04-28)
+
+FEATURES:
+
+* ml: The service is available for use with CDP Private Cloud.
+* environments: enabled custom image catalogs for FreeIPA
+
+NOTES:
+
+* dw: EnableSSO set in config option for VW creates SSO enabled cluster.
+* dw: LdapGroups configuration support.
+
+BUG FIXES:
+
+* dw: Enable SSO and LDAPGroups Support from CLI.
+
 ## 0.9.31 (2021-04-13)
 
 BACKWARD INCOMPATIBILITIES:
