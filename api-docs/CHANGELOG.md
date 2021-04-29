@@ -1,5 +1,21 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.33 (2021-04-29)
+
+NOTES:
+
+* audit: The model object `ArchiveAuditEventsBatchResponse` is renamed to `ArchiveBatch`. This should not affect client usage, and older client code may continue to use the prior name.
+
+FEATURES:
+
+* datalake: New fields in `UpdateDatalakeRequest`: `imageId`, `runtime`, `lockComponents`, `dryRun`, `showAvailableImages`, `showLatestAvailableImagePerRuntime`.
+* datalake: New fields in `UpdateDatalakeResponse`: `current`, `upgradeCandidates`, `reason`.
+* datalake: New field in `CreateAWSDatalakeRequest`, `CreateAzureDatalakeRequest`, and `CreateGCPDatalakeRequest`: `image`.
+
+IMPROVEMENTS:
+
+* datahub: The `rootVolumeSize` field in `InstanceGroupRequest` is now optional.
+
 ## 0.9.32 (2021-04-28)
 
 FEATURES:
