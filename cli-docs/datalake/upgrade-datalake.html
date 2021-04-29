@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>upgrade-datalake &#8212; CDP CLI 0.9.32 documentation</title>
+    <title>upgrade-datalake &#8212; CDP CLI 0.9.33 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="stop-datalake.html" title="stop-datalake"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.32 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.33 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">upgrade-datalake</a></li> 
       </ul>
@@ -48,6 +48,12 @@
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  upgrade-datalake
 --datalake-name &lt;value&gt;
+<span class="o">[</span>--image-id &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--runtime &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--lock-components <span class="p">|</span> --no-lock-components<span class="o">]</span>
+<span class="o">[</span>--dry-run <span class="p">|</span> --no-dry-run<span class="o">]</span>
+<span class="o">[</span>--show-available-images <span class="p">|</span> --no-show-available-images<span class="o">]</span>
+<span class="o">[</span>--show-latest-available-image-per-runtime <span class="p">|</span> --no-show-latest-available-image-per-runtime<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -57,6 +63,18 @@
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">--datalake-name</span></code> (string)
 The name or CRN of the datalake.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--image-id</span></code> (string)
+The id of an image to upgrade to</p>
+<p><code class="docutils literal notranslate"><span class="pre">--runtime</span></code> (string)
+The runtime version to upgrade to</p>
+<p><code class="docutils literal notranslate"><span class="pre">--lock-components</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-lock-components</span></code> (boolean)
+Perform an os upgrade only</p>
+<p><code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-dry-run</span></code> (boolean)
+Checks the eligibility of an image to upgrade</p>
+<p><code class="docutils literal notranslate"><span class="pre">--show-available-images</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-show-available-images</span></code> (boolean)
+Returns the list of images that are eligible for the upgrade</p>
+<p><code class="docutils literal notranslate"><span class="pre">--show-latest-available-image-per-runtime</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-show-latest-available-image-per-runtime</span></code> (boolean)
+Returns the latest image that is eligible for the upgrade for each runtime version with at least one available upgrade candidate</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
 Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
@@ -64,6 +82,110 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>current -&gt; (object)</p>
+<blockquote>
+<div><p>Basic information about an image.</p>
+<p>imageName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the image.</p>
+</div></blockquote>
+<p>imageId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the image.</p>
+</div></blockquote>
+<p>imageCatalogName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the image catalog, the image is from.</p>
+</div></blockquote>
+<p>created -&gt; (integer)</p>
+<blockquote>
+<div><p>Image creation timestamp</p>
+</div></blockquote>
+<p>componentVersions -&gt; (object)</p>
+<blockquote>
+<div><p>Versions of the image components</p>
+<p>cm -&gt; (string)</p>
+<blockquote>
+<div><p>Version of CM</p>
+</div></blockquote>
+<p>cmGBN -&gt; (string)</p>
+<blockquote>
+<div><p>GBN of CM</p>
+</div></blockquote>
+<p>cdp -&gt; (string)</p>
+<blockquote>
+<div><p>CDP version</p>
+</div></blockquote>
+<p>cdpGBN -&gt; (string)</p>
+<blockquote>
+<div><p>CDP GBN</p>
+</div></blockquote>
+<p>os -&gt; (string)</p>
+<blockquote>
+<div><p>OS name</p>
+</div></blockquote>
+<p>osPatchLevel -&gt; (string)</p>
+<blockquote>
+<div><p>OS patch level</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>upgradeCandidates -&gt; (array)</p>
+<blockquote>
+<div><p>List of images and components to upgrade to</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Basic information about an image.</p>
+<p>imageName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the image.</p>
+</div></blockquote>
+<p>imageId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the image.</p>
+</div></blockquote>
+<p>imageCatalogName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the image catalog, the image is from.</p>
+</div></blockquote>
+<p>created -&gt; (integer)</p>
+<blockquote>
+<div><p>Image creation timestamp</p>
+</div></blockquote>
+<p>componentVersions -&gt; (object)</p>
+<blockquote>
+<div><p>Versions of the image components</p>
+<p>cm -&gt; (string)</p>
+<blockquote>
+<div><p>Version of CM</p>
+</div></blockquote>
+<p>cmGBN -&gt; (string)</p>
+<blockquote>
+<div><p>GBN of CM</p>
+</div></blockquote>
+<p>cdp -&gt; (string)</p>
+<blockquote>
+<div><p>CDP version</p>
+</div></blockquote>
+<p>cdpGBN -&gt; (string)</p>
+<blockquote>
+<div><p>CDP GBN</p>
+</div></blockquote>
+<p>os -&gt; (string)</p>
+<blockquote>
+<div><p>OS name</p>
+</div></blockquote>
+<p>osPatchLevel -&gt; (string)</p>
+<blockquote>
+<div><p>OS patch level</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>reason -&gt; (string)</p>
+<blockquote>
+<div><p>The reason why upgrade is not possible</p>
+</div></blockquote>
 </div>
 </div>
 
@@ -114,7 +236,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="stop-datalake.html" title="stop-datalake"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.32 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.33 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">upgrade-datalake</a></li> 
       </ul>
