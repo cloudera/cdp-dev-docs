@@ -1021,6 +1021,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_azurecredentialproperties">AzureCredentialProperties</a></li>
 <li><a href="#_azurefreeipacreationrequest">AzureFreeIpaCreationRequest</a></li>
 <li><a href="#_azurelogstoragerequest">AzureLogStorageRequest</a></li>
+<li><a href="#_backupstorage">BackupStorage</a></li>
 <li><a href="#_cancelfreeipadiagnosticsrequest">CancelFreeipaDiagnosticsRequest</a></li>
 <li><a href="#_cancelfreeipadiagnosticsresponse">CancelFreeipaDiagnosticsResponse</a></li>
 <li><a href="#_changeenvironmentcredentialrequest">ChangeEnvironmentCredentialRequest</a></li>
@@ -1161,7 +1162,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.33</p>
+<p><em>Version</em> : 0.9.34</p>
 </div>
 </div>
 <div class="sect2">
@@ -5409,6 +5410,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>backupStorageLocationBase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The base location to store backup in S3. This should be an s3a:// url.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>instanceProfile</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -5593,6 +5606,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>backupStorageLocationBase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>managedIdentity</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -5610,6 +5635,205 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_backupstorage">BackupStorage</h3>
+<div class="paragraph">
+<p>Storage configuration for backup.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>awsDetails</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>AWS-specific backup storage configuration information.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backupstorage_awsdetails">awsDetails</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureDetails</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure-specific backup storage configuration information.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backupstorage_azuredetails">azureDetails</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether external backup storage is enabled. The default value is disabled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gcpDetails</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>GCP-specific backup storage configuration information.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backupstorage_gcpdetails">gcpDetails</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="_backupstorage_awsdetails" class="paragraph">
+<p><strong>awsDetails</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceProfile</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The AWS instance profile which contains the necessary permissions to access the S3 storage location.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>storageLocationBase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The base location to store backup in S3. This should be an s3a:// url.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="_backupstorage_azuredetails" class="paragraph">
+<p><strong>azureDetails</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>managedIdentity</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The managed identity associated with the backup. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>storageLocationBase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="_backupstorage_gcpdetails" class="paragraph">
+<p><strong>gcpDetails</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceAccountEmail</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Email ID of the service account associated with the backup instances.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>storageLocationBase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The storage location to use. This should be a gs:// url.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7714,6 +7938,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>backupStorage</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Storage configuration for backup.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backupstorage">BackupStorage</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>cloudPlatform</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -8792,6 +9028,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>backupStorageLocationBase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Google storage bucket to use. This should be a gs:// url.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>serviceAccountEmail</strong><br>
@@ -12893,7 +13141,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-29 14:08:54 -0700
+Last updated 2021-04-20 10:39:17 -0400
 </div>
 </div>
 <br>

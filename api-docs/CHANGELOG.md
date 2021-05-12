@@ -1,5 +1,21 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.34 (2021-05-12)
+
+NOTES:
+
+* audit: Documentation on the `ArchiveBatch` object now explicitly defines a negative event count as meaning that the count is not available.
+
+FEATURES:
+
+* environments: New field in log storage requests: `backupStorageLocationBase`; new field in environments: `backupStorage` with provider-specific details.
+
+IMPROVEMENTS:
+
+* dw: New `tags` field in `CreateVwRequest` allows for specifying tags for resources.
+* dw: New `describeKubeconfig` operation for clusters returns a kubeconfig with full access to the cluster.
+* datalake: New field in `DatalakeDetails`: `cloudStorageBaseLocation`.
+
 ## 0.9.33 (2021-04-29)
 
 NOTES:
