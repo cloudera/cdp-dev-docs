@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.33 (BETA)*
+*Version: 0.9.34 (BETA)*
 
 Available documentation is listed by service below.
 

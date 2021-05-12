@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.33 (BETA)
+  version: 0.9.34 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -435,6 +435,29 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/GetKeytabResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/getAutomatedSyncEnvironmentStatus:
+    post:
+      summary: Gets the the automated sync status for the environment.
+      description: Gets the the automated sync status for the environment.
+      operationId: getAutomatedSyncEnvironmentStatus
+      x-no-compatibility-guarantee: true
+      x-entitlement: WORKLOAD_IAM_SYNC
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetAutomatedSyncEnvironmentStatusRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/GetAutomatedSyncEnvironmentStatusResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1303,6 +1326,9 @@ definitions:
       instanceProfile:
         type: string
         description: The AWS instance profile that which contains the necessary permissions to access the S3 storage location.
+      backupStorageLocationBase:
+        type: string
+        description: The base location to store backup in S3. This should be an s3a:// url.
   AzureLogStorageRequest:
     type: object
     description: Azure storage configuration for cluster and audit logs.
@@ -1316,6 +1342,9 @@ definitions:
       managedIdentity:
         type: string
         description: The managed identity associated with the logger. This identity should have Storage Blob Data Contributor role on the given storage account.
+      backupStorageLocationBase:
+        type: string
+        description: The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.
   GcpLogStorageRequest:
     type: object
     description: GCP storage configuration for cluster and audit logs.
@@ -1329,6 +1358,9 @@ definitions:
       serviceAccountEmail:
         type: string
         description: Email id of the service account to be associated with the instances. This service account should have "storage.ObjectCreator" role on the given storage bucket.
+      backupStorageLocationBase:
+        type: string
+        description: The Google storage bucket to use. This should be a gs:// url.
   LogStorage:
     type: object
     description: Storage configuration for cluster and audit logs.
@@ -1368,6 +1400,43 @@ definitions:
           serviceAccountEmail:
             type: string
             description: Email ID of the service account associated with the logging instances.
+  BackupStorage:
+    type: object
+    description: Storage configuration for backup.
+    properties:
+      enabled:
+        type: boolean
+        description: Whether external backup storage is enabled. The default value is disabled.
+      awsDetails:
+        type: object
+        description: AWS-specific backup storage configuration information.
+        properties:
+          storageLocationBase:
+            type: string
+            description: The base location to store backup in S3. This should be an s3a:// url.
+          instanceProfile:
+            type: string
+            description: The AWS instance profile which contains the necessary permissions to access the S3 storage location.
+      azureDetails:
+        type: object
+        description: Azure-specific backup storage configuration information.
+        properties:
+          storageLocationBase:
+            type: string
+            description: The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net.
+          managedIdentity:
+            type: string
+            description: The managed identity associated with the backup. This identity should have Storage Blob Data Contributor role on the given storage account.
+      gcpDetails:
+        type: object
+        description: GCP-specific backup storage configuration information.
+        properties:
+          storageLocationBase:
+            type: string
+            description: The storage location to use. This should be a gs:// url.
+          serviceAccountEmail:
+            type: string
+            description: Email ID of the service account associated with the backup instances.
   SecurityAccessRequest:
     type: object
     description: Security control configuration for FreeIPA and Datalake deployment. Choosing a CIDR will automatically create security groups. Alternatively existing security groups can be specified.
@@ -1542,6 +1611,11 @@ definitions:
       createPrivateEndpoints:
         type: boolean
         description: When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
+      encryptionKeyUrl:
+        type: string
+        description: URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
+        x-entitlement: CDP_CB_AZURE_DISK_SSE_WITH_CMK
+        x-no-paramfile: true
   CreateGCPEnvironmentRequest:
     type: object
     description: Request object for a create GCP environment request.
@@ -1756,6 +1830,9 @@ definitions:
       logStorage:
         description: Storage configuration for cluster and audit logs.
         $ref: '#/definitions/LogStorage'
+      backupStorage:
+        description: Storage configuration for backup.
+        $ref: '#/definitions/BackupStorage'
       authentication:
         description: SSH key for accessing cluster node instances.
         $ref: '#/definitions/Authentication'
@@ -2215,6 +2292,33 @@ definitions:
       contents:
         type: string
         description: The contents of the keytab encoded as a base64 string.
+  GetAutomatedSyncEnvironmentStatusRequest:
+    type: object
+    description: Request object for getting automated sync environment status.
+    required:
+      - environmentName
+    properties:
+      environmentName:
+        type: string
+        description: The name or CRN of the environment.
+  GetAutomatedSyncEnvironmentStatusResponse:
+    type: object
+    description: Response object for getting automated sync environment status.
+    properties:
+      environmentCrn:
+        type: string
+        description: The CRN of the environment.
+      syncPendingState:
+        type: string
+        description: The state to indicate whether the environment is synced or has a sync pending.
+        enum:
+          - UNKNOWN
+          - SYNC_PENDING
+          - SYNCED
+          - SYNC_HALTED
+      lastSyncStatus:
+        description: Status of the last automated sync operation for the environment.
+        $ref: '#/definitions/LastAutomatedSyncDetails'
   SynchronizeAllEnvironmentsRequest:
     type: object
     description: Request object for synchronizing all environments.
@@ -3261,3 +3365,26 @@ definitions:
       credential:
         description: The credential object.
         $ref: '#/definitions/Credential'
+  LastAutomatedSyncDetails:
+    type: object
+    description: The details of the last sync performed by automated user sync.
+    required:
+      - timestamp
+      - status
+    properties:
+      timestamp:
+        type: string
+        format: date-time
+        description: The time when the sync was processed.
+      status:
+        type: string
+        description: The status of the sync.
+        enum:
+          - UNKNOWN
+          - SUCCESS
+          - FAILED
+      statusMessages:
+        type: array
+        description: Additional detail related to the status.
+        items:
+          type: string

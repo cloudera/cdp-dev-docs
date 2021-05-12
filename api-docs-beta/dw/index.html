@@ -760,60 +760,67 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_10">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_describevw">Describe a Virtual Warehouse.</a>
+<li><a href="#_describekubeconfig">Get Kubeconfig for a Cloudera Data Warehouse cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_11">Description</a></li>
 <li><a href="#_parameters_11">Parameters</a></li>
 <li><a href="#_responses_11">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listclusters">List Cloudera Data Warehouse clusters.</a>
+<li><a href="#_describevw">Describe a Virtual Warehouse.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_12">Description</a></li>
 <li><a href="#_parameters_12">Parameters</a></li>
 <li><a href="#_responses_12">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listdbcconfigs">Get the configuration history of a Database Catalog.</a>
+<li><a href="#_listclusters">List Cloudera Data Warehouse clusters.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_13">Description</a></li>
 <li><a href="#_parameters_13">Parameters</a></li>
 <li><a href="#_responses_13">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listdbcs">List Database Catalogs.</a>
+<li><a href="#_listdbcconfigs">Get the configuration history of a Database Catalog.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_14">Description</a></li>
 <li><a href="#_parameters_14">Parameters</a></li>
 <li><a href="#_responses_14">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listvwconfigs">Get the configuration history of a Virtual Warehouse.</a>
+<li><a href="#_listdbcs">List Database Catalogs.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_15">Description</a></li>
 <li><a href="#_parameters_15">Parameters</a></li>
 <li><a href="#_responses_15">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listvws">List Virtual Warehouses.</a>
+<li><a href="#_listvwconfigs">Get the configuration history of a Virtual Warehouse.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_16">Description</a></li>
 <li><a href="#_parameters_16">Parameters</a></li>
 <li><a href="#_responses_16">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatedbc">Update the configuration of a Database Catalog.</a>
+<li><a href="#_listvws">List Virtual Warehouses.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_17">Description</a></li>
 <li><a href="#_parameters_17">Parameters</a></li>
 <li><a href="#_responses_17">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatevw">Update the configuration of a Virtual Warehouse.</a>
+<li><a href="#_updatedbc">Update the configuration of a Database Catalog.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_18">Description</a></li>
 <li><a href="#_parameters_18">Parameters</a></li>
 <li><a href="#_responses_18">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updatevw">Update the configuration of a Virtual Warehouse.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_19">Description</a></li>
+<li><a href="#_parameters_19">Parameters</a></li>
+<li><a href="#_responses_19">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -857,6 +864,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_describeconfigresponse">DescribeConfigResponse</a></li>
 <li><a href="#_describedbcrequest">DescribeDbcRequest</a></li>
 <li><a href="#_describedbcresponse">DescribeDbcResponse</a></li>
+<li><a href="#_describekubeconfigrequest">DescribeKubeconfigRequest</a></li>
+<li><a href="#_describekubeconfigresponse">DescribeKubeconfigResponse</a></li>
 <li><a href="#_describevwrequest">DescribeVwRequest</a></li>
 <li><a href="#_describevwresponse">DescribeVwResponse</a></li>
 <li><a href="#_error">Error</a></li>
@@ -875,6 +884,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_serviceconfigreq">ServiceConfigReq</a></li>
 <li><a href="#_serviceconfigresp">ServiceConfigResp</a></li>
 <li><a href="#_stringdiff">StringDiff</a></li>
+<li><a href="#_tagrequest">TagRequest</a></li>
+<li><a href="#_tagresponse">TagResponse</a></li>
 <li><a href="#_updatedbcrequest">UpdateDbcRequest</a></li>
 <li><a href="#_updatedbcresponse">UpdateDbcResponse</a></li>
 <li><a href="#_updatevwrequest">UpdateVwRequest</a></li>
@@ -896,7 +907,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.33 (BETA)</p>
+<p><em>Version</em> : 0.9.34 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -1798,6 +1809,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_describekubeconfig">Get Kubeconfig for a Cloudera Data Warehouse cluster.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/dw/describeKubeconfig</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_11">Description</h4>
+<div class="paragraph">
+<p>Get Kubeconfig for a Cloudera Data Warehouse cluster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_11">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_describekubeconfigrequest">DescribeKubeconfigRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_11">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_describekubeconfigresponse">DescribeKubeconfigResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_describevw">Describe a Virtual Warehouse.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1805,13 +1902,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_11">Description</h4>
+<h4 id="_description_12">Description</h4>
 <div class="paragraph">
 <p>Describe a Virtual Warehouse.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_11">Parameters</h4>
+<h4 id="_parameters_12">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1842,7 +1939,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_11">Responses</h4>
+<h4 id="_responses_12">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1891,13 +1988,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_12">Description</h4>
+<h4 id="_description_13">Description</h4>
 <div class="paragraph">
 <p>List Cloudera Data Warehouse clusters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_12">Parameters</h4>
+<h4 id="_parameters_13">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1928,7 +2025,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_12">Responses</h4>
+<h4 id="_responses_13">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1977,13 +2074,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_13">Description</h4>
+<h4 id="_description_14">Description</h4>
 <div class="paragraph">
 <p>Get the configuration history of a Database Catalog.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_13">Parameters</h4>
+<h4 id="_parameters_14">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2014,7 +2111,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_13">Responses</h4>
+<h4 id="_responses_14">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2063,13 +2160,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_15">Description</h4>
 <div class="paragraph">
 <p>List Database Catalogs.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_14">Parameters</h4>
+<h4 id="_parameters_15">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2100,7 +2197,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_15">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2149,13 +2246,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_16">Description</h4>
 <div class="paragraph">
 <p>Get the configuration history of a Virtual Warehouse.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_15">Parameters</h4>
+<h4 id="_parameters_16">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2186,7 +2283,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_16">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2235,13 +2332,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
 <p>List Virtual Warehouses.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_16">Parameters</h4>
+<h4 id="_parameters_17">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2272,7 +2369,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2321,13 +2418,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_17">Description</h4>
+<h4 id="_description_18">Description</h4>
 <div class="paragraph">
 <p>Update the configuration of a Database Catalog.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_17">Parameters</h4>
+<h4 id="_parameters_18">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2358,7 +2455,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_17">Responses</h4>
+<h4 id="_responses_18">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2407,13 +2504,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Update the configuration of a Virtual Warehouse.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_18">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2444,7 +2541,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3661,6 +3758,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tags</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Tags associated with the resources.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_tagrequest">TagRequest</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>template</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4294,6 +4403,74 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_dbcsummary">DbcSummary</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_describekubeconfigrequest">DescribeKubeconfigRequest</h3>
+<div class="paragraph">
+<p>Request object for the describeKubeconfig method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of the cluster to describe.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_describekubeconfigresponse">DescribeKubeconfigResponse</h3>
+<div class="paragraph">
+<p>Response object for the describeKubeconfig method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>kubeconfig</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The kubeconfig.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5079,6 +5256,98 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_tagrequest">TagRequest</h3>
+<div class="paragraph">
+<p>A key/value pair that can be attached to some resources.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>key</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The tag&#8217;s name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>value</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The associated value of the tag.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_tagresponse">TagResponse</h3>
+<div class="paragraph">
+<p>A key/value pair attached to some resources.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>key</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The tag&#8217;s name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>value</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The associated value of the tag.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updatedbcrequest">UpdateDbcRequest</h3>
 <div class="paragraph">
 <p>Request object for the updateDbc method.</p>
@@ -5317,6 +5586,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tags</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Tags associated with the resources.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_tagresponse">TagResponse</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>vwType</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5344,7 +5625,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-29 14:09:13 -0700
+Last updated 2021-04-20 10:39:17 -0400
 </div>
 </div>
 <br>
