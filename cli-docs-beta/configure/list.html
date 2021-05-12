@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list &#8212; CDP CLI 0.9.33 (BETA) documentation</title>
+    <title>list &#8212; CDP CLI 0.9.34 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="get.html" title="get"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.33 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.34 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">configure</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list</a></li> 
       </ul>
@@ -42,7 +42,7 @@
 <span id="cli-cdp-configure-list"></span><h1>list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>List the CDP CLI configuration data.  This command will show you the current configuration data.  For each configuration item, it will show you the value, where the configuration value was retrieved, and the configuration variable name.  For example, if you provide the CDP access key in an environment variable, this command will show you the key information you’ve configured, it will tell you that this value came from an environment variable, and it will tell you the name of the environment variable.</p>
+<p>List CDP CLI configuration data. Each configuration item’s name, value, source type, and source location are listed. For example, if you provide the CDP access key in an environment variable, this command will list the access key value and its source as the environment.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
@@ -58,11 +58,14 @@
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>To show your current configuration values:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cdp configure list
-      Name                    Value             Type    Location
-      ----                    -----             ----    --------
-   profile                &lt;not set&gt;             None    None
-access_key     ****************ABCD      config_file    ~/.cdp/config
-private_key    ****************ABCD      config_file    ~/.cdp/config
+              Name                Value              Source Type    Source
+              ----                -----              -----------    ------
+           profile            &lt;not set&gt;                     None    None
+ cdp_access_key_id ****************ABCD  shared-credentials-file
+   cdp_private_key ****************EFGH  shared-credentials-file
+  cdp_endpoint_url            &lt;not set&gt;                     None    None
+      endpoint_url            &lt;not set&gt;                     None    None
+       form_factor            &lt;not set&gt;                     None    None
 </pre></div>
 </div>
 </div>
@@ -115,7 +118,7 @@ private_key    ****************ABCD      config_file    ~/.cdp/config
         <li class="right" >
           <a href="get.html" title="get"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.33 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.34 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >configure</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list</a></li> 
       </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-gcp-environment &#8212; CDP CLI 0.9.33 (BETA) documentation</title>
+    <title>create-gcp-environment &#8212; CDP CLI 0.9.34 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="create-gcp-credential.html" title="create-gcp-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.33 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.34 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
       </ul>
@@ -109,13 +109,14 @@ Firewall rules for FreeIPA, Data Lake and Data Hub deployment.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)
 GCP storage configuration for cluster and audit logs.</p>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">storageLocationBase</span><span class="o">=</span>string,serviceAccountEmail<span class="o">=</span>string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">storageLocationBase</span><span class="o">=</span>string,serviceAccountEmail<span class="o">=</span>string,backupStorageLocationBase<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
   <span class="s2">&quot;storageLocationBase&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;serviceAccountEmail&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="s2">&quot;serviceAccountEmail&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;backupStorageLocationBase&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -326,6 +327,50 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
+<p>backupStorage -&gt; (object)</p>
+<blockquote>
+<div><p>Storage configuration for backup.</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether external backup storage is enabled. The default value is disabled.</p>
+</div></blockquote>
+<p>awsDetails -&gt; (object)</p>
+<blockquote>
+<div><p>AWS-specific backup storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The base location to store backup in S3. This should be an s3a:// url.</p>
+</div></blockquote>
+<p>instanceProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The AWS instance profile which contains the necessary permissions to access the S3 storage location.</p>
+</div></blockquote>
+</div></blockquote>
+<p>azureDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Azure-specific backup storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. The location has to be in the following format abfs://filesystem&#64;storage-account-name.dfs.core.windows.net.</p>
+</div></blockquote>
+<p>managedIdentity -&gt; (string)</p>
+<blockquote>
+<div><p>The managed identity associated with the backup. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
+</div></blockquote>
+</div></blockquote>
+<p>gcpDetails -&gt; (object)</p>
+<blockquote>
+<div><p>GCP-specific backup storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. This should be a gs:// url.</p>
+</div></blockquote>
+<p>serviceAccountEmail -&gt; (string)</p>
+<blockquote>
+<div><p>Email ID of the service account associated with the backup instances.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 <p>authentication -&gt; (object)</p>
 <blockquote>
 <div><p>Additional SSH key authentication configuration for accessing cluster node instances.</p>
@@ -502,7 +547,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-gcp-credential.html" title="create-gcp-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.33 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.34 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
       </ul>
