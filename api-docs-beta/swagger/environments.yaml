@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.34 (BETA)
+  version: 0.9.35 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -1011,6 +1011,28 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/environments2/setEndpointAccessGateway:
+    post:
+      summary: Sets endpoint access gateway settings for the environment.
+      description: Sets endpoint access gateway settings for the environment.
+      operationId: setEndpointAccessGateway
+      x-mutating: true
+      x-entitlement: CDP_PUBLIC_ENDPOINT_ACCESS_GATEWAY_FOR_EXISTING_ENVIRONMENTS
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SetEndpointAccessGatewayRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/SetEndpointAccessGatewayResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
   Error:
     type: object
@@ -1926,6 +1948,7 @@ definitions:
         items:
           type: string
         description: The subnets to use for endpoint access gateway.
+        uniqueItems: true
       aws:
         description: AWS network parameters.
         $ref: '#/definitions/NetworkAwsParams'
@@ -3365,6 +3388,30 @@ definitions:
       credential:
         description: The credential object.
         $ref: '#/definitions/Credential'
+  SetEndpointAccessGatewayRequest:
+    type: object
+    description: Request object to set endpoint access gateway settings.
+    required:
+      - environment
+      - endpointAccessGatewayScheme
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment. Empty to get system wide settings.
+      endpointAccessGatewayScheme:
+        type: string
+        description: The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+        enum:
+          - PUBLIC
+          - PRIVATE
+      endpointAccessGatewaySubnetIds:
+        type: array
+        items:
+          type: string
+        description: The subnets to use for endpoint access gateway.
+  SetEndpointAccessGatewayResponse:
+    type: object
+    description: Response object for set endpoint access gateway request.
   LastAutomatedSyncDetails:
     type: object
     description: The details of the last sync performed by automated user sync.

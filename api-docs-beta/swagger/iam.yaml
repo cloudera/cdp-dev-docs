@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.34 (BETA)
+  version: 0.9.35 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -1667,6 +1667,29 @@ definitions:
         type: integer
         format: int32
         description: The max lifetime, in days, of the password. If '0' passwords never expire.
+      minPasswordLength:
+        type: integer
+        format: int32
+        minimum: 6
+        maximum: 256
+        description: The min length of a password. Can be any number between 6 and 256. The default minimum password length is 1.
+        x-no-compatibility-guarantee: true
+      mustIncludeUpperCaseCharacters:
+        type: boolean
+        description: Whether passwords must include upper case characters. The default is 'false'.
+        x-no-compatibility-guarantee: true
+      mustIncludeLowerCaseCharacters:
+        type: boolean
+        description: Whether passwords must include lower case characters. The default is 'false'.
+        x-no-compatibility-guarantee: true
+      mustIncludeNumbers:
+        type: boolean
+        description: Whether passwords must include numbers. The default is 'false'.
+        x-no-compatibility-guarantee: true
+      mustIncludeSymbols:
+        type: boolean
+        description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'. The default is 'false'.
+        x-no-compatibility-guarantee: true
   Account:
     type: object
     description: Information about a Cloudera CDP account.
