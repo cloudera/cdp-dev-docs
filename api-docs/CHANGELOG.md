@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.35 (2021-05-26)
+
+FEATURES:
+
+* audit: New `getArchivingStatus` and `listRecentArchiveRuns` commands.
+* environments: Enable public endpoint access gateway for existing environments.
+* compute: The service is available for use with CDP Private Cloud.
+* dw: The service is available for use with CDP Private Cloud.
+
+IMPROVEMENTS:
+
+* audit: The `archiveAuditEvents` command is now asynchronous and returns a new `taskId` field that can be used to track status.
+
 ## 0.9.34 (2021-05-12)
 
 NOTES:
