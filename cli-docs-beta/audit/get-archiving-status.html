@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list-groups-for-machine-user &#8212; CDP CLI 0.9.35 (BETA) documentation</title>
+    <title>get-archiving-status &#8212; CDP CLI 0.9.35 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/classic.css" type="text/css" />
     
@@ -15,21 +15,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="list-groups-for-user" href="list-groups-for-user.html" />
-    <link rel="prev" title="list-groups" href="list-groups.html" /> 
+    <link rel="next" title="list-events" href="list-events.html" />
+    <link rel="prev" title="get-archiving-config" href="get-archiving-config.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-groups-for-user.html" title="list-groups-for-user"
+          <a href="list-events.html" title="list-events"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="list-groups.html" title="list-groups"
+          <a href="get-archiving-config.html" title="get-archiving-config"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.35 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">list-groups-for-machine-user</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">audit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-archiving-status</a></li> 
       </ul>
     </div>  
 
@@ -38,20 +38,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="list-groups-for-machine-user">
-<span id="cli-cdp-iam-list-groups-for-machine-user"></span><h1>list-groups-for-machine-user<a class="headerlink" href="#list-groups-for-machine-user" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="get-archiving-status">
+<span id="cli-cdp-audit-get-archiving-status"></span><h1>get-archiving-status<a class="headerlink" href="#get-archiving-status" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>List the groups that the machine user belongs to.</p>
-<p><code class="docutils literal notranslate"><span class="pre">list-groups-for-machine-user</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
+<p>Returns the current status for the request archive process. WARNING: This command is experimental and subject to backwards-incompatible change.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-groups-for-machine-user
---machine-user-name &lt;value&gt;
-<span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-archiving-status
+--task-id &lt;value&gt;
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -59,20 +55,8 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--machine-user-name</span></code> (string)
-The name or CRN of the machine user to list the groups of.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
-<blockquote>
-<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 100 is used.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)</p>
-<blockquote>
-<div><p>A token to specify where to start paginating. This is the <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> from a previously truncated response.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--page-size</span></code> (integer)</p>
-<blockquote>
-<div><p>The size of each page. Generally this does not need to be set and the default page size used is appropriate.</p>
-</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--task-id</span></code> (string)
+The id representing an asynchronous task.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
 Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
@@ -80,14 +64,37 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>groupCrns -&gt; (array)</p>
+<p>status -&gt; (string)</p>
 <blockquote>
-<div><p>The list of groups.</p>
-<p>(string)</p>
+<div><p>Archive task status.</p>
 </div></blockquote>
-<p>nextToken -&gt; (string)</p>
+<p>eventCount -&gt; (integer)</p>
 <blockquote>
-<div><p>The token to use when requesting the next set of results. If not present, there are no additional results.</p>
+<div><p>The number of events archived.</p>
+</div></blockquote>
+<p>eventBatches -&gt; (array)</p>
+<blockquote>
+<div><p>The details about the batches of events archived.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Information about a batch of audit events that were archived.</p>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>The account ID for which events were archived.</p>
+</div></blockquote>
+<p>eventCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of events archived. A negative number indicates that the count is not available.</p>
+</div></blockquote>
+<p>archiveId -&gt; (string)</p>
+<blockquote>
+<div><p>The archive ID of the batch.</p>
+</div></blockquote>
+<p>archiveTimestamp -&gt; (integer)</p>
+<blockquote>
+<div><p>The archive timestamp of the batch.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div>
 </div>
@@ -101,7 +108,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">list-groups-for-machine-user</a><ul>
+<li><a class="reference internal" href="#">get-archiving-status</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -111,11 +118,11 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="list-groups.html"
-                        title="previous chapter">list-groups</a></p>
+  <p class="topless"><a href="get-archiving-config.html"
+                        title="previous chapter">get-archiving-config</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="list-groups-for-user.html"
-                        title="next chapter">list-groups-for-user</a></p>
+  <p class="topless"><a href="list-events.html"
+                        title="next chapter">list-events</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -134,14 +141,14 @@ Prints a sample input JSON to standard output. Note the specified operation is n
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-groups-for-user.html" title="list-groups-for-user"
+          <a href="list-events.html" title="list-events"
              >next</a></li>
         <li class="right" >
-          <a href="list-groups.html" title="list-groups"
+          <a href="get-archiving-config.html" title="get-archiving-config"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.35 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">list-groups-for-machine-user</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >audit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-archiving-status</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
