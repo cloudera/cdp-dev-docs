@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.35 (BETA)
+  version: 0.9.36 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -1666,30 +1666,23 @@ definitions:
       maxPasswordLifetimeDays:
         type: integer
         format: int32
-        description: The max lifetime, in days, of the password. If '0' passwords never expire.
+        description: The maximum lifetime, in days, of the password. If '0' passwords never expire.
       minPasswordLength:
         type: integer
         format: int32
-        minimum: 6
-        maximum: 256
-        description: The min length of a password. Can be any number between 6 and 256. The default minimum password length is 1.
-        x-no-compatibility-guarantee: true
+        description: The minimum length of a password.
       mustIncludeUpperCaseCharacters:
         type: boolean
-        description: Whether passwords must include upper case characters. The default is 'false'.
-        x-no-compatibility-guarantee: true
+        description: Whether passwords must include upper case characters.
       mustIncludeLowerCaseCharacters:
         type: boolean
-        description: Whether passwords must include lower case characters. The default is 'false'.
-        x-no-compatibility-guarantee: true
+        description: Whether passwords must include lower case characters.
       mustIncludeNumbers:
         type: boolean
-        description: Whether passwords must include numbers. The default is 'false'.
-        x-no-compatibility-guarantee: true
+        description: Whether passwords must include numbers.
       mustIncludeSymbols:
         type: boolean
-        description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'. The default is 'false'.
-        x-no-compatibility-guarantee: true
+        description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'.
   Account:
     type: object
     description: Information about a Cloudera CDP account.
@@ -1704,6 +1697,10 @@ definitions:
         x-no-compatibility-guarantee: true
         $ref: '#/definitions/WorkloadPasswordPolicy'
         description: The workload password policy object.
+      machineUserWorkloadPasswordPolicy:
+        x-no-compatibility-guarantee: true
+        $ref: '#/definitions/WorkloadPasswordPolicy'
+        description: The machine user workload password policy object. May be omitted if no such policy was defined.
   User:
     type: object
     description: Information about a Cloudera CDP user.
@@ -3369,25 +3366,25 @@ definitions:
         type: integer
         format: int32
         minimum: 0
-        description: The max lifetime of passwords, in days. If set to '0' passwords never expires.
+        description: The maximum lifetime of passwords, in days. If set to '0' passwords never expire. The default is 0.
       minPasswordLength:
         type: integer
         format: int32
-        minimum: 1
+        minimum: 6
         maximum: 256
-        description: The min length of a password. Can be any number between 1 and 256. The default minimum password length is 1.
+        description: The minimum length of a password. Can be any number between 6 and 256. The default minimum password length is 8.
       mustIncludeUpperCaseCharacters:
         type: boolean
-        description: Whether passwords must include upper case characters. The default is 'false'.
+        description: Whether passwords must include upper case characters. The default is 'true'.
       mustIncludeLowerCaseCharacters:
         type: boolean
-        description: Whether passwords must include lower case characters. The default is 'false'.
+        description: Whether passwords must include lower case characters. The default is 'true'.
       mustIncludeNumbers:
         type: boolean
-        description: Whether passwords must include numbers. The default is 'false'.
+        description: Whether passwords must include numbers. The default is 'true'.
       mustIncludeSymbols:
         type: boolean
-        description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'. The default is 'false'.
+        description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'. The default is 'true'.
   SetWorkloadPasswordPolicyRequest:
     type: object
     description: Request object for a set workload password policy request.
@@ -3397,7 +3394,7 @@ definitions:
         type: integer
         format: int32
         minimum: 0
-        description: The max lifetime of passwords, in days. If set to '0' passwords never expires.
+        description: The maximum lifetime of passwords, in days. If set to '0' passwords never expire.
       globalPasswordPolicy:
         type: object
         $ref: '#/definitions/PasswordPolicy'

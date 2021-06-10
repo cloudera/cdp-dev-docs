@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.36 (2021-06-09)
+
+BACKWARD INCOMPATIBILITIES:
+
+* iam: The `setWorkloadPasswordPolicy` operation is removed, with no replacement at this time.
+
+FEATURES:
+
+* dw: New operation `updateSshKey` for updating the SSH key of a cluster.
+
 ## 0.9.35 (2021-05-26)
 
 FEATURES:
