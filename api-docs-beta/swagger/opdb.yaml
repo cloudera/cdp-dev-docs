@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.36 (BETA)
+  version: 0.9.37 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -522,6 +522,15 @@ definitions:
       - EXTERNAL_DATABASE_DELETION_FINISHED
       - EXTERNAL_DATABASE_DELETION_FAILED
       - UNKNOWN
+      - EXTERNAL_DATABASE_START_IN_PROGRESS
+      - EXTERNAL_DATABASE_START_FINISHED
+      - EXTERNAL_DATABASE_START_FAILED
+      - EXTERNAL_DATABASE_STOP_IN_PROGRESS
+      - EXTERNAL_DATABASE_STOP_FINISHED
+      - EXTERNAL_DATABASE_STOP_FAILED
+      - LOAD_BALANCER_UPDATE_IN_PROGRESS
+      - LOAD_BALANCER_UPDATE_FINISHED
+      - LOAD_BALANCER_UPDATE_FAILED
   ListDatabasesRequest:
     type: object
     description: A request to list databases
@@ -680,7 +689,7 @@ definitions:
         description: A base64-encoded krb5.conf file
   Kind:
     type: string
-    description: A categorization of a connector to describe how it is broadly used.
+    description: "A categorization of a connector to describe how it is broadly used.\n `LIBRARY` - A client library or API which user's code invokes `JDBC` - A JDBC driver `SERVICE` - A Service URL `ENVIRONMENT` - An environment to use to run other commands and tools `ODBC` - An ODBC driver"
     enum:
       - LIBRARY
       - JDBC
