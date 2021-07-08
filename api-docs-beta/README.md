@@ -1,21 +1,22 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.37 (BETA)*
+*Version: 0.9.38 (BETA)*
 
 Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.37 |
-| [datahub](./datahub/index.html) | 0.9.37 |
-| [datalake](./datalake/index.html) | 0.9.37 |
-| [de](./de/index.html) | 0.9.37 |
-| [df](./df/index.html) | 0.9.37 |
-| [dw](./dw/index.html) | 0.9.37 |
-| [environments](./environments/index.html) | 0.9.37 |
-| [iam](./iam/index.html) | 0.9.37 |
-| [ml](./ml/index.html) | 0.9.37 |
-| [opdb](./opdb/index.html) | 0.9.37 |
+| [audit](./audit/index.html) | 0.9.38 |
+| [datacatalog](./datacatalog/index.html) | 0.9.38 |
+| [datahub](./datahub/index.html) | 0.9.38 |
+| [datalake](./datalake/index.html) | 0.9.38 |
+| [de](./de/index.html) | 0.9.38 |
+| [df](./df/index.html) | 0.9.38 |
+| [dw](./dw/index.html) | 0.9.38 |
+| [environments](./environments/index.html) | 0.9.38 |
+| [iam](./iam/index.html) | 0.9.38 |
+| [ml](./ml/index.html) | 0.9.38 |
+| [opdb](./opdb/index.html) | 0.9.38 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).
