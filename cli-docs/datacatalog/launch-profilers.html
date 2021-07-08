@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-config &#8212; CDP CLI 0.9.38+3.g5268f6c documentation</title>
+    <title>launch-profilers &#8212; CDP CLI 0.9.38+3.g5268f6c documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="describe-config-diff" href="describe-config-diff.html" />
-    <link rel="prev" title="describe-cluster" href="describe-cluster.html" /> 
+    <link rel="next" title="datahub" href="../datahub/index.html" />
+    <link rel="prev" title="datacatalog" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="describe-config-diff.html" title="describe-config-diff"
+          <a href="../datahub/index.html" title="datahub"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="describe-cluster.html" title="describe-cluster"
+          <a href="index.html" title="datacatalog"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.38+3.g5268f6c documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-config</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datacatalog</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">launch-profilers</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="describe-config">
-<span id="cli-cdp-dw-describe-config"></span><h1>describe-config<a class="headerlink" href="#describe-config" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="launch-profilers">
+<span id="cli-cdp-datacatalog-launch-profilers"></span><h1>launch-profilers<a class="headerlink" href="#launch-profilers" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Describe a service configuration.</p>
+<dd class="field-odd"><p>Launches DataCatalog profilers in a given datalake.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.38+3.g5268f6c</p>
@@ -51,13 +51,12 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Describe a service configuration.</p>
+<p>Launches DataCatalog profilers in a given datalake.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-config
---cluster-id &lt;value&gt;
---config-id &lt;value&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  launch-profilers
+--datalake &lt;value&gt;
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -65,10 +64,8 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)
-ID of the cluster.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--config-id</span></code> (string)
-ID of the service (Database Catalog or Virtual Warehouse).</p>
+<p><code class="docutils literal notranslate"><span class="pre">--datalake</span></code> (string)
+The Name or CRN of the Datalake.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
 Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
@@ -76,104 +73,72 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>config -&gt; (object)</p>
+<p>datahubCluster -&gt; (object)</p>
 <blockquote>
-<div><p>Configurations for a service (DBC or VW)</p>
-<p>commonConfigs -&gt; (object)</p>
+<div><p>Information about a cluster.</p>
+<p>clusterName -&gt; (string)</p>
 <blockquote>
-<div><p>Configurations for an application inside a service.</p>
-<p>configBlocks -&gt; (array)</p>
+<div><p>The name of the cluster.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
 <blockquote>
-<div><p>List of ConfigBlocks for the application.</p>
-<p>(object)</p>
+<div><p>The CRN of the cluster.</p>
+</div></blockquote>
+<p>creationDate -&gt; (datetime)</p>
 <blockquote>
-<div><p>A piece of configuration stored in the same place (e.g. same file or environment variables).</p>
+<div><p>The date when the cluster was created.</p>
+</div></blockquote>
+<p>clusterStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the cluster.</p>
+</div></blockquote>
+<p>nodeCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The cluster node count.</p>
+</div></blockquote>
+<p>workloadType -&gt; (string)</p>
+<blockquote>
+<div><p>The workload type for the cluster.</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>The cloud platform.</p>
+</div></blockquote>
+<p>imageDetails -&gt; (object)</p>
+<blockquote>
+<div><p>The details of the image used for cluster instances.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the image used for cluster instances.</p>
+</div></blockquote>
 <p>id -&gt; (string)</p>
 <blockquote>
-<div><p>ID of the ConfigBlock. Unique within an ApplicationConfig.</p>
+<div><p>The ID of the image used for cluster instances. This is internally generated by the cloud provider to uniquely identify the image.</p>
 </div></blockquote>
-<p>format -&gt; (string)</p>
+<p>catalogUrl -&gt; (string)</p>
 <blockquote>
-<div><p>Format of ConfigBlock.</p>
+<div><p>The image catalog URL.</p>
 </div></blockquote>
-<p>content -&gt; (object)</p>
+<p>catalogName -&gt; (string)</p>
 <blockquote>
-<div><p>Contents of a ConfigBlock.</p>
-<p>keyValues -&gt; (map)</p>
+<div><p>The image catalog name.</p>
+</div></blockquote>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
 <blockquote>
-<div><p>Key-value type configurations.</p>
-<p>key -&gt; (string)</p>
-<p>value -&gt; (string)</p>
+<div><p>The CRN of the environment.</p>
+</div></blockquote>
+<p>credentialCrn -&gt; (string)</p>
 <blockquote>
-<div><p>Key-value type configurations.</p>
+<div><p>The CRN of the credential.</p>
 </div></blockquote>
-</div></blockquote>
-<p>text -&gt; (string)</p>
+<p>datalakeCrn -&gt; (string)</p>
 <blockquote>
-<div><p>Text type configuration.</p>
+<div><p>The CRN of the attached datalake.</p>
 </div></blockquote>
-<p>json -&gt; (string)</p>
+<p>clusterTemplateCrn -&gt; (string)</p>
 <blockquote>
-<div><p>JSON type configuration.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>applicationConfigs -&gt; (map)</p>
-<blockquote>
-<div><p>Application specific configurations.</p>
-<p>key -&gt; (string)</p>
-<p>value -&gt; (object)</p>
-<blockquote>
-<div><p>Configurations for an application inside a service.</p>
-<p>configBlocks -&gt; (array)</p>
-<blockquote>
-<div><p>List of ConfigBlocks for the application.</p>
-<p>(object)</p>
-<blockquote>
-<div><p>A piece of configuration stored in the same place (e.g. same file or environment variables).</p>
-<p>id -&gt; (string)</p>
-<blockquote>
-<div><p>ID of the ConfigBlock. Unique within an ApplicationConfig.</p>
-</div></blockquote>
-<p>format -&gt; (string)</p>
-<blockquote>
-<div><p>Format of ConfigBlock.</p>
-</div></blockquote>
-<p>content -&gt; (object)</p>
-<blockquote>
-<div><p>Contents of a ConfigBlock.</p>
-<p>keyValues -&gt; (map)</p>
-<blockquote>
-<div><p>Key-value type configurations.</p>
-<p>key -&gt; (string)</p>
-<p>value -&gt; (string)</p>
-<blockquote>
-<div><p>Key-value type configurations.</p>
-</div></blockquote>
-</div></blockquote>
-<p>text -&gt; (string)</p>
-<blockquote>
-<div><p>Text type configuration.</p>
-</div></blockquote>
-<p>json -&gt; (string)</p>
-<blockquote>
-<div><p>JSON type configuration.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>ldapGroups -&gt; (array)</p>
-<blockquote>
-<div><p>List of LDAP Groupnames to be enabled for auth.</p>
-<p>(string)</p>
-</div></blockquote>
-<p>enableSSO -&gt; (boolean)</p>
-<blockquote>
-<div><p>Should SSO be enabled for this VW. This cannot be changed later.</p>
+<div><p>The CRN of the cluster template used for the cluster creation.</p>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -188,7 +153,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">describe-config</a><ul>
+<li><a class="reference internal" href="#">launch-profilers</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -198,11 +163,11 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="describe-cluster.html"
-                        title="previous chapter">describe-cluster</a></p>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">datacatalog</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="describe-config-diff.html"
-                        title="next chapter">describe-config-diff</a></p>
+  <p class="topless"><a href="../datahub/index.html"
+                        title="next chapter">datahub</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -221,14 +186,14 @@ Prints a sample input JSON to standard output. Note the specified operation is n
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="describe-config-diff.html" title="describe-config-diff"
+          <a href="../datahub/index.html" title="datahub"
              >next</a></li>
         <li class="right" >
-          <a href="describe-cluster.html" title="describe-cluster"
+          <a href="index.html" title="datacatalog"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.38+3.g5268f6c documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-config</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >datacatalog</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">launch-profilers</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
