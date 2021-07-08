@@ -1,5 +1,25 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.38 (2021-07-07)
+
+BACKWARD INCOMPATIBILITIES:
+
+* ml: The `healthInfoLists` property is renamed to `healthInfos` in `listWorkspaces` command response.
+
+FEATURES:
+
+* environments: New `noProxyHosts` parameter for ProxyConfig and Environment related commands.
+* datacatalog: New `datacatalog` command, users can execute operations such as launching profilers in DataCatalog.
+
+## 0.9.37 (2021-06-23)
+
+FEATURES:
+
+* de: New `removeDeleted` parameter for `listServices` command.
+* de: New `skipValidation` parameter for `enableService` command.
+* opdb: New values for `StatusType` enumeration.
+* environments: New `deleteAuditCredential` command.
+
 ## 0.9.36 (2021-06-09)
 
 BACKWARD INCOMPATIBILITIES:

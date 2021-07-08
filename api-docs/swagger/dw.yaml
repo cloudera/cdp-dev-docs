@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.37
+  version: 0.9.38
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -688,12 +688,12 @@ definitions:
         type: integer
         format: int32
         default: 1
-        description: Minimum number of available nodes.
+        description: Minimum number of available compute groups.
       maxClusters:
         type: integer
         format: int32
         default: 20
-        description: Maximum number of available nodes.
+        description: Maximum number of available compute groups.
   CreateVwRequest:
     type: object
     description: Request object for the createVw method.
@@ -1271,7 +1271,7 @@ definitions:
         description: List of LDAP Groupnames to be enabled for auth.
       enableSSO:
         type: boolean
-        description: Should SSO be enabled for this VW.
+        description: Should SSO be enabled for this VW. This cannot be changed later.
   ServiceConfigReq:
     type: object
     description: Configurations for a service (DBC or VW)
