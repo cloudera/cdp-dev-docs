@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.38 (BETA)
+  version: 0.9.39 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -3396,12 +3396,10 @@ definitions:
         minimum: 0
         description: The maximum lifetime of passwords, in days. If set to '0' passwords never expire.
       globalPasswordPolicy:
-        type: object
         $ref: '#/definitions/PasswordPolicy'
         x-no-compatibility-guarantee: true
         description: The global password policy object. If set, maxPasswordLifetimeDays is ignored, and if not set the default values for the different password policies are used. See PasswordPolicy for more details on the different default values.
       machineUsersPasswordPolicy:
-        type: object
         $ref: '#/definitions/PasswordPolicy'
         x-no-compatibility-guarantee: true
         description: The password policy object for machine users. If set, this will be used for enforcing password complexity for machine users instead of the global password policy.

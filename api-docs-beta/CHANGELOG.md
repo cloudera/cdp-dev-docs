@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.39 (2021-07-09)
+
+FEATURES:
+
+* ml: Revert the name change of `healthInfoLists` property in 0.9.38.
+
 ## 0.9.38 (2021-07-07)
 
 BACKWARD INCOMPATIBILITIES:

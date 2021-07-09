@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.38 (BETA)
+  version: 0.9.39 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -183,6 +183,28 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ChangeEnvironmentCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/disableS3Guard:
+    post:
+      summary: Disable the S3Guard for an environment.
+      description: Disables the S3Guard for an environment.
+      operationId: disableS3Guard
+      x-mutating: true
+      x-entitlement: CDP_RAW_S3
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DisableS3GuardRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DisableS3GuardResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1181,15 +1203,12 @@ definitions:
         type: string
         description: A description for the credential.
       awsCredentialProperties:
-        type: object
         description: The credential properties that closely related to those that have been created on AWS.
         $ref: '#/definitions/AwsCredentialProperties'
       azureCredentialProperties:
-        type: object
         description: The credential properties that closely related to those that have been created on Azure.
         $ref: '#/definitions/AzureCredentialProperties'
       gcpCredentialProperties:
-        type: object
         description: The credential properties that closely related to those that have been created on GCP.
         $ref: '#/definitions/GCPCredentialProperties'
   AwsCredentialProperties:
@@ -1779,6 +1798,24 @@ definitions:
       environment:
         $ref: '#/definitions/EnvironmentSummary'
         description: The environment summary.
+  DisableS3GuardRequest:
+    type: object
+    description: Request object for disabling S3Guard in an environment.
+    required:
+      - environmentName
+    properties:
+      environmentName:
+        type: string
+        description: The name or CRN of the environment.
+  DisableS3GuardResponse:
+    type: object
+    description: Response object for disabling S3Guard in an environment.
+    required:
+      - environment
+    properties:
+      environment:
+        $ref: '#/definitions/Environment'
+        description: The environment.
   DescribeEnvironmentRequest:
     type: object
     description: Request object for a describe environment request.
@@ -1913,7 +1950,6 @@ definitions:
         type: boolean
         description: When true, this will report additional diagnostic information back to Cloudera.
       freeipa:
-        type: object
         description: Details of FreeIPA instance associated with this environment.
         $ref: '#/definitions/FreeipaDetails'
       proxyConfig:
