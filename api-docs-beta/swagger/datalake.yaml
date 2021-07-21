@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.39 (BETA)
+  version: 0.9.40 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -817,6 +817,12 @@ definitions:
       enableRangerRaz:
         type: boolean
         description: Whether ranger RAZ is enabled for the datalake.
+      certificateExpirationState:
+        type: string
+        description: Indicates the certificate status on the cluster.
+        enum:
+          - VALID
+          - HOST_CERT_EXPIRING
   DatalakeResourceTagRequest:
     type: object
     description: Tag for a datalake resource.

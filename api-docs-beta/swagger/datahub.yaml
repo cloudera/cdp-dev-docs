@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.39 (BETA)
+  version: 0.9.40 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -1091,6 +1091,12 @@ definitions:
       clusterTemplateCrn:
         type: string
         description: The CRN of the cluster template used for the cluster creation.
+      certificateExpirationState:
+        type: string
+        description: Indicates the certificate status on the cluster.
+        enum:
+          - VALID
+          - HOST_CERT_EXPIRING
   Recipe:
     type: object
     description: Information about a recipe.

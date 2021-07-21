@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.39 (BETA)
+  version: 0.9.40 (BETA)
   title: Cloudera DataFlow Environment Service
   license:
     name: Apache 2.0
@@ -18,349 +18,138 @@ consumes:
 produces:
   - application/json
 paths:
-  /api/v1/df/deleteEnvironment:
+  /api/v1/df/describeDeployment:
     post:
-      summary: Deletes all references to an environment. Only not-enabled environments can be deleted.
-      description: Deletes all references to an environment. Only not-enabled environments can be deleted.
-      operationId: deleteEnvironment
+      summary: Describe deployment.
+      description: Describes a deployment
+      operationId: describeDeployment
       x-entitlement: DFX
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/DeleteEnvironmentRequest'
+            $ref: '#/definitions/DescribeDeploymentRequest'
       responses:
         200:
           description: Expected response to a valid request.
           schema:
-            $ref: '#/definitions/DeleteEnvironmentResponse'
+            $ref: '#/definitions/DescribeDeploymentResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/describeDeploymentEventDetail:
+    post:
+      summary: Describe event detail for deployment.
+      description: Describe event detail for deployment.
+      operationId: describeDeploymentEventDetail
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeDeploymentEventDetailRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeDeploymentEventDetailResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/describeService:
+    post:
+      summary: Describe service.
+      description: Describes service.
+      operationId: describeService
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeServiceRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeServiceResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/describeServiceEventDetail:
+    post:
+      summary: Describe event history detail for service.
+      description: Describe event history detail for service.
+      operationId: describeServiceEventDetail
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeServiceEventDetailRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeServiceEventDetailResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/disableService:
+    post:
+      summary: Disable service.
+      description: Disable service.
+      operationId: disableService
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DisableServiceRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DisableServiceResponse'
         default:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
-  /api/v1/df/disableEnvironment:
+  /api/v1/df/enableService:
     post:
-      summary: Disable environment.
-      description: Disable environment.
-      operationId: disableEnvironment
+      summary: Enable DataFlow service from a CDP environment.
+      description: Enable DataFlow service from a CDP environment.
+      operationId: enableService
       x-entitlement: DFX
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/DisableEnvironmentRequest'
+            $ref: '#/definitions/EnableServiceRequest'
       responses:
         200:
           description: Expected response to a valid request.
           schema:
-            $ref: '#/definitions/DisableEnvironmentResponse'
+            $ref: '#/definitions/EnableServiceResponse'
         default:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
-  /api/v1/df/enableEnvironment:
-    post:
-      summary: Enable environment.
-      description: Enable environment.
-      operationId: enableEnvironment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/EnableEnvironmentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/EnableEnvironmentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-      x-mutating: true
-  /api/v1/df/getActiveAlertsForDeployment:
-    post:
-      summary: Get active alerts for deployment.
-      description: Get active alerts for deployment.
-      operationId: getActiveAlertsForDeployment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetActiveAlertsForDeploymentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetActiveAlertsForDeploymentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getActiveAlertsForEnvironment:
-    post:
-      summary: Get active alerts for environment.
-      description: Get active alerts for environment.
-      operationId: getActiveAlertsForEnvironment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetActiveAlertsForEnvironmentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetActiveAlertsForEnvironmentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getDeployment:
-    post:
-      summary: Get deployment.
-      description: Gets a deployment
-      operationId: getDeployment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetDeploymentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetDeploymentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getDeploymentKPIs:
-    post:
-      summary: Get deployment KPIs.
-      description: Gets deployment KPIs.
-      operationId: getDeploymentKPIs
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetDeploymentKPIsRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetDeploymentKPIsResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getDeploymentSystemMetrics:
-    post:
-      summary: Get deployment System metrics.
-      description: Get deployment System metrics.
-      operationId: getDeploymentSystemMetrics
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetDeploymentSystemMetricsRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetDeploymentSystemMetricsResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getEnvironment:
-    post:
-      summary: Get environment.
-      description: Gets environment.
-      operationId: getEnvironment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetEnvironmentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetEnvironmentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getEventDetailForDeployment:
-    post:
-      summary: Get event detail for deployment.
-      description: Gets event detail for deployment.
-      operationId: getEventDetailForDeployment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetEventDetailForDeploymentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetEventDetailForDeploymentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getEventDetailForEnvironment:
-    post:
-      summary: Get event history detail for environment.
-      description: Get event history detail for environment.
-      operationId: getEventDetailForEnvironment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetEventDetailForEnvironmentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetEventDetailForEnvironmentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getEventHistoryForDeployment:
-    post:
-      summary: Get event history for deployment.
-      description: Gets event history for deployment.
-      operationId: getEventHistoryForDeployment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetEventHistoryForDeploymentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetEventHistoryForDeploymentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getEventHistoryForEnvironment:
-    post:
-      summary: Get event history for environment.
-      description: Get event history for environment.
-      operationId: getEventHistoryForEnvironment
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetEventHistoryForEnvironmentRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetEventHistoryForEnvironmentResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getFilterOptions:
-    post:
-      summary: Get filter options.
-      description: Gets filter options.
-      operationId: getFilterOptions
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetFilterOptionsRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetFilterOptionsResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getNotifications:
-    post:
-      summary: Get notifications.
-      description: Gets notifications.
-      operationId: getNotifications
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetNotificationsRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetNotificationsResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-  /api/v1/df/getUserKubernetesAccessList:
-    post:
-      summary: Get access list for the remote user to the environment's cluster.
-      description: Gets access list for the remote user to the environment's cluster.
-      operationId: getUserKubernetesAccessList
-      x-entitlement: DFX
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GetUserKubernetesAccessListRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/GetUserKubernetesAccessListResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
   /api/v1/df/grantUserKubernetesAccess:
     post:
-      summary: Grant remote user access to the environment's cluster.
-      description: Grants remote user access to the environment's cluster.
+      summary: Grant remote user access to the service's cluster.
+      description: Grants remote user access to the service's cluster.
       operationId: grantUserKubernetesAccess
       x-entitlement: DFX
       parameters:
@@ -379,6 +168,111 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
+  /api/v1/df/listDeployableServicesForNewDeployments:
+    post:
+      summary: List services that a DataFlow Admin can deploy to.
+      description: List services that a DataFlow Admin can deploy to.
+      operationId: listDeployableServicesForNewDeployments
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDeployableServicesForNewDeploymentsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDeployableServicesForNewDeploymentsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listDeploymentActiveAlerts:
+    post:
+      summary: List active alerts for deployment.
+      description: List active alerts for deployment.
+      operationId: listDeploymentActiveAlerts
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDeploymentActiveAlertsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDeploymentActiveAlertsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listDeploymentEvents:
+    post:
+      summary: List event history for deployment.
+      description: List event history for deployment.
+      operationId: listDeploymentEvents
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDeploymentEventsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDeploymentEventsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listDeploymentKPIs:
+    post:
+      summary: List deployment KPIs.
+      description: Lists deployment KPIs.
+      operationId: listDeploymentKPIs
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDeploymentKPIsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDeploymentKPIsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listDeploymentSystemMetrics:
+    post:
+      summary: List deployment System metrics.
+      description: Lists deployment System metrics.
+      operationId: listDeploymentSystemMetrics
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDeploymentSystemMetricsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDeploymentSystemMetricsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/df/listDeployments:
     post:
       summary: List deployments.
@@ -401,11 +295,116 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/df/listEnvironments:
+  /api/v1/df/listFilterOptions:
     post:
-      summary: List environments.
-      description: Lists environments.
-      operationId: listEnvironments
+      summary: List filter options.
+      description: Lists filter options.
+      operationId: listFilterOptions
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListFilterOptionsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListFilterOptionsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listNotifications:
+    post:
+      summary: List notifications.
+      description: Lists notifications.
+      operationId: listNotifications
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListNotificationsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListNotificationsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listServiceActiveAlerts:
+    post:
+      summary: List active alerts for service.
+      description: List active alerts for service.
+      operationId: listServiceActiveAlerts
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListServiceActiveAlertsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListServiceActiveAlertsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listServiceEvents:
+    post:
+      summary: List events for service.
+      description: List events for service.
+      operationId: listServiceEvents
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListServiceEventsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListServiceEventsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listServiceSystemMetrics:
+    post:
+      summary: List service System metrics.
+      description: List service System metrics.
+      operationId: listServiceSystemMetrics
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListServiceSystemMetricsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListServiceSystemMetricsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listServices:
+    post:
+      summary: List services.
+      description: Lists services.
+      operationId: listServices
       x-entitlement: DFX
       x-paging-default-max-items: 20
       parameters:
@@ -413,41 +412,63 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/ListEnvironmentsRequest'
+            $ref: '#/definitions/ListServicesRequest'
       responses:
         200:
           description: Expected response to a valid request.
           schema:
-            $ref: '#/definitions/ListEnvironmentsResponse'
+            $ref: '#/definitions/ListServicesResponse'
         default:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/df/listTargetEnvironmentsForNewDeployments:
+  /api/v1/df/listUserKubernetesAccess:
     post:
-      summary: List environments that a DataFlow Admin can deploy to.
-      description: List environments that a DataFlow Admin can deploy to.
-      operationId: listTargetEnvironmentsForNewDeployments
+      summary: List users that have access to the service's cluster.
+      description: List users that have access to the service's cluster
+      operationId: listUserKubernetesAccess
       x-entitlement: DFX
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/ListTargetEnvironmentsForNewDeploymentsRequest'
+            $ref: '#/definitions/ListUserKubernetesAccessRequest'
       responses:
         200:
           description: Expected response to a valid request.
           schema:
-            $ref: '#/definitions/ListTargetEnvironmentsForNewDeploymentsResponse'
+            $ref: '#/definitions/ListUserKubernetesAccessResponse'
         default:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/df/resetService:
+    post:
+      summary: Resets all references to a service. Only not-enabled services can be reset. Makes no attempt to clean-up resources.
+      description: Resets the service. Only not-enabled services can be reset. Makes no attempt to clean-up resources.
+      operationId: resetService
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ResetServiceRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ResetServiceResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
   /api/v1/df/revokeUserKubernetesAccess:
     post:
-      summary: Revoke access for the remote user from the environment's cluster.
-      description: Revokes access for the remote user from the environment's cluster.
+      summary: Revoke access for the remote user from the service's cluster.
+      description: Revokes access for the remote user from the service's cluster.
       operationId: revokeUserKubernetesAccess
       x-entitlement: DFX
       parameters:
@@ -466,23 +487,23 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
-  /api/v1/df/updateEnvironment:
+  /api/v1/df/updateService:
     post:
-      summary: Update environment.
-      description: Update environment.
-      operationId: updateEnvironment
+      summary: Update service.
+      description: Update service.
+      operationId: updateService
       x-entitlement: DFX
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/UpdateEnvironmentRequest'
+            $ref: '#/definitions/UpdateServiceRequest'
       responses:
         200:
           description: Expected response to a valid request.
           schema:
-            $ref: '#/definitions/UpdateEnvironmentResponse'
+            $ref: '#/definitions/UpdateServiceResponse'
         default:
           description: The default response on an error.
           schema:
@@ -507,6 +528,7 @@ definitions:
       - name
       - cloudProvider
       - region
+      - cloudbreakCrn
     properties:
       crn:
         type: string
@@ -520,6 +542,9 @@ definitions:
       region:
         type: string
         description: the region within the cloud provider
+      cloudbreakCrn:
+        type: string
+        description: The cloudbreak CRN
   EventSummary:
     type: object
     description: An event summary
@@ -614,365 +639,6 @@ definitions:
       alertType:
         type: string
         description: Optional value for alerts
-  DeploymentStatus:
-    type: object
-    description: The status of a deployment
-    required:
-      - detailedState
-      - message
-      - state
-    properties:
-      detailedState:
-        type: string
-        description: The detailed state that the deployment is currently in
-      message:
-        type: string
-        description: Detail message relating to the current status of the deployment
-      state:
-        type: string
-        description: The state that the deployment is currently in
-  DeploymentSummary:
-    type: object
-    description: A deployment summary
-    required:
-      - crn
-      - name
-      - status
-      - environment
-      - updated
-    properties:
-      crn:
-        type: string
-        description: The deployment CRN
-      name:
-        type: string
-        description: The deployment name
-      status:
-        description: The deployment status
-        $ref: '#/definitions/DeploymentStatus'
-      environment:
-        description: The environment information of the deployment
-        $ref: '#/definitions/EnvironmentMeta'
-      updated:
-        type: integer
-        format: int64
-        description: Timestamp of the last time the deployment was modified
-      dataSents:
-        type: array
-        items:
-          $ref: '#/definitions/MetricValue'
-        description: The dataSent values
-      dataReceiveds:
-        type: array
-        items:
-          $ref: '#/definitions/MetricValue'
-        description: The dataReceived values
-      activeWarningAlertCount:
-        type: integer
-        format: int64
-        description: Current count of active alerts classified as a warning
-      activeErrorAlertCount:
-        type: integer
-        format: int64
-        description: Current count of active alerts classified as an error
-  Deployment:
-    type: object
-    description: A deployment
-    required:
-      - crn
-      - name
-      - status
-      - environment
-      - updated
-      - clusterSize
-      - flowVersionCrn
-    properties:
-      crn:
-        type: string
-        description: The deployment CRN
-      name:
-        type: string
-        description: The deployment name
-      status:
-        description: The deployment status
-        $ref: '#/definitions/DeploymentStatus'
-      environment:
-        description: The environment information of the deployment
-        $ref: '#/definitions/EnvironmentMeta'
-      updated:
-        type: integer
-        format: int64
-        description: Timestamp of the last time the deployment was modified
-      clusterSize:
-        type: string
-        description: The initial size of the deployment
-      flowVersionCrn:
-        type: string
-        description: The deployment's current flow version CRN
-      nifiUrl:
-        type: string
-        description: The url to open the deployed flow in NiFi
-      autoscaleMaxNodes:
-        type: integer
-        format: int32
-        description: The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment
-      flowName:
-        type: string
-        description: The name of the flow
-      flowVersion:
-        type: integer
-        format: int32
-        description: The version of the flow
-      currentNodeCount:
-        type: integer
-        format: int32
-        description: The current node count
-      deployedByCrn:
-        type: string
-        description: The actor CRN of the person who deployed the flow
-      deployedByName:
-        type: string
-        description: The name of the person who deployed the flow
-      autoscalingEnabled:
-        type: boolean
-        description: Whether or not to autoscale the deployment.
-      autoscaleMinNodes:
-        type: integer
-        format: int32
-        description: The minimum number of nodes that the deployment will allocate. May only be specified when autoscalingEnabled is true.
-      activeWarningAlertCount:
-        type: integer
-        format: int64
-        description: Current count of active alerts classified as a warning
-      activeErrorAlertCount:
-        type: integer
-        format: int64
-        description: Current count of active alerts classified as an error
-      staticNodeCount:
-        type: integer
-        format: int32
-        description: The static number of nodes that the deployment will allocate. May only be specified when autoscalingEnabled is false.
-      dfxLocalUrl:
-        type: string
-        description: Base URL to the dfx-local instance running this deployment
-  FilterOption:
-    type: object
-    description: A filter option
-    required:
-      - identifier
-      - label
-    properties:
-      identifier:
-        type: string
-        description: The filter identifier
-      label:
-        type: string
-        description: The filter label
-      iconClass:
-        type: string
-        description: The icon class
-  GetFilterOptionsRequest:
-    type: object
-    description: A request to get filter options
-    required:
-      - filterType
-    properties:
-      filterType:
-        type: string
-        description: The type of filter
-  GetFilterOptionsResponse:
-    type: object
-    description: A response to get filter options
-    properties:
-      filterOptions:
-        type: array
-        items:
-          $ref: '#/definitions/FilterOption'
-        description: The filter options
-  ListDeploymentsRequest:
-    type: object
-    description: A request to list deployments
-    properties:
-      pageSize:
-        type: integer
-        format: int32
-        minimum: 20
-        maximum: 100
-        x-paging-page-size: true
-        description: The page size.
-      pageToken:
-        type: string
-        x-paging-input-token: true
-        description: The page token.
-      metricsTimePeriod:
-        type: string
-        description: The metrics time period
-      sorts:
-        type: array
-        items:
-          type: string
-        description: The sort criteria
-      filters:
-        type: array
-        items:
-          type: string
-        description: The filter criteria
-  ListDeploymentsResponse:
-    type: object
-    description: A response from listing deployments
-    properties:
-      nextPageToken:
-        type: string
-        x-paging-output-token: true
-        description: The page token for requesting the next page of results.
-      deployments:
-        type: array
-        x-paging-result: true
-        items:
-          $ref: '#/definitions/DeploymentSummary'
-        description: The listing of deployments in this page
-  GetDeploymentRequest:
-    type: object
-    description: A request to get a deployment
-    required:
-      - deploymentCrn
-    properties:
-      deploymentCrn:
-        type: string
-        description: The deployment CRN
-  GetDeploymentResponse:
-    type: object
-    description: A response to get a deployment
-    properties:
-      deployment:
-        description: The deployment
-        $ref: '#/definitions/Deployment'
-  GetDeploymentKPIsRequest:
-    type: object
-    description: A request to get deployment KPIs
-    required:
-      - deploymentCrn
-      - metricsTimePeriod
-    properties:
-      deploymentCrn:
-        type: string
-        description: The deployment CRN
-      metricsTimePeriod:
-        type: string
-        description: The metrics time period
-  GetDeploymentKPIsResponse:
-    type: object
-    description: A response to get deployment KPIs
-    properties:
-      metricCharts:
-        type: array
-        items:
-          $ref: '#/definitions/MetricChart'
-        description: The metrics for the configured KPIs
-  GetDeploymentSystemMetricsRequest:
-    type: object
-    description: A request to get deployment system metrics
-    required:
-      - deploymentCrn
-      - metricsTimePeriod
-    properties:
-      deploymentCrn:
-        type: string
-        description: The deployment CRN
-      metricsTimePeriod:
-        type: string
-        description: The metrics time period
-  GetDeploymentSystemMetricsResponse:
-    type: object
-    description: A response to get deployment system metrics
-    properties:
-      metricCharts:
-        type: array
-        items:
-          $ref: '#/definitions/MetricChart'
-        description: The metrics for the configured KPIs
-  GetActiveAlertsForDeploymentRequest:
-    type: object
-    description: A request to get active alerts for deployment
-    required:
-      - deploymentCrn
-    properties:
-      deploymentCrn:
-        type: string
-        description: The deployment CRN
-      sort:
-        type: string
-        description: Sort criteria
-  GetActiveAlertsForDeploymentResponse:
-    type: object
-    description: A response to get active alerts for deployment
-    properties:
-      eventSummaries:
-        type: array
-        items:
-          $ref: '#/definitions/EventSummary'
-        description: The events for the specified deployment
-  GetEventHistoryForDeploymentRequest:
-    type: object
-    description: A request to get event history for deployment
-    required:
-      - deploymentCrn
-    properties:
-      deploymentCrn:
-        type: string
-        description: The deployment CRN
-      rows:
-        type: integer
-        format: int32
-        description: Max number of rows to return
-      timestampFrom:
-        type: integer
-        format: int64
-        description: Timestamp from when to get events prior
-      filters:
-        type: array
-        items:
-          type: string
-        description: Filter criteria
-  GetEventHistoryForDeploymentResponse:
-    type: object
-    description: A response to get event history for deployment
-    properties:
-      eventSummaries:
-        type: array
-        items:
-          $ref: '#/definitions/EventSummary'
-        description: The events
-  GetEventDetailForDeploymentRequest:
-    type: object
-    description: A request to get event details for development
-    required:
-      - deploymentCrn
-      - eventCrn
-    properties:
-      deploymentCrn:
-        type: string
-        description: The CRN of the deployment
-      eventCrn:
-        type: string
-        description: The CRN of the event
-  GetEventDetailForDeploymentResponse:
-    type: object
-    description: A response to get event details for development
-    properties:
-      eventDetail:
-        description: The event details
-        $ref: '#/definitions/EventDetail'
-  EventDetail:
-    type: object
-    description: Event details
-    properties:
-      event:
-        description: The event
-        $ref: '#/definitions/Event'
-      metricSummary:
-        description: the metric summary
-        $ref: '#/definitions/MetricSummary'
   MetricValue:
     type: object
     description: A metric value
@@ -992,13 +658,13 @@ definitions:
     type: object
     description: Chart data of metrics
     required:
-      - average
+      - averageValue
       - currentValue
       - currentValueLabel
       - averageValueLabel
       - tooltipValueLabel
     properties:
-      average:
+      averageValue:
         type: number
         format: double
         description: The average value of the data
@@ -1202,23 +868,393 @@ definitions:
       alertFrequencyUnit:
         description: Units of frequency
         $ref: '#/definitions/AlertFrequencyUnit'
-  EnvironmentStatus:
+  DeploymentStatus:
     type: object
-    description: The status of a DataFlow enabled environment.
+    description: The status of a deployment
+    required:
+      - detailedState
+      - message
+      - state
+    properties:
+      detailedState:
+        type: string
+        description: The detailed state that the deployment is currently in
+      message:
+        type: string
+        description: Detail message relating to the current status of the deployment
+      state:
+        type: string
+        description: The state that the deployment is currently in
+  DeploymentSummary:
+    type: object
+    description: A deployment summary
+    required:
+      - crn
+      - name
+      - status
+      - environment
+      - updated
+    properties:
+      crn:
+        type: string
+        description: The deployment CRN
+      name:
+        type: string
+        description: The deployment name
+      status:
+        description: The deployment status
+        $ref: '#/definitions/DeploymentStatus'
+      environment:
+        description: The environment information of the deployment
+        $ref: '#/definitions/EnvironmentMeta'
+      updated:
+        type: integer
+        format: int64
+        description: Timestamp of the last time the deployment was modified
+      dataSents:
+        type: array
+        items:
+          $ref: '#/definitions/MetricValue'
+        description: The dataSent values
+      dataReceiveds:
+        type: array
+        items:
+          $ref: '#/definitions/MetricValue'
+        description: The dataReceived values
+      activeWarningAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as a warning
+      activeErrorAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as an error
+  Deployment:
+    type: object
+    description: A deployment
+    required:
+      - crn
+      - name
+      - status
+      - environment
+      - updated
+      - clusterSize
+      - flowVersionCrn
+    properties:
+      crn:
+        type: string
+        description: The deployment CRN
+      name:
+        type: string
+        description: The deployment name
+      status:
+        description: The deployment status
+        $ref: '#/definitions/DeploymentStatus'
+      environment:
+        description: The environment information of the deployment
+        $ref: '#/definitions/EnvironmentMeta'
+      updated:
+        type: integer
+        format: int64
+        description: Timestamp of the last time the deployment was modified
+      clusterSize:
+        type: string
+        description: The initial size of the deployment
+      flowVersionCrn:
+        type: string
+        description: The deployment's current flow version CRN
+      nifiUrl:
+        type: string
+        description: The url to open the deployed flow in NiFi
+      autoscaleMaxNodes:
+        type: integer
+        format: int32
+        description: The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment
+      flowName:
+        type: string
+        description: The name of the flow
+      flowVersion:
+        type: integer
+        format: int32
+        description: The version of the flow
+      currentNodeCount:
+        type: integer
+        format: int32
+        description: The current node count
+      deployedByCrn:
+        type: string
+        description: The actor CRN of the person who deployed the flow
+      deployedByName:
+        type: string
+        description: The name of the person who deployed the flow
+      autoscalingEnabled:
+        type: boolean
+        description: Whether or not to autoscale the deployment.
+      autoscaleMinNodes:
+        type: integer
+        format: int32
+        description: The minimum number of nodes that the deployment will allocate. May only be specified when autoscalingEnabled is true.
+      activeWarningAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as a warning
+      activeErrorAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as an error
+      staticNodeCount:
+        type: integer
+        format: int32
+        description: The static number of nodes that the deployment will allocate. May only be specified when autoscalingEnabled is false.
+      dfxLocalUrl:
+        type: string
+        description: Base URL to the dfx-local instance running this deployment
+      lastUpdatedByName:
+        type: string
+        description: The name of the person who last updated the deployment
+      configurationVersion:
+        type: integer
+        format: int64
+        description: The version of the configuration for this deployment
+  FilterOption:
+    type: object
+    description: A filter option
+    required:
+      - identifier
+      - label
+    properties:
+      identifier:
+        type: string
+        description: The filter identifier
+      label:
+        type: string
+        description: The filter label
+      iconClass:
+        type: string
+        description: The icon class
+  ListFilterOptionsRequest:
+    type: object
+    description: A request to list filter options
+    required:
+      - filterType
+    properties:
+      filterType:
+        type: string
+        description: The type of filter
+  ListFilterOptionsResponse:
+    type: object
+    description: A response to list filter options
+    properties:
+      filterOptions:
+        type: array
+        items:
+          $ref: '#/definitions/FilterOption'
+        description: The filter options
+  ListDeploymentsRequest:
+    type: object
+    description: A request to list deployments
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 20
+        maximum: 100
+        x-paging-page-size: true
+        description: The page size.
+      startingToken:
+        type: string
+        x-paging-input-token: true
+        description: The starting page token.
+      metricsTimePeriod:
+        type: string
+        description: The metrics time period
+      sorts:
+        type: array
+        items:
+          type: string
+        description: The sort criteria
+      filters:
+        type: array
+        items:
+          type: string
+        description: The filter criteria
+  ListDeploymentsResponse:
+    type: object
+    description: A response from listing deployments
+    properties:
+      nextToken:
+        type: string
+        x-paging-output-token: true
+        description: The page token for requesting the next page of results.
+      deployments:
+        type: array
+        x-paging-result: true
+        items:
+          $ref: '#/definitions/DeploymentSummary'
+        description: The listing of deployments in this page
+  DescribeDeploymentRequest:
+    type: object
+    description: A request to describe a deployment
+    required:
+      - deploymentCrn
+    properties:
+      deploymentCrn:
+        type: string
+        description: The deployment CRN
+  DescribeDeploymentResponse:
+    type: object
+    description: A response to describe a deployment
+    properties:
+      deployment:
+        description: The deployment
+        $ref: '#/definitions/Deployment'
+  ListDeploymentKPIsRequest:
+    type: object
+    description: A request to list deployment KPIs
+    required:
+      - deploymentCrn
+      - metricsTimePeriod
+    properties:
+      deploymentCrn:
+        type: string
+        description: The deployment CRN
+      metricsTimePeriod:
+        type: string
+        description: The metrics time period
+  ListDeploymentKPIsResponse:
+    type: object
+    description: A response to list deployment KPIs
+    properties:
+      metricCharts:
+        type: array
+        items:
+          $ref: '#/definitions/MetricChart'
+        description: The metrics for the configured KPIs
+  ListDeploymentSystemMetricsRequest:
+    type: object
+    description: A request to list deployment system metrics
+    required:
+      - deploymentCrn
+      - metricsTimePeriod
+    properties:
+      deploymentCrn:
+        type: string
+        description: The deployment CRN
+      metricsTimePeriod:
+        type: string
+        description: The metrics time period
+  ListDeploymentSystemMetricsResponse:
+    type: object
+    description: A response to list deployment system metrics
+    properties:
+      metricCharts:
+        type: array
+        items:
+          $ref: '#/definitions/MetricChart'
+        description: The metrics for the configured KPIs
+  ListDeploymentActiveAlertsRequest:
+    type: object
+    description: A request to list active alerts for deployment
+    required:
+      - deploymentCrn
+    properties:
+      deploymentCrn:
+        type: string
+        description: The deployment CRN
+      sort:
+        type: string
+        description: Sort criteria
+  ListDeploymentActiveAlertsResponse:
+    type: object
+    description: A response to list active alerts for deployment
+    properties:
+      eventSummaries:
+        type: array
+        items:
+          $ref: '#/definitions/EventSummary'
+        description: The events for the specified deployment
+  ListDeploymentEventsRequest:
+    type: object
+    description: A request to list event history for deployment
+    required:
+      - deploymentCrn
+    properties:
+      deploymentCrn:
+        type: string
+        description: The deployment CRN
+      rows:
+        type: integer
+        format: int32
+        description: Max number of rows to return
+      timestampFrom:
+        type: integer
+        format: int64
+        description: Timestamp from when to list events prior
+      filters:
+        type: array
+        items:
+          type: string
+        description: Filter criteria
+  ListDeploymentEventsResponse:
+    type: object
+    description: A response to list event history for deployment
+    properties:
+      eventSummaries:
+        type: array
+        items:
+          $ref: '#/definitions/EventSummary'
+        description: The events
+  DescribeDeploymentEventDetailRequest:
+    type: object
+    description: A request to describe event details for development
+    required:
+      - deploymentCrn
+      - eventCrn
+    properties:
+      deploymentCrn:
+        type: string
+        description: The CRN of the deployment
+      eventCrn:
+        type: string
+        description: The CRN of the event
+  DescribeDeploymentEventDetailResponse:
+    type: object
+    description: A response to describe event details for development
+    properties:
+      eventDetail:
+        description: The event details
+        $ref: '#/definitions/EventDetail'
+  EventDetail:
+    type: object
+    description: Event details
+    properties:
+      event:
+        description: The event
+        $ref: '#/definitions/Event'
+      metricSummary:
+        description: the metric summary
+        $ref: '#/definitions/MetricSummary'
+  ServiceStatus:
+    type: object
+    description: The status of a DataFlow enabled service.
     required:
       - state
     properties:
       state:
         type: string
-        description: The state of the environment.
+        description: The state of the service.
       message:
         type: string
-        description: A status message for the environment.
-  EnvironmentSummary:
+        description: A status message for the service.
+      detailedState:
+        type: string
+        description: The detailed state of the service.
+  ServiceSummary:
     type: object
-    description: The summarized DataFlow view of a CDP environment
+    description: The summarized DataFlow view of a CDP service
     required:
-      - crn
+      - serviceCrn
+      - cloudbreakCrn
       - name
       - cloudPlatform
       - region
@@ -1226,18 +1262,21 @@ definitions:
       - maxK8sNodeCount
       - status
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
+        description: The service CRN.
+      cloudbreakCrn:
+        type: string
+        description: The cloudbreak CRN
       name:
         type: string
-        description: The environment name.
+        description: The service name.
       cloudPlatform:
         type: string
-        description: The cloud platform of the environment.
+        description: The cloud platform of the service.
       region:
         type: string
-        description: The region of the environment.
+        description: The region of the service.
       deploymentCount:
         type: integer
         format: int32
@@ -1245,14 +1284,14 @@ definitions:
       maxK8sNodeCount:
         type: integer
         format: int32
-        description: The maximum number of kubernetes nodes that environment may scale up under high-demand situations
+        description: The maximum number of kubernetes nodes that service may scale up under high-demand situations
       status:
-        description: The DataFlow status of the environment.
-        $ref: '#/definitions/EnvironmentStatus'
-      k8sNodeCount:
+        description: The DataFlow status of the service.
+        $ref: '#/definitions/ServiceStatus'
+      runningK8sNodeCount:
         type: integer
         format: int32
-        description: The number of kubernetes nodes currently in use by DataFlow for this environment.
+        description: The number of kubernetes nodes currently running for this service.
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -1263,15 +1302,24 @@ definitions:
         description: Current count of active alerts classified as an error
       clusterId:
         type: string
-        description: Cluster id of the environment, if enabled
+        description: Cluster id of the service, if enabled
       instanceType:
         type: string
-        description: The instance type of the kubernetes nodes currently in use by DataFlow for this environment.
-  Environment:
+        description: The instance type of the kubernetes nodes currently in use by DataFlow for this service.
+      clusterUsable:
+        type: boolean
+        description: Whether or not a successfully created and usable cluster exists
+      validActions:
+        type: array
+        items:
+          type: string
+        description: Valid actions that can be applied based on the current state of the service
+  Service:
     type: object
-    description: The DataFlow view of a CDP environment.
+    description: The DataFlow view of a CDP service.
     required:
-      - crn
+      - serviceCrn
+      - cloudbreakCrn
       - name
       - cloudPlatform
       - region
@@ -1280,18 +1328,21 @@ definitions:
       - maxK8sNodeCount
       - status
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
+        description: The service CRN.
+      cloudbreakCrn:
+        type: string
+        description: The cloudbreak CRN
       name:
         type: string
-        description: The environment name.
+        description: The service name.
       cloudPlatform:
         type: string
-        description: The cloud platform of the environment.
+        description: The cloud platform of the service.
       region:
         type: string
-        description: The region of the environment.
+        description: The region of the service.
       deploymentCount:
         type: integer
         format: int32
@@ -1299,29 +1350,29 @@ definitions:
       minK8sNodeCount:
         type: integer
         format: int32
-        description: The minimum number of Kubernetes nodes that need to be provisioned in the environment
+        description: The minimum number of Kubernetes nodes that need to be provisioned in the service
       maxK8sNodeCount:
         type: integer
         format: int32
-        description: The maximum number of kubernetes nodes that environment may scale up under high-demand situations
+        description: The maximum number of kubernetes nodes that service may scale up under high-demand situations
       status:
-        description: The DataFlow status of the environment.
-        $ref: '#/definitions/EnvironmentStatus'
-      k8sNodeCount:
+        description: The DataFlow status of the service.
+        $ref: '#/definitions/ServiceStatus'
+      runningK8sNodeCount:
         type: integer
         format: int32
-        description: The number of kubernetes nodes currently in use by DataFlow for this environment.
+        description: The number of kubernetes nodes currently running for this service.
       instanceType:
         type: string
-        description: The instance type of the kubernetes nodes currently in use by DataFlow for this environment.
+        description: The instance type of the kubernetes nodes currently in use by DataFlow for this service.
       dfLocalUrl:
         type: string
-        description: The URL of the environment local DataFlow application.
-      authorizedIpRanges:
+        description: The URL of the service local DataFlow application.
+      kubeApiAuthorizedIpRanges:
         type: array
         items:
           type: string
-        description: The authorized IP Ranges
+        description: The IP Ranges authorized to connect to the Kubernetes API Server.
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -1332,10 +1383,49 @@ definitions:
         description: Current count of active alerts classified as an error
       clusterId:
         type: string
-        description: Cluster id of the environment, if enabled
-  ListEnvironmentsRequest:
+        description: Cluster id of the service, if enabled
+      clusterUsable:
+        type: boolean
+        description: Whether or not a successfully created and usable cluster exists
+      validActions:
+        type: array
+        items:
+          type: string
+        description: Valid actions that can be applied based on the current state of the service
+      usePublicLoadBalancer:
+        type: boolean
+        description: Whether or not a public load balancer is exposed.
+      tags:
+        type: object
+        description: The tags to apply to service related resources created
+        additionalProperties:
+          type: string
+      loadBalancerAuthorizedIpRanges:
+        type: array
+        items:
+          type: string
+        description: IP Ranges that are authorized to access CDF local endpoints.
+      clusterSubnets:
+        type: array
+        items:
+          type: string
+        description: Subnets to use for the Kubernetes cluster
+      creatingK8sNodeCount:
+        type: integer
+        format: int32
+        description: The number of kubernetes nodes currently under creation for this service.
+      terminatingK8sNodeCount:
+        type: integer
+        format: int32
+        description: The number of kubernetes nodes currently terminating for this service.
+      loadBalancerSubnets:
+        type: array
+        items:
+          type: string
+        description: Subnets to use for the Load Balancer
+  ListServicesRequest:
     type: object
-    description: Request object for the ListEnvironments method.
+    description: Request object for the ListServices method.
     properties:
       sorts:
         type: array
@@ -1349,167 +1439,220 @@ definitions:
         maximum: 100
         x-paging-page-size: true
         description: The page size.
-      pageToken:
+      startingToken:
         type: string
         x-paging-input-token: true
-        description: The page token.
-  ListEnvironmentsResponse:
+        description: The starting page token.
+      searchTerm:
+        type: string
+        description: Search term to filter by name
+  ListServicesResponse:
     type: object
-    description: Response object for the ListEnvironments method.
+    description: Response object for the ListServices method.
     properties:
-      environments:
+      services:
         type: array
         x-paging-result: true
         items:
-          $ref: '#/definitions/EnvironmentSummary'
-        description: The environments.
-      nextPageToken:
+          $ref: '#/definitions/ServiceSummary'
+        description: The services.
+      nextToken:
         type: string
         x-paging-output-token: true
         description: The page token for requesting the next page of results.
-  ListTargetEnvironmentsForNewDeploymentsRequest:
+  ListDeployableServicesForNewDeploymentsRequest:
     type: object
-    description: Request object for the ListTargetEnvironmentsForNewDeploymentsRequest method.
-  ListTargetEnvironmentsForNewDeploymentsResponse:
+    description: Request object for the ListDeployableServicesForNewDeploymentsRequest method.
+  ListDeployableServicesForNewDeploymentsResponse:
     type: object
-    description: Response object for the ListTargetEnvironmentsForNewDeploymentsRequest method.
+    description: Response object for the ListDeployableServicesForNewDeploymentsRequest method.
     properties:
-      environments:
+      services:
         type: array
         items:
-          $ref: '#/definitions/EnvironmentSummary'
-        description: The environments.
-  GetEnvironmentRequest:
+          $ref: '#/definitions/ServiceSummary'
+        description: The services.
+  DescribeServiceRequest:
     type: object
-    description: Request object for the GetEnvironment method.
+    description: Request object for the DescribeService method.
     required:
-      - crn
+      - serviceCrn
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN
-  GetEnvironmentResponse:
+        description: The service CRN
+  DescribeServiceResponse:
     type: object
-    description: Response object for the GetEnvironment method.
+    description: Response object for the DescribeService method.
     properties:
-      environment:
-        description: The environment
-        $ref: '#/definitions/Environment'
-  EnableEnvironmentRequest:
+      service:
+        description: The service
+        $ref: '#/definitions/Service'
+  ListServiceSystemMetricsRequest:
     type: object
-    description: Request object for EnableEnvironment
+    description: A request to list service system metrics
     required:
-      - crn
+      - serviceCrn
+      - metricsTimePeriod
+    properties:
+      serviceCrn:
+        type: string
+        description: The service CRN
+      metricsTimePeriod:
+        type: string
+        description: The metrics time period
+  ListServiceSystemMetricsResponse:
+    type: object
+    description: A response to list service system metrics
+    properties:
+      metricCharts:
+        type: array
+        items:
+          $ref: '#/definitions/MetricChart'
+        description: The system metrics for the service
+  EnableServiceRequest:
+    type: object
+    description: Request object for EnableService
+    required:
+      - environmentCrn
       - minK8sNodeCount
       - maxK8sNodeCount
       - usePublicLoadBalancer
     properties:
-      crn:
+      environmentCrn:
         type: string
-        description: The environment CRN
+        description: The CDP environment CRN
       minK8sNodeCount:
         type: integer
         format: int32
-        description: The minimum number of kubernetes nodes needed for the environment.
+        description: The minimum number of kubernetes nodes needed for the service.
       maxK8sNodeCount:
         type: integer
         format: int32
-        description: The maximum number of kubernetes nodes that environment may scale up under high-demand situations.
+        description: The maximum number of kubernetes nodes that service may scale up under high-demand situations.
       usePublicLoadBalancer:
         type: boolean
         description: Indicates whether or not to use a public load balancer when deploying dependencies stack, such as Nginx Ingress Controller.
-      authorizedIpRanges:
+      kubeApiAuthorizedIpRanges:
         type: array
         items:
           type: string
         description: The IP ranges authorized to connect to the Kubernetes API server.
-  EnableEnvironmentResponse:
+      tags:
+        type: object
+        description: The tags to apply to service-related resources created.
+        additionalProperties:
+          type: string
+      loadBalancerAuthorizedIpRanges:
+        type: array
+        items:
+          type: string
+        description: IP Ranges that are authorized to access DF local endpoints.
+      clusterSubnets:
+        type: array
+        items:
+          type: string
+        description: Subnets to use for the Kubernetes cluster
+      loadBalancerSubnets:
+        type: array
+        items:
+          type: string
+        description: Subnets to use for the Load Balancer
+  EnableServiceResponse:
     type: object
-    description: Response object for EnableEnvironment
+    description: Response object for EnableService
     properties:
-      environment:
-        description: The environment
-        $ref: '#/definitions/Environment'
-  DisableEnvironmentRequest:
+      service:
+        description: The service
+        $ref: '#/definitions/Service'
+  DisableServiceRequest:
     type: object
-    description: Request object for DisableEnvironment
+    description: Request object for DisableService
     required:
-      - crn
+      - serviceCrn
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
+        description: The service CRN.
       persist:
         type: boolean
         description: Whether or not to retain the database records of related entities
-  DisableEnvironmentResponse:
+      terminateDeployments:
+        type: boolean
+        description: Whether or not to terminate all deployments associated with this environment
+  DisableServiceResponse:
     type: object
-    description: Response object for DisableEnvironment
+    description: Response object for DisableService
     properties:
       status:
-        description: The DataFlow status of the environment.
-        $ref: '#/definitions/EnvironmentStatus'
-  UpdateEnvironmentRequest:
+        description: The DataFlow status of the service.
+        $ref: '#/definitions/ServiceStatus'
+  UpdateServiceRequest:
     type: object
-    description: Request object for UpdateEnvironment
+    description: Request object for UpdateService
     required:
-      - crn
+      - serviceCrn
       - minK8sNodeCount
       - maxK8sNodeCount
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
+        description: The service CRN.
       minK8sNodeCount:
         type: integer
         format: int32
-        description: The minimum number of kubernetes nodes needed for the environment.
+        description: The minimum number of kubernetes nodes needed for the service.
       maxK8sNodeCount:
         type: integer
         format: int32
-        description: The maximum number of kubernetes nodes that environment may scale up under high-demand situations.
-      authorizedIpRanges:
+        description: The maximum number of kubernetes nodes that service may scale up under high-demand situations.
+      kubeApiAuthorizedIpRanges:
         type: array
         items:
           type: string
-        description: The IP ranges authorized to connect to the Kubernetes API server.
-  UpdateEnvironmentResponse:
+        description: The IP Ranges authorized to connect to the Kubernetes API Server.
+      loadBalancerAuthorizedIpRanges:
+        type: array
+        items:
+          type: string
+        description: IP Ranges that are authorized to access CDF local endpoints.
+  UpdateServiceResponse:
     type: object
-    description: Response object for UpdateEnvironment
+    description: Response object for UpdateService
     properties:
-      environment:
-        description: The environment.
-        $ref: '#/definitions/Environment'
-  GetActiveAlertsForEnvironmentRequest:
+      service:
+        description: The service.
+        $ref: '#/definitions/Service'
+  ListServiceActiveAlertsRequest:
     type: object
-    description: Request object for GetActiveAlertsForEnvironment
+    description: Request object for ListServiceActiveAlerts
     required:
-      - crn
+      - serviceCrn
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN
+        description: The service CRN
       sort:
         type: string
         description: Sort criteria
-  GetActiveAlertsForEnvironmentResponse:
+  ListServiceActiveAlertsResponse:
     type: object
-    description: Response object for GetActiveAlertsForEnvironment
+    description: Response object for ListServiceActiveAlerts
     properties:
       eventSummaries:
         type: array
         items:
           $ref: '#/definitions/EventSummary'
-        description: The events for the specified environment
-  GetEventHistoryForEnvironmentRequest:
+        description: The events for the specified service
+  ListServiceEventsRequest:
     type: object
-    description: Request object for GetEventHistoryForEnvironment
+    description: Request object for ListServiceEvents
     required:
-      - crn
+      - serviceCrn
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN
+        description: The service CRN
       rows:
         type: integer
         format: int32
@@ -1517,63 +1660,63 @@ definitions:
       timestampFrom:
         type: integer
         format: int32
-        description: Timestamp from when to get events prior
+        description: Timestamp from when to list events prior
       filters:
         type: array
         items:
           type: string
         description: Filter criteria
-  GetEventHistoryForEnvironmentResponse:
+  ListServiceEventsResponse:
     type: object
-    description: Response object for GetEventHistoryForEnvironment
+    description: Response object for ListServiceEvents
     properties:
       eventSummaries:
         type: array
         items:
           $ref: '#/definitions/EventSummary'
-        description: The events for the specified environment
-  GetEventDetailForEnvironmentRequest:
+        description: The events for the specified service
+  DescribeServiceEventDetailRequest:
     type: object
-    description: Request object for GetEventDetailForEnvironment
+    description: Request object for DescribeServiceEventDetail
     required:
-      - environmentCrn
+      - serviceCrn
       - eventCrn
     properties:
-      environmentCrn:
+      serviceCrn:
         type: string
-        description: The environment CRN
+        description: The service CRN
       eventCrn:
         type: string
         description: The event CRN
-  GetEventDetailForEnvironmentResponse:
+  DescribeServiceEventDetailResponse:
     type: object
-    description: Response object for GetEventDetailForEnvironment
+    description: Response object for DescribeServiceEventDetail
     properties:
       event:
-        description: The events for the specified environment
+        description: The events for the specified service
         $ref: '#/definitions/Event'
-  DeleteEnvironmentRequest:
+  ResetServiceRequest:
     type: object
-    description: Request object for DeleteEnvironment
+    description: Request object for ResetService
     required:
-      - crn
+      - serviceCrn
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
-  DeleteEnvironmentResponse:
+        description: The serviceCrn CRN.
+  ResetServiceResponse:
     type: object
-    description: Response object for DeleteEnvironment
+    description: Response object for ResetService
   GrantUserKubernetesAccessRequest:
     type: object
     description: The request for granting access
     required:
-      - crn
+      - serviceCrn
       - cloudUserId
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
+        description: The service CRN.
       cloudUserId:
         type: string
         description: The user to grant remote access for
@@ -1586,18 +1729,18 @@ definitions:
       cloudUserId:
         type: string
         description: The cloudUserId for the newly granted user
-  GetUserKubernetesAccessListRequest:
+  ListUserKubernetesAccessRequest:
     type: object
-    description: The request for getting the access list for a cluster
+    description: The request for listing the users that have access to a cluster
     required:
-      - crn
+      - serviceCrn
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
-  GetUserKubernetesAccessListResponse:
+        description: The service CRN.
+  ListUserKubernetesAccessResponse:
     type: object
-    description: The response for getting the access list for a cluster
+    description: The response for listing the users that have access to a cluster
     properties:
       cloudUserIds:
         type: array
@@ -1608,12 +1751,12 @@ definitions:
     type: object
     description: The request for revoking access
     required:
-      - crn
+      - serviceCrn
       - cloudUserId
     properties:
-      crn:
+      serviceCrn:
         type: string
-        description: The environment CRN.
+        description: The service CRN.
       cloudUserId:
         type: string
         description: The user to revoke remote access for
@@ -1626,7 +1769,7 @@ definitions:
       cloudUserId:
         type: string
         description: The cloudUserId of the newly revoked user
-  GetNotificationsRequest:
+  ListNotificationsRequest:
     type: object
     description: The request for retrieving notifications
     required:
@@ -1635,8 +1778,8 @@ definitions:
       timestampAfter:
         type: integer
         format: int64
-        description: Timestamp from when to get notifications since
-  GetNotificationsResponse:
+        description: Timestamp from when to list notifications since
+  ListNotificationsResponse:
     type: object
     description: The response for retrieving notifications
     properties:

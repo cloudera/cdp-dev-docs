@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.39 (BETA)
+  version: 0.9.40 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -327,6 +327,16 @@ definitions:
         items:
           $ref: '#/definitions/DiagnosticsBundle'
         description: List of diagnostics operations
+  KeyValuePair:
+    type: object
+    description: Generic key-value type, because map<> is not supported
+    properties:
+      key:
+        type: string
+        description: Key
+      value:
+        type: string
+        description: Value
   CreateDatabaseRequest:
     type: object
     description: A request to create the database
@@ -352,6 +362,11 @@ definitions:
       subnetId:
         type: string
         description: Id of subnet which the database should be deployed into
+      customUserTags:
+        type: array
+        items:
+          $ref: '#/definitions/KeyValuePair'
+        description: Optional tags to apply to launched infrastructure resources
   UpdateDatabaseRequest:
     type: object
     description: A request to update the database
