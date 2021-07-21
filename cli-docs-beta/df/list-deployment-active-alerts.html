@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>disable-environment &#8212; CDP CLI 0.9.39 (BETA) documentation</title>
+    <title>list-deployment-active-alerts &#8212; CDP CLI 0.9.40 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="enable-environment" href="enable-environment.html" />
-    <link rel="prev" title="delete-environment" href="delete-environment.html" /> 
+    <link rel="next" title="list-deployment-events" href="list-deployment-events.html" />
+    <link rel="prev" title="list-deployable-services-for-new-deployments" href="list-deployable-services-for-new-deployments.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="enable-environment.html" title="enable-environment"
+          <a href="list-deployment-events.html" title="list-deployment-events"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="delete-environment.html" title="delete-environment"
+          <a href="list-deployable-services-for-new-deployments.html" title="list-deployable-services-for-new-deployments"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.39 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.40 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">disable-environment</a></li> 
+        <li class="nav-item nav-item-this"><a href="">list-deployment-active-alerts</a></li> 
       </ul>
     </div>  
 
@@ -39,25 +39,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="disable-environment">
-<span id="cli-cdp-df-disable-environment"></span><h1>disable-environment<a class="headerlink" href="#disable-environment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="list-deployment-active-alerts">
+<span id="cli-cdp-df-list-deployment-active-alerts"></span><h1>list-deployment-active-alerts<a class="headerlink" href="#list-deployment-active-alerts" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Disable environment.</p>
+<dd class="field-odd"><p>List active alerts for deployment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.39 (BETA)</p>
+<dd class="field-even"><p>0.9.40 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Disable environment.</p>
+<p>List active alerts for deployment.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  disable-environment
---crn &lt;value&gt;
-<span class="o">[</span>--persist <span class="p">|</span> --no-persist<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-deployment-active-alerts
+--deployment-crn &lt;value&gt;
+<span class="o">[</span>--sort &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -65,10 +65,10 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--crn</span></code> (string)
-The environment CRN.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--persist</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-persist</span></code> (boolean)
-Whether or not to retain the database records of related entities</p>
+<p><code class="docutils literal notranslate"><span class="pre">--deployment-crn</span></code> (string)
+The deployment CRN</p>
+<p><code class="docutils literal notranslate"><span class="pre">--sort</span></code> (string)
+Sort criteria</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
 Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
@@ -76,16 +76,36 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>status -&gt; (object)</p>
+<p>eventSummaries -&gt; (array)</p>
 <blockquote>
-<div><p>The status of a DataFlow enabled environment.</p>
-<p>state -&gt; (string)</p>
+<div><p>The events for the specified deployment</p>
+<p>(object)</p>
 <blockquote>
-<div><p>The state of the environment.</p>
+<div><p>An event summary</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the event</p>
 </div></blockquote>
-<p>message -&gt; (string)</p>
+<p>name -&gt; (string)</p>
 <blockquote>
-<div><p>A status message for the environment.</p>
+<div><p>Name of the event</p>
+</div></blockquote>
+<p>severity -&gt; (string)</p>
+<blockquote>
+<div><p>The severity of the event</p>
+</div></blockquote>
+<p>firstOccurrence -&gt; (integer)</p>
+<blockquote>
+<div><p>Timestamp of the first occurrence of this event</p>
+</div></blockquote>
+<p>eventType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of event that occurred</p>
+</div></blockquote>
+<p>alertType -&gt; (string)</p>
+<blockquote>
+<div><p>Optional value for alerts</p>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -100,7 +120,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">disable-environment</a><ul>
+<li><a class="reference internal" href="#">list-deployment-active-alerts</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -110,11 +130,11 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="delete-environment.html"
-                        title="previous chapter">delete-environment</a></p>
+  <p class="topless"><a href="list-deployable-services-for-new-deployments.html"
+                        title="previous chapter">list-deployable-services-for-new-deployments</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="enable-environment.html"
-                        title="next chapter">enable-environment</a></p>
+  <p class="topless"><a href="list-deployment-events.html"
+                        title="next chapter">list-deployment-events</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -133,14 +153,14 @@ Prints a sample input JSON to standard output. Note the specified operation is n
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="enable-environment.html" title="enable-environment"
+          <a href="list-deployment-events.html" title="list-deployment-events"
              >next</a></li>
         <li class="right" >
-          <a href="delete-environment.html" title="delete-environment"
+          <a href="list-deployable-services-for-new-deployments.html" title="list-deployable-services-for-new-deployments"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.39 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.40 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">disable-environment</a></li> 
+        <li class="nav-item nav-item-this"><a href="">list-deployment-active-alerts</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

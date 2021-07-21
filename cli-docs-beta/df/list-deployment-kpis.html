@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-vw &#8212; CDP CLI 0.9.40 (BETA) documentation</title>
+    <title>list-deployment-kpis &#8212; CDP CLI 0.9.40 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="list-clusters" href="list-clusters.html" />
-    <link rel="prev" title="describe-kubeconfig" href="describe-kubeconfig.html" /> 
+    <link rel="next" title="list-deployment-system-metrics" href="list-deployment-system-metrics.html" />
+    <link rel="prev" title="list-deployment-events" href="list-deployment-events.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-clusters.html" title="list-clusters"
+          <a href="list-deployment-system-metrics.html" title="list-deployment-system-metrics"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="describe-kubeconfig.html" title="describe-kubeconfig"
+          <a href="list-deployment-events.html" title="list-deployment-events"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.40 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-vw</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-deployment-kpis</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="describe-vw">
-<span id="cli-cdp-dw-describe-vw"></span><h1>describe-vw<a class="headerlink" href="#describe-vw" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="list-deployment-kpis">
+<span id="cli-cdp-df-list-deployment-kpis"></span><h1>list-deployment-kpis<a class="headerlink" href="#list-deployment-kpis" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Describe a Virtual Warehouse.</p>
+<dd class="field-odd"><p>List deployment KPIs.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.40 (BETA)</p>
@@ -51,13 +51,13 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Describe a Virtual Warehouse.</p>
+<p>Lists deployment KPIs.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-vw
---cluster-id &lt;value&gt;
---vw-id &lt;value&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-deployment-kpis
+--deployment-crn &lt;value&gt;
+--metrics-time-period &lt;value&gt;
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -65,10 +65,10 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)
-ID of the Virtual Warehouse’s cluster.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--vw-id</span></code> (string)
-ID of the Virtual Warehouse.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--deployment-crn</span></code> (string)
+The deployment CRN</p>
+<p><code class="docutils literal notranslate"><span class="pre">--metrics-time-period</span></code> (string)
+The metrics time period</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
 Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
@@ -76,71 +76,131 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>vw -&gt; (object)</p>
+<p>metricCharts -&gt; (array)</p>
 <blockquote>
-<div><p>A Virtual Warehouse.</p>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>The CRN of the Virtual Warehouse.</p>
-</div></blockquote>
-<p>id -&gt; (string)</p>
-<blockquote>
-<div><p>The ID of the Virtual Warehouse.</p>
-</div></blockquote>
-<p>name -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the Virtual Warehouse.</p>
-</div></blockquote>
-<p>vwType -&gt; (string)</p>
-<blockquote>
-<div><p>Type of Virtual Warehouse: ‘hive’ or ‘impala’.</p>
-</div></blockquote>
-<p>dbcId -&gt; (string)</p>
-<blockquote>
-<div><p>ID of Database Catalog that the Virtual Warehouse is attached to.</p>
-</div></blockquote>
-<p>status -&gt; (string)</p>
-<blockquote>
-<div><p>Status of the Virtual Warehouse.</p>
-</div></blockquote>
-<p>creator -&gt; (object)</p>
-<blockquote>
-<div><p>A CDP actor (user or machine user).</p>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>Actor CRN.</p>
-</div></blockquote>
-<p>email -&gt; (string)</p>
-<blockquote>
-<div><p>Email address for users.</p>
-</div></blockquote>
-<p>workloadUsername -&gt; (string)</p>
-<blockquote>
-<div><p>Username for users.</p>
-</div></blockquote>
-<p>machineUsername -&gt; (string)</p>
-<blockquote>
-<div><p>Username for machine users.</p>
-</div></blockquote>
-</div></blockquote>
-<p>creationDate -&gt; (datetime)</p>
-<blockquote>
-<div><p>Creation date of Virtual Warehouse.</p>
-</div></blockquote>
-<p>tags -&gt; (array)</p>
-<blockquote>
-<div><p>Tags associated with the resources.</p>
+<div><p>The metrics for the configured KPIs</p>
 <p>(object)</p>
 <blockquote>
-<div><p>A key/value pair attached to some resources.</p>
-<p>key -&gt; (string)</p>
+<div><p>A metric chart</p>
+<p>name -&gt; (string)</p>
 <blockquote>
-<div><p>The tag’s name.</p>
+<div><p>The name of the metric</p>
 </div></blockquote>
-<p>value -&gt; (string)</p>
+<p>unitType -&gt; (string)</p>
 <blockquote>
-<div><p>The associated value of the tag.</p>
+<div><p>The unit type of the metric</p>
 </div></blockquote>
+<p>componentType -&gt; (string)</p>
+<blockquote>
+<div><p>The component type of the metric</p>
+</div></blockquote>
+<p>metrics -&gt; (object)</p>
+<blockquote>
+<div><p>Chart data of metrics</p>
+<p>averageValue -&gt; (double)</p>
+<blockquote>
+<div><p>The average value of the data</p>
+</div></blockquote>
+<p>currentValue -&gt; (double)</p>
+<blockquote>
+<div><p>The most recent value in the list of data points</p>
+</div></blockquote>
+<p>currentValueLabel -&gt; (string)</p>
+<blockquote>
+<div><p>The current value label</p>
+</div></blockquote>
+<p>averageValueLabel -&gt; (string)</p>
+<blockquote>
+<div><p>The average value label</p>
+</div></blockquote>
+<p>tooltipValueLabel -&gt; (string)</p>
+<blockquote>
+<div><p>The tooltip value label</p>
+</div></blockquote>
+<p>datas -&gt; (array)</p>
+<blockquote>
+<div><p>The list of data points (in time-order) for the metric</p>
+<p>(object)</p>
+<blockquote>
+<div><p>A metric value</p>
+<p>timestamp -&gt; (integer)</p>
+<blockquote>
+<div><p>The timestamp of this data point</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The value of this data point</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>mirroredMetrics -&gt; (object)</p>
+<blockquote>
+<div><p>Chart data of metrics</p>
+<p>averageValue -&gt; (double)</p>
+<blockquote>
+<div><p>The average value of the data</p>
+</div></blockquote>
+<p>currentValue -&gt; (double)</p>
+<blockquote>
+<div><p>The most recent value in the list of data points</p>
+</div></blockquote>
+<p>currentValueLabel -&gt; (string)</p>
+<blockquote>
+<div><p>The current value label</p>
+</div></blockquote>
+<p>averageValueLabel -&gt; (string)</p>
+<blockquote>
+<div><p>The average value label</p>
+</div></blockquote>
+<p>tooltipValueLabel -&gt; (string)</p>
+<blockquote>
+<div><p>The tooltip value label</p>
+</div></blockquote>
+<p>datas -&gt; (array)</p>
+<blockquote>
+<div><p>The list of data points (in time-order) for the metric</p>
+<p>(object)</p>
+<blockquote>
+<div><p>A metric value</p>
+<p>timestamp -&gt; (integer)</p>
+<blockquote>
+<div><p>The timestamp of this data point</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The value of this data point</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>alert -&gt; (object)</p>
+<blockquote>
+<div><p>Thresholds associated with a metric</p>
+<p>frequencyTolerance -&gt; (object)</p>
+<blockquote>
+<div><p>Frequency tolerance for a metric chart</p>
+<p>unit -&gt; (string)</p>
+<blockquote>
+<div><p>The unit of time controlling how long a metric value can persist outside its boundaries before an alert is generated</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The amount of time, associated with the given unit, a metric value can persist outside its boundaries before an alert is generated</p>
+</div></blockquote>
+</div></blockquote>
+<p>thresholdMoreThan -&gt; (double)</p>
+<blockquote>
+<div><p>The moreThan threshold for the alert</p>
+</div></blockquote>
+<p>thresholdLessThan -&gt; (double)</p>
+<blockquote>
+<div><p>The lessThan threshold for the alert</p>
+</div></blockquote>
+</div></blockquote>
+<p>componentName -&gt; (string)</p>
+<blockquote>
+<div><p>The scope component name that will exist for Processor, Process Group, and Connection metrics.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -156,7 +216,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">describe-vw</a><ul>
+<li><a class="reference internal" href="#">list-deployment-kpis</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -166,11 +226,11 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="describe-kubeconfig.html"
-                        title="previous chapter">describe-kubeconfig</a></p>
+  <p class="topless"><a href="list-deployment-events.html"
+                        title="previous chapter">list-deployment-events</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="list-clusters.html"
-                        title="next chapter">list-clusters</a></p>
+  <p class="topless"><a href="list-deployment-system-metrics.html"
+                        title="next chapter">list-deployment-system-metrics</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -189,14 +249,14 @@ Prints a sample input JSON to standard output. Note the specified operation is n
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-clusters.html" title="list-clusters"
+          <a href="list-deployment-system-metrics.html" title="list-deployment-system-metrics"
              >next</a></li>
         <li class="right" >
-          <a href="describe-kubeconfig.html" title="describe-kubeconfig"
+          <a href="list-deployment-events.html" title="list-deployment-events"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.40 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-vw</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-deployment-kpis</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

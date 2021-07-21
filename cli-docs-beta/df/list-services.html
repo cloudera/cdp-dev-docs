@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-environment &#8212; CDP CLI 0.9.39 (BETA) documentation</title>
+    <title>list-services &#8212; CDP CLI 0.9.40 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dw" href="../dw/index.html" />
-    <link rel="prev" title="revoke-user-kubernetes-access" href="revoke-user-kubernetes-access.html" /> 
+    <link rel="next" title="list-user-kubernetes-access" href="list-user-kubernetes-access.html" />
+    <link rel="prev" title="list-service-system-metrics" href="list-service-system-metrics.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../dw/index.html" title="dw"
+          <a href="list-user-kubernetes-access.html" title="list-user-kubernetes-access"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="revoke-user-kubernetes-access.html" title="revoke-user-kubernetes-access"
+          <a href="list-service-system-metrics.html" title="list-service-system-metrics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.39 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.40 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">update-environment</a></li> 
+        <li class="nav-item nav-item-this"><a href="">list-services</a></li> 
       </ul>
     </div>  
 
@@ -39,27 +39,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="update-environment">
-<span id="cli-cdp-df-update-environment"></span><h1>update-environment<a class="headerlink" href="#update-environment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="list-services">
+<span id="cli-cdp-df-list-services"></span><h1>list-services<a class="headerlink" href="#list-services" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Update environment.</p>
+<dd class="field-odd"><p>List services.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.39 (BETA)</p>
+<dd class="field-even"><p>0.9.40 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Update environment.</p>
+<p>Lists services.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list-services</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-environment
---crn &lt;value&gt;
---min-k8s-node-count &lt;value&gt;
---max-k8s-node-count &lt;value&gt;
-<span class="o">[</span>--authorized-ip-ranges &lt;value&gt;<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-services
+<span class="o">[</span>--sorts &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--search-term &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -67,18 +69,26 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--crn</span></code> (string)
-The environment CRN.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--min-k8s-node-count</span></code> (integer)
-The minimum number of kubernetes nodes needed for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--max-k8s-node-count</span></code> (integer)
-The maximum number of kubernetes nodes that environment may scale up under high-demand situations.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--authorized-ip-ranges</span></code> (array)
-The IP ranges authorized to connect to the Kubernetes API server.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--sorts</span></code> (array)
+The sort criteria</p>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--search-term</span></code> (string)
+Search term to filter by name</p>
+<p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
+<blockquote>
+<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 20 is used.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)</p>
+<blockquote>
+<div><p>A token to specify where to start paginating. This is the <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> from a previously truncated response.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--page-size</span></code> (integer)</p>
+<blockquote>
+<div><p>The size of each page. Generally this does not need to be set and the default page size used is appropriate.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
 Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
@@ -86,65 +96,59 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>environment -&gt; (object)</p>
+<p>services -&gt; (array)</p>
 <blockquote>
-<div><p>The DataFlow view of a CDP environment.</p>
-<p>crn -&gt; (string)</p>
+<div><p>The services.</p>
+<p>(object)</p>
 <blockquote>
-<div><p>The environment CRN.</p>
+<div><p>The summarized DataFlow view of a CDP service</p>
+<p>serviceCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The service CRN.</p>
+</div></blockquote>
+<p>cloudbreakCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The cloudbreak CRN</p>
 </div></blockquote>
 <p>name -&gt; (string)</p>
 <blockquote>
-<div><p>The environment name.</p>
+<div><p>The service name.</p>
 </div></blockquote>
 <p>cloudPlatform -&gt; (string)</p>
 <blockquote>
-<div><p>The cloud platform of the environment.</p>
+<div><p>The cloud platform of the service.</p>
 </div></blockquote>
 <p>region -&gt; (string)</p>
 <blockquote>
-<div><p>The region of the environment.</p>
+<div><p>The region of the service.</p>
 </div></blockquote>
 <p>deploymentCount -&gt; (integer)</p>
 <blockquote>
 <div><p>The deployment count.</p>
 </div></blockquote>
-<p>minK8sNodeCount -&gt; (integer)</p>
-<blockquote>
-<div><p>The minimum number of Kubernetes nodes that need to be provisioned in the environment</p>
-</div></blockquote>
 <p>maxK8sNodeCount -&gt; (integer)</p>
 <blockquote>
-<div><p>The maximum number of kubernetes nodes that environment may scale up under high-demand situations</p>
+<div><p>The maximum number of kubernetes nodes that service may scale up under high-demand situations</p>
 </div></blockquote>
 <p>status -&gt; (object)</p>
 <blockquote>
-<div><p>The status of a DataFlow enabled environment.</p>
+<div><p>The status of a DataFlow enabled service.</p>
 <p>state -&gt; (string)</p>
 <blockquote>
-<div><p>The state of the environment.</p>
+<div><p>The state of the service.</p>
 </div></blockquote>
 <p>message -&gt; (string)</p>
 <blockquote>
-<div><p>A status message for the environment.</p>
+<div><p>A status message for the service.</p>
 </div></blockquote>
-</div></blockquote>
-<p>k8sNodeCount -&gt; (integer)</p>
+<p>detailedState -&gt; (string)</p>
 <blockquote>
-<div><p>The number of kubernetes nodes currently in use by DataFlow for this environment.</p>
+<div><p>The detailed state of the service.</p>
 </div></blockquote>
-<p>instanceType -&gt; (string)</p>
-<blockquote>
-<div><p>The instance type of the kubernetes nodes currently in use by DataFlow for this environment.</p>
 </div></blockquote>
-<p>dfLocalUrl -&gt; (string)</p>
+<p>runningK8sNodeCount -&gt; (integer)</p>
 <blockquote>
-<div><p>The URL of the environment local DataFlow application.</p>
-</div></blockquote>
-<p>authorizedIpRanges -&gt; (array)</p>
-<blockquote>
-<div><p>The authorized IP Ranges</p>
-<p>(string)</p>
+<div><p>The number of kubernetes nodes currently running for this service.</p>
 </div></blockquote>
 <p>activeWarningAlertCount -&gt; (integer)</p>
 <blockquote>
@@ -156,8 +160,26 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div></blockquote>
 <p>clusterId -&gt; (string)</p>
 <blockquote>
-<div><p>Cluster id of the environment, if enabled</p>
+<div><p>Cluster id of the service, if enabled</p>
 </div></blockquote>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>The instance type of the kubernetes nodes currently in use by DataFlow for this service.</p>
+</div></blockquote>
+<p>clusterUsable -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether or not a successfully created and usable cluster exists</p>
+</div></blockquote>
+<p>validActions -&gt; (array)</p>
+<blockquote>
+<div><p>Valid actions that can be applied based on the current state of the service</p>
+<p>(string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>nextToken -&gt; (string)</p>
+<blockquote>
+<div><p>The page token for requesting the next page of results.</p>
 </div></blockquote>
 </div>
 </div>
@@ -171,7 +193,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">update-environment</a><ul>
+<li><a class="reference internal" href="#">list-services</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -181,11 +203,11 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="revoke-user-kubernetes-access.html"
-                        title="previous chapter">revoke-user-kubernetes-access</a></p>
+  <p class="topless"><a href="list-service-system-metrics.html"
+                        title="previous chapter">list-service-system-metrics</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../dw/index.html"
-                        title="next chapter">dw</a></p>
+  <p class="topless"><a href="list-user-kubernetes-access.html"
+                        title="next chapter">list-user-kubernetes-access</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -204,14 +226,14 @@ Prints a sample input JSON to standard output. Note the specified operation is n
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../dw/index.html" title="dw"
+          <a href="list-user-kubernetes-access.html" title="list-user-kubernetes-access"
              >next</a></li>
         <li class="right" >
-          <a href="revoke-user-kubernetes-access.html" title="revoke-user-kubernetes-access"
+          <a href="list-service-system-metrics.html" title="list-service-system-metrics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.39 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.40 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">update-environment</a></li> 
+        <li class="nav-item nav-item-this"><a href="">list-services</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
