@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.40 (2021-07-21)
+
+FEATURES:
+
+* environments: Add granular cloud provider policy response in credential prerequisites for AWS.
+* datahub: Add cluster certificate expiration state in list datahubs operation's response.
+* datalake: Add cluster certificate expiration state in list datalakes operation's response.
+
 ## 0.9.39 (2021-07-09)
 
 FEATURES:
