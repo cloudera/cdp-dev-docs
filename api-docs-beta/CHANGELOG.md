@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.41 (2021-08-04)
+
+FEATURES:
+
+* datacatalog: Add High Availability (HA) option for datacatalog profilers.
+
 ## 0.9.40 (2021-07-21)
 
 FEATURES:

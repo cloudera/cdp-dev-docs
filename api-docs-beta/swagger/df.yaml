@@ -5,11 +5,11 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.40 (BETA)
-  title: Cloudera DataFlow Environment Service
+  version: 0.9.41 (BETA)
+  title: Cloudera DataFlow Service
   license:
     name: Apache 2.0
-  description: Manage DataFlow Environments.
+  description: Manage DataFlow Services.
   termsOfService: https://www.cloudera.com/legal/commercial-terms-and-conditions.html
 schemes:
   - https
@@ -520,19 +520,19 @@ definitions:
       message:
         type: string
         description: The error message.
-  EnvironmentMeta:
+  ServiceMeta:
     type: object
-    description: Metadata about an environment
+    description: Metadata about a service
     required:
       - crn
       - name
       - cloudProvider
       - region
-      - cloudbreakCrn
+      - environmentCrn
     properties:
       crn:
         type: string
-        description: The crn of the environment
+        description: The crn of the service
       name:
         type: string
         description: the name of the environment
@@ -542,9 +542,9 @@ definitions:
       region:
         type: string
         description: the region within the cloud provider
-      cloudbreakCrn:
+      environmentCrn:
         type: string
-        description: The cloudbreak CRN
+        description: The CDP Environment CRN
   EventSummary:
     type: object
     description: An event summary
@@ -892,7 +892,7 @@ definitions:
       - crn
       - name
       - status
-      - environment
+      - service
       - updated
     properties:
       crn:
@@ -904,9 +904,9 @@ definitions:
       status:
         description: The deployment status
         $ref: '#/definitions/DeploymentStatus'
-      environment:
-        description: The environment information of the deployment
-        $ref: '#/definitions/EnvironmentMeta'
+      service:
+        description: The DataFlow service information of the deployment
+        $ref: '#/definitions/ServiceMeta'
       updated:
         type: integer
         format: int64
@@ -936,7 +936,7 @@ definitions:
       - crn
       - name
       - status
-      - environment
+      - service
       - updated
       - clusterSize
       - flowVersionCrn
@@ -950,9 +950,9 @@ definitions:
       status:
         description: The deployment status
         $ref: '#/definitions/DeploymentStatus'
-      environment:
-        description: The environment information of the deployment
-        $ref: '#/definitions/EnvironmentMeta'
+      service:
+        description: The DataFlow service information of the deployment
+        $ref: '#/definitions/ServiceMeta'
       updated:
         type: integer
         format: int64
@@ -1251,10 +1251,10 @@ definitions:
         description: The detailed state of the service.
   ServiceSummary:
     type: object
-    description: The summarized DataFlow view of a CDP service
+    description: The summary of the DF Service enabled in a CDP Environment
     required:
-      - serviceCrn
-      - cloudbreakCrn
+      - crn
+      - environmentCrn
       - name
       - cloudPlatform
       - region
@@ -1262,12 +1262,12 @@ definitions:
       - maxK8sNodeCount
       - status
     properties:
-      serviceCrn:
+      crn:
         type: string
         description: The service CRN.
-      cloudbreakCrn:
+      environmentCrn:
         type: string
-        description: The cloudbreak CRN
+        description: The CDP Environment CRN
       name:
         type: string
         description: The service name.
@@ -1318,8 +1318,8 @@ definitions:
     type: object
     description: The DataFlow view of a CDP service.
     required:
-      - serviceCrn
-      - cloudbreakCrn
+      - crn
+      - environmentCrn
       - name
       - cloudPlatform
       - region
@@ -1328,12 +1328,12 @@ definitions:
       - maxK8sNodeCount
       - status
     properties:
-      serviceCrn:
+      crn:
         type: string
         description: The service CRN.
-      cloudbreakCrn:
+      environmentCrn:
         type: string
-        description: The cloudbreak CRN
+        description: The CDP Environment CRN
       name:
         type: string
         description: The service name.
@@ -1579,7 +1579,7 @@ definitions:
         description: Whether or not to retain the database records of related entities
       terminateDeployments:
         type: boolean
-        description: Whether or not to terminate all deployments associated with this environment
+        description: Whether or not to terminate all deployments associated with this DataFlow service
   DisableServiceResponse:
     type: object
     description: Response object for DisableService
@@ -1659,7 +1659,7 @@ definitions:
         description: Max number of rows to return
       timestampFrom:
         type: integer
-        format: int32
+        format: int64
         description: Timestamp from when to list events prior
       filters:
         type: array
