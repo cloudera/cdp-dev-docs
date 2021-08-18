@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.42 (2021-08-18)
+
+IMPROVEMENTS:
+
+* datahub: Expanded access to `GetClusterServiceStatus` and `GetClusterHostStatus`
+
+FEATURES:
+
+* dw: New `imageVersion` parameter for `CreateVwRequest` and `CreateDbcRequest`.
+
 ## 0.9.41 (2021-08-04)
 
 FEATURES:

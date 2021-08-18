@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.41
+  version: 0.9.42
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -613,6 +613,10 @@ definitions:
       loadDemoData:
         type: boolean
         description: Load demo data into the Database Catalog?
+      imageVersion:
+        type: string
+        description: Version of the Database Catalog.
+        default: ''
   CreateDbcResponse:
     type: object
     description: Response object for the createDbc method.
@@ -715,6 +719,10 @@ definitions:
       name:
         type: string
         description: Name of the Virtual Warehouse.
+      imageVersion:
+        type: string
+        description: version of the Virtual Warehouse.
+        default: ''
       template:
         type: string
         description: Name of configuration template to use.
