@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.41 (BETA)
+  version: 0.9.42 (BETA)
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -563,6 +563,21 @@ definitions:
       enableAZ:
         type: boolean
         description: Enables Azure Availability Zones for the cluster deployment.
+      enableUDR:
+        type: boolean
+        description: Enable user defined routing for the cluster deployment.
+        default: false
+      enablePrivateSQL:
+        type: boolean
+        description: Enables private SQL for the cluster deployment.
+        default: false
+      privateDNSZoneAKS:
+        type: string
+        description: Private DNS zone AKS resource ID.
+      enablePrivateAks:
+        type: boolean
+        description: Enable Azure Private AKS mode.
+        default: false
   CreateClusterResponse:
     type: object
     description: Response object for the createCluster method.
@@ -613,6 +628,10 @@ definitions:
       loadDemoData:
         type: boolean
         description: Load demo data into the Database Catalog?
+      imageVersion:
+        type: string
+        description: Version of the Database Catalog.
+        default: ''
   CreateDbcResponse:
     type: object
     description: Response object for the createDbc method.
@@ -715,6 +734,10 @@ definitions:
       name:
         type: string
         description: Name of the Virtual Warehouse.
+      imageVersion:
+        type: string
+        description: version of the Virtual Warehouse.
+        default: ''
       template:
         type: string
         description: Name of configuration template to use.

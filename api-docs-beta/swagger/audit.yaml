@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.41 (BETA)
+  version: 0.9.42 (BETA)
   title: Cloudera Audit Service
   license:
     name: Apache 2.0
@@ -348,6 +348,11 @@ definitions:
       userCrn:
         type: string
         description: The CDP user CRN for the user. This may be empty if the login failed.
+      filteredInvalidGroups:
+        type: array
+        items:
+          type: string
+        description: 'The groups that are invalid and filtered (ignored) during the interactive login through non Cloudera SSO IdP. It is a subset of the groups the user belongs to as received in CDP. It can be empty for any of the following reasons: 1) If the account is not entitled for this feature. 2) If the membership sync is off for the IdP used during the interactive login. 3) If all the groups were valid during login through non Cloudera SSO IdP. 4) If the login is performed through Cloudera SSO. 5) If the login fails before filtering invalid groups.'
   ActorIdentity:
     type: object
     description: Identity information about the actor that initiated an event. Only one of the fields in this message may be set.
