@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.43 (2021-09-08)
+
+IMPROVEMENTS:
+
+* dw: Enable configuration of `customEcrRepository`, `customAmiId` in AwsActivationOptions.
+* dw: Enable configuration of `vmGenerationType`, `logAnalyticsWorkspaceId` and `dockerBridgeCidr` in AzureActivationOptions.
+* datalake: Make mandatory parameter `instanceGroupName` as optional.
+
 ## 0.9.42 (2021-08-18)
 
 IMPROVEMENTS:

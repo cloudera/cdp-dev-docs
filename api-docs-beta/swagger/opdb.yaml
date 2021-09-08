@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.42 (BETA)
+  version: 0.9.43 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -99,6 +99,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/opdb/disengageAutoAdmin:
+    post:
+      summary: Disable autonomous support
+      description: Stops managing the operational database
+      operationId: disengageAutoAdmin
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DisengageAutoAdminRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DisengageAutoAdminResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
   /api/v1/opdb/dropDatabase:
     post:
       summary: drop a opDb
@@ -243,6 +264,27 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
+  /api/v1/opdb/upgradeDatabase:
+    post:
+      summary: Upgrades the database
+      description: Upgrades an operational database in an environment to a given runtime.
+      operationId: upgradeDatabase
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpgradeDatabaseRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpgradeDatabaseResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
 definitions:
   Error:
     type: object
@@ -361,7 +403,7 @@ definitions:
         description: Name server IP for unbound DNS forwarding
       subnetId:
         type: string
-        description: Id of subnet which the database should be deployed into
+        description: Override subnet where the database will be deployed. Disables Multi-AZ if set.
       customUserTags:
         type: array
         items:
@@ -474,6 +516,26 @@ definitions:
       status:
         description: status of delete database request
         $ref: '#/definitions/StatusType'
+  DisengageAutoAdminRequest:
+    type: object
+    description: A request to disengage the autonomous nature of the database.
+    required:
+      - environmentName
+      - databaseName
+    properties:
+      environmentName:
+        type: string
+        description: Environment name.
+      databaseName:
+        type: string
+        description: Database name.
+  DisengageAutoAdminResponse:
+    type: object
+    description: A response object for disengage-autoadmin request.
+    properties:
+      wasDisengaged:
+        type: boolean
+        description: status of disengage-autoadmin request.
   ListSupportedEnvironmentsRequest:
     type: object
     description: A request to get a list of available environments
@@ -779,4 +841,27 @@ definitions:
       kerberosConfiguration:
         description: Kerberos configuration information
         $ref: '#/definitions/KerberosConfiguration'
+  UpgradeDatabaseRequest:
+    type: object
+    description: Asynchronous request to upgrade the CDP Runtime for a database.
+    required:
+      - environment
+      - database
+    properties:
+      environment:
+        type: string
+        description: The name or crn of the environment.
+      database:
+        type: string
+        description: The name or crn of the database.
+      runtime:
+        type: string
+        description: Target runtime for an upgrade.
+  UpgradeDatabaseResponse:
+    type: object
+    description: Response with the reason whether upgrade request is accepted or why it is not possible.
+    properties:
+      statusReason:
+        type: string
+        description: The reason whether upgrade request is accepted or why it is not possible.
 x-audit: true
