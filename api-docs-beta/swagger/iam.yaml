@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.43 (BETA)
+  version: 0.9.44 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -93,7 +93,7 @@ paths:
       summary: Deletes a user and all associated resources.
       description: Deletes a user. This includes deleting all associated access keys and unassigning all roles and resource roles assigned to the user. The user is also removed from all groups it belongs to. If the call succeeds the user will not be able to login interactively, or use any access keys to access the CDP control plane. This feature is under development and some reasources may be left behind after a successful call. Note that user-sync is not triggered yet by this call and the caller must trigger that to ensure that the user loses access to all environments as soon as possible.
       operationId: deleteUser
-      x-form-factors: public,private
+      x-form-factors: public
       x-right: iam/deleteUser
       x-mutating: true
       parameters:
@@ -1696,6 +1696,14 @@ definitions:
       mustIncludeSymbols:
         type: boolean
         description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'.
+      minPasswordLifetimeDays:
+        type: integer
+        format: int32
+        description: The minimum lifetime of passwords, in days. The password must be used for this duration before it can be changed. If set to '0' the password may be changed any time. The default is 0.
+      passwordHistorySize:
+        type: integer
+        format: int32
+        description: The number of previous passwords that should be remembered. The user or machine user is prevented from reusing these passwords. Can be any number between 0 and 20. The default is 0, this value means all previous passwords may be reused.
   Account:
     type: object
     description: Information about a Cloudera CDP account.
@@ -3398,16 +3406,22 @@ definitions:
       mustIncludeSymbols:
         type: boolean
         description: Whether passwords must include symbols. The symbols are '#', '&', '*', '$', '%', '@', '^', '.', '_', and '!'. The default is 'true'.
+      minPasswordLifetimeDays:
+        type: integer
+        format: int32
+        minimum: 0
+        description: The minimum lifetime of passwords, in days. The password must be used for this duration before it can be changed. If set to '0' the password may be changed any time. The default is 0. The minPasswordLifetimeDays must be greater than maxPasswordLifetimeDays.
+      passwordHistorySize:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 20
+        description: The number of previous passwords that should be remembered. The user or machine user is prevented from reusing these passwords. Can be any number between 0 and 20. The default is 0, this value means all previous passwords may be reused.
   SetWorkloadPasswordPolicyRequest:
     type: object
     description: Request object for a set workload password policy request.
     x-no-compatibility-guarantee: true
     properties:
-      maxPasswordLifetimeDays:
-        type: integer
-        format: int32
-        minimum: 0
-        description: The maximum lifetime of passwords, in days. If set to '0' passwords never expire.
       globalPasswordPolicy:
         $ref: '#/definitions/PasswordPolicy'
         x-no-compatibility-guarantee: true

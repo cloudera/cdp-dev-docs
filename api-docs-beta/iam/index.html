@@ -1369,7 +1369,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.43 (BETA)</p>
+<p><em>Version</em> : 0.9.44 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -12342,6 +12342,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>minPasswordLifetimeDays</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The minimum lifetime of passwords, in days. The password must be used for this duration before it can be changed. If set to '0' the password may be changed any time. The default is 0. The minPasswordLifetimeDays must be greater than maxPasswordLifetimeDays.<br>
+<strong>Minimum value</strong> : <code>0</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>mustIncludeLowerCaseCharacters</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -12386,6 +12399,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>passwordHistorySize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The number of previous passwords that should be remembered. The user or machine user is prevented from reusing these passwords. Can be any number between 0 and 20. The default is 0, this value means all previous passwords may be reused.<br>
+<strong>Minimum value</strong> : <code>0</code><br>
+<strong>Maximum value</strong> : <code>20</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -13190,19 +13217,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_passwordpolicy">PasswordPolicy</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>maxPasswordLifetimeDays</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The maximum lifetime of passwords, in days. If set to '0' passwords never expire.<br>
-<strong>Minimum value</strong> : <code>0</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -14297,6 +14311,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>minPasswordLifetimeDays</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The minimum lifetime of passwords, in days. The password must be used for this duration before it can be changed. If set to '0' the password may be changed any time. The default is 0.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>mustIncludeLowerCaseCharacters</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -14343,6 +14369,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>boolean</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>passwordHistorySize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The number of previous passwords that should be remembered. The user or machine user is prevented from reusing these passwords. Can be any number between 0 and 20. The default is 0, this value means all previous passwords may be reused.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -14351,7 +14389,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-09-08 15:33:32 -0700
+Last updated 2021-09-13 17:50:35 -0700
 </div>
 </div>
 <br>
