@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.45 (2021-09-29)
+
+IMPROVEMENTS:
+
+* ml: Add `whitelistAuthorizedIPRanges` and `authorizedIPRanges` in `create-workspace` command.
+* environments: Add `create-private-environment`, `get-environment-setting` and `set-environment-setting` command to Private Cloud.
+
 ## 0.9.44 (2021-09-13)
 
 IMPROVEMENTS:
