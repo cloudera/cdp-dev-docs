@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.45 (BETA)
+  version: 0.9.46 (BETA)
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -652,6 +652,18 @@ definitions:
       imageVersion:
         type: string
         description: Version of the Database Catalog.
+        default: ''
+      isDefault:
+        type: boolean
+        description: Is this a Default Database Catalog?
+        default: false
+      tenantStorageRole:
+        type: string
+        description: Tenant Storage Role if the feature is enabled for the account.
+        default: ''
+      tenantStorageLocation:
+        type: string
+        description: Tenant Storage Location if the feature is enabled for the account.
         default: ''
   CreateDbcResponse:
     type: object

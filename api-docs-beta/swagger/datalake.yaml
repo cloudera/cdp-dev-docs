@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.45 (BETA)
+  version: 0.9.46 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1270,6 +1270,10 @@ definitions:
       backupName:
         type: string
         description: The name of the backup.
+      closeDbConnections:
+        type: boolean
+        default: true
+        description: Close the database connections while performing backup. Default is true.
   BackupDatalakeResponse:
     type: object
     description: Response object to a request made for backup of datalake.

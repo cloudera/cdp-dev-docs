@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.45 (BETA)
+  version: 0.9.46 (BETA)
   title: Cloudera DataFlow Service
   license:
     name: Apache 2.0
@@ -18,6 +18,93 @@ consumes:
 produces:
   - application/json
 paths:
+  /api/v1/df/addReadyflow:
+    post:
+      summary: Add ready flow.
+      description: Adds the specified ready flow into this account.
+      operationId: addReadyflow
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AddReadyflowRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/AddReadyflowResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/df/deleteAddedReadyflow:
+    post:
+      summary: Delete added ready flow.
+      description: Deletes the specified added ready flow from this account.
+      operationId: deleteAddedReadyflow
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DeleteAddedReadyflowRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DeleteAddedReadyflowResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/df/deleteFlow:
+    post:
+      summary: Delete flow.
+      description: Deletes the specified flow.
+      operationId: deleteFlow
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DeleteFlowRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DeleteFlowResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/df/describeAddedReadyflow:
+    post:
+      summary: Describe added ready flow detail.
+      description: Gets the details for the specified ready flow as added by the current account.
+      operationId: describeAddedReadyflow
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeAddedReadyflowRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeAddedReadyflowResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/df/describeDeployment:
     post:
       summary: Describe deployment.
@@ -56,6 +143,48 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/DescribeDeploymentEventDetailResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/describeFlow:
+    post:
+      summary: Describe flow.
+      description: Gets the details for the specified flow.
+      operationId: describeFlow
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeFlowRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeFlowResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/describeReadyflow:
+    post:
+      summary: Describe ready flow.
+      description: Gets the details for the specified ready flow.
+      operationId: describeReadyflow
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeReadyflowRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeReadyflowResponse'
         default:
           description: The default response on an error.
           schema:
@@ -163,6 +292,74 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/GrantUserKubernetesAccessResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/df/importFlowDefinition:
+    post:
+      summary: Import a new flow definition.
+      description: Import a new flow definition.
+      operationId: importFlowDefinition
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ImportFlowDefinitionRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ImportFlowDefinitionResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+      x-extensions: redirect,df
+  /api/v1/df/importFlowDefinitionVersion:
+    post:
+      summary: Import a new flow definition version to an existing flow.
+      description: Import a new flow definition version to an existing flow.
+      operationId: importFlowDefinitionVersion
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ImportFlowDefinitionVersionRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ImportFlowDefinitionVersionResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+      x-extensions: redirect,df
+  /api/v1/df/initiateDeployment:
+    post:
+      summary: Initiate a deployment creation.
+      description: Initiate a deployment creation.
+      operationId: initiateDeployment
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/InitiateDeploymentRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/InitiateDeploymentResponse'
         default:
           description: The default response on an error.
           schema:
@@ -316,6 +513,28 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/df/listFlowDefinitions:
+    post:
+      summary: List flow definitions.
+      description: Lists flow definitions.
+      operationId: listFlowDefinitions
+      x-entitlement: DFX
+      x-paging-default-max-items: 20
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListFlowDefinitionsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListFlowDefinitionsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/df/listNotifications:
     post:
       summary: List notifications.
@@ -333,6 +552,28 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ListNotificationsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/df/listReadyflows:
+    post:
+      summary: List ready flows.
+      description: Lists ready flows.
+      operationId: listReadyflows
+      x-entitlement: DFX
+      x-paging-default-max-items: 20
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListReadyflowsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListReadyflowsResponse'
         default:
           description: The default response on an error.
           schema:
@@ -443,6 +684,28 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/df/renewCertificates:
+    post:
+      summary: Renew workload UI certificates.
+      description: Renew workload UI certificates.
+      operationId: renewCertificates
+      x-entitlement: DFX
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RenewCertificatesRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RenewCertificatesResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
   /api/v1/df/resetService:
     post:
       summary: Resets all references to a service. Only not-enabled services can be reset. Makes no attempt to clean-up resources.
@@ -868,6 +1131,523 @@ definitions:
       alertFrequencyUnit:
         description: Units of frequency
         $ref: '#/definitions/AlertFrequencyUnit'
+  ImportFlowDefinitionRequest:
+    type: object
+    description: Request object for ImportFlowDefinition
+    required:
+      - file
+      - name
+    properties:
+      file:
+        type: string
+        description: The file to be uploaded.
+      name:
+        type: string
+        description: The name of the flow.
+      description:
+        type: string
+        description: The description of the flow.
+      comments:
+        type: string
+        description: The comments of the flow.
+  ImportFlowDefinitionResponse:
+    type: object
+    description: Response object for ImportFlowDefinition
+    required:
+      - crn
+      - name
+      - versionCount
+    properties:
+      crn:
+        type: string
+        description: The artifact CRN
+      name:
+        type: string
+        description: The artifact name.
+      versionCount:
+        type: integer
+        format: int32
+        description: The number of versions uploaded to the catalog.
+      createdTimestamp:
+        type: integer
+        format: int64
+        description: The created timestamp.
+      author:
+        type: string
+        description: Author of the most recent version
+      description:
+        type: string
+        description: The artifact description.
+      modifiedTimestamp:
+        type: integer
+        format: int64
+        description: The modified timestamp.
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/FlowVersion'
+        description: The list of artifactDetail versions
+  ImportFlowDefinitionVersionRequest:
+    type: object
+    description: Request object for ImportFlowDefinitionVersion
+    required:
+      - flowCrn
+      - file
+    properties:
+      flowCrn:
+        type: string
+        description: The CRN of the previously uploaded flow.
+      file:
+        type: string
+        description: The file to be uploaded.
+      comments:
+        type: string
+        description: The comments of the flow version.
+  ImportFlowDefinitionVersionResponse:
+    type: object
+    description: Response object for ImportFlowDefinitionVersion
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: The flow version CRN
+      bucketIdentifier:
+        type: string
+        description: The bucketIdentifier of the flow
+      author:
+        type: string
+        description: The author of the flow
+      version:
+        type: integer
+        format: int32
+        description: The version of the flow
+      timestamp:
+        type: integer
+        format: int64
+        description: The timestamp of the flow
+      deploymentCount:
+        type: integer
+        format: int32
+        description: The number of deployments of the flow
+      comments:
+        type: string
+        description: Comments about the flow
+  FlowSummary:
+    type: object
+    description: A summarized version of a flow, mostly useful in listing flows
+    required:
+      - crn
+      - name
+      - versionCount
+      - artifactType
+    properties:
+      crn:
+        type: string
+        description: The artifact CRN
+      name:
+        type: string
+        description: The artifact name.
+      versionCount:
+        type: integer
+        format: int32
+        description: The number of versions uploaded to the catalog.
+      artifactType:
+        type: string
+        description: The type of artifact
+      modifiedTimestamp:
+        type: integer
+        format: int64
+        description: The modified timestamp.
+  Flow:
+    type: object
+    description: A representation of a versioned data flow.
+    required:
+      - crn
+      - name
+      - versionCount
+    properties:
+      crn:
+        type: string
+        description: The artifact CRN
+      name:
+        type: string
+        description: The artifact name.
+      versionCount:
+        type: integer
+        format: int32
+        description: The number of versions uploaded to the catalog.
+      createdTimestamp:
+        type: integer
+        format: int64
+        description: The created timestamp.
+      author:
+        type: string
+        description: Author of the most recent version
+      description:
+        type: string
+        description: The artifact description.
+      modifiedTimestamp:
+        type: integer
+        format: int64
+        description: The modified timestamp.
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/FlowVersion'
+        description: The list of artifactDetail versions
+  ArtifactVersion:
+    type: object
+    description: A representation of a artifact detail version
+    required:
+      - crn
+      - bucketIdentifier
+      - author
+      - version
+      - timestamp
+    properties:
+      crn:
+        type: string
+        description: The artifact version CRN
+      bucketIdentifier:
+        type: string
+        description: The bucketIdentifier of the artifact
+      author:
+        type: string
+        description: The author of the artifact
+      version:
+        type: integer
+        format: int32
+        description: The version of the artifactVersion
+      timestamp:
+        type: integer
+        format: int64
+        description: The timestamp of the artifactVersion
+      deploymentCount:
+        type: integer
+        format: int32
+        description: The number of deployments of the artifactVersion
+      comments:
+        type: string
+        description: Comments about the version
+  FlowVersion:
+    type: object
+    description: A representation of a flow detail version
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: The flow version CRN
+      bucketIdentifier:
+        type: string
+        description: The bucketIdentifier of the flow
+      author:
+        type: string
+        description: The author of the flow
+      version:
+        type: integer
+        format: int32
+        description: The version of the flow
+      timestamp:
+        type: integer
+        format: int64
+        description: The timestamp of the flow
+      deploymentCount:
+        type: integer
+        format: int32
+        description: The number of deployments of the flow
+      comments:
+        type: string
+        description: Comments about the flow
+  ListFlowDefinitionsRequest:
+    type: object
+    description: Request object for the ListFlowDefinitions method.
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 20
+        maximum: 100
+        x-paging-page-size: true
+        description: The page size.
+      startingToken:
+        type: string
+        x-paging-input-token: true
+        description: The starting page token.
+      sorts:
+        type: array
+        items:
+          type: string
+        description: The sort criteria
+      searchTerm:
+        type: string
+        description: Search term to filter by name
+  ListFlowDefinitionsResponse:
+    type: object
+    description: Response object for the ListFlowDefinitions method.
+    properties:
+      flows:
+        type: array
+        x-paging-result: true
+        items:
+          $ref: '#/definitions/FlowSummary'
+        description: The flows.
+      nextToken:
+        type: string
+        x-paging-output-token: true
+        description: The page token for requesting the next page of results.
+  DeleteFlowRequest:
+    type: object
+    description: Request object for the DeleteFlow method
+    required:
+      - flowCrn
+    properties:
+      flowCrn:
+        type: string
+        description: The flow CRN
+  DeleteFlowResponse:
+    type: object
+    description: Response object for the DeleteFlow method
+    properties:
+      flow:
+        description: The flow that was deleted
+        $ref: '#/definitions/Flow'
+  DescribeFlowRequest:
+    type: object
+    description: Request object for the DescribeFlow method
+    required:
+      - flowCrn
+    properties:
+      flowCrn:
+        type: string
+        description: The flow CRN
+  DescribeFlowResponse:
+    type: object
+    description: Response object for the DescribeFlow method
+    properties:
+      flowDetail:
+        description: The flow detail
+        $ref: '#/definitions/Flow'
+  ReadyflowSummary:
+    type: object
+    description: A summarized version of a ready flow, mostly useful in listing flows
+    required:
+      - readyflowCrn
+      - name
+    properties:
+      readyflowCrn:
+        type: string
+        description: The ready flow CRN
+      name:
+        type: string
+        description: The ready flow name
+      summary:
+        type: string
+        description: The ready flow summary
+      source:
+        type: string
+        description: The ready flow source
+      destination:
+        type: string
+        description: The ready flow destination
+      latestVersion:
+        type: integer
+        format: int32
+        description: The latest version of the ready flow
+      imported:
+        type: boolean
+        description: Whether the ready flow has been imported into the current account
+      importedArtifactCrn:
+        type: string
+        description: The crn of the imported ready flow, used to look up its details
+  ReadyflowDetails:
+    type: object
+    description: A detailed representation of a ready flow.
+    required:
+      - readyflowCrn
+      - name
+      - author
+    properties:
+      readyflowCrn:
+        type: string
+        description: The ready flow CRN
+      name:
+        type: string
+        description: The ready flow name
+      author:
+        type: string
+        description: The author of the most recent version
+      summary:
+        type: string
+        description: The ready flow summary (short)
+      description:
+        type: string
+        description: The ready flow description (long)
+      documentationLink:
+        type: string
+        description: A link to the ready flow documentation
+      notes:
+        type: string
+        description: Optional notes about the ready flow
+      source:
+        type: string
+        description: The ready flow data source
+      sourceDataFormat:
+        type: string
+        description: The ready flow data source format
+      destination:
+        type: string
+        description: The ready flow data destination
+      destinationDataFormat:
+        type: string
+        description: The ready flow data destination format
+      imported:
+        type: boolean
+        description: Whether the ready flow has been imported into the current account
+      modifiedTimestamp:
+        type: integer
+        format: int64
+        description: The modified timestamp.
+  ListReadyflowsRequest:
+    type: object
+    description: Request object for the ListReadyflows method.
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 20
+        maximum: 100
+        x-paging-page-size: true
+        description: The page size.
+      startingToken:
+        type: string
+        x-paging-input-token: true
+        description: The starting page token.
+      searchTerm:
+        type: string
+        description: Search term by which to filter (optional)
+  ListReadyflowsResponse:
+    type: object
+    description: Response object for the ListReadyflows method.
+    properties:
+      readyflows:
+        type: array
+        x-paging-result: true
+        items:
+          $ref: '#/definitions/ReadyflowSummary'
+        description: The ready flows
+      nextToken:
+        type: string
+        x-paging-output-token: true
+        description: The page token for requesting the next page of results.
+  DescribeReadyflowRequest:
+    type: object
+    description: Request object for the DescribeReadyflow method
+    required:
+      - readyflowCrn
+    properties:
+      readyflowCrn:
+        type: string
+        description: The ready flow CRN
+  DescribeReadyflowResponse:
+    type: object
+    description: Response object for the DescribeReadyflow method
+    properties:
+      readyflowDetail:
+        description: the ready flow detail
+        $ref: '#/definitions/ReadyflowDetails'
+  AddedReadyflowDetails:
+    type: object
+    description: A detailed representation of a ready flow as added by the current account
+    required:
+      - readyflowCrn
+    properties:
+      readyflowCrn:
+        type: string
+        description: The added ready flow crn
+      readyflow:
+        description: The ready flow name
+        $ref: '#/definitions/ReadyflowDetails'
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/ArtifactVersion'
+        description: The ready flow versions
+  DescribeAddedReadyflowRequest:
+    type: object
+    description: Request object for the DescribeAddedReadyflow method
+    required:
+      - readyflowCrn
+    properties:
+      readyflowCrn:
+        type: string
+        description: The ready flow CRN
+  DescribeAddedReadyflowResponse:
+    type: object
+    description: Response object for the DescribeAddedReadyflow method
+    properties:
+      addedReadyflowDetail:
+        description: The added ready flow detail
+        $ref: '#/definitions/AddedReadyflowDetails'
+  AddReadyflowRequest:
+    type: object
+    description: Request object for the AddReadyflow method
+    required:
+      - readyflowCrn
+    properties:
+      readyflowCrn:
+        type: string
+        description: The ready flow CRN
+  AddReadyflowResponse:
+    type: object
+    description: Response object for the AddReadyflow method
+    properties:
+      addedReadyflowDetail:
+        description: The added ready flow detail
+        $ref: '#/definitions/AddedReadyflowDetails'
+  DeleteAddedReadyflowRequest:
+    type: object
+    description: Request object for the DeleteAddedReadyFlow method
+    required:
+      - readyflowCrn
+    properties:
+      readyflowCrn:
+        type: string
+        description: The ready flow CRN
+  DeleteAddedReadyflowResponse:
+    type: object
+    description: Response object for the DeleteAddedReadyflow method
+    properties:
+      readyflowDetail:
+        description: The ready flow details
+        $ref: '#/definitions/ReadyflowDetails'
+  InitiateDeploymentRequest:
+    type: object
+    description: A request to initiate a deployment
+    required:
+      - serviceCrn
+      - flowVersionCrn
+    properties:
+      serviceCrn:
+        type: string
+        description: The service CRN.
+      flowVersionCrn:
+        type: string
+        description: The flow version CRN.
+  InitiateDeploymentResponse:
+    type: object
+    description: A response from initiating a deployment
+    required:
+      - deploymentRequestCrn
+      - dfxLocalUrl
+    properties:
+      deploymentRequestCrn:
+        type: string
+        description: The newly created deployment request CRN.
+      dfxLocalUrl:
+        type: string
+        description: Base URL to the dfx-local instance running an eventually created deployment
   DeploymentStatus:
     type: object
     description: The status of a deployment
@@ -1627,6 +2407,18 @@ definitions:
       service:
         description: The service.
         $ref: '#/definitions/Service'
+  RenewCertificatesRequest:
+    type: object
+    description: Request object for RenewCertificates
+    required:
+      - serviceCrn
+    properties:
+      serviceCrn:
+        type: string
+        description: The service CRN.
+  RenewCertificatesResponse:
+    type: object
+    description: Response object for RenewCertificates
   ListServiceActiveAlertsRequest:
     type: object
     description: Request object for ListServiceActiveAlerts
