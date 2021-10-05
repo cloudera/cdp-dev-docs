@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-flow-definitions &#8212; CDP CLI 0.9.46 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-notifications" href="list-notifications.html" />
+    <link rel="prev" title="list-filter-options" href="list-filter-options.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-notifications.html" title="list-notifications"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-filter-options.html" title="list-filter-options"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.46 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-flow-definitions</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-flow-definitions">
+<span id="cli-cdp-df-list-flow-definitions"></span><h1>list-flow-definitions<a class="headerlink" href="#list-flow-definitions" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>List flow definitions.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.46 (BETA)</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Lists flow definitions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list-flow-definitions</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-flow-definitions
+<span class="o">[</span>--sorts &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--search-term &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--sorts</span></code> (array)
+The sort criteria</p>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--search-term</span></code> (string)
+Search term to filter by name</p>
+<p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
+<blockquote>
+<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 20 is used.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)</p>
+<blockquote>
+<div><p>A token to specify where to start paginating. This is the <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> from a previously truncated response.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--page-size</span></code> (integer)</p>
+<blockquote>
+<div><p>The size of each page. Generally this does not need to be set and the default page size used is appropriate.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>flows -&gt; (array)</p>
+<blockquote>
+<div><p>The flows.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>A summarized version of a flow, mostly useful in listing flows</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The artifact CRN</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The artifact name.</p>
+</div></blockquote>
+<p>versionCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of versions uploaded to the catalog.</p>
+</div></blockquote>
+<p>artifactType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of artifact</p>
+</div></blockquote>
+<p>modifiedTimestamp -&gt; (integer)</p>
+<blockquote>
+<div><p>The modified timestamp.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>nextToken -&gt; (string)</p>
+<blockquote>
+<div><p>The page token for requesting the next page of results.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-flow-definitions</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-filter-options.html"
+                        title="previous chapter">list-filter-options</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-notifications.html"
+                        title="next chapter">list-notifications</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-notifications.html" title="list-notifications"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-filter-options.html" title="list-filter-options"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.46 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-flow-definitions</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
