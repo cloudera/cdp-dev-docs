@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vc &#8212; CDP CLI 0.9.44 documentation</title>
+    <title>create-vc &#8212; CDP CLI 0.9.46 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="index.html" title="de"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.44 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.46 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vc</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create Virtual Cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.44</p>
+<dd class="field-even"><p>0.9.46</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -62,6 +62,8 @@
 --memory-requests &lt;value&gt;
 <span class="o">[</span>--chart-value-overrides &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--runtime-spot-component &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--spark-version &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--acl-users &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -102,6 +104,17 @@ NONE</p>
 </dd>
 </dl>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--spark-version</span></code> (string)
+Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Possible values:</dt><dd><p>SPARK2
+SPARK3</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--acl-users</span></code> (string)
+Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
 Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
@@ -184,6 +197,10 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <blockquote>
 <div><p>Time of creation of the virtual Cluster.</p>
 </div></blockquote>
+<p>sparkVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Spark version for the virtual cluster.</p>
+</div></blockquote>
 <p>chartValueOverrides -&gt; (array)</p>
 <blockquote>
 <div><p>Chart overrides for the Virtual Cluster.</p>
@@ -200,7 +217,20 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
+<p>accessControl -&gt; (object)</p>
+<blockquote>
+<div><p>Response object containing access control information for a Virtual Cluster.</p>
+<p>users -&gt; (array)</p>
+<blockquote>
+<div><p>Workload usernames of CDP users granted access to the Virtual Cluster.</p>
+<p>(string)</p>
 </div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
 </div>
 </div>
 
@@ -218,6 +248,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
 <li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
 </ul>
 </li>
 </ul>
@@ -251,7 +282,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="index.html" title="de"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.44 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.46 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vc</a></li> 
       </ul>
