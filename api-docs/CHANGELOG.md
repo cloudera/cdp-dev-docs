@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.46 (2021-10-05)
+
+IMPROVEMENTS:
+
+* datalake: Users can skip closing database connections during data lake backup.
+* de: Users can specify ACL during virtual cluster creation and update.
+* de: Users can specify spark version while creating a cluster.
+* dw: Add `isDefault`, `tenantStorageRole` and `tenantStorageLocation` in `create-dbc` command.
+
 ## 0.9.45 (2021-09-29)
 
 IMPROVEMENTS:
