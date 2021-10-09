@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get-deployment-configuration-metadata &#8212; CDP CLI 0.9.47 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get-deployment-request-details" href="get-deployment-request-details.html" />
+    <link rel="prev" title="get-deployment-configuration" href="get-deployment-configuration.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-deployment-request-details.html" title="get-deployment-request-details"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="get-deployment-configuration.html" title="get-deployment-configuration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.47 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-deployment-configuration-metadata</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get-deployment-configuration-metadata">
+<span id="cli-cdp-dfworkload-get-deployment-configuration-metadata"></span><h1>get-deployment-configuration-metadata<a class="headerlink" href="#get-deployment-configuration-metadata" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Retrieves the deployment configuration metadata.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.47 (BETA)</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Retrieves the deployment configuration metadata.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-deployment-configuration-metadata
+--environment-crn &lt;value&gt;
+--deployment-crn &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)
+The CRN of an environment to execute the command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--deployment-crn</span></code> (string)
+The deployment crn.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>deploymentConfigurationMetadata -&gt; (object)</p>
+<blockquote>
+<div><p>Provides details about the deployment and all of the different configuration items that are available.</p>
+<p>flowCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the flow to deploy</p>
+</div></blockquote>
+<p>flowName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the flow to deploy</p>
+</div></blockquote>
+<p>flowVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>The version of the flow to deploy</p>
+</div></blockquote>
+<p>flowVersionCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN for the flow version</p>
+</div></blockquote>
+<p>service -&gt; (object)</p>
+<blockquote>
+<div><p>The meta information about a DataFlow service.</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the DataFlow service</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the DataFlow service</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>The cloudPlatform flag of the DataFlow service</p>
+</div></blockquote>
+<p>region -&gt; (object)</p>
+<blockquote>
+<div><p>A cloud region</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the cloud region</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>Display-friendly name of the cloud region</p>
+</div></blockquote>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Crn of associated CDP environment</p>
+</div></blockquote>
+</div></blockquote>
+<p>requiresEnvironmentSslContextService -&gt; (boolean)</p>
+<blockquote>
+<div><p>A flag indicating if the flow requires an Environment specific SSLContextService</p>
+</div></blockquote>
+<p>artifactTypeName -&gt; (string)</p>
+<blockquote>
+<div><p>The type of the artifact of the flow.</p>
+</div></blockquote>
+<p>parameterGroups -&gt; (array)</p>
+<blockquote>
+<div><p>The list of flow parameter groups</p>
+<p>(object)</p>
+<blockquote>
+<div><p>A flow parameter group</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the parameter group</p>
+</div></blockquote>
+<p>parameters -&gt; (array)</p>
+<blockquote>
+<div><p>The parameters in the group</p>
+<p>(object)</p>
+<blockquote>
+<div><p>A flow parameter</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the parameter</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The description of the param</p>
+</div></blockquote>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>The value of the parameter</p>
+</div></blockquote>
+<p>sensitive -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether or not the parameter value is sensitive</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The type of parameter. Possibly TEXT, FILE, FILES, DIRECTORY</p>
+</div></blockquote>
+<p>assetReferences -&gt; (array)</p>
+<blockquote>
+<div><p>The list of referenced assets.</p>
+<p>( … recursive … )</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>kpiMetaData -&gt; (object)</p>
+<blockquote>
+<div><p>A template for instantiating KPIs</p>
+<p>kpiScopes -&gt; (array)</p>
+<blockquote>
+<div><p>The KPI scope meta data list, one per MetricComponentType.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Provides scoping meta data for use during KPI creation</p>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The type of the scope</p>
+</div></blockquote>
+<p>metricTypes -&gt; (array)</p>
+<blockquote>
+<div><p>The available metric types for the chosen scope type</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Provides the legal metric types for an owning scope</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The internal id of the metric type</p>
+</div></blockquote>
+<p>label -&gt; (string)</p>
+<blockquote>
+<div><p>The user-visible label of the metric type</p>
+</div></blockquote>
+<p>unitTypeKey -&gt; (string)</p>
+<blockquote>
+<div><p>The unit type key for this metric</p>
+</div></blockquote>
+<p>defaultUnitId -&gt; (string)</p>
+<blockquote>
+<div><p>The default unitId for this metric</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The user-visible description of the metric type</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>label -&gt; (string)</p>
+<blockquote>
+<div><p>The label to use for the chosen scope type</p>
+</div></blockquote>
+<p>contextGroups -&gt; (array)</p>
+<blockquote>
+<div><p>The context identifiers for the chosen scope type</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Captures the use of a KPI in the context of a process group</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the containing process group</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the containing process group</p>
+</div></blockquote>
+<p>scopeComponents -&gt; (array)</p>
+<blockquote>
+<div><p>The scope components of the group</p>
+<p>( … recursive … )</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>contextLabel -&gt; (string)</p>
+<blockquote>
+<div><p>The label to use for the context identifier, which depends on scope type.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>unitTypes -&gt; (map)</p>
+<blockquote>
+<div><p>The entire tree of legal unit types for all metrics.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (array)</p>
+<blockquote>
+<div><p>(object)</p>
+<blockquote>
+<div><p>Captures the legal units for a metric, a means to avoid large numbers either before or after a decimal point</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The internal ID of the unit</p>
+</div></blockquote>
+<p>label -&gt; (string)</p>
+<blockquote>
+<div><p>The user-visible label of the unit</p>
+</div></blockquote>
+<p>factor -&gt; (integer)</p>
+<blockquote>
+<div><p>The conversion factor to use to normalize values with this unit into a common unit</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>alertFrequencyTolerance -&gt; (object)</p>
+<blockquote>
+<div><p>The alert frequency tolerance unit choices, including a default</p>
+<p>units -&gt; (array)</p>
+<blockquote>
+<div><p>The legal alert frequency values</p>
+<p>(object)</p>
+<blockquote>
+<div><p>The alert frequency unit to use in KPI tolerances and metrics</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the frequency unit</p>
+</div></blockquote>
+<p>label -&gt; (string)</p>
+<blockquote>
+<div><p>The user-friendly label of the frequency unit</p>
+</div></blockquote>
+<p>abbreviation -&gt; (string)</p>
+<blockquote>
+<div><p>The abbreviation for frequency unit</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>defaultUnitId -&gt; (string)</p>
+<blockquote>
+<div><p>The default alert frequency ID to use as the default chooser value</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>clusterSizingOptions -&gt; (array)</p>
+<blockquote>
+<div><p>The options that are available for determining the size of the deployed cluster</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Cluster scaling parameters</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of this Cluster Size</p>
+</div></blockquote>
+<p>text -&gt; (string)</p>
+<blockquote>
+<div><p>The text (i.e., the human readable name) for this Cluster Size</p>
+</div></blockquote>
+<p>coresPerNode -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of CPU Cores per node</p>
+</div></blockquote>
+<p>heapSize -&gt; (double)</p>
+<blockquote>
+<div><p>The heap size</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to signal whether this ClusterSize is enabled</p>
+</div></blockquote>
+<p>memoryLimit -&gt; (double)</p>
+<blockquote>
+<div><p>The memory limit</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-deployment-configuration-metadata</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="get-deployment-configuration.html"
+                        title="previous chapter">get-deployment-configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get-deployment-request-details.html"
+                        title="next chapter">get-deployment-request-details</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-deployment-request-details.html" title="get-deployment-request-details"
+             >next</a></li>
+        <li class="right" >
+          <a href="get-deployment-configuration.html" title="get-deployment-configuration"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.47 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-deployment-configuration-metadata</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
