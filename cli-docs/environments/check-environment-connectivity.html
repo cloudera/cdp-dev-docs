@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>check-environment-connectivity &#8212; CDP CLI 0.9.49 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="check-kubernetes-connectivity" href="check-kubernetes-connectivity.html" />
+    <link rel="prev" title="change-environment-credential" href="change-environment-credential.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="check-kubernetes-connectivity.html" title="check-kubernetes-connectivity"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="change-environment-credential.html" title="change-environment-credential"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.49 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">check-environment-connectivity</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="check-environment-connectivity">
+<span id="cli-cdp-environments-check-environment-connectivity"></span><h1>check-environment-connectivity<a class="headerlink" href="#check-environment-connectivity" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Checks connectivity to a new Private Cloud environment by trying to access the Cloudera Manager address with provided credentials.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.49</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Checks connectivity to a Private Cloud environment.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  check-environment-connectivity
+--address &lt;value&gt;
+--user &lt;value&gt;
+--authentication-token &lt;value&gt;
+<span class="o">[</span>--authentication-token-type &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cluster-names &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--address</span></code> (string)
+The address of the Cloudera Manager managing the Datalake cluster.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--user</span></code> (string)
+User name for accessing the Cloudera Manager.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--authentication-token</span></code> (string)
+A string (text or json) used to authenticate to the Cloudera Manager.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--authentication-token-type</span></code> (string)
+How to interpret the authentication-token field. Defaults to CLEARTEXT_PASSWORD.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Possible values:</dt><dd><p>CLEARTEXT_PASSWORD</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-names</span></code> (array)
+The name of the cluster(s) to use as a Datalake for the environment.</p>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>clusters -&gt; (array)</p>
+<blockquote>
+<div><p>List of discovered clusters</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Discovered CdpCluster object.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of cluster.</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>Display name of cluster.</p>
+</div></blockquote>
+<p>cmUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The Url to Cloudera Manager.</p>
+</div></blockquote>
+<p>version -&gt; (string)</p>
+<blockquote>
+<div><p>Version of Cloudera Manager.</p>
+</div></blockquote>
+<p>exposedServices -&gt; (array)</p>
+<blockquote>
+<div><p>List of exposed CDP DC services</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Exposed CDP DC service object.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of service.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Type of service.</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>Display name of service.</p>
+</div></blockquote>
+<p>serviceUrl -&gt; (string)</p>
+<blockquote>
+<div><p>URL of service.</p>
+</div></blockquote>
+<p>serviceVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Version of service.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of service.</p>
+</div></blockquote>
+<p>serviceValidationMessages -&gt; (array)</p>
+<blockquote>
+<div><p>List of service validation message.</p>
+<p>( … recursive … )</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>clusterValidationMessages -&gt; (array)</p>
+<blockquote>
+<div><p>List of cluster validation message.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Object for validating services.</p>
+<p>severity -&gt; (string)</p>
+<blockquote>
+<div><p>The level of validation severity.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Validation message.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">check-environment-connectivity</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="change-environment-credential.html"
+                        title="previous chapter">change-environment-credential</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="check-kubernetes-connectivity.html"
+                        title="next chapter">check-kubernetes-connectivity</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="check-kubernetes-connectivity.html" title="check-kubernetes-connectivity"
+             >next</a></li>
+        <li class="right" >
+          <a href="change-environment-credential.html" title="change-environment-credential"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.49 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">check-environment-connectivity</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

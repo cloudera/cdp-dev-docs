@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create-policy &#8212; CDP CLI 0.9.49 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="delete-policy" href="delete-policy.html" />
+    <link rel="prev" title="activate-policy" href="activate-policy.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="delete-policy.html" title="delete-policy"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="activate-policy.html" title="activate-policy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.49 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-policy</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="create-policy">
+<span id="cli-cdp-replicationmanager-create-policy"></span><h1>create-policy<a class="headerlink" href="#create-policy" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Create a Replication Policy.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.49</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Creates a new replication policy with the given name on a specific cluster.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-policy
+--cluster-crn &lt;value&gt;
+--policy-name &lt;value&gt;
+--policy-definition &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)
+CRN of the cluster where the policy will be created.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--policy-name</span></code> (string)
+Name of the new policy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--policy-definition</span></code> (object)
+Policy creation request definition.</p>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;FS&quot;</span><span class="p">|</span><span class="s2">&quot;HIVE&quot;</span><span class="p">|</span><span class="s2">&quot;HBASE&quot;</span>,
+  <span class="s2">&quot;sourceDataset&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;hdfsArguments&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;replicationStrategy&quot;</span>: <span class="s2">&quot;DYNAMIC&quot;</span><span class="p">|</span><span class="s2">&quot;STATIC&quot;</span>,
+      <span class="s2">&quot;errorHandling&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;skipChecksumChecks&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;skipListingChecksumChecks&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;abortOnError&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;abortOnSnapshotDiffFailures&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+      <span class="o">}</span>,
+      <span class="s2">&quot;preserve&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;blockSize&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;replicationCount&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;permissions&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;extendedAttributes&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+      <span class="o">}</span>,
+      <span class="s2">&quot;deletePolicy&quot;</span>: <span class="s2">&quot;KEEP_DELETED_FILES&quot;</span><span class="p">|</span><span class="s2">&quot;DELETE_TO_TRASH&quot;</span><span class="p">|</span><span class="s2">&quot;DELETE_PERMANENTLY&quot;</span>,
+      <span class="s2">&quot;alert&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;onFailure&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;onStart&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;onSuccess&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;onAbort&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+      <span class="o">}</span>,
+      <span class="s2">&quot;exclusionFilters&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;hiveArguments&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;databasesAndTables&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">&quot;database&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+          <span class="s2">&quot;tablesIncludeRegex&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+          <span class="s2">&quot;tablesExcludeRegex&quot;</span>: <span class="s2">&quot;string&quot;</span>
+        <span class="o">}</span>
+        ...
+      <span class="o">]</span>,
+      <span class="s2">&quot;sentryPermissions&quot;</span>: <span class="s2">&quot;INCLUDE&quot;</span><span class="p">|</span><span class="s2">&quot;EXCLUDE&quot;</span>,
+      <span class="s2">&quot;skipUrlPermissions&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;numThreads&quot;</span>: integer
+    <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;frequencyInSec&quot;</span>: integer,
+  <span class="s2">&quot;targetDataset&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;cloudCredential&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;sourceCluster&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;targetCluster&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;startTime&quot;</span>: datetime,
+  <span class="s2">&quot;endTime&quot;</span>: datetime,
+  <span class="s2">&quot;distcpMaxMaps&quot;</span>: integer,
+  <span class="s2">&quot;distcpMapBandwidth&quot;</span>: integer,
+  <span class="s2">&quot;queueName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;tdeSameKey&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;enableSnapshotBasedReplication&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;cloudEncryptionAlgorithm&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;cloudEncryptionKey&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;plugins&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;hiveExternalTableBaseDirectory&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;cmPolicySubmitUser&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;userName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;sourceUser&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-policy</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="activate-policy.html"
+                        title="previous chapter">activate-policy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="delete-policy.html"
+                        title="next chapter">delete-policy</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="delete-policy.html" title="delete-policy"
+             >next</a></li>
+        <li class="right" >
+          <a href="activate-policy.html" title="activate-policy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.49 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-policy</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

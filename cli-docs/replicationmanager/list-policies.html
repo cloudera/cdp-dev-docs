@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-policies &#8212; CDP CLI 0.9.49 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="suspend-policy" href="suspend-policy.html" />
+    <link rel="prev" title="list-clusters" href="list-clusters.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="suspend-policy.html" title="suspend-policy"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-clusters.html" title="list-clusters"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.49 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-policies</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-policies">
+<span id="cli-cdp-replicationmanager-list-policies"></span><h1>list-policies<a class="headerlink" href="#list-policies" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Get All Replication Policies.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.49</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Provides a list of all replication policies across all available clusters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-policies
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>unreachableClusters -&gt; (array)</p>
+<blockquote>
+<div><p>List of errors for unreachable clusters.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>API error.</p>
+<p>code -&gt; (integer)</p>
+<blockquote>
+<div><p>Error code.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Error message.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Error status.</p>
+</div></blockquote>
+<p>clusterUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster URL.</p>
+</div></blockquote>
+<p>requestId -&gt; (string)</p>
+<blockquote>
+<div><p>Request ID.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>policyErrors -&gt; (array)</p>
+<blockquote>
+<div><p>List of policy errors.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>API error.</p>
+<p>code -&gt; (integer)</p>
+<blockquote>
+<div><p>Error code.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Error message.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Error status.</p>
+</div></blockquote>
+<p>clusterUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster URL.</p>
+</div></blockquote>
+<p>requestId -&gt; (string)</p>
+<blockquote>
+<div><p>Request ID.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>policies -&gt; (array)</p>
+<blockquote>
+<div><p>List of policies.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Replication policy definition.</p>
+<p>policyId -&gt; (string)</p>
+<blockquote>
+<div><p>Policy id.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Policy name.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Policy type.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Current status of the policy.</p>
+</div></blockquote>
+<p>frequency -&gt; (integer)</p>
+<blockquote>
+<div><p>Frequency in seconds when the policy runs.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>End time of policy run or when it repeats.</p>
+</div></blockquote>
+<p>jobs -&gt; (array)</p>
+<blockquote>
+<div><p>List of policy runs.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>Policy execution details.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>Policy instance command id.</p>
+</div></blockquote>
+<p>policyId -&gt; (string)</p>
+<blockquote>
+<div><p>Policy id.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Policy command status.</p>
+</div></blockquote>
+<p>startTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>Command start time.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>Command end time.</p>
+</div></blockquote>
+<p>trackingInfo -&gt; (string)</p>
+<blockquote>
+<div><p>JSON data to track polciy status.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Output of the policy command.</p>
+</div></blockquote>
+<p>jobType -&gt; (string)</p>
+<blockquote>
+<div><p>Job type.</p>
+</div></blockquote>
+<p>totalSteps -&gt; (integer)</p>
+<blockquote>
+<div><p>Total number of steps.</p>
+</div></blockquote>
+<p>completedSteps -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of completed steps.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>report -&gt; (object)</p>
+<blockquote>
+<div><p>Policy report.</p>
+<p>lastSucceededInstance -&gt; (object)</p>
+<blockquote>
+<div><p>Policy report details.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the command.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>End time.</p>
+</div></blockquote>
+</div></blockquote>
+<p>lastFailedInstance -&gt; (object)</p>
+<blockquote>
+<div><p>Policy report details.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the command.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>End time.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Policy description.</p>
+</div></blockquote>
+<p>executionType -&gt; (string)</p>
+<blockquote>
+<div><p>Policy execution type.</p>
+</div></blockquote>
+<p>sourceDataset -&gt; (array)</p>
+<blockquote>
+<div><p>Source dataset of replication.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>targetDataset -&gt; (array)</p>
+<blockquote>
+<div><p>Target dataset of replication.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>creationTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>Policy creation time.</p>
+</div></blockquote>
+<p>startTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>Policy start time.</p>
+</div></blockquote>
+<p>sourceCluster -&gt; (string)</p>
+<blockquote>
+<div><p>Source cluster of replication.</p>
+</div></blockquote>
+<p>targetCluster -&gt; (string)</p>
+<blockquote>
+<div><p>Target cluster of replication if not cloud.</p>
+</div></blockquote>
+<p>customProperties -&gt; (map)</p>
+<blockquote>
+<div><p>Custom replication properties.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>plugins -&gt; (array)</p>
+<blockquote>
+<div><p>Plugins.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>nextRun -&gt; (string)</p>
+<blockquote>
+<div><p>Next expected run of the policy.</p>
+</div></blockquote>
+<p>target -&gt; (object)</p>
+<blockquote>
+<div><p>Target details.</p>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Target’s environment CRN.</p>
+</div></blockquote>
+<p>warehouseCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Target’s warehouse CRN.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-policies</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-clusters.html"
+                        title="previous chapter">list-clusters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="suspend-policy.html"
+                        title="next chapter">suspend-policy</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="suspend-policy.html" title="suspend-policy"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-clusters.html" title="list-clusters"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.49 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-policies</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
