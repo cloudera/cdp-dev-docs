@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.46
+  version: 0.9.50
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -1365,6 +1365,28 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/DeleteSshPublicKeyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /iam/generateWorkloadAuthToken:
+    post:
+      summary: Generates an authentication token for workload APIs.
+      description: Generates an authentication token which is required for sending requests to workload APIs.
+      operationId: generateWorkloadAuthToken
+      x-form-factors: public
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GenerateWorkloadAuthTokenRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/GenerateWorkloadAuthTokenResponse'
         default:
           description: The default response on an error.
           schema:
@@ -3076,3 +3098,36 @@ definitions:
   DeleteSshPublicKeyResponse:
     type: object
     description: Response object for delete SSH public key.
+  GenerateWorkloadAuthTokenRequest:
+    type: object
+    description: Request object for GenerateWorkloadAuthToken method.
+    required:
+      - workloadName
+    properties:
+      workloadName:
+        description: The workload name
+        $ref: '#/definitions/WorkloadName'
+      environmentCrn:
+        type: string
+        description: The environment CRN, required by DF.
+  GenerateWorkloadAuthTokenResponse:
+    type: object
+    description: Response object for GenerateWorkloadAuthToken method.
+    properties:
+      endpointUrl:
+        type: string
+        description: The workload endpoint URL
+      token:
+        type: string
+        description: The authentication token
+        x-sensitive: true
+      expireAt:
+        type: string
+        format: date-time
+        description: When the information should expire
+  WorkloadName:
+    type: string
+    description: The workload name.
+    enum:
+      - DE
+      - DF

@@ -1,5 +1,31 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.50 (2021-11-17)
+
+IMPROVEMENTS:
+
+* datahub: Add new `upgrade-cluster` command to upgrade the OS or data platform on a datahub cluster.
+* environments: Add new `free-ipa` parameter to `create-gcp-environment` command for GCP FreeIPA HA.
+
+## 0.9.49 (2021-11-03)
+
+IMPROVEMENTS:
+
+* environments: Add new `check-environment-connectivity` and `check-kubernetes-connectivity` commands for checking connectivity for Private Cloud environments.
+* replicationmanager: **New service!**
+
+## 0.9.48 (2021-10-20)
+
+IMPROVEMENTS:
+
+* environments: New `create-private-subnets` parameter for `create-aws-environment` command.
+
+## 0.9.47 (2021-10-08)
+
+IMPROVEMENTS:
+
+* iam: Add new `generate-workload-auth-token` command to generate an access token which is required for sending requests to workload APIs.
+
 ## 0.9.46 (2021-10-05)
 
 IMPROVEMENTS:
@@ -243,7 +269,7 @@ IMPROVEMENTS:
 NOTES:
 
 * iam: Replaced the term 'Altus' with 'CDP' in API summaries and descriptions. Some descriptions related to the 'groups' parameter were outdated and updated with additional information. Updated "groups" SAML assertion attribute URN.
-* audit, datahub, datalake, environments, iam, odb: Removed entitlement annotations for service-side auditing. This has no effect on API usage.
+* audit, datahub, datalake, environments, iam, opdb: Removed entitlement annotations for service-side auditing. This has no effect on API usage.
 
 ## 0.9.23 (2021-01-06)
 
@@ -302,7 +328,7 @@ FEATURES:
 FEATURES:
 
 * ml: New operations: `getKubeConfig`, `listWorkspaceAccess`.
-* odb: **New service!** The new 'opdb' API interacts with Cloudera Operational Database Experience.
+* opdb: **New service!** The new 'opdb' API interacts with Cloudera Operational Database Experience.
 
 IMPROVEMENTS:
 
