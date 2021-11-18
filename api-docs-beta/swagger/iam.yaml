@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.46 (BETA)
+  version: 0.9.50 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -1567,7 +1567,7 @@ paths:
       summary: Generates an authentication token for workload APIs.
       description: Generates an authentication token which is required for sending requests to workload APIs.
       operationId: generateWorkloadAuthToken
-      x-no-compatibility-guarantee: true
+      x-form-factors: public
       x-mutating: false
       parameters:
         - name: input
@@ -1675,6 +1675,13 @@ definitions:
     x-no-compatibility-guarantee: true
     required:
       - maxPasswordLifetimeDays
+      - minPasswordLength
+      - mustIncludeUpperCaseCharacters
+      - mustIncludeLowerCaseCharacters
+      - mustIncludeNumbers
+      - mustIncludeSymbols
+      - minPasswordLifetimeDays
+      - passwordHistorySize
     properties:
       maxPasswordLifetimeDays:
         type: integer
@@ -3684,17 +3691,18 @@ definitions:
   GenerateWorkloadAuthTokenRequest:
     type: object
     description: Request object for GenerateWorkloadAuthToken method.
-    x-no-compatibility-guarantee: true
     required:
       - workloadName
     properties:
       workloadName:
         description: The workload name
         $ref: '#/definitions/WorkloadName'
+      environmentCrn:
+        type: string
+        description: The environment CRN, required by DF.
   GenerateWorkloadAuthTokenResponse:
     type: object
     description: Response object for GenerateWorkloadAuthToken method.
-    x-no-compatibility-guarantee: true
     properties:
       endpointUrl:
         type: string
@@ -3710,9 +3718,9 @@ definitions:
   WorkloadName:
     type: string
     description: The workload name.
-    x-no-compatibility-guarantee: true
     enum:
       - DE
+      - DF
   CreateScimAccessTokenRequest:
     type: object
     description: Request object to create the SCIM access token.

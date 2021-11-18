@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.46 (BETA)
+  version: 0.9.50 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -861,7 +861,6 @@ paths:
       summary: Upgrades the OS or data platform on a datahub cluster.
       description: Upgrades the OS or data platform on a datahub cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.
       operationId: upgradeCluster
-      x-no-compatibility-guarantee: true
       x-mutating: true
       parameters:
         - name: input
@@ -2478,6 +2477,22 @@ definitions:
         type: integer
         description: Minimum time, in minutes, between autoscale activity
         format: int32
+      scaleUpCoolDownMinutes:
+        type: integer
+        format: int32
+        description: Minimum time (in minutes) for scale up, after last autoscaling action. Use this to override coolDownMinutes.
+      scaleDownCoolDownMinutes:
+        type: integer
+        format: int32
+        description: Minimum time (in minutes) for scale down, after last autoscaling action. Use this to override coolDownMinutes.
+      maxScaleUpStepSize:
+        type: integer
+        format: int32
+        description: The maximum scale up step size.
+      maxScaleDownStepSize:
+        type: integer
+        format: int32
+        description: The maximum scale down step size.
   AutoScaleLoadResponseConfiguration:
     type: object
     description: Configuration for load based scaling
@@ -2497,6 +2512,22 @@ definitions:
         type: integer
         description: Minimum time, in minutes, between autoscale activity
         format: int32
+      scaleUpCoolDownMinutes:
+        type: integer
+        format: int32
+        description: Minimum time (in minutes) for scale up, after last autoscaling action. Use this to override coolDownMinutes.
+      scaleDownCoolDownMinutes:
+        type: integer
+        format: int32
+        description: Minimum time (in minutes) for scale down, after last autoscaling action. Use this to override coolDownMinutes.
+      maxScaleUpStepSize:
+        type: integer
+        format: int32
+        description: The maximum scale up step size.
+      maxScaleDownStepSize:
+        type: integer
+        format: int32
+        description: The maximum scale down step size.
   ListAutoScaleHistoryRequest:
     type: object
     description: Request object to retrieve the AutoScale history for a DataHub cluster.
@@ -2840,7 +2871,6 @@ definitions:
   ImageInfo:
     type: object
     description: Basic information about an image.
-    x-no-compatibility-guarantee: true
     properties:
       imageName:
         type: string
@@ -2861,7 +2891,6 @@ definitions:
   UpgradeClusterRequest:
     type: object
     description: Request object to upgrade datahub.
-    x-no-compatibility-guarantee: true
     required:
       - clusterName
     properties:
@@ -2889,7 +2918,6 @@ definitions:
   UpgradeClusterResponse:
     type: object
     description: Response object for upgrade datahub request.
-    x-no-compatibility-guarantee: true
     properties:
       current:
         $ref: '#/definitions/ImageInfo'
