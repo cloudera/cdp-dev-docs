@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-auto-scale-rules &#8212; CDP CLI 0.9.48 (BETA) documentation</title>
+    <title>create-auto-scale-rules &#8212; CDP CLI 0.9.50 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="collect-datahub-diagnostics.html" title="collect-datahub-diagnostics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.48 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.50 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-auto-scale-rules</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create Auto Scaling rules for a DataHub cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.48 (BETA)</p>
+<dd class="field-even"><p>0.9.50 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -97,7 +97,11 @@ The actual scaling policies for the cluster</p>
       <span class="s2">&quot;configuration&quot;</span>: <span class="o">{</span>
         <span class="s2">&quot;minResourceValue&quot;</span>: integer,
         <span class="s2">&quot;maxResourceValue&quot;</span>: integer,
-        <span class="s2">&quot;coolDownMinutes&quot;</span>: integer
+        <span class="s2">&quot;coolDownMinutes&quot;</span>: integer,
+        <span class="s2">&quot;scaleUpCoolDownMinutes&quot;</span>: integer,
+        <span class="s2">&quot;scaleDownCoolDownMinutes&quot;</span>: integer,
+        <span class="s2">&quot;maxScaleUpStepSize&quot;</span>: integer,
+        <span class="s2">&quot;maxScaleDownStepSize&quot;</span>: integer
       <span class="o">}</span>,
       <span class="s2">&quot;identifier&quot;</span>: <span class="s2">&quot;string&quot;</span>,
       <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;string&quot;</span>
@@ -203,6 +207,22 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <blockquote>
 <div><p>Minimum time, in minutes, between autoscale activity</p>
 </div></blockquote>
+<p>scaleUpCoolDownMinutes -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum time (in minutes) for scale up, after last autoscaling action. Use this to override coolDownMinutes.</p>
+</div></blockquote>
+<p>scaleDownCoolDownMinutes -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum time (in minutes) for scale down, after last autoscaling action. Use this to override coolDownMinutes.</p>
+</div></blockquote>
+<p>maxScaleUpStepSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum scale up step size.</p>
+</div></blockquote>
+<p>maxScaleDownStepSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum scale down step size.</p>
+</div></blockquote>
 </div></blockquote>
 <p>identifier -&gt; (string)</p>
 <blockquote>
@@ -271,7 +291,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="collect-datahub-diagnostics.html" title="collect-datahub-diagnostics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.48 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.50 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-auto-scale-rules</a></li> 
       </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-environment &#8212; CDP CLI 0.9.48 (BETA) documentation</title>
+    <title>create-azure-environment &#8212; CDP CLI 0.9.50 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.48 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.50 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new Azure environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.48 (BETA)</p>
+<dd class="field-even"><p>0.9.50 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -75,6 +75,7 @@
 <span class="o">[</span>--proxy-config-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--resource-group-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--create-private-endpoints <span class="p">|</span> --no-create-private-endpoints<span class="o">]</span>
+<span class="o">[</span>--endpoint-access-gateway-scheme &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--encryption-key-url &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--encryption-key-resource-group-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
@@ -203,6 +204,15 @@ Name of the proxy config to use for the environment.</p>
 Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--create-private-endpoints</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-create-private-endpoints</span></code> (boolean)
 When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-scheme</span></code> (string)
+The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Possible values:</dt><dd><p>PUBLIC
+PRIVATE</p>
+</dd>
+</dl>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--encryption-key-url</span></code> (string)
 URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--encryption-key-resource-group-name</span></code> (string)
@@ -538,7 +548,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 </div></blockquote>
 <p>noProxyHosts -&gt; (string)</p>
 <blockquote>
-<div><p>Comma-separated list of ‘host[:port]’ (can be a subdomain as well) and ‘IP[:port]’ entries that should not be proxied. Wildcards are not accepted. For example cloudera.com,192.168.1.1</p>
+<div><p>Comma-separated list of ‘CIDR’, ‘[.]host[:port]’ (can be a subdomain as well) and ‘IP[:port]’ entries that should not be proxied. Wildcards are not accepted. For example .cloudera.com,192.168.1.1</p>
 </div></blockquote>
 <p>user -&gt; (string)</p>
 <blockquote>
@@ -605,7 +615,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.48 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.50 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>
