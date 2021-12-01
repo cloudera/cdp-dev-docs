@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.51 (2021-12-01)
+
+IMPROVEMENTS:
+
+* replicationmanager: Make `path` parameter optional when creating Hive replications.
+* datalake: Make `backup-id` parameter required when the `backup-location-override` parameter is used in `restore-datalake` command.
+
 ## 0.9.50 (2021-11-17)
 
 IMPROVEMENTS:
