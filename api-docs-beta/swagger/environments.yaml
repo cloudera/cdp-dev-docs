@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.50 (BETA)
+  version: 0.9.51 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -1182,6 +1182,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/SetEndpointAccessGatewayResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/setCatalog:
+    post:
+      summary: Sets a catalog for a FreeIPA installation.
+      description: Sets a catalog for a FreeIPA installation.
+      operationId: setCatalog
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SetCatalogRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/SetCatalogResponse'
         default:
           description: The default response on an error.
           schema:
@@ -3233,6 +3254,9 @@ definitions:
         type: integer
         format: int32
         description: The number of FreeIPA instances to create per group when creating FreeIPA in the environment
+      multiAz:
+        type: boolean
+        description: Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
   AzureFreeIpaCreationRequest:
     description: Request object for creating FreeIPA in the environment.
     type: object
@@ -3950,3 +3974,20 @@ definitions:
         description: Additional detail related to the status.
         items:
           type: string
+  SetCatalogRequest:
+    type: object
+    description: The request object to set catalog for a FreeIPA.
+    required:
+      - environment
+      - catalog
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the affected environment that holds the FreeIPA installation.
+      catalog:
+        type: string
+        description: URL of the FreeIPA catalog to be used.
+        x-no-paramfile: true
+  SetCatalogResponse:
+    type: object
+    description: The response object to set catalog for a FreeIPA request.

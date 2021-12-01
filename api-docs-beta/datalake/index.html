@@ -858,25 +858,32 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_24">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatalake">Start Datalake</a>
+<li><a href="#_setcatalog">Sets a catalog for a DataLake.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_25">Description</a></li>
 <li><a href="#_parameters_25">Parameters</a></li>
 <li><a href="#_responses_25">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopdatalake">Stop Datalake</a>
+<li><a href="#_startdatalake">Start Datalake</a>
 <ul class="sectlevel3">
 <li><a href="#_description_26">Description</a></li>
 <li><a href="#_parameters_26">Parameters</a></li>
 <li><a href="#_responses_26">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<li><a href="#_stopdatalake">Stop Datalake</a>
 <ul class="sectlevel3">
 <li><a href="#_description_27">Description</a></li>
 <li><a href="#_parameters_27">Parameters</a></li>
 <li><a href="#_responses_27">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_28">Description</a></li>
+<li><a href="#_parameters_28">Parameters</a></li>
+<li><a href="#_responses_28">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -961,6 +968,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_rotateautotlscertificatesresponse">RotateAutoTlsCertificatesResponse</a></li>
 <li><a href="#_runtime">Runtime</a></li>
 <li><a href="#_servicestatus">ServiceStatus</a></li>
+<li><a href="#_setcatalogrequest">SetCatalogRequest</a></li>
+<li><a href="#_setcatalogresponse">SetCatalogResponse</a></li>
 <li><a href="#_startdatalakerequest">StartDatalakeRequest</a></li>
 <li><a href="#_startdatalakeresponse">StartDatalakeResponse</a></li>
 <li><a href="#_stopdatalakerequest">StopDatalakeRequest</a></li>
@@ -982,7 +991,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.50 (BETA)</p>
+<p><em>Version</em> : 0.9.51 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -3088,6 +3097,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_setcatalog">Sets a catalog for a DataLake.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datalake/setCatalog</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_25">Description</h4>
+<div class="paragraph">
+<p>Sets a catalog for a DataLake.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_25">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_setcatalogrequest">SetCatalogRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_25">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_setcatalogresponse">SetCatalogResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_startdatalake">Start Datalake</h3>
 <div class="literalblock">
 <div class="content">
@@ -3095,13 +3190,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_25">Description</h4>
+<h4 id="_description_26">Description</h4>
 <div class="paragraph">
 <p>Deprecated, please use 'cdp environments start-environment' instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_25">Parameters</h4>
+<h4 id="_parameters_26">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3132,7 +3227,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_25">Responses</h4>
+<h4 id="_responses_26">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3181,13 +3276,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_26">Description</h4>
+<h4 id="_description_27">Description</h4>
 <div class="paragraph">
 <p>Deprecated, please use 'cdp environments stop-environment' instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_26">Parameters</h4>
+<h4 id="_parameters_27">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3218,7 +3313,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_26">Responses</h4>
+<h4 id="_responses_27">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3267,13 +3362,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_27">Description</h4>
+<h4 id="_description_28">Description</h4>
 <div class="paragraph">
 <p>OS or data platform upgrade for the SDX cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_27">Parameters</h4>
+<h4 id="_parameters_28">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3304,7 +3399,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_27">Responses</h4>
+<h4 id="_responses_28">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4939,6 +5034,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>multiAz</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Flag which marks that the datalake will be deployed in a multi-availability zone way or not.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7248,7 +7355,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name.</p>
+<p>The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name. This field is required if the –backup-location-override field is used.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7260,7 +7367,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Backup location. When provided, will be used to lookup the backup.</p>
+<p>Backup location. When provided, will be used to lookup the backup. If provided, the –backup-id parameter is required.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7862,6 +7969,61 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_setcatalogrequest">SetCatalogRequest</h3>
+<div class="paragraph">
+<p>The request object to set catalog for a DataLake.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>catalogName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the catalog to be used.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datalake</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the affected DataLake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_setcatalogresponse">SetCatalogResponse</h3>
+<div class="paragraph">
+<p>The response object to set catalog for a DataLake request.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_startdatalakerequest">StartDatalakeRequest</h3>
 <div class="paragraph">
 <p>Request object to start a datalake.</p>
@@ -8116,7 +8278,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-11-22 10:16:34 -0800
+Last updated 2021-12-01 15:48:23 -0800
 </div>
 </div>
 <br>

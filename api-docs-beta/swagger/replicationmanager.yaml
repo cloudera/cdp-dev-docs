@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.50 (BETA)
+  version: 0.9.51 (BETA)
   title: Cloudera Replication Manager Service
   license:
     name: Apache 2.0
@@ -929,11 +929,9 @@ definitions:
   HdfsArguments:
     type: object
     description: Extra properties for HDFS.
-    required:
-      - path
     properties:
       path:
-        description: HDFS path.
+        description: HDFS path. Mandatory for HDFS policies, otherwise optional.
         type: string
       replicationStrategy:
         description: Replication strategy.

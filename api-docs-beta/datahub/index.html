@@ -942,39 +942,46 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_36">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startcluster">Starts a stopped workload cluster.</a>
+<li><a href="#_setcatalog">Sets a catalog for a DataHub.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_37">Description</a></li>
 <li><a href="#_parameters_37">Parameters</a></li>
 <li><a href="#_responses_37">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopcluster">Stops a workload cluster.</a>
+<li><a href="#_startcluster">Starts a stopped workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_38">Description</a></li>
 <li><a href="#_parameters_38">Parameters</a></li>
 <li><a href="#_responses_38">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
+<li><a href="#_stopcluster">Stops a workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_39">Description</a></li>
 <li><a href="#_parameters_39">Parameters</a></li>
 <li><a href="#_responses_39">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
+<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_40">Description</a></li>
 <li><a href="#_parameters_40">Parameters</a></li>
 <li><a href="#_responses_40">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
 <ul class="sectlevel3">
 <li><a href="#_description_41">Description</a></li>
 <li><a href="#_parameters_41">Parameters</a></li>
 <li><a href="#_responses_41">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_42">Description</a></li>
+<li><a href="#_parameters_42">Parameters</a></li>
+<li><a href="#_responses_42">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1099,6 +1106,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_scaleclusterrequest">ScaleClusterRequest</a></li>
 <li><a href="#_scaleclusterresponse">ScaleClusterResponse</a></li>
 <li><a href="#_servicestatus">ServiceStatus</a></li>
+<li><a href="#_setcatalogrequest">SetCatalogRequest</a></li>
+<li><a href="#_setcatalogresponse">SetCatalogResponse</a></li>
 <li><a href="#_startclusterrequest">StartClusterRequest</a></li>
 <li><a href="#_startclusterresponse">StartClusterResponse</a></li>
 <li><a href="#_stopclusterrequest">StopClusterRequest</a></li>
@@ -1125,7 +1134,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.50 (BETA)</p>
+<p><em>Version</em> : 0.9.51 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4263,6 +4272,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_setcatalog">Sets a catalog for a DataHub.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datahub/setCatalog</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_37">Description</h4>
+<div class="paragraph">
+<p>Sets a catalog for a DataHub.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_37">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_setcatalogrequest">SetCatalogRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_37">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_setcatalogresponse">SetCatalogResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_startcluster">Starts a stopped workload cluster.</h3>
 <div class="literalblock">
 <div class="content">
@@ -4270,13 +4365,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_37">Description</h4>
+<h4 id="_description_38">Description</h4>
 <div class="paragraph">
 <p>Starts a stopped workload cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_37">Parameters</h4>
+<h4 id="_parameters_38">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4307,7 +4402,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_37">Responses</h4>
+<h4 id="_responses_38">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4356,13 +4451,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_38">Description</h4>
+<h4 id="_description_39">Description</h4>
 <div class="paragraph">
 <p>Stops a workload cluster. When a cluster is put in the stopped state, cluster VMs are given back to the cloud provider. To provision new VMs, start the cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_38">Parameters</h4>
+<h4 id="_parameters_39">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4393,7 +4488,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_38">Responses</h4>
+<h4 id="_responses_39">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4442,13 +4537,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_39">Description</h4>
+<h4 id="_description_40">Description</h4>
 <div class="paragraph">
 <p>Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_39">Parameters</h4>
+<h4 id="_parameters_40">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4479,7 +4574,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_39">Responses</h4>
+<h4 id="_responses_40">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4528,13 +4623,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_40">Description</h4>
+<h4 id="_description_41">Description</h4>
 <div class="paragraph">
 <p>Modify AutoScaling for a DataHub cluster</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_40">Parameters</h4>
+<h4 id="_parameters_41">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4565,7 +4660,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_40">Responses</h4>
+<h4 id="_responses_41">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4614,13 +4709,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_41">Description</h4>
+<h4 id="_description_42">Description</h4>
 <div class="paragraph">
 <p>Upgrades the OS or data platform on a datahub cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_41">Parameters</h4>
+<h4 id="_parameters_42">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4651,7 +4746,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_41">Responses</h4>
+<h4 id="_responses_42">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6839,6 +6934,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>multiAz</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>requestTemplate</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6859,6 +6966,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>subnetIds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of subnet IDs in case of multi availability zone setup.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -11350,6 +11469,61 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_setcatalogrequest">SetCatalogRequest</h3>
+<div class="paragraph">
+<p>The request object to set catalog for a DataHub.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>catalogName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the catalog to be used.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cluster</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the affected DataHub cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_setcatalogresponse">SetCatalogResponse</h3>
+<div class="paragraph">
+<p>The response object to set catalog for a DataHub request.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_startclusterrequest">StartClusterRequest</h3>
 <div class="paragraph">
 <p>Request object for start cluster request.</p>
@@ -11786,7 +11960,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-11-22 10:16:34 -0800
+Last updated 2021-12-01 15:48:23 -0800
 </div>
 </div>
 <br>

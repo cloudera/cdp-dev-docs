@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.50 (BETA)
+  version: 0.9.51 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -877,6 +877,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datahub/setCatalog:
+    post:
+      summary: Sets a catalog for a DataHub.
+      description: Sets a catalog for a DataHub.
+      operationId: setCatalog
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SetCatalogRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/SetCatalogResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
   Error:
     type: object
@@ -1529,6 +1550,14 @@ definitions:
       datahubDatabase:
         $ref: '#/definitions/DatahubDatabaseType'
         description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
+      subnetIds:
+        type: array
+        items:
+          type: string
+        description: List of subnet IDs in case of multi availability zone setup.
+      multiAz:
+        type: boolean
+        description: Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
   CreateAWSClusterResponse:
     type: object
     description: Response object for create AWS cluster request.
@@ -2931,3 +2960,19 @@ definitions:
       reason:
         type: string
         description: The reason why upgrade is not possible.
+  SetCatalogRequest:
+    type: object
+    description: The request object to set catalog for a DataHub.
+    required:
+      - cluster
+      - catalogName
+    properties:
+      cluster:
+        type: string
+        description: The name or CRN of the affected DataHub cluster.
+      catalogName:
+        type: string
+        description: The name of the catalog to be used.
+  SetCatalogResponse:
+    type: object
+    description: The response object to set catalog for a DataHub request.
