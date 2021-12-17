@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.51 (BETA)
+  version: 0.9.52 (BETA)
   title: Cloudera DataFlow Service
   license:
     name: Apache 2.0
@@ -2045,6 +2045,7 @@ definitions:
       - deploymentCount
       - maxK8sNodeCount
       - status
+      - workloadVersion
     properties:
       crn:
         type: string
@@ -2072,6 +2073,9 @@ definitions:
       status:
         description: The DataFlow status of the service.
         $ref: '#/definitions/ServiceStatus'
+      workloadVersion:
+        type: string
+        description: The workload version of the service.
       runningK8sNodeCount:
         type: integer
         format: int32
@@ -2098,6 +2102,9 @@ definitions:
         items:
           type: string
         description: Valid actions that can be applied based on the current state of the service
+      proxyName:
+        type: string
+        description: The name of the proxy that is configured for the CDP environment
   Service:
     type: object
     description: The DataFlow view of a CDP service.
@@ -2111,6 +2118,7 @@ definitions:
       - minK8sNodeCount
       - maxK8sNodeCount
       - status
+      - workloadVersion
     properties:
       crn:
         type: string
@@ -2142,6 +2150,9 @@ definitions:
       status:
         description: The DataFlow status of the service.
         $ref: '#/definitions/ServiceStatus'
+      workloadVersion:
+        type: string
+        description: The workload version of the service.
       runningK8sNodeCount:
         type: integer
         format: int32
@@ -2207,6 +2218,12 @@ definitions:
         items:
           type: string
         description: Subnets to use for the Load Balancer
+      privateCluster:
+        type: boolean
+        description: Whether the k8s cluster is private or not.
+      proxyName:
+        type: string
+        description: The name of the proxy that is configured for the CDP environment
   ListServicesRequest:
     type: object
     description: Request object for the ListServices method.
@@ -2342,6 +2359,9 @@ definitions:
         items:
           type: string
         description: Subnets to use for the Load Balancer
+      privateCluster:
+        type: boolean
+        description: Indicates whether to provision private k8s cluster.
   EnableServiceResponse:
     type: object
     description: Response object for EnableService

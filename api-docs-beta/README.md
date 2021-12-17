@@ -1,25 +1,25 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.51 (BETA)*
+*Version: 0.9.52 (BETA)*
 
 Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.51 |
-| [datacatalog](./datacatalog/index.html) | 0.9.51 |
-| [datahub](./datahub/index.html) | 0.9.51 |
-| [datalake](./datalake/index.html) | 0.9.51 |
-| [de](./de/index.html) | 0.9.51 |
-| [df](./df/index.html) | 0.9.51 |
-| [dfworkload](./dfworkload/index.html) | 0.9.51 |
-| [dw](./dw/index.html) | 0.9.51 |
-| [environments](./environments/index.html) | 0.9.51 |
-| [iam](./iam/index.html) | 0.9.51 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.51 |
-| [ml](./ml/index.html) | 0.9.51 |
-| [opdb](./opdb/index.html) | 0.9.51 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.51 |
+| [audit](./audit/index.html) | 0.9.52 |
+| [datacatalog](./datacatalog/index.html) | 0.9.52 |
+| [datahub](./datahub/index.html) | 0.9.52 |
+| [datalake](./datalake/index.html) | 0.9.52 |
+| [de](./de/index.html) | 0.9.52 |
+| [df](./df/index.html) | 0.9.52 |
+| [dfworkload](./dfworkload/index.html) | 0.9.52 |
+| [dw](./dw/index.html) | 0.9.52 |
+| [environments](./environments/index.html) | 0.9.52 |
+| [iam](./iam/index.html) | 0.9.52 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.52 |
+| [ml](./ml/index.html) | 0.9.52 |
+| [opdb](./opdb/index.html) | 0.9.52 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.52 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).
