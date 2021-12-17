@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.52 (2021-12-16)
+
+IMPROVEMENTS:
+
+* opdb: Add more enumeration values to cloud-break status: `UNREACHABLE`, `NODE_FAILURE`, `RECOVERY_IN_PROGRESS`, `RECOVERY_REQUESTED` and `RECOVERY_FAILED`.
+* de: Users can specify subnets during service creation by the new `subnets` parameter of `enable-service` command.
+* environments: Add Azure encryption parameters `encryption-key-url` and `encryption-key-resource-group-name` to `create-azure-environment` command.
+* datahub: Add new command `replace-recipes` to replace recipes for the given instance groups.
+* audit: Add new commands `batch-events-for-archiving`, `get-batch-events-for-archiving-status`, `list-events-in-archive-batch`, `list-outstanding-archive-batches` and `mark-archive-batches-as-successful` to support pull-based archiving.
+
 ## 0.9.51 (2021-12-01)
 
 IMPROVEMENTS:

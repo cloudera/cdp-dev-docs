@@ -697,39 +697,74 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_configurearchiving">Configures the audit system for archiving audit events to external cloud storage.</a>
+<li><a href="#_batcheventsforarchiving">Create batches of audit events to be archived.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_parameters_2">Parameters</a></li>
 <li><a href="#_responses_2">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getarchivingconfig">Retrieve the current archiving configuration.</a>
+<li><a href="#_configurearchiving">Configures the audit system for archiving audit events to external cloud storage.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getarchivingstatus">Retrieve the status for an archive process.</a>
+<li><a href="#_getarchivingconfig">Retrieve the current archiving configuration.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_4">Description</a></li>
 <li><a href="#_parameters_4">Parameters</a></li>
 <li><a href="#_responses_4">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listevents">List all audit events recorded in a specified time span, and optionally with a specified request ID and/or event source.</a>
+<li><a href="#_getarchivingstatus">Retrieve the status for an archive process.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_5">Description</a></li>
 <li><a href="#_parameters_5">Parameters</a></li>
 <li><a href="#_responses_5">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listrecentarchiveruns">List recent archive runs.</a>
+<li><a href="#_getbatcheventsforarchivingstatus">Get the status of creating batches of audit events to be archived.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_6">Description</a></li>
 <li><a href="#_parameters_6">Parameters</a></li>
 <li><a href="#_responses_6">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_listevents">List all audit events recorded in a specified time span, and optionally with a specified request ID and/or event source.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_7">Description</a></li>
+<li><a href="#_parameters_7">Parameters</a></li>
+<li><a href="#_responses_7">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_listeventsinarchivebatch">List events contained in a single archive batch.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_8">Description</a></li>
+<li><a href="#_parameters_8">Parameters</a></li>
+<li><a href="#_responses_8">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_listoutstandingarchivebatches">List outstanding (unarchived) archive batches.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_9">Description</a></li>
+<li><a href="#_parameters_9">Parameters</a></li>
+<li><a href="#_responses_9">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_listrecentarchiveruns">List recent archive runs.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_10">Description</a></li>
+<li><a href="#_parameters_10">Parameters</a></li>
+<li><a href="#_responses_10">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_markarchivebatchesassuccessful">Mark archive batches as successful.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_11">Description</a></li>
+<li><a href="#_parameters_11">Parameters</a></li>
+<li><a href="#_responses_11">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -745,6 +780,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_archiverunstatus">ArchiveRunStatus</a></li>
 <li><a href="#_archivingconfiginfo">ArchivingConfigInfo</a></li>
 <li><a href="#_asynctaskstatus">AsyncTaskStatus</a></li>
+<li><a href="#_batcheventsforarchivingrequest">BatchEventsForArchivingRequest</a></li>
+<li><a href="#_batcheventsforarchivingresponse">BatchEventsForArchivingResponse</a></li>
 <li><a href="#_cdpauditevent">CdpAuditEvent</a></li>
 <li><a href="#_cdpserviceevent">CdpServiceEvent</a></li>
 <li><a href="#_configurearchivingrequest">ConfigureArchivingRequest</a></li>
@@ -754,11 +791,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_getarchivingconfigresponse">GetArchivingConfigResponse</a></li>
 <li><a href="#_getarchivingstatusrequest">GetArchivingStatusRequest</a></li>
 <li><a href="#_getarchivingstatusresponse">GetArchivingStatusResponse</a></li>
+<li><a href="#_getbatcheventsforarchivingstatusrequest">GetBatchEventsForArchivingStatusRequest</a></li>
+<li><a href="#_getbatcheventsforarchivingstatusresponse">GetBatchEventsForArchivingStatusResponse</a></li>
 <li><a href="#_interactiveloginevent">InteractiveLoginEvent</a></li>
+<li><a href="#_listeventsinarchivebatchrequest">ListEventsInArchiveBatchRequest</a></li>
+<li><a href="#_listeventsinarchivebatchresponse">ListEventsInArchiveBatchResponse</a></li>
 <li><a href="#_listeventsrequest">ListEventsRequest</a></li>
 <li><a href="#_listeventsresponse">ListEventsResponse</a></li>
+<li><a href="#_listoutstandingarchivebatchesrequest">ListOutstandingArchiveBatchesRequest</a></li>
+<li><a href="#_listoutstandingarchivebatchesresponse">ListOutstandingArchiveBatchesResponse</a></li>
 <li><a href="#_listrecentarchiverunsrequest">ListRecentArchiveRunsRequest</a></li>
 <li><a href="#_listrecentarchiverunsresponse">ListRecentArchiveRunsResponse</a></li>
+<li><a href="#_markarchivebatchesassuccessfulrequest">MarkArchiveBatchesAsSuccessfulRequest</a></li>
+<li><a href="#_markarchivebatchesassuccessfulresponse">MarkArchiveBatchesAsSuccessfulResponse</a></li>
 </ul>
 </li>
 </ul>
@@ -774,7 +819,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.51</p>
+<p><em>Version</em> : 0.9.52</p>
 </div>
 </div>
 <div class="sect2">
@@ -902,6 +947,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_batcheventsforarchiving">Create batches of audit events to be archived.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/audit/batchEventsForArchiving</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_2">Description</h4>
+<div class="paragraph">
+<p>Create batches of audit events to be archived. This is an asynchronous operation; use the task ID in the response to get the status of the operation. If automated archiving is configured, then this operation is disabled. NOTE: If an operation is currently in progress, another operation cannot be started.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_2">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_batcheventsforarchivingrequest">BatchEventsForArchivingRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_2">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_batcheventsforarchivingresponse">BatchEventsForArchivingResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_configurearchiving">Configures the audit system for archiving audit events to external cloud storage.</h3>
 <div class="literalblock">
 <div class="content">
@@ -909,13 +1040,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_2">Description</h4>
+<h4 id="_description_3">Description</h4>
 <div class="paragraph">
 <p>Configures the audit system for archiving audit events to an external cloud storage service, replacing any existing configuration. Also returns the current configuration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_2">Parameters</h4>
+<h4 id="_parameters_3">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -946,7 +1077,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_2">Responses</h4>
+<h4 id="_responses_3">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -995,13 +1126,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_3">Description</h4>
+<h4 id="_description_4">Description</h4>
 <div class="paragraph">
 <p>Returns the current configuration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_3">Parameters</h4>
+<h4 id="_parameters_4">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1032,7 +1163,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_3">Responses</h4>
+<h4 id="_responses_4">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1081,13 +1212,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_4">Description</h4>
+<h4 id="_description_5">Description</h4>
 <div class="paragraph">
 <p>Returns the current status for the request archive process. WARNING: This command is experimental and subject to backwards-incompatible change.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_4">Parameters</h4>
+<h4 id="_parameters_5">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1118,7 +1249,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_4">Responses</h4>
+<h4 id="_responses_5">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1160,6 +1291,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_getbatcheventsforarchivingstatus">Get the status of creating batches of audit events to be archived.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/audit/getBatchEventsForArchivingStatus</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_6">Description</h4>
+<div class="paragraph">
+<p>Get the status of creating batches of audit events to be archived. If automated archiving is configured, then this operation is disabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_6">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_getbatcheventsforarchivingstatusrequest">GetBatchEventsForArchivingStatusRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_6">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_getbatcheventsforarchivingstatusresponse">GetBatchEventsForArchivingStatusResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_listevents">List all audit events recorded in a specified time span, and optionally with a specified request ID and/or event source.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1167,13 +1384,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_5">Description</h4>
+<h4 id="_description_7">Description</h4>
 <div class="paragraph">
 <p>Returns all audit log events that have a timestamp within the provided range (start is inclusive, end is exclusive) and, optionally, with the specified request ID and/or event source.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_5">Parameters</h4>
+<h4 id="_parameters_7">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1204,7 +1421,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_5">Responses</h4>
+<h4 id="_responses_7">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1246,6 +1463,178 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_listeventsinarchivebatch">List events contained in a single archive batch.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/audit/listEventsInArchiveBatch</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_8">Description</h4>
+<div class="paragraph">
+<p>List events contained in a single archive batch. The batch must not be marked as successfully archived already. A batch&#8217;s events may be listed multiple times, as long as it is not marked as successfully archived. If automated archiving is configured, then this operation is disabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_8">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listeventsinarchivebatchrequest">ListEventsInArchiveBatchRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_8">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listeventsinarchivebatchresponse">ListEventsInArchiveBatchResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listoutstandingarchivebatches">List outstanding (unarchived) archive batches.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/audit/listOutstandingArchiveBatches</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_9">Description</h4>
+<div class="paragraph">
+<p>Lists archive batches that have not yet been marked as successfully archived. Their contents remain available for listing. If automated archiving is configured, then this operation is disabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_9">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listoutstandingarchivebatchesrequest">ListOutstandingArchiveBatchesRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_9">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listoutstandingarchivebatchesresponse">ListOutstandingArchiveBatchesResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_listrecentarchiveruns">List recent archive runs.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1253,13 +1642,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_6">Description</h4>
+<h4 id="_description_10">Description</h4>
 <div class="paragraph">
 <p>Returns recent archive runs for a specified account.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_6">Parameters</h4>
+<h4 id="_parameters_10">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1290,7 +1679,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_6">Responses</h4>
+<h4 id="_responses_10">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1314,6 +1703,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_listrecentarchiverunsresponse">ListRecentArchiveRunsResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_markarchivebatchesassuccessful">Mark archive batches as successful.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/audit/markArchiveBatchesAsSuccessful</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_11">Description</h4>
+<div class="paragraph">
+<p>Mark archive batches as successful. After a batch is marked as successfully archived, it is not considered outstanding and its events may no longer be listed. If automated archiving is configured, then this operation is disabled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_11">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_markarchivebatchesassuccessfulrequest">MarkArchiveBatchesAsSuccessfulRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_11">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_markarchivebatchesassuccessfulresponse">MarkArchiveBatchesAsSuccessfulResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1859,6 +2334,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_batcheventsforarchivingrequest">BatchEventsForArchivingRequest</h3>
+<div class="paragraph">
+<p>Request to create batches of audit events for archiving.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>fromTimestamp</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The beginning POSIX epoch time, in milliseconds, for the search range.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>toTimestamp</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ending POSIX epoch time, in milliseconds, for the search range.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_batcheventsforarchivingresponse">BatchEventsForArchivingResponse</h3>
+<div class="paragraph">
+<p>Response from creating batches of audit events for archiving.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>taskId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of the asynchronous task to monitor.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_cdpauditevent">CdpAuditEvent</h3>
 <div class="paragraph">
 <p>The model for an audit event.</p>
@@ -2392,6 +2947,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_getbatcheventsforarchivingstatusrequest">GetBatchEventsForArchivingStatusRequest</h3>
+<div class="paragraph">
+<p>Request to get the status of creating batches of audit events to be archived.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>taskId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of the asynchronous task to monitor.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_getbatcheventsforarchivingstatusresponse">GetBatchEventsForArchivingStatusResponse</h3>
+<div class="paragraph">
+<p>Response from getting the status of creating batches of audit events to be archived.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>eventBatches</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The details about the created batches, if the task completed successfully.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_archivebatch">ArchiveBatch</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The task status.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_asynctaskstatus">AsyncTaskStatus</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_interactiveloginevent">InteractiveLoginEvent</h3>
 <div class="paragraph">
 <p>The model for a login event, as a part of CdpAuditEvent. CDP logs attempts to interactively login to the CDP console. This includes logins using Cloudera SSO and through any federated interactive login events.</p>
@@ -2528,6 +3163,74 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listeventsinarchivebatchrequest">ListEventsInArchiveBatchRequest</h3>
+<div class="paragraph">
+<p>Request to list events contained in a single archive batch.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>archiveId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The archive ID of the batch.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listeventsinarchivebatchresponse">ListEventsInArchiveBatchResponse</h3>
+<div class="paragraph">
+<p>Response from listing events contained in a single archive batch.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>auditEvents</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The audit events in the archive batch.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_cdpauditevent">CdpAuditEvent</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2676,6 +3379,124 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_listoutstandingarchivebatchesrequest">ListOutstandingArchiveBatchesRequest</h3>
+<div class="paragraph">
+<p>Request to list outstanding archive batches.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>fromTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The beginning POSIX epoch time, in milliseconds, for the search range (inclusive).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>pageSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The page size.<br>
+<strong>Minimum value</strong> : <code>20</code><br>
+<strong>Maximum value</strong> : <code>100</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>pageToken</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The page token.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>toTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ending POSIX epoch time, in milliseconds, for the search range (exclusive).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listoutstandingarchivebatchesresponse">ListOutstandingArchiveBatchesResponse</h3>
+<div class="paragraph">
+<p>The response from listing outstanding archive batches.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>eventBatches</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The details about the outstanding batches of events.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_archivebatch">ArchiveBatch</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>nextPageToken</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The page token for requesting the next page of results.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_listrecentarchiverunsrequest">ListRecentArchiveRunsRequest</h3>
 <div class="paragraph">
 <p>Request to list recent archive runs.</p>
@@ -2743,12 +3564,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_markarchivebatchesassuccessfulrequest">MarkArchiveBatchesAsSuccessfulRequest</h3>
+<div class="paragraph">
+<p>Request to mark archive batches as successful.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>archiveIds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The archive IDs of the batches to mark.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_markarchivebatchesassuccessfulresponse">MarkArchiveBatchesAsSuccessfulResponse</h3>
+<div class="paragraph">
+<p>Response from marking archive batches as successful.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>archiveIds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The archive IDs of the batches marked as successful.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>archiveTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The archive timestamp marked for each batch.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-12-01 15:48:23 -0800
+Last updated 2021-12-16 17:33:23 -0800
 </div>
 </div>
 <br>
