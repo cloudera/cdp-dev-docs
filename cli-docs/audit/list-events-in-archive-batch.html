@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-events-in-archive-batch &#8212; CDP CLI 0.9.52 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-outstanding-archive-batches" href="list-outstanding-archive-batches.html" />
+    <link rel="prev" title="list-events" href="list-events.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-outstanding-archive-batches.html" title="list-outstanding-archive-batches"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-events.html" title="list-events"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.52 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">audit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-events-in-archive-batch</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-events-in-archive-batch">
+<span id="cli-cdp-audit-list-events-in-archive-batch"></span><h1>list-events-in-archive-batch<a class="headerlink" href="#list-events-in-archive-batch" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>List events contained in a single archive batch.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.52</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>List events contained in a single archive batch. The batch must not be marked as successfully archived already. A batch’s events may be listed multiple times, as long as it is not marked as successfully archived. If automated archiving is configured, then this operation is disabled.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-events-in-archive-batch
+--archive-id &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--archive-id</span></code> (string)
+The archive ID of the batch.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
+Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>auditEvents -&gt; (array)</p>
+<blockquote>
+<div><p>The audit events in the archive batch.</p>
+<p>(object)</p>
+<blockquote>
+<div><p>The model for an audit event.</p>
+<p>version -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the event structure.</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>UUID for this event.</p>
+</div></blockquote>
+<p>eventSource -&gt; (string)</p>
+<blockquote>
+<div><p>The source service of the event. It must be the name of a service as enumerated in the CRN definition.</p>
+</div></blockquote>
+<p>eventName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the event. Each source defines all its event names, and a name must be unique for its source.</p>
+</div></blockquote>
+<p>timestamp -&gt; (integer)</p>
+<blockquote>
+<div><p>The Unix timestamp, in milliseconds (UTC), when the event occurred.</p>
+</div></blockquote>
+<p>actorIdentity -&gt; (object)</p>
+<blockquote>
+<div><p>Identity information about the actor that initiated an event. Only one of the fields in this message may be set.</p>
+<p>actorCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the actor who initiated this event.</p>
+</div></blockquote>
+<p>actorServiceName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the service that initiated this event. It must be the name of a service as enumerated in the CRN definition.</p>
+</div></blockquote>
+</div></blockquote>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>Account id in which this event occurred.</p>
+</div></blockquote>
+<p>requestId -&gt; (string)</p>
+<blockquote>
+<div><p>Id of the request that initiated this event. Optional.</p>
+</div></blockquote>
+<p>resultCode -&gt; (string)</p>
+<blockquote>
+<div><p>Optional result code.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Optional result message, a short message (about one sentence) describing the result.</p>
+</div></blockquote>
+<p>apiRequestEvent -&gt; (object)</p>
+<blockquote>
+<div><p>The model for an API request event, as a part of CdpAuditEvent. These events are triggered by requests to public CDP API services.</p>
+<p>requestParameters -&gt; (string)</p>
+<blockquote>
+<div><p>The API request parameters.</p>
+</div></blockquote>
+<p>responseParameters -&gt; (string)</p>
+<blockquote>
+<div><p>The API response parameters. Only recorded for mutating calls.</p>
+</div></blockquote>
+<p>mutating -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the request mutates the state of resources.</p>
+</div></blockquote>
+<p>apiVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The API version associated with the request.</p>
+</div></blockquote>
+<p>sourceIPAddress -&gt; (string)</p>
+<blockquote>
+<div><p>The source IP address of the requester.</p>
+</div></blockquote>
+<p>userAgent -&gt; (string)</p>
+<blockquote>
+<div><p>The user agent that made the API request.</p>
+</div></blockquote>
+</div></blockquote>
+<p>cdpServiceEvent -&gt; (object)</p>
+<blockquote>
+<div><p>The model for a service event, as a part of CdpAuditEvent. These events are created by Cloudera CDP services, but are not directly triggered by a request to a public CDP API service.</p>
+<p>additionalServiceEventDetails -&gt; (string)</p>
+<blockquote>
+<div><p>Optional JSON that contains additional details for an event and/or a result associated with the event. Each service defines the structure of details for each event.</p>
+</div></blockquote>
+<p>resourceCrns -&gt; (array)</p>
+<blockquote>
+<div><p>The CRNs of the resources operated on.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>detailsVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The schema version of the additional service event details for this service event. Maintained by the service.</p>
+</div></blockquote>
+</div></blockquote>
+<p>interactiveLoginEvent -&gt; (object)</p>
+<blockquote>
+<div><p>The model for a login event, as a part of CdpAuditEvent. CDP logs attempts to interactively login to the CDP console. This includes logins using Cloudera SSO and through any federated interactive login events.</p>
+<p>identityProviderCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The identity provider CRN used to interactively login. For Cloudera SSO the ID is ‘crn:altus:iam:us-west-1:altus:samlProvider:cloudera-sso’. For identity provider connectors the connector’s CRN is used.</p>
+</div></blockquote>
+<p>identityProviderSessionId -&gt; (string)</p>
+<blockquote>
+<div><p>The identity provider session ID for this interactive login request. For SAML 2.0 identity federation this is the SessionIndex of the SAML AuthnResponse. (Deprecated: No replacement, as this was never available.)</p>
+</div></blockquote>
+<p>identityProviderUserId -&gt; (string)</p>
+<blockquote>
+<div><p>The user ID as indicated by the identity provider. The specific format and type of this identifier is determined by the IdP. For Cloudera SSO this is the email used to login.</p>
+</div></blockquote>
+<p>email -&gt; (string)</p>
+<blockquote>
+<div><p>The email of the user as provided to CDP.</p>
+</div></blockquote>
+<p>sourceIPAddress -&gt; (string)</p>
+<blockquote>
+<div><p>The source IP address from which the login request came from.</p>
+</div></blockquote>
+<p>firstName -&gt; (string)</p>
+<blockquote>
+<div><p>The first name of the user, if provided.</p>
+</div></blockquote>
+<p>lastName -&gt; (string)</p>
+<blockquote>
+<div><p>The last name of the user, if provided.</p>
+</div></blockquote>
+<p>accountAdmin -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the user was marked as account admin. Can only be ‘true’ for users using Cloudera SSO.</p>
+</div></blockquote>
+<p>groups -&gt; (array)</p>
+<blockquote>
+<div><p>A list of group names the user belongs to as received in CDP. Only available for non Cloudera SSO login events.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>userCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CDP user CRN for the user. This may be empty if the login failed.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-events-in-archive-batch</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-events.html"
+                        title="previous chapter">list-events</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-outstanding-archive-batches.html"
+                        title="next chapter">list-outstanding-archive-batches</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-outstanding-archive-batches.html" title="list-outstanding-archive-batches"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-events.html" title="list-events"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.52 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >audit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-events-in-archive-batch</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
