@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.52 (BETA)
+  version: 0.9.53 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -1225,6 +1225,48 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/SetCatalogResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/upgradeFreeipa:
+    post:
+      summary: Upgrades FreeIPA to the latest or defined image.
+      description: FreeIPA is an integrated Identity and Authentication solution that can be used for any of CM, CDP services.
+      operationId: upgradeFreeipa
+      x-no-compatibility-guarantee: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpgradeFreeipaRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpgradeFreeipaResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/retryFreeipa:
+    post:
+      summary: Retries the last failed operation on a FreeIPA.
+      description: Retries the last failed operation on a FreeIPA.
+      operationId: retryFreeipa
+      x-no-compatibility-guarantee: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RetryFreeipaRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RetryFreeipaResponse'
         default:
           description: The default response on an error.
           schema:
@@ -4041,3 +4083,64 @@ definitions:
   SetCatalogResponse:
     type: object
     description: The response object to set catalog for a FreeIPA request.
+  UpgradeFreeipaRequest:
+    type: object
+    description: The request object for FreeIPA upgrade.
+    x-no-compatibility-guarantee: true
+    required:
+      - environmentName
+    properties:
+      environmentName:
+        type: string
+        description: The name or CRN of the environment.
+  UpgradeFreeipaResponse:
+    type: object
+    description: The response object for FreeIPA upgrade.
+    x-no-compatibility-guarantee: true
+    properties:
+      targetImage:
+        description: Image selected for upgrade.
+        $ref: '#/definitions/ImageInfoResponse'
+      originalImage:
+        description: Original, current image.
+        $ref: '#/definitions/ImageInfoResponse'
+      operationId:
+        description: UUID of the request for this operation. This ID can be used for geting status on the operation.
+        type: string
+  ImageInfoResponse:
+    type: object
+    description: Information about FreeIPA image.
+    x-no-compatibility-guarantee: true
+    properties:
+      catalog:
+        type: string
+        description: Image catalog URL.
+      id:
+        type: string
+        description: Virtual machine image ID from ImageCatalog, machines of the cluster will be started from this image.
+      os:
+        type: string
+        description: OS type of the image, this property is only considered when no specific image ID is provided.
+      imageName:
+        type: string
+        description: Image name
+      date:
+        type: string
+        description: Creation date of the image from catalog.
+      catalogName:
+        type: string
+        description: Image catalog name.
+  RetryFreeipaRequest:
+    type: object
+    description: Request object for retry FreeIPA request.
+    x-no-compatibility-guarantee: true
+    required:
+      - environment
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment.
+  RetryFreeipaResponse:
+    type: object
+    description: Response object for retry FreeIPA operation on an environment.
+    x-no-compatibility-guarantee: true

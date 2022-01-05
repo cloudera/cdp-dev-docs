@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.53 (2022-01-05)
+
+IMPROVEMENTS:
+
+* datalake: Add `enable-ranger-raz` parameter to `create-aws-datalake`, `create-azure-datalake` command and the response of `describe-datalake` command.
+
+BACKWARD INCOMPATIBILITIES:
+
+* datalake: Make `cloud-provider-configuration` parameter required for `create-gcp-datalake` command. This matches what we expect for similar APIs for AWS and Azure.
+
 ## 0.9.52 (2021-12-16)
 
 IMPROVEMENTS:
