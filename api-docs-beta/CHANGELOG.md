@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.54 (2022-01-19)
+
+IMPROVEMENTS:
+
+* imagecatalog: **New service!** for managing custom VM images.
+* datahub: Add `set-catalog` command.
+* datalake: Add `set-catalog` command.
+* environments: Add `set-catalog` command.
+* environments: Add `create-service-endpoints` parameter to `create-aws-environment` command.
+* datalake: Add `sync-component-versions-from-cm` command to sync component versions from CM after a failed upgrade.
+* de: Add `update-service` command to update Cloudera Data Engineering (CDE) Service.
+* iam: Add `generate-workload-auth-token` command for Private Cloud form factor.
+
 ## 0.9.53 (2022-01-05)
 
 IMPROVEMENTS:

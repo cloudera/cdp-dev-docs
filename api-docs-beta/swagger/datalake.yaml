@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.53 (BETA)
+  version: 0.9.54 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -601,6 +601,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/SetCatalogResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datalake/syncComponentVersionsFromCm:
+    post:
+      summary: Syncs component versions from CM after a failed upgrade.
+      description: Syncs component versions from CM after a failed upgrade.
+      x-no-compatibility-guarantee: true
+      operationId: syncComponentVersionsFromCm
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SyncComponentVersionsFromCmRequest'
+      responses:
+        200:
+          description: Expected response to a valid sync datahub CM component versions request.
+          schema:
+            $ref: '#/definitions/SyncComponentVersionsFromCmResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1991,3 +2012,17 @@ definitions:
   SetCatalogResponse:
     type: object
     description: The response object to set catalog for a DataLake request.
+  SyncComponentVersionsFromCmRequest:
+    x-no-compatibility-guarantee: true
+    type: object
+    description: Datalake sync CM component versions request.
+    required:
+      - datalakeName
+    properties:
+      datalakeName:
+        type: string
+        description: The name or CRN of the datalake.
+  SyncComponentVersionsFromCmResponse:
+    x-no-compatibility-guarantee: true
+    type: object
+    description: Datalake sync CM component versions response.
