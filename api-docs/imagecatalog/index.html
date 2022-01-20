@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="copyright" content="Copyright © 2022 Cloudera, Inc. All rights reserved.">
-<title>Operational Database service</title>
+<title>Image catalog service</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
 @import url(//fonts.googleapis.com/css?family=Noticia+Text:400,400italic);
@@ -675,7 +675,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Operational Database service</h1>
+<h1>Image catalog service</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -690,111 +690,116 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </li>
 <li><a href="#_paths">Paths</a>
 <ul class="sectlevel2">
-<li><a href="#_collectdiagnostics">Collect diagnostic data bundles from the database</a>
+<li><a href="#_createcustomcatalog">Create custom image catalog</a>
 <ul class="sectlevel3">
 <li><a href="#_description">Description</a></li>
 <li><a href="#_parameters">Parameters</a></li>
 <li><a href="#_responses">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createdatabase">Create opDb</a>
+<li><a href="#_deletecustomcatalog">Delete custom image catalog</a>
 <ul class="sectlevel3">
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_parameters_2">Parameters</a></li>
 <li><a href="#_responses_2">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_describeclientconnectivity">Returns client connectivity details</a>
+<li><a href="#_deletefreeipaimage">Delete image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_describedatabase">Describe a opDb</a>
+<li><a href="#_deleteruntimeimage">Delete image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_4">Description</a></li>
 <li><a href="#_parameters_4">Parameters</a></li>
 <li><a href="#_responses_4">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_dropdatabase">drop a opDb</a>
+<li><a href="#_describecustomcatalog">Describe custom image catalog</a>
 <ul class="sectlevel3">
 <li><a href="#_description_5">Description</a></li>
 <li><a href="#_parameters_5">Parameters</a></li>
 <li><a href="#_responses_5">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listdatabases">List all opDbs in an environment</a>
+<li><a href="#_describecustomimage">Describe custom image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_6">Description</a></li>
 <li><a href="#_parameters_6">Parameters</a></li>
 <li><a href="#_responses_6">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listdiagnostics">List all diagnostics associated to the database</a>
+<li><a href="#_describedefaultimage">Describe default image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_7">Description</a></li>
 <li><a href="#_parameters_7">Parameters</a></li>
 <li><a href="#_responses_7">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listsupportedenvironments">List of environments available for the database creation</a>
+<li><a href="#_finddefaultimage">Find default image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_8">Description</a></li>
 <li><a href="#_parameters_8">Parameters</a></li>
 <li><a href="#_responses_8">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatabase">Starts the database</a>
+<li><a href="#_listcustomcatalogs">List custom image catalogs</a>
 <ul class="sectlevel3">
 <li><a href="#_description_9">Description</a></li>
 <li><a href="#_parameters_9">Parameters</a></li>
 <li><a href="#_responses_9">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopdatabase">Stops the database</a>
+<li><a href="#_setfreeipaimage">Add or update image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_10">Description</a></li>
 <li><a href="#_parameters_10">Parameters</a></li>
 <li><a href="#_responses_10">Responses</a></li>
 </ul>
 </li>
+<li><a href="#_setruntimeimage">Add or update image</a>
+<ul class="sectlevel3">
+<li><a href="#_description_11">Description</a></li>
+<li><a href="#_parameters_11">Parameters</a></li>
+<li><a href="#_responses_11">Responses</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
-<li><a href="#_clientconfigurationdetails">ClientConfigurationDetails</a></li>
-<li><a href="#_collectdiagnosticsrequest">CollectDiagnosticsRequest</a></li>
-<li><a href="#_collectdiagnosticsresponse">CollectDiagnosticsResponse</a></li>
-<li><a href="#_connector">Connector</a></li>
-<li><a href="#_connectorconfiguration">ConnectorConfiguration</a></li>
-<li><a href="#_createdatabaserequest">CreateDatabaseRequest</a></li>
-<li><a href="#_createdatabaseresponse">CreateDatabaseResponse</a></li>
-<li><a href="#_databasedetails">DatabaseDetails</a></li>
-<li><a href="#_dependencymanagement">DependencyManagement</a></li>
-<li><a href="#_describeclientconnectivityrequest">DescribeClientConnectivityRequest</a></li>
-<li><a href="#_describeclientconnectivityresponse">DescribeClientConnectivityResponse</a></li>
-<li><a href="#_describedatabaserequest">DescribeDatabaseRequest</a></li>
-<li><a href="#_describedatabaseresponse">DescribeDatabaseResponse</a></li>
-<li><a href="#_diagnosticsbundle">DiagnosticsBundle</a></li>
-<li><a href="#_dropdatabaserequest">DropDatabaseRequest</a></li>
-<li><a href="#_dropdatabaseresponse">DropDatabaseResponse</a></li>
-<li><a href="#_environment">Environment</a></li>
+<li><a href="#_createcustomcatalogrequest">CreateCustomCatalogRequest</a></li>
+<li><a href="#_createcustomcatalogresponse">CreateCustomCatalogResponse</a></li>
+<li><a href="#_customimagecatalog">CustomImageCatalog</a></li>
+<li><a href="#_deletecustomcatalogrequest">DeleteCustomCatalogRequest</a></li>
+<li><a href="#_deletecustomcatalogresponse">DeleteCustomCatalogResponse</a></li>
+<li><a href="#_deletefreeipaimagerequest">DeleteFreeipaImageRequest</a></li>
+<li><a href="#_deletefreeipaimageresponse">DeleteFreeipaImageResponse</a></li>
+<li><a href="#_deleteruntimeimagerequest">DeleteRuntimeImageRequest</a></li>
+<li><a href="#_deleteruntimeimageresponse">DeleteRuntimeImageResponse</a></li>
+<li><a href="#_describecustomcatalogrequest">DescribeCustomCatalogRequest</a></li>
+<li><a href="#_describecustomcatalogresponse">DescribeCustomCatalogResponse</a></li>
+<li><a href="#_describecustomimagerequest">DescribeCustomImageRequest</a></li>
+<li><a href="#_describecustomimageresponse">DescribeCustomImageResponse</a></li>
+<li><a href="#_describedefaultimagerequest">DescribeDefaultImageRequest</a></li>
+<li><a href="#_describedefaultimageresponse">DescribeDefaultImageResponse</a></li>
 <li><a href="#_error">Error</a></li>
-<li><a href="#_kerberosconfiguration">KerberosConfiguration</a></li>
-<li><a href="#_kind">Kind</a></li>
-<li><a href="#_listdatabasesrequest">ListDatabasesRequest</a></li>
-<li><a href="#_listdatabasesresponse">ListDatabasesResponse</a></li>
-<li><a href="#_listdiagnosticsrequest">ListDiagnosticsRequest</a></li>
-<li><a href="#_listdiagnosticsresponse">ListDiagnosticsResponse</a></li>
-<li><a href="#_listsupportedenvironmentsrequest">ListSupportedEnvironmentsRequest</a></li>
-<li><a href="#_listsupportedenvironmentsresponse">ListSupportedEnvironmentsResponse</a></li>
-<li><a href="#_startdatabaserequest">StartDatabaseRequest</a></li>
-<li><a href="#_startdatabaseresponse">StartDatabaseResponse</a></li>
-<li><a href="#_statustype">StatusType</a></li>
-<li><a href="#_stopdatabaserequest">StopDatabaseRequest</a></li>
-<li><a href="#_stopdatabaseresponse">StopDatabaseResponse</a></li>
+<li><a href="#_finddefaultimagerequest">FindDefaultImageRequest</a></li>
+<li><a href="#_finddefaultimageresponse">FindDefaultImageResponse</a></li>
+<li><a href="#_imageitemresponse">ImageItemResponse</a></li>
+<li><a href="#_listcustomcatalogsrequest">ListCustomCatalogsRequest</a></li>
+<li><a href="#_listcustomcatalogsresponse">ListCustomCatalogsResponse</a></li>
+<li><a href="#_setfreeipaimagerequest">SetFreeipaImageRequest</a></li>
+<li><a href="#_setfreeipaimageresponse">SetFreeipaImageResponse</a></li>
+<li><a href="#_setruntimeimagerequest">SetRuntimeImageRequest</a></li>
+<li><a href="#_setruntimeimageresponse">SetRuntimeImageResponse</a></li>
+<li><a href="#_vmimageprovider">VmImageProvider</a></li>
+<li><a href="#_vmimagerequest">VmImageRequest</a></li>
+<li><a href="#_vmimageresponse">VmImageResponse</a></li>
+<li><a href="#_vmimagetype">VmImageType</a></li>
 </ul>
 </li>
 </ul>
@@ -805,7 +810,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Interact with the Cloudera Operational Database service</p>
+<p>Service for managing custom VM images.</p>
 </div>
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
@@ -852,16 +857,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_paths">Paths</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_collectdiagnostics">Collect diagnostic data bundles from the database</h3>
+<h3 id="_createcustomcatalog">Create custom image catalog</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/collectDiagnostics</pre>
+<pre>POST /api/v1/imagecatalog/createCustomCatalog</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description">Description</h4>
 <div class="paragraph">
-<p>returns details of running command</p>
+<p>Creates a new image catalog for runtime and freeipa images.</p>
 </div>
 </div>
 <div class="sect3">
@@ -889,7 +894,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_collectdiagnosticsrequest">CollectDiagnosticsRequest</a></p>
+<p><a href="#_createcustomcatalogrequest">CreateCustomCatalogRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -919,7 +924,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_collectdiagnosticsresponse">CollectDiagnosticsResponse</a></p>
+<p><a href="#_createcustomcatalogresponse">CreateCustomCatalogResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -938,16 +943,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_createdatabase">Create opDb</h3>
+<h3 id="_deletecustomcatalog">Delete custom image catalog</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/createDatabase</pre>
+<pre>POST /api/v1/imagecatalog/deleteCustomCatalog</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_2">Description</h4>
 <div class="paragraph">
-<p>Create a operational database in a environment</p>
+<p>Deletes an existing image catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -975,7 +980,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_createdatabaserequest">CreateDatabaseRequest</a></p>
+<p><a href="#_deletecustomcatalogrequest">DeleteCustomCatalogRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1005,7 +1010,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_createdatabaseresponse">CreateDatabaseResponse</a></p>
+<p><a href="#_deletecustomcatalogresponse">DeleteCustomCatalogResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1024,16 +1029,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_describeclientconnectivity">Returns client connectivity details</h3>
+<h3 id="_deletefreeipaimage">Delete image</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/describeClientConnectivity</pre>
+<pre>POST /api/v1/imagecatalog/deleteFreeipaImage</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_3">Description</h4>
 <div class="paragraph">
-<p>Returns details to enable programmatic client connectivity for a database</p>
+<p>Deletes a freeipa image from a given catalog</p>
 </div>
 </div>
 <div class="sect3">
@@ -1061,7 +1066,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describeclientconnectivityrequest">DescribeClientConnectivityRequest</a></p>
+<p><a href="#_deletefreeipaimagerequest">DeleteFreeipaImageRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1091,7 +1096,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describeclientconnectivityresponse">DescribeClientConnectivityResponse</a></p>
+<p><a href="#_deletefreeipaimageresponse">DeleteFreeipaImageResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1110,16 +1115,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_describedatabase">Describe a opDb</h3>
+<h3 id="_deleteruntimeimage">Delete image</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/describeDatabase</pre>
+<pre>POST /api/v1/imagecatalog/deleteRuntimeImage</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_4">Description</h4>
 <div class="paragraph">
-<p>Details about the operational database</p>
+<p>Deletes a runtime image from a given catalog</p>
 </div>
 </div>
 <div class="sect3">
@@ -1147,7 +1152,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describedatabaserequest">DescribeDatabaseRequest</a></p>
+<p><a href="#_deleteruntimeimagerequest">DeleteRuntimeImageRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1177,7 +1182,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describedatabaseresponse">DescribeDatabaseResponse</a></p>
+<p><a href="#_deleteruntimeimageresponse">DeleteRuntimeImageResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1196,16 +1201,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dropdatabase">drop a opDb</h3>
+<h3 id="_describecustomcatalog">Describe custom image catalog</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/dropDatabase</pre>
+<pre>POST /api/v1/imagecatalog/describeCustomCatalog</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_5">Description</h4>
 <div class="paragraph">
-<p>drop the operational database</p>
+<p>Retrieves data about an existing image catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1233,7 +1238,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_dropdatabaserequest">DropDatabaseRequest</a></p>
+<p><a href="#_describecustomcatalogrequest">DescribeCustomCatalogRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1263,7 +1268,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_dropdatabaseresponse">DropDatabaseResponse</a></p>
+<p><a href="#_describecustomcatalogresponse">DescribeCustomCatalogResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1282,16 +1287,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listdatabases">List all opDbs in an environment</h3>
+<h3 id="_describecustomimage">Describe custom image</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/listDatabases</pre>
+<pre>POST /api/v1/imagecatalog/describeCustomImage</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_6">Description</h4>
 <div class="paragraph">
-<p>Fetch a list of all operational databases in an environment</p>
+<p>Retrieves data about a specific image from a specific catalog</p>
 </div>
 </div>
 <div class="sect3">
@@ -1319,7 +1324,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listdatabasesrequest">ListDatabasesRequest</a></p>
+<p><a href="#_describecustomimagerequest">DescribeCustomImageRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1349,7 +1354,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listdatabasesresponse">ListDatabasesResponse</a></p>
+<p><a href="#_describecustomimageresponse">DescribeCustomImageResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1368,16 +1373,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listdiagnostics">List all diagnostics associated to the database</h3>
+<h3 id="_describedefaultimage">Describe default image</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/listDiagnostics</pre>
+<pre>POST /api/v1/imagecatalog/describeDefaultImage</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_7">Description</h4>
 <div class="paragraph">
-<p>returns list of diagnostics collections</p>
+<p>Retrieves an image directly by id from the default catalog</p>
 </div>
 </div>
 <div class="sect3">
@@ -1405,7 +1410,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listdiagnosticsrequest">ListDiagnosticsRequest</a></p>
+<p><a href="#_describedefaultimagerequest">DescribeDefaultImageRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1435,7 +1440,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listdiagnosticsresponse">ListDiagnosticsResponse</a></p>
+<p><a href="#_describedefaultimageresponse">DescribeDefaultImageResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1454,16 +1459,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listsupportedenvironments">List of environments available for the database creation</h3>
+<h3 id="_finddefaultimage">Find default image</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/listSupportedEnvironments</pre>
+<pre>POST /api/v1/imagecatalog/findDefaultImage</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_8">Description</h4>
 <div class="paragraph">
-<p>Fetches a list of environments available for the database creation</p>
+<p>Retrieves an image based on the filters from the default catalog</p>
 </div>
 </div>
 <div class="sect3">
@@ -1491,7 +1496,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listsupportedenvironmentsrequest">ListSupportedEnvironmentsRequest</a></p>
+<p><a href="#_finddefaultimagerequest">FindDefaultImageRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1521,7 +1526,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listsupportedenvironmentsresponse">ListSupportedEnvironmentsResponse</a></p>
+<p><a href="#_finddefaultimageresponse">FindDefaultImageResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1540,16 +1545,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_startdatabase">Starts the database</h3>
+<h3 id="_listcustomcatalogs">List custom image catalogs</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/startDatabase</pre>
+<pre>POST /api/v1/imagecatalog/listCustomCatalogs</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_9">Description</h4>
 <div class="paragraph">
-<p>Starts a previously stopped database</p>
+<p>Lists all the runtime/freeipa image catalogs accessible for the user.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1577,7 +1582,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_startdatabaserequest">StartDatabaseRequest</a></p>
+<p><a href="#_listcustomcatalogsrequest">ListCustomCatalogsRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1607,7 +1612,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_startdatabaseresponse">StartDatabaseResponse</a></p>
+<p><a href="#_listcustomcatalogsresponse">ListCustomCatalogsResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1626,16 +1631,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_stopdatabase">Stops the database</h3>
+<h3 id="_setfreeipaimage">Add or update image</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/opdb/stopDatabase</pre>
+<pre>POST /api/v1/imagecatalog/setFreeipaImage</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_10">Description</h4>
 <div class="paragraph">
-<p>Stops a running database</p>
+<p>Adds or updates a freeipa image in the catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1663,7 +1668,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_stopdatabaserequest">StopDatabaseRequest</a></p>
+<p><a href="#_setfreeipaimagerequest">SetFreeipaImageRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1693,7 +1698,93 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_stopdatabaseresponse">StopDatabaseResponse</a></p>
+<p><a href="#_setfreeipaimageresponse">SetFreeipaImageResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setruntimeimage">Add or update image</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/imagecatalog/setRuntimeImage</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_11">Description</h4>
+<div class="paragraph">
+<p>Adds or updates a runtime image in the catalog.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_11">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_setruntimeimagerequest">SetRuntimeImageRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_11">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_setruntimeimageresponse">SetRuntimeImageResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1717,9 +1808,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_clientconfigurationdetails">ClientConfigurationDetails</h3>
+<h3 id="_createcustomcatalogrequest">CreateCustomCatalogRequest</h3>
 <div class="paragraph">
-<p>A URL which holds information necessary to configure a Connector.</p>
+<p>Create custom image catalog request</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1737,11 +1828,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>optional</em></p>
+<p><strong>catalogName</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of this configuration</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1749,11 +1840,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>url</strong><br>
+<p><strong>description</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The URL from which to fetch the configuration</p>
+<p>Image catalog description</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1763,79 +1854,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_collectdiagnosticsrequest">CollectDiagnosticsRequest</h3>
+<h3 id="_createcustomcatalogresponse">CreateCustomCatalogResponse</h3>
 <div class="paragraph">
-<p>Enables starting collection of the diagnostics. This is an asynchronous API and not expected to block.</p>
+<p>Create custom image catalog response</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>endTime</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The end time (in ISO 8601 format) of the period to collection statistics for.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>startTime</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The start time (in ISO 8601 format) of the period to collection statistics for.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_collectdiagnosticsresponse">CollectDiagnosticsResponse</h3>
+<h3 id="_customimagecatalog">CustomImageCatalog</h3>
 <div class="paragraph">
-<p>Information about diagnostic bundle generation</p>
+<p>Basic image catalog data</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1853,72 +1883,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>diagnosticsBundle</strong><br>
+<p><strong>description</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Details of requested diagnostic bundle collection</p>
+<p>Image catalog description</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_diagnosticsbundle">DiagnosticsBundle</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_connector">Connector</h3>
-<div class="paragraph">
-<p>Information to use to connect to a database via some mechanism.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>configuration</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Runtime details required to use the connector.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_connectorconfiguration">ConnectorConfiguration</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>dependencies</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Software dependency information necessary to use the connector.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_dependencymanagement">DependencyManagement</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>kind</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A categorization of this connector.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_kind">Kind</a></p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1927,31 +1899,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the API/Library this connector represents.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requiresKerberos</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>True if the connector requires Kerberos to authenticate.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>version</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of the connector.</p>
+<p>Image Catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1961,9 +1909,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_connectorconfiguration">ConnectorConfiguration</h3>
+<h3 id="_deletecustomcatalogrequest">DeleteCustomCatalogRequest</h3>
 <div class="paragraph">
-<p>Runtime details necessary to use a connector.</p>
+<p>Delete custom image catalog request</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1981,35 +1929,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>clientConfigurationDetails</strong><br>
-<em>optional</em></p>
+<p><strong>catalogName</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Configuration information required to use a Connector</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_clientconfigurationdetails">ClientConfigurationDetails</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>jdbcUrl</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A base JDBC URL if the connector is a JDBC driver.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>serviceUrl</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A base service URL</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2019,9 +1943,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_createdatabaserequest">CreateDatabaseRequest</h3>
+<h3 id="_deletecustomcatalogresponse">DeleteCustomCatalogResponse</h3>
 <div class="paragraph">
-<p>A request to create the database</p>
+<p>Delete custom image catalog response</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deletefreeipaimagerequest">DeleteFreeipaImageRequest</h3>
+<div class="paragraph">
+<p>Deletes FreeIPA image from a catalog request</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2039,11 +1972,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
+<p><strong>catalogName</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>database name</p>
+<p>Image Catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2051,11 +1984,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
+<p><strong>imageId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>environment name</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2065,9 +1998,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_createdatabaseresponse">CreateDatabaseResponse</h3>
+<h3 id="_deletefreeipaimageresponse">DeleteFreeipaImageResponse</h3>
 <div class="paragraph">
-<p>A response which gives status of the database creation</p>
+<p>Deletes image from a catalog response</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2085,23 +2018,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseDetails</strong><br>
-<em>required</em></p>
+<p><strong>imageId</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Details of the Database created</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_databasedetails">DatabaseDetails</a></p>
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_databasedetails">DatabaseDetails</h3>
+<h3 id="_deleteruntimeimagerequest">DeleteRuntimeImageRequest</h3>
 <div class="paragraph">
-<p>Details of the databases.</p>
+<p>Deletes runtime image from a catalog request</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2119,23 +2052,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>creationDate</strong><br>
+<p><strong>catalogName</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The creation time of the database in UTC</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>creatorCrn</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Crn of the creator</p>
+<p>Image Catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2143,107 +2064,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>crn</strong><br>
+<p><strong>imageId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>database crn</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>dbVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Database version</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentCrn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>environment crn</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Environment name</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>hueEndpoint</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Hue endpoint</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>internalName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Internal cluster name for this database</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>status</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Status of the database creation</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_statustype">StatusType</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>storageLocation</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>HBase cloud storage location</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2253,9 +2078,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_dependencymanagement">DependencyManagement</h3>
+<h3 id="_deleteruntimeimageresponse">DeleteRuntimeImageResponse</h3>
 <div class="paragraph">
-<p>Information about dependencies necessary to use a connector.</p>
+<p>Deletes runtime image from a catalog response</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2273,11 +2098,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>mavenUrl</strong><br>
+<p><strong>imageId</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The URL of a Maven repository containing the client JARs.</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2287,9 +2112,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_describeclientconnectivityrequest">DescribeClientConnectivityRequest</h3>
+<h3 id="_describecustomcatalogrequest">DescribeCustomCatalogRequest</h3>
 <div class="paragraph">
-<p>A request for client API connectivity to a database.</p>
+<p>Request to retrieved data about a custom catalog</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2307,23 +2132,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
+<p><strong>catalogName</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
+<p>Image Catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2333,9 +2146,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_describeclientconnectivityresponse">DescribeClientConnectivityResponse</h3>
+<h3 id="_describecustomcatalogresponse">DescribeCustomCatalogResponse</h3>
 <div class="paragraph">
-<p>A response with client API connectivity to a database.</p>
+<p>Representing data of a single catalog</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2353,35 +2166,47 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>connectors</strong><br>
+<p><strong>catalogName</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Available connectors for this database</p>
+<p>Image Catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_connector">Connector</a> &gt; array</p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>kerberosConfiguration</strong><br>
+<p><strong>description</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Kerberos configuration information</p>
+<p>Image catalog description</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_kerberosconfiguration">KerberosConfiguration</a></p>
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>images</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Detailed information of the images contained within</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_imageitemresponse">ImageItemResponse</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_describedatabaserequest">DescribeDatabaseRequest</h3>
+<h3 id="_describecustomimagerequest">DescribeCustomImageRequest</h3>
 <div class="paragraph">
-<p>request to get details of the database in a particular environment</p>
+<p>Request to retrieve data of an image from the given catalog</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2399,11 +2224,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
+<p><strong>catalogName</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database.</p>
+<p>Image Catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2411,11 +2236,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
+<p><strong>imageId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment.</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2425,9 +2250,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_describedatabaseresponse">DescribeDatabaseResponse</h3>
+<h3 id="_describecustomimageresponse">DescribeCustomImageResponse</h3>
 <div class="paragraph">
-<p>Details of the database.</p>
+<p>Contains data of an image retrieved from the given catalog</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2445,23 +2270,119 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseDetails</strong><br>
+<p><strong>baseParcelUrl</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The details of the database.</p>
+<p>Base parcel URL</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_databasedetails">DatabaseDetails</a></p>
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image creation date</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image UUID</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image type - either "FREEIPA" or "RUNTIME"</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_vmimagetype">VmImageType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>provider</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cloud provider - either AWS, AZURE or GCP</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_vmimageprovider">VmImageProvider</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceImageDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Customized image creation date</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceImageId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Customized image UUID</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>versions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Package versions</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vmImages</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of images</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_vmimageresponse">VmImageResponse</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_diagnosticsbundle">DiagnosticsBundle</h3>
+<h3 id="_describedefaultimagerequest">DescribeDefaultImageRequest</h3>
 <div class="paragraph">
-<p>Describe a diagnostics bundle</p>
+<p>Model used for retrieving an image from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2479,71 +2400,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>crn</strong><br>
-<em>optional</em></p>
+<p><strong>imageId</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The object on which diagnostics was collected</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>endTime</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The end time, if the command is finished.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>id</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Identifier for each bundle collection</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>result</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If this is a download, a link to the download location of the bundle</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>startTime</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Start time</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>status</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A status of the diagnostics collection process</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2553,9 +2414,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_dropdatabaserequest">DropDatabaseRequest</h3>
+<h3 id="_describedefaultimageresponse">DescribeDefaultImageResponse</h3>
 <div class="paragraph">
-<p>A request to drop the database</p>
+<p>Model for holding data about an image retrieved from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2573,91 +2434,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>database name</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>environment name</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_dropdatabaseresponse">DropDatabaseResponse</h3>
-<div class="paragraph">
-<p>A response which gives status of the database deletion</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>status</strong><br>
+<p><strong>imageId</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>status of delete database request</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_statustype">StatusType</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_environment">Environment</h3>
-<div class="paragraph">
-<p>Details of the environment</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>crn</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The crn of the environment</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2665,14 +2446,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
+<p><strong>vmImages</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
+<p>List of images</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>&lt; <a href="#_vmimageresponse">VmImageResponse</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2725,9 +2506,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_kerberosconfiguration">KerberosConfiguration</h3>
+<h3 id="_finddefaultimagerequest">FindDefaultImageRequest</h3>
 <div class="paragraph">
-<p>Configuration information to enable Kerberos authentication</p>
+<p>Model for filter data that is used for retrieving an image from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2745,35 +2526,35 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>kdcHost</strong><br>
+<p><strong>imageType</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The hostname of the KDC</p>
+<p>Image type - either "FREEIPA" or "RUNTIME"</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p><a href="#_vmimagetype">VmImageType</a></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>krb5Conf</strong><br>
+<p><strong>provider</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A base64-encoded krb5.conf file</p>
+<p>Cloud provider - either AWS, AZURE or GCP</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p><a href="#_vmimageprovider">VmImageProvider</a></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>realm</strong><br>
+<p><strong>runtimeVersion</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Kerberos realm</p>
+<p>Cloudera runtime version</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2783,19 +2564,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_kind">Kind</h3>
+<h3 id="_finddefaultimageresponse">FindDefaultImageResponse</h3>
 <div class="paragraph">
-<p>A categorization of a connector to describe how it is broadly used.
- <code>LIBRARY</code> - A client library or API which user&#8217;s code invokes <code>JDBC</code> - A JDBC driver <code>SERVICE</code> - A Service URL <code>ENVIRONMENT</code> - An environment to use to run other commands and tools <code>ODBC</code> - An ODBC driver</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : enum (LIBRARY, JDBC, SERVICE, ENVIRONMENT)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_listdatabasesrequest">ListDatabasesRequest</h3>
-<div class="paragraph">
-<p>A request to list databases</p>
+<p>Model for holding data about an image retrieved from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2813,79 +2584,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
+<p><strong>imageId</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>name of the environment</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_listdatabasesresponse">ListDatabasesResponse</h3>
-<div class="paragraph">
-<p>A list of databases in response</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databases</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The details of the database</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_databasedetails">DatabaseDetails</a> &gt; array</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_listdiagnosticsrequest">ListDiagnosticsRequest</h3>
-<div class="paragraph">
-<p>Lists the in-progress diagnostic bundle operations.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2893,66 +2596,138 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_listdiagnosticsresponse">ListDiagnosticsResponse</h3>
-<div class="paragraph">
-<p>The list of in-progress diagnostic bundle operations</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>diagnosticsBundles</strong><br>
+<p><strong>vmImages</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>List of diagnostics operations</p>
+<p>List of images</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_diagnosticsbundle">DiagnosticsBundle</a> &gt; array</p>
+<p>&lt; <a href="#_vmimageresponse">VmImageResponse</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_listsupportedenvironmentsrequest">ListSupportedEnvironmentsRequest</h3>
+<h3 id="_imageitemresponse">ImageItemResponse</h3>
 <div class="paragraph">
-<p>A request to get a list of available environments</p>
+<p>Model holding detailed information about a custom VM image.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image creation date</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image UUID</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image type - either "FREEIPA" or "RUNTIME"</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_vmimagetype">VmImageType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>provider</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cloud provider - either AWS, AZURE or GCP</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_vmimageprovider">VmImageProvider</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceImageDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Customized image creation date</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceImageId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Customized image UUID</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>versions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Package versions</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listcustomcatalogsrequest">ListCustomCatalogsRequest</h3>
+<div class="paragraph">
+<p>List custom image catalog request</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listsupportedenvironmentsresponse">ListSupportedEnvironmentsResponse</h3>
+<h3 id="_listcustomcatalogsresponse">ListCustomCatalogsResponse</h3>
 <div class="paragraph">
-<p>A response which contains a list of available environments</p>
+<p>List of registered image catalogs</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2970,23 +2745,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environments</strong><br>
+<p><strong>imageCatalogs</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The crn of the environment</p>
+<p>The list of registered image catalogs</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_environment">Environment</a> &gt; array</p>
+<p>&lt; <a href="#_customimagecatalog">CustomImageCatalog</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_startdatabaserequest">StartDatabaseRequest</h3>
+<h3 id="_setfreeipaimagerequest">SetFreeipaImageRequest</h3>
 <div class="paragraph">
-<p>Start the database.</p>
+<p>Adds or updates a FreeIPA image in a catalog</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3004,11 +2779,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
-<em>required</em></p>
+<p><strong>baseParcelUrl</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database.</p>
+<p>Base parcel URL</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3016,23 +2791,59 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
+<p><strong>catalogName</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
+<p>Image Catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image UUID. If this is empty, a randomly generated UUID is used.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceImageId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>UUID of the image customized by the current image.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vmImages</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of images</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_vmimagerequest">VmImageRequest</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_startdatabaseresponse">StartDatabaseResponse</h3>
+<h3 id="_setfreeipaimageresponse">SetFreeipaImageResponse</h3>
 <div class="paragraph">
-<p>A response from starting the database.</p>
+<p>Adds or updates freeipa image response</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3050,78 +2861,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>previousStatus</strong><br>
+<p><strong>imageId</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The status of the database prior to the start request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_statustype">StatusType</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>wasStarted</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>True if the database start request accepted</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_statustype">StatusType</h3>
-<div class="paragraph">
-<p>status of the database</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : enum (REQUESTED, CREATE_IN_PROGRESS, AVAILABLE, UPDATE_IN_PROGRESS, UPDATE_REQUESTED, UPDATE_FAILED, CREATE_FAILED, ENABLE_SECURITY_FAILED, PRE_DELETE_IN_PROGRESS, DELETE_IN_PROGRESS, DELETE_FAILED, DELETE_COMPLETED, STOPPED, STOP_REQUESTED, START_REQUESTED, STOP_IN_PROGRESS, START_IN_PROGRESS, START_FAILED, STOP_FAILED, WAIT_FOR_SYNC, MAINTENANCE_MODE_ENABLED, REQUESTING, MISSING, BACKUP_IN_PROGRESS, BACKUP_FAILED, BACKUP_FINISHED, RESTORE_IN_PROGRESS, RESTORE_FAILED, RESTORE_FINISHED, DELETED_ON_PROVIDER_SIDE, AMBIGUOUS, EXTERNAL_DATABASE_CREATION_IN_PROGRESS, EXTERNAL_DATABASE_CREATION_FAILED, EXTERNAL_DATABASE_DELETION_IN_PROGRESS, EXTERNAL_DATABASE_DELETION_FINISHED, EXTERNAL_DATABASE_DELETION_FAILED, UNKNOWN, EXTERNAL_DATABASE_START_IN_PROGRESS, EXTERNAL_DATABASE_START_FINISHED, EXTERNAL_DATABASE_START_FAILED, EXTERNAL_DATABASE_STOP_IN_PROGRESS, EXTERNAL_DATABASE_STOP_FINISHED, EXTERNAL_DATABASE_STOP_FAILED, LOAD_BALANCER_UPDATE_IN_PROGRESS, LOAD_BALANCER_UPDATE_FINISHED, LOAD_BALANCER_UPDATE_FAILED, UNREACHABLE, NODE_FAILURE, RECOVERY_IN_PROGRESS, RECOVERY_REQUESTED, RECOVERY_FAILED)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_stopdatabaserequest">StopDatabaseRequest</h3>
-<div class="paragraph">
-<p>Stop the database.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>databaseName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
+<p>Image UUID</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3131,9 +2875,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_stopdatabaseresponse">StopDatabaseResponse</h3>
+<h3 id="_setruntimeimagerequest">SetRuntimeImageRequest</h3>
 <div class="paragraph">
-<p>A response from stopping the database.</p>
+<p>Adds or updates a runtime image in a catalog</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3151,30 +2895,212 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>previousStatus</strong><br>
+<p><strong>baseParcelUrl</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The status of the database prior to the stop request.</p>
+<p>Base parcel URL</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_statustype">StatusType</a></p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>wasStopped</strong><br>
+<p><strong>catalogName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image Catalog name</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageId</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>True if the database stop request accepted</p>
+<p>Image UUID. If this is empty, a randomly generated UUID is used.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceImageId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>UUID of the image customized by the current image.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vmImages</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of images</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_vmimagerequest">VmImageRequest</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_setruntimeimageresponse">SetRuntimeImageResponse</h3>
+<div class="paragraph">
+<p>Adds or updates runtime image response</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image UUID</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_vmimageprovider">VmImageProvider</h3>
+<div class="paragraph">
+<p>Object representing a valid cloud provider name
+ <code>AWS</code> - The image is an AWS VM image <code>AZURE</code> - The image is an Azure VM image <code>GCP</code> - The image is a GCP VM image</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (AWS, AZURE, GCP)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vmimagerequest">VmImageRequest</h3>
+<div class="paragraph">
+<p>Model holding information about a custom VM image and the cloud region it belongs to. The format of the image reference is specific to the cloud provider, e.g. URL in case of Azure, AMI ID in case of AWS.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageReference</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image reference</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>region</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Region</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_vmimageresponse">VmImageResponse</h3>
+<div class="paragraph">
+<p>Model holding information about a custom VM image and the cloud region it belongs to. The format of the image reference is specific to the cloud provider, e.g. URL in case of Azure, AMI ID in case of AWS.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>imageReference</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Image reference</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>region</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Region</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_vmimagetype">VmImageType</h3>
+<div class="paragraph">
+<p>Object representing a valid VM image type
+ <code>FREEIPA</code> - FreeIPA image <code>RUNTIME</code> - Runtime image</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (FREEIPA, RUNTIME)</p>
+</div>
 </div>
 </div>
 </div>
