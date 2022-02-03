@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.55 (2022-02-02)
+
+IMPROVEMENTS:
+
+* iam: Add new commands `set-workload-password-policy`, `unset-workload-password-policy` and `unset-workload-password-min-lifetime` to configure workload password complexity policies. The existing workload password complexity configurations can be viewed by the `get-account` command.
+* audit: Add `filteredInvalidGroups` property to audit `InteraciveLoginEvent`. The field represents a list of invalid groups that were filtered during the IdP initiated interactive login event.
+* audit: Add enhanced query options for `list-events` command.
+* de: Make DE commands available in CDP Private Cloud form factor.
+
 ## 0.9.54 (2022-01-19)
 
 IMPROVEMENTS:

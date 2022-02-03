@@ -1159,32 +1159,39 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_67">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_unsetworkloadpasswordpolicy">Unset workload password policy for the account.</a>
+<li><a href="#_unsetworkloadpasswordminlifetime">Removes workload password minimum lifetime date for an actor.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_68">Description</a></li>
 <li><a href="#_parameters_68">Parameters</a></li>
 <li><a href="#_responses_68">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateaccesskey">Updates an access key.</a>
+<li><a href="#_unsetworkloadpasswordpolicy">Unset workload password policy for the account.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_69">Description</a></li>
 <li><a href="#_parameters_69">Parameters</a></li>
 <li><a href="#_responses_69">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updategroup">Update a group.</a>
+<li><a href="#_updateaccesskey">Updates an access key.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_70">Description</a></li>
 <li><a href="#_parameters_70">Parameters</a></li>
 <li><a href="#_responses_70">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatesamlprovider">Updates a SAML provider in CDP.</a>
+<li><a href="#_updategroup">Update a group.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_71">Description</a></li>
 <li><a href="#_parameters_71">Parameters</a></li>
 <li><a href="#_responses_71">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updatesamlprovider">Updates a SAML provider in CDP.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_72">Description</a></li>
+<li><a href="#_parameters_72">Parameters</a></li>
+<li><a href="#_responses_72">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1343,6 +1350,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_unassignuserresourceroleresponse">UnassignUserResourceRoleResponse</a></li>
 <li><a href="#_unassignuserrolerequest">UnassignUserRoleRequest</a></li>
 <li><a href="#_unassignuserroleresponse">UnassignUserRoleResponse</a></li>
+<li><a href="#_unsetworkloadpasswordminlifetimerequest">UnsetWorkloadPasswordMinLifetimeRequest</a></li>
+<li><a href="#_unsetworkloadpasswordminlifetimeresponse">UnsetWorkloadPasswordMinLifetimeResponse</a></li>
 <li><a href="#_unsetworkloadpasswordpolicyrequest">UnsetWorkloadPasswordPolicyRequest</a></li>
 <li><a href="#_unsetworkloadpasswordpolicyresponse">UnsetWorkloadPasswordPolicyResponse</a></li>
 <li><a href="#_updateaccesskeyrequest">UpdateAccessKeyRequest</a></li>
@@ -1353,6 +1362,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_updatesamlproviderresponse">UpdateSamlProviderResponse</a></li>
 <li><a href="#_user">User</a></li>
 <li><a href="#_workloadname">WorkloadName</a></li>
+<li><a href="#_workloadpassworddetails">WorkloadPasswordDetails</a></li>
 <li><a href="#_workloadpasswordpolicy">WorkloadPasswordPolicy</a></li>
 </ul>
 </li>
@@ -1369,7 +1379,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.54 (BETA)</p>
+<p><em>Version</em> : 0.9.55 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -7173,6 +7183,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_unsetworkloadpasswordminlifetime">Removes workload password minimum lifetime date for an actor.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /iam/unsetWorkloadPasswordMinLifetime</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_68">Description</h4>
+<div class="paragraph">
+<p>Removes the workload password minimum lifetime date for an actor.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_68">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_unsetworkloadpasswordminlifetimerequest">UnsetWorkloadPasswordMinLifetimeRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_68">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_unsetworkloadpasswordminlifetimeresponse">UnsetWorkloadPasswordMinLifetimeResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_unsetworkloadpasswordpolicy">Unset workload password policy for the account.</h3>
 <div class="literalblock">
 <div class="content">
@@ -7180,13 +7276,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_68">Description</h4>
+<h4 id="_description_69">Description</h4>
 <div class="paragraph">
 <p>Unset the workload password for the account. Changes to the workload password policy only affect passwords that are set after the policy has been updated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_68">Parameters</h4>
+<h4 id="_parameters_69">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7217,7 +7313,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_68">Responses</h4>
+<h4 id="_responses_69">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7266,13 +7362,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_69">Description</h4>
+<h4 id="_description_70">Description</h4>
 <div class="paragraph">
 <p>Updates an access key.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_69">Parameters</h4>
+<h4 id="_parameters_70">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7303,7 +7399,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_69">Responses</h4>
+<h4 id="_responses_70">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7352,13 +7448,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_70">Description</h4>
+<h4 id="_description_71">Description</h4>
 <div class="paragraph">
 <p>Update a group.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_70">Parameters</h4>
+<h4 id="_parameters_71">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7389,7 +7485,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_70">Responses</h4>
+<h4 id="_responses_71">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7438,13 +7534,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_71">Description</h4>
+<h4 id="_description_72">Description</h4>
 <div class="paragraph">
 <p>Updates a SAML provider in CDP.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_71">Parameters</h4>
+<h4 id="_parameters_72">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7475,7 +7571,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_71">Responses</h4>
+<h4 id="_responses_72">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -13833,13 +13929,93 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_unsetworkloadpasswordpolicyrequest">UnsetWorkloadPasswordPolicyRequest</h3>
+<h3 id="_unsetworkloadpasswordminlifetimerequest">UnsetWorkloadPasswordMinLifetimeRequest</h3>
 <div class="paragraph">
-<p>Request object for a unset workload password policy request.</p>
+<p>Request object for a unset workload password min lifetime request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>actorCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the actor for whom to unset the workload password minimum lifetime date.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_unsetworkloadpasswordminlifetimeresponse">UnsetWorkloadPasswordMinLifetimeResponse</h3>
+<div class="paragraph">
+<p>Response object for an unset workload password minimum lifetime request.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_unsetworkloadpasswordpolicyrequest">UnsetWorkloadPasswordPolicyRequest</h3>
+<div class="paragraph">
+<p>Request object for a unset workload password policy request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>unsetGlobalPasswordPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether to unset the global password policy. This will reset the global policy to its defaults.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>unsetMachineUsersPasswordPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether to unset the machine user password policy, if one exists.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_unsetworkloadpasswordpolicyresponse">UnsetWorkloadPasswordPolicyResponse</h3>
@@ -14256,6 +14432,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workloadPasswordDetails</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Information about the workload password for the user.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_workloadpassworddetails">WorkloadPasswordDetails</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>workloadUsername</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -14277,6 +14465,64 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="paragraph">
 <p><em>Type</em> : enum (DE, DF)</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_workloadpassworddetails">WorkloadPasswordDetails</h3>
+<div class="paragraph">
+<p>Information about the workload password for a user or machine user.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>isPasswordSet</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether a workload password is set.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>passwordExpirationDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The date at which the workload password will expire.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>passwordMinLifetimeDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The minimum lifetime date of the workload password. A new password can&#8217;t be set until this date.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_workloadpasswordpolicy">WorkloadPasswordPolicy</h3>
@@ -14401,7 +14647,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-01 01:49:51 -0800
+Last updated 2022-02-02 18:37:17 -0800
 </div>
 </div>
 <br>

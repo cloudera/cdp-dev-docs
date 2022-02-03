@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.54 (BETA)
+  version: 0.9.55 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -1531,6 +1531,13 @@ definitions:
       - HA
       - NON_HA
       - NONE
+  DatahubLoadBalancerSkuType:
+    type: string
+    description: Represents the Azure load balancer SKU type. The current default is BASIC. To disable the load balancer, use type NONE.
+    enum:
+      - BASIC
+      - STANDARD
+      - NONE
   CreateAWSClusterRequest:
     type: object
     description: Request object for create AWS cluster request.
@@ -1628,6 +1635,9 @@ definitions:
       datahubDatabase:
         $ref: '#/definitions/DatahubDatabaseType'
         description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
+      loadBalancerSku:
+        description: The SKU for the datahub load balancer. Allowed values are "BASIC", "STANDARD", or "NONE".
+        $ref: '#/definitions/DatahubLoadBalancerSkuType'
   CreateAzureClusterResponse:
     type: object
     description: Response object for create Azure cluster request.
