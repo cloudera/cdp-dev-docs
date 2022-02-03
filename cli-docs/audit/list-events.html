@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list-events &#8212; CDP CLI 0.9.54 documentation</title>
+    <title>list-events &#8212; CDP CLI 0.9.55 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="get-batch-events-for-archiving-status.html" title="get-batch-events-for-archiving-status"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.54 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">audit</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list-events</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>List all audit events recorded in a specified time span, and optionally with a specified request ID and/or event source.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.54</p>
+<dd class="field-even"><p>0.9.55</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -61,6 +61,13 @@
 --to-timestamp &lt;value&gt;
 <span class="o">[</span>--request-id &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--event-source &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--event-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--actor-crn &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--result-code &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--result-message &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--api-request-event-criteria &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cdp-service-event-criteria &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--interactive-login-event-criteria &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
@@ -79,6 +86,55 @@ The ending timestamp for the search range (exclusive).</p>
 The optional request ID. If specified, only events associated with this request ID are returned.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--event-source</span></code> (string)
 The optional source service. If specified, only events associated with this event source are returned. The source must be the name of a service as enumerated in the CRN definition.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--event-name</span></code> (string)
+The optional event name. If specified, only events with this name are returned.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--actor-crn</span></code> (string)
+The optional actor CRN. If specified, only events with this CRN recorded for the actor identity are returned.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--result-code</span></code> (string)
+The optional result code. If specified, only events with this result code are returned. Events without a result code are not returned.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--result-message</span></code> (string)
+The optional result message. If specified, only events with this result message are returned. Events without a result message are not returned.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--api-request-event-criteria</span></code> (object)
+Filter criteria for listing API request audit events.</p>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">sourceIPAddress</span><span class="o">=</span>string,userAgent<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;sourceIPAddress&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;userAgent&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cdp-service-event-criteria</span></code> (object)
+Filter criteria for listing CDP service audit events.</p>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">resourceCrn</span><span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;resourceCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--interactive-login-event-criteria</span></code> (object)
+Filter criteria for listing interactive login audit events.</p>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">identityProviderUserId</span><span class="o">=</span>string,email<span class="o">=</span>string,sourceIPAddress<span class="o">=</span>string,firstName<span class="o">=</span>string,lastName<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;identityProviderUserId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;sourceIPAddress&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;firstName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;lastName&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
 <blockquote>
 <div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 20 is used.</p>
@@ -241,6 +297,11 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <blockquote>
 <div><p>The CDP user CRN for the user. This may be empty if the login failed.</p>
 </div></blockquote>
+<p>filteredInvalidGroups -&gt; (array)</p>
+<blockquote>
+<div><p>The groups that are invalid and filtered (ignored) during the interactive login through non Cloudera SSO IdP. It is a subset of the groups the user belongs to as received in CDP. It can be empty for any of the following reasons: 1) If the account is not entitled for this feature. 2) If the membership sync is off for the IdP used during the interactive login. 3) If all the groups were valid during login through non Cloudera SSO IdP. 4) If the login is performed through Cloudera SSO. 5) If the login fails before filtering invalid groups.</p>
+<p>(string)</p>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -303,7 +364,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="get-batch-events-for-archiving-status.html" title="get-batch-events-for-archiving-status"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.54 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >audit</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list-events</a></li> 
       </ul>
