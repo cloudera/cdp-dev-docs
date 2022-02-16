@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-aws-environment &#8212; CDP CLI 0.9.55 documentation</title>
+    <title>create-aws-environment &#8212; CDP CLI 0.9.56 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new AWS environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55</p>
+<dd class="field-even"><p>0.9.56</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -85,14 +85,34 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)
-The name of the environment. Must contain only lowercase letters, numbers and hyphens.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)
-Name of the credential to use for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--region</span></code> (string)
-The region of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--security-access</span></code> (object)
-Security control configuration for FreeIPA and Datalake deployment. Choosing a CIDR will automatically create security groups. Alternatively existing security groups can be specified.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the environment. Must contain only lowercase letters, numbers and hyphens.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the credential to use for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--region</span></code> (string)</p>
+<blockquote>
+<div><p>The region of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--security-access</span></code> (object)</p>
+<blockquote>
+<div><p>Security control configuration for FreeIPA and Datalake deployment. Choosing a CIDR will automatically create security groups. Alternatively existing security groups can be specified.</p>
+<p>cidr -&gt; (string)</p>
+<blockquote>
+<div><p>CIDR range which is allowed for inbound traffic. Either IPv4 or IPv6 is allowed.</p>
+</div></blockquote>
+<p>securityGroupIdForKnox -&gt; (string)</p>
+<blockquote>
+<div><p>Security group where Knox-enabled hosts are placed. Mutually exclusive with cidr.</p>
+</div></blockquote>
+<p>defaultSecurityGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>Security group where all other hosts are placed. Mutually exclusive with cidr.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">cidr</span><span class="o">=</span>string,securityGroupIdForKnox<span class="o">=</span>string,defaultSecurityGroupId<span class="o">=</span>string
 </pre></div>
@@ -105,8 +125,18 @@ Security control configuration for FreeIPA and Datalake deployment. Choosing a C
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--authentication</span></code> (object)
-Additional SSH key authentication configuration for accessing cluster node.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--authentication</span></code> (object)</p>
+<blockquote>
+<div><p>Additional SSH key authentication configuration for accessing cluster node.</p>
+<p>publicKey -&gt; (string)</p>
+<blockquote>
+<div><p>Public SSH key string. Mutually exclusive with publicKeyId.</p>
+</div></blockquote>
+<p>publicKeyId -&gt; (string)</p>
+<blockquote>
+<div><p>Public SSH key ID already registered in the cloud provider. Mutually exclusive with publicKey.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">publicKey</span><span class="o">=</span>string,publicKeyId<span class="o">=</span>string
 </pre></div>
@@ -118,8 +148,22 @@ Additional SSH key authentication configuration for accessing cluster node.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)
-AWS storage configuration for cluster and audit logs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)</p>
+<blockquote>
+<div><p>AWS storage configuration for cluster and audit logs.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The base location to store logs in S3. This should be an s3a:// url.</p>
+</div></blockquote>
+<p>instanceProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The AWS instance profile that which contains the necessary permissions to access the S3 storage location.</p>
+</div></blockquote>
+<p>backupStorageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The base location to store backup in S3. This should be an s3a:// url.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">storageLocationBase</span><span class="o">=</span>string,instanceProfile<span class="o">=</span>string,backupStorageLocationBase<span class="o">=</span>string
 </pre></div>
@@ -132,47 +176,75 @@ AWS storage configuration for cluster and audit logs.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--network-cidr</span></code> (string)
-The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--vpc-id</span></code> (string)
-The Amazon VPC ID. Mutually exclusive with networkCidr.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--subnet-ids</span></code> (array)
-One or more subnet ids within the VPC. Mutually exclusive with networkCidr.</p>
-<p>Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--create-private-subnets</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-create-private-subnets</span></code> (boolean)
-Whether to create private subnets or not.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--create-service-endpoints</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-create-service-endpoints</span></code> (boolean)
-Whether to create service endpoints or not.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-scheme</span></code> (string)
-The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--network-cidr</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>PUBLIC
-PRIVATE</p>
-</dd>
-</dl>
+<div><p>The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-subnet-ids</span></code> (array)
-The subnets to use for endpoint access gateway.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--vpc-id</span></code> (string)</p>
+<blockquote>
+<div><p>The Amazon VPC ID. Mutually exclusive with networkCidr.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-ids</span></code> (array)</p>
+<blockquote>
+<div><p>One or more subnet ids within the VPC. Mutually exclusive with networkCidr.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--s3-guard-table-name</span></code> (string)
-The name for the DynamoDB table backing S3Guard.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)
-An description of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--enable-tunnel</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-tunnel</span></code> (boolean)
-Whether to enable SSH tunneling for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-workload-analytics</span></code> (boolean)
-When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)
-When true, this will report additional diagnostic information back to Cloudera.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)
-Request object for creating FreeIPA in the environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--create-private-subnets</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-create-private-subnets</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to create private subnets or not.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--create-service-endpoints</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-create-service-endpoints</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to create service endpoints or not.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-scheme</span></code> (string)</p>
+<blockquote>
+<div><p>The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRIVATE</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-subnet-ids</span></code> (array)</p>
+<blockquote>
+<div><p>The subnets to use for endpoint access gateway.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--s3-guard-table-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name for the DynamoDB table backing S3Guard.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
+<blockquote>
+<div><p>An description of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-tunnel</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-tunnel</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to enable SSH tunneling for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-workload-analytics</span></code> (boolean)</p>
+<blockquote>
+<div><p>When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)</p>
+<blockquote>
+<div><p>When true, this will report additional diagnostic information back to Cloudera.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for creating FreeIPA in the environment.</p>
+<p>instanceCountByGroup -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of FreeIPA instances to create per group when creating FreeIPA in the environment</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer
 </pre></div>
@@ -183,8 +255,18 @@ Request object for creating FreeIPA in the environment.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)
-Request object for FreeIPA image.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for FreeIPA image.</p>
+<p>catalog -&gt; (string)</p>
+<blockquote>
+<div><p>Image catalog to use for FreeIPA image selection.</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>Image ID to use for creating FreeIPA instances.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">catalog</span><span class="o">=</span>string,id<span class="o">=</span>string
 </pre></div>
@@ -196,8 +278,10 @@ Request object for FreeIPA image.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)
-Tags associated with the resources.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
+<blockquote>
+<div><p>Tags associated with the resources.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -212,12 +296,18 @@ Tags associated with the resources.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--proxy-config-name</span></code> (string)
-Name of the proxy config to use for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--proxy-config-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the proxy config to use for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -258,7 +348,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>subnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>Subnet names or ids of the network.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>endpointAccessGatewayScheme -&gt; (string)</p>
 <blockquote>
@@ -267,7 +357,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>endpointAccessGatewaySubnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>The subnets to use for endpoint access gateway.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>aws -&gt; (object)</p>
 <blockquote>
@@ -513,7 +603,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>serverIP -&gt; (array)</p>
 <blockquote>
 <div><p>The IP addresses of the FreeIPA cluster.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
 <p>proxyConfig -&gt; (object)</p>
@@ -612,7 +702,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>

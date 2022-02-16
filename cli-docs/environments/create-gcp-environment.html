@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-gcp-environment &#8212; CDP CLI 0.9.55 documentation</title>
+    <title>create-gcp-environment &#8212; CDP CLI 0.9.56 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-gcp-credential.html" title="create-gcp-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new GCP environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55</p>
+<dd class="field-even"><p>0.9.56</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -78,18 +78,43 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)
-The name of the environment. Must contain only lowercase letters, numbers and hyphens.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)
-Name of the credential to use for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--region</span></code> (string)
-The region of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--public-key</span></code> (string)
-Public SSH key string. The associated private key can be used to get root-level access to the Data Lake instance and Data Hub cluster instances.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--use-public-ip</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-public-ip</span></code> (boolean)
-Whether to associate public ip’s to the resources within the network.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--existing-network-params</span></code> (object)
-Request object for creating an GCP environment using existing VPC and subnets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the environment. Must contain only lowercase letters, numbers and hyphens.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the credential to use for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--region</span></code> (string)</p>
+<blockquote>
+<div><p>The region of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--public-key</span></code> (string)</p>
+<blockquote>
+<div><p>Public SSH key string. The associated private key can be used to get root-level access to the Data Lake instance and Data Hub cluster instances.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--use-public-ip</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-public-ip</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to associate public ip’s to the resources within the network.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--existing-network-params</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for creating an GCP environment using existing VPC and subnets.</p>
+<p>networkName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the GCP VPC.</p>
+</div></blockquote>
+<p>subnetNames -&gt; (array)</p>
+<blockquote>
+<div><p>One or more subnet names within the VPC. Google VPC’s are global, please give subnets from single geographic region only to reduce latency.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>sharedProjectId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the Google project associated with the VPC.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">networkName</span><span class="o">=</span>string,subnetNames<span class="o">=</span>string,string,sharedProjectId<span class="o">=</span>string
 </pre></div>
@@ -102,8 +127,18 @@ Request object for creating an GCP environment using existing VPC and subnets.</
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--security-access</span></code> (object)
-Firewall rules for FreeIPA, Data Lake and Data Hub deployment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--security-access</span></code> (object)</p>
+<blockquote>
+<div><p>Firewall rules for FreeIPA, Data Lake and Data Hub deployment.</p>
+<p>securityGroupIdForKnox -&gt; (string)</p>
+<blockquote>
+<div><p>Firewall rule for Knox hosts.</p>
+</div></blockquote>
+<p>defaultSecurityGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>Firewall rule for other hosts.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">securityGroupIdForKnox</span><span class="o">=</span>string,defaultSecurityGroupId<span class="o">=</span>string
 </pre></div>
@@ -115,8 +150,22 @@ Firewall rules for FreeIPA, Data Lake and Data Hub deployment.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)
-GCP storage configuration for cluster and audit logs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)</p>
+<blockquote>
+<div><p>GCP storage configuration for cluster and audit logs.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The Google storage bucket to use. This should be a gs:// url.</p>
+</div></blockquote>
+<p>serviceAccountEmail -&gt; (string)</p>
+<blockquote>
+<div><p>Email id of the service account to be associated with the instances. This service account should have “storage.ObjectCreator” role on the given storage bucket.</p>
+</div></blockquote>
+<p>backupStorageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The Google storage bucket to use. This should be a gs:// url.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">storageLocationBase</span><span class="o">=</span>string,serviceAccountEmail<span class="o">=</span>string,backupStorageLocationBase<span class="o">=</span>string
 </pre></div>
@@ -129,16 +178,30 @@ GCP storage configuration for cluster and audit logs.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)
-A description of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--enable-tunnel</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-tunnel</span></code> (boolean)
-Whether to enable SSH tunneling for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-workload-analytics</span></code> (boolean)
-When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)
-When true, this will report additional diagnostic information back to Cloudera.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)
-Request object for creating FreeIPA in the environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
+<blockquote>
+<div><p>A description of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-tunnel</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-tunnel</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to enable SSH tunneling for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-workload-analytics</span></code> (boolean)</p>
+<blockquote>
+<div><p>When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)</p>
+<blockquote>
+<div><p>When true, this will report additional diagnostic information back to Cloudera.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for creating FreeIPA in the environment.</p>
+<p>instanceCountByGroup -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of FreeIPA instances to create per group when creating FreeIPA in the environment</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer
 </pre></div>
@@ -149,8 +212,10 @@ Request object for creating FreeIPA in the environment.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)
-Tags that can be attached to GCP resources. Please refer to Google documentation for the rules <a class="reference external" href="https://cloud.google.com/compute/docs/labeling-resources#label_format">https://cloud.google.com/compute/docs/labeling-resources#label_format</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
+<blockquote>
+<div><p>Tags that can be attached to GCP resources. Please refer to Google documentation for the rules <a class="reference external" href="https://cloud.google.com/compute/docs/labeling-resources#label_format">https://cloud.google.com/compute/docs/labeling-resources#label_format</a>.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -165,12 +230,18 @@ Tags that can be attached to GCP resources. Please refer to Google documentation
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--proxy-config-name</span></code> (string)
-Name of the proxy config to use for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--proxy-config-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the proxy config to use for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -211,7 +282,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>subnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>Subnet names or ids of the network.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>endpointAccessGatewayScheme -&gt; (string)</p>
 <blockquote>
@@ -220,7 +291,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>endpointAccessGatewaySubnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>The subnets to use for endpoint access gateway.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>aws -&gt; (object)</p>
 <blockquote>
@@ -466,7 +537,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>serverIP -&gt; (array)</p>
 <blockquote>
 <div><p>The IP addresses of the FreeIPA cluster.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
 <p>proxyConfig -&gt; (object)</p>
@@ -565,7 +636,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-gcp-credential.html" title="create-gcp-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
       </ul>

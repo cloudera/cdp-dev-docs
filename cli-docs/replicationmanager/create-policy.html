@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-policy &#8212; CDP CLI 0.9.55 documentation</title>
+    <title>create-policy &#8212; CDP CLI 0.9.56 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="activate-policy.html" title="activate-policy"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-policy</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Replication Policy.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55</p>
+<dd class="field-even"><p>0.9.56</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -66,12 +66,228 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)
-CRN of the cluster where the policy will be created.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--policy-name</span></code> (string)
-Name of the new policy.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--policy-definition</span></code> (object)
-Policy creation request definition.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
+<blockquote>
+<div><p>CRN of the cluster where the policy will be created.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--policy-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the new policy.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--policy-definition</span></code> (object)</p>
+<blockquote>
+<div><p>Policy creation request definition.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the new policy.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Policy replication type.</p>
+</div></blockquote>
+<p>sourceDataset -&gt; (object)</p>
+<blockquote>
+<div><p>Extra properties for the source dataset.</p>
+<p>hdfsArguments -&gt; (object)</p>
+<blockquote>
+<div><p>Extra properties for HDFS.</p>
+<p>path -&gt; (string)</p>
+<blockquote>
+<div><p>HDFS path. Mandatory for HDFS policies, otherwise optional.</p>
+</div></blockquote>
+<p>replicationStrategy -&gt; (string)</p>
+<blockquote>
+<div><p>Replication strategy.</p>
+</div></blockquote>
+<p>errorHandling -&gt; (object)</p>
+<blockquote>
+<div><p>Error handling behavior.</p>
+<p>skipChecksumChecks -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip checksum checks.</p>
+</div></blockquote>
+<p>skipListingChecksumChecks -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip checksum checks for copy-listing.</p>
+</div></blockquote>
+<p>abortOnError -&gt; (boolean)</p>
+<blockquote>
+<div><p>Abort policy on error.</p>
+</div></blockquote>
+<p>abortOnSnapshotDiffFailures -&gt; (boolean)</p>
+<blockquote>
+<div><p>Abort policy if there are snapshot diff failures.</p>
+</div></blockquote>
+</div></blockquote>
+<p>preserve -&gt; (object)</p>
+<blockquote>
+<div><p>Properties to preserve after replication.</p>
+<p>blockSize -&gt; (boolean)</p>
+<blockquote>
+<div><p>Block size.</p>
+</div></blockquote>
+<p>replicationCount -&gt; (boolean)</p>
+<blockquote>
+<div><p>Replication count.</p>
+</div></blockquote>
+<p>permissions -&gt; (boolean)</p>
+<blockquote>
+<div><p>Permissions.</p>
+</div></blockquote>
+<p>extendedAttributes -&gt; (boolean)</p>
+<blockquote>
+<div><p>Extended attributes.</p>
+</div></blockquote>
+</div></blockquote>
+<p>deletePolicy -&gt; (string)</p>
+<blockquote>
+<div><p>Deletion behavior.</p>
+</div></blockquote>
+<p>alert -&gt; (object)</p>
+<blockquote>
+<div><p>Cloudera Manager alerting behavior.</p>
+<p>onFailure -&gt; (boolean)</p>
+<blockquote>
+<div><p>Alert on failure.</p>
+</div></blockquote>
+<p>onStart -&gt; (boolean)</p>
+<blockquote>
+<div><p>Alert on start.</p>
+</div></blockquote>
+<p>onSuccess -&gt; (boolean)</p>
+<blockquote>
+<div><p>ALert on success.</p>
+</div></blockquote>
+<p>onAbort -&gt; (boolean)</p>
+<blockquote>
+<div><p>Alert on abort.</p>
+</div></blockquote>
+</div></blockquote>
+<p>exclusionFilters -&gt; (array)</p>
+<blockquote>
+<div><p>Exclusion filters in glob format.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>hiveArguments -&gt; (object)</p>
+<blockquote>
+<div><p>Hive replication arguments.</p>
+<p>databasesAndTables -&gt; (array)</p>
+<blockquote>
+<div><p>Scope of the replication.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Hive replication scope.</p>
+<p>database -&gt; (string)</p>
+<blockquote>
+<div><p>Database to replicate.</p>
+</div></blockquote>
+<p>tablesIncludeRegex -&gt; (string)</p>
+<blockquote>
+<div><p>Regex to match included tables.</p>
+</div></blockquote>
+<p>tablesExcludeRegex -&gt; (string)</p>
+<blockquote>
+<div><p>Regex to match excluded tables.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>sentryPermissions -&gt; (string)</p>
+<blockquote>
+<div><p>Include or exclude Sentry permissions.</p>
+</div></blockquote>
+<p>skipUrlPermissions -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip URL permissions.</p>
+</div></blockquote>
+<p>numThreads -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of threads to use during replication.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>frequencyInSec -&gt; (integer)</p>
+<blockquote>
+<div><p>Policy’s frequency in seconds.</p>
+</div></blockquote>
+<p>targetDataset -&gt; (string)</p>
+<blockquote>
+<div><p>Dataset to replicate to.</p>
+</div></blockquote>
+<p>cloudCredential -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud credentials to use if replicating to Cloud.</p>
+</div></blockquote>
+<p>sourceCluster -&gt; (string)</p>
+<blockquote>
+<div><p>Name of source cluster in the format: “dataCenterName$cluster name”, for example “DC-Europe$My Source 42.</p>
+</div></blockquote>
+<p>targetCluster -&gt; (string)</p>
+<blockquote>
+<div><p>Name if destination cluster in the format: “dataCenterName$cluster name” “DC-US$My Destination 17”.</p>
+</div></blockquote>
+<p>startTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>Start time.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>End time.</p>
+</div></blockquote>
+<p>distcpMaxMaps -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum Map jobs to use for replication.</p>
+</div></blockquote>
+<p>distcpMapBandwidth -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum bandwidth to use for replication.</p>
+</div></blockquote>
+<p>queueName -&gt; (string)</p>
+<blockquote>
+<div><p>YARN queue name if not default.</p>
+</div></blockquote>
+<p>tdeSameKey -&gt; (boolean)</p>
+<blockquote>
+<div><p>TDE same key.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Description of the policy.</p>
+</div></blockquote>
+<p>enableSnapshotBasedReplication -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable snapshot based replication.</p>
+</div></blockquote>
+<p>cloudEncryptionAlgorithm -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud encryption algorithm.</p>
+</div></blockquote>
+<p>cloudEncryptionKey -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud encryption key.</p>
+</div></blockquote>
+<p>plugins -&gt; (array)</p>
+<blockquote>
+<div><p>Plugins.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>hiveExternalTableBaseDirectory -&gt; (string)</p>
+<blockquote>
+<div><p>Hive external table base directory.</p>
+</div></blockquote>
+<p>cmPolicySubmitUser -&gt; (object)</p>
+<blockquote>
+<div><p>CM Policy submit user.</p>
+<p>userName -&gt; (string)</p>
+<blockquote>
+<div><p>Username.</p>
+</div></blockquote>
+<p>sourceUser -&gt; (string)</p>
+<blockquote>
+<div><p>Source user.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
   <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
@@ -139,10 +355,14 @@ Policy creation request definition.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -201,7 +421,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="activate-policy.html" title="activate-policy"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-policy</a></li> 
       </ul>

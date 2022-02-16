@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>repair-freeipa &#8212; CDP CLI 0.9.55 documentation</title>
+    <title>repair-freeipa &#8212; CDP CLI 0.9.56 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="list-proxy-configs.html" title="list-proxy-configs"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">repair-freeipa</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Repairs the FreeIPA nodes.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55</p>
+<dd class="field-even"><p>0.9.56</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -67,30 +67,40 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)
-The environment name or CRN of the FreeIPA to repair</p>
-<p><code class="docutils literal notranslate"><span class="pre">--force</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-force</span></code> (boolean)
-Force the repair even if the status if the FreeIPA nodes are good.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--instances</span></code> (array)
-The instance Ids to repair. If not provided then all instances are looked at for repair.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>The environment name or CRN of the FreeIPA to repair</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--force</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-force</span></code> (boolean)</p>
+<blockquote>
+<div><p>Force the repair even if the status if the FreeIPA nodes are good.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--instances</span></code> (array)</p>
+<blockquote>
+<div><p>The instance Ids to repair. If not provided then all instances are looked at for repair.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--repair-type</span></code> (string)
-The type of FreeIPA repair to perform. * AUTO - Currently, this is the same as reboot but this may change in the future. * REBOOT - Repair the failed instances by rebooting them. * REBUILD - Repair the failed instances by deleting them and creating new instances, then replicate data from an existing instance to the new instances.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--repair-type</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>AUTO
-REBOOT
-REBUILD</p>
-</dd>
-</dl>
+<div><p>The type of FreeIPA repair to perform. * AUTO - Currently, this is the same as reboot but this may change in the future. * REBOOT - Repair the failed instances by rebooting them. * REBUILD - Repair the failed instances by deleting them and creating new instances, then replicate data from an existing instance to the new instances.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AUTO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REBOOT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REBUILD</span></code></p></li>
+</ul>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -105,7 +115,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>successfulOperationDetails -&gt; (array)</p>
 <blockquote>
 <div><p>List of operation details for all successes. If the repair is only partially successful both successful and failure operation details will be populated.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Details object of the repair operation for success or falure.</p>
 <p>environmentCrn -&gt; (string)</p>
@@ -121,7 +131,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>failureOperationDetails -&gt; (array)</p>
 <blockquote>
 <div><p>List of operation details for failures. If the repair is only partially successful both successful and failure operation details will be populated.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Details object of the repair operation for success or falure.</p>
 <p>environmentCrn -&gt; (string)</p>
@@ -201,7 +211,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="list-proxy-configs.html" title="list-proxy-configs"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">repair-freeipa</a></li> 
       </ul>

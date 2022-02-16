@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-environment &#8212; CDP CLI 0.9.55 documentation</title>
+    <title>create-azure-environment &#8212; CDP CLI 0.9.56 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new Azure environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55</p>
+<dd class="field-even"><p>0.9.56</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -84,16 +84,38 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)
-The name of the environment. Must contain only lowercase letters, numbers and hyphens.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)
-Name of the credential to use for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--region</span></code> (string)
-The region of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--public-key</span></code> (string)
-Public SSH key string. The associated private key can be used to get root-level access to the Data Lake instance and Data Hub cluster instances.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--security-access</span></code> (object)
-Security control configuration for FreeIPA and Datalake deployment. Choosing a CIDR will automatically create security groups. Alternatively existing security groups can be specified.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the environment. Must contain only lowercase letters, numbers and hyphens.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the credential to use for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--region</span></code> (string)</p>
+<blockquote>
+<div><p>The region of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--public-key</span></code> (string)</p>
+<blockquote>
+<div><p>Public SSH key string. The associated private key can be used to get root-level access to the Data Lake instance and Data Hub cluster instances.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--security-access</span></code> (object)</p>
+<blockquote>
+<div><p>Security control configuration for FreeIPA and Datalake deployment. Choosing a CIDR will automatically create security groups. Alternatively existing security groups can be specified.</p>
+<p>cidr -&gt; (string)</p>
+<blockquote>
+<div><p>CIDR range which is allowed for inbound traffic. Either IPv4 or IPv6 is allowed.</p>
+</div></blockquote>
+<p>securityGroupIdForKnox -&gt; (string)</p>
+<blockquote>
+<div><p>Security group where Knox-enabled hosts are placed. Mutually exclusive with cidr.</p>
+</div></blockquote>
+<p>defaultSecurityGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>Security group where all other hosts are placed. Mutually exclusive with cidr.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">cidr</span><span class="o">=</span>string,securityGroupIdForKnox<span class="o">=</span>string,defaultSecurityGroupId<span class="o">=</span>string
 </pre></div>
@@ -106,10 +128,26 @@ Security control configuration for FreeIPA and Datalake deployment. Choosing a C
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--use-public-ip</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-public-ip</span></code> (boolean)
-Whether to associate public ip’s to the resources within the network.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)
-Azure storage configuration for cluster and audit logs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--use-public-ip</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-public-ip</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to associate public ip’s to the resources within the network.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)</p>
+<blockquote>
+<div><p>Azure storage configuration for cluster and audit logs.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. The location has to be in the following format abfs://filesystem&#64;storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.</p>
+</div></blockquote>
+<p>managedIdentity -&gt; (string)</p>
+<blockquote>
+<div><p>The managed identity associated with the logger. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
+</div></blockquote>
+<p>backupStorageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. The location has to be in the following format abfs://filesystem&#64;storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">storageLocationBase</span><span class="o">=</span>string,managedIdentity<span class="o">=</span>string,backupStorageLocationBase<span class="o">=</span>string
 </pre></div>
@@ -122,8 +160,23 @@ Azure storage configuration for cluster and audit logs.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--existing-network-params</span></code> (object)
-Request object for creating an Azure environment using existing VNet and subnets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--existing-network-params</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for creating an Azure environment using existing VNet and subnets.</p>
+<p>networkId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the Azure VNet.</p>
+</div></blockquote>
+<p>resourceGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the resource group associated with the VNet.</p>
+</div></blockquote>
+<p>subnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>One or more subnet ids within the VNet.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">networkId</span><span class="o">=</span>string,resourceGroupName<span class="o">=</span>string,subnetIds<span class="o">=</span>string,string
 </pre></div>
@@ -136,8 +189,14 @@ Request object for creating an Azure environment using existing VNet and subnets
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--new-network-params</span></code> (object)
-Parameteres needed to automatically create VNet and Subnets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--new-network-params</span></code> (object)</p>
+<blockquote>
+<div><p>Parameteres needed to automatically create VNet and Subnets.</p>
+<p>networkCidr -&gt; (string)</p>
+<blockquote>
+<div><p>The range of private IPv4 addresses that resources will use under the created VNet.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">networkCidr</span><span class="o">=</span>string
 </pre></div>
@@ -148,16 +207,30 @@ Parameteres needed to automatically create VNet and Subnets.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)
-An description of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--enable-tunnel</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-tunnel</span></code> (boolean)
-Whether to enable SSH tunneling for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-workload-analytics</span></code> (boolean)
-When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)
-When true, this will report additional diagnostic information back to Cloudera.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)
-Request object for creating FreeIPA in the environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
+<blockquote>
+<div><p>An description of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-tunnel</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-tunnel</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to enable SSH tunneling for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-workload-analytics</span></code> (boolean)</p>
+<blockquote>
+<div><p>When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)</p>
+<blockquote>
+<div><p>When true, this will report additional diagnostic information back to Cloudera.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for creating FreeIPA in the environment.</p>
+<p>instanceCountByGroup -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of FreeIPA instances to create per group when creating FreeIPA in the environment</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer
 </pre></div>
@@ -168,8 +241,18 @@ Request object for creating FreeIPA in the environment.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)
-Request object for FreeIPA image.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for FreeIPA image.</p>
+<p>catalog -&gt; (string)</p>
+<blockquote>
+<div><p>Image catalog to use for FreeIPA image selection.</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>Image ID to use for creating FreeIPA instances.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">catalog</span><span class="o">=</span>string,id<span class="o">=</span>string
 </pre></div>
@@ -181,8 +264,10 @@ Request object for FreeIPA image.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)
-Tags associated with the resources.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
+<blockquote>
+<div><p>Tags associated with the resources.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -197,20 +282,34 @@ Tags associated with the resources.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--proxy-config-name</span></code> (string)
-Name of the proxy config to use for the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--resource-group-name</span></code> (string)
-Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--create-private-endpoints</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-create-private-endpoints</span></code> (boolean)
-When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-url</span></code> (string)
-URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-resource-group-name</span></code> (string)
-Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--proxy-config-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the proxy config to use for the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--resource-group-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--create-private-endpoints</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-create-private-endpoints</span></code> (boolean)</p>
+<blockquote>
+<div><p>When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-url</span></code> (string)</p>
+<blockquote>
+<div><p>URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-resource-group-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -251,7 +350,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>subnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>Subnet names or ids of the network.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>endpointAccessGatewayScheme -&gt; (string)</p>
 <blockquote>
@@ -260,7 +359,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>endpointAccessGatewaySubnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>The subnets to use for endpoint access gateway.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>aws -&gt; (object)</p>
 <blockquote>
@@ -506,7 +605,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>serverIP -&gt; (array)</p>
 <blockquote>
 <div><p>The IP addresses of the FreeIPA cluster.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
 <p>proxyConfig -&gt; (object)</p>
@@ -605,7 +704,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>

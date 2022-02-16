@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vc &#8212; CDP CLI 0.9.55 documentation</title>
+    <title>create-vc &#8212; CDP CLI 0.9.56 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="index.html" title="de"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vc</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create Virtual Cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55</p>
+<dd class="field-even"><p>0.9.56</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -61,6 +61,7 @@
 --cpu-requests &lt;value&gt;
 --memory-requests &lt;value&gt;
 <span class="o">[</span>--chart-value-overrides &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--smtp-configs &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--runtime-spot-component &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--spark-version &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--acl-users &lt;value&gt;<span class="o">]</span>
@@ -71,16 +72,26 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--name</span></code> (string)
-Name of the virtual cluster.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)
-Cluster id of the CDE service where virtual cluster has to be created.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cpu-requests</span></code> (string)
-Cpu requests for autoscaling.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--memory-requests</span></code> (string)
-Memory requests for autoscaling - eg. 30Gi.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--chart-value-overrides</span></code> (array)
-Chart overrides for creating a virtual cluster.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the virtual cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)</p>
+<blockquote>
+<div><p>Cluster id of the CDE service where virtual cluster has to be created.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cpu-requests</span></code> (string)</p>
+<blockquote>
+<div><p>Cpu requests for autoscaling.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--memory-requests</span></code> (string)</p>
+<blockquote>
+<div><p>Memory requests for autoscaling - eg. 30Gi.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--chart-value-overrides</span></code> (array)</p>
+<blockquote>
+<div><p>Chart overrides for creating a virtual cluster.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">chartName</span><span class="o">=</span>string,overrides<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -95,30 +106,84 @@ Chart overrides for creating a virtual cluster.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--runtime-spot-component</span></code> (string)
-Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--smtp-configs</span></code> (object)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>ALL
-NONE</p>
-</dd>
-</dl>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--spark-version</span></code> (string)
-Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.</p>
+<div><p>SMTP config request object.</p>
+<p>email -&gt; (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>SPARK2
-SPARK3</p>
-</dd>
-</dl>
+<div><p>Sender’s email address.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--acl-users</span></code> (string)
-Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p>host -&gt; (string)</p>
+<blockquote>
+<div><p>SMTP host.</p>
+</div></blockquote>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>SMTP username.</p>
+</div></blockquote>
+<p>password -&gt; (string)</p>
+<blockquote>
+<div><p>SMTP password.</p>
+</div></blockquote>
+<p>port -&gt; (integer)</p>
+<blockquote>
+<div><p>SMTP port.</p>
+</div></blockquote>
+<p>startTls -&gt; (boolean)</p>
+<blockquote>
+<div><p>Use SMTP STARTTLS command to encrypt the mail.</p>
+</div></blockquote>
+<p>ssl -&gt; (boolean)</p>
+<blockquote>
+<div><p>Use SSL to secure the connection to the email server.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">email</span><span class="o">=</span>string,host<span class="o">=</span>string,username<span class="o">=</span>string,password<span class="o">=</span>string,port<span class="o">=</span>integer,startTls<span class="o">=</span>boolean,ssl<span class="o">=</span>boolean
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;username&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;port&quot;</span>: integer,
+  <span class="s2">&quot;startTls&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;ssl&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--runtime-spot-component</span></code> (string)</p>
+<blockquote>
+<div><p>Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--spark-version</span></code> (string)</p>
+<blockquote>
+<div><p>Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SPARK2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SPARK3</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--acl-users</span></code> (string)</p>
+<blockquote>
+<div><p>Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -204,7 +269,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>chartValueOverrides -&gt; (array)</p>
 <blockquote>
 <div><p>Chart overrides for the Virtual Cluster.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Response object containing chart value overrides.</p>
 <p>chartName -&gt; (string)</p>
@@ -223,7 +288,35 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>users -&gt; (array)</p>
 <blockquote>
 <div><p>Workload usernames of CDP users granted access to the Virtual Cluster.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>smtpConfig -&gt; (object)</p>
+<blockquote>
+<div><p>SMTP config response object</p>
+<p>email -&gt; (string)</p>
+<blockquote>
+<div><p>Sender’s email address.</p>
+</div></blockquote>
+<p>host -&gt; (string)</p>
+<blockquote>
+<div><p>SMTP host.</p>
+</div></blockquote>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>SMTP username.</p>
+</div></blockquote>
+<p>port -&gt; (integer)</p>
+<blockquote>
+<div><p>SMTP port.</p>
+</div></blockquote>
+<p>startTls -&gt; (boolean)</p>
+<blockquote>
+<div><p>Use SMTP STARTTLS command to encrypt the mail.</p>
+</div></blockquote>
+<p>ssl -&gt; (boolean)</p>
+<blockquote>
+<div><p>Use SSL to secure the connection to the email server.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -282,7 +375,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="index.html" title="de"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vc</a></li> 
       </ul>

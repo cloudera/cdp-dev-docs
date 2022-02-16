@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>set-id-broker-mappings &#8212; CDP CLI 0.9.55 documentation</title>
+    <title>set-id-broker-mappings &#8212; CDP CLI 0.9.56 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="set-environment-setting.html" title="set-environment-setting"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">set-id-broker-mappings</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Sets all ID Broker mappings for an environment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55</p>
+<dd class="field-even"><p>0.9.56</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -69,16 +69,26 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)
-The name or CRN of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--data-access-role</span></code> (string)
-The cloud provider role to which data access services will be mapped (e.g. an ARN in AWS, a Resource ID in Azure).</p>
-<p><code class="docutils literal notranslate"><span class="pre">--ranger-audit-role</span></code> (string)
-The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole. <code class="docutils literal notranslate"><span class="pre">THIS</span> <span class="pre">PARAMETER</span> <span class="pre">IS</span> <span class="pre">REQUIRED.</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">--ranger-cloud-access-authorizer-role</span></code> (string)
-The cloud provider role to which the Ranger RAZ service will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). This is required in RAZ-enabled environments.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--mappings</span></code> (array)
-ID Broker mappings for individual actors and groups. Does not include mappings for data access services. If omitted or set to an empty list, you must also specify the <code class="docutils literal notranslate"><span class="pre">--set-empty-mappings</span></code> option, to confirm that you want to remove any existing individual mappings.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--data-access-role</span></code> (string)</p>
+<blockquote>
+<div><p>The cloud provider role to which data access services will be mapped (e.g. an ARN in AWS, a Resource ID in Azure).</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--ranger-audit-role</span></code> (string)</p>
+<blockquote>
+<div><p>The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole. <code class="docutils literal notranslate"><span class="pre">THIS</span> <span class="pre">PARAMETER</span> <span class="pre">IS</span> <span class="pre">REQUIRED.</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--ranger-cloud-access-authorizer-role</span></code> (string)</p>
+<blockquote>
+<div><p>The cloud provider role to which the Ranger RAZ service will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). This is required in RAZ-enabled environments.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--mappings</span></code> (array)</p>
+<blockquote>
+<div><p>ID Broker mappings for individual actors and groups. Does not include mappings for data access services. If omitted or set to an empty list, you must also specify the <code class="docutils literal notranslate"><span class="pre">--set-empty-mappings</span></code> option, to confirm that you want to remove any existing individual mappings.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">accessorCrn</span><span class="o">=</span>string,role<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -93,12 +103,18 @@ ID Broker mappings for individual actors and groups. Does not include mappings f
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--set-empty-mappings</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-set-empty-mappings</span></code> (boolean)
-Whether to install an empty set of individual mappings, deleting any existing mappings. The <code class="docutils literal notranslate"><span class="pre">--set-empty-mappings</span></code> option is required if <code class="docutils literal notranslate"><span class="pre">--mappings</span></code> is omitted or if its value is an empty list, and disallowed otherwise.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--set-empty-mappings</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-set-empty-mappings</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to install an empty set of individual mappings, deleting any existing mappings. The <code class="docutils literal notranslate"><span class="pre">--set-empty-mappings</span></code> option is required if <code class="docutils literal notranslate"><span class="pre">--mappings</span></code> is omitted or if its value is an empty list, and disallowed otherwise.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -125,7 +141,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>mappings -&gt; (array)</p>
 <blockquote>
 <div><p>ID Broker mappings for individual actors and groups. Does not include mappings for data access services. May be empty if no individual mappings are needed.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>A mapping of an actor or group to a cloud provider role.</p>
 <p>accessorCrn -&gt; (string)</p>
@@ -193,7 +209,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="set-environment-setting.html" title="set-environment-setting"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">set-id-broker-mappings</a></li> 
       </ul>
