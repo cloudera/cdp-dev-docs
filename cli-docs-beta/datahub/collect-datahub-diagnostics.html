@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>collect-datahub-diagnostics &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>collect-datahub-diagnostics &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="collect-cm-diagnostics.html" title="collect-cm-diagnostics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">collect-datahub-diagnostics</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Start DataHub diagnostics collection</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -78,35 +78,49 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--crn</span></code> (string)
-CRN of the DataHub cluster.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--destination</span></code> (string)
-Destination of the diagnostics collection (Support, Own cloud storage, Engineering or collect only on the nodes)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--crn</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>SUPPORT
-CLOUD_STORAGE
-ENG
-LOCAL</p>
-</dd>
-</dl>
+<div><p>CRN of the DataHub cluster.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)
-Additional information / title for the diagnostics collection.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--case-number</span></code> (string)
-Optional support case number in case of SUPPORT destination, otherwise only act as additional data.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--labels</span></code> (array)
-Array of labels that can filter logs that are collected during diagnostics collection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--destination</span></code> (string)</p>
+<blockquote>
+<div><p>Destination of the diagnostics collection (Support, Own cloud storage, Engineering or collect only on the nodes)</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SUPPORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CLOUD_STORAGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOCAL</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
+<blockquote>
+<div><p>Additional information / title for the diagnostics collection.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--case-number</span></code> (string)</p>
+<blockquote>
+<div><p>Optional support case number in case of SUPPORT destination, otherwise only act as additional data.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--labels</span></code> (array)</p>
+<blockquote>
+<div><p>Array of labels that can filter logs that are collected during diagnostics collection.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--start-date</span></code> (datetime)
-Date timestamp - collect files only for diagnostics that has higher last modified timestamp value than this.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--end-date</span></code> (datetime)
-Date timestamp - collect files only for diagnostics that has lower created timestamp value than this.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--additional-logs</span></code> (array)
-Array of log descriptors that should be additionally collected during diagnostics collection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--start-date</span></code> (datetime)</p>
+<blockquote>
+<div><p>Date timestamp - collect files only for diagnostics that has higher last modified timestamp value than this.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--end-date</span></code> (datetime)</p>
+<blockquote>
+<div><p>Date timestamp - collect files only for diagnostics that has lower created timestamp value than this.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--additional-logs</span></code> (array)</p>
+<blockquote>
+<div><p>Array of log descriptors that should be additionally collected during diagnostics collection.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">path</span><span class="o">=</span>string,label<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -121,36 +135,54 @@ Array of log descriptors that should be additionally collected during diagnostic
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--hosts</span></code> (array)
-Array of host names (fqdn), collection will run only on the dedicated hosts.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--hosts</span></code> (array)</p>
+<blockquote>
+<div><p>Array of host names (fqdn), collection will run only on the dedicated hosts.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--host-groups</span></code> (array)
-Array of host groups, collection will run only on the dedicated hosts that belongs to these host groups.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--host-groups</span></code> (array)</p>
+<blockquote>
+<div><p>Array of host groups, collection will run only on the dedicated hosts that belongs to these host groups.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--exclude-hosts</span></code> (array)
-Array of host names (fqdn or IP address), collection will not run on the excluded hosts.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--exclude-hosts</span></code> (array)</p>
+<blockquote>
+<div><p>Array of host names (fqdn or IP address), collection will not run on the excluded hosts.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--skip-unresponsive-hosts</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-unresponsive-hosts</span></code> (boolean)
-Skip unhealthy hosts from the diagnostics collection.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--include-salt-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-include-salt-logs</span></code> (boolean)
-Include salt minion/master/api system logs in the diagnostics collection.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--update-package</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-update-package</span></code> (boolean)
-If enabled, required package (cdp-telemetry) will be upgraded or installed on the nodes. (useful if package is not installed or needs to be upgraded) Network is required for this operation.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--storage-validation</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-storage-validation</span></code> (boolean)
-Enable/disable node level storage validation (can be disabled for example, if you have too many hosts and do not want to do too much parallel writes to s3/abfs)</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--skip-unresponsive-hosts</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-unresponsive-hosts</span></code> (boolean)</p>
+<blockquote>
+<div><p>Skip unhealthy hosts from the diagnostics collection.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--include-salt-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-include-salt-logs</span></code> (boolean)</p>
+<blockquote>
+<div><p>Include salt minion/master/api system logs in the diagnostics collection.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--update-package</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-update-package</span></code> (boolean)</p>
+<blockquote>
+<div><p>If enabled, required package (cdp-telemetry) will be upgraded or installed on the nodes. (useful if package is not installed or needs to be upgraded) Network is required for this operation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--storage-validation</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-storage-validation</span></code> (boolean)</p>
+<blockquote>
+<div><p>Enable/disable node level storage validation (can be disabled for example, if you have too many hosts and do not want to do too much parallel writes to s3/abfs)</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -209,7 +241,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="collect-cm-diagnostics.html" title="collect-cm-diagnostics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">collect-datahub-diagnostics</a></li> 
       </ul>

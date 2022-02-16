@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="index.html" title="dw"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -69,16 +69,44 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)
-The environment for the cluster to create.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--use-overlay-network</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-overlay-network</span></code> (boolean)
-Using an overlay network will save IP addresses in the VPC by using a private IP address range for Pods in the cluster.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--whitelist-ip-cidrs</span></code> (string)
-Comma separated list of IP address CIDRs to whitelist.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--use-private-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-private-load-balancer</span></code> (boolean)
-Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--aws-options</span></code> (object)
-Options for activating an AWS environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The environment for the cluster to create.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--use-overlay-network</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-overlay-network</span></code> (boolean)</p>
+<blockquote>
+<div><p>Using an overlay network will save IP addresses in the VPC by using a private IP address range for Pods in the cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--whitelist-ip-cidrs</span></code> (string)</p>
+<blockquote>
+<div><p>Comma separated list of IP address CIDRs to whitelist.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--use-private-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-private-load-balancer</span></code> (boolean)</p>
+<blockquote>
+<div><p>Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--aws-options</span></code> (object)</p>
+<blockquote>
+<div><p>Options for activating an AWS environment.</p>
+<p>privateSubnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>IDs of private AWS subnets where the cluster should be deployed.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>publicSubnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>IDs of public AWS subnets where the cluster should be deployed.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>customEcrRepository -&gt; (string)</p>
+<blockquote>
+<div><p>URL for custom ECR repository</p>
+</div></blockquote>
+<p>customAmiId -&gt; (string)</p>
+<blockquote>
+<div><p>Custom AMI ID.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">privateSubnetIds</span><span class="o">=</span>string,string,publicSubnetIds<span class="o">=</span>string,string,customEcrRepository<span class="o">=</span>string,customAmiId<span class="o">=</span>string
 </pre></div>
@@ -92,8 +120,46 @@ Options for activating an AWS environment.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--azure-options</span></code> (object)
-Options for activating an Azure environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--azure-options</span></code> (object)</p>
+<blockquote>
+<div><p>Options for activating an Azure environment.</p>
+<p>subnetId -&gt; (string)</p>
+<blockquote>
+<div><p>ID of Azure subnet where the cluster should be deployed.</p>
+</div></blockquote>
+<p>enableAZ -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enables Azure Availability Zones for the cluster deployment.</p>
+</div></blockquote>
+<p>vmGenerationType -&gt; (string)</p>
+<blockquote>
+<div><p>The generation type of the virtual machines used to create the environment.</p>
+</div></blockquote>
+<p>logAnalyticsWorkspaceId -&gt; (string)</p>
+<blockquote>
+<div><p>Workspace ID for Azure log analytics.</p>
+</div></blockquote>
+<p>dockerBridgeCidr -&gt; (string)</p>
+<blockquote>
+<div><p>Docker bridge CIDR range for deployment.</p>
+</div></blockquote>
+<p>enableUDR -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable user defined routing for the cluster deployment.</p>
+</div></blockquote>
+<p>enablePrivateSQL -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enables private SQL for the cluster deployment.</p>
+</div></blockquote>
+<p>privateDNSZoneAKS -&gt; (string)</p>
+<blockquote>
+<div><p>Private DNS zone AKS resource ID.</p>
+</div></blockquote>
+<p>enablePrivateAks -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable Azure Private AKS mode.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">subnetId</span><span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,vmGenerationType<span class="o">=</span>string,logAnalyticsWorkspaceId<span class="o">=</span>string,dockerBridgeCidr<span class="o">=</span>string,enableUDR<span class="o">=</span>boolean,enablePrivateSQL<span class="o">=</span>boolean,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean
 </pre></div>
@@ -112,10 +178,14 @@ Options for activating an Azure environment.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -178,7 +248,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="index.html" title="dw"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>

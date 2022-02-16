@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-azure-encryption-resources &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>update-azure-encryption-resources &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="test-account-telemetry-rules.html" title="test-account-telemetry-rules"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-azure-encryption-resources</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Update the Azure encryption resources for the environment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -66,16 +66,26 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)
-The name or CRN of the environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-url</span></code> (string)
-The URL of an encryption key, which will be used to encrypt the Azure Managed Disks, if the entitlement has been granted.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-resource-group-name</span></code> (string)
-Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-url</span></code> (string)</p>
+<blockquote>
+<div><p>The URL of an encryption key, which will be used to encrypt the Azure Managed Disks, if the entitlement has been granted.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--encryption-key-resource-group-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -116,7 +126,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>subnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>Subnet names or ids of the network.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>endpointAccessGatewayScheme -&gt; (string)</p>
 <blockquote>
@@ -125,7 +135,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>endpointAccessGatewaySubnetIds -&gt; (array)</p>
 <blockquote>
 <div><p>The subnets to use for endpoint access gateway.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>aws -&gt; (object)</p>
 <blockquote>
@@ -371,7 +381,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>serverIP -&gt; (array)</p>
 <blockquote>
 <div><p>The IP addresses of the FreeIPA cluster.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
 <p>proxyConfig -&gt; (object)</p>
@@ -486,7 +496,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="test-account-telemetry-rules.html" title="test-account-telemetry-rules"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-azure-encryption-resources</a></li> 
       </ul>

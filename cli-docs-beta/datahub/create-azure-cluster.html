@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-cluster &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>create-azure-cluster &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates an Azure workload cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -74,16 +74,26 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-name</span></code> (string)
-The name of the cluster. This name must be unique, must have between 5 and 40 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-definition-name</span></code> (string)
-The name or CRN of the cluster definition to use for cluster creation.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)
-Name or CRN of the environment to use when creating the cluster. The environment must be an Azure environment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-template-name</span></code> (string)
-Name or CRN of the cluster template to use for cluster creation.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--instance-groups</span></code> (array)
-Instance group details.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the cluster. This name must be unique, must have between 5 and 40 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-definition-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the cluster definition to use for cluster creation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name or CRN of the environment to use when creating the cluster. The environment must be an Azure environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-template-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name or CRN of the cluster template to use for cluster creation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--instance-groups</span></code> (array)</p>
+<blockquote>
+<div><p>Instance group details.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">nodeCount</span><span class="o">=</span>integer,instanceGroupName<span class="o">=</span>string,instanceGroupType<span class="o">=</span>string,instanceType<span class="o">=</span>string,rootVolumeSize<span class="o">=</span>integer,attachedVolumeConfiguration<span class="o">=[{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}</span>,<span class="o">{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}]</span>,recipeNames<span class="o">=</span>string,string,recoveryMode<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -111,10 +121,22 @@ Instance group details.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--subnet-id</span></code> (string)
-The subnet ID.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)
-The details of the image used for cluster instances.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-id</span></code> (string)</p>
+<blockquote>
+<div><p>The subnet ID.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)</p>
+<blockquote>
+<div><p>The details of the image used for cluster instances.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the image used for cluster instances. This is generated by the cloud provider to uniquely identify the image.</p>
+</div></blockquote>
+<p>catalogName -&gt; (string)</p>
+<blockquote>
+<div><p>The image catalog name.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">id</span><span class="o">=</span>string,catalogName<span class="o">=</span>string
 </pre></div>
@@ -126,8 +148,10 @@ The details of the image used for cluster instances.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)
-Tags to be added to Datahub related resources.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
+<blockquote>
+<div><p>Tags to be added to Datahub related resources.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -142,32 +166,38 @@ Tags to be added to Datahub related resources.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--request-template</span></code> (string)
-JSON template to use for cluster creation. This is different from cluster template and would be removed in the future.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--datahub-database</span></code> (string)
-Database type for datahub. Currently supported values: NONE, NON_HA, HA</p>
+<p><code class="docutils literal notranslate"><span class="pre">--request-template</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>HA
-NON_HA
-NONE</p>
-</dd>
-</dl>
+<div><p>JSON template to use for cluster creation. This is different from cluster template and would be removed in the future.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--load-balancer-sku</span></code> (string)
-Represents the Azure load balancer SKU type. The current default is BASIC. To disable the load balancer, use type NONE.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--datahub-database</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>BASIC
-STANDARD
-NONE</p>
-</dd>
-</dl>
+<div><p>Database type for datahub. Currently supported values: NONE, NON_HA, HA</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NON_HA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code></p></li>
+</ul>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--load-balancer-sku</span></code> (string)</p>
+<blockquote>
+<div><p>Represents the Azure load balancer SKU type. The current default is BASIC. To disable the load balancer, use type NONE.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BASIC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STANDARD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -201,7 +231,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>instanceGroups -&gt; (array)</p>
 <blockquote>
 <div><p>The instance details.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>The type of the instance group which also contains the actual instance(s)</p>
 <p>name -&gt; (string)</p>
@@ -211,7 +241,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>instances -&gt; (array)</p>
 <blockquote>
 <div><p>Some information about the given instance.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Object which holds some details of an instance for the given cluster.</p>
 <p>id -&gt; (string)</p>
@@ -308,7 +338,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>endpoints -&gt; (array)</p>
 <blockquote>
 <div><p>The endpoints.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Object which holds the exposed endpoint.</p>
 <p>serviceName -&gt; (string)</p>
@@ -394,7 +424,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>

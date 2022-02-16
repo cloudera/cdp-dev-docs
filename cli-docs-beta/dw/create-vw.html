@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vw &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>create-vw &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-dbc.html" title="create-dbc"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -72,36 +72,54 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)
-ID of cluster where Virtual Warehouse should be created.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--dbc-id</span></code> (string)
-ID of Database Catalog that the Virtual Warehouse should be attached to.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--vw-type</span></code> (string)
-Type of Virtual Warehouse: ‘hive’ or ‘impala’.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>hive
-impala</p>
-</dd>
-</dl>
+<div><p>ID of cluster where Virtual Warehouse should be created.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--name</span></code> (string)
-Name of the Virtual Warehouse.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--image-version</span></code> (string)
-version of the Virtual Warehouse.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--template</span></code> (string)
-Name of configuration template to use.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--dbc-id</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>xsmall
-small
-medium
-large</p>
-</dd>
-</dl>
+<div><p>ID of Database Catalog that the Virtual Warehouse should be attached to.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--autoscaling</span></code> (object)
-Configurations for auto-scaling a Virtual Warehouse.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--vw-type</span></code> (string)</p>
+<blockquote>
+<div><p>Type of Virtual Warehouse: ‘hive’ or ‘impala’.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">impala</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the Virtual Warehouse.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--image-version</span></code> (string)</p>
+<blockquote>
+<div><p>version of the Virtual Warehouse.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--template</span></code> (string)</p>
+<blockquote>
+<div><p>Name of configuration template to use.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xsmall</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">small</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">medium</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">large</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--autoscaling</span></code> (object)</p>
+<blockquote>
+<div><p>Configurations for auto-scaling a Virtual Warehouse.</p>
+<p>minClusters -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum number of available compute groups.</p>
+</div></blockquote>
+<p>maxClusters -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of available compute groups.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">minClusters</span><span class="o">=</span>integer,maxClusters<span class="o">=</span>integer
 </pre></div>
@@ -113,8 +131,106 @@ Configurations for auto-scaling a Virtual Warehouse.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--config</span></code> (object)
-Configurations for a service (DBC or VW)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--config</span></code> (object)</p>
+<blockquote>
+<div><p>Configurations for a service (DBC or VW)</p>
+<p>commonConfigs -&gt; (object)</p>
+<blockquote>
+<div><p>Configurations for an application inside a service.</p>
+<p>configBlocks -&gt; (array)</p>
+<blockquote>
+<div><p>List of ConfigBlocks for the application.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>A piece of configuration stored in the same place (e.g. same file or environment variables).</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>ID of the ConfigBlock. Unique within an ApplicationConfig.</p>
+</div></blockquote>
+<p>format -&gt; (string)</p>
+<blockquote>
+<div><p>Format of ConfigBlock.</p>
+</div></blockquote>
+<p>content -&gt; (object)</p>
+<blockquote>
+<div><p>Contents of a ConfigBlock.</p>
+<p>keyValues -&gt; (map)</p>
+<blockquote>
+<div><p>Key-value type configurations.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Key-value type configurations.</p>
+</div></blockquote>
+</div></blockquote>
+<p>text -&gt; (string)</p>
+<blockquote>
+<div><p>Text type configuration.</p>
+</div></blockquote>
+<p>json -&gt; (string)</p>
+<blockquote>
+<div><p>JSON type configuration.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>applicationConfigs -&gt; (map)</p>
+<blockquote>
+<div><p>Application specific configurations.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>Configurations for an application inside a service.</p>
+<p>configBlocks -&gt; (array)</p>
+<blockquote>
+<div><p>List of ConfigBlocks for the application.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>A piece of configuration stored in the same place (e.g. same file or environment variables).</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>ID of the ConfigBlock. Unique within an ApplicationConfig.</p>
+</div></blockquote>
+<p>format -&gt; (string)</p>
+<blockquote>
+<div><p>Format of ConfigBlock.</p>
+</div></blockquote>
+<p>content -&gt; (object)</p>
+<blockquote>
+<div><p>Contents of a ConfigBlock.</p>
+<p>keyValues -&gt; (map)</p>
+<blockquote>
+<div><p>Key-value type configurations.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Key-value type configurations.</p>
+</div></blockquote>
+</div></blockquote>
+<p>text -&gt; (string)</p>
+<blockquote>
+<div><p>Text type configuration.</p>
+</div></blockquote>
+<p>json -&gt; (string)</p>
+<blockquote>
+<div><p>JSON type configuration.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>ldapGroups -&gt; (array)</p>
+<blockquote>
+<div><p>LDAP Groupnames to be enabled for auth.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>enableSSO -&gt; (boolean)</p>
+<blockquote>
+<div><p>Should SSO be enabled for this VW.</p>
+</div></blockquote>
+</div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
   <span class="s2">&quot;commonConfigs&quot;</span>: <span class="o">{</span>
@@ -153,8 +269,10 @@ Configurations for a service (DBC or VW)</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)
-Tags associated with the resources.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
+<blockquote>
+<div><p>Tags associated with the resources.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -169,10 +287,14 @@ Tags associated with the resources.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -235,7 +357,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="create-dbc.html" title="create-dbc"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>

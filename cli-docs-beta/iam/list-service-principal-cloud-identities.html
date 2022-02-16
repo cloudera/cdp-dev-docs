@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list-service-principal-cloud-identities &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>list-service-principal-cloud-identities &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="list-scim-access-tokens.html" title="list-scim-access-tokens"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list-service-principal-cloud-identities</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>List cloud identity mappings for service principals.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -69,14 +69,18 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--service-principals</span></code> (array)
-The service principals for which cloud identity mappings should be listed. If omitted, mappings for all service principals are listed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--service-principals</span></code> (array)</p>
+<blockquote>
+<div><p>The service principals for which cloud identity mappings should be listed. If omitted, mappings for all service principals are listed.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)
-The CRN of the environment for which cloud identity mappings should be listed. If omitted, mappings for all environments are listed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the environment for which cloud identity mappings should be listed. If omitted, mappings for all environments are listed.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
 <blockquote>
 <div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 100 is used.</p>
@@ -89,17 +93,21 @@ The CRN of the environment for which cloud identity mappings should be listed. I
 <blockquote>
 <div><p>The size of each page. Generally this does not need to be set and the default page size used is appropriate.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
 <p>servicePrincipalCloudIdentities -&gt; (array)</p>
 <blockquote>
 <div><p>The list of service principal cloud identity mappings.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Cloud identity mappings for a service principal.</p>
 <p>servicePrincipal -&gt; (string)</p>
@@ -109,7 +117,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>azureCloudIdentities -&gt; (array)</p>
 <blockquote>
 <div><p>The list of Azure cloud identities assigned to the service principal.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>An Azure cloud identity.</p>
 <p>objectId -&gt; (string)</p>
@@ -183,7 +191,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="list-scim-access-tokens.html" title="list-scim-access-tokens"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list-service-principal-cloud-identities</a></li> 
       </ul>

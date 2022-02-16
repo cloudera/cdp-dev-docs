@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-deployment &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>create-deployment &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="add-readyflow.html" title="add-readyflow"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Initiate and create deployment on workload</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -76,37 +76,57 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--service-crn</span></code> (string)
-CRN for the service.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--flow-version-crn</span></code> (string)
-CRN for the flow definition version.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--deployment-name</span></code> (string)
-Unique name for the deployment.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-size-name</span></code> (string)
-Size for the cluster. The default is EXTRA_SMALL.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--service-crn</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>EXTRA_SMALL
-SMALL
-MEDIUM
-LARGE</p>
-</dd>
-</dl>
+<div><p>CRN for the service.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--static-node-count</span></code> (integer)
-The static number of nodes provisioned. The default is 1.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--auto-scaling-enabled</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-auto-scaling-enabled</span></code> (boolean)
-Automatic node scaling. The default is disabled.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--auto-scale-min-nodes</span></code> (integer)
-The minimum number of nodes for automatic scaling.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--auto-scale-max-nodes</span></code> (integer)
-The maximum number of nodes for automatic scaling.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cfm-nifi-version</span></code> (string)
-The CFM NiFi version. Defaults to the latest version.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--auto-start-flow</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-auto-start-flow</span></code> (boolean)
-Automatically start the flow.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--parameter-groups</span></code> (array)
-Parameter groups with each requiring a value or assets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--flow-version-crn</span></code> (string)</p>
+<blockquote>
+<div><p>CRN for the flow definition version.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--deployment-name</span></code> (string)</p>
+<blockquote>
+<div><p>Unique name for the deployment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-size-name</span></code> (string)</p>
+<blockquote>
+<div><p>Size for the cluster. The default is EXTRA_SMALL.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTRA_SMALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SMALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MEDIUM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LARGE</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--static-node-count</span></code> (integer)</p>
+<blockquote>
+<div><p>The static number of nodes provisioned. The default is 1.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--auto-scaling-enabled</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-auto-scaling-enabled</span></code> (boolean)</p>
+<blockquote>
+<div><p>Automatic node scaling. The default is disabled.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--auto-scale-min-nodes</span></code> (integer)</p>
+<blockquote>
+<div><p>The minimum number of nodes for automatic scaling.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--auto-scale-max-nodes</span></code> (integer)</p>
+<blockquote>
+<div><p>The maximum number of nodes for automatic scaling.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cfm-nifi-version</span></code> (string)</p>
+<blockquote>
+<div><p>The CFM NiFi version. Defaults to the latest version.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--auto-start-flow</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-auto-start-flow</span></code> (boolean)</p>
+<blockquote>
+<div><p>Automatically start the flow.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--parameter-groups</span></code> (array)</p>
+<blockquote>
+<div><p>Parameter groups with each requiring a value or assets.</p>
+</div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
   <span class="o">{</span>
@@ -124,8 +144,10 @@ Parameter groups with each requiring a value or assets.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--kpis</span></code> (array)
-Key Performance Indicators with associated alerts.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--kpis</span></code> (array)</p>
+<blockquote>
+<div><p>Key Performance Indicators with associated alerts.</p>
+</div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
   <span class="o">{</span>
@@ -152,8 +174,26 @@ Key Performance Indicators with associated alerts.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--custom-nar-configuration</span></code> (object)
-Custom NAR configuration properties</p>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-nar-configuration</span></code> (object)</p>
+<blockquote>
+<div><p>Custom NAR configuration properties</p>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>Username for access to NAR storage location</p>
+</div></blockquote>
+<p>password -&gt; (string)</p>
+<blockquote>
+<div><p>Password for access to NAR storage location</p>
+</div></blockquote>
+<p>storageLocation -&gt; (string)</p>
+<blockquote>
+<div><p>Storage location containing custom NAR files</p>
+</div></blockquote>
+<p>configurationVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>Custom configuration version number</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">username</span><span class="o">=</span>string,password<span class="o">=</span>string,storageLocation<span class="o">=</span>string,configurationVersion<span class="o">=</span>integer
 </pre></div>
@@ -167,10 +207,14 @@ Custom NAR configuration properties</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -233,7 +277,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="add-readyflow.html" title="add-readyflow"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>

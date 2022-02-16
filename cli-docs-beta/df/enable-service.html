@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>enable-service &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>enable-service &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="disable-service.html" title="disable-service"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">enable-service</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Enable DataFlow service from a CDP environment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -73,22 +73,34 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)
-The CDP environment CRN</p>
-<p><code class="docutils literal notranslate"><span class="pre">--min-k8s-node-count</span></code> (integer)
-The minimum number of kubernetes nodes needed for the service.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--max-k8s-node-count</span></code> (integer)
-The maximum number of kubernetes nodes that service may scale up under high-demand situations.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--use-public-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-public-load-balancer</span></code> (boolean)
-Indicates whether or not to use a public load balancer when deploying dependencies stack, such as Nginx Ingress Controller.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--kube-api-authorized-ip-ranges</span></code> (array)
-The IP ranges authorized to connect to the Kubernetes API server.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CDP environment CRN</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--min-k8s-node-count</span></code> (integer)</p>
+<blockquote>
+<div><p>The minimum number of kubernetes nodes needed for the service.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--max-k8s-node-count</span></code> (integer)</p>
+<blockquote>
+<div><p>The maximum number of kubernetes nodes that service may scale up under high-demand situations.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--use-public-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-public-load-balancer</span></code> (boolean)</p>
+<blockquote>
+<div><p>Indicates whether or not to use a public load balancer when deploying dependencies stack, such as Nginx Ingress Controller.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--kube-api-authorized-ip-ranges</span></code> (array)</p>
+<blockquote>
+<div><p>The IP ranges authorized to connect to the Kubernetes API server.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (map)
-The tags to apply to service-related resources created.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (map)</p>
+<blockquote>
+<div><p>The tags to apply to service-related resources created.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string
 </pre></div>
@@ -98,30 +110,42 @@ The tags to apply to service-related resources created.</p>
   ...<span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--load-balancer-authorized-ip-ranges</span></code> (array)
-IP Ranges that are authorized to access DF local endpoints.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--load-balancer-authorized-ip-ranges</span></code> (array)</p>
+<blockquote>
+<div><p>IP Ranges that are authorized to access DF local endpoints.</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-subnets</span></code> (array)
-Subnets to use for the Kubernetes cluster</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-subnets</span></code> (array)</p>
+<blockquote>
+<div><p>Subnets to use for the Kubernetes cluster</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--load-balancer-subnets</span></code> (array)
-Subnets to use for the Load Balancer</p>
+<p><code class="docutils literal notranslate"><span class="pre">--load-balancer-subnets</span></code> (array)</p>
+<blockquote>
+<div><p>Subnets to use for the Load Balancer</p>
+</div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--private-cluster</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-private-cluster</span></code> (boolean)
-Indicates whether to provision private k8s cluster.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--private-cluster</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-private-cluster</span></code> (boolean)</p>
+<blockquote>
+<div><p>Indicates whether to provision private k8s cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -195,7 +219,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>kubeApiAuthorizedIpRanges -&gt; (array)</p>
 <blockquote>
 <div><p>The IP Ranges authorized to connect to the Kubernetes API Server.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>activeWarningAlertCount -&gt; (integer)</p>
 <blockquote>
@@ -216,7 +240,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>validActions -&gt; (array)</p>
 <blockquote>
 <div><p>Valid actions that can be applied based on the current state of the service</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>usePublicLoadBalancer -&gt; (boolean)</p>
 <blockquote>
@@ -231,12 +255,12 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>loadBalancerAuthorizedIpRanges -&gt; (array)</p>
 <blockquote>
 <div><p>IP Ranges that are authorized to access CDF local endpoints.</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>clusterSubnets -&gt; (array)</p>
 <blockquote>
 <div><p>Subnets to use for the Kubernetes cluster</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>creatingK8sNodeCount -&gt; (integer)</p>
 <blockquote>
@@ -249,7 +273,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>loadBalancerSubnets -&gt; (array)</p>
 <blockquote>
 <div><p>Subnets to use for the Load Balancer</p>
-<p>(string)</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>privateCluster -&gt; (boolean)</p>
 <blockquote>
@@ -315,7 +339,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="disable-service.html" title="disable-service"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">enable-service</a></li> 
       </ul>

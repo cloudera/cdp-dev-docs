@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-aws-datalake &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>create-aws-datalake &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="collect-datalake-diagnostics.html" title="collect-datalake-diagnostics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-datalake</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates an AWS datalake.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -71,12 +71,26 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--datalake-name</span></code> (string)
-The datalake name. This name must be unique, must have between 5 and 100 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)
-The environment name or CRN.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cloud-provider-configuration</span></code> (object)
-Request object for AWS configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--datalake-name</span></code> (string)</p>
+<blockquote>
+<div><p>The datalake name. This name must be unique, must have between 5 and 100 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>The environment name or CRN.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cloud-provider-configuration</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for AWS configuration.</p>
+<p>instanceProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The ARN of an IAM instance profile.</p>
+</div></blockquote>
+<p>storageBucketLocation -&gt; (string)</p>
+<blockquote>
+<div><p>The location of the S3 bucket to be used as storage. The location has to start with s3a:// followed by the bucket name.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceProfile</span><span class="o">=</span>string,storageBucketLocation<span class="o">=</span>string
 </pre></div>
@@ -88,17 +102,19 @@ Request object for AWS configuration.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--scale</span></code> (string)
-Represents the available datalake scales. Defaults to LIGHT_DUTY if not set.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--scale</span></code> (string)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Possible values:</dt><dd><p>LIGHT_DUTY
-MEDIUM_DUTY_HA</p>
-</dd>
-</dl>
+<div><p>Represents the available datalake scales. Defaults to LIGHT_DUTY if not set.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LIGHT_DUTY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MEDIUM_DUTY_HA</span></code></p></li>
+</ul>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)
-Tags to be added to Datalake related resources.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
+<blockquote>
+<div><p>Tags to be added to Datalake related resources.</p>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
@@ -113,10 +129,22 @@ Tags to be added to Datalake related resources.</p>
 <span class="o">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--runtime</span></code> (string)
-Cloudera Runtime version.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)
-The image request for the datalake. This must not be set if the runtime parameter is provided. The image ID parameter is required if this is present, but the image catalog name is optional, defaulting to ‘cdp-default’ if not present.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--runtime</span></code> (string)</p>
+<blockquote>
+<div><p>Cloudera Runtime version.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)</p>
+<blockquote>
+<div><p>The image request for the datalake. This must not be set if the runtime parameter is provided. The image ID parameter is required if this is present, but the image catalog name is optional, defaulting to ‘cdp-default’ if not present.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The image ID from the catalog. The corresponding image will be used for the created cluster machines.</p>
+</div></blockquote>
+<p>catalogName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the custom image catalog to use.</p>
+</div></blockquote>
+</div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">id</span><span class="o">=</span>string,catalogName<span class="o">=</span>string
 </pre></div>
@@ -128,12 +156,18 @@ The image request for the datalake. This must not be set if the runtime paramete
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--enable-ranger-raz</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-ranger-raz</span></code> (boolean)
-Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-ranger-raz</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-ranger-raz</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -232,7 +266,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="collect-datalake-diagnostics.html" title="collect-datalake-diagnostics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-datalake</a></li> 
       </ul>

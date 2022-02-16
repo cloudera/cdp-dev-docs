@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>get-deployment-configuration-metadata &#8212; CDP CLI 0.9.55 (BETA) documentation</title>
+    <title>get-deployment-configuration-metadata &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="get-deployment-configuration.html" title="get-deployment-configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration-metadata</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Retrieves the deployment configuration metadata.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.55 (BETA)</p>
+<dd class="field-even"><p>0.9.56 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -65,14 +65,22 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)
-The CRN of an environment to execute the command.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--deployment-crn</span></code> (string)
-The deployment crn.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)
-Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)
-Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of an environment to execute the command.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--deployment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The deployment crn.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -138,7 +146,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>parameterGroups -&gt; (array)</p>
 <blockquote>
 <div><p>The list of flow parameter groups</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>A flow parameter group</p>
 <p>name -&gt; (string)</p>
@@ -148,7 +156,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>parameters -&gt; (array)</p>
 <blockquote>
 <div><p>The parameters in the group</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>A flow parameter</p>
 <p>name -&gt; (string)</p>
@@ -186,7 +194,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>kpiScopes -&gt; (array)</p>
 <blockquote>
 <div><p>The KPI scope meta data list, one per MetricComponentType.</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Provides scoping meta data for use during KPI creation</p>
 <p>type -&gt; (string)</p>
@@ -196,7 +204,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>metricTypes -&gt; (array)</p>
 <blockquote>
 <div><p>The available metric types for the chosen scope type</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Provides the legal metric types for an owning scope</p>
 <p>id -&gt; (string)</p>
@@ -228,7 +236,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>contextGroups -&gt; (array)</p>
 <blockquote>
 <div><p>The context identifiers for the chosen scope type</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Captures the use of a KPI in the context of a process group</p>
 <p>id -&gt; (string)</p>
@@ -258,7 +266,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>key -&gt; (string)</p>
 <p>value -&gt; (array)</p>
 <blockquote>
-<div><p>(object)</p>
+<div><p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Captures the legal units for a metric, a means to avoid large numbers either before or after a decimal point</p>
 <p>id -&gt; (string)</p>
@@ -282,7 +290,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>units -&gt; (array)</p>
 <blockquote>
 <div><p>The legal alert frequency values</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>The alert frequency unit to use in KPI tolerances and metrics</p>
 <p>id -&gt; (string)</p>
@@ -308,7 +316,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
 <p>clusterSizingOptions -&gt; (array)</p>
 <blockquote>
 <div><p>The options that are available for determining the size of the deployed cluster</p>
-<p>(object)</p>
+<p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Cluster scaling parameters</p>
 <p>name -&gt; (string)</p>
@@ -393,7 +401,7 @@ Prints a sample input JSON to standard output. Note the specified operation is n
         <li class="right" >
           <a href="get-deployment-configuration.html" title="get-deployment-configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.55 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration-metadata</a></li> 
       </ul>
