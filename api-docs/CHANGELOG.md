@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.56 (2022-02-16)
+
+IMPROVEMENTS:
+
+* datalake: Add new command `recover-datalake`to recover datalake to the original version after a failed upgrade.
+* de: Add `smtpConfig` parameter to `create-vc` command to specify SMTP configurations during virtual cluster creation.
+
 ## 0.9.55 (2022-02-02)
 
 IMPROVEMENTS:
