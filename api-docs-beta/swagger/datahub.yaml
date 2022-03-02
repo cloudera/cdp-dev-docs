@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.56 (BETA)
+  version: 0.9.57 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -624,6 +624,91 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/DescribeClusterTemplateResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datahub/createCustomConfigurations:
+    post:
+      summary: Creates custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      description: Creates custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      operationId: createCustomConfigurations
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateCustomConfigurationsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateCustomConfigurationsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datahub/deleteCustomConfigurations:
+    post:
+      summary: Deletes custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      description: Deletes custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      operationId: deleteCustomConfigurations
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DeleteCustomConfigurationsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DeleteCustomConfigurationsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datahub/describeCustomConfigurations:
+    post:
+      summary: Describes custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      description: Describes custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      operationId: describeCustomConfigurations
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeCustomConfigurationsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeCustomConfigurationsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datahub/listCustomConfigurations:
+    post:
+      summary: Lists custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      description: Lists custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+      operationId: listCustomConfigurations
+      x-mutating: false
+      x-paging-default-max-items: 100
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListCustomConfigurationsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListCustomConfigurationsResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1324,6 +1409,51 @@ definitions:
         description: Tags added to the cluster template.
         items:
           $ref: '#/definitions/DatahubResourceTag'
+  CustomConfigurations:
+    type: object
+    description: Information about custom configurations.
+    required:
+      - name
+      - crn
+      - configurations
+    properties:
+      name:
+        type: string
+        description: The name of the custom configurations.
+      crn:
+        type: string
+        description: The CRN of the custom configurations.
+      configurations:
+        type: array
+        description: The custom configuration properties.
+        items:
+          $ref: '#/definitions/CustomConfigurationProperty'
+      runtimeVersion:
+        type: string
+        description: The runtime version of the custom configurations.
+      accountId:
+        type: string
+        description: The account ID that was used for creating custom configurations.
+  CustomConfigurationProperty:
+    type: object
+    description: Information about Custom Configuration Property.
+    required:
+      - configName
+      - configValue
+      - serviceType
+    properties:
+      configName:
+        type: string
+        description: The name of the custom configuration property.
+      configValue:
+        type: string
+        description: The value of the custom configuration property.
+      serviceType:
+        type: string
+        description: The service under which the custom configuration property belongs.
+      roleType:
+        type: string
+        description: The role within the service type.
   DeleteInstancesRequest:
     type: object
     description: Request object for deleting multiple instance from a cluster
@@ -1556,6 +1686,9 @@ definitions:
       clusterTemplateName:
         type: string
         description: Name or CRN of the cluster template to use for cluster creation.
+      customConfigurationsName:
+        type: string
+        description: The name of the custom configurations to use for cluster creation.
       instanceGroups:
         type: array
         items:
@@ -1613,6 +1746,9 @@ definitions:
       clusterTemplateName:
         type: string
         description: Name or CRN of the cluster template to use for cluster creation.
+      customConfigurationsName:
+        type: string
+        description: The name of the custom configurations to use for cluster creation.
       instanceGroups:
         type: array
         items:
@@ -1665,6 +1801,9 @@ definitions:
       clusterTemplateName:
         type: string
         description: Name or CRN of the cluster template to use for cluster creation.
+      customConfigurationsName:
+        type: string
+        description: The name of the custom configurations to use for cluster creation.
       instanceGroups:
         type: array
         items:
@@ -2237,6 +2376,124 @@ definitions:
         items:
           $ref: '#/definitions/ClusterTemplateSummary'
         description: The cluster templates.
+  CreateCustomConfigurationsRequest:
+    type: object
+    description: The request object for creating custom configurations request.
+    required:
+      - customConfigurationsName
+      - configurations
+    properties:
+      customConfigurationsName:
+        type: string
+        description: The name of the custom configurations. This name must be unique, must have between 5 and 100 characters, and must contain only lowercase letters, numbers, and hyphens. Names are case-sensitive.
+      configurations:
+        type: array
+        description: The configuration properties of custom configurations.
+        items:
+          $ref: '#/definitions/CustomConfigurationPropertyRequest'
+      runtimeVersion:
+        type: string
+        description: The runtime version of custom configurations.
+  CreateCustomConfigurationsResponse:
+    type: object
+    description: The response object for create custom configurations request.
+    required:
+      - customConfigurations
+    properties:
+      customConfigurations:
+        $ref: '#/definitions/CustomConfigurations'
+        description: The custom configurations.
+  CustomConfigurationPropertyRequest:
+    type: object
+    description: The request object for the custom configuration property request.
+    required:
+      - configName
+      - configValue
+      - serviceType
+    properties:
+      configName:
+        type: string
+        description: The name of the custom configuration property.
+      configValue:
+        type: string
+        description: The value of the custom configuration property.
+      serviceType:
+        type: string
+        description: The service under which the custom configuration property belongs.
+      roleType:
+        type: string
+        description: The role within the service type.
+  DeleteCustomConfigurationsRequest:
+    type: object
+    description: The request object for the delete custom configurations request.
+    required:
+      - customConfigurations
+    properties:
+      customConfigurations:
+        type: array
+        description: The names or CRNs of the custom configurations to be deleted.
+        items:
+          type: string
+  DeleteCustomConfigurationsResponse:
+    type: object
+    description: The response object for the delete custom configurations request.
+    required:
+      - customConfigurations
+    properties:
+      customConfigurations:
+        type: array
+        description: The deleted custom configurations.
+        items:
+          $ref: '#/definitions/CustomConfigurations'
+  DescribeCustomConfigurationsRequest:
+    type: object
+    description: The request object for the describe custom configurations request.
+    required:
+      - customConfigurations
+    properties:
+      customConfigurations:
+        type: string
+        description: The name or CRN of the custom configurations.
+  DescribeCustomConfigurationsResponse:
+    type: object
+    description: The response object for the describe custom configurations request.
+    required:
+      - customConfigurations
+    properties:
+      customConfigurations:
+        $ref: '#/definitions/CustomConfigurations'
+        description: The custom configurations.
+  ListCustomConfigurationsRequest:
+    type: object
+    description: The request object for the list custom configurations request.
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 100
+        x-paging-page-size: true
+        description: The size of each page.
+      startingToken:
+        type: string
+        x-paging-input-token: true
+        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response.
+  ListCustomConfigurationsResponse:
+    type: object
+    description: The response object for the list custom configurations request.
+    required:
+      - customConfigurations
+    properties:
+      customConfigurations:
+        type: array
+        description: The list of custom configurations.
+        items:
+          $ref: '#/definitions/CustomConfigurations'
+        x-paging-result: true
+      nextToken:
+        type: string
+        x-paging-output-token: true
+        description: The token to use when requesting the next set of results. If not present, there are no additional results.
   DatahubResourceTagRequest:
     type: object
     description: Tag for a datahub resource.
@@ -2297,6 +2554,9 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/AutoScalePolicyResponse'
+      useStopStartMechanism:
+        type: boolean
+        description: Whether StopStart scaling mechanism is enabled for the cluster.
   CreateAutoScaleRulesRequest:
     type: object
     description: Autoscale configuration request
@@ -2317,6 +2577,9 @@ definitions:
       enabled:
         type: boolean
         description: true (default) to enable Autoscaling, false to disable AutoScaling.
+      useStopStartMechanism:
+        type: boolean
+        description: true to enable StopStart scaling mechanism, false (default) to use regular AutoScaling (if enabled).
   CreateAutoScaleRulesResponse:
     type: object
     description: The AutoScale rules for the cluster.
@@ -2343,6 +2606,9 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/AutoScalePolicyRequest'
+      useStopStartMechanism:
+        type: boolean
+        description: true to enable StopStart scaling mechanism, false to use regular AutoScaling (if enabled). If not specified, the existing value is used.
   UpdateAutoScaleRulesResponse:
     type: object
     description: The AutoScale rules for the cluster.
