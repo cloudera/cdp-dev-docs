@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-aws-datalake &#8212; CDP CLI 0.9.56 (BETA) documentation</title>
+    <title>create-aws-datalake &#8212; CDP CLI 0.9.56+113.g39798a4a40.dirty (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="collect-datalake-diagnostics.html" title="collect-datalake-diagnostics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56+113.g39798a4a40.dirty (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-datalake</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates an AWS datalake.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.56 (BETA)</p>
+<dd class="field-even"><p>0.9.56+113.g39798a4a40.dirty (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -64,6 +64,8 @@
 <span class="o">[</span>--runtime &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--image &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-ranger-raz <span class="p">|</span> --no-enable-ranger-raz<span class="o">]</span>
+<span class="o">[</span>--multi-az <span class="p">|</span> --no-multi-az<span class="o">]</span>
+<span class="o">[</span>--recipes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -160,6 +162,28 @@
 <blockquote>
 <div><p>Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--multi-az</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-multi-az</span></code> (boolean)</p>
+<blockquote>
+<div><p>Controls if the datalake is deployed in a multi-availability zone way.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--recipes</span></code> (array)</p>
+<blockquote>
+<div><p>Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like ‘master’ or ‘idbroker’).</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceGroupName</span><span class="o">=</span>string,recipeNames<span class="o">=</span>string,string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;instanceGroupName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;recipeNames&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -208,7 +232,7 @@
 </div></blockquote>
 <p>multiAz -&gt; (boolean)</p>
 <blockquote>
-<div><p>Flag which marks that the datalake will be deployed in a multi-availability zone way or not.</p>
+<div><p>Flag which marks that the datalake is deployed in a multi-availability zone way or not.</p>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -266,7 +290,7 @@
         <li class="right" >
           <a href="collect-datalake-diagnostics.html" title="collect-datalake-diagnostics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56+113.g39798a4a40.dirty (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-datalake</a></li> 
       </ul>
