@@ -1,10 +1,20 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.57 (2022-03-02)
+
+IMPROVEMENTS:
+
+* environments: Add `encryptionKeyArn` parameter to `create-aws-environment` command.
+* environments: Add `encryptionKey` parameter to `create-gcp-environment` command.
+* environments: Add `update-azure-encryption-resources` command.
+* datalake: Add `replace-recipes` command for datalake clusters.
+* datalake: Add `skipBackup` parameter to `upgrade-datalake` command.
+
 ## 0.9.56 (2022-02-16)
 
 IMPROVEMENTS:
 
-* datalake: Add new command `recover-datalake`to recover datalake to the original version after a failed upgrade.
+* datalake: Add new command `recover-datalake` to recover datalake to the original version after a failed upgrade.
 * de: Add `smtpConfig` parameter to `create-vc` command to specify SMTP configurations during virtual cluster creation.
 
 ## 0.9.55 (2022-02-02)
