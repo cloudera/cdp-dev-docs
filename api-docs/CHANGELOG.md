@@ -1,5 +1,21 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.58 (2022-03-23)
+
+IMPROVEMENTS:
+
+* datahub: Add `sync-component-versions-from-cm` command.
+* datahub: Add `enableLoadBalancer` parameter to `create-aws-cluster` and `create-azure-cluster` commands.
+* datahub: Add `includeNginxReport` and `includeSarOutput` parameters in `collect-datahub-diagnostics` command.
+* datalake: Add `renew-public-certificate` and `rotate-private-certificates` commands, which supersede now deprecated `renew-certificate` and `rotate-auto-tls-certificates` commands.
+* datalake: Add `includeNginxReport` and `includeSarOutput` parameters to `collect-datalake-diagnostics` command.
+* datalake: Add `skipRangerHmsMetadata`, `skipAtlasMetadata`, and `skipRangerAudits` parameters to `backup-datalake` and `restore-datalake` commands.
+* datalake: Add `recipes` parameter to `create-aws-datalake`, `create-gcp-datalake`, and `create-azure-datalake` commands.
+* datalake: Deprecate `includeDatabase` of the `restore-datalake` command.
+* dm: Deprecate `operationId` field of the `update-service` command response.
+* ml: Add `modify-cluster-security`, `modify-cluster-instance-group` and `modify-workspace-load-balancer` commands.
+* ml: Remove `useLegacyHelm2` parameter from `create-workspace` and `restore-workspace` commands.
+
 ## 0.9.57 (2022-03-02)
 
 IMPROVEMENTS:
