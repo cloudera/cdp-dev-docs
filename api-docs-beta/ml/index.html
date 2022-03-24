@@ -781,25 +781,46 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_13">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoreworkspace">Restore a Cloudera Machine Learning workspace.</a>
+<li><a href="#_modifyclusterinstancegroup">Modify Cloudera Machine Learning workspace cluster instance group.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_14">Description</a></li>
 <li><a href="#_parameters_14">Parameters</a></li>
 <li><a href="#_responses_14">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_modifyclustersecurity">Modify Cloudera Machine Learning workspace cluster security.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_15">Description</a></li>
 <li><a href="#_parameters_15">Parameters</a></li>
 <li><a href="#_responses_15">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
+<li><a href="#_modifyworkspaceloadbalancer">Modify Cloudera Machine Learning workspace loadbalancer.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_16">Description</a></li>
 <li><a href="#_parameters_16">Parameters</a></li>
 <li><a href="#_responses_16">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_restoreworkspace">Restore a Cloudera Machine Learning workspace.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_17">Description</a></li>
+<li><a href="#_parameters_17">Parameters</a></li>
+<li><a href="#_responses_17">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_18">Description</a></li>
+<li><a href="#_parameters_18">Parameters</a></li>
+<li><a href="#_responses_18">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_19">Description</a></li>
+<li><a href="#_parameters_19">Parameters</a></li>
+<li><a href="#_responses_19">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -844,6 +865,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listworkspacebackupsresponse">ListWorkspaceBackupsResponse</a></li>
 <li><a href="#_listworkspacesrequest">ListWorkspacesRequest</a></li>
 <li><a href="#_listworkspacesresponse">ListWorkspacesResponse</a></li>
+<li><a href="#_modifyclusterinstancegrouprequest">ModifyClusterInstanceGroupRequest</a></li>
+<li><a href="#_modifyclusterinstancegroupresponse">ModifyClusterInstanceGroupResponse</a></li>
+<li><a href="#_modifyclustersecurityrequest">ModifyClusterSecurityRequest</a></li>
+<li><a href="#_modifyclustersecurityresponse">ModifyClusterSecurityResponse</a></li>
+<li><a href="#_modifyworkspaceloadbalancerrequest">ModifyWorkspaceLoadBalancerRequest</a></li>
+<li><a href="#_modifyworkspaceloadbalancerresponse">ModifyWorkspaceLoadBalancerResponse</a></li>
 <li><a href="#_overlaynetwork">OverlayNetwork</a></li>
 <li><a href="#_provisionk8srequest">ProvisionK8sRequest</a></li>
 <li><a href="#_provisiontag">ProvisionTag</a></li>
@@ -874,7 +901,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.57 (BETA)</p>
+<p><em>Version</em> : 0.9.58 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -2034,6 +2061,264 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_modifyclusterinstancegroup">Modify Cloudera Machine Learning workspace cluster instance group.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/ml/modifyClusterInstanceGroup</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_14">Description</h4>
+<div class="paragraph">
+<p>Modify a Cloudera Machine Learning workspace cluster instance group.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_14">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifyclusterinstancegrouprequest">ModifyClusterInstanceGroupRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_14">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifyclusterinstancegroupresponse">ModifyClusterInstanceGroupResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifyclustersecurity">Modify Cloudera Machine Learning workspace cluster security.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/ml/modifyClusterSecurity</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_15">Description</h4>
+<div class="paragraph">
+<p>Modify a Cloudera Machine Learning workspace cluster security.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_15">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifyclustersecurityrequest">ModifyClusterSecurityRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_15">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifyclustersecurityresponse">ModifyClusterSecurityResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifyworkspaceloadbalancer">Modify Cloudera Machine Learning workspace loadbalancer.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/ml/modifyWorkspaceLoadBalancer</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_16">Description</h4>
+<div class="paragraph">
+<p>Modify a Cloudera Machine Learning workspace loadbalancer.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_16">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifyworkspaceloadbalancerrequest">ModifyWorkspaceLoadBalancerRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_16">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifyworkspaceloadbalancerresponse">ModifyWorkspaceLoadBalancerResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_restoreworkspace">Restore a Cloudera Machine Learning workspace.</h3>
 <div class="literalblock">
 <div class="content">
@@ -2041,13 +2326,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
 <p>Create a new workspace based on an existing workspace backup snapshot.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_14">Parameters</h4>
+<h4 id="_parameters_17">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2078,7 +2363,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2127,13 +2412,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_18">Description</h4>
 <div class="paragraph">
 <p>Revokes an AWS user to perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_15">Parameters</h4>
+<h4 id="_parameters_18">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2164,7 +2449,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_18">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2213,13 +2498,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Upgrades a Cloudera Machine Learning workspace to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_16">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2250,7 +2535,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4366,6 +4651,207 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_modifyclusterinstancegrouprequest">ModifyClusterInstanceGroupRequest</h3>
+<div class="paragraph">
+<p>Request object for ModifyClusterInstanceGroup.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceGroupName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the instance group of the workspace cluster to modify.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>max</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The desired autoscaling min of the workspace cluster instance group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>min</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The desired autoscaling min of the workspace cluster instance group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workspaceCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the workspace cluster to modify.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_modifyclusterinstancegroupresponse">ModifyClusterInstanceGroupResponse</h3>
+<div class="paragraph">
+<p>Response object for ModifyClusterInstanceGroup.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifyclustersecurityrequest">ModifyClusterSecurityRequest</h3>
+<div class="paragraph">
+<p>Request object for ModifyClusterSecurity.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>allowlistAuthorizedIPRanges</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether to allow only authorized IP ranges given or all public IPs.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>authorizedIPRanges</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The allowlist of CIDR blocks which can access the API server.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workspaceCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the workspace cluster to modify.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_modifyclustersecurityresponse">ModifyClusterSecurityResponse</h3>
+<div class="paragraph">
+<p>Response object for ModifyClusterSecurity.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifyworkspaceloadbalancerrequest">ModifyWorkspaceLoadBalancerRequest</h3>
+<div class="paragraph">
+<p>Request object for ModifyWorkspaceLoadBalancer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>loadBalancerIPAllowLists</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The allowlist of CIDR blocks which can access the loadbalancer.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workspaceCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the workspace cluster to modify.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_modifyworkspaceloadbalancerresponse">ModifyWorkspaceLoadBalancerResponse</h3>
+<div class="paragraph">
+<p>Response object for ModifyWorkspaceLoadBalancer.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_overlaynetwork">OverlayNetwork</h3>
 <div class="paragraph">
 <p>Contains the information about overlay network.</p>
@@ -5562,7 +6048,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-02 12:30:09 -0800
+Last updated 2022-03-23 17:39:49 -0700
 </div>
 </div>
 <br>
