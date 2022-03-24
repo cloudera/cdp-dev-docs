@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>restore-datalake &#8212; CDP CLI 0.9.56+113.g39798a4a40.dirty (BETA) documentation</title>
+    <title>restore-datalake &#8212; CDP CLI 0.9.58 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="replace-recipes.html" title="replace-recipes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56+113.g39798a4a40.dirty (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.58 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restore-datalake</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Restore the datalake from backup taken.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.56+113.g39798a4a40.dirty (BETA)</p>
+<dd class="field-even"><p>0.9.58 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -60,6 +60,9 @@
 <span class="o">[</span>--backup-id &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--backup-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--include-database <span class="p">|</span> --no-include-database<span class="o">]</span>
+<span class="o">[</span>--skip-ranger-hms-metadata <span class="p">|</span> --no-skip-ranger-hms-metadata<span class="o">]</span>
+<span class="o">[</span>--skip-atlas-metadata <span class="p">|</span> --no-skip-atlas-metadata<span class="o">]</span>
+<span class="o">[</span>--skip-ranger-audits <span class="p">|</span> --no-skip-ranger-audits<span class="o">]</span>
 <span class="o">[</span>--backup-location-override &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
@@ -83,6 +86,18 @@
 <p><code class="docutils literal notranslate"><span class="pre">--include-database</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-include-database</span></code> (boolean)</p>
 <blockquote>
 <div><p>DEPRECATED - The database is included in the restore by default. To skip it, use the –skip-database flag.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--skip-ranger-hms-metadata</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-ranger-hms-metadata</span></code> (boolean)</p>
+<blockquote>
+<div><p>Skips the restore of the databases backing HMS/Ranger services. If this option is not provided, then by default the Atlas lineage will be restored if the backup used includes the Atlas lineage information.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--skip-atlas-metadata</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-atlas-metadata</span></code> (boolean)</p>
+<blockquote>
+<div><p>Skips the restore of the Atlas metadata. If this option is not provided, then by default the Atlas metadata will be restored if the backup used includes the Atlas metadata.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--skip-ranger-audits</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-ranger-audits</span></code> (boolean)</p>
+<blockquote>
+<div><p>Skips the restore of the Ranger audits. If this option is not provided, then by default the Ranger audits will be restored if the backup used includes the Ranger audits.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--backup-location-override</span></code> (string)</p>
 <blockquote>
@@ -198,7 +213,7 @@
         <li class="right" >
           <a href="replace-recipes.html" title="replace-recipes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.56+113.g39798a4a40.dirty (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.58 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restore-datalake</a></li> 
       </ul>
