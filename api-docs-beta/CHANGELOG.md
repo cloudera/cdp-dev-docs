@@ -1,5 +1,24 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.59 (2022-04-08)
+
+IMPROVEMENTS:
+
+* datalake: Add `create-aws-gov-cloud-data-lake` command to create a data lake on AWS cloud.
+* de: Add `loadbalancerAllowlist` parameter to `describe-service` and `enable-service` commands.
+* dw: Add `get-upgrade-vw-versions` and `list-latest-versions` command to list product versions.
+* dw: Add `add-user`, `delete-user` and `list-users` commands to manage users.
+* dw: Add `renew-certificates`, `update-cluster` and `health-check` commands to manage CDW warehouses.
+* dw: Add `start-vw`, `pause-vw`, `restart-vw` and `upgrade-vw` commands to manage virtual warehouses.
+* dw: Add `restart-dbc`, `get-upgrade-dbc-versions` and `upgrade-dbc` commands to manage database catalogs.
+* dw: Add `enableSpotInstances`, `enableUDR`, `enablePrivateSQL`, `privateDNSZoneAKS`, `enablePrivateAks`, and `enableUptimeSLA` parameters to `create-cluster` command.
+* dw: Made `update-ssh-key` available in the public form factor.
+* environments: Add `check-database-connectivity` command for private form factor.
+* environments: Add `create-aws-gov-cloud-environment` command to create an AWS GovCloud environment. FreeIPA server will be automatically provisioned.
+* environments: Add `create-aws-gov-cloud-credential` command to create an AWS credential for GovCloud.
+* environments: Add `govCloud` parameter to commands `set-azure-audit-credential`, `set-aws-audit-credential`, `list-audit-credentials`, `create-azure-credential`, `create-gcp-credential`, `create-aws-credential`.
+* imagecatalog: Fixed spelling, grammar and sentence structure in the command descriptions.
+
 ## 0.9.58 (2022-03-23)
 
 IMPROVEMENTS:

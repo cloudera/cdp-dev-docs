@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.58 (BETA)
+  version: 0.9.59 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -849,7 +849,7 @@ definitions:
       creationDate:
         type: string
         format: date-time
-        description: The creation time of the database in UTC
+        description: The creation time of the database
       status:
         description: Status of the database creation
         $ref: '#/definitions/StatusType'
@@ -1106,11 +1106,11 @@ definitions:
       fromCreationTime:
         type: string
         format: date-time
-        description: The starting snapshot creation time to search snapshots(inclusive).
+        description: The starting snapshot creation time to search snapshots (inclusive).
       toCreationTime:
         type: string
         format: date-time
-        description: The ending snapshot creation time to search snapshots(inclusive).
+        description: The ending snapshot creation time to search snapshots (inclusive).
   ListSnapshotsResponse:
     type: object
     description: Show Snapshots Response.
@@ -1164,11 +1164,11 @@ definitions:
       fromRestoreTime:
         type: string
         format: date-time
-        description: The starting snapshot restore time to search restore snapshots(inclusive).
+        description: The starting snapshot restore time to search restore snapshots (inclusive).
       toRestoreTime:
         type: string
         format: date-time
-        description: The ending snapshot restore time to search restore snapshots(inclusive).
+        description: The ending snapshot restore time to search restore snapshots (inclusive).
   RestoreSnapshot:
     type: object
     description: An instance of restoring a snapshot to a database.
