@@ -704,14 +704,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_2">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deletefreeipaimage">Delete image</a>
+<li><a href="#_deletefreeipaimage">Delete FreeIPA image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deleteruntimeimage">Delete image</a>
+<li><a href="#_deleteruntimeimage">Delete Cloudera Runtime image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_4">Description</a></li>
 <li><a href="#_parameters_4">Parameters</a></li>
@@ -753,14 +753,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_9">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_setfreeipaimage">Add or update image</a>
+<li><a href="#_setfreeipaimage">Add or update FreeIPA image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_10">Description</a></li>
 <li><a href="#_parameters_10">Parameters</a></li>
 <li><a href="#_responses_10">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_setruntimeimage">Add or update image</a>
+<li><a href="#_setruntimeimage">Add or update Cloudera Runtime image</a>
 <ul class="sectlevel3">
 <li><a href="#_description_11">Description</a></li>
 <li><a href="#_parameters_11">Parameters</a></li>
@@ -810,12 +810,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Service for managing custom VM images.</p>
+<p>Service for managing custom image catalogs and their associated Cloudera Runtime and FreeIPA images.</p>
 </div>
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.58</p>
+<p><em>Version</em> : 0.9.59</p>
 </div>
 </div>
 <div class="sect2">
@@ -866,7 +866,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description">Description</h4>
 <div class="paragraph">
-<p>Creates a new image catalog for runtime and freeipa images.</p>
+<p>Creates a new image catalog for Cloudera Runtime and FreeIPA images.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1029,7 +1029,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletefreeipaimage">Delete image</h3>
+<h3 id="_deletefreeipaimage">Delete FreeIPA image</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/imagecatalog/deleteFreeipaImage</pre>
@@ -1038,7 +1038,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_3">Description</h4>
 <div class="paragraph">
-<p>Deletes a freeipa image from a given catalog</p>
+<p>Deletes a FreeIPA image from a given catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1115,7 +1115,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deleteruntimeimage">Delete image</h3>
+<h3 id="_deleteruntimeimage">Delete Cloudera Runtime image</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/imagecatalog/deleteRuntimeImage</pre>
@@ -1124,7 +1124,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_4">Description</h4>
 <div class="paragraph">
-<p>Deletes a runtime image from a given catalog</p>
+<p>Deletes a Cloudera Runtime image from a given catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1296,7 +1296,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_6">Description</h4>
 <div class="paragraph">
-<p>Retrieves data about a specific image from a specific catalog</p>
+<p>Retrieves data about a specific image from a given catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1382,7 +1382,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_7">Description</h4>
 <div class="paragraph">
-<p>Retrieves an image directly by id from the default catalog</p>
+<p>Retrieves an image directly by id from the default catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1468,7 +1468,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_8">Description</h4>
 <div class="paragraph">
-<p>Retrieves an image based on the filters from the default catalog</p>
+<p>Retrieves an image based on the filters from the default catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1554,7 +1554,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_9">Description</h4>
 <div class="paragraph">
-<p>Lists all the runtime/freeipa image catalogs accessible for the user.</p>
+<p>Lists all the Cloudera Runtime/FreeIPA image catalogs accessible for the user.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1631,7 +1631,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setfreeipaimage">Add or update image</h3>
+<h3 id="_setfreeipaimage">Add or update FreeIPA image</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/imagecatalog/setFreeipaImage</pre>
@@ -1640,7 +1640,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_10">Description</h4>
 <div class="paragraph">
-<p>Adds or updates a freeipa image in the catalog.</p>
+<p>Adds or updates a FreeIPA image in the catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1717,7 +1717,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setruntimeimage">Add or update image</h3>
+<h3 id="_setruntimeimage">Add or update Cloudera Runtime image</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/imagecatalog/setRuntimeImage</pre>
@@ -1726,7 +1726,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_11">Description</h4>
 <div class="paragraph">
-<p>Adds or updates a runtime image in the catalog.</p>
+<p>Adds or updates a Cloudera Runtime image in the catalog.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1810,7 +1810,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_createcustomcatalogrequest">CreateCustomCatalogRequest</h3>
 <div class="paragraph">
-<p>Create custom image catalog request</p>
+<p>The request object to create a custom image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1856,7 +1856,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_createcustomcatalogresponse">CreateCustomCatalogResponse</h3>
 <div class="paragraph">
-<p>Create custom image catalog response</p>
+<p>The response object returned in case the custom image catalog has been successfully created.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
@@ -1865,7 +1865,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_customimagecatalog">CustomImageCatalog</h3>
 <div class="paragraph">
-<p>Basic image catalog data</p>
+<p>Basic image catalog data.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1899,7 +1899,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1911,7 +1911,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_deletecustomcatalogrequest">DeleteCustomCatalogRequest</h3>
 <div class="paragraph">
-<p>Delete custom image catalog request</p>
+<p>The request object to delete a custom image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1945,7 +1945,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_deletecustomcatalogresponse">DeleteCustomCatalogResponse</h3>
 <div class="paragraph">
-<p>Delete custom image catalog response</p>
+<p>The response object returned in case of successful custom image catalog deletion.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
@@ -1954,7 +1954,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_deletefreeipaimagerequest">DeleteFreeipaImageRequest</h3>
 <div class="paragraph">
-<p>Deletes FreeIPA image from a catalog request</p>
+<p>The request object to delete FreeIPA image from a catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1976,7 +1976,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2000,7 +2000,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_deletefreeipaimageresponse">DeleteFreeipaImageResponse</h3>
 <div class="paragraph">
-<p>Deletes image from a catalog response</p>
+<p>The response object returned in case the FreeIPA image has been successfully removed from the catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2034,7 +2034,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_deleteruntimeimagerequest">DeleteRuntimeImageRequest</h3>
 <div class="paragraph">
-<p>Deletes runtime image from a catalog request</p>
+<p>The request object to delete Cloudera Runtime image from a catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2056,7 +2056,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2080,7 +2080,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_deleteruntimeimageresponse">DeleteRuntimeImageResponse</h3>
 <div class="paragraph">
-<p>Deletes runtime image from a catalog response</p>
+<p>The response object returned in case the Cloudera Runtime image has been successfully removed from the catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2114,7 +2114,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_describecustomcatalogrequest">DescribeCustomCatalogRequest</h3>
 <div class="paragraph">
-<p>Request to retrieved data about a custom catalog</p>
+<p>The request object to retrieve data about a custom catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2136,7 +2136,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2148,7 +2148,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_describecustomcatalogresponse">DescribeCustomCatalogResponse</h3>
 <div class="paragraph">
-<p>Representing data of a single catalog</p>
+<p>The response object holding the retrieved data of a custom catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2170,7 +2170,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2206,7 +2206,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_describecustomimagerequest">DescribeCustomImageRequest</h3>
 <div class="paragraph">
-<p>Request to retrieve data of an image from the given catalog</p>
+<p>The request object to retrieve data of an image from the given catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2228,7 +2228,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2252,7 +2252,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_describecustomimageresponse">DescribeCustomImageResponse</h3>
 <div class="paragraph">
-<p>Contains data of an image retrieved from the given catalog</p>
+<p>The response object holding the data of the image retrieved from the given custom catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2382,7 +2382,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_describedefaultimagerequest">DescribeDefaultImageRequest</h3>
 <div class="paragraph">
-<p>Model used for retrieving an image from the default image catalog.</p>
+<p>The request object to retrieve an image from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2416,7 +2416,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_describedefaultimageresponse">DescribeDefaultImageResponse</h3>
 <div class="paragraph">
-<p>Model for holding data about an image retrieved from the default image catalog.</p>
+<p>The response object for holding data about an image retrieved from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2508,7 +2508,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_finddefaultimagerequest">FindDefaultImageRequest</h3>
 <div class="paragraph">
-<p>Model for filter data that is used for retrieving an image from the default image catalog.</p>
+<p>The request object to filter data that is used for retrieving an image from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2566,7 +2566,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_finddefaultimageresponse">FindDefaultImageResponse</h3>
 <div class="paragraph">
-<p>Model for holding data about an image retrieved from the default image catalog.</p>
+<p>The response object for holding data about an image retrieved from the default image catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2718,7 +2718,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_listcustomcatalogsrequest">ListCustomCatalogsRequest</h3>
 <div class="paragraph">
-<p>List custom image catalog request</p>
+<p>The request object to list the registered custom image catalogs.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
@@ -2727,7 +2727,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_listcustomcatalogsresponse">ListCustomCatalogsResponse</h3>
 <div class="paragraph">
-<p>List of registered image catalogs</p>
+<p>The response object for the list of registered image catalogs.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2761,7 +2761,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_setfreeipaimagerequest">SetFreeipaImageRequest</h3>
 <div class="paragraph">
-<p>Adds or updates a FreeIPA image in a catalog</p>
+<p>The request object to add or update a FreeIPA image in a catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2795,7 +2795,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2807,7 +2807,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image UUID. If this is empty, a randomly generated UUID is used.</p>
+<p>Image UUID. If this is empty, a randomly generated UUID is used</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2819,7 +2819,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UUID of the image customized by the current image.</p>
+<p>UUID of the image customized by the current image</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2843,7 +2843,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_setfreeipaimageresponse">SetFreeipaImageResponse</h3>
 <div class="paragraph">
-<p>Adds or updates freeipa image response</p>
+<p>The response object holding data about the added or updated FreeIPA image.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2877,7 +2877,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_setruntimeimagerequest">SetRuntimeImageRequest</h3>
 <div class="paragraph">
-<p>Adds or updates a runtime image in a catalog</p>
+<p>The request object to add or update a Cloudera Runtime image in a catalog.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2911,7 +2911,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image Catalog name</p>
+<p>Image catalog name</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2923,7 +2923,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image UUID. If this is empty, a randomly generated UUID is used.</p>
+<p>Image UUID. If this is empty, a randomly generated UUID is used</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2935,7 +2935,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UUID of the image customized by the current image.</p>
+<p>UUID of the image customized by the current image</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2959,7 +2959,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_setruntimeimageresponse">SetRuntimeImageResponse</h3>
 <div class="paragraph">
-<p>Adds or updates runtime image response</p>
+<p>The response object holding data about the added or updated Cloudera Runtime image.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2993,7 +2993,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_vmimageprovider">VmImageProvider</h3>
 <div class="paragraph">
-<p>Object representing a valid cloud provider name
+<p>Object representing a valid cloud provider name.
  <code>AWS</code> - The image is an AWS VM image <code>AZURE</code> - The image is an Azure VM image <code>GCP</code> - The image is a GCP VM image</p>
 </div>
 <div class="paragraph">
@@ -3095,8 +3095,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_vmimagetype">VmImageType</h3>
 <div class="paragraph">
-<p>Object representing a valid VM image type
- <code>FREEIPA</code> - FreeIPA image <code>RUNTIME</code> - Runtime image</p>
+<p>Object representing a valid VM image type.
+ <code>FREEIPA</code> - FreeIPA image <code>RUNTIME</code> - Cloudera Runtime image</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : enum (FREEIPA, RUNTIME)</p>
@@ -3107,7 +3107,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 17:39:51 -0700
+Last updated 2022-04-11 10:55:58 -0700
 </div>
 </div>
 <br>

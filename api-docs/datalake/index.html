@@ -927,12 +927,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <ul class="sectlevel2">
 <li><a href="#_awsconfiguration">AWSConfiguration</a></li>
 <li><a href="#_awsconfigurationrequest">AWSConfigurationRequest</a></li>
+<li><a href="#_adminoperationsbackuprestorestate">AdminOperationsBackupRestoreState</a></li>
 <li><a href="#_azureconfiguration">AzureConfiguration</a></li>
 <li><a href="#_azureconfigurationrequest">AzureConfigurationRequest</a></li>
 <li><a href="#_backupdatalakerequest">BackupDatalakeRequest</a></li>
 <li><a href="#_backupdatalakeresponse">BackupDatalakeResponse</a></li>
 <li><a href="#_backupdatalakestatusrequest">BackupDatalakeStatusRequest</a></li>
 <li><a href="#_backupdatalakestatusresponse">BackupDatalakeStatusResponse</a></li>
+<li><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></li>
 <li><a href="#_canceldatalakediagnosticsrequest">CancelDatalakeDiagnosticsRequest</a></li>
 <li><a href="#_canceldatalakediagnosticsresponse">CancelDatalakeDiagnosticsResponse</a></li>
 <li><a href="#_clouderamanagerdetails">ClouderaManagerDetails</a></li>
@@ -946,6 +948,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_createazuredatalakeresponse">CreateAzureDatalakeResponse</a></li>
 <li><a href="#_creategcpdatalakerequest">CreateGCPDatalakeRequest</a></li>
 <li><a href="#_creategcpdatalakeresponse">CreateGCPDatalakeResponse</a></li>
+<li><a href="#_databasebackuprestorestate">DatabaseBackupRestoreState</a></li>
 <li><a href="#_datalake">Datalake</a></li>
 <li><a href="#_datalakebackup">DatalakeBackup</a></li>
 <li><a href="#_datalakedetails">DatalakeDetails</a></li>
@@ -973,6 +976,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_getcmrolesresponse">GetCmRolesResponse</a></li>
 <li><a href="#_getdatalakelogdescriptorsrequest">GetDatalakeLogDescriptorsRequest</a></li>
 <li><a href="#_getdatalakelogdescriptorsresponse">GetDatalakeLogDescriptorsResponse</a></li>
+<li><a href="#_hbasebackuprestorestate">HbaseBackupRestoreState</a></li>
 <li><a href="#_healthcheck">HealthCheck</a></li>
 <li><a href="#_hoststatus">HostStatus</a></li>
 <li><a href="#_imagecomponentversions">ImageComponentVersions</a></li>
@@ -982,6 +986,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_instancegroup">InstanceGroup</a></li>
 <li><a href="#_instancegroupreciperequest">InstanceGroupRecipeRequest</a></li>
 <li><a href="#_instancegroupreciperesponse">InstanceGroupRecipeResponse</a></li>
+<li><a href="#_internalbackuprestorestate">InternalBackupRestoreState</a></li>
 <li><a href="#_listdatalakebackupsrequest">ListDatalakeBackupsRequest</a></li>
 <li><a href="#_listdatalakebackupsresponse">ListDatalakeBackupsResponse</a></li>
 <li><a href="#_listdatalakediagnosticsrequest">ListDatalakeDiagnosticsRequest</a></li>
@@ -1015,6 +1020,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_servicestatus">ServiceStatus</a></li>
 <li><a href="#_setcatalogrequest">SetCatalogRequest</a></li>
 <li><a href="#_setcatalogresponse">SetCatalogResponse</a></li>
+<li><a href="#_solrbackuprestorestate">SolrBackupRestoreState</a></li>
 <li><a href="#_startdatalakerequest">StartDatalakeRequest</a></li>
 <li><a href="#_startdatalakeresponse">StartDatalakeResponse</a></li>
 <li><a href="#_stopdatalakerequest">StopDatalakeRequest</a></li>
@@ -1038,7 +1044,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.58</p>
+<p><em>Version</em> : 0.9.59</p>
 </div>
 </div>
 <div class="sect2">
@@ -4003,6 +4009,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_adminoperationsbackuprestorestate">AdminOperationsBackupRestoreState</h3>
+<div class="paragraph">
+<p>The state of Cloudera Manager admin operations.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>startServices</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the start services operation this is triggered after the backup/restore is complete.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>stopServices</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the stop services operation that is triggered before the backup/restore is started.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_azureconfiguration">AzureConfiguration</h3>
 <div class="paragraph">
 <p>Azure configuration.</p>
@@ -4294,6 +4346,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>operationStates</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Provides the details of the internal state of each operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_internalbackuprestorestate">InternalBackupRestoreState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>runtimeVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The runtime version of the datalake when the backup was taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>startTime</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -4494,6 +4570,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>operationStates</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Provides the details of the internal state of each operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_internalbackuprestorestate">InternalBackupRestoreState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>runtimeVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The runtime version of the datalake when the backup was taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>startTime</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -4523,6 +4623,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Crn of the user who triggered this operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_backuprestoreoperationstatus">BackupRestoreOperationStatus</h3>
+<div class="paragraph">
+<p>Contains the status and failure reason of an operation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>failureReason</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The failure reason if the operation was not successful.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the backup or restore operation.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5157,7 +5303,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tags to be added to Datalake related resources.</p>
+<p>Tags to be added to Data Lake related resources.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_datalakeresourcetagrequest">DatalakeResourceTagRequest</a> &gt; array</p>
@@ -5322,7 +5468,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tags to be added to Datalake related resources.</p>
+<p>Tags to be added to Data Lake related resources.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_datalakeresourcetagrequest">DatalakeResourceTagRequest</a> &gt; array</p>
@@ -5513,6 +5659,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_datalake">Datalake</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_databasebackuprestorestate">DatabaseBackupRestoreState</h3>
+<div class="paragraph">
+<p>The state of the database backup/restore operation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>database</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the database backup/restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -7046,6 +7226,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_hbasebackuprestorestate">HbaseBackupRestoreState</h3>
+<div class="paragraph">
+<p>The state of each HBase backup/restore operation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>atlasEntityAuditEventTable</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the ATLAS_ENTITY_AUDIT_EVENTS_TABLE backup/restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>atlasJanusTable</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the ATLAS_JANUS_TABLE backup/restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_healthcheck">HealthCheck</h3>
 <div class="paragraph">
 <p>The result of a health check.</p>
@@ -7575,6 +7801,76 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_internalbackuprestorestate">InternalBackupRestoreState</h3>
+<div class="paragraph">
+<p>Object representing the state of each service running a backup.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>adminOperations</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Admin operations executed via Cloudera Manager for starting and stopping services.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_adminoperationsbackuprestorestate">AdminOperationsBackupRestoreState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>database</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Postgres operations to backup or restore the data lake metadata.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_databasebackuprestorestate">DatabaseBackupRestoreState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hbase</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Hbase operations to backup or restore Atlas metadata tables.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_hbasebackuprestorestate">HbaseBackupRestoreState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>solr</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Solr operations to backup up the edge, fulltext, ranger_audit, and vertex tables, or to delete/restore those tables.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_solrbackuprestorestate">SolrBackupRestoreState</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -8396,11 +8692,35 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>operationStates</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Provides the details of the internal state of each operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_internalbackuprestorestate">InternalBackupRestoreState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>restoreId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Unique identifier of the restore operation performed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>runtimeVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The runtime version of the datalake when the restore was initiated.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8596,11 +8916,35 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>operationStates</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Provides the details of the internal state of each operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_internalbackuprestorestate">InternalBackupRestoreState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>restoreId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Unique identifier of the restore operation performed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>runtimeVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The runtime version of the datalake when the restore was initiated.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8946,6 +9290,124 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_solrbackuprestorestate">SolrBackupRestoreState</h3>
+<div class="paragraph">
+<p>The state of each Solr backup/restore operation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>edgeIndexCollection</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the EDGE_INDEX_COLLECTION backup/restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>edgeIndexCollectionDelete</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the EDGE_INDEX_COLLECTION deletion, which is done before a restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>fulltextIndexCollection</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the FULLTEXT_INDEX_COLLECTION backup/restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>fulltextIndexCollectionDelete</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the FULLTEXT_INDEX_COLLECTION deletion, which is done before a restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>rangerAuditsCollection</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the RANGER_AUDITS_COLLECTION backup/restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>rangerAuditsCollectionDelete</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the RANGER_AUDITS_COLLECTION deletion, which is done before a restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vertexIndexCollection</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the VERTEX_INDEX_COLLECTION backup/restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vertexIndexCollectionDelete</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the VERTEX_INDEX_COLLECTION deletion, which is done before a restore.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backuprestoreoperationstatus">BackupRestoreOperationStatus</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_startdatalakerequest">StartDatalakeRequest</h3>
 <div class="paragraph">
 <p>Request object to start a datalake.</p>
@@ -9255,7 +9717,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 17:39:51 -0700
+Last updated 2022-04-11 10:55:58 -0700
 </div>
 </div>
 <br>
