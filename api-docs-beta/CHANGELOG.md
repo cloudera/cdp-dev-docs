@@ -1,5 +1,24 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.60 (2022-04-27)
+
+IMPROVEMENTS:
+
+* Marked `collect-*-diagnostics`, `describe-*`, `get-*`, `list-*`, `summarize-*` and `validate-*` commands as non-mutating.
+* clusterconnectivity: Commented deprecation for `certificate` parameter in `list-agents`, `register-agent` and `rotate-agent-access-key` commands.
+* compute: Remove mutating designation from `create-resource-pool`, `delete-resource-pool` and `update-resource-pool` commands. 
+* datahub: Commented deprecations for `renew-certificate` and `rotate-auto-tls-certificates` commands.
+* datalake: Add `operationStates`, `runtimeVersion` parameter to `backup-datalake`, `backup-datalake-status`, `restore-datalake` and `restore-datalake-status` commands.
+* datalake: Commented deprecations for `renew-certificate`, `start-datalake`, `stop-datalake`, `rotate-auto-tls-certificates` commands.
+* datalake: Add `resize-datalake` command.
+* dw: Add `awsOptions` and `azureOptions` public parameters to `create-cluster` command.
+* dw: Made `id`, `format` and `content` mandatory in `config.{commonConfigs|applicationConfigs}.configBlocks` for `create-vw-request` and `update-vw` commands.
+* dwx: Add `privateCloudOptions` for `activate-environment-by-crn` command.
+* iam: Add `workloadPasswordDetails` parameter to `create-machine-user` and `list-machine-users` command.
+* opdb: Mark `fetch-database-metrics` command as non-mutating.
+* sample: Mark `test-enum-deserialization` and `download-file` commands as non-mutating.
+* servicediscovery: Commented deprecations for `describe-warehouse` and `list-warehouses-for-env` commands. 
+
 ## 0.9.59 (2022-04-08)
 
 IMPROVEMENTS:

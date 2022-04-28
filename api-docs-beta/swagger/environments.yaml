@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.59 (BETA)
+  version: 0.9.60 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -2304,12 +2304,10 @@ definitions:
   DisableS3GuardResponse:
     type: object
     description: Response object for disabling S3Guard in an environment.
-    required:
-      - environment
     properties:
-      environment:
-        $ref: '#/definitions/Environment'
-        description: The environment.
+      s3GuardResponse:
+        type: string
+        description: Response status for disabling S3Guard in an environment.
   DescribeEnvironmentRequest:
     type: object
     description: Request object for a describe environment request.
