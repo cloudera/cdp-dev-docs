@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.59 (BETA)
+  version: 0.9.60 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -59,6 +59,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/createDatabase:
     post:
       summary: Create opDb
@@ -142,6 +143,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/describeDatabase:
     post:
       summary: Describe a opDb
@@ -162,6 +164,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/describeUpgradeDatabase:
     post:
       summary: Describes the upgrade availability
@@ -182,6 +185,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/disengageAutoAdmin:
     post:
       summary: Disable autonomous support
@@ -244,6 +248,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/listDatabases:
     post:
       summary: List all opDbs in an environment
@@ -264,6 +269,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/listDiagnostics:
     post:
       summary: List all diagnostics associated to the database
@@ -284,6 +290,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/listRestoreSnapshots:
     post:
       summary: Lists instances when a snapshot was restored to a database
@@ -304,6 +311,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/listSnapshots:
     post:
       summary: Shows snapshot for a table name in a specific location
@@ -324,6 +332,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/listSupportedEnvironments:
     post:
       summary: List of environments available for the database creation
@@ -344,6 +353,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/removeCoprocessor:
     post:
       summary: Removes a coprocessor for a specific table

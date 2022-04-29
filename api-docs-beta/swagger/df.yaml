@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.59 (BETA)
+  version: 0.9.60 (BETA)
   title: Cloudera DataFlow Service
   license:
     name: Apache 2.0
@@ -105,6 +105,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/describeDeployment:
     post:
       summary: Describe deployment.
@@ -126,6 +127,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/describeDeploymentEventDetail:
     post:
       summary: Describe event detail for deployment.
@@ -147,6 +149,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/describeFlow:
     post:
       summary: Describe flow.
@@ -168,6 +171,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/describeReadyflow:
     post:
       summary: Describe ready flow.
@@ -189,6 +193,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/describeService:
     post:
       summary: Describe service.
@@ -210,6 +215,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/describeServiceEventDetail:
     post:
       summary: Describe event history detail for service.
@@ -231,6 +237,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/disableService:
     post:
       summary: Disable service.
@@ -386,6 +393,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listDeploymentActiveAlerts:
     post:
       summary: List active alerts for deployment.
@@ -407,6 +415,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listDeploymentEvents:
     post:
       summary: List event history for deployment.
@@ -428,6 +437,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listDeploymentKPIs:
     post:
       summary: List deployment KPIs.
@@ -449,6 +459,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listDeploymentSystemMetrics:
     post:
       summary: List deployment System metrics.
@@ -470,6 +481,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listDeployments:
     post:
       summary: List deployments.
@@ -492,6 +504,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listFilterOptions:
     post:
       summary: List filter options.
@@ -513,6 +526,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listFlowDefinitions:
     post:
       summary: List flow definitions.
@@ -535,6 +549,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listNotifications:
     post:
       summary: List notifications.
@@ -556,6 +571,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listReadyflows:
     post:
       summary: List ready flows.
@@ -578,6 +594,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listServiceActiveAlerts:
     post:
       summary: List active alerts for service.
@@ -599,6 +616,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listServiceEvents:
     post:
       summary: List events for service.
@@ -620,6 +638,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listServiceSystemMetrics:
     post:
       summary: List service System metrics.
@@ -641,6 +660,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listServices:
     post:
       summary: List services.
@@ -663,6 +683,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/listUserKubernetesAccess:
     post:
       summary: List users that have access to the service's cluster.
@@ -684,6 +705,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/df/renewCertificates:
     post:
       summary: Renew workload UI certificates.
@@ -1561,9 +1583,9 @@ definitions:
     type: object
     description: A detailed representation of a ready flow as added by the current account
     required:
-      - readyflowCrn
+      - addedReadyflowCrn
     properties:
-      readyflowCrn:
+      addedReadyflowCrn:
         type: string
         description: The added ready flow crn
       readyflow:
@@ -1578,11 +1600,11 @@ definitions:
     type: object
     description: Request object for the DescribeAddedReadyflow method
     required:
-      - readyflowCrn
+      - addedReadyflowCrn
     properties:
-      readyflowCrn:
+      addedReadyflowCrn:
         type: string
-        description: The ready flow CRN
+        description: The added ready flow CRN
   DescribeAddedReadyflowResponse:
     type: object
     description: Response object for the DescribeAddedReadyflow method
@@ -1610,11 +1632,11 @@ definitions:
     type: object
     description: Request object for the DeleteAddedReadyFlow method
     required:
-      - readyflowCrn
+      - addedReadyflowCrn
     properties:
-      readyflowCrn:
+      addedReadyflowCrn:
         type: string
-        description: The ready flow CRN
+        description: The added ready flow CRN
   DeleteAddedReadyflowResponse:
     type: object
     description: Response object for the DeleteAddedReadyflow method
@@ -1691,16 +1713,6 @@ definitions:
         type: integer
         format: int64
         description: Timestamp of the last time the deployment was modified
-      dataSents:
-        type: array
-        items:
-          $ref: '#/definitions/MetricValue'
-        description: The dataSent values
-      dataReceiveds:
-        type: array
-        items:
-          $ref: '#/definitions/MetricValue'
-        description: The dataReceived values
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -1849,9 +1861,6 @@ definitions:
         type: string
         x-paging-input-token: true
         description: The starting page token.
-      metricsTimePeriod:
-        type: string
-        description: The metrics time period
       sorts:
         type: array
         items:

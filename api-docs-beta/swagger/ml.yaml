@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.59 (BETA)
+  version: 0.9.60 (BETA)
   title: Cloudera Machine Learning
   license:
     name: Apache 2.0
@@ -122,6 +122,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/getAuditEvents:
     post:
       summary: Gets all the events belong to a workspace crn.
@@ -142,6 +143,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/getKubeconfig:
     post:
       summary: ListWorkspaceAccess Cloudera Machine Learning Workspace.
@@ -162,6 +164,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/getLatestWorkspaceVersion:
     post:
       summary: GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.
@@ -182,6 +185,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/getLogs:
     post:
       summary: Gets all the logs belong to a request id.
@@ -202,6 +206,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/grantWorkspaceAccess:
     post:
       summary: GrantWorkspaceAccess Cloudera Machine Learning Workspace.
@@ -243,6 +248,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/listWorkspaceBackups:
     post:
       summary: List backup snapshots of a workspace.
@@ -263,6 +269,7 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/listWorkspaces:
     post:
       summary: List Cloudera Machine Learning workspaces.
@@ -802,6 +809,9 @@ definitions:
       privateCluster:
         type: boolean
         description: Whether to create a private cluster.
+      staticSubdomain:
+        type: string
+        description: The static subdomain to be used for the workspace.
   RestoreWorkspaceRequest:
     type: object
     description: Request object for RestoreWorkspace method.
@@ -815,6 +825,9 @@ definitions:
       backupCrn:
         type: string
         description: The CRN of the backup snapshot to used for restoring.
+      useStaticSubdomain:
+        type: boolean
+        description: A boolean value to check if subdomain must be used or not.
   CreateWorkspaceResponse:
     type: object
     description: Response object for the CreateWorkspace method.
@@ -986,6 +999,9 @@ definitions:
       backupMetadata:
         description: The Backup Metadata for the workspace.
         $ref: '#/definitions/BackupMetadata'
+      clusterID:
+        type: string
+        description: The Cluster ID for the workspace.
   Workspace:
     type: object
     description: A ML workspace, which includes the cluster and storage.
