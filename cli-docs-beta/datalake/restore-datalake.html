@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>restore-datalake &#8212; CDP CLI 0.9.58 (BETA) documentation</title>
+    <title>restore-datalake &#8212; CDP CLI 0.9.60 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="restore-datalake-status" href="restore-datalake-status.html" />
-    <link rel="prev" title="replace-recipes" href="replace-recipes.html" /> 
+    <link rel="prev" title="resize-datalake" href="resize-datalake.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="restore-datalake-status.html" title="restore-datalake-status"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="replace-recipes.html" title="replace-recipes"
+          <a href="resize-datalake.html" title="resize-datalake"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.58 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.60 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restore-datalake</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Restore the datalake from backup taken.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.58 (BETA)</p>
+<dd class="field-even"><p>0.9.60 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -150,6 +150,182 @@
 <blockquote>
 <div><p>Location of the backup to be used to perform restore.</p>
 </div></blockquote>
+<p>operationStates -&gt; (object)</p>
+<blockquote>
+<div><p>Object representing the state of each service running a backup.</p>
+<p>adminOperations -&gt; (object)</p>
+<blockquote>
+<div><p>The state of Cloudera Manager admin operations.</p>
+<p>stopServices -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>startServices -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>hbase -&gt; (object)</p>
+<blockquote>
+<div><p>The state of each HBase backup/restore operation.</p>
+<p>atlasEntityAuditEventTable -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>atlasJanusTable -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>solr -&gt; (object)</p>
+<blockquote>
+<div><p>The state of each Solr backup/restore operation.</p>
+<p>edgeIndexCollection -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>fulltextIndexCollection -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>rangerAuditsCollection -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>vertexIndexCollection -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>edgeIndexCollectionDelete -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>fulltextIndexCollectionDelete -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>rangerAuditsCollectionDelete -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+<p>vertexIndexCollectionDelete -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>database -&gt; (object)</p>
+<blockquote>
+<div><p>The state of the database backup/restore operation.</p>
+<p>database -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the status and failure reason of an operation.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup or restore operation.</p>
+</div></blockquote>
+<p>failureReason -&gt; (string)</p>
+<blockquote>
+<div><p>The failure reason if the operation was not successful.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 <p>backupName -&gt; (string)</p>
 <blockquote>
 <div><p>Name of the backup.</p>
@@ -157,6 +333,10 @@
 <p>failureReason -&gt; (string)</p>
 <blockquote>
 <div><p>Reason for the failure.</p>
+</div></blockquote>
+<p>runtimeVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The runtime version of the datalake when the restore was initiated.</p>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -185,8 +365,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="replace-recipes.html"
-                        title="previous chapter">replace-recipes</a></p>
+  <p class="topless"><a href="resize-datalake.html"
+                        title="previous chapter">resize-datalake</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="restore-datalake-status.html"
                         title="next chapter">restore-datalake-status</a></p>
@@ -211,9 +391,9 @@
           <a href="restore-datalake-status.html" title="restore-datalake-status"
              >next</a></li>
         <li class="right" >
-          <a href="replace-recipes.html" title="replace-recipes"
+          <a href="resize-datalake.html" title="resize-datalake"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.58 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.60 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restore-datalake</a></li> 
       </ul>

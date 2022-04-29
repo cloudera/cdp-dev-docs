@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>disable-s3-guard &#8212; CDP CLI 0.9.58 (BETA) documentation</title>
+    <title>disable-s3-guard &#8212; CDP CLI 0.9.60 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-environment.html" title="describe-environment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.58 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.60 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">disable-s3-guard</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Disable the S3Guard for an environment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.58 (BETA)</p>
+<dd class="field-even"><p>0.9.60 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -79,341 +79,9 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>environment -&gt; (object)</p>
+<p>s3GuardResponse -&gt; (string)</p>
 <blockquote>
-<div><p>The environment.</p>
-<p>environmentName -&gt; (string)</p>
-<blockquote>
-<div><p>Name of the environment.</p>
-</div></blockquote>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>CRN of the environment.</p>
-</div></blockquote>
-<p>status -&gt; (string)</p>
-<blockquote>
-<div><p>Status of the environment.</p>
-</div></blockquote>
-<p>region -&gt; (string)</p>
-<blockquote>
-<div><p>Region of the environment.</p>
-</div></blockquote>
-<p>cloudPlatform -&gt; (string)</p>
-<blockquote>
-<div><p>Cloud platform of the environment.</p>
-</div></blockquote>
-<p>credentialName -&gt; (string)</p>
-<blockquote>
-<div><p>Name of the credential of the environment.</p>
-</div></blockquote>
-<p>network -&gt; (object)</p>
-<blockquote>
-<div><p>The network.</p>
-<p>networkName -&gt; (string)</p>
-<blockquote>
-<div><p>Name or id of the network</p>
-</div></blockquote>
-<p>subnetIds -&gt; (array)</p>
-<blockquote>
-<div><p>Subnet names or ids of the network.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-<p>endpointAccessGatewayScheme -&gt; (string)</p>
-<blockquote>
-<div><p>The scheme for the endpoint gateway. PUBLIC indicates an external endpoint that can be accessed over the Internet.</p>
-</div></blockquote>
-<p>endpointAccessGatewaySubnetIds -&gt; (array)</p>
-<blockquote>
-<div><p>The subnets to use for endpoint access gateway.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-<p>aws -&gt; (object)</p>
-<blockquote>
-<div><p>AWS network parameters.</p>
-<p>vpcId -&gt; (string)</p>
-<blockquote>
-<div><p>VPC ids of the specified networks.</p>
-</div></blockquote>
-</div></blockquote>
-<p>azure -&gt; (object)</p>
-<blockquote>
-<div><p>Azure network parameters.</p>
-<p>networkId -&gt; (string)</p>
-<blockquote>
-<div><p>The id of the Azure VNet.</p>
-</div></blockquote>
-<p>resourceGroupName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the resource group associated with the VNet.</p>
-</div></blockquote>
-<p>usePublicIp -&gt; (boolean)</p>
-<blockquote>
-<div><p>Whether to associate public ip’s to the resources within the network.</p>
-</div></blockquote>
-</div></blockquote>
-<p>gcp -&gt; (object)</p>
-<blockquote>
-<div><p>GCP network parameters.</p>
-<p>networkName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the GCP VPC.</p>
-</div></blockquote>
-<p>usePublicIp -&gt; (boolean)</p>
-<blockquote>
-<div><p>Whether to associate public ip’s to the resources within the network.</p>
-</div></blockquote>
-<p>sharedProjectId -&gt; (string)</p>
-<blockquote>
-<div><p>The ID of the Google project associated with the VPC.</p>
-</div></blockquote>
-</div></blockquote>
-<p>networkCidr -&gt; (string)</p>
-<blockquote>
-<div><p>The range of private IPv4 addresses that resources will use under this network.</p>
-</div></blockquote>
-<p>subnetMetadata -&gt; (map)</p>
-<blockquote>
-<div><p>Additional subnet metadata of the network.</p>
-<p>key -&gt; (string)</p>
-<p>value -&gt; (object)</p>
-<blockquote>
-<div><p>Information about a cloud provider subnet.</p>
-<p>subnetId -&gt; (string)</p>
-<blockquote>
-<div><p>The id of the subnet.</p>
-</div></blockquote>
-<p>subnetName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the subnet.</p>
-</div></blockquote>
-<p>availabilityZone -&gt; (string)</p>
-<blockquote>
-<div><p>The availability zone of the subnet.</p>
-</div></blockquote>
-<p>cidr -&gt; (string)</p>
-<blockquote>
-<div><p>The CIDR IP range of the subnet.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>logStorage -&gt; (object)</p>
-<blockquote>
-<div><p>Storage configuration for cluster and audit logs.</p>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Whether external log storage is enabled.</p>
-</div></blockquote>
-<p>awsDetails -&gt; (object)</p>
-<blockquote>
-<div><p>AWS-specific log storage configuration information.</p>
-<p>storageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The base location to store logs in S3. This should be an s3a:// url.</p>
-</div></blockquote>
-<p>instanceProfile -&gt; (string)</p>
-<blockquote>
-<div><p>The AWS instance profile that which contains the necessary permissions to access the S3 storage location.</p>
-</div></blockquote>
-</div></blockquote>
-<p>azureDetails -&gt; (object)</p>
-<blockquote>
-<div><p>Azure-specific log storage configuration information.</p>
-<p>storageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The storage location to use. The location has to be in the following format abfs://filesystem&#64;storage-account-name.dfs.core.windows.net.</p>
-</div></blockquote>
-<p>managedIdentity -&gt; (string)</p>
-<blockquote>
-<div><p>The managed identity associated with the logger. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
-</div></blockquote>
-</div></blockquote>
-<p>gcpDetails -&gt; (object)</p>
-<blockquote>
-<div><p>GCP-specific log storage configuration information.</p>
-<p>storageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The storage location to use. This should be a gs:// url.</p>
-</div></blockquote>
-<p>serviceAccountEmail -&gt; (string)</p>
-<blockquote>
-<div><p>Email ID of the service account associated with the logging instances.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>backupStorage -&gt; (object)</p>
-<blockquote>
-<div><p>Storage configuration for backup.</p>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Whether external backup storage is enabled. The default value is disabled.</p>
-</div></blockquote>
-<p>awsDetails -&gt; (object)</p>
-<blockquote>
-<div><p>AWS-specific backup storage configuration information.</p>
-<p>storageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The base location to store backup in S3. This should be an s3a:// url.</p>
-</div></blockquote>
-<p>instanceProfile -&gt; (string)</p>
-<blockquote>
-<div><p>The AWS instance profile which contains the necessary permissions to access the S3 storage location.</p>
-</div></blockquote>
-</div></blockquote>
-<p>azureDetails -&gt; (object)</p>
-<blockquote>
-<div><p>Azure-specific backup storage configuration information.</p>
-<p>storageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The storage location to use. The location has to be in the following format abfs://filesystem&#64;storage-account-name.dfs.core.windows.net.</p>
-</div></blockquote>
-<p>managedIdentity -&gt; (string)</p>
-<blockquote>
-<div><p>The managed identity associated with the backup. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
-</div></blockquote>
-</div></blockquote>
-<p>gcpDetails -&gt; (object)</p>
-<blockquote>
-<div><p>GCP-specific backup storage configuration information.</p>
-<p>storageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The storage location to use. This should be a gs:// url.</p>
-</div></blockquote>
-<p>serviceAccountEmail -&gt; (string)</p>
-<blockquote>
-<div><p>Email ID of the service account associated with the backup instances.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>authentication -&gt; (object)</p>
-<blockquote>
-<div><p>Additional SSH key authentication configuration for accessing cluster node instances.</p>
-<p>publicKey -&gt; (string)</p>
-<blockquote>
-<div><p>SSH Public key string.</p>
-</div></blockquote>
-<p>publicKeyId -&gt; (string)</p>
-<blockquote>
-<div><p>Public SSH key ID already registered in the cloud provider.</p>
-</div></blockquote>
-<p>loginUserName -&gt; (string)</p>
-<blockquote>
-<div><p>The SSH user name created on the nodes for SSH access.</p>
-</div></blockquote>
-</div></blockquote>
-<p>securityAccess -&gt; (object)</p>
-<blockquote>
-<div><p>Security control configuration for FreeIPA and Datalake deployment.</p>
-<p>cidr -&gt; (string)</p>
-<blockquote>
-<div><p>CIDR range which is allowed for inbound traffic. Either IPv4 or IPv6 is allowed.</p>
-</div></blockquote>
-<p>securityGroupIdForKnox -&gt; (string)</p>
-<blockquote>
-<div><p>Security group where Knox-enabled hosts are placed.</p>
-</div></blockquote>
-<p>defaultSecurityGroupId -&gt; (string)</p>
-<blockquote>
-<div><p>Security group where all other hosts are placed.</p>
-</div></blockquote>
-</div></blockquote>
-<p>description -&gt; (string)</p>
-<blockquote>
-<div><p>Description of the environment</p>
-</div></blockquote>
-<p>statusReason -&gt; (string)</p>
-<blockquote>
-<div><p>The status reason.</p>
-</div></blockquote>
-<p>created -&gt; (datetime)</p>
-<blockquote>
-<div><p>Creation date</p>
-</div></blockquote>
-<p>creator -&gt; (string)</p>
-<blockquote>
-<div><p>The CRN of the user who has created the given environment.</p>
-</div></blockquote>
-<p>awsDetails -&gt; (object)</p>
-<blockquote>
-<div><p>AWS-specific environment configuration information.</p>
-<p>s3GuardTableName -&gt; (string)</p>
-<blockquote>
-<div><p>The name for the DynamoDB table backing S3Guard.</p>
-</div></blockquote>
-</div></blockquote>
-<p>gcpDetails -&gt; (object)</p>
-<blockquote>
-<div><p>GCP specific environment configuration information.</p>
-<p>sharedProjectId -&gt; (string)</p>
-<blockquote>
-<div><p>ID of the Google project where the resources are created.</p>
-</div></blockquote>
-</div></blockquote>
-<p>reportDeploymentLogs -&gt; (boolean)</p>
-<blockquote>
-<div><p>When true, this will report additional diagnostic information back to Cloudera.</p>
-</div></blockquote>
-<p>freeipa -&gt; (object)</p>
-<blockquote>
-<div><p>Details of a FreeIPA cluster.</p>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>CRN of the FreeIPA cluster.</p>
-</div></blockquote>
-<p>domain -&gt; (string)</p>
-<blockquote>
-<div><p>The domain name of the FreeIPA cluster.</p>
-</div></blockquote>
-<p>hostname -&gt; (string)</p>
-<blockquote>
-<div><p>The hostname of the FreeIPA cluster.</p>
-</div></blockquote>
-<p>serverIP -&gt; (array)</p>
-<blockquote>
-<div><p>The IP addresses of the FreeIPA cluster.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-</div></blockquote>
-<p>proxyConfig -&gt; (object)</p>
-<blockquote>
-<div><p>A proxy config object.</p>
-<p>proxyConfigName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the proxy config.</p>
-</div></blockquote>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>The CRN of the proxy config.</p>
-</div></blockquote>
-<p>protocol -&gt; (string)</p>
-<blockquote>
-<div><p>The protocol.</p>
-</div></blockquote>
-<p>host -&gt; (string)</p>
-<blockquote>
-<div><p>The proxy host.</p>
-</div></blockquote>
-<p>port -&gt; (integer)</p>
-<blockquote>
-<div><p>The proxy port.</p>
-</div></blockquote>
-<p>description -&gt; (string)</p>
-<blockquote>
-<div><p>A description for the proxy config.</p>
-</div></blockquote>
-<p>noProxyHosts -&gt; (string)</p>
-<blockquote>
-<div><p>Comma-separated list of ‘CIDR’, ‘[.]host[:port]’ (can be a subdomain as well) and ‘IP[:port]’ entries that should not be proxied. Wildcards are not accepted. For example .cloudera.com,192.168.1.1</p>
-</div></blockquote>
-<p>user -&gt; (string)</p>
-<blockquote>
-<div><p>The proxy user.</p>
-</div></blockquote>
-<p>password -&gt; (string)</p>
-<blockquote>
-<div><p>The proxy password.</p>
-</div></blockquote>
-</div></blockquote>
+<div><p>Response status for disabling S3Guard in an environment.</p>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -470,7 +138,7 @@
         <li class="right" >
           <a href="describe-environment.html" title="describe-environment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.58 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.60 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">disable-s3-guard</a></li> 
       </ul>
