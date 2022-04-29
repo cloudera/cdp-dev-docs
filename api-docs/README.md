@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.59*
+*Version: 0.9.60*
 
 [CHANGELOG](CHANGELOG.md)
 
@@ -8,18 +8,18 @@ Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.59 |
-| [datacatalog](./datacatalog/index.html) | 0.9.59 |
-| [datahub](./datahub/index.html) | 0.9.59 |
-| [datalake](./datalake/index.html) | 0.9.59 |
-| [de](./de/index.html) | 0.9.59 |
-| [dw](./dw/index.html) | 0.9.59 |
-| [environments](./environments/index.html) | 0.9.59 |
-| [iam](./iam/index.html) | 0.9.59 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.59 |
-| [ml](./ml/index.html) | 0.9.59 |
-| [opdb](./opdb/index.html) | 0.9.59 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.59 |
+| [audit](./audit/index.html) | 0.9.60 |
+| [datacatalog](./datacatalog/index.html) | 0.9.60 |
+| [datahub](./datahub/index.html) | 0.9.60 |
+| [datalake](./datalake/index.html) | 0.9.60 |
+| [de](./de/index.html) | 0.9.60 |
+| [dw](./dw/index.html) | 0.9.60 |
+| [environments](./environments/index.html) | 0.9.60 |
+| [iam](./iam/index.html) | 0.9.60 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.60 |
+| [ml](./ml/index.html) | 0.9.60 |
+| [opdb](./opdb/index.html) | 0.9.60 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.60 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).

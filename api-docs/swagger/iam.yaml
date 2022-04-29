@@ -6,7 +6,7 @@ x-altus-releases: PUBLIC
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.59
+  version: 0.9.60
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -1608,6 +1608,9 @@ definitions:
         type: string
         description: The username used in all the workload clusters of the machine user.
         x-no-compatibility-guarantee: true
+      workloadPasswordDetails:
+        $ref: '#/definitions/WorkloadPasswordDetails'
+        description: Information about the workload password for the machine user.
   WorkloadPasswordDetails:
     type: object
     description: Information about the workload password for a user or machine user.
