@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.60 (BETA)
+  version: 0.9.61 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -23,6 +23,7 @@ paths:
       summary: Add a coprocessor for a specific table
       description: Adds a coprocessor for a specific table.
       operationId: addCoprocessor
+      x-entitlement: COD_COPROCESSORS
       parameters:
         - name: input
           in: body
@@ -233,6 +234,7 @@ paths:
       summary: Lists coprocessors in a database
       description: Lists coprocessors in a database.
       operationId: listCoprocessors
+      x-entitlement: COD_COPROCESSORS
       parameters:
         - name: input
           in: body
@@ -359,6 +361,7 @@ paths:
       summary: Removes a coprocessor for a specific table
       description: Removes a coprocessor for a specific table.
       operationId: removeCoprocessor
+      x-entitlement: COD_COPROCESSORS
       parameters:
         - name: input
           in: body
@@ -1565,7 +1568,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Coprocessor'
-        description: The list of coprocessors
+        description: The list of coprocessors.
   RemoveCoprocessorRequest:
     type: object
     description: The request for removing a coprocessor of a table in a database.

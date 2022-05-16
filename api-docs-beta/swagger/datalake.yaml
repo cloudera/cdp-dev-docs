@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.60 (BETA)
+  version: 0.9.61 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1139,6 +1139,11 @@ definitions:
         items:
           $ref: '#/definitions/InstanceGroupRecipeRequest'
         description: Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
+      customInstanceGroups:
+        type: array
+        items:
+          $ref: '#/definitions/SdxInstanceGroupRequest'
+        description: Configure custom properties on an instance group level.
   CreateAWSDatalakeResponse:
     type: object
     description: Response object for create AWS datalake request.
@@ -1193,6 +1198,11 @@ definitions:
         items:
           $ref: '#/definitions/InstanceGroupRecipeRequest'
         description: Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
+      customInstanceGroups:
+        type: array
+        items:
+          $ref: '#/definitions/SdxInstanceGroupRequest'
+        description: Configure custom properties on an instance group level.
   CreateAzureDatalakeResponse:
     type: object
     description: Response object for create Azure datalake request.
@@ -1241,6 +1251,11 @@ definitions:
         items:
           $ref: '#/definitions/InstanceGroupRecipeRequest'
         description: Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
+      customInstanceGroups:
+        type: array
+        items:
+          $ref: '#/definitions/SdxInstanceGroupRequest'
+        description: Configure custom properties on an instance group level.
   CreateGCPDatalakeResponse:
     type: object
     description: Response object for create GCP Data Lake request.
@@ -2501,3 +2516,15 @@ definitions:
   RenewPublicCertificateResponse:
     type: object
     description: Response object for renew public certificate request.
+  SdxInstanceGroupRequest:
+    description: Request object for host group level custom configurations.
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        description: Name of the instance group.
+      instanceType:
+        type: string
+        description: Cloud provider instance type to create instances with.

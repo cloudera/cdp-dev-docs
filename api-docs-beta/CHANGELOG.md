@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.61 (2022-05-16)
+
+IMPROVEMENTS:
+
+* datahub: Add `subnetIds`, `multiAz` parameters to `create-aws-cluster` command.
+* datahub: Add `create-`, `delete-`, `describe-` and `list-custom-configurations` commands.
+* datalake: Add `multiAz` parameter to `create-*-datalake` and `list-datalakes` commands.
+* de: Add `privateClusterEnabled`, `publicEndpointEnabled`, `workloadAnalyticsEnabled` and `ssdUsed` parameters to `describe-service` and `enable-service` commands.
+* de: Add `enablePrivateNetwork` parameter to `enable-service` command.
+* dw: Add `privateCloudOptions` parameter to `create-cluster` command.
+* dw: Add `dbMetastore`, `dbDas` and `dbHue` parameters to `create-dbc` command.
+* environments2: Add `multiAz` parameter to `create-aws-environment` and `create-aws-gov-cloud-environment` commands.
+
 ## 0.9.60 (2022-04-27)
 
 IMPROVEMENTS:

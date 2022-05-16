@@ -1036,6 +1036,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_rotateprivatecertificatesrequest">RotatePrivateCertificatesRequest</a></li>
 <li><a href="#_rotateprivatecertificatesresponse">RotatePrivateCertificatesResponse</a></li>
 <li><a href="#_runtime">Runtime</a></li>
+<li><a href="#_sdxinstancegrouprequest">SdxInstanceGroupRequest</a></li>
 <li><a href="#_servicestatus">ServiceStatus</a></li>
 <li><a href="#_setcatalogrequest">SetCatalogRequest</a></li>
 <li><a href="#_setcatalogresponse">SetCatalogResponse</a></li>
@@ -1063,7 +1064,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.60 (BETA)</p>
+<p><em>Version</em> : 0.9.61 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -5405,6 +5406,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customInstanceGroups</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Configure custom properties on an instance group level.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_sdxinstancegrouprequest">SdxInstanceGroupRequest</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>datalakeName</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -5582,6 +5595,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customInstanceGroups</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Configure custom properties on an instance group level.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_sdxinstancegrouprequest">SdxInstanceGroupRequest</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>datalakeName</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -5755,6 +5780,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_gcpconfigurationrequest">GCPConfigurationRequest</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customInstanceGroups</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Configure custom properties on an instance group level.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_sdxinstancegrouprequest">SdxInstanceGroupRequest</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -9596,6 +9633,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_sdxinstancegrouprequest">SdxInstanceGroupRequest</h3>
+<div class="paragraph">
+<p>Request object for host group level custom configurations.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cloud provider instance type to create instances with.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the instance group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_servicestatus">ServiceStatus</h3>
 <div class="paragraph">
 <p>Information about a cluster service.</p>
@@ -10148,7 +10231,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-28 14:32:55 -0700
+Last updated 2022-05-16 09:49:59 -0700
 </div>
 </div>
 <br>
