@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create-custom-configurations &#8212; CDP CLI 0.9.61 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="create-gcp-cluster" href="create-gcp-cluster.html" />
+    <link rel="prev" title="create-cluster-template" href="create-cluster-template.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-gcp-cluster.html" title="create-gcp-cluster"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="create-cluster-template.html" title="create-cluster-template"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.61 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-custom-configurations</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="create-custom-configurations">
+<span id="cli-cdp-datahub-create-custom-configurations"></span><h1>create-custom-configurations<a class="headerlink" href="#create-custom-configurations" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Creates custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.61</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Creates custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-custom-configurations
+--custom-configurations-name &lt;value&gt;
+--configurations &lt;value&gt;
+<span class="o">[</span>--runtime-version &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-configurations-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the custom configurations. This name must be unique, must have between 5 and 100 characters, and must contain only lowercase letters, numbers, and hyphens. Names are case-sensitive.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--configurations</span></code> (array)</p>
+<blockquote>
+<div><p>The configuration properties of custom configurations.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">configName</span><span class="o">=</span>string,configValue<span class="o">=</span>string,serviceType<span class="o">=</span>string,roleType<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;configName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;configValue&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;serviceType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;roleType&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--runtime-version</span></code> (string)</p>
+<blockquote>
+<div><p>The runtime version of custom configurations.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>customConfigurations -&gt; (object)</p>
+<blockquote>
+<div><p>Information about custom configurations.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the custom configurations.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the custom configurations.</p>
+</div></blockquote>
+<p>configurations -&gt; (array)</p>
+<blockquote>
+<div><p>The custom configuration properties.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Information about Custom Configuration Property.</p>
+<p>configName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the custom configuration property.</p>
+</div></blockquote>
+<p>configValue -&gt; (string)</p>
+<blockquote>
+<div><p>The value of the custom configuration property.</p>
+</div></blockquote>
+<p>serviceType -&gt; (string)</p>
+<blockquote>
+<div><p>The service under which the custom configuration property belongs.</p>
+</div></blockquote>
+<p>roleType -&gt; (string)</p>
+<blockquote>
+<div><p>The role within the service type.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>runtimeVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The runtime version of the custom configurations.</p>
+</div></blockquote>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>The account ID that was used for creating custom configurations.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-custom-configurations</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="create-cluster-template.html"
+                        title="previous chapter">create-cluster-template</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="create-gcp-cluster.html"
+                        title="next chapter">create-gcp-cluster</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-gcp-cluster.html" title="create-gcp-cluster"
+             >next</a></li>
+        <li class="right" >
+          <a href="create-cluster-template.html" title="create-cluster-template"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.61 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-custom-configurations</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
