@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.60 (BETA) documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.61 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="add-user.html" title="add-user"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.60 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.61 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.60 (BETA)</p>
+<dd class="field-even"><p>0.9.61 (BETA)</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -62,6 +62,7 @@
 <span class="o">[</span>--use-private-load-balancer <span class="p">|</span> --no-use-private-load-balancer<span class="o">]</span>
 <span class="o">[</span>--aws-options &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--azure-options &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--private-cloud-options &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -188,6 +189,39 @@
 <span class="o">}</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--private-cloud-options</span></code> (object)</p>
+<blockquote>
+<div><p>Options for activating a Private Cloud environment.</p>
+<p>delegationUsername -&gt; (string)</p>
+<blockquote>
+<div><p>Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.</p>
+</div></blockquote>
+<p>delegationPassword -&gt; (string)</p>
+<blockquote>
+<div><p>Password of delegation user.</p>
+</div></blockquote>
+<p>securityContextConstraintName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the Hive Security Context Constraint.</p>
+</div></blockquote>
+<p>storageClass -&gt; (string)</p>
+<blockquote>
+<div><p>The storage class for the Local Storage Operator.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">delegationUsername</span><span class="o">=</span>string,delegationPassword<span class="o">=</span>string,securityContextConstraintName<span class="o">=</span>string,storageClass<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;delegationUsername&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;delegationPassword&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;securityContextConstraintName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;storageClass&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -258,7 +292,7 @@
         <li class="right" >
           <a href="add-user.html" title="add-user"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.60 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.61 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
