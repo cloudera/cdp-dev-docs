@@ -3,10 +3,10 @@ swagger: '2.0'
 x-endpoint-name: dfworkload
 x-products: CDP
 x-form-factors: public
-x-cdp-releases: BETA
+x-cdp-releases: PUBLIC
 info:
-  description: "This REST API provides remote access to the DataFlow Server.\n Endpoints that are marked as [BETA] are subject to change in future releases of the application without backwards compatibility and without a major version change."
-  version: 0.9.61 (BETA)
+  description: "This REST API provides remote access to the DataFlow Service.\n Endpoints that are marked as [BETA] are subject to change in future releases of the application without backwards compatibility and without a major version change."
+  version: 0.9.62 (BETA)
   title: Cloudera DataFlow Workload Service
   license:
     name: Apache 2.0
@@ -886,6 +886,14 @@ definitions:
       autoStartFlow:
         type: boolean
         description: Indicates whether or not the flow should be started during deployment creation
+      inboundHostname:
+        type: string
+        description: The inbound hostname
+      listenComponents:
+        type: array
+        description: Listen components port and protocol data
+        items:
+          $ref: '#/definitions/ListenComponent'
       customNarConfigurationCrn:
         type: string
         description: The CRN of the custom NAR configuration.
@@ -974,6 +982,14 @@ definitions:
         type: string
         description: The username of the last person to update the deployment configuration
         readOnly: true
+      inboundHostname:
+        type: string
+        description: The inbound hostname
+      listenComponents:
+        type: array
+        description: Listen components port and protocol data
+        items:
+          $ref: '#/definitions/ListenComponent'
   DeploymentStatus:
     type: object
     description: The state and state message associated with a deployment
@@ -1012,9 +1028,11 @@ definitions:
           - KPI_OUT_OF_RANGE
           - CANNOT_AUTOSCALE
           - DEPLOYMENT_DISCONNECTED
-          - CERTIFICATE_RENEWED
           - UNUSED_LOGICAL_BAD_HEALTH
           - AT_CAPACITY
+          - UPGRADING
+          - FAILED_TO_UPGRADE
+          - ROLLING_BACK
       state:
         type: string
         description: The state that the deployment is currently in
@@ -1029,6 +1047,8 @@ definitions:
           - UPDATING
           - TERMINATING
           - RESTARTING
+          - UPGRADING
+          - ROLLING_BACK
           - UNKNOWN
       message:
         type: string
@@ -1422,6 +1442,42 @@ definitions:
         description: A list of supported NiFi versions.
         items:
           type: string
+  ListenComponent:
+    type: object
+    description: Provides subset of metadata of a Listen* component
+    x-workload: true
+    x-client-only: true
+    required:
+      - protocol
+    properties:
+      protocol:
+        type: string
+        description: Inbound protocol
+        enum:
+          - TCP
+          - UDP
+      listenComponentType:
+        type: string
+        description: Listen component type
+        readOnly: true
+        enum:
+          - ListenHTTP
+          - ListenFTP
+          - ListenSyslog
+          - ListenRELP
+          - ListenTCP
+          - ListenUDP
+          - ListenTCPRecord
+          - ListenUDPRecord
+          - ListenGRPC
+          - ListenSMTP
+          - ListenBeats
+          - ListenLumberjack
+          - ListenWebSocket
+          - HandleHttpRequest
+      port:
+        type: string
+        description: Inbound port
   RpcDeployment:
     type: object
     description: Provides details about a deployment.
@@ -1444,6 +1500,10 @@ definitions:
       crn:
         type: string
         description: The CRN of the deployment
+      activeInfoAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as an info
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -1476,7 +1536,8 @@ definitions:
             - VIEW_METRICS
             - UPDATE_NIFI_VERSION
             - CANCEL_NIFI_VERSION_UPDATE
-            - RESTART_DEPLOYMENT_NEW_CERTS
+            - RESTART_DEPLOYMENT
+            - MANAGE_DEPLOYMENT
       nifiUrl:
         type: string
         description: The url to open the deployed flow in NiFi
@@ -1554,6 +1615,9 @@ definitions:
         type: number
         format: double
         description: The memory limit of the deployment
+      inboundConnectionEndpointId:
+        type: string
+        description: The ID of Inbound Connection Endpoint assigned to the deployment
   RpcDeploymentConfigurationMetadata:
     type: object
     description: Provides details about the deployment and all of the different configuration items that are available.

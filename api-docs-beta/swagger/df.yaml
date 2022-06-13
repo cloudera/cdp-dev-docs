@@ -3,9 +3,9 @@ swagger: '2.0'
 x-endpoint-name: df
 x-products: CDP
 x-form-factors: public
-x-cdp-releases: BETA
+x-cdp-releases: PUBLIC
 info:
-  version: 0.9.61 (BETA)
+  version: 0.9.62 (BETA)
   title: Cloudera DataFlow Service
   license:
     name: Apache 2.0
@@ -1713,6 +1713,10 @@ definitions:
         type: integer
         format: int64
         description: Timestamp of the last time the deployment was modified
+      activeInfoAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as an info
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -1790,6 +1794,10 @@ definitions:
         type: integer
         format: int32
         description: The minimum number of nodes that the deployment will allocate. May only be specified when autoscalingEnabled is true.
+      activeInfoAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as an info
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -2089,6 +2097,10 @@ definitions:
         type: integer
         format: int32
         description: The number of kubernetes nodes currently running for this service.
+      activeInfoAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as an info
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -2177,6 +2189,10 @@ definitions:
         items:
           type: string
         description: The IP Ranges authorized to connect to the Kubernetes API Server.
+      activeInfoAlertCount:
+        type: integer
+        format: int64
+        description: Current count of active alerts classified as an info
       activeWarningAlertCount:
         type: integer
         format: int64
@@ -2233,6 +2249,9 @@ definitions:
       proxyName:
         type: string
         description: The name of the proxy that is configured for the CDP environment
+      k8sServerVersion:
+        type: string
+        description: The kubernetes version of the cluster
   ListServicesRequest:
     type: object
     description: Request object for the ListServices method.

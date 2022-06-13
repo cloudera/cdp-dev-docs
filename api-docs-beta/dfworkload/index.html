@@ -891,6 +891,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_kpiunit">KpiUnit</a></li>
 <li><a href="#_listnifiversionsrequest">ListNifiVersionsRequest</a></li>
 <li><a href="#_listnifiversionsresponse">ListNifiVersionsResponse</a></li>
+<li><a href="#_listencomponent">ListenComponent</a></li>
 <li><a href="#_rpcdeployment">RpcDeployment</a></li>
 <li><a href="#_rpcdeploymentconfigurationmetadata">RpcDeploymentConfigurationMetadata</a></li>
 <li><a href="#_servicemeta">ServiceMeta</a></li>
@@ -918,13 +919,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This REST API provides remote access to the DataFlow Server.
+<p>This REST API provides remote access to the DataFlow Service.
  Endpoints that are marked as [BETA] are subject to change in future releases of the application without backwards compatibility and without a major version change.</p>
 </div>
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.61 (BETA)</p>
+<p><em>Version</em> : 0.9.62 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -3986,6 +3987,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>inboundHostname</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The inbound hostname</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>kpis</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -3994,6 +4007,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_configuredkpi">ConfiguredKpi</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>listenComponents</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Listen components port and protocol data</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_listencomponent">ListenComponent</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4198,6 +4223,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>inboundHostname</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The inbound hostname</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>kpis</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4232,6 +4269,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>listenComponents</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Listen components port and protocol data</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_listencomponent">ListenComponent</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4327,7 +4376,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>The detailed state that the deployment is currently in</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (GOOD_HEALTH, FAILED_TO_SUSPEND, FAILED_TO_UPDATE_NIFI_VERSION, FAILED_TO_START, FAILED_TO_RESTART, SUSPENDED, FAILED_TO_DEPLOY, FAILED_TO_UPDATE, FAILED_TO_TERMINATE, NEW, CREATING_NODES, DEPLOYING_ASSETS, DEPLOYING_FLOW_DEFINITION, STARTING_FLOW, SUSPENDING_FLOW, UPDATING, UPDATING_NIFI_VERSION, CANCELLING_NIFI_VERSION_UPDATE, RESTARTING, TERMINATING, CANCEL_REQUESTED, UNKNOWN, KPI_OUT_OF_RANGE, CANNOT_AUTOSCALE, DEPLOYMENT_DISCONNECTED, CERTIFICATE_RENEWED, UNUSED_LOGICAL_BAD_HEALTH, AT_CAPACITY)</p>
+<p>enum (GOOD_HEALTH, FAILED_TO_SUSPEND, FAILED_TO_UPDATE_NIFI_VERSION, FAILED_TO_START, FAILED_TO_RESTART, SUSPENDED, FAILED_TO_DEPLOY, FAILED_TO_UPDATE, FAILED_TO_TERMINATE, NEW, CREATING_NODES, DEPLOYING_ASSETS, DEPLOYING_FLOW_DEFINITION, STARTING_FLOW, SUSPENDING_FLOW, UPDATING, UPDATING_NIFI_VERSION, CANCELLING_NIFI_VERSION_UPDATE, RESTARTING, TERMINATING, CANCEL_REQUESTED, UNKNOWN, KPI_OUT_OF_RANGE, CANNOT_AUTOSCALE, DEPLOYMENT_DISCONNECTED, UNUSED_LOGICAL_BAD_HEALTH, AT_CAPACITY, UPGRADING, FAILED_TO_UPGRADE, ROLLING_BACK)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4351,7 +4400,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>The state that the deployment is currently in</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (DEPLOYING, GOOD_HEALTH, CONCERNING_HEALTH, BAD_HEALTH, STARTING_FLOW, SUSPENDING_FLOW, SUSPENDED, UPDATING, TERMINATING, RESTARTING, UNKNOWN)</p>
+<p>enum (DEPLOYING, GOOD_HEALTH, CONCERNING_HEALTH, BAD_HEALTH, STARTING_FLOW, SUSPENDING_FLOW, SUSPENDED, UPDATING, TERMINATING, RESTARTING, UPGRADING, ROLLING_BACK, UNKNOWN)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5526,6 +5575,65 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_listencomponent">ListenComponent</h3>
+<div class="paragraph">
+<p>Provides subset of metadata of a Listen* component</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>listenComponentType</strong><br>
+<em>optional</em><br>
+<em>read-only</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Listen component type</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (ListenHTTP, ListenFTP, ListenSyslog, ListenRELP, ListenTCP, ListenUDP, ListenTCPRecord, ListenUDPRecord, ListenGRPC, ListenSMTP, ListenBeats, ListenLumberjack, ListenWebSocket, HandleHttpRequest)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>port</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Inbound port</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>protocol</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Inbound protocol</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (TCP, UDP)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_rpcdeployment">RpcDeployment</h3>
 <div class="paragraph">
 <p>Provides details about a deployment.</p>
@@ -5551,6 +5659,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Current count of active alerts classified as an error</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>activeInfoAlertCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Current count of active alerts classified as an info</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int64)</p>
@@ -5798,6 +5918,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>inboundConnectionEndpointId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of Inbound Connection Endpoint assigned to the deployment</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>lastUpdatedByUsername</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5901,7 +6033,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Valid actions that can be applied to the deployment in its current state</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; enum (VIEW_NIFI, START_FLOW, SUSPEND_FLOW, EDIT, CANCEL_CREATE, TERMINATE, VIEW_METRICS, UPDATE_NIFI_VERSION, CANCEL_NIFI_VERSION_UPDATE, RESTART_DEPLOYMENT_NEW_CERTS) &gt; array</p>
+<p>&lt; enum (VIEW_NIFI, START_FLOW, SUSPEND_FLOW, EDIT, CANCEL_CREATE, TERMINATE, VIEW_METRICS, UPDATE_NIFI_VERSION, CANCEL_NIFI_VERSION_UPDATE, RESTART_DEPLOYMENT, MANAGE_DEPLOYMENT) &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6960,7 +7092,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-16 09:49:59 -0700
+Last updated 2022-06-10 11:18:40 -0700
 </div>
 </div>
 <br>

@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.61 (BETA)
+  version: 0.9.62 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -168,7 +168,7 @@ paths:
       x-mutating: false
   /api/v1/opdb/describeUpgradeDatabase:
     post:
-      summary: Describes the upgrade availability
+      summary: Describes the upgrade availability.
       description: Describes the upgrade availability for an operational database.
       operationId: describeUpgradeDatabase
       parameters:
@@ -464,7 +464,7 @@ paths:
       x-mutating: true
   /api/v1/opdb/upgradeDatabase:
     post:
-      summary: Upgrades the database
+      summary: Upgrades the database.
       description: Upgrades an operational database in an environment to a given runtime.
       operationId: upgradeDatabase
       parameters:
@@ -616,9 +616,6 @@ definitions:
       disableMultiAz:
         type: boolean
         description: Disable deployment into multiple availability-zones (the database will be deployed into one subnet).
-      enableStorefileTracking:
-        type: boolean
-        description: Enables the HBase storefile-tracking feature for cloud storage.
   UpdateDatabaseRequest:
     type: object
     description: A request to update the database
@@ -1382,13 +1379,13 @@ definitions:
     properties:
       environment:
         type: string
-        description: The name or crn of the environment.
+        description: The name or CRN of the environment.
       database:
         type: string
-        description: The name or crn of the database.
+        description: The name or CRN of the database.
       runtime:
         type: string
-        description: Target runtime for an upgrade.
+        description: The CDP Runtime version to upgrade to.
       osUpgradeOnly:
         type: boolean
         description: Only perform an Operating System upgrade.
@@ -1429,10 +1426,10 @@ definitions:
         description: List of available versions for upgrade.
       isOSUpgradeAvailable:
         type: boolean
-        description: Is OS upgrade available.
+        description: Is an OS upgrade available.
       isRuntimeUpgradeAvailable:
         type: boolean
-        description: Is CDP Runtime upgrade available.
+        description: Is a CDP Runtime upgrade available.
   ComponentsVersion:
     type: object
     description: Versions of the CDP runtime and Operating system components.
