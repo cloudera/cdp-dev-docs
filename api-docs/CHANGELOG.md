@@ -1,5 +1,24 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.62 (2022-06-10)
+
+IMPROVEMENTS:
+
+* df: Add `activeInfoAlertCount` parameter to `describe-deployment`, `describe-service`, `enable-service`, `list-deployments`, `list-services` and `update-service` commands.
+* df: Add `k8sServerVersion` parameter to `describe-service`, `enable-service` and `update-service` commands.
+* dw: Change default for `maxClusters` to `10` in `create-vw` command.
+* dw: Add `dbDas` and `dbHue` parameters to `create-cluster` command.
+* dw: Add `create-data-visualization`, `get-data-visualization-upgrade`, `list-data-visualizations`, `delete-data-visualization`, `describe-data-visualization` and `update-data-visualization` commands.
+* environments: Add `databasePrivateDnsZoneId` parameter to `create-aws-gov-cloud-environment`, `create-aws-environment`, `create-azure-environment`, `create-gcp-environment`, `create-private-environment`, `update-aws-disk-encryption-parameters`, `update-azure-encryption-resources`, `update-security-access`, `update-ssh-key` and `update-subnet` commands.
+* iam: Add `generateWorkloadUsernameByEmail`, `enableScim` parameters to `create-saml-provider`, `list-saml-providers`, `describe-saml-provider` and `update-saml-provider` commands.
+* iam: Add `create-scim-access-token`, `list-scim-access-tokens` and `delete-scim-access-token` commands.
+* iam: Add `enableScim` and `scimUrl` parameters to `create-saml-provider`, `list-saml-providers`, `describe-saml-provider` and `update-saml-provider` commands.
+* imagecatalog: Make `provider` and `imageType` parameters required for `find-default-image` command.
+* opdb: Add `describe-upgrade-database` and `upgrade-database` commands.
+* replicationmanager: Add `mapReduceService` and `logPath` paramters to `create-policy` and `create-hbase-policy` commands.
+* replicationmanager: Add `sourceClusterCrn` and `targetClsterCrn` parameters to `list-policies` command.
+
+
 ## 0.9.61 (2022-05-16)
 
 IMPROVEMENTS:
