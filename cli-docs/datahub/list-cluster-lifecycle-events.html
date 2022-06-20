@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-cluster-lifecycle-events &#8212; CDP CLI 0.9.63 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-cluster-templates" href="list-cluster-templates.html" />
+    <link rel="prev" title="list-cluster-definitions" href="list-cluster-definitions.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-cluster-templates.html" title="list-cluster-templates"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-cluster-definitions.html" title="list-cluster-definitions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.63 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-cluster-lifecycle-events</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-cluster-lifecycle-events">
+<span id="cli-cdp-datahub-list-cluster-lifecycle-events"></span><h1>list-cluster-lifecycle-events<a class="headerlink" href="#list-cluster-lifecycle-events" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Lists Workload cluster lifecycle events.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.63</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Lists Workload cluster lifecycle events.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list-cluster-lifecycle-events</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-cluster-lifecycle-events
+--cluster &lt;value&gt;
+<span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the cluster for which events are to be listed.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
+<blockquote>
+<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 100 is used.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)</p>
+<blockquote>
+<div><p>A token to specify where to start paginating. This is the <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> from a previously truncated response.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--page-size</span></code> (integer)</p>
+<blockquote>
+<div><p>The size of each page. Generally this does not need to be set and the default page size used is appropriate.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>clusterEvents -&gt; (array)</p>
+<blockquote>
+<div><p>Cluster events.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Related events for the stack.</p>
+<p>eventType -&gt; (string)</p>
+<blockquote>
+<div><p>Type of the event.</p>
+</div></blockquote>
+<p>eventTimestamp -&gt; (datetime)</p>
+<blockquote>
+<div><p>Timestamp of this event.</p>
+</div></blockquote>
+<p>eventMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Message from this event.</p>
+</div></blockquote>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>User ID.</p>
+</div></blockquote>
+<p>notificationType -&gt; (string)</p>
+<blockquote>
+<div><p>Type of notification as identified in the UI.</p>
+</div></blockquote>
+<p>cloudType -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud provider type.</p>
+</div></blockquote>
+<p>region -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud provider region in which the cluster is deployed.</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud provider availability zone for the region in which the cluster is deployed.</p>
+</div></blockquote>
+<p>blueprintId -&gt; (integer)</p>
+<blockquote>
+<div><p>Blueprint ID for the blueprint deployed on the cluster.</p>
+</div></blockquote>
+<p>blueprintName -&gt; (string)</p>
+<blockquote>
+<div><p>Blueprint name for the blueprint deployed on the cluster.</p>
+</div></blockquote>
+<p>clusterId -&gt; (integer)</p>
+<blockquote>
+<div><p>ID of the cluster.</p>
+</div></blockquote>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the cluster.</p>
+</div></blockquote>
+<p>stackCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The unique CRN of the resource.</p>
+</div></blockquote>
+<p>stackName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the stack.</p>
+</div></blockquote>
+<p>stackStatus -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the stack.</p>
+</div></blockquote>
+<p>nodeCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Current node count for the nodes in the cluster.</p>
+</div></blockquote>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the instance group.</p>
+</div></blockquote>
+<p>clusterStatus -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the stack.</p>
+</div></blockquote>
+<p>workspaceId -&gt; (integer)</p>
+<blockquote>
+<div><p>Workspace ID of the resource.</p>
+</div></blockquote>
+<p>tenantName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the current tenant.</p>
+</div></blockquote>
+<p>ldapDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Details of the LDAP attached to cluster.</p>
+<p>id -&gt; (integer)</p>
+<blockquote>
+<div><p>ID of the LDAP.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the LDAP.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Description of the LDAP.</p>
+</div></blockquote>
+<p>serverHost -&gt; (string)</p>
+<blockquote>
+<div><p>LDAP server host.</p>
+</div></blockquote>
+<p>serverPort -&gt; (integer)</p>
+<blockquote>
+<div><p>LDAP server port.</p>
+</div></blockquote>
+<p>protocol -&gt; (string)</p>
+<blockquote>
+<div><p>LDAP protocol.</p>
+</div></blockquote>
+<p>userSearchBase -&gt; (string)</p>
+<blockquote>
+<div><p>User search base.</p>
+</div></blockquote>
+<p>userDnPattern -&gt; (string)</p>
+<blockquote>
+<div><p>UserDN pattern.</p>
+</div></blockquote>
+<p>groupSearchBase -&gt; (string)</p>
+<blockquote>
+<div><p>Group search base.</p>
+</div></blockquote>
+<p>userNameAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>User name attribute.</p>
+</div></blockquote>
+<p>domain -&gt; (string)</p>
+<blockquote>
+<div><p>LDAP domain.</p>
+</div></blockquote>
+<p>directoryType -&gt; (string)</p>
+<blockquote>
+<div><p>Directory type.</p>
+</div></blockquote>
+<p>userObjectClass -&gt; (string)</p>
+<blockquote>
+<div><p>User object class.</p>
+</div></blockquote>
+<p>groupObjectClass -&gt; (string)</p>
+<blockquote>
+<div><p>Group object class.</p>
+</div></blockquote>
+<p>groupNameAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>Group name attribute.</p>
+</div></blockquote>
+<p>groupMemberAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>Group member attribute.</p>
+</div></blockquote>
+<p>adminGroup -&gt; (string)</p>
+<blockquote>
+<div><p>Admin group.</p>
+</div></blockquote>
+<p>certificate -&gt; (string)</p>
+<blockquote>
+<div><p>Certificate.</p>
+</div></blockquote>
+<p>workspaceId -&gt; (integer)</p>
+<blockquote>
+<div><p>Workspace ID.</p>
+</div></blockquote>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>User ID.</p>
+</div></blockquote>
+<p>userName -&gt; (string)</p>
+<blockquote>
+<div><p>User name.</p>
+</div></blockquote>
+<p>tenantName -&gt; (string)</p>
+<blockquote>
+<div><p>Tenant name.</p>
+</div></blockquote>
+</div></blockquote>
+<p>rdsDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Details of the RDS attached to cluster.</p>
+<p>id -&gt; (integer)</p>
+<blockquote>
+<div><p>ID of RDS.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of RDS.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Description of RDS.</p>
+</div></blockquote>
+<p>connectionURL -&gt; (string)</p>
+<blockquote>
+<div><p>Connection URL of RDS.</p>
+</div></blockquote>
+<p>sslMode -&gt; (string)</p>
+<blockquote>
+<div><p>SSL mode.</p>
+</div></blockquote>
+<p>databaseEngine -&gt; (string)</p>
+<blockquote>
+<div><p>Database engine.</p>
+</div></blockquote>
+<p>connectionDriver -&gt; (string)</p>
+<blockquote>
+<div><p>Connection driver.</p>
+</div></blockquote>
+<p>creationDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>RDS creation date.</p>
+</div></blockquote>
+<p>stackVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Stack version.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of RDS.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Type of RDS.</p>
+</div></blockquote>
+<p>connectorJarUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Connector Jar URL.</p>
+</div></blockquote>
+<p>workspaceId -&gt; (integer)</p>
+<blockquote>
+<div><p>Workspace ID.</p>
+</div></blockquote>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>User ID.</p>
+</div></blockquote>
+<p>userName -&gt; (string)</p>
+<blockquote>
+<div><p>User name.</p>
+</div></blockquote>
+<p>tenantName -&gt; (string)</p>
+<blockquote>
+<div><p>RDS tenant name.</p>
+</div></blockquote>
+<p>external -&gt; (boolean)</p>
+<blockquote>
+<div><p>Set to true if RDS is external.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>nextToken -&gt; (string)</p>
+<blockquote>
+<div><p>The token to use when requesting the next set of results. If not present, there are no additional results.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-cluster-lifecycle-events</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-cluster-definitions.html"
+                        title="previous chapter">list-cluster-definitions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-cluster-templates.html"
+                        title="next chapter">list-cluster-templates</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-cluster-templates.html" title="list-cluster-templates"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-cluster-definitions.html" title="list-cluster-definitions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.63 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-cluster-lifecycle-events</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
