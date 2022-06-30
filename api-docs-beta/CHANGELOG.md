@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.64 (2022-06-28)
+
+IMPROVEMENTS
+* dw: Add API to run diagnostic jobs over virtual warehouses.
+* dw: Add API to change autoscaling configuration for virtual warehouses.
+* dw: Deprecate the `customEcrRepository` attribute in favor of `CustomRegistryOptions`.
+* environments: Add a new property `workloadAnalytics` to `Environment` definition.
+* environments: Add `downscale-freeipa` and `upscale-freeipa` commands to change the number of FreeIPA nodes hence FreeIPA availability type.
+* iam: Add a new property `clouderaSSOAllLoginEnabled` to `Account` definition.
+
 ## 0.9.63 (2022-06-17)
 
 IMPROVEMENTS:

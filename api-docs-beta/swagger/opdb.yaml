@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.63 (BETA)
+  version: 0.9.64 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -293,6 +293,29 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: false
+  /api/v1/opdb/listEvents:
+    post:
+      summary: Lists events
+      description: Lists events in reverse chronological order for an operational database.
+      operationId: listEvents
+      x-entitlement: COD_PROACTIVE_SUPPORT
+      x-paging-default-max-items: 20
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListEventsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListEventsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/opdb/listRestoreSnapshots:
     post:
       summary: Lists instances when a snapshot was restored to a database
@@ -309,6 +332,28 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ListRestoreSnapshotsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
+  /api/v1/opdb/listScalingEvents:
+    post:
+      summary: Lists scaling events
+      description: Lists scaling events in reverse chronological order for an operational database.
+      operationId: listScalingEvents
+      x-paging-default-max-items: 20
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListScalingEventsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListScalingEventsResponse'
         default:
           description: The default response on an error.
           schema:
@@ -632,6 +677,13 @@ definitions:
       autoScalingParameters:
         description: Parameters to configure the scaling policy
         $ref: '#/definitions/AutoScalingParameters'
+      numDesiredStrongMetaServers:
+        type: integer
+        format: int32
+        description: The desired number of strong meta servers for this database. A positive, non-zero number is required. Use removeStrongMetaServers to remove strong meta servers entirely. Requires the COD_STRONG_META_SERVERS entitlement.
+      removeStrongMetaServers:
+        type: boolean
+        description: Removes any strong meta servers provisioned for this database. Requires the COD_STRONG_META_SERVERS entitlement.
   AutoScalingParameters:
     type: object
     description: A Parameters to configure AutoScaling
@@ -884,6 +936,10 @@ definitions:
       autoScalingConfig:
         description: The autoscaling config
         $ref: '#/definitions/AutoScalingConfig'
+      numStrongMetaServers:
+        type: integer
+        format: int32
+        description: The number of strong meta servers for this database. Requires the COD_STRONG_META_SERVERS entitlement.
   DescribeDatabaseRequest:
     type: object
     description: request to get details of the database in a particular environment
@@ -1599,4 +1655,167 @@ definitions:
         type: integer
         format: int64
         description: The command ID of the submitted request.
+  ListScalingEventsRequest:
+    type: object
+    description: List scaling events request.
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment.
+      database:
+        type: string
+        description: The name or CRN of the database.
+      fromTimestamp:
+        type: string
+        format: date-time
+        description: The beginning timestamp for the search range (inclusive).
+      toTimestamp:
+        type: string
+        format: date-time
+        description: The ending timestamp for the search range (exclusive).
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 20
+        x-paging-page-size: true
+        description: The page size.
+      pageToken:
+        type: string
+        x-paging-input-token: true
+        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response.
+  ListScalingEventsResponse:
+    type: object
+    description: List scaling events response.
+    properties:
+      scalingEvents:
+        type: array
+        x-paging-result: true
+        items:
+          $ref: '#/definitions/ScalingEvent'
+        description: The details of the scaling event.
+      nextPageToken:
+        type: string
+        x-paging-output-token: true
+        description: The token to use when requesting the next set of results. If not present, there are no additional results.
+  ScalingEvent:
+    type: object
+    description: Details of a scaling event.
+    properties:
+      eventTimestamp:
+        type: string
+        format: date-time
+        description: The time of the event creation.
+      nodeCountBefore:
+        type: integer
+        format: int32
+        description: Node count before scaling event.
+      nodeCountAfter:
+        type: integer
+        format: int32
+        description: Node count after scaling event.
+      status:
+        type: string
+        description: Scaling event status.
+      metric:
+        type: string
+        description: JSON of the metric name and value that triggered the scaling event.
+      reason:
+        type: string
+        description: Reason for the scaling event in a readable format.
+  ListEventsRequest:
+    type: object
+    description: List events request.
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment.
+      database:
+        type: string
+        description: The name or CRN of the database.
+      eventType:
+        description: The type of the event.
+        $ref: '#/definitions/EventType'
+      fromTimestamp:
+        type: string
+        format: date-time
+        description: The beginning timestamp for the search range (inclusive).
+      toTimestamp:
+        type: string
+        format: date-time
+        description: The ending timestamp for the search range (exclusive).
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 20
+        x-paging-page-size: true
+        description: The page size.
+      pageToken:
+        type: string
+        x-paging-input-token: true
+        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response.
+      verbose:
+        type: boolean
+        description: Verbose flag. Set true to get a detailed response. Default is false.
+  ListEventsResponse:
+    type: object
+    description: List events response.
+    required:
+      - events
+    properties:
+      events:
+        type: array
+        x-paging-result: true
+        items:
+          $ref: '#/definitions/Event'
+        description: The list of events.
+      nextPageToken:
+        type: string
+        x-paging-output-token: true
+        description: The token to use when requesting the next set of results. If not present, there are no additional results.
+  EventType:
+    type: string
+    description: Type of an Event
+    enum:
+      - ALERT_DELIVERY
+      - AUTO_HEALING
+  Event:
+    type: object
+    description: Details of an event.
+    required:
+      - id
+      - type
+      - status
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The event ID.
+      type:
+        type: string
+        description: Event type , currently value can be either ALERT_DELIVERY or AUTO_HEALING but more values could be introduced over time.
+      status:
+        type: string
+        description: Event status.
+      createTimestamp:
+        type: string
+        format: date-time
+        description: The event creation timestamp.
+      attributes:
+        type: object
+        description: Map containing event attributes. Set verbose true to get map of event attributes.
+        additionalProperties:
+          type: string
+      statusReason:
+        type: string
+        description: Event reason. Set verbose true to get event reason.
+      expiryTimestamp:
+        type: string
+        format: date-time
+        description: The expiration timestamp of the event. Set verbose true to get the expiration timestamp.
+      lastUpdateTimestamp:
+        type: string
+        format: date-time
+        description: The last update timestamp of the event. Set verbose true to get last update timestamp.
 x-audit: true
