@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-vw &#8212; CDP CLI 0.9.63 documentation</title>
+    <title>update-vw &#8212; CDP CLI 0.9.65 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="update-ssh-key.html" title="update-ssh-key"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.63 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.65 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Update the configuration of a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.63</p>
+<dd class="field-even"><p>0.9.65</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -59,6 +59,8 @@
 --cluster-id &lt;value&gt;
 --vw-id &lt;value&gt;
 <span class="o">[</span>--config &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--autoscaling &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--query-isolation-options &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -212,6 +214,52 @@
 <span class="o">}</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--autoscaling</span></code> (object)</p>
+<blockquote>
+<div><p>Auto-scaling configuration for a Virtual Warehouse. Provide those values only that you want to update.</p>
+<p>minClusters -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum number of available compute groups. Zero means, the minClusters will not be updated.</p>
+</div></blockquote>
+<p>maxClusters -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of available compute groups. Zero means, the maxClusters will not be updated..</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">minClusters</span><span class="o">=</span>integer,maxClusters<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;minClusters&quot;</span>: integer,
+  <span class="s2">&quot;maxClusters&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--query-isolation-options</span></code> (object)</p>
+<blockquote>
+<div><p>Configurations for Query Isolation.</p>
+<p>maxQueries -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum Concurrent Isolated Queries. If not provided, 0 will be applied. The 0 value means the query isoltaion functionality will be disabled.</p>
+</div></blockquote>
+<p>maxNodesPerQuery -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum Nodes Per Isolated Query. If not provided, 0 will be applied. The 0 value means the query isoltaion functionality will be disabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">maxQueries</span><span class="o">=</span>integer,maxNodesPerQuery<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;maxQueries&quot;</span>: integer,
+  <span class="s2">&quot;maxNodesPerQuery&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -278,7 +326,7 @@
         <li class="right" >
           <a href="update-ssh-key.html" title="update-ssh-key"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.63 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.65 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vw</a></li> 
       </ul>
