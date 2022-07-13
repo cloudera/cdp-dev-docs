@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.65 (2022-07-12)
+
+IMPROVEMENTS:
+
+* datahub: Deprecate `clusterDefinitionName`, `environmentName` and `clusterTemplateName` parameters from the `create-aws-cluster` command.
+
 ## 0.9.64 (2022-06-28)
 
 IMPROVEMENTS
