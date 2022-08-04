@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.66 (2022-08-03)
+
+IMPROVEMENTS:
+
+* datalake: Add `instanceGroupNames` and `instances` parameters to `renew-certificate` and `repair-datalake` commands.
+* dfworkload: Add `download-client-certificate-encoded`, `download-client-private-key-encoded`, `create-inbound-connection-endpoint`, `delete-inbound-connection-endpoint`, `describe-inbound-connection-endpoint` and `list-inbound-connection-endpoints` commands.
+* dfworkload: Add `STOPPED`, `SDX_OTPUT_CHANGED` and `METRICS_UNAVAILABLE` status values to `cancel-nifi-version-update`, `create-deployment`, `terminate-deployment`, `transition-flow` and `update-nifi-version` commands.
+
+
 ## 0.9.65 (2022-07-12)
 
 IMPROVEMENTS:
