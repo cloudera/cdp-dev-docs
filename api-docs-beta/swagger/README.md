@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.65 (BETA)*
+*Version: 0.9.66 (BETA)*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -15,20 +15,20 @@ API requests must be signed according to the
 
 | Service Definition | Version |
 | --- | --- |
-| [audit.yaml](./audit.yaml) | 0.9.65 |
-| [datacatalog.yaml](./datacatalog.yaml) | 0.9.65 |
-| [datahub.yaml](./datahub.yaml) | 0.9.65 |
-| [datalake.yaml](./datalake.yaml) | 0.9.65 |
-| [de.yaml](./de.yaml) | 0.9.65 |
-| [df.yaml](./df.yaml) | 0.9.65 |
-| [dfworkload.yaml](./dfworkload.yaml) | 0.9.65 |
-| [dw.yaml](./dw.yaml) | 0.9.65 |
-| [environments.yaml](./environments.yaml) | 0.9.65 |
-| [iam.yaml](./iam.yaml) | 0.9.65 |
-| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.65 |
-| [ml.yaml](./ml.yaml) | 0.9.65 |
-| [opdb.yaml](./opdb.yaml) | 0.9.65 |
-| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.65 |
+| [audit.yaml](./audit.yaml) | 0.9.66 |
+| [datacatalog.yaml](./datacatalog.yaml) | 0.9.66 |
+| [datahub.yaml](./datahub.yaml) | 0.9.66 |
+| [datalake.yaml](./datalake.yaml) | 0.9.66 |
+| [de.yaml](./de.yaml) | 0.9.66 |
+| [df.yaml](./df.yaml) | 0.9.66 |
+| [dfworkload.yaml](./dfworkload.yaml) | 0.9.66 |
+| [dw.yaml](./dw.yaml) | 0.9.66 |
+| [environments.yaml](./environments.yaml) | 0.9.66 |
+| [iam.yaml](./iam.yaml) | 0.9.66 |
+| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.66 |
+| [ml.yaml](./ml.yaml) | 0.9.66 |
+| [opdb.yaml](./opdb.yaml) | 0.9.66 |
+| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.66 |
 
 See all the files at once in this site's
 [Github repository](https://github.com/cloudera/cdp-dev-docs/tree/master/api-docs/swagger).

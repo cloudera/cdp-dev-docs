@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.65 (BETA)
+  version: 0.9.66 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -3564,6 +3564,11 @@ definitions:
         type: integer
         format: int32
         description: The number of FreeIPA instances to create per group when creating FreeIPA in the environment
+      recipes:
+        type: array
+        items:
+          type: string
+        description: Recipes for FreeIPA
       instanceType:
         type: string
         description: Custom instance type of FreeIPA instances.
@@ -3578,6 +3583,11 @@ definitions:
         type: integer
         format: int32
         description: The number of FreeIPA instances to create per group when creating FreeIPA in the environment
+      recipes:
+        type: array
+        items:
+          type: string
+        description: Recipes for FreeIPA
       instanceType:
         type: string
         description: Custom instance type of FreeIPA instances.
@@ -3589,6 +3599,11 @@ definitions:
         type: integer
         format: int32
         description: The number of FreeIPA instances to create per group when creating FreeIPA in the environment
+      recipes:
+        type: array
+        items:
+          type: string
+        description: Recipes for FreeIPA
       instanceType:
         type: string
         description: Custom instance type of FreeIPA instances.
@@ -3649,6 +3664,11 @@ definitions:
         type: array
         description: The IP addresses of the FreeIPA cluster.
         uniqueItems: true
+        items:
+          type: string
+      recipes:
+        type: array
+        description: The recipes for the FreeIPA cluster.
         items:
           type: string
   ProxyConfig:
