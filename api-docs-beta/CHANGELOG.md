@@ -1,5 +1,20 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.67 (2022-08-15)
+
+* dw: Add `enableStorageRoles` and `outboundType` parameter to `create-cluster` command.
+* dw: Remove deprecated `customEcrRepository` parameter from `create-cluster` command.
+* dw: Deprecate `enableUDR` parameter in `create-cluster` command.
+* dw: Add `environmentCrn`, `clusterId`, `name`, `status` and `cloudPlatform` parameters to `list-clusters` command.
+* dw: Add `disableAutoSuspend`, `autoSuspendTimeoutSecond`, `enableUnifiedAnalytics`, `hiveScaleWaitTimeSeconds`, `hiveDesiredFreeCapacity`, `impalaHighAvailabilityMode`, `impalaScaleUpDelaySeconds`, `impalaScaleDownDelaySeconds`, `impalaEnableShutdownOfCoordinator`, `impalaShutdownOfCoordinatorDelaySeconds`, `impalaNumOfActiveCoordinators` and `podConfigName` parameters to `autoscaling-options-create` command.
+* dw: Add `disableAutoSuspend`, `autoSuspendTimeoutSecond`, `hiveScaleWaitTimeSeconds`, `hiveDesiredFreeCapacity`, `impalaScaleUpDelaySeconds`, `impalaScaleDownDelaySeconds`, `impalaShutdownOfCoordinatorDelaySeconds` and `impalaNumOfActiveCoordinators` parameters to `autoscaling-options-update` command.
+* dw: Add `autoscalingOptions`, `queryIsolationOptions`, `capacitor`, `viz`, `autoscalingOptions` and `queryIsolationOptions` parameters to `list-vws` and `describe-vw` commands.
+* dw: Add `dbcId`, `compactor` and `viz` parameters to `list-vws` command.
+* dw: Add `awsOptions` and `azureOptions` parameters to `describe-cluster` and `list-clusters` commands.
+* dw: Deprecate `enableUDR` parameter in `describe-cluster` and `list-cluster` commands.
+* dw: Add `awsOptions`, `azureOptions` and `enableStorageRoles` parameters in `describe-cluster` and `list-cluster` commands.
+* dw: Change default value of `force` parameter to `false` in `delete-cluster` command.
+
 ## 0.9.66 (2022-08-03)
 
 IMPROVEMENTS:
