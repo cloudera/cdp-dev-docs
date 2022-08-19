@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.68 (2022-08-18)
+
+IMPROVEMENTS:
+
+* ml: Add `backup-workspace`, `delete-backup`, `list-workspace-backups`, `restore-workspace` and `migrate-cdsw-workspace` commands.
+
 ## 0.9.67 (2022-08-15)
 
 * dw: Add `enableStorageRoles` and `outboundType` parameter to `create-cluster` command.
