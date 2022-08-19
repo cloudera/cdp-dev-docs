@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.67 (BETA)
+  version: 0.9.68 (BETA)
   title: Cloudera Machine Learning
   license:
     name: Apache 2.0
@@ -773,7 +773,7 @@ definitions:
         type: boolean
         description: The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
       provisionK8sRequest:
-        description: The request for Kubernetes workspace provision.
+        description: The request for Kubernetes workspace provision. Required in public cloud.
         $ref: '#/definitions/ProvisionK8sRequest'
       enableMonitoring:
         type: boolean
@@ -856,6 +856,13 @@ definitions:
         items:
           $ref: '#/definitions/WorkspaceSummary'
         description: The list of workspaces.
+  ListWorkspaceBackupsQueryOptions:
+    type: object
+    description: Query options object for ListWorkspaceBackups method.
+    properties:
+      expandEnvironmentMetadata:
+        type: boolean
+        description: When set to true, will return the metadata of the environment where the backed-up workspace is/was present.
   ListWorkspaceBackupsRequest:
     type: object
     description: Request object for ListWorkspaceBackups method.
@@ -869,6 +876,9 @@ definitions:
       workspaceCrn:
         type: string
         description: The CRN of the workspace to list backups for. If this field is specified, environmentName and workspaceName are ignored.
+      queryOptions:
+        description: Additional query options to enhance/mutate the API response.
+        $ref: '#/definitions/ListWorkspaceBackupsQueryOptions'
   BackupDetail:
     type: object
     description: Backup Detail response object for listing backups.
@@ -1109,6 +1119,9 @@ definitions:
         items:
           type: string
         description: The whitelist of CIDR blocks which can access the API server.
+      backupMetadata:
+        description: The Backup MetaData for this Workspace
+        $ref: '#/definitions/BackupMetadata'
   UpgradeWorkspaceRequest:
     type: object
     description: Request object for the UpgradeWorkspace method.
@@ -1121,7 +1134,8 @@ definitions:
         description: The name of the workspace.
       mlVersion:
         type: string
-        description: The version of workspace to upgrade to.
+        description: The version of workspace to upgrade to. (Deprecated).
+        x-deprecated: true
       workspaceCrn:
         type: string
         description: The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.

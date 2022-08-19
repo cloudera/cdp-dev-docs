@@ -864,6 +864,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <ul class="sectlevel2">
 <li><a href="#_addcoprocessorrequest">AddCoprocessorRequest</a></li>
 <li><a href="#_addcoprocessorresponse">AddCoprocessorResponse</a></li>
+<li><a href="#_attachedstorageforworkers">AttachedStorageForWorkers</a></li>
 <li><a href="#_autoscalingconfig">AutoScalingConfig</a></li>
 <li><a href="#_autoscalingparameters">AutoScalingParameters</a></li>
 <li><a href="#_clientconfigurationdetails">ClientConfigurationDetails</a></li>
@@ -916,6 +917,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listsnapshotsresponse">ListSnapshotsResponse</a></li>
 <li><a href="#_listsupportedenvironmentsrequest">ListSupportedEnvironmentsRequest</a></li>
 <li><a href="#_listsupportedenvironmentsresponse">ListSupportedEnvironmentsResponse</a></li>
+<li><a href="#_masternodetype">MasterNodeType</a></li>
 <li><a href="#_removecoprocessorrequest">RemoveCoprocessorRequest</a></li>
 <li><a href="#_removecoprocessorresponse">RemoveCoprocessorResponse</a></li>
 <li><a href="#_restoresnapshot">RestoreSnapshot</a></li>
@@ -929,10 +931,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_statustype">StatusType</a></li>
 <li><a href="#_stopdatabaserequest">StopDatabaseRequest</a></li>
 <li><a href="#_stopdatabaseresponse">StopDatabaseResponse</a></li>
+<li><a href="#_storagedetailsforworker">StorageDetailsForWorker</a></li>
 <li><a href="#_updatedatabaserequest">UpdateDatabaseRequest</a></li>
 <li><a href="#_updatedatabaseresponse">UpdateDatabaseResponse</a></li>
 <li><a href="#_upgradedatabaserequest">UpgradeDatabaseRequest</a></li>
 <li><a href="#_upgradedatabaseresponse">UpgradeDatabaseResponse</a></li>
+<li><a href="#_volumetype">VolumeType</a></li>
 </ul>
 </li>
 </ul>
@@ -948,7 +952,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.67 (BETA)</p>
+<p><em>Version</em> : 0.9.68 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -3247,6 +3251,66 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_attachedstorageforworkers">AttachedStorageForWorkers</h3>
+<div class="paragraph">
+<p>Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The number of Volumes. Default is 4. Valid Range: Minimum value of 1, maximum value 8.<br>
+<strong>Minimum value</strong> : <code>1</code><br>
+<strong>Maximum value</strong> : <code>8</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The target size of the volume, in GiB. Default is 2048.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The volume type. This parameter can be HDD or SSD. Default is HDD.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_volumetype">VolumeType</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_autoscalingconfig">AutoScalingConfig</h3>
 <div class="paragraph">
 <p>A config for Autoscaling</p>
@@ -3943,6 +4007,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>attachedStorageForWorkers</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_attachedstorageforworkers">AttachedStorageForWorkers</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>autoScalingParameters</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4035,6 +4111,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>masterNodeType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Optional tags to select predefined master node type to handle different size of work load when hbase root deployed on hdfs</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_masternodetype">MasterNodeType</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4435,6 +4523,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_statustype">StatusType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>storageDetailsForWorkers</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of storage details for the worker nodes for AWS, Azure, and GCP cloud providers.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_storagedetailsforworker">StorageDetailsForWorker</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6517,6 +6617,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_masternodetype">MasterNodeType</h3>
+<div class="paragraph">
+<p>Master node type
+ <code>LITE</code> - Use small master instance type to handle less load for master services. <code>HEAVY</code> - Use large master instance type to handle more load for master services.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (LITE, HEAVY)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_removecoprocessorrequest">RemoveCoprocessorRequest</h3>
 <div class="paragraph">
 <p>The request for removing a coprocessor of a table in a database.</p>
@@ -7366,6 +7476,64 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_storagedetailsforworker">StorageDetailsForWorker</h3>
+<div class="paragraph">
+<p>Storage details for the worker node for AWS, Azure, and GCP cloud providers.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The number of volumes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The target size of the volume, in GiB.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The volume type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_volumetype">VolumeType</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updatedatabaserequest">UpdateDatabaseRequest</h3>
 <div class="paragraph">
 <p>A request to update the database</p>
@@ -7560,12 +7728,22 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_volumetype">VolumeType</h3>
+<div class="paragraph">
+<p>Volume Type.
+ <code>HDD</code> - Hard disk drives (HDD) volume type. Default is HDD. <code>SSD</code> - Solid disk drives (SSD) volume type.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (HDD, SSD)</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-16 15:37:56 -0700
+Last updated 2022-08-18 19:20:50 -0700
 </div>
 </div>
 <br>

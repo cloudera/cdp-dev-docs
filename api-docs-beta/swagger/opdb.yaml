@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.67 (BETA)
+  version: 0.9.68 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -661,6 +661,41 @@ definitions:
       disableMultiAz:
         type: boolean
         description: Disable deployment into multiple availability-zones (the database will be deployed into one subnet).
+      attachedStorageForWorkers:
+        description: Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.
+        $ref: '#/definitions/AttachedStorageForWorkers'
+      masterNodeType:
+        description: Optional tags to select predefined master node type to handle different size of work load when hbase root deployed on hdfs
+        $ref: '#/definitions/MasterNodeType'
+  VolumeType:
+    type: string
+    description: "Volume Type.\n `HDD` - Hard disk drives (HDD) volume type. Default is HDD. `SSD` - Solid disk drives (SSD) volume type."
+    enum:
+      - HDD
+      - SSD
+  AttachedStorageForWorkers:
+    type: object
+    description: Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.
+    properties:
+      volumeCount:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 8
+        description: 'The number of Volumes. Default is 4. Valid Range: Minimum value of 1, maximum value 8.'
+      volumeSize:
+        type: integer
+        format: int32
+        description: The target size of the volume, in GiB. Default is 2048.
+      volumeType:
+        description: The volume type. This parameter can be HDD or SSD. Default is HDD.
+        $ref: '#/definitions/VolumeType'
+  MasterNodeType:
+    type: string
+    description: "Master node type\n `LITE` - Use small master instance type to handle less load for master services. `HEAVY` - Use large master instance type to handle more load for master services."
+    enum:
+      - LITE
+      - HEAVY
   UpdateDatabaseRequest:
     type: object
     description: A request to update the database
@@ -940,6 +975,26 @@ definitions:
         type: integer
         format: int32
         description: The number of strong meta servers for this database. Requires the COD_STRONG_META_SERVERS entitlement.
+      storageDetailsForWorkers:
+        type: array
+        items:
+          $ref: '#/definitions/StorageDetailsForWorker'
+        description: The list of storage details for the worker nodes for AWS, Azure, and GCP cloud providers.
+  StorageDetailsForWorker:
+    type: object
+    description: Storage details for the worker node for AWS, Azure, and GCP cloud providers.
+    properties:
+      volumeCount:
+        type: integer
+        format: int32
+        description: The number of volumes.
+      volumeSize:
+        type: integer
+        format: int32
+        description: The target size of the volume, in GiB.
+      volumeType:
+        description: The volume type.
+        $ref: '#/definitions/VolumeType'
   DescribeDatabaseRequest:
     type: object
     description: request to get details of the database in a particular environment

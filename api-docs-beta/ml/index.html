@@ -861,6 +861,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_instancegroup">InstanceGroup</a></li>
 <li><a href="#_listworkspaceaccessrequest">ListWorkspaceAccessRequest</a></li>
 <li><a href="#_listworkspaceaccessresponse">ListWorkspaceAccessResponse</a></li>
+<li><a href="#_listworkspacebackupsqueryoptions">ListWorkspaceBackupsQueryOptions</a></li>
 <li><a href="#_listworkspacebackupsrequest">ListWorkspaceBackupsRequest</a></li>
 <li><a href="#_listworkspacebackupsresponse">ListWorkspaceBackupsResponse</a></li>
 <li><a href="#_listworkspacesrequest">ListWorkspacesRequest</a></li>
@@ -901,7 +902,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.67 (BETA)</p>
+<p><em>Version</em> : 0.9.68 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -3296,7 +3297,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The request for Kubernetes workspace provision.</p>
+<p>The request for Kubernetes workspace provision. Required in public cloud.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_provisionk8srequest">ProvisionK8sRequest</a></p>
@@ -4503,6 +4504,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_listworkspacebackupsqueryoptions">ListWorkspaceBackupsQueryOptions</h3>
+<div class="paragraph">
+<p>Query options object for ListWorkspaceBackups method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>expandEnvironmentMetadata</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>When set to true, will return the metadata of the environment where the backed-up workspace is/was present.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_listworkspacebackupsrequest">ListWorkspaceBackupsRequest</h3>
 <div class="paragraph">
 <p>Request object for ListWorkspaceBackups method.</p>
@@ -4531,6 +4566,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>queryOptions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Additional query options to enhance/mutate the API response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listworkspacebackupsqueryoptions">ListWorkspaceBackupsQueryOptions</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -5359,7 +5406,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of workspace to upgrade to.</p>
+<p>The version of workspace to upgrade to. (Deprecated).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5430,6 +5477,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>backupMetadata</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Backup MetaData for this Workspace</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_backupmetadata">BackupMetadata</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -6084,7 +6143,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-16 15:37:56 -0700
+Last updated 2022-08-18 19:20:50 -0700
 </div>
 </div>
 <br>
