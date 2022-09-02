@@ -776,6 +776,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_chartvalueoverridesresponse">ChartValueOverridesResponse</a></li>
 <li><a href="#_createvcrequest">CreateVcRequest</a></li>
 <li><a href="#_createvcresponse">CreateVcResponse</a></li>
+<li><a href="#_customazurefilesconfigs">CustomAzureFilesConfigs</a></li>
 <li><a href="#_deletevcrequest">DeleteVcRequest</a></li>
 <li><a href="#_deletevcresponse">DeleteVcResponse</a></li>
 <li><a href="#_describeservicerequest">DescribeServiceRequest</a></li>
@@ -820,7 +821,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.68 (BETA)</p>
+<p><em>Version</em> : 0.9.69 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -2103,6 +2104,64 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_customazurefilesconfigs">CustomAzureFilesConfigs</h3>
+<div class="paragraph">
+<p>Override Azure Files Configs.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureFilesFQDN</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure File Share&#8217;s server address. Defaults to '&lt;storageaccount&gt;.file.core.windows.net'.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceGroup</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Resource Group of the Storage Account.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>storageAccountName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure Storage Account of the File Share.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_deletevcrequest">DeleteVcRequest</h3>
 <div class="paragraph">
 <p>Request object for DeleteVc method.</p>
@@ -2440,6 +2499,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_chartvalueoverridesrequest">ChartValueOverridesRequest</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customAzureFilesConfigs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDE uses a default public File Shares storage provisioned by AKS. Enable this option to use your own public/private File Shares.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_customazurefilesconfigs">CustomAzureFilesConfigs</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4340,7 +4411,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-18 19:20:50 -0700
+Last updated 2022-09-01 19:31:35 -0700
 </div>
 </div>
 <br>

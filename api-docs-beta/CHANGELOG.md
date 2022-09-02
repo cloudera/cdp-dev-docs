@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.69 (2022-09-01)
+
+IMPROVEMENTS:
+
+* Cloudera CDP Java SDK is upgraded to use Java 11 as the compiler, it also needs Java 11 as the runtime.
+* de: Add `storageAccountName`, `resourceGroup` and `azureFilesFQDN` parameters to `enable-service` command.
+
 ## 0.9.68 (2022-08-18)
 
 IMPROVEMENTS:
