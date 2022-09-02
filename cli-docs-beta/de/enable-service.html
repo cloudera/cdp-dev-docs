@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>enable-service &#8212; CDP CLI 0.9.68 (BETA) documentation</title>
+    <title>enable-service &#8212; CDP CLI 0.9.69 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="disable-service.html" title="disable-service"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.68 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.69 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">enable-service</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Enable Cloudera Data Engineering(CDE) Service</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.68</p>
+<dd class="field-even"><p>0.9.69</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -76,6 +76,7 @@
 <span class="o">[</span>--skip-validation <span class="p">|</span> --no-skip-validation<span class="o">]</span>
 <span class="o">[</span>--enable-private-network <span class="p">|</span> --no-enable-private-network<span class="o">]</span>
 <span class="o">[</span>--subnets &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--custom-azure-files-configs &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -196,6 +197,34 @@
 </div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-azure-files-configs</span></code> (object)</p>
+<blockquote>
+<div><p>Override Azure Files Configs.</p>
+<p>storageAccountName -&gt; (string)</p>
+<blockquote>
+<div><p>Azure Storage Account of the File Share.</p>
+</div></blockquote>
+<p>resourceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>Resource Group of the Storage Account.</p>
+</div></blockquote>
+<p>azureFilesFQDN -&gt; (string)</p>
+<blockquote>
+<div><p>Azure File Share’s server address. Defaults to ‘.file.core.windows.net’.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">storageAccountName</span><span class="o">=</span>string,resourceGroup<span class="o">=</span>string,azureFilesFQDN<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;storageAccountName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;resourceGroup&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;azureFilesFQDN&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
@@ -404,7 +433,7 @@
         <li class="right" >
           <a href="disable-service.html" title="disable-service"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.68 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.69 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">enable-service</a></li> 
       </ul>
