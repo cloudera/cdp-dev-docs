@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.70 (2022-09-19)
+
+IMPROVEMENTS:
+
+* datahub: Add command `prepare-cluster-upgrade`.
+* datalake: Add command `prepare-datalake-upgrade`.
+* datalake: Make `backupLocation` parameter required in `backup-datalake` command.
+* dfworkload: Add values `UNASSIGNED`, `ASSIGNED`, `PROVISIONING_CERTIFICATES`, `RENEWING_CERTIFICATES`, `READY` and `FAILED` to `state` parameter enum to `create-inbound-connection-endpoint`, `describe-inbound-connection-endpoint` and `describe-inbound-connection-endpoint`.
+
 ## 0.9.69 (2022-09-01)
 
 IMPROVEMENTS:
