@@ -1,5 +1,30 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.71 (2022-09-28)
+
+IMPROVEMENTS:
+
+* compute: **New Service** for Cloudera Compute API.
+* compute: Add `describe-deployment` command to get details of a deployment in the cluster.
+* compute: Add `list-clusters` command to list the clusters of an environment.
+* compute: Add `upgrade-deployment` command to upgrade a deployment in the cluster.
+* dw: Add `databaseBackupRetentionPeriod` parameter to `create-cluster` command.
+* dw: Add `customRegistryOptions` parameter to `create-cluster` command.
+* dw: Add `customId` parameter to `create-cluster` command.
+* dw: Add `customSubdomain` parameter to `create-cluster` command.
+* dw: Add `nodeRoleCDWManagedPolicyArn` property in `awsOptions` parameter of `create-cluster` command.
+* dw: Add `enableSpotInstances` property in `awsOptions` parameter of `create-cluster` command.
+* dw: Add `enableSpotInstances` property as a response to `describe-cluster`/`list-clusters` commands.
+* dw: Add `reducedPermissionMode` property in `awsOptions` parameter of `create-cluster` command and also in the response of `describe-cluster`/`list-clusters` commands.
+* dw: Add `nodeCount` parameter to `create-vw` command.
+* dw: Add `queryIsolationOptions` parameter to `create-vw` command.
+* dw: Add `logAnalyticsWorkspaceId` as property of `azureOptions` in response to `describe-cluster`/`list-clusters` commands.
+* dw: Add `name` property as a response to `describe-cluster`/`list-clusters` commands.
+* dw: Add `configId` property as a response to `describe-vw`/`list-vws` commands.
+* dw: Add `cdhVersion` property as a response to `describe-vw`/`list-vws` commands.
+* dw: Add `endpoints` property as a response to `describe-vw`/`list-vws` commands. Its sub-properties are `hiveJdbc`, `impalaJdbc`, `impalaFENGJdbc`, `impalaShell`, `hue`, `das`.
+* environments: Add `update-aws-disk-encryption-parameters` command to update the AWS encryption key ARN for an environment.
+
 ## 0.9.70 (2022-09-19)
 
 IMPROVEMENTS:
