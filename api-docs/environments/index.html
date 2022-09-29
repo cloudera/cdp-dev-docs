@@ -1068,25 +1068,32 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_54">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateazureencryptionresources">Update the Azure encryption resources for the environment.</a>
+<li><a href="#_updateawsdiskencryptionparameters">Update the AWS encryption key ARN for the environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_55">Description</a></li>
 <li><a href="#_parameters_55">Parameters</a></li>
 <li><a href="#_responses_55">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeccm">Upgrades Cluster Connectivity Manager on the environment to the latest available version.</a>
+<li><a href="#_updateazureencryptionresources">Update the Azure encryption resources for the environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_56">Description</a></li>
 <li><a href="#_parameters_56">Parameters</a></li>
 <li><a href="#_responses_56">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upscalefreeipa">Upscales FreeIPA instances.</a>
+<li><a href="#_upgradeccm">Upgrades Cluster Connectivity Manager on the environment to the latest available version.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_57">Description</a></li>
 <li><a href="#_parameters_57">Parameters</a></li>
 <li><a href="#_responses_57">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upscalefreeipa">Upscales FreeIPA instances.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_58">Description</a></li>
+<li><a href="#_parameters_58">Parameters</a></li>
+<li><a href="#_responses_58">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1100,6 +1107,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_authenticationrequest">AuthenticationRequest</a></li>
 <li><a href="#_awscredentialprerequisitesresponse">AwsCredentialPrerequisitesResponse</a></li>
 <li><a href="#_awscredentialproperties">AwsCredentialProperties</a></li>
+<li><a href="#_awsdiskencryptionparameters">AwsDiskEncryptionParameters</a></li>
 <li><a href="#_awslogstoragerequest">AwsLogStorageRequest</a></li>
 <li><a href="#_azurecredentialprerequisitesresponse">AzureCredentialPrerequisitesResponse</a></li>
 <li><a href="#_azurecredentialproperties">AzureCredentialProperties</a></li>
@@ -1255,6 +1263,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_tagrequest">TagRequest</a></li>
 <li><a href="#_testaccounttelemetryrulesrequest">TestAccountTelemetryRulesRequest</a></li>
 <li><a href="#_testaccounttelemetryrulesresponse">TestAccountTelemetryRulesResponse</a></li>
+<li><a href="#_updateawsdiskencryptionparametersrequest">UpdateAwsDiskEncryptionParametersRequest</a></li>
+<li><a href="#_updateawsdiskencryptionparametersresponse">UpdateAwsDiskEncryptionParametersResponse</a></li>
 <li><a href="#_updateazureencryptionresourcesrequest">UpdateAzureEncryptionResourcesRequest</a></li>
 <li><a href="#_updateazureencryptionresourcesresponse">UpdateAzureEncryptionResourcesResponse</a></li>
 <li><a href="#_upgradeccmrequest">UpgradeCcmRequest</a></li>
@@ -1276,7 +1286,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.70</p>
+<p><em>Version</em> : 0.9.71</p>
 </div>
 </div>
 <div class="sect2">
@@ -5962,6 +5972,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_updateawsdiskencryptionparameters">Update the AWS encryption key ARN for the environment.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/environments2/updateAwsDiskEncryptionParameters</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_55">Description</h4>
+<div class="paragraph">
+<p>Updates the AWS encryption key ARN for the environment. Enables the server side encryption with CMK for newly created AWS resources for the existing environment.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_55">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateawsdiskencryptionparametersrequest">UpdateAwsDiskEncryptionParametersRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_55">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateawsdiskencryptionparametersresponse">UpdateAwsDiskEncryptionParametersResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_updateazureencryptionresources">Update the Azure encryption resources for the environment.</h3>
 <div class="literalblock">
 <div class="content">
@@ -5969,13 +6065,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_55">Description</h4>
+<h4 id="_description_56">Description</h4>
 <div class="paragraph">
 <p>Updates the Azure encryption resources for the environment. Enables the SSE with CMK for newly created Azure resources for the existing environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_55">Parameters</h4>
+<h4 id="_parameters_56">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6006,7 +6102,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_55">Responses</h4>
+<h4 id="_responses_56">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6055,13 +6151,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_56">Description</h4>
+<h4 id="_description_57">Description</h4>
 <div class="paragraph">
 <p>Upgrades Cluster Connectivity Manager on the environment to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_56">Parameters</h4>
+<h4 id="_parameters_57">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6092,7 +6188,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_56">Responses</h4>
+<h4 id="_responses_57">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6141,13 +6237,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_57">Description</h4>
+<h4 id="_description_58">Description</h4>
 <div class="paragraph">
 <p>FreeIPA is an integrated Identity and Authentication solution that can be used for any of CM, CDP services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_57">Parameters</h4>
+<h4 id="_parameters_58">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6178,7 +6274,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_57">Responses</h4>
+<h4 id="_responses_58">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6551,6 +6647,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The AWS role arn for the given credential.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_awsdiskencryptionparameters">AwsDiskEncryptionParameters</h3>
+<div class="paragraph">
+<p>Object containing details of encryption parameters for AWS cloud.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>encryptionKeyArn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ARN of the CMK which is used to encrypt the AWS EBS volumes.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -15837,6 +15967,98 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_updateawsdiskencryptionparametersrequest">UpdateAwsDiskEncryptionParametersRequest</h3>
+<div class="paragraph">
+<p>Request object for updating AWS encryption parameters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>encryptionKeyArn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ARN of an encryption key, which will be used to encrypt the AWS EBS volumes, if the entitlement has been granted.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environment</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the environment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updateawsdiskencryptionparametersresponse">UpdateAwsDiskEncryptionParametersResponse</h3>
+<div class="paragraph">
+<p>Response object for an update AWS encryption parameters request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>awsDiskEncryptionParameters</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Object containing details of encryption parameters for AWS cloud.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_awsdiskencryptionparameters">AwsDiskEncryptionParameters</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environment</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The environment summary.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_environment">Environment</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updateazureencryptionresourcesrequest">UpdateAzureEncryptionResourcesRequest</h3>
 <div class="paragraph">
 <p>Request object for updating Azure encryption resources.</p>
@@ -16092,7 +16314,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-09-20 11:54:38 -0700
+Last updated 2022-09-28 16:23:04 -0700
 </div>
 </div>
 <br>
