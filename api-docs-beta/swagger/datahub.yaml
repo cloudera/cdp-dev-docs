@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.72 (BETA)
+  version: 0.9.73 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -1179,6 +1179,28 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datahub/rotateSaltPassword:
+    post:
+      summary: Rotate SaltStack user password on Data Hub instances.
+      description: Rotate SaltStack user password on Data Hub instances.
+      operationId: rotateSaltPassword
+      x-mutating: true
+      x-entitlement: CDP_ROTATE_SALTUSER_PASSWORD
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RotateSaltPasswordRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RotateSaltPasswordResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
   Error:
     type: object
@@ -1281,6 +1303,14 @@ definitions:
       endpoints:
         $ref: '#/definitions/Endpoints'
         description: The exposed service api endpoints.
+  ClusterExtension:
+    type: object
+    description: Cluster extensions for Data Hub cluster.
+    x-no-compatibility-guarantee: true
+    properties:
+      customProperties:
+        type: string
+        description: The custom properties JSON, encoded in base64.
   ClouderaManagerDetails:
     type: object
     description: Cloudera Manager details.
@@ -2200,6 +2230,10 @@ definitions:
       multiAz:
         type: boolean
         description: Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+      clusterExtension:
+        $ref: '#/definitions/ClusterExtension'
+        description: Cluster extensions for the given Data Hub cluster.
+        x-no-compatibility-guarantee: true
       enableLoadBalancer:
         type: boolean
         description: Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
@@ -2258,6 +2292,10 @@ definitions:
       loadBalancerSku:
         description: The SKU for the datahub load balancer. Allowed values are "BASIC", "STANDARD", or "NONE".
         $ref: '#/definitions/DatahubLoadBalancerSkuType'
+      clusterExtension:
+        $ref: '#/definitions/ClusterExtension'
+        description: Cluster extensions for the given Data Hub cluster.
+        x-no-compatibility-guarantee: true
       enableLoadBalancer:
         type: boolean
         description: Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
@@ -2313,6 +2351,10 @@ definitions:
       datahubDatabase:
         $ref: '#/definitions/DatahubDatabaseType'
         description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
+      clusterExtension:
+        $ref: '#/definitions/ClusterExtension'
+        description: Cluster extensions for the given Data Hub cluster.
+        x-no-compatibility-guarantee: true
   CreateGCPClusterResponse:
     type: object
     description: Response object for create GCP cluster request.
@@ -3961,3 +4003,15 @@ definitions:
   StopInstancesResponse:
     type: object
     description: Response object to a stop instances of a host group on a Data Hub.
+  RotateSaltPasswordRequest:
+    type: object
+    description: Request object for rotating SaltStack user password on Data Hub instances.
+    required:
+      - cluster
+    properties:
+      cluster:
+        type: string
+        description: The name or CRN of the cluster.
+  RotateSaltPasswordResponse:
+    type: object
+    description: Response object for rotating SaltStack user password on Data Hub instances.

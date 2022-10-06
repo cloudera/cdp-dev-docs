@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.73 (2022-10-06)
+
+IMPROVEMENTS:
+
+* environment: Add `rotate-salt-password` command to rotate SaltStack user password on FreeIPA instances. 
+* datalake: Add `rotate-salt-password` command to rotate SaltStack user password on DataLake instances.
+* datahub: Add `rotate-salt-password` command to rotate SaltStack user password on Data Hub instances.
+
 ## 0.9.72 (2022-10-05)
 
 IMPROVEMENTS:

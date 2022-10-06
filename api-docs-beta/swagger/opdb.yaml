@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.72 (BETA)
+  version: 0.9.73 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -161,6 +161,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/DescribeDatabaseResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
+  /api/v1/opdb/describeHbaseConfiguration:
+    post:
+      summary: Describes the configuration of HBase.
+      description: Describes the selected configuration of the HBase cluster of an operational database in the environment.
+      operationId: describeHbaseConfiguration
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeHbaseConfigurationRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeHbaseConfigurationResponse'
         default:
           description: The default response on an error.
           schema:
@@ -507,6 +528,27 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
+  /api/v1/opdb/updateHbaseConfiguration:
+    post:
+      summary: Updates the configuration of HBase.
+      description: Updates the selected configuration of the HBase cluster of an operational database in the environment.
+      operationId: updateHbaseConfiguration
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateHbaseConfigurationRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateHbaseConfigurationResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
   /api/v1/opdb/upgradeDatabase:
     post:
       summary: Upgrades the database.
@@ -667,6 +709,9 @@ definitions:
       masterNodeType:
         description: Optional tags to select predefined master node type to handle different size of work load when hbase root deployed on hdfs
         $ref: '#/definitions/MasterNodeType'
+      gatewayNodeType:
+        description: Optional tags to choose one of the predefined gateway node types.
+        $ref: '#/definitions/GatewayNodeType'
   VolumeType:
     type: string
     description: "Volume Type.\n `HDD` - Hard disk drives (HDD) volume type. Default is HDD. `SSD` - Solid disk drives (SSD) volume type."
@@ -693,6 +738,12 @@ definitions:
   MasterNodeType:
     type: string
     description: "Master node type\n `LITE` - Use small master instance type to handle less load for master services. `HEAVY` - Use large master instance type to handle more load for master services."
+    enum:
+      - LITE
+      - HEAVY
+  GatewayNodeType:
+    type: string
+    description: "Gateway node type.\n `LITE` - Use a small gateway instance type to handle less load for gateway services. `HEAVY` - Use a large gateway instance type to handle more load for gateway services."
     enum:
       - LITE
       - HEAVY
@@ -787,6 +838,87 @@ definitions:
   UpdateDatabaseResponse:
     type: object
     description: A response to database update request
+  ConfigurationType:
+    type: string
+    description: "Type of an HBase configuration.\n `SERVICE` - Service level configuration. `MASTER` - Configuration for the Master nodes. `REGIONSERVER` - Configuration for the RegionServer nodes. `STRONGMETA` - Configuration for the StrongMeta RegionServer nodes. `GATEWAY` - Configuration for the Gateway nodes."
+    enum:
+      - SERVICE
+      - MASTER
+      - REGIONSERVER
+      - STRONGMETA
+      - GATEWAY
+  UpdateHbaseConfigurationRequest:
+    type: object
+    description: A request to update the HBase configuration.
+    required:
+      - environment
+      - database
+      - configurationType
+      - configurationName
+      - configurationValue
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment.
+      database:
+        type: string
+        description: The name or CRN of the database.
+      configurationType:
+        description: The type of the configuration being updated.
+        $ref: '#/definitions/ConfigurationType'
+      configurationName:
+        type: string
+        description: The name of the configuration being updated.
+      configurationValue:
+        type: string
+        description: The new value of the configuration being updated.
+  UpdateHbaseConfigurationResponse:
+    type: object
+    description: A response to update the HBase configuration request.
+    properties:
+      configuration:
+        description: The details of the configuration.
+        $ref: '#/definitions/HBaseConfiguration'
+  DescribeHbaseConfigurationRequest:
+    type: object
+    description: A request to describe the HBase configuration.
+    required:
+      - environment
+      - database
+      - configurationType
+      - configurationName
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment.
+      database:
+        type: string
+        description: The name or CRN of the database.
+      configurationType:
+        description: The type of the configuration.
+        $ref: '#/definitions/ConfigurationType'
+      configurationName:
+        type: string
+        description: The name of the configuration.
+  DescribeHbaseConfigurationResponse:
+    type: object
+    description: A response to describe the HBase configuration request.
+    properties:
+      configuration:
+        description: The details of the configuration.
+        $ref: '#/definitions/HBaseConfiguration'
+  HBaseConfiguration:
+    type: object
+    description: The details of the HBase configuration.
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        description: The name of the configuration.
+      value:
+        type: string
+        description: The value of the configuration.
   DropDatabaseRequest:
     type: object
     description: A request to drop the database
