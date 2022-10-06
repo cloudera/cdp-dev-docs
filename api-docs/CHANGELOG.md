@@ -1,5 +1,19 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.72 (2022-10-05)
+
+IMPROVEMENTS:
+
+* dfworkload: Add `renew-certificates` operation for Inbound Connection Endpoints.
+* ml: Add `restoreJobTimeoutMinutes` parameter to `restore-workspace` command.
+* ml: Add `backupJobTimeoutMinutes` and `skipValidation` parameters to `backup-workspace` command.
+* datahub: Add `start-database-upgrade` command to upgrade the database of the Data Hub cluster.
+* datalake: Add `start-database-upgrade` command to upgrade the database of the Data Lake cluster.
+
+BACKWARD INCOMPATIBILITIES:
+
+* dfworkload: Deprecate usage of internal IDs in favor of CRNs in Inbound Connection Endpoints. Internal IDs no longer required for `delete-inbound-connection-endpoint` and `describe-inbound-connection-endpoint` commands.
+
 ## 0.9.71 (2022-09-28)
 
 IMPROVEMENTS:
