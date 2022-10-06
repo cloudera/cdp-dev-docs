@@ -998,67 +998,74 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_44">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_scalecluster">Scales a cluster by adding or removing cluster nodes.</a>
+<li><a href="#_rotatesaltpassword">Rotate SaltStack user password on Data Hub instances.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_45">Description</a></li>
 <li><a href="#_parameters_45">Parameters</a></li>
 <li><a href="#_responses_45">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_setcatalog">Sets a catalog for a DataHub.</a>
+<li><a href="#_scalecluster">Scales a cluster by adding or removing cluster nodes.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_46">Description</a></li>
 <li><a href="#_parameters_46">Parameters</a></li>
 <li><a href="#_responses_46">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startcluster">Starts a stopped workload cluster.</a>
+<li><a href="#_setcatalog">Sets a catalog for a DataHub.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_47">Description</a></li>
 <li><a href="#_parameters_47">Parameters</a></li>
 <li><a href="#_responses_47">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatabaseupgrade">Upgrades the database of the Data Hub cluster.</a>
+<li><a href="#_startcluster">Starts a stopped workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_48">Description</a></li>
 <li><a href="#_parameters_48">Parameters</a></li>
 <li><a href="#_responses_48">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopcluster">Stops a workload cluster.</a>
+<li><a href="#_startdatabaseupgrade">Upgrades the database of the Data Hub cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_49">Description</a></li>
 <li><a href="#_parameters_49">Parameters</a></li>
 <li><a href="#_responses_49">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
+<li><a href="#_stopcluster">Stops a workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_50">Description</a></li>
 <li><a href="#_parameters_50">Parameters</a></li>
 <li><a href="#_responses_50">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
+<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_51">Description</a></li>
 <li><a href="#_parameters_51">Parameters</a></li>
 <li><a href="#_responses_51">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
+<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_52">Description</a></li>
 <li><a href="#_parameters_52">Parameters</a></li>
 <li><a href="#_responses_52">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
 <ul class="sectlevel3">
 <li><a href="#_description_53">Description</a></li>
 <li><a href="#_parameters_53">Parameters</a></li>
 <li><a href="#_responses_53">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_54">Description</a></li>
+<li><a href="#_parameters_54">Parameters</a></li>
+<li><a href="#_responses_54">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1206,6 +1213,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_rotateautotlscertificatesresponse">RotateAutoTlsCertificatesResponse</a></li>
 <li><a href="#_rotateprivatecertificatesrequest">RotatePrivateCertificatesRequest</a></li>
 <li><a href="#_rotateprivatecertificatesresponse">RotatePrivateCertificatesResponse</a></li>
+<li><a href="#_rotatesaltpasswordrequest">RotateSaltPasswordRequest</a></li>
+<li><a href="#_rotatesaltpasswordresponse">RotateSaltPasswordResponse</a></li>
 <li><a href="#_scaleclusterrequest">ScaleClusterRequest</a></li>
 <li><a href="#_scaleclusterresponse">ScaleClusterResponse</a></li>
 <li><a href="#_servicestatus">ServiceStatus</a></li>
@@ -1242,7 +1251,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.72</p>
+<p><em>Version</em> : 0.9.73</p>
 </div>
 </div>
 <div class="sect2">
@@ -5068,6 +5077,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_rotatesaltpassword">Rotate SaltStack user password on Data Hub instances.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datahub/rotateSaltPassword</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_45">Description</h4>
+<div class="paragraph">
+<p>Rotate SaltStack user password on Data Hub instances.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_45">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_rotatesaltpasswordrequest">RotateSaltPasswordRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_45">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_rotatesaltpasswordresponse">RotateSaltPasswordResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_scalecluster">Scales a cluster by adding or removing cluster nodes.</h3>
 <div class="literalblock">
 <div class="content">
@@ -5075,13 +5170,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_45">Description</h4>
+<h4 id="_description_46">Description</h4>
 <div class="paragraph">
 <p>Scales a cluster by adding or removing cluster nodes.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_45">Parameters</h4>
+<h4 id="_parameters_46">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5112,7 +5207,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_45">Responses</h4>
+<h4 id="_responses_46">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5161,13 +5256,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_46">Description</h4>
+<h4 id="_description_47">Description</h4>
 <div class="paragraph">
 <p>Sets a catalog for a DataHub.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_46">Parameters</h4>
+<h4 id="_parameters_47">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5198,7 +5293,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_46">Responses</h4>
+<h4 id="_responses_47">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5247,13 +5342,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_47">Description</h4>
+<h4 id="_description_48">Description</h4>
 <div class="paragraph">
 <p>Starts a stopped workload cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_47">Parameters</h4>
+<h4 id="_parameters_48">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5284,7 +5379,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_47">Responses</h4>
+<h4 id="_responses_48">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5333,13 +5428,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_48">Description</h4>
+<h4 id="_description_49">Description</h4>
 <div class="paragraph">
 <p>This command initiates the upgrade of the database of the Data Hub cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_48">Parameters</h4>
+<h4 id="_parameters_49">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5370,7 +5465,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_48">Responses</h4>
+<h4 id="_responses_49">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5419,13 +5514,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_49">Description</h4>
+<h4 id="_description_50">Description</h4>
 <div class="paragraph">
 <p>Stops a workload cluster. When a cluster is put in the stopped state, cluster VMs are given back to the cloud provider. To provision new VMs, start the cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_49">Parameters</h4>
+<h4 id="_parameters_50">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5456,7 +5551,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_49">Responses</h4>
+<h4 id="_responses_50">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5505,13 +5600,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_50">Description</h4>
+<h4 id="_description_51">Description</h4>
 <div class="paragraph">
 <p>Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_50">Parameters</h4>
+<h4 id="_parameters_51">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5542,7 +5637,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_50">Responses</h4>
+<h4 id="_responses_51">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5591,13 +5686,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_51">Description</h4>
+<h4 id="_description_52">Description</h4>
 <div class="paragraph">
 <p>Syncs component versions from CM after a failed upgrade.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_51">Parameters</h4>
+<h4 id="_parameters_52">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5628,7 +5723,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_51">Responses</h4>
+<h4 id="_responses_52">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5677,13 +5772,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_52">Description</h4>
+<h4 id="_description_53">Description</h4>
 <div class="paragraph">
 <p>Modify AutoScaling for a DataHub cluster</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_52">Parameters</h4>
+<h4 id="_parameters_53">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5714,7 +5809,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_52">Responses</h4>
+<h4 id="_responses_53">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5763,13 +5858,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_53">Description</h4>
+<h4 id="_description_54">Description</h4>
 <div class="paragraph">
 <p>Upgrades the OS or data platform on a datahub cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_53">Parameters</h4>
+<h4 id="_parameters_54">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5800,7 +5895,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_53">Responses</h4>
+<h4 id="_responses_54">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -14244,6 +14339,49 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_rotatesaltpasswordrequest">RotateSaltPasswordRequest</h3>
+<div class="paragraph">
+<p>Request object for rotating SaltStack user password on Data Hub instances.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cluster</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_rotatesaltpasswordresponse">RotateSaltPasswordResponse</h3>
+<div class="paragraph">
+<p>Response object for rotating SaltStack user password on Data Hub instances.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_scaleclusterrequest">ScaleClusterRequest</h3>
 <div class="paragraph">
 <p>Request object for scale cluster request.</p>
@@ -15004,7 +15142,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-10-05 11:58:34 -0700
+Last updated 2022-10-06 10:27:24 -0700
 </div>
 </div>
 <br>

@@ -900,46 +900,53 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_30">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_setcatalog">Sets a catalog for a DataLake.</a>
+<li><a href="#_rotatesaltpassword">Rotate SaltStack user password on DataLake instances.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_31">Description</a></li>
 <li><a href="#_parameters_31">Parameters</a></li>
 <li><a href="#_responses_31">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatabaseupgrade">Upgrades the database of the Data Lake cluster.</a>
+<li><a href="#_setcatalog">Sets a catalog for a DataLake.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_32">Description</a></li>
 <li><a href="#_parameters_32">Parameters</a></li>
 <li><a href="#_responses_32">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatalake">Start Datalake</a>
+<li><a href="#_startdatabaseupgrade">Upgrades the database of the Data Lake cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_33">Description</a></li>
 <li><a href="#_parameters_33">Parameters</a></li>
 <li><a href="#_responses_33">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopdatalake">Stop Datalake</a>
+<li><a href="#_startdatalake">Start Datalake</a>
 <ul class="sectlevel3">
 <li><a href="#_description_34">Description</a></li>
 <li><a href="#_parameters_34">Parameters</a></li>
 <li><a href="#_responses_34">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
+<li><a href="#_stopdatalake">Stop Datalake</a>
 <ul class="sectlevel3">
 <li><a href="#_description_35">Description</a></li>
 <li><a href="#_parameters_35">Parameters</a></li>
 <li><a href="#_responses_35">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_36">Description</a></li>
 <li><a href="#_parameters_36">Parameters</a></li>
 <li><a href="#_responses_36">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_37">Description</a></li>
+<li><a href="#_parameters_37">Parameters</a></li>
+<li><a href="#_responses_37">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1042,6 +1049,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_rotateautotlscertificatesresponse">RotateAutoTlsCertificatesResponse</a></li>
 <li><a href="#_rotateprivatecertificatesrequest">RotatePrivateCertificatesRequest</a></li>
 <li><a href="#_rotateprivatecertificatesresponse">RotatePrivateCertificatesResponse</a></li>
+<li><a href="#_rotatesaltpasswordrequest">RotateSaltPasswordRequest</a></li>
+<li><a href="#_rotatesaltpasswordresponse">RotateSaltPasswordResponse</a></li>
 <li><a href="#_runtime">Runtime</a></li>
 <li><a href="#_servicestatus">ServiceStatus</a></li>
 <li><a href="#_setcatalogrequest">SetCatalogRequest</a></li>
@@ -1072,7 +1081,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.72</p>
+<p><em>Version</em> : 0.9.73</p>
 </div>
 </div>
 <div class="sect2">
@@ -3694,6 +3703,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_rotatesaltpassword">Rotate SaltStack user password on DataLake instances.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datalake/rotateSaltPassword</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_31">Description</h4>
+<div class="paragraph">
+<p>Rotate SaltStack user password on DataLake instances.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_31">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_rotatesaltpasswordrequest">RotateSaltPasswordRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_31">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_rotatesaltpasswordresponse">RotateSaltPasswordResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_setcatalog">Sets a catalog for a DataLake.</h3>
 <div class="literalblock">
 <div class="content">
@@ -3701,13 +3796,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_31">Description</h4>
+<h4 id="_description_32">Description</h4>
 <div class="paragraph">
 <p>Sets a catalog for a DataLake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_31">Parameters</h4>
+<h4 id="_parameters_32">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3738,7 +3833,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_31">Responses</h4>
+<h4 id="_responses_32">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3787,13 +3882,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_32">Description</h4>
+<h4 id="_description_33">Description</h4>
 <div class="paragraph">
 <p>This command initiates the upgrade of the database of the Data Lake cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_32">Parameters</h4>
+<h4 id="_parameters_33">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3824,7 +3919,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_32">Responses</h4>
+<h4 id="_responses_33">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3873,13 +3968,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_33">Description</h4>
+<h4 id="_description_34">Description</h4>
 <div class="paragraph">
 <p>Deprecated, please use 'cdp environments start-environment' instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_33">Parameters</h4>
+<h4 id="_parameters_34">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3910,7 +4005,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_33">Responses</h4>
+<h4 id="_responses_34">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3959,13 +4054,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_34">Description</h4>
+<h4 id="_description_35">Description</h4>
 <div class="paragraph">
 <p>Deprecated, please use 'cdp environments stop-environment' instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_34">Parameters</h4>
+<h4 id="_parameters_35">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3996,7 +4091,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_34">Responses</h4>
+<h4 id="_responses_35">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4045,13 +4140,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_35">Description</h4>
+<h4 id="_description_36">Description</h4>
 <div class="paragraph">
 <p>Syncs component versions from CM after a failed upgrade.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_35">Parameters</h4>
+<h4 id="_parameters_36">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4082,7 +4177,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_35">Responses</h4>
+<h4 id="_responses_36">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4131,13 +4226,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_36">Description</h4>
+<h4 id="_description_37">Description</h4>
 <div class="paragraph">
 <p>OS or data platform upgrade for the SDX cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_36">Parameters</h4>
+<h4 id="_parameters_37">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4168,7 +4263,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_36">Responses</h4>
+<h4 id="_responses_37">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9743,6 +9838,49 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_rotatesaltpasswordrequest">RotateSaltPasswordRequest</h3>
+<div class="paragraph">
+<p>Request object for rotating SaltStack user password on DataLake instances.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datalake</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the datalake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_rotatesaltpasswordresponse">RotateSaltPasswordResponse</h3>
+<div class="paragraph">
+<p>Response object for rotating SaltStack user password on DataLake instances.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_runtime">Runtime</h3>
 <div class="paragraph">
 <p>An advertised datalake runtime version.</p>
@@ -10421,7 +10559,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-10-05 11:58:34 -0700
+Last updated 2022-10-06 10:27:24 -0700
 </div>
 </div>
 <br>
