@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-deployments &#8212; CDP CLI 0.9.72 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rollback-deployment" href="rollback-deployment.html" />
+    <link rel="prev" title="list-clusters" href="list-clusters.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="rollback-deployment.html" title="rollback-deployment"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-clusters.html" title="list-clusters"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.72 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-deployments</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-deployments">
+<span id="cli-cdp-compute-list-deployments"></span><h1>list-deployments<a class="headerlink" href="#list-deployments" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>List deployments in the cluster.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.72</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Lists the helm charts that are available for deployment or have already been deployed in this cluster.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-deployments
+--cluster-crn &lt;value&gt;
+<span class="o">[</span>--namespace &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
+<blockquote>
+<div><p>Compute cluster CRN.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code> (string)</p>
+<blockquote>
+<div><p>The namespace of the deployment. Lists deployments in all namespaces if not specified.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>availableCharts -&gt; (array)</p>
+<blockquote>
+<div><p>Array of available charts.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Chart structure.</p>
+<p>applicationVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version (usually of the images) of the components being deployed.</p>
+</div></blockquote>
+<p>deploymentVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version of this chart (which is not the version of the components being deployed).</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The chart description.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The chart name.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>unavailableCharts -&gt; (array)</p>
+<blockquote>
+<div><p>Array of unavailable charts.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Chart structure.</p>
+<p>applicationVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version (usually of the images) of the components being deployed.</p>
+</div></blockquote>
+<p>deploymentVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version of this chart (which is not the version of the components being deployed).</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The chart description.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The chart name.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>installedDeployments -&gt; (array)</p>
+<blockquote>
+<div><p>Array of installed deployments.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Deployment structure.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the deployment.</p>
+</div></blockquote>
+<p>namespace -&gt; (string)</p>
+<blockquote>
+<div><p>The namespace of the deployment.</p>
+</div></blockquote>
+<p>revision -&gt; (integer)</p>
+<blockquote>
+<div><p>Helm revision.</p>
+</div></blockquote>
+<p>liftieManaged -&gt; (boolean)</p>
+<blockquote>
+<div><p>True if Liftie is managing this deployment.</p>
+</div></blockquote>
+<p>chart -&gt; (object)</p>
+<blockquote>
+<div><p>Chart structure.</p>
+<p>applicationVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version (usually of the images) of the components being deployed.</p>
+</div></blockquote>
+<p>deploymentVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version of this chart (which is not the version of the components being deployed).</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The chart description.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The chart name.</p>
+</div></blockquote>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the deployment. Currently supported values are UNKNOWN, DEPLOYED, UNINSTALLED, SUPERSEDED, and FAILED. New values may be added in the future.</p>
+</div></blockquote>
+<p>upgrades -&gt; (array)</p>
+<blockquote>
+<div><p>Any upgrades available for this deployment.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Available deployment upgrade structure.</p>
+<p>applicationVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the components which would be installed from this deployment.</p>
+</div></blockquote>
+<p>deploymentVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the deployment that is available to upgrade to.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-deployments</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-clusters.html"
+                        title="previous chapter">list-clusters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rollback-deployment.html"
+                        title="next chapter">rollback-deployment</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="rollback-deployment.html" title="rollback-deployment"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-clusters.html" title="list-clusters"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.72 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-deployments</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
