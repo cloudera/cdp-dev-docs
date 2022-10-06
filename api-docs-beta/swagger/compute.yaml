@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.71 (BETA)
+  version: 0.9.72 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -57,6 +57,72 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ListClustersResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/compute/listDeployments:
+    post:
+      summary: List deployments in the cluster.
+      description: Lists the helm charts that are available for deployment or have already been deployed in this cluster.
+      operationId: listDeployments
+      x-entitlement: COMPUTE_SECURITY_UPDATES
+      x-form-factors: public
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListDeploymentsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListDeploymentsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/compute/rollbackDeployment:
+    post:
+      summary: Rollbacks a deployment to a previous revision
+      description: This will perform a rollback.
+      operationId: rollbackDeployment
+      x-entitlement: COMPUTE_SECURITY_UPDATES
+      x-form-factors: public
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RollbackDeploymentRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RollbackDeploymentResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/compute/updateCluster:
+    post:
+      summary: Update cluster
+      description: Updates compute cluster.
+      operationId: updateCluster
+      x-entitlement: COMPUTE_SECURITY_UPDATES
+      x-form-factors: public
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateClusterRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateClusterResponse'
         default:
           description: The default response on an error.
           schema:
@@ -188,6 +254,273 @@ definitions:
         x-paging-output-token: true
         description: The token to use when requesting the next set of results. If not present, there are no additional results.
         x-form-factors: public
+  UpdateClusterRequest:
+    type: object
+    description: Update compute cluster request.
+    required:
+      - clusterCrn
+      - spec
+      - clusterStateVersion
+    properties:
+      clusterCrn:
+        type: string
+        description: Compute Cluster CRN.
+      spec:
+        description: Spec for updating compute cluster.
+        $ref: '#/definitions/CommonUpdateClusterSpec'
+      clusterStateVersion:
+        type: integer
+        format: int64
+        description: Current cluster state version of the compute cluster being updated.
+      metadata:
+        description: Compute cluster update metadata.
+        $ref: '#/definitions/CommonUpdateClusterMetadata'
+      skipValidation:
+        type: boolean
+        description: Whether to skip validation.
+  UpdateClusterResponse:
+    type: object
+    description: Update compute cluster response.
+    properties:
+      clusterCrn:
+        type: string
+        description: Compute cluster CRN.
+      clusterStatus:
+        description: Status of the compute cluster.
+        $ref: '#/definitions/CommonStatusMessage'
+      uri:
+        type: string
+        description: Uniform resource identifier of the compute cluster.
+      validationResponse:
+        description: Pre-flight validation check response. Only given on a validation failure and `skipValidation` is false.
+        $ref: '#/definitions/ValidationResponse'
+  CommonUpdateClusterSpec:
+    type: object
+    description: Compute cluster update spec.
+    properties:
+      deployments:
+        description: Update deployments on the compute cluster.
+        $ref: '#/definitions/CommonUpdateClusterDeployments'
+      helm:
+        description: Update Helm on compute the compute cluster.
+        $ref: '#/definitions/CommonHelm'
+      security:
+        description: Update security settings for the compute cluster.
+        $ref: '#/definitions/CommonSecurity'
+      storage:
+        description: Update storage settings for the compute cluster.
+        $ref: '#/definitions/CommonStorageSpec'
+      imageCatalog:
+        description: Update image catalog for the compute cluster.
+        $ref: '#/definitions/CommonImageCatalog'
+      refreshInstanceGroups:
+        type: boolean
+        description: Whether to refresh nodes of instance groups belonging to the compute cluster.
+  CommonUpdateClusterMetadata:
+    type: object
+    description: Update cluster metadata structure.
+    properties:
+      description:
+        type: string
+        description: Description of compute cluster update.
+  CommonUpdateClusterDeployments:
+    type: object
+    description: Update cluster deployments structure.
+    properties:
+      autoscaler:
+        description: Autoscaler.
+        $ref: '#/definitions/CommonAutoscaler'
+  CommonHelm:
+    type: object
+    description: Helm structure.
+    properties:
+      version:
+        type: string
+        description: Helm version to be upgraded to.
+  CommonApiServer:
+    type: object
+    description: API server request structure.
+    properties:
+      authorizedIpRanges:
+        type: array
+        items:
+          type: string
+        description: An array of IPv4 CIDR blocks.
+      enabled:
+        type: boolean
+        description: Flag to enable whitelist of IP Ranges (CIDR block) for public access to the kubernetes API server.
+  CommonSecretEncryption:
+    type: object
+    description: Secret encryption request structure.
+    properties:
+      customerKmsKeyArn:
+        type: string
+        description: The KMS key ARN used.
+        x-sensitive: true
+      enabled:
+        type: boolean
+        description: Flag to enable secret encryption.
+  CommonVolumeEncryption:
+    type: object
+    description: Volume encryption request structure.
+    properties:
+      customerKmsKeyArn:
+        type: string
+        description: The KMS key ARN used.
+        x-sensitive: true
+  CommonSecurity:
+    type: object
+    description: Security request structure.
+    properties:
+      apiServer:
+        description: API server.
+        $ref: '#/definitions/CommonApiServer'
+      secretEncryption:
+        description: Secret encryption.
+        $ref: '#/definitions/CommonSecretEncryption'
+      volumeEncryption:
+        description: Volume encryption.
+        $ref: '#/definitions/CommonVolumeEncryption'
+      private:
+        type: boolean
+        description: Flag set to true for a private cluster with API Server having internal IP addressees.
+  CommonAutoscaler:
+    type: object
+    description: Autoscaler request structure.
+    properties:
+      scaleDownDelayAfterAdd:
+        type: string
+        description: How long after scale up that scale down evaluation resumes. (Azure/AWS Support).
+      scaleDownDelayAfterDelete:
+        type: string
+        description: How long after node deletion that scale down evaluation resumes, defaults to scanInterval. (Azure/AWS Support).
+      scaleDownDelayAfterFailure:
+        type: string
+        description: How long after scale down failure that scale down evaluation resumes. (Azure/AWS Support).
+      scaleDownEnabled:
+        type: boolean
+        description: Scale down flag. (AWS Support).
+      scaleDownNonEmptyCandidatesCount:
+        type: integer
+        format: int32
+        description: Maximum number of non empty nodes considered in one iteration as candidates for scale down with drain. Lower value means better CA responsiveness but possible slower scale down latency. Higher value can affect CA performance with big clusters (100s of nodes). Set to non positive value to turn this heuristic off - CA will not limit the number of nodes it considers. (AWS Support).
+      scaleDownUnneededTime:
+        type: string
+        description: How long a node should be unneeded before it is eligible for scale down. (Azure/AWS Support).
+      scaleDownUtilizationThreshold:
+        type: number
+        format: double
+        description: Node utilization level, defined as the sum of requested resources divided by capacity,. below which a node can be considered for scale down. (Azure/AWS Support).
+      scanInterval:
+        type: string
+        description: Scan interval. (Azure/AWS Support).
+      skipNodesWithLocalStorage:
+        type: boolean
+        description: Skip nodes with local storage flag. (AWS Support).
+      skipNodesWithSystemPods:
+        type: boolean
+        description: Skip nodes with system pods. (AWS Support).
+      maxGracefulTerminationSec:
+        type: integer
+        format: int64
+        description: Maximum number of seconds CA waits for pod termination when trying to scale down a node. (Azure Support).
+      scaleDownUnreadyTime:
+        type: string
+        description: How long an unready node should be unneeded before it is eligible for scale down. (Azure Support).
+  CommonImageCatalog:
+    type: object
+    description: Image catalog request structure.
+    properties:
+      crn:
+        type: string
+        description: The catalog CRN (either CRN or name is required).
+      name:
+        type: string
+        description: The catalog name (either CRN or name is required).
+  CommonStorageSpec:
+    type: object
+    description: Storage spec request structure.
+    properties:
+      csiEnabled:
+        type: boolean
+        description: Flag to enable Container Storage Interface (CSI). It further sets specific inline cloud formation policies required for CSI.
+  CommonStatusMessage:
+    type: object
+    description: Cluster status structure.
+    properties:
+      message:
+        type: string
+        description: Message.
+      status:
+        type: string
+        description: Status.
+  ValidationSummary:
+    type: object
+    description: Validation summary structure.
+    properties:
+      passed:
+        type: integer
+        format: int32
+        description: Total number of passed validations.
+      warning:
+        type: integer
+        format: int32
+        description: Total number of validations that passed but have warnings associated with them.
+      failed:
+        type: integer
+        format: int32
+        description: Total number of failed validations.
+      skipped:
+        type: integer
+        format: int32
+        description: Total number of skipped validations.
+      total:
+        type: integer
+        format: int32
+        description: Total number of validations.
+  ValidationResult:
+    type: object
+    description: Validation result structure.
+    properties:
+      name:
+        type: string
+        description: Name.
+      description:
+        type: string
+        description: Description.
+      category:
+        type: string
+        description: Validation check categories such as COMMON, ENTITLEMENTS, CONTROL_PLANE, NETWORK, or DEPLOYMENT. New values may be added in the future.
+      status:
+        type: string
+        description: Validation check status such as PASSED, FAILED, or SKIPPED. New values may be added in the future.
+      message:
+        type: string
+        description: A short, human-readable message that describes the end result of the validation.
+      detailedMessage:
+        type: string
+        description: A supporting message which contains additional details, such as subnet names, instance types, etc.
+      duration:
+        type: string
+        description: Time taken to get the end result of the validation in a human-readable time format.
+  ValidationResponse:
+    type: object
+    description: Pre-flight validation check response structure.
+    properties:
+      result:
+        type: string
+        description: Validation result.
+      summary:
+        description: Numerical summary of the validations.
+        $ref: '#/definitions/ValidationSummary'
+      message:
+        type: string
+        description: A message describing end result of the validations.
+      validations:
+        type: array
+        items:
+          $ref: '#/definitions/ValidationResult'
+        description: The list of detailed validation result.
   DescribeDeploymentRequest:
     type: object
     description: Request structure for describing a deployment.
@@ -334,3 +667,62 @@ definitions:
       chart:
         description: Chart that the deployment was created from.
         $ref: '#/definitions/Chart'
+  RollbackDeploymentRequest:
+    type: object
+    description: Request structure to rollback a deployment.
+    required:
+      - clusterCrn
+      - namespace
+      - name
+    properties:
+      clusterCrn:
+        type: string
+        description: Compute cluster CRN.
+      namespace:
+        type: string
+        description: The namespace of the deployment.
+      name:
+        type: string
+        description: The name of the deployment.
+      revision:
+        type: integer
+        format: int32
+        description: The revision of the deployment to rollback to. Defaults to previous revision.
+  RollbackDeploymentResponse:
+    type: object
+    description: Response structure to rollback a deployment.
+    properties:
+      message:
+        type: string
+        description: A message returned about the status of the rollback operation.
+  ListDeploymentsRequest:
+    type: object
+    description: Request structure to list deployments in the cluster.
+    required:
+      - clusterCrn
+    properties:
+      clusterCrn:
+        type: string
+        description: Compute cluster CRN.
+      namespace:
+        type: string
+        description: The namespace of the deployment. Lists deployments in all namespaces if not specified.
+  ListDeploymentsResponse:
+    type: object
+    description: Response structure to list deployments in the cluster.
+    properties:
+      availableCharts:
+        type: array
+        items:
+          $ref: '#/definitions/Chart'
+        description: Array of available charts.
+      unavailableCharts:
+        type: array
+        items:
+          $ref: '#/definitions/Chart'
+        description: Array of unavailable charts.
+      installedDeployments:
+        type: array
+        items:
+          $ref: '#/definitions/Deployment'
+        description: Array of installed deployments.
