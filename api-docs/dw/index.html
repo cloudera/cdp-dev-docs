@@ -1205,7 +1205,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.73</p>
+<p><em>Version</em> : 0.9.74</p>
 </div>
 </div>
 <div class="sect2">
@@ -5850,7 +5850,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing –query-isolation will be considered if this flag is set to true. If Unified Analytics enabled then the "impalaEnableShutdownOfCoordinator" explicitly disabled and should not be provided, furthermore the "impalaHighAvailabilityMode" cannot be set to ACTIVE_ACTIVE.</p>
+<p>Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing –query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the "impalaEnableShutdownOfCoordinator" explicitly disabled and should not be provided, furthermore the "impalaHighAvailabilityMode" cannot be set to ACTIVE_ACTIVE.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -6564,19 +6564,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enableUDR</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.<br>
-<strong>Default</strong> : <code>false</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>enableUptimeSLA</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6606,10 +6593,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or "UserAssignedNATGateway". The enableUDR will be deprecated in the upcoming release.</p>
+<p>Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. <a href="https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype" class="bare">https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype</a>, <a href="https://learn.microsoft.com/en-us/azure/aks/nat-gateway" class="bare">https://learn.microsoft.com/en-us/azure/aks/nat-gateway</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (EmptyValue, LoadBalancer, UserAssignedNATGateway, UserDefinedRouting)</p>
+<p>enum (LoadBalancer, UserAssignedNATGateway, UserDefinedRouting)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6677,19 +6664,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Denotes whther the Azure Availability Zones for the cluster is enabled or not.<br>
-<strong>Default</strong> : <code>false</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enableUDR</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED, Superseded by the outboundType and will be deprecated in the upcoming release. Denotes whther the user defined routing for the cluster deployment is enabled or not.<br>
 <strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
@@ -8401,7 +8375,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Query isolation settings for the Virtual Warehouse.</p>
+<p>Query isolation settings for the Virtual Warehouse. For Impala this value will be considered only if Unified Analytics is enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_queryisolationoptionsrequest">QueryIsolationOptionsRequest</a></p>
@@ -13499,7 +13473,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The current settings stored for atuoscaling.</p>
+<p>The current settings stored for autoscaling.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_autoscalingoptionsresponse">AutoscalingOptionsResponse</a></p>
@@ -13793,7 +13767,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-10-06 10:27:24 -0700
+Last updated 2022-11-10 17:41:17 -0800
 </div>
 </div>
 <br>
