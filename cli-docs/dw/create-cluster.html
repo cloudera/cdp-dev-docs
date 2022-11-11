@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.73 documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.74 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="add-user.html" title="add-user"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.73 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.73</p>
+<dd class="field-even"><p>0.9.74</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -210,13 +210,9 @@
 <blockquote>
 <div><p>Docker bridge CIDR range for deployment.</p>
 </div></blockquote>
-<p>enableUDR -&gt; (boolean)</p>
-<blockquote>
-<div><p>DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.</p>
-</div></blockquote>
 <p>outboundType -&gt; (string)</p>
 <blockquote>
-<div><p>This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or “UserAssignedNATGateway”. The enableUDR will be deprecated in the upcoming release.</p>
+<div><p>Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. <a class="reference external" href="https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype">https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype</a>, <a class="reference external" href="https://learn.microsoft.com/en-us/azure/aks/nat-gateway">https://learn.microsoft.com/en-us/azure/aks/nat-gateway</a></p>
 </div></blockquote>
 <p>enablePrivateSQL -&gt; (boolean)</p>
 <blockquote>
@@ -236,7 +232,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">subnetId</span><span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,vmGenerationType<span class="o">=</span>string,logAnalyticsWorkspaceId<span class="o">=</span>string,dockerBridgeCidr<span class="o">=</span>string,enableUDR<span class="o">=</span>boolean,outboundType<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean,enableUptimeSLA<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">subnetId</span><span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,vmGenerationType<span class="o">=</span>string,logAnalyticsWorkspaceId<span class="o">=</span>string,dockerBridgeCidr<span class="o">=</span>string,outboundType<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean,enableUptimeSLA<span class="o">=</span>boolean
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -247,8 +243,7 @@
   <span class="s2">&quot;vmGenerationType&quot;</span>: <span class="s2">&quot;Standard_E16_v3&quot;</span><span class="p">|</span><span class="s2">&quot;Standard_E16ds_v4&quot;</span><span class="p">|</span><span class="s2">&quot;Standard_E16ads_v5&quot;</span>,
   <span class="s2">&quot;logAnalyticsWorkspaceId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;dockerBridgeCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;enableUDR&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;outboundType&quot;</span>: <span class="s2">&quot;EmptyValue&quot;</span><span class="p">|</span><span class="s2">&quot;LoadBalancer&quot;</span><span class="p">|</span><span class="s2">&quot;UserAssignedNATGateway&quot;</span><span class="p">|</span><span class="s2">&quot;UserDefinedRouting&quot;</span>,
+  <span class="s2">&quot;outboundType&quot;</span>: <span class="s2">&quot;LoadBalancer&quot;</span><span class="p">|</span><span class="s2">&quot;UserAssignedNATGateway&quot;</span><span class="p">|</span><span class="s2">&quot;UserDefinedRouting&quot;</span>,
   <span class="s2">&quot;enablePrivateSQL&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;privateDNSZoneAKS&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;enablePrivateAks&quot;</span>: true<span class="p">|</span>false,
@@ -377,7 +372,7 @@
         <li class="right" >
           <a href="add-user.html" title="add-user"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.73 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
