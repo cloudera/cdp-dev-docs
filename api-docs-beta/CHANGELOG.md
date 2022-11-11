@@ -1,5 +1,19 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.74 (2022-11-10)
+
+IMPROVEMENTS:
+
+* iam: Constrain `type` parameter to an enum type in `create-user-access-key`, `create-machine-user-acess-key`, `update-access-key`, `get-access-key` and `list-access-keys` commands.
+* datahub, datalake: Parameter `targetVersion` is no longer required for `start-database-upgrade` command.
+* datalake: Add `precheckStoragePermission` and `rangerAuditCollectionValidation` parameters to `backup-datalake` and `restore-datalake` commands.
+* dw: Remove `enableUDR` parameter in `create-cluster` and `cluster-summary` commands.
+* ml: Add `resume-workspace` and `suspend-workspace` commands.
+* ml: Add `deleteInstanceGroup` command.
+* ml: Add `skipValidation` and `subnetsForLoadBalancers` parameters to `create-workspace`  command.
+* ml: Add `upgradeState`, `nfsVersion` and `isPrivate` parameters to `describe-workspace` and `list-workspaces` commands.
+* ml: Add `subnets`, `subnetsForLoadBalancers` and `clusterID` parameters to `describe-workspace` command.
+
 ## 0.9.73 (2022-10-06)
 
 IMPROVEMENTS:
