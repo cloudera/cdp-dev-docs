@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list-clusters &#8212; CDP CLI 0.9.74 (BETA) documentation</title>
+    <title>list-clusters &#8212; CDP CLI 0.9.75 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-deployment.html" title="describe-deployment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.75 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list-clusters</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>List compute clusters</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.74</p>
+<dd class="field-even"><p>0.9.75</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -58,6 +58,8 @@
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-clusters
 <span class="o">[</span>--env-name-or-crn &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--workloads &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--status &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
@@ -72,6 +74,16 @@
 <blockquote>
 <div><p>Environment name or crn.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--workloads</span></code> (string)</p>
+<blockquote>
+<div><p>Workloads for workload filtering.</p>
+</div></blockquote>
+<p>Form Factors: public</p>
+<p><code class="docutils literal notranslate"><span class="pre">--status</span></code> (string)</p>
+<blockquote>
+<div><p>Cluster Status for status filtering.</p>
+</div></blockquote>
+<p>Form Factors: public</p>
 <p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
 <blockquote>
 <div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 100 is used.</p>
@@ -147,6 +159,102 @@
 <blockquote>
 <div><p>CDP environment CRN.</p>
 </div></blockquote>
+<p>clusterType -&gt; (string)</p>
+<blockquote>
+<div><p>Object representing compute cluster types. <cite>Dedicated</cite> - value representing dedicated compute cluster <cite>Shared</cite> - value representing shared compute cluster</p>
+</div></blockquote>
+<p>creationTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster creation time in ISO format.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>deletionTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster deletion time in ISO format.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>updateTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster update time in ISO format.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>clusterStateVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>Cluster state version.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>clusterOwner -&gt; (object)</p>
+<blockquote>
+<div><p>Compute cluster owner structure.</p>
+<p>Form Factors: public</p>
+<p>email -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s email.</p>
+</div></blockquote>
+<p>firstName -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s firstname.</p>
+</div></blockquote>
+<p>lastName -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s lastname.</p>
+</div></blockquote>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s user ID.</p>
+</div></blockquote>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s account ID.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s actor CRN.</p>
+</div></blockquote>
+</div></blockquote>
+<p>region -&gt; (string)</p>
+<blockquote>
+<div><p>Region.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Message with additional details about the cluster status.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>account -&gt; (string)</p>
+<blockquote>
+<div><p>/ CDP account ID.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>availableUpgrades -&gt; (array)</p>
+<blockquote>
+<div><p>List of available kubernetes upgrades.</p>
+<p>Form Factors: public</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>imageCatalog -&gt; (object)</p>
+<blockquote>
+<div><p>Image catalog response structure.</p>
+<p>Form Factors: public</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The catalog CRN (either CRN or name is required).</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The catalog name (either CRN or name is required).</p>
+</div></blockquote>
+</div></blockquote>
+<p>storage -&gt; (object)</p>
+<blockquote>
+<div><p>Storage spec response structure.</p>
+<p>Form Factors: public</p>
+<p>csiEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to enable CSI (Container Storage Interface). It further sets specific inline cloud formation policies required for CSI.</p>
+</div></blockquote>
+</div></blockquote>
 <p>labels -&gt; (map)</p>
 <blockquote>
 <div><p>Map of labels associated with this cluster.</p>
@@ -215,7 +323,7 @@
         <li class="right" >
           <a href="describe-deployment.html" title="describe-deployment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.75 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">list-clusters</a></li> 
       </ul>

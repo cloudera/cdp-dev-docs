@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-cluster &#8212; CDP CLI 0.9.74 (BETA) documentation</title>
+    <title>describe-cluster &#8212; CDP CLI 0.9.75 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="describe-config" href="describe-config.html" />
-    <link rel="prev" title="delete-vw-diagnostic-data-job" href="delete-vw-diagnostic-data-job.html" /> 
+    <link rel="prev" title="describe-allowed-instance-types" href="describe-allowed-instance-types.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="describe-config.html" title="describe-config"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="delete-vw-diagnostic-data-job.html" title="delete-vw-diagnostic-data-job"
+          <a href="describe-allowed-instance-types.html" title="describe-allowed-instance-types"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.75 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.74</p>
+<dd class="field-even"><p>0.9.75</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -140,6 +140,16 @@
 <div><p>Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.</p>
 <p>Form Factors: public</p>
 </div></blockquote>
+<p>computeInstanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>additionalInstanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
 <p>awsOptions -&gt; (object)</p>
 <blockquote>
 <div><p>Response object of the cluster AWS settings.</p>
@@ -205,8 +215,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="delete-vw-diagnostic-data-job.html"
-                        title="previous chapter">delete-vw-diagnostic-data-job</a></p>
+  <p class="topless"><a href="describe-allowed-instance-types.html"
+                        title="previous chapter">describe-allowed-instance-types</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="describe-config.html"
                         title="next chapter">describe-config</a></p>
@@ -231,9 +241,9 @@
           <a href="describe-config.html" title="describe-config"
              >next</a></li>
         <li class="right" >
-          <a href="delete-vw-diagnostic-data-job.html" title="delete-vw-diagnostic-data-job"
+          <a href="describe-allowed-instance-types.html" title="describe-allowed-instance-types"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.75 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
