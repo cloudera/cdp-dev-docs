@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.74 (BETA)
+  version: 0.9.75 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -712,6 +712,12 @@ definitions:
       gatewayNodeType:
         description: Optional tags to choose one of the predefined gateway node types.
         $ref: '#/definitions/GatewayNodeType'
+      image:
+        description: Image details for the database.
+        $ref: '#/definitions/Image'
+      disableJwtAuth:
+        type: boolean
+        description: Disable OAuth Bearer (JWT) authentication scheme.
   VolumeType:
     type: string
     description: "Volume Type.\n `HDD` - Hard disk drives (HDD) volume type. Default is HDD. `SSD` - Solid disk drives (SSD) volume type."
@@ -770,6 +776,9 @@ definitions:
       removeStrongMetaServers:
         type: boolean
         description: Removes any strong meta servers provisioned for this database. Requires the COD_STRONG_META_SERVERS entitlement.
+      catalog:
+        type: string
+        description: Catalog name for the image.
   AutoScalingParameters:
     type: object
     description: A Parameters to configure AutoScaling
@@ -1632,6 +1641,9 @@ definitions:
       osUpgradeOnly:
         type: boolean
         description: Only perform an Operating System upgrade.
+      imageId:
+        type: string
+        description: ID of a database image to upgrade to. If this is empty, the default image is used.
   UpgradeDatabaseResponse:
     type: object
     description: Response with the reason whether upgrade request is accepted or why it is not possible.
@@ -2008,4 +2020,17 @@ definitions:
       autoHealAlertId:
         type: string
         description: UUID linking the alert due to node failure and corresponding autoHealing event.
+  Image:
+    type: object
+    description: Details of an Image.
+    required:
+      - id
+      - catalog
+    properties:
+      id:
+        type: string
+        description: Image ID for the database.
+      catalog:
+        type: string
+        description: Catalog name for the image.
 x-audit: true

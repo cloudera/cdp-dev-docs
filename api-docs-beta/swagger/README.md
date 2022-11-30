@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.74 (BETA)*
+*Version: 0.9.75 (BETA)*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -15,21 +15,23 @@ API requests must be signed according to the
 
 | Service Definition | Version |
 | --- | --- |
-| [audit.yaml](./audit.yaml) | 0.9.74 |
-| [compute.yaml](./compute.yaml) | 0.9.74 |
-| [datacatalog.yaml](./datacatalog.yaml) | 0.9.74 |
-| [datahub.yaml](./datahub.yaml) | 0.9.74 |
-| [datalake.yaml](./datalake.yaml) | 0.9.74 |
-| [de.yaml](./de.yaml) | 0.9.74 |
-| [df.yaml](./df.yaml) | 0.9.74 |
-| [dfworkload.yaml](./dfworkload.yaml) | 0.9.74 |
-| [dw.yaml](./dw.yaml) | 0.9.74 |
-| [environments.yaml](./environments.yaml) | 0.9.74 |
-| [iam.yaml](./iam.yaml) | 0.9.74 |
-| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.74 |
-| [ml.yaml](./ml.yaml) | 0.9.74 |
-| [opdb.yaml](./opdb.yaml) | 0.9.74 |
-| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.74 |
+| [audit.yaml](./audit.yaml) | 0.9.75 |
+| [cloudprivatelinks.yaml](./cloudprivatelinks.yaml) | 0.9.75 |
+| [compute.yaml](./compute.yaml) | 0.9.75 |
+| [datacatalog.yaml](./datacatalog.yaml) | 0.9.75 |
+| [datahub.yaml](./datahub.yaml) | 0.9.75 |
+| [datalake.yaml](./datalake.yaml) | 0.9.75 |
+| [de.yaml](./de.yaml) | 0.9.75 |
+| [df.yaml](./df.yaml) | 0.9.75 |
+| [dfworkload.yaml](./dfworkload.yaml) | 0.9.75 |
+| [drscp.yaml](./drscp.yaml) | 0.9.75 |
+| [dw.yaml](./dw.yaml) | 0.9.75 |
+| [environments.yaml](./environments.yaml) | 0.9.75 |
+| [iam.yaml](./iam.yaml) | 0.9.75 |
+| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.75 |
+| [ml.yaml](./ml.yaml) | 0.9.75 |
+| [opdb.yaml](./opdb.yaml) | 0.9.75 |
+| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.75 |
 
 See all the files at once in this site's
 [Github repository](https://github.com/cloudera/cdp-dev-docs/tree/master/api-docs/swagger).
