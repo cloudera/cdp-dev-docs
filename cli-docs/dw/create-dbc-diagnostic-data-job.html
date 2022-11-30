@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-dbc-diagnostic-data-job &#8212; CDP CLI 0.9.74 documentation</title>
+    <title>create-dbc-diagnostic-data-job &#8212; CDP CLI 0.9.75 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-dbc.html" title="create-dbc"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.75 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-dbc-diagnostic-data-job</a></li> 
       </ul>
@@ -43,24 +43,24 @@
 <span id="cli-cdp-dw-create-dbc-diagnostic-data-job"></span><h1>create-dbc-diagnostic-data-job<a class="headerlink" href="#create-dbc-diagnostic-data-job" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Create a diganostic data job for the given Database Catalog.</p>
+<dd class="field-odd"><p>Create a diagnostic job for the given database catalog.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.74</p>
+<dd class="field-even"><p>0.9.75</p>
 </dd>
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Create a diganostic data job for the given Database Catalog.</p>
+<p>Creates a diagnostic job for the given database catalog. The diagnostic data job is useful for troubleshooting purposes. The job collects logs and metrics (see –download-options to see available options) which are going to be bundled into a single file and will be available at the desired location (see –destination). General metadata about the diagnostics will also be included as the bundle-info.json file.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-dbc-diagnostic-data-job
 --cluster-id &lt;value&gt;
 --dbc-id &lt;value&gt;
---start-time &lt;value&gt;
---end-time &lt;value&gt;
 --destination &lt;value&gt;
+<span class="o">[</span>--start-time &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--end-time &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--case-number &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--bundle-metadata &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--force <span class="p">|</span> --no-force<span class="o">]</span>
@@ -79,14 +79,6 @@
 <blockquote>
 <div><p>ID of the Database Catalog.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--start-time</span></code> (datetime)</p>
-<blockquote>
-<div><p>The resulting bundle will contain logs/metrics after the specified start time.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--end-time</span></code> (datetime)</p>
-<blockquote>
-<div><p>The resulting bundle will contain logs/metrics before the specified end time.</p>
-</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--destination</span></code> (string)</p>
 <blockquote>
 <div><p>Destination of the diagnostics collection.</p>
@@ -96,13 +88,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">DOWNLOAD</span></code></p></li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--start-time</span></code> (datetime)</p>
+<blockquote>
+<div><p>The resulting bundle will contain logs/metrics after the specified start time. If not indicated, then 30 minutes ago from now is taken as the start time.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--end-time</span></code> (datetime)</p>
+<blockquote>
+<div><p>The resulting bundle will contain logs/metrics before the specified end time. If not indicated, then the current time is taken as the end time.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--case-number</span></code> (string)</p>
 <blockquote>
-<div><p>Optional support case number in case of SUPPORT destination, otherwise only act as additional data.</p>
+<div><p>Optional support case number in case of UPLOAD_TO_CLOUDERA destination, otherwise only act as additional data.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--bundle-metadata</span></code> (map)</p>
 <blockquote>
-<div><p>Metadata information which is attached to bundle-info.json when posting the bundle.</p>
+<div><p>Additional user-defined metadata information which is attached to resulting bundle-info.json when posting the bundle.</p>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string
@@ -201,7 +201,7 @@
         <li class="right" >
           <a href="create-dbc.html" title="create-dbc"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.74 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.75 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-dbc-diagnostic-data-job</a></li> 
       </ul>
