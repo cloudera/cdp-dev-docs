@@ -1026,46 +1026,53 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_48">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatabaseupgrade">Upgrades the database of the Data Hub cluster.</a>
+<li><a href="#_startclusterverticalscaling">Initiates the vertical scaling on Data Hub cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_49">Description</a></li>
 <li><a href="#_parameters_49">Parameters</a></li>
 <li><a href="#_responses_49">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopcluster">Stops a workload cluster.</a>
+<li><a href="#_startdatabaseupgrade">Upgrades the database of the Data Hub cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_50">Description</a></li>
 <li><a href="#_parameters_50">Parameters</a></li>
 <li><a href="#_responses_50">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
+<li><a href="#_stopcluster">Stops a workload cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_51">Description</a></li>
 <li><a href="#_parameters_51">Parameters</a></li>
 <li><a href="#_responses_51">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
+<li><a href="#_synccluster">Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_52">Description</a></li>
 <li><a href="#_parameters_52">Parameters</a></li>
 <li><a href="#_responses_52">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
+<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_53">Description</a></li>
 <li><a href="#_parameters_53">Parameters</a></li>
 <li><a href="#_responses_53">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<li><a href="#_updateautoscalerules">Modify AutoScaling for a DataHub cluster</a>
 <ul class="sectlevel3">
 <li><a href="#_description_54">Description</a></li>
 <li><a href="#_parameters_54">Parameters</a></li>
 <li><a href="#_responses_54">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_55">Description</a></li>
+<li><a href="#_parameters_55">Parameters</a></li>
+<li><a href="#_responses_55">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1178,6 +1185,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_instancegroupreciperequest">InstanceGroupRecipeRequest</a></li>
 <li><a href="#_instancegroupreciperesponse">InstanceGroupRecipeResponse</a></li>
 <li><a href="#_instancegrouprequest">InstanceGroupRequest</a></li>
+<li><a href="#_instancetemplate">InstanceTemplate</a></li>
 <li><a href="#_listautoscalehistoryrequest">ListAutoScaleHistoryRequest</a></li>
 <li><a href="#_listautoscalehistoryresponse">ListAutoScaleHistoryResponse</a></li>
 <li><a href="#_listclusterdefinitionsrequest">ListClusterDefinitionsRequest</a></li>
@@ -1223,6 +1231,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_stackstatus">StackStatus</a></li>
 <li><a href="#_startclusterrequest">StartClusterRequest</a></li>
 <li><a href="#_startclusterresponse">StartClusterResponse</a></li>
+<li><a href="#_startclusterverticalscalingrequest">StartClusterVerticalScalingRequest</a></li>
+<li><a href="#_startclusterverticalscalingresponse">StartClusterVerticalScalingResponse</a></li>
 <li><a href="#_startdatabaseupgraderequest">StartDatabaseUpgradeRequest</a></li>
 <li><a href="#_startdatabaseupgraderesponse">StartDatabaseUpgradeResponse</a></li>
 <li><a href="#_stopclusterrequest">StopClusterRequest</a></li>
@@ -1251,7 +1261,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.74</p>
+<p><em>Version</em> : 0.9.75</p>
 </div>
 </div>
 <div class="sect2">
@@ -5421,6 +5431,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_startclusterverticalscaling">Initiates the vertical scaling on Data Hub cluster.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datahub/startClusterVerticalScaling</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_49">Description</h4>
+<div class="paragraph">
+<p>Initiates the vertical scaling on Data Hub cluster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_49">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_startclusterverticalscalingrequest">StartClusterVerticalScalingRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_49">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_startclusterverticalscalingresponse">StartClusterVerticalScalingResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_startdatabaseupgrade">Upgrades the database of the Data Hub cluster.</h3>
 <div class="literalblock">
 <div class="content">
@@ -5428,13 +5524,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_49">Description</h4>
+<h4 id="_description_50">Description</h4>
 <div class="paragraph">
 <p>This command initiates the upgrade of the database of the Data Hub cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_49">Parameters</h4>
+<h4 id="_parameters_50">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5465,7 +5561,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_49">Responses</h4>
+<h4 id="_responses_50">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5514,13 +5610,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_50">Description</h4>
+<h4 id="_description_51">Description</h4>
 <div class="paragraph">
 <p>Stops a workload cluster. When a cluster is put in the stopped state, cluster VMs are given back to the cloud provider. To provision new VMs, start the cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_50">Parameters</h4>
+<h4 id="_parameters_51">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5551,7 +5647,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_50">Responses</h4>
+<h4 id="_responses_51">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5600,13 +5696,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_51">Description</h4>
+<h4 id="_description_52">Description</h4>
 <div class="paragraph">
 <p>Synchronizes the state of a cluster with the cloud provider and Cloudera Manager.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_51">Parameters</h4>
+<h4 id="_parameters_52">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5637,7 +5733,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_51">Responses</h4>
+<h4 id="_responses_52">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5686,13 +5782,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_52">Description</h4>
+<h4 id="_description_53">Description</h4>
 <div class="paragraph">
 <p>Syncs component versions from CM after a failed upgrade.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_52">Parameters</h4>
+<h4 id="_parameters_53">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5723,7 +5819,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_52">Responses</h4>
+<h4 id="_responses_53">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5772,13 +5868,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_53">Description</h4>
+<h4 id="_description_54">Description</h4>
 <div class="paragraph">
 <p>Modify AutoScaling for a DataHub cluster</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_53">Parameters</h4>
+<h4 id="_parameters_54">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5809,7 +5905,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_53">Responses</h4>
+<h4 id="_responses_54">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5858,13 +5954,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_54">Description</h4>
+<h4 id="_description_55">Description</h4>
 <div class="paragraph">
 <p>Upgrades the OS or data platform on a datahub cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_54">Parameters</h4>
+<h4 id="_parameters_55">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5895,7 +5991,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_54">Responses</h4>
+<h4 id="_responses_55">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -13079,6 +13175,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_instancetemplate">InstanceTemplate</h3>
+<div class="paragraph">
+<p>Instance template configuration(s).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The type of the instance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_listautoscalehistoryrequest">ListAutoScaleHistoryRequest</h3>
 <div class="paragraph">
 <p>Request object to retrieve the AutoScale history for a DataHub cluster.</p>
@@ -14626,6 +14756,98 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_startclusterverticalscalingrequest">StartClusterVerticalScalingRequest</h3>
+<div class="paragraph">
+<p>The request object for Data Hub vertical scaling.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datahub</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the Data Hub cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>group</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The target group that reqested for vertical scaling.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceTemplate</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Instance template that specifies the core information for the vertical scale.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_instancetemplate">InstanceTemplate</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_startclusterverticalscalingresponse">StartClusterVerticalScalingResponse</h3>
+<div class="paragraph">
+<p>The response object for Data Hub cluster vertical scaling.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>result</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The result of the operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_startdatabaseupgraderequest">StartDatabaseUpgradeRequest</h3>
 <div class="paragraph">
 <p>Request object for Data Hub database upgrade.</p>
@@ -15142,7 +15364,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-11-10 17:41:17 -0800
+Last updated 2022-11-29 13:57:03 -0800
 </div>
 </div>
 <br>

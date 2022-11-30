@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.75 (2022-11-29)
+
+IMPROVEMENTS:
+
+* datahub: Add `start-cluster-vertical-scaling` command.
+* datalake: Add `start-datalake-vertical-scaling` command.
+* drscp: Add `create-backup`, `restore-backup`, `delete-backup`, `describe-backup`, `describe-restore`, `list-backups` and `list-restores` commands.
+* dw: Add `describe-allowed-instance-types`, `list-dbc-events` and `list-vw-events` commands.
+* dw: Add `computeInstanceTypes` and `additionalInstanceTypes` parameter to `create-cluster` command.
+* compute: Add `workloads`, `status`, `clusterType`, `creationTime`, `deletionTime`, `updateTime`, `clusterStateVersion`, `clusterOwner`, `region`, `message`, `account`, `availableUpgrades`, `imageCatalog`, `storage` to the `list-clusters` command.
+* environments2: Add `start-free-ipa-vertical-scaling` command.
+* ml: Add `install-workspace` command.
+
 ## 0.9.74 (2022-11-10)
 
 IMPROVEMENTS:
