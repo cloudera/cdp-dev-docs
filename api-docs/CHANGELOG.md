@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.76 (2022-12-16)
+
+IMPROVEMENTS:
+
+* datalake: Add `skipValidation` and `validationOnly` parameters to  `backupDatalake` and `restoreDatalake` commands.
+* drscp: `listItems` command is now `listBackupEntities`.
+* dw: Add `describeServerSetting` and `updateServerSetting` commands.
+* datalake: Add `skipRangerHmsMetadata`, `skipAtlasMetadata`, and `skipRangerAudits` parameters to `upgradeDatalake` command.
+
 ## 0.9.75 (2022-11-29)
 
 IMPROVEMENTS:
@@ -31,7 +40,7 @@ IMPROVEMENTS:
 
 IMPROVEMENTS:
 
-* environment: Add `rotate-salt-password` command to rotate SaltStack user password on FreeIPA instances. 
+* environment: Add `rotate-salt-password` command to rotate SaltStack user password on FreeIPA instances.
 * datalake: Add `rotate-salt-password` command to rotate SaltStack user password on DataLake instances.
 * datahub: Add `rotate-salt-password` command to rotate SaltStack user password on Data Hub instances.
 
