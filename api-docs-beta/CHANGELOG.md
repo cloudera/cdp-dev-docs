@@ -1,5 +1,19 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.77 (2023-01-04)
+
+IMPROVEMENTS:
+
+* compute: Add `totalClusters` and `totalPages` parameters to `listClusters` response.
+* compute: `maximum` parameter for `listClusters` command increased from 100 to 500.
+* drscp: Add `backupPhase` and `backupJobState` parameters to `listBackups` command.
+* drscp: Add `restorePhase` and `restoreJobState` parameters to `listRestores` command.
+* ml: Add `instanceType` parameter to `modifyClusterInstanceGroup` command.
+* environments2: `applicationId` and `secretKey` parameters no longer required in `createAzureCredential` command to support Azure certificate based authorization.
+* environments2: Add `securityGroupIDsForKnox` and `defaultSecurityGroupIDs` parameters to `createAzureEnvironment` and `createAWSEnvironment` commands.
+* datahub: Add `updateOrchestratorState` command.
+* datalake: Add `updateOrchestratorState` command.
+
 ## 0.9.76 (2022-12-16)
 
 IMPROVEMENTS:
