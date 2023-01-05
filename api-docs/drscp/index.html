@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="copyright" content="Copyright © 2022 Cloudera, Inc. All rights reserved.">
+<meta name="copyright" content="Copyright © 2023 Cloudera, Inc. All rights reserved.">
 <title>CDP Control Plane Data Recovery Service</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
@@ -797,7 +797,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.76</p>
+<p><em>Version</em> : 0.9.77</p>
 </div>
 </div>
 <div class="sect2">
@@ -1702,7 +1702,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The phase of the restore operation. The values are PENDING, PRE_VALIDATION, SAVING_OBJECTS, CREATING_SNAPSHOTS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before backup. SAVING_OBJECTS indicates saving all the kubernetes resources related to the backup item. CREATING_SNAPSHOTS indicates creating a snapshot of all Kubernetes PersistentVolumeClaims related to the backup item and FINISHED indicates that the backup job has finished.</p>
+<p>The phase of the backup operation. The values are PENDING, PRE_VALIDATION, SAVING_OBJECTS, CREATING_SNAPSHOTS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before backup. SAVING_OBJECTS indicates saving all the kubernetes resources related to the backup item. CREATING_SNAPSHOTS indicates creating a snapshot of all Kubernetes PersistentVolumeClaims related to the backup item and FINISHED indicates that the backup job has finished.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2706,11 +2706,35 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>backupJobState</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>backupName</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The display name of the backup.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>backupPhase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The phase of the backup operation. The values are PENDING, PRE_VALIDATION, SAVING_OBJECTS, CREATING_SNAPSHOTS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before backup. SAVING_OBJECTS indicates saving all the kubernetes resources related to the backup item. CREATING_SNAPSHOTS indicates creating a snapshot of all Kubernetes PersistentVolumeClaims related to the backup item and FINISHED indicates that the backup job has finished.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2786,6 +2810,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>restoreJobState</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>restorePhase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The phase of the restore operation. The values are PENDING, PRE_VALIDATION, STOPPING_APPS, DELETING_OBJECTS, DELETING_OBJECTS_PVC, RESTORING_PVC, RESTORING_OBJECTS, STARTING_APPS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before restore. STOPPING_APPS indicates stopping the microservices before data restore. DELETING_OBJECTS indicates deletion of Kubernetes resources other than PersistentVolumeClaims. DELETING_OBJECTS_PVC indicates deletion of Kubernetes PersistentVolumeClaims. RESTORING_PVC indicates creation of Kubernetes PersistentVolumeClaims. RESTORING_OBJECTS indicates creating of Kubernetes objects other than PersistentVolumeClaims. STARTING_APPS indicates starting of the microservices after data restore and FINISHED indicates the restore job has finished.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2794,12 +2842,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-12-16 12:46:26 -0800
+Last updated 2023-01-04 10:58:02 -0800
 </div>
 </div>
 <br>
 <p style="margin-left: 2em">
-  Copyright © 2022 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
+  Copyright © 2023 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
 </p>
 </body>
 </html>
