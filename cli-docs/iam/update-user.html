@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update-user &#8212; CDP CLI 0.9.78 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="imagecatalog" href="../imagecatalog/index.html" />
+    <link rel="prev" title="update-saml-provider" href="update-saml-provider.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../imagecatalog/index.html" title="imagecatalog"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="update-saml-provider.html" title="update-saml-provider"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.78 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-user</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="update-user">
+<span id="cli-cdp-iam-update-user"></span><h1>update-user<a class="headerlink" href="#update-user" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Updates a user.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.78</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Updates a user. Updates request fields provided. An error is returned if no field updates are defined in the request.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-user
+--user &lt;value&gt;
+<span class="o">[</span>--active <span class="p">|</span> --no-active<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--user</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN or userId of the user to be updated.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--active</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-active</span></code> (boolean)</p>
+<blockquote>
+<div><p>The active state to which to set the user. When it is ‘true’, the user will be activated. When it is ‘false’ the user will be deactivated.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>user -&gt; (object)</p>
+<blockquote>
+<div><p>Information about a Cloudera CDP user.</p>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>The stable, unique identifier of the user.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the user.</p>
+</div></blockquote>
+<p>email -&gt; (string)</p>
+<blockquote>
+<div><p>The user’s email address.</p>
+</div></blockquote>
+<p>firstName -&gt; (string)</p>
+<blockquote>
+<div><p>The user’s first name.</p>
+</div></blockquote>
+<p>lastName -&gt; (string)</p>
+<blockquote>
+<div><p>The user’s last name.</p>
+</div></blockquote>
+<p>creationDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date when this user record was created.</p>
+</div></blockquote>
+<p>accountAdmin -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the user is an administrator of their CDP account.</p>
+</div></blockquote>
+<p>identityProviderCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The identity provider that the user belongs to. It can be “Cloudera-Default”, “Cloudera-Administration”, or a customer defined IdP.</p>
+</div></blockquote>
+<p>lastInteractiveLogin -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date of the user’s last interactive login.</p>
+</div></blockquote>
+<p>workloadUsername -&gt; (string)</p>
+<blockquote>
+<div><p>The username used in all the workload clusters of the user.</p>
+</div></blockquote>
+<p>workloadPasswordDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Information about the workload password for a user or machine user.</p>
+<p>isPasswordSet -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether a workload password is set.</p>
+</div></blockquote>
+<p>passwordExpirationDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date at which the workload password will expire.</p>
+</div></blockquote>
+<p>passwordMinLifetimeDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>The minimum lifetime date of the workload password. A new password can’t be set until this date.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-user</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="update-saml-provider.html"
+                        title="previous chapter">update-saml-provider</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../imagecatalog/index.html"
+                        title="next chapter">imagecatalog</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../imagecatalog/index.html" title="imagecatalog"
+             >next</a></li>
+        <li class="right" >
+          <a href="update-saml-provider.html" title="update-saml-provider"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.78 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-user</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
