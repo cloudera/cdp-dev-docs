@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.78 (2023-01-18)
+
+IMPROVEMENTS:
+
+* environments2: `subscriptionId` and `tenantId` parameters no longer required in `createAzureCredential` command to support Azure certificate based authorization.
+* iam: Add `unlockUserInControlPlane`, `unlockMachineUserInControlPlane`, and `updateUser` commands.
+* ml: Add `requestWorkflowCancellation` command.
+
 ## 0.9.77 (2023-01-04)
 
 IMPROVEMENTS:

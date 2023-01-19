@@ -1117,39 +1117,60 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_61">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_unsetworkloadpasswordminlifetime">Removes workload password minimum lifetime date for an actor.</a>
+<li><a href="#_unlockmachineuserincontrolplane">Unlocks machine user in the CDP control plane.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_62">Description</a></li>
 <li><a href="#_parameters_62">Parameters</a></li>
 <li><a href="#_responses_62">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_unsetworkloadpasswordpolicy">Unset workload password policy for the account.</a>
+<li><a href="#_unlockuserincontrolplane">Unlocks user in the CDP control plane.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_63">Description</a></li>
 <li><a href="#_parameters_63">Parameters</a></li>
 <li><a href="#_responses_63">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateaccesskey">Updates an access key.</a>
+<li><a href="#_unsetworkloadpasswordminlifetime">Removes workload password minimum lifetime date for an actor.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_64">Description</a></li>
 <li><a href="#_parameters_64">Parameters</a></li>
 <li><a href="#_responses_64">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updategroup">Update a group.</a>
+<li><a href="#_unsetworkloadpasswordpolicy">Unset workload password policy for the account.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_65">Description</a></li>
 <li><a href="#_parameters_65">Parameters</a></li>
 <li><a href="#_responses_65">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatesamlprovider">Updates a SAML provider in CDP.</a>
+<li><a href="#_updateaccesskey">Updates an access key.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_66">Description</a></li>
 <li><a href="#_parameters_66">Parameters</a></li>
 <li><a href="#_responses_66">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updategroup">Update a group.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_67">Description</a></li>
+<li><a href="#_parameters_67">Parameters</a></li>
+<li><a href="#_responses_67">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updatesamlprovider">Updates a SAML provider in CDP.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_68">Description</a></li>
+<li><a href="#_parameters_68">Parameters</a></li>
+<li><a href="#_responses_68">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updateuser">Updates a user.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_69">Description</a></li>
+<li><a href="#_parameters_69">Parameters</a></li>
+<li><a href="#_responses_69">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1295,6 +1316,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_unassignuserresourceroleresponse">UnassignUserResourceRoleResponse</a></li>
 <li><a href="#_unassignuserrolerequest">UnassignUserRoleRequest</a></li>
 <li><a href="#_unassignuserroleresponse">UnassignUserRoleResponse</a></li>
+<li><a href="#_unlockmachineuserincontrolplanerequest">UnlockMachineUserInControlPlaneRequest</a></li>
+<li><a href="#_unlockmachineuserincontrolplaneresponse">UnlockMachineUserInControlPlaneResponse</a></li>
+<li><a href="#_unlockuserincontrolplanerequest">UnlockUserInControlPlaneRequest</a></li>
+<li><a href="#_unlockuserincontrolplaneresponse">UnlockUserInControlPlaneResponse</a></li>
 <li><a href="#_unsetworkloadpasswordminlifetimerequest">UnsetWorkloadPasswordMinLifetimeRequest</a></li>
 <li><a href="#_unsetworkloadpasswordminlifetimeresponse">UnsetWorkloadPasswordMinLifetimeResponse</a></li>
 <li><a href="#_unsetworkloadpasswordpolicyrequest">UnsetWorkloadPasswordPolicyRequest</a></li>
@@ -1305,6 +1330,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_updategroupresponse">UpdateGroupResponse</a></li>
 <li><a href="#_updatesamlproviderrequest">UpdateSamlProviderRequest</a></li>
 <li><a href="#_updatesamlproviderresponse">UpdateSamlProviderResponse</a></li>
+<li><a href="#_updateuserrequest">UpdateUserRequest</a></li>
+<li><a href="#_updateuserresponse">UpdateUserResponse</a></li>
 <li><a href="#_user">User</a></li>
 <li><a href="#_workloadname">WorkloadName</a></li>
 <li><a href="#_workloadpassworddetails">WorkloadPasswordDetails</a></li>
@@ -1324,7 +1351,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.77</p>
+<p><em>Version</em> : 0.9.78</p>
 </div>
 </div>
 <div class="sect2">
@@ -2493,7 +2520,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_14">Description</h4>
 <div class="paragraph">
-<p>Creates a SCIM access token for a SCIM enabled identity provider. This token is used to authenticate requests sent to the SCIM endpoints.</p>
+<p>Creates a SCIM access token for a SCIM enabled identity provider. This token is used to authenticate requests sent to the SCIM endpoints. This operation is not supported for Cloudera for Government.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3095,7 +3122,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_21">Description</h4>
 <div class="paragraph">
-<p>Deletes a SCIM access token.</p>
+<p>Deletes a SCIM access token. This operation is not supported for Cloudera for Government.</p>
 </div>
 </div>
 <div class="sect3">
@@ -5245,7 +5272,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_46">Description</h4>
 <div class="paragraph">
-<p>Lists SCIM access tokens for a SCIM enabled identity provider. These access tokens are used to authenticate requests sent to the SCIM endpoints.</p>
+<p>Lists SCIM access tokens for a SCIM enabled identity provider. These access tokens are used to authenticate requests sent to the SCIM endpoints. This operation is not supported for Cloudera for Government.</p>
 </div>
 </div>
 <div class="sect3">
@@ -6612,6 +6639,178 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_unlockmachineuserincontrolplane">Unlocks machine user in the CDP control plane.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /iam/unlockMachineUserInControlPlane</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_62">Description</h4>
+<div class="paragraph">
+<p>Unlocks machine user in the CDP control plane. This operation is idempotent. Unlocking an active machine user will succeed and leave the machine user active.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_62">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_unlockmachineuserincontrolplanerequest">UnlockMachineUserInControlPlaneRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_62">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_unlockmachineuserincontrolplaneresponse">UnlockMachineUserInControlPlaneResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_unlockuserincontrolplane">Unlocks user in the CDP control plane.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /iam/unlockUserInControlPlane</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_63">Description</h4>
+<div class="paragraph">
+<p>Unlocks user in the CDP control plane. This operation is idempotent. Unlocking an active user will succeed and leave the user active.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_63">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_unlockuserincontrolplanerequest">UnlockUserInControlPlaneRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_63">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_unlockuserincontrolplaneresponse">UnlockUserInControlPlaneResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_unsetworkloadpasswordminlifetime">Removes workload password minimum lifetime date for an actor.</h3>
 <div class="literalblock">
 <div class="content">
@@ -6619,13 +6818,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_62">Description</h4>
+<h4 id="_description_64">Description</h4>
 <div class="paragraph">
 <p>Removes the workload password minimum lifetime date for an actor.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_62">Parameters</h4>
+<h4 id="_parameters_64">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6656,7 +6855,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_62">Responses</h4>
+<h4 id="_responses_64">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6705,13 +6904,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_63">Description</h4>
+<h4 id="_description_65">Description</h4>
 <div class="paragraph">
 <p>Unset the workload password for the account. Changes to the workload password policy only affect passwords that are set after the policy has been updated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_63">Parameters</h4>
+<h4 id="_parameters_65">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6742,7 +6941,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_63">Responses</h4>
+<h4 id="_responses_65">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6791,13 +6990,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_64">Description</h4>
+<h4 id="_description_66">Description</h4>
 <div class="paragraph">
 <p>Updates an access key.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_64">Parameters</h4>
+<h4 id="_parameters_66">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6828,7 +7027,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_64">Responses</h4>
+<h4 id="_responses_66">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6877,13 +7076,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_65">Description</h4>
+<h4 id="_description_67">Description</h4>
 <div class="paragraph">
 <p>Update a group.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_65">Parameters</h4>
+<h4 id="_parameters_67">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6914,7 +7113,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_65">Responses</h4>
+<h4 id="_responses_67">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6963,13 +7162,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_66">Description</h4>
+<h4 id="_description_68">Description</h4>
 <div class="paragraph">
 <p>Updates a SAML provider in CDP.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_66">Parameters</h4>
+<h4 id="_parameters_68">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7000,7 +7199,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_66">Responses</h4>
+<h4 id="_responses_68">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7024,6 +7223,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_updatesamlproviderresponse">UpdateSamlProviderResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updateuser">Updates a user.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /iam/updateUser</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_69">Description</h4>
+<div class="paragraph">
+<p>Updates a user. Updates request fields provided. An error is returned if no field updates are defined in the request.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_69">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateuserrequest">UpdateUserRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_69">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateuserresponse">UpdateUserResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -8110,7 +8395,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.</p>
+<p>Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP. It is not supported for Cloudera for Government.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -12137,7 +12422,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether SCIM is enabled on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.</p>
+<p>Whether SCIM is enabled on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP. It is omitted for Cloudera for Government.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -12197,7 +12482,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The SCIM URL if SCIM is enabled.</p>
+<p>The SCIM URL if SCIM is enabled. It is omitted for Cloudera for Government.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12878,6 +13163,142 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_unlockmachineuserincontrolplanerequest">UnlockMachineUserInControlPlaneRequest</h3>
+<div class="paragraph">
+<p>Request object for unlocking the machine user in the control plane.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>machineUser</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the machine user to be unlocked in the CDP control plane.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_unlockmachineuserincontrolplaneresponse">UnlockMachineUserInControlPlaneResponse</h3>
+<div class="paragraph">
+<p>Response object for unlocking the machine user in the CDP control plane.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>machineUser</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The unlocked machine user.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_machineuser">MachineUser</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_unlockuserincontrolplanerequest">UnlockUserInControlPlaneRequest</h3>
+<div class="paragraph">
+<p>Request object for unlocking the user in the CDP control plane.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>user</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID or CRN of the user to be unlocked in the CDP control plane.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_unlockuserincontrolplaneresponse">UnlockUserInControlPlaneResponse</h3>
+<div class="paragraph">
+<p>Response object for unlocking the user in the CDP control plane.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>user</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The unlocked user.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_user">User</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_unsetworkloadpasswordminlifetimerequest">UnsetWorkloadPasswordMinLifetimeRequest</h3>
 <div class="paragraph">
 <p>Request object for a unset workload password min lifetime request.</p>
@@ -13160,7 +13581,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.</p>
+<p>Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP. It is not supported for Cloudera for Government.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -13247,6 +13668,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_samlprovider">SamlProvider</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updateuserrequest">UpdateUserRequest</h3>
+<div class="paragraph">
+<p>Request object to update a user.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>active</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The active state to which to set the user. When it is 'true', the user will be activated. When it is 'false' the user will be deactivated.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>user</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN or userId of the user to be updated.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updateuserresponse">UpdateUserResponse</h3>
+<div class="paragraph">
+<p>Response object to update a user.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>user</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Information about the updated user.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_user">User</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -13596,7 +14097,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-04 10:58:02 -0800
+Last updated 2023-01-18 14:48:53 -0800
 </div>
 </div>
 <br>

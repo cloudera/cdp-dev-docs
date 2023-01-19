@@ -809,39 +809,46 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_17">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoreworkspace">Restore a Cloudera Machine Learning workspace.</a>
+<li><a href="#_requestworkflowcancellation">Request a workflow cancellation.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_18">Description</a></li>
 <li><a href="#_parameters_18">Parameters</a></li>
 <li><a href="#_responses_18">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_resumeworkspace">Resume Cloudera Machine Learning workspace.</a>
+<li><a href="#_restoreworkspace">Restore a Cloudera Machine Learning workspace.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_19">Description</a></li>
 <li><a href="#_parameters_19">Parameters</a></li>
 <li><a href="#_responses_19">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_resumeworkspace">Resume Cloudera Machine Learning workspace.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_20">Description</a></li>
 <li><a href="#_parameters_20">Parameters</a></li>
 <li><a href="#_responses_20">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_suspendworkspace">Suspend Cloudera Machine Learning workspace.</a>
+<li><a href="#_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_21">Description</a></li>
 <li><a href="#_parameters_21">Parameters</a></li>
 <li><a href="#_responses_21">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
+<li><a href="#_suspendworkspace">Suspend Cloudera Machine Learning workspace.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_22">Description</a></li>
 <li><a href="#_parameters_22">Parameters</a></li>
 <li><a href="#_responses_22">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_23">Description</a></li>
+<li><a href="#_parameters_23">Parameters</a></li>
+<li><a href="#_responses_23">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -898,6 +905,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_overlaynetwork">OverlayNetwork</a></li>
 <li><a href="#_provisionk8srequest">ProvisionK8sRequest</a></li>
 <li><a href="#_provisiontag">ProvisionTag</a></li>
+<li><a href="#_requestworkflowcancellationrequest">RequestWorkflowCancellationRequest</a></li>
+<li><a href="#_requestworkflowcancellationresponse">RequestWorkflowCancellationResponse</a></li>
 <li><a href="#_restoreworkspacerequest">RestoreWorkspaceRequest</a></li>
 <li><a href="#_restoreworkspaceresponse">RestoreWorkspaceResponse</a></li>
 <li><a href="#_resumeworkspacerequest">ResumeWorkspaceRequest</a></li>
@@ -912,6 +921,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_upgradestate">UpgradeState</a></li>
 <li><a href="#_upgradeworkspacerequest">UpgradeWorkspaceRequest</a></li>
 <li><a href="#_upgradeworkspaceresponse">UpgradeWorkspaceResponse</a></li>
+<li><a href="#_workflowmetadata">WorkflowMetadata</a></li>
 <li><a href="#_workspace">Workspace</a></li>
 <li><a href="#_workspaceinstancegroup">WorkspaceInstanceGroup</a></li>
 <li><a href="#_workspacesummary">WorkspaceSummary</a></li>
@@ -930,7 +940,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.77</p>
+<p><em>Version</em> : 0.9.78</p>
 </div>
 </div>
 <div class="sect2">
@@ -2434,6 +2444,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_requestworkflowcancellation">Request a workflow cancellation.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/ml/requestWorkflowCancellation</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_18">Description</h4>
+<div class="paragraph">
+<p>Request a long running workflow cancellation by resource ID and workflow type.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_18">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_requestworkflowcancellationrequest">RequestWorkflowCancellationRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_18">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_requestworkflowcancellationresponse">RequestWorkflowCancellationResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_restoreworkspace">Restore a Cloudera Machine Learning workspace.</h3>
 <div class="literalblock">
 <div class="content">
@@ -2441,13 +2537,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Create a new workspace based on an existing workspace backup snapshot.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_18">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2478,7 +2574,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2527,13 +2623,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_19">Description</h4>
+<h4 id="_description_20">Description</h4>
 <div class="paragraph">
 <p>Resume a Cloudera Machine Learnings workspace.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_19">Parameters</h4>
+<h4 id="_parameters_20">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2564,7 +2660,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_19">Responses</h4>
+<h4 id="_responses_20">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2613,13 +2709,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_20">Description</h4>
+<h4 id="_description_21">Description</h4>
 <div class="paragraph">
 <p>Revokes an AWS user to perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_20">Parameters</h4>
+<h4 id="_parameters_21">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2650,7 +2746,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_20">Responses</h4>
+<h4 id="_responses_21">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2699,13 +2795,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_21">Description</h4>
+<h4 id="_description_22">Description</h4>
 <div class="paragraph">
 <p>Suspend a Cloudera Machine Learning workspace.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_21">Parameters</h4>
+<h4 id="_parameters_22">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2736,7 +2832,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_21">Responses</h4>
+<h4 id="_responses_22">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2785,13 +2881,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_22">Description</h4>
+<h4 id="_description_23">Description</h4>
 <div class="paragraph">
 <p>Upgrades a Cloudera Machine Learning workspace to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_22">Parameters</h4>
+<h4 id="_parameters_23">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2822,7 +2918,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_22">Responses</h4>
+<h4 id="_responses_23">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5120,7 +5216,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>instanceType</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The desired instance type of the workspace cluster instance group.</p>
@@ -5456,6 +5552,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_requestworkflowcancellationrequest">RequestWorkflowCancellationRequest</h3>
+<div class="paragraph">
+<p>Request object for RequestWorkflowCancellation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The unique identifier of the resource.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workflowType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The workflow type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_requestworkflowcancellationresponse">RequestWorkflowCancellationResponse</h3>
+<div class="paragraph">
+<p>Response object for RequestWorkflowCancellation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workflowMetadata</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of workflow metedata for cancelled workflows.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_workflowmetadata">WorkflowMetadata</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5980,6 +6156,88 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_workflowmetadata">WorkflowMetadata</h3>
+<div class="paragraph">
+<p>The workflow metadata.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>lastKnownStatus</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The last known status of the workflow.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The unique identifier of the resource.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workflowId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The workflow identifier.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workflowIndex</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The workflow index. Monotonically increases for each subsequent workflow for a resource.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workflowType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The workflow type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_workspace">Workspace</h3>
@@ -6784,7 +7042,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-04 10:58:02 -0800
+Last updated 2023-01-18 14:48:53 -0800
 </div>
 </div>
 <br>
