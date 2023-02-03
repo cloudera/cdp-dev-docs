@@ -1089,25 +1089,32 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_57">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateazureencryptionresources">Update the Azure encryption resources for the environment.</a>
+<li><a href="#_updateazurecredential">Updates a new certificate based Azure credential that can be attached to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_58">Description</a></li>
 <li><a href="#_parameters_58">Parameters</a></li>
 <li><a href="#_responses_58">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeccm">Upgrades Cluster Connectivity Manager on the environment to the latest available version.</a>
+<li><a href="#_updateazureencryptionresources">Update the Azure encryption resources for the environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_59">Description</a></li>
 <li><a href="#_parameters_59">Parameters</a></li>
 <li><a href="#_responses_59">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upscalefreeipa">Upscales FreeIPA instances.</a>
+<li><a href="#_upgradeccm">Upgrades Cluster Connectivity Manager on the environment to the latest available version.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_60">Description</a></li>
 <li><a href="#_parameters_60">Parameters</a></li>
 <li><a href="#_responses_60">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upscalefreeipa">Upscales FreeIPA instances.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_61">Description</a></li>
+<li><a href="#_parameters_61">Parameters</a></li>
+<li><a href="#_responses_61">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1125,6 +1132,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_awsdiskencryptionparameters">AwsDiskEncryptionParameters</a></li>
 <li><a href="#_awsfreeipainstancetemplateparams">AwsFreeIpaInstanceTemplateParams</a></li>
 <li><a href="#_awslogstoragerequest">AwsLogStorageRequest</a></li>
+<li><a href="#_azureauthenticationtypeproperties">AzureAuthenticationTypeProperties</a></li>
+<li><a href="#_azurecredentialcertificateproperties">AzureCredentialCertificateProperties</a></li>
 <li><a href="#_azurecredentialprerequisitesresponse">AzureCredentialPrerequisitesResponse</a></li>
 <li><a href="#_azurecredentialproperties">AzureCredentialProperties</a></li>
 <li><a href="#_azurefreeipacreationrequest">AzureFreeIpaCreationRequest</a></li>
@@ -1286,6 +1295,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_testaccounttelemetryrulesresponse">TestAccountTelemetryRulesResponse</a></li>
 <li><a href="#_updateawsdiskencryptionparametersrequest">UpdateAwsDiskEncryptionParametersRequest</a></li>
 <li><a href="#_updateawsdiskencryptionparametersresponse">UpdateAwsDiskEncryptionParametersResponse</a></li>
+<li><a href="#_updateazurecredentialrequest">UpdateAzureCredentialRequest</a></li>
+<li><a href="#_updateazurecredentialresponse">UpdateAzureCredentialResponse</a></li>
 <li><a href="#_updateazureencryptionresourcesrequest">UpdateAzureEncryptionResourcesRequest</a></li>
 <li><a href="#_updateazureencryptionresourcesresponse">UpdateAzureEncryptionResourcesResponse</a></li>
 <li><a href="#_upgradeccmrequest">UpgradeCcmRequest</a></li>
@@ -1307,7 +1318,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.78</p>
+<p><em>Version</em> : 0.9.79</p>
 </div>
 </div>
 <div class="sect2">
@@ -6251,6 +6262,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_updateazurecredential">Updates a new certificate based Azure credential that can be attached to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/environments2/updateAzureCredential</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_58">Description</h4>
+<div class="paragraph">
+<p>Updates a certificate based Azure credential.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_58">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateazurecredentialrequest">UpdateAzureCredentialRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_58">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateazurecredentialresponse">UpdateAzureCredentialResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_updateazureencryptionresources">Update the Azure encryption resources for the environment.</h3>
 <div class="literalblock">
 <div class="content">
@@ -6258,13 +6355,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_58">Description</h4>
+<h4 id="_description_59">Description</h4>
 <div class="paragraph">
 <p>Updates the Azure encryption resources for the environment. Enables the SSE with CMK for newly created Azure resources for the existing environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_58">Parameters</h4>
+<h4 id="_parameters_59">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6295,7 +6392,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_58">Responses</h4>
+<h4 id="_responses_59">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6344,13 +6441,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_59">Description</h4>
+<h4 id="_description_60">Description</h4>
 <div class="paragraph">
 <p>Upgrades Cluster Connectivity Manager on the environment to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_59">Parameters</h4>
+<h4 id="_parameters_60">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6381,7 +6478,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_59">Responses</h4>
+<h4 id="_responses_60">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6430,13 +6527,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_60">Description</h4>
+<h4 id="_description_61">Description</h4>
 <div class="paragraph">
 <p>FreeIPA is an integrated Identity and Authentication solution that can be used for any of CM, CDP services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_60">Parameters</h4>
+<h4 id="_parameters_61">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6467,7 +6564,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_60">Responses</h4>
+<h4 id="_responses_61">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7049,6 +7146,97 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_azureauthenticationtypeproperties">AzureAuthenticationTypeProperties</h3>
+<div class="paragraph">
+<p>Authentication type of the credential</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (CERTIFICATE, SECRET)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_azurecredentialcertificateproperties">AzureCredentialCertificateProperties</h3>
+<div class="paragraph">
+<p>The certificate used for the credential</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>base64</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The certificate (PEM) encoded in base64 format</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>expiration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>the expiration timestamp</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>expirationDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>the expiration in date format</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sha512</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The SHA512 digest of the certificate</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of an Azure credential.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (KEY_GENERATED, ACTIVE)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_azurecredentialprerequisitesresponse">AzureCredentialPrerequisitesResponse</h3>
 <div class="paragraph">
 <p>Response object for getting Azure credential prerequisites.</p>
@@ -7135,6 +7323,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>authenticationType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Authentication type of the credential</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureauthenticationtypeproperties">AzureAuthenticationTypeProperties</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>certificate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The public certificate used by the Azure credential.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azurecredentialcertificateproperties">AzureCredentialCertificateProperties</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -8905,6 +9117,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>authenticationType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Authentication type of the credential</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureauthenticationtypeproperties">AzureAuthenticationTypeProperties</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -11177,6 +11401,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>aksPrivateDnsZoneId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of an existing private DNS zone used for the AKS.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>databasePrivateDnsZoneId</strong><br>
@@ -14117,6 +14353,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>aksPrivateDnsZoneId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of an existing private DNS zone used for the AKS.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>databasePrivateDnsZoneId</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -16565,6 +16813,165 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_updateazurecredentialrequest">UpdateAzureCredentialRequest</h3>
+<div class="paragraph">
+<p>Request object for an update Azure credential request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>appBased</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Additional configurations needed for app-based authentication.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateazurecredentialrequest_appbased">appBased</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>credentialName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the credential.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>description</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>A description for the credential.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>subscriptionId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Azure subscription ID.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tenantId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Azure AD tenant ID for the Azure subscription.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="_updateazurecredentialrequest_appbased" class="paragraph">
+<p><strong>appBased</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>applicationId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The id of the application registered in Azure.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>authenticationType</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Authentication type of the credential</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureauthenticationtypeproperties">AzureAuthenticationTypeProperties</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updateazurecredentialresponse">UpdateAzureCredentialResponse</h3>
+<div class="paragraph">
+<p>Response object for an update Azure credential request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>credential</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The credential object.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_credential">Credential</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updateazureencryptionresourcesrequest">UpdateAzureEncryptionResourcesRequest</h3>
 <div class="paragraph">
 <p>Request object for updating Azure encryption resources.</p>
@@ -16820,7 +17227,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-18 14:48:53 -0800
+Last updated 2023-02-02 11:18:52 -0800
 </div>
 </div>
 <br>
