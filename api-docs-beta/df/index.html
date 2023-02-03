@@ -950,6 +950,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_deleteflowrequest">DeleteFlowRequest</a></li>
 <li><a href="#_deleteflowresponse">DeleteFlowResponse</a></li>
 <li><a href="#_deployment">Deployment</a></li>
+<li><a href="#_deploymentstate">DeploymentState</a></li>
 <li><a href="#_deploymentstatus">DeploymentStatus</a></li>
 <li><a href="#_deploymentsummary">DeploymentSummary</a></li>
 <li><a href="#_describeaddedreadyflowrequest">DescribeAddedReadyflowRequest</a></li>
@@ -1034,6 +1035,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_revokeuserkubernetesaccessresponse">RevokeUserKubernetesAccessResponse</a></li>
 <li><a href="#_service">Service</a></li>
 <li><a href="#_servicemeta">ServiceMeta</a></li>
+<li><a href="#_servicestate">ServiceState</a></li>
 <li><a href="#_servicestatus">ServiceStatus</a></li>
 <li><a href="#_servicesummary">ServiceSummary</a></li>
 <li><a href="#_updateservicerequest">UpdateServiceRequest</a></li>
@@ -1053,7 +1055,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.78 (BETA)</p>
+<p><em>Version</em> : 0.9.79 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4916,6 +4918,15 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_deploymentstate">DeploymentState</h3>
+<div class="paragraph">
+<p>The state that the deployment is currently in.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (DEPLOYING, GOOD_HEALTH, CONCERNING_HEALTH, BAD_HEALTH, STARTING_FLOW, SUSPENDING_FLOW, SUSPENDED, UPDATING, TERMINATING, RESTARTING, UPGRADING, ROLLING_BACK, STOPPED, UNKNOWN)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_deploymentstatus">DeploymentStatus</h3>
 <div class="paragraph">
 <p>The status of a deployment</p>
@@ -4967,7 +4978,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>The state that the deployment is currently in</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p><a href="#_deploymentstate">DeploymentState</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -10141,6 +10152,15 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_servicestate">ServiceState</h3>
+<div class="paragraph">
+<p>The state of the service.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (NOT_ENABLED, ENABLING, GOOD_HEALTH, CONCERNING_HEALTH, BAD_HEALTH, UPDATING, RENEWING_CERTS, DISABLING, UNKNOWN, UPGRADING, COLLECTING_DIAGNOSTICS)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_servicestatus">ServiceStatus</h3>
 <div class="paragraph">
 <p>The status of a DataFlow enabled service.</p>
@@ -10192,7 +10212,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>The state of the service.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p><a href="#_servicestate">ServiceState</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -10557,7 +10577,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-18 14:48:53 -0800
+Last updated 2023-02-02 11:18:55 -0800
 </div>
 </div>
 <br>

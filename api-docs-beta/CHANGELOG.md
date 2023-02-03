@@ -1,10 +1,21 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.79 (2023-02-02)
+
+IMPROVEMENTS:
+
+* dfworkload: Add `flowDesignerId` and `customNarConfigurationId` parameters to `createDeployment` command.
+* dw: Add `createBackup`, `deleteBackup`, `describeBackup`, `restoreBackup`, `describeRestore`, `listBackupEntities`, `listBackups`, `listRestores` and `getLogs` commands.
+* environments: Add `aksPrivateDnsZoneId` parameter to `createAzureEnvironment` command.
+* environments: Add `updateAzureCredential` command.
+* environments: Add `authenticationType` and `certificate` parameters to `createAzureCredential` command.
+* ml: Add `cdswMigrationMode` and `outboundTypes` parameters to `createWorkspace` command.
+
 ## 0.9.78 (2023-01-18)
 
 IMPROVEMENTS:
 
-* environments2: `subscriptionId` and `tenantId` parameters no longer required in `createAzureCredential` command to support Azure certificate based authorization.
+* environments: `subscriptionId` and `tenantId` parameters no longer required in `createAzureCredential` command to support Azure certificate based authorization.
 * iam: Add `unlockUserInControlPlane`, `unlockMachineUserInControlPlane`, and `updateUser` commands.
 * ml: Add `requestWorkflowCancellation` command.
 
@@ -17,8 +28,8 @@ IMPROVEMENTS:
 * drscp: Add `backupPhase` and `backupJobState` parameters to `listBackups` command.
 * drscp: Add `restorePhase` and `restoreJobState` parameters to `listRestores` command.
 * ml: Add `instanceType` parameter to `modifyClusterInstanceGroup` command.
-* environments2: `applicationId` and `secretKey` parameters no longer required in `createAzureCredential` command to support Azure certificate based authorization.
-* environments2: Add `securityGroupIDsForKnox` and `defaultSecurityGroupIDs` parameters to `createAzureEnvironment` and `createAWSEnvironment` commands.
+* environments: `applicationId` and `secretKey` parameters no longer required in `createAzureCredential` command to support Azure certificate based authorization.
+* environments: Add `securityGroupIDsForKnox` and `defaultSecurityGroupIDs` parameters to `createAzureEnvironment` and `createAWSEnvironment` commands.
 * datahub: Add `updateOrchestratorState` command.
 * datalake: Add `updateOrchestratorState` command.
 
@@ -41,7 +52,7 @@ IMPROVEMENTS:
 * dw: Add `describe-allowed-instance-types`, `list-dbc-events` and `list-vw-events` commands.
 * dw: Add `computeInstanceTypes` and `additionalInstanceTypes` parameter to `create-cluster` command.
 * compute: Add `workloads`, `status`, `clusterType`, `creationTime`, `deletionTime`, `updateTime`, `clusterStateVersion`, `clusterOwner`, `region`, `message`, `account`, `availableUpgrades`, `imageCatalog`, `storage` to the `list-clusters` command.
-* environments2: Add `start-free-ipa-vertical-scaling` command.
+* environments: Add `start-free-ipa-vertical-scaling` command.
 * ml: Add `install-workspace` command.
 
 ## 0.9.74 (2022-11-10)
@@ -204,7 +215,7 @@ IMPROVEMENTS:
 * de: Add `enablePrivateNetwork` parameter to `enable-service` command.
 * dw: Add `privateCloudOptions` parameter to `create-cluster` command.
 * dw: Add `dbMetastore`, `dbDas` and `dbHue` parameters to `create-dbc` command.
-* environments2: Add `multiAz` parameter to `create-aws-environment` and `create-aws-gov-cloud-environment` commands.
+* environments: Add `multiAz` parameter to `create-aws-environment` and `create-aws-gov-cloud-environment` commands.
 
 ## 0.9.60 (2022-04-27)
 

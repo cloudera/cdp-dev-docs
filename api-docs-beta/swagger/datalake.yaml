@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.78 (BETA)
+  version: 0.9.79 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -2193,6 +2193,12 @@ definitions:
       skipRangerAudits:
         type: boolean
         description: Skips the backup of the Ranger audits. Redundant if --skip-backup is included. If this option is not provided, Ranger audits are backed up by default.
+      skipDatahubValidation:
+        type: boolean
+        description: With this option, the Data Lake upgrade can be performed with running Data Hub clusters. This option may cause problems on the running Data Hub clusters during the Data Lake upgrade.
+      rollingUpgradeEnabled:
+        type: boolean
+        description: Enables the ability to perform rolling runtime upgrade.
   UpgradeDatalakeResponse:
     type: object
     description: Response object for upgrade datalake request.
