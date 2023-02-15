@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.79 (BETA)
+  version: 0.9.80 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -2161,6 +2161,15 @@ definitions:
       database:
         type: string
         description: The name or CRN of the database.
+      numAddEdgeNodes:
+        type: integer
+        format: int32
+        description: The additional number of edge nodes for this database. A positive, non-zero number is required. Requires the COD_EDGE_NODE entitlement.
+      deleteEdgeInstances:
+        type: array
+        items:
+          type: string
+        description: The instance(s) of database edge node to be deleted. An instance id of the node is required. Requires the COD_EDGE_NODE entitlement.
   UpdateEdgeNodesResponse:
     type: object
     description: The response for updating edge nodes in a database.
