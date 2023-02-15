@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vw &#8212; CDP CLI 0.9.79 documentation</title>
+    <title>create-vw &#8212; CDP CLI 0.9.80 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-dbc-diagnostic-data-job.html" title="create-dbc-diagnostic-data-job"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.79 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.80 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.79</p>
+<dd class="field-even"><p>0.9.80</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -63,6 +63,10 @@
 <span class="o">[</span>--image-version &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--template &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--node-count &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--availability-zone &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--enable-unified-analytics <span class="p">|</span> --no-enable-unified-analytics<span class="o">]</span>
+<span class="o">[</span>--impala-options &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--impala-ha-settings &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--autoscaling &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--config &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--query-isolation-options &lt;value&gt;<span class="o">]</span>
@@ -115,6 +119,75 @@
 <blockquote>
 <div><p>Node Count per compute cluster. Implies ‘custom’ template, even if you pass template explicitly.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--availability-zone</span></code> (string)</p>
+<blockquote>
+<div><p>This feature works only for AWS cluster type. An availability zone to host compute instances. If not specified, defaults to a randomly selected availability zone inferred from available subnets. In order to query possible options, see “availabilityZones” field of describe-cluster or list-clusters command response.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-unified-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-unified-analytics</span></code> (boolean)</p>
+<blockquote>
+<div><p>Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing –query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the “enableShutdownOfCoordinator” in –impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the “highAvailabilityMode” in –impala-ha-settings cannot be set to ACTIVE_ACTIVE.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--impala-options</span></code> (object)</p>
+<blockquote>
+<div><p>Impala specific options. It cannot be provided for Virtual Warehouse types other than Impala.</p>
+<p>spillToS3Uri -&gt; (string)</p>
+<blockquote>
+<div><p>Set S3 URI in “s3://bucket/path” format and enable spilling to S3. If this is set, “scratchSpaceLimit” cannot be set. Spilling to a remote storage is not supported on Azure, it is available on AWS and PvC platforms. If your workload results in large volumes of intermediate data being written, it is recommended to configure the heavy spilling queries to use a remote storage location rather than the local one since Impala occasionally needs to use persistent storage for writing intermediate files during large sorts, joins, aggregations, or analytic function operations. Note that this value is ignored if the Impala version does not support spilling to S3.</p>
+</div></blockquote>
+<p>scratchSpaceLimit -&gt; (integer)</p>
+<blockquote>
+<div><p>Defines the limit for scratch space in GiB needed by Impala for spilling queries. If this is set, “spillToS3Uri” cannot be set. The valid values are between 1-16000 for AWS and 1-16684 for Azure. It will choose the first valid value for which the total disk space is greater than or equal to the specified scratch space limit. The valid scratch space limit values per node in GiBs for AWS are [300, 634, 968, 1302, 1636, 1970, 2304, 2638, 2972, 6550, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000]. Valid values for Azure are [300, 684, 812, 1068, 1324, 1836, 2348, 3372, 4396, 8492, 16684].</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">spillToS3Uri</span><span class="o">=</span>string,scratchSpaceLimit<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;spillToS3Uri&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;scratchSpaceLimit&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--impala-ha-settings</span></code> (object)</p>
+<blockquote>
+<div><p>High Availability settings for the Impala Virtual Warehouse. The values are disregarded for Hive.</p>
+<p>highAvailabilityMode -&gt; (string)</p>
+<blockquote>
+<div><p>Set Impala High Availability mode. If not provided, the default will apply. DISABLED - Disables Impala coordinator and Database Catalog high availability. ACTIVE_PASSIVE - Runs multiple coordinators (one active, one passive) and Database Catalogs (one active, one passive). ACTIVE_ACTIVE - Runs multiple coordinators (both active) and Database Catalogs (one active, one passive). If Unified Analytics is enabled, then this cannot be set to ACTIVE_ACTIVE.</p>
+</div></blockquote>
+<p>enableShutdownOfCoordinator -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enables a shutdown of the coordinator. If Unified Analytics is enabled, then this setting is explicitly disabled (ignored) and should not be provided.</p>
+</div></blockquote>
+<p>shutdownOfCoordinatorDelaySeconds -&gt; (integer)</p>
+<blockquote>
+<div><p>Delay in seconds before the shutdown of coordinator event happens.</p>
+</div></blockquote>
+<p>numOfActiveCoordinators -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of active coordinators.</p>
+</div></blockquote>
+<p>enableCatalogHighAvailability -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enables a backup instance for Impala catalog to ensure high availability.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">highAvailabilityMode</span><span class="o">=</span>string,enableShutdownOfCoordinator<span class="o">=</span>boolean,shutdownOfCoordinatorDelaySeconds<span class="o">=</span>integer,numOfActiveCoordinators<span class="o">=</span>integer,enableCatalogHighAvailability<span class="o">=</span>boolean
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;highAvailabilityMode&quot;</span>: <span class="s2">&quot;ACTIVE_PASSIVE&quot;</span><span class="p">|</span><span class="s2">&quot;ACTIVE_ACTIVE&quot;</span><span class="p">|</span><span class="s2">&quot;DISABLED&quot;</span>,
+  <span class="s2">&quot;enableShutdownOfCoordinator&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;shutdownOfCoordinatorDelaySeconds&quot;</span>: integer,
+  <span class="s2">&quot;numOfActiveCoordinators&quot;</span>: integer,
+  <span class="s2">&quot;enableCatalogHighAvailability&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--autoscaling</span></code> (object)</p>
 <blockquote>
 <div><p>Auto-scaling configuration for a Virtual Warehouse.</p>
@@ -136,7 +209,7 @@
 </div></blockquote>
 <p>enableUnifiedAnalytics -&gt; (boolean)</p>
 <blockquote>
-<div><p>Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing –query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the “impalaEnableShutdownOfCoordinator” explicitly disabled and should not be provided, furthermore the “impalaHighAvailabilityMode” cannot be set to ACTIVE_ACTIVE.</p>
+<div><p>DEPRECATED in favor of the top level enable-unified-analytics flag. Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing –query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the “impalaEnableShutdownOfCoordinator” explicitly disabled and should not be provided, furthermore the “impalaHighAvailabilityMode” cannot be set to ACTIVE_ACTIVE.</p>
 </div></blockquote>
 <p>hiveScaleWaitTimeSeconds -&gt; (integer)</p>
 <blockquote>
@@ -148,7 +221,7 @@
 </div></blockquote>
 <p>impalaHighAvailabilityMode -&gt; (string)</p>
 <blockquote>
-<div><p>Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.</p>
 </div></blockquote>
 <p>impalaScaleUpDelaySeconds -&gt; (integer)</p>
 <blockquote>
@@ -160,19 +233,19 @@
 </div></blockquote>
 <p>impalaEnableShutdownOfCoordinator -&gt; (boolean)</p>
 <blockquote>
-<div><p>Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.</p>
 </div></blockquote>
 <p>impalaShutdownOfCoordinatorDelaySeconds -&gt; (integer)</p>
 <blockquote>
-<div><p>Delay in seconds before the shutdown of coordinator event happens.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.</p>
 </div></blockquote>
 <p>impalaNumOfActiveCoordinators -&gt; (integer)</p>
 <blockquote>
-<div><p>Number of the active coordinators.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.</p>
 </div></blockquote>
 <p>impalaEnableCatalogHighAvailability -&gt; (boolean)</p>
 <blockquote>
-<div><p>Enables a backup instance for Impala catalog to ensure high availability.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Enables a backup instance for Impala catalog to ensure high availability.</p>
 </div></blockquote>
 <p>podConfigName -&gt; (string)</p>
 <blockquote>
@@ -452,7 +525,7 @@
         <li class="right" >
           <a href="create-dbc-diagnostic-data-job.html" title="create-dbc-diagnostic-data-job"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.79 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.80 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
