@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-vw &#8212; CDP CLI 0.9.79 (BETA) documentation</title>
+    <title>describe-vw &#8212; CDP CLI 0.9.80 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-server-setting.html" title="describe-server-setting"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.79 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.80 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.79</p>
+<dd class="field-even"><p>0.9.80</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -147,6 +147,10 @@
 <blockquote>
 <div><p>CDH image version.</p>
 </div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>Availability zone in which the Virtual Warehouse is running.</p>
+</div></blockquote>
 <p>endpoints -&gt; (object)</p>
 <blockquote>
 <div><p>Endpoints for accessing the Virtual Warehouse.</p>
@@ -199,6 +203,10 @@
 <blockquote>
 <div><p>Denotes whether the Virtual Warehouse has Data Visualisation or not.</p>
 </div></blockquote>
+<p>enableUnifiedAnalytics -&gt; (boolean)</p>
+<blockquote>
+<div><p>Denotes whether the Unified Analytics is enabled.</p>
+</div></blockquote>
 <p>autoscalingOptions -&gt; (object)</p>
 <blockquote>
 <div><p>Auto-scaling configuration for a Virtual Warehouse.</p>
@@ -220,7 +228,7 @@
 </div></blockquote>
 <p>enableUnifiedAnalytics -&gt; (boolean)</p>
 <blockquote>
-<div><p>Whether the Unified Analytics is enabled.</p>
+<div><p>DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled.</p>
 </div></blockquote>
 <p>hiveScaleWaitTimeSeconds -&gt; (integer)</p>
 <blockquote>
@@ -232,7 +240,7 @@
 </div></blockquote>
 <p>impalaHighAvailabilityMode -&gt; (string)</p>
 <blockquote>
-<div><p>High Availability mode.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. High Availability mode.</p>
 </div></blockquote>
 <p>impalaScaleUpDelaySeconds -&gt; (integer)</p>
 <blockquote>
@@ -244,23 +252,59 @@
 </div></blockquote>
 <p>impalaEnableShutdownOfCoordinator -&gt; (boolean)</p>
 <blockquote>
-<div><p>Whether a shutdown of the coordinator is enabled.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Whether a shutdown of the coordinator is enabled.</p>
 </div></blockquote>
 <p>impalaNumOfActiveCoordinators -&gt; (integer)</p>
 <blockquote>
-<div><p>Number of the active coordinators.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.</p>
 </div></blockquote>
 <p>impalaShutdownOfCoordinatorDelaySeconds -&gt; (integer)</p>
 <blockquote>
-<div><p>Delay in seconds before the shutdown of coordinator event happens.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.</p>
 </div></blockquote>
 <p>impalaEnableCatalogHighAvailability -&gt; (boolean)</p>
 <blockquote>
-<div><p>Denotes whether a backup instance for Impala catalog is enabled.</p>
+<div><p>DEPRECATED in favor of the top level impalaHASettings object. Denotes whether a backup instance for Impala catalog is enabled.</p>
 </div></blockquote>
 <p>podConfigName -&gt; (string)</p>
 <blockquote>
 <div><p>Name of the pod configuration.</p>
+</div></blockquote>
+</div></blockquote>
+<p>impalaOptions -&gt; (object)</p>
+<blockquote>
+<div><p>Impala specific settings.</p>
+<p>spillToS3Uri -&gt; (string)</p>
+<blockquote>
+<div><p>Impala spill to S3 URI.</p>
+</div></blockquote>
+<p>scratchSpaceLimit -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum scratch space used for spilling to disk.</p>
+</div></blockquote>
+</div></blockquote>
+<p>impalaHaSettingsOptions -&gt; (object)</p>
+<blockquote>
+<div><p>Impala High Availability settings for a Virtual Warehouse.</p>
+<p>highAvailabilityMode -&gt; (string)</p>
+<blockquote>
+<div><p>Set Impala High Availability mode. If not provided, the default will apply. DISABLED - Disables Impala coordinator and Database Catalog high availability. ACTIVE_PASSIVE - Runs multiple coordinators (one active, one passive) and Database Catalogs (one active, one passive). ACTIVE_ACTIVE - Runs multiple coordinators (both active) and Database Catalogs (one active, one passive). If Unified Analytics is enabled, then this cannot be set to ACTIVE_ACTIVE.</p>
+</div></blockquote>
+<p>enableShutdownOfCoordinator -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether a shutdown of the coordinator is enabled.</p>
+</div></blockquote>
+<p>numOfActiveCoordinators -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of the active coordinators.</p>
+</div></blockquote>
+<p>shutdownOfCoordinatorDelaySeconds -&gt; (integer)</p>
+<blockquote>
+<div><p>Delay in seconds before the shutdown of coordinator event happens.</p>
+</div></blockquote>
+<p>enableCatalogHighAvailability -&gt; (boolean)</p>
+<blockquote>
+<div><p>Denotes whether a backup instance for Impala catalog is enabled.</p>
 </div></blockquote>
 </div></blockquote>
 <p>queryIsolationOptions -&gt; (object)</p>
@@ -273,6 +317,23 @@
 <p>maxNodesPerQuery -&gt; (integer)</p>
 <blockquote>
 <div><p>Maximum Nodes Per Isolated Query</p>
+</div></blockquote>
+</div></blockquote>
+<p>replicaStatus -&gt; (object)</p>
+<blockquote>
+<div><p>Status information on the current state of replicas in the virtual warehouse.</p>
+<p>Form Factors: public</p>
+<p>totalExecutorReplicas -&gt; (integer)</p>
+<blockquote>
+<div><p>Total number of executor replicas scheduled for the virtual warehouse. This number contains the number of executor replicas in pending state, as well as the replicas that are already running. If this number is zero, then the executor functionality is stopped.</p>
+</div></blockquote>
+<p>readyExecutorReplicas -&gt; (integer)</p>
+<blockquote>
+<div><p>Total number of ready executor replicas in the virtual warehouse. This number only contains the healthy executor replicas that have already started up and are ready to accept requests. If this number is less than the totalExecutorReplicas, then the virtual warehouse might still be starting up or there might be a problem scheduling these replicas.</p>
+</div></blockquote>
+<p>totalCoordinatorReplicas -&gt; (integer)</p>
+<blockquote>
+<div><p>Total number of coordinator replicas scheduled for the virtual warehouse. This number contains the number of coordinator replicas in pending state, as well as the replicas that are already running. If this number is zero, then the coordinator functionality is stopped.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -331,7 +392,7 @@
         <li class="right" >
           <a href="describe-server-setting.html" title="describe-server-setting"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.79 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.80 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-vw</a></li> 
       </ul>

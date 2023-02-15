@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.79 (BETA) documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.80 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,19 +16,19 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="create-data-visualization" href="create-data-visualization.html" />
+    <link rel="next" title="create-cluster-diagnostic-data-job" href="create-cluster-diagnostic-data-job.html" />
     <link rel="prev" title="create-backup" href="create-backup.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-data-visualization.html" title="create-data-visualization"
+          <a href="create-cluster-diagnostic-data-job.html" title="create-cluster-diagnostic-data-job"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.79 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.80 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.79</p>
+<dd class="field-even"><p>0.9.80</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -210,10 +210,6 @@
 <blockquote>
 <div><p>Whether to enable spot instances for Virtual warehouses. It cannot be updated later. If the AzureActivationOptions is not provided it defaults to false.</p>
 </div></blockquote>
-<p>vmGenerationType -&gt; (string)</p>
-<blockquote>
-<div><p>DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.</p>
-</div></blockquote>
 <p>computeInstanceTypes -&gt; (array)</p>
 <blockquote>
 <div><p>Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.</p>
@@ -249,7 +245,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">subnetId</span><span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,vmGenerationType<span class="o">=</span>string,computeInstanceTypes<span class="o">=</span>string,string,logAnalyticsWorkspaceId<span class="o">=</span>string,dockerBridgeCidr<span class="o">=</span>string,outboundType<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean,enableUptimeSLA<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">subnetId</span><span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,computeInstanceTypes<span class="o">=</span>string,string,logAnalyticsWorkspaceId<span class="o">=</span>string,dockerBridgeCidr<span class="o">=</span>string,outboundType<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean,enableUptimeSLA<span class="o">=</span>boolean
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -257,7 +253,6 @@
   <span class="s2">&quot;subnetId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;enableAZ&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;enableSpotInstances&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;vmGenerationType&quot;</span>: <span class="s2">&quot;Standard_E16_v3&quot;</span><span class="p">|</span><span class="s2">&quot;Standard_E16ds_v4&quot;</span><span class="p">|</span><span class="s2">&quot;Standard_E16ads_v5&quot;</span>,
   <span class="s2">&quot;computeInstanceTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
   <span class="s2">&quot;logAnalyticsWorkspaceId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;dockerBridgeCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
@@ -365,8 +360,8 @@
   <p class="topless"><a href="create-backup.html"
                         title="previous chapter">create-backup</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="create-data-visualization.html"
-                        title="next chapter">create-data-visualization</a></p>
+  <p class="topless"><a href="create-cluster-diagnostic-data-job.html"
+                        title="next chapter">create-cluster-diagnostic-data-job</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -385,12 +380,12 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-data-visualization.html" title="create-data-visualization"
+          <a href="create-cluster-diagnostic-data-job.html" title="create-cluster-diagnostic-data-job"
              >next</a></li>
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.79 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.80 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
