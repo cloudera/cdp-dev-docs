@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.80 (2023-02-09)
+
+IMPROVEMENTS:
+
+* opdb: Add `numAddEdgeNodes` and `deleteEdgeInstances` parameters to `UpdateEdgeNodesRequest` command.
+
 ## 0.9.79 (2023-02-02)
 
 IMPROVEMENTS:
