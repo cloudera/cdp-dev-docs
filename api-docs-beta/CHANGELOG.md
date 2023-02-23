@@ -1,10 +1,31 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.81 (2023-02-22)
+
+IMPROVEMENTS:
+
+* dw: Add new command `create-cluster-diagnostic-data-job` for creating diagnostic bundles for clusters.
+* dw: Add new command `list-cluster-diagnostic-data-job` for listing diagnostic jobs for clusters.
+* dw: Add new command `describe-cluster-diagnostic-data-job` to get details about a given cluster diagnostic jobs.
+* dw: Add new command `delete-cluster-diagnostic-data-job` to remove a finished cluster diagnostic jobs.
+* dw: Add new command `upgrade-cluster` to upgrade a cluster to the latest version.
+* dw: Add new command `rebuild-dbc` to rebuild a Database Catalog.
+* dw: Add new command `rebuild-vw` to rebuild a Virtual Warehouse.
+* dw: Add new command `suspend-dbc` to suspend a given Database Catalog.
+* dw: Add `availabilityZone` parameter to the `create-vw` / `describe-vw` / `list-vws` commands.
+* dw: Add `replicaStatus` parameter to the `describe-vw` / `list-vws` commands.
+* dw: Add a new top-level `impalaOptions` parameter to the `create-vw` / `update-vw` / `describe-vw` / `list-vws` commands where the Impala spill to S3 setting can be adjusted.
+* dw: Remove `vmGenerationType` parameter for Azure clusters in the `create-cluster` command.
+* dw: Mark `pause-vw` command as deprecated in favor of the new `suspend-vw` command.
+* dw: Mark `enableUnifiedAnalytics` parameter in the Autoscaling object of the `create-vw` / `update-vw` / `describe-vw` / `list-vws` commands.
+* dw: The `enableUnifiedAnalytics` flag became a top-level flag of the `create-vw` / `update-vw` / `describe-vw` / `list-vws` commands.
+* dw: The Impala High-availability setting got a new dedicated object in the `create-vw` / `update-vw` / `describe-vw` / `list-vws` commands.
+
 ## 0.9.80 (2023-02-09)
 
 IMPROVEMENTS:
 
-* opdb: Add `numAddEdgeNodes` and `deleteEdgeInstances` parameters to `UpdateEdgeNodesRequest` command.
+* Minor bug fixes
 
 ## 0.9.79 (2023-02-02)
 

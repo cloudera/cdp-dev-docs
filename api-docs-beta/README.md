@@ -1,28 +1,28 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.80 (BETA)*
+*Version: 0.9.81 (BETA)*
 
 Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.80 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.80 |
-| [compute](./compute/index.html) | 0.9.80 |
-| [datacatalog](./datacatalog/index.html) | 0.9.80 |
-| [datahub](./datahub/index.html) | 0.9.80 |
-| [datalake](./datalake/index.html) | 0.9.80 |
-| [de](./de/index.html) | 0.9.80 |
-| [df](./df/index.html) | 0.9.80 |
-| [dfworkload](./dfworkload/index.html) | 0.9.80 |
-| [drscp](./drscp/index.html) | 0.9.80 |
-| [dw](./dw/index.html) | 0.9.80 |
-| [environments](./environments/index.html) | 0.9.80 |
-| [iam](./iam/index.html) | 0.9.80 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.80 |
-| [ml](./ml/index.html) | 0.9.80 |
-| [opdb](./opdb/index.html) | 0.9.80 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.80 |
+| [audit](./audit/index.html) | 0.9.81 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.81 |
+| [compute](./compute/index.html) | 0.9.81 |
+| [datacatalog](./datacatalog/index.html) | 0.9.81 |
+| [datahub](./datahub/index.html) | 0.9.81 |
+| [datalake](./datalake/index.html) | 0.9.81 |
+| [de](./de/index.html) | 0.9.81 |
+| [df](./df/index.html) | 0.9.81 |
+| [dfworkload](./dfworkload/index.html) | 0.9.81 |
+| [drscp](./drscp/index.html) | 0.9.81 |
+| [dw](./dw/index.html) | 0.9.81 |
+| [environments](./environments/index.html) | 0.9.81 |
+| [iam](./iam/index.html) | 0.9.81 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.81 |
+| [ml](./ml/index.html) | 0.9.81 |
+| [opdb](./opdb/index.html) | 0.9.81 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.81 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).
