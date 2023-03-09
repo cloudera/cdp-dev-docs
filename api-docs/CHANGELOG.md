@@ -1,5 +1,17 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.82 (2023-03-09)
+
+IMPROVEMENTS:
+
+* drscp: Add new state `TERMINATING` to backup, recovery, and data recovery service jobs.
+* ml: Add new parameter `skipValidation` to `deleteBackup` command.
+
+BACKWARD INCOMPATIBILITIES:
+
+* datahub: Change paramater `loadBasdePolicy` to `loadBasedPolicy` auto scale command responses.
+
+
 ## 0.9.81 (2023-02-22)
 
 IMPROVEMENTS:
