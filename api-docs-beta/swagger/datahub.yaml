@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.82 (BETA)
+  version: 0.9.83 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -2309,6 +2309,10 @@ definitions:
       enableLoadBalancer:
         type: boolean
         description: Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
+      javaVersion:
+        type: integer
+        format: int32
+        description: Configure the major version of Java on the cluster.
   CreateAWSClusterResponse:
     type: object
     description: Response object for create AWS cluster request.
@@ -2371,6 +2375,10 @@ definitions:
       enableLoadBalancer:
         type: boolean
         description: Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
+      javaVersion:
+        type: integer
+        format: int32
+        description: Configure the major version of Java on the cluster.
   CreateAzureClusterResponse:
     type: object
     description: Response object for create Azure cluster request.
@@ -2427,6 +2435,10 @@ definitions:
         $ref: '#/definitions/ClusterExtension'
         description: Cluster extensions for the given Data Hub cluster.
         x-no-compatibility-guarantee: true
+      javaVersion:
+        type: integer
+        format: int32
+        description: Configure the major version of Java on the cluster.
   CreateGCPClusterResponse:
     type: object
     description: Response object for create GCP cluster request.
@@ -3181,7 +3193,7 @@ definitions:
         description: true (default) to enable Autoscaling, false to disable AutoScaling.
       useStopStartMechanism:
         type: boolean
-        description: true to enable StopStart scaling mechanism, false (default) to use regular AutoScaling (if enabled).
+        description: true to enable StopStart scaling mechanism, false to use regular AutoScaling (if enabled).
   CreateAutoScaleRulesResponse:
     type: object
     description: The AutoScale rules for the cluster.

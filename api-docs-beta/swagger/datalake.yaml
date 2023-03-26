@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.82 (BETA)
+  version: 0.9.83 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1280,6 +1280,10 @@ definitions:
         items:
           $ref: '#/definitions/SdxInstanceGroupRequest'
         description: Configure custom properties on an instance group level.
+      javaVersion:
+        type: integer
+        format: int32
+        description: Configure the major version of Java on the cluster.
   CreateAWSDatalakeResponse:
     type: object
     description: Response object for create AWS datalake request.
@@ -1339,6 +1343,10 @@ definitions:
         items:
           $ref: '#/definitions/SdxInstanceGroupRequest'
         description: Configure custom properties on an instance group level.
+      javaVersion:
+        type: integer
+        format: int32
+        description: Configure the major version of Java on the cluster.
   CreateAzureDatalakeResponse:
     type: object
     description: Response object for create Azure datalake request.
@@ -1392,6 +1400,10 @@ definitions:
         items:
           $ref: '#/definitions/SdxInstanceGroupRequest'
         description: Configure custom properties on an instance group level.
+      javaVersion:
+        type: integer
+        format: int32
+        description: Configure the major version of Java on the cluster.
   CreateGCPDatalakeResponse:
     type: object
     description: Response object for create GCP Data Lake request.
@@ -1659,6 +1671,9 @@ definitions:
       skipRangerAudits:
         type: boolean
         description: Skips the backup of the Ranger audits. If this option is not provided, Ranger audits are backed up by default.
+      skipAtlasIndexes:
+        type: boolean
+        description: Skips the backup of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, Atlas indexes are backed up by default. Redundant if --skipAtlasMetadata is included.
       skipValidation:
         type: boolean
         description: Skips the validation step that runs prior to the backup. If this option is not provided, the validations are performed by default.
@@ -1807,6 +1822,9 @@ definitions:
       skipRangerAudits:
         type: boolean
         description: Skips the restore of the Ranger audits. If this option is not provided, then by default the Ranger audits will be restored if the backup used includes the Ranger audits.
+      skipAtlasIndexes:
+        type: boolean
+        description: Skips the restore of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, then by default the Atlas indexes will be restored if the backup used includes the Atlas indexes. Redundant if --skipAtlasMetadata is included.
       backupLocationOverride:
         type: string
         description: Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
