@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.83 (2023-03-23)
+
+IMPROVEMENTS:
+
+* datalakedr: Create `skipAtlasIndexes` as an option on datalake backup/restore.
+* iam: Add new command `describeSamlProvider` for describing a SAML provider.
+
+BACKWARD INCOMPATIBILITIES:
+
+* compute: Deprecate the `overrides` field in the response of `describeDeployment` command.
+* dw: Remove the `tenantStorageLocation` field from the request of `createDbc` command.
+
+
 ## 0.9.82 (2023-03-09)
 
 IMPROVEMENTS:
