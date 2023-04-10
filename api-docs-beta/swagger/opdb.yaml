@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.83 (BETA)
+  version: 0.9.84 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -833,6 +833,9 @@ definitions:
       catalog:
         type: string
         description: Catalog name for the image.
+      verticalScale:
+        description: Vertical Scale request for database.
+        $ref: '#/definitions/GroupType'
   AutoScalingParameters:
     type: object
     description: A Parameters to configure AutoScaling
@@ -2191,4 +2194,10 @@ definitions:
         items:
           $ref: '#/definitions/EdgeNode'
         description: The list of edge nodes for a database.
+  GroupType:
+    type: string
+    description: "Group type for the database nodes.\n `GATEWAY` - GATEWAY value of the Group variable. `MASTER` - MASTER value of the Group variable."
+    enum:
+      - GATEWAY
+      - MASTER
 x-audit: true

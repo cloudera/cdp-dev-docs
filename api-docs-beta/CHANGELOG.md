@@ -1,5 +1,28 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.84 (2023-04-06)
+
+IMPROVEMENTS:
+* df: Add new command `get-flow-version` for getting flow definition.
+* df: Add new command `get-kubeconfig` for getting kubernetes configuration for an environment.
+* df: Add new command `list-diagnostics` to list diagnostics.
+* df: Add new command `start-get-diagnostics-collection` to get start diagnostics bundle creation and upload.
+* df: Add `cfmNifiVersion` parameter to `describe-deployment` command.
+* df: Add `destination`, `collectionScope`, and `environmentComponents` parameters to `list-diagnostics` and `start-get-diagnostics-collection` commands.
+* df: Add `availableK8sVersionUpgrade` parameter to `describe-service`, `enable-service`, `update-service`, and `upgrade-service` commands.
+* df: Add parameter `instanceType` to `enable-service` command.
+* dfworkload: Add new command `delete-custom-nar-configuration` to delete orphaned custom NAR configuration.
+* dfworkload: Add `crn` parameter to `inbound-connection-endpoint-client-certificate` and `inbound-connection-endpoint-client-private-key` commands.
+* computeadmin: Added `values` parameter to `Deployment` object returned in `upgrade-deployment`, `describe-deployment`, and `list-deployments` commands.
+* computeadmin: Added `verbose` parameter to `list-deployments` command.
+
+BACKWARD INCOMPATIBILITIES:
+* df: Add value `IMPORTING_FLOW` to `state` parameter enum to `list-deployments` and `describe-deployments` commands.
+* dfworkload: Add `FAILED_TO_IMPORT`, `IMPORTING_FLOW`, `METERING_OFFLINE`, `CERTIFICATE_RENEWED`, and `NOT_HEALTHY` to `status` parameter enum to the `renew-inbound-connection-endpoint-certificate` command.
+* dfworkload: Remove deprecated `id` parameter from `describe-inbound-connection-endpoint` and make `crn` a required parameter for the `describe-inbound-connection-endpoint` command.
+* dfworkload: Mark `id` parameter as deprecated and not required for `inbound-connection-endpoint-client-certificate` and `inbound-connection-endpoint-client-private-key` commands.
+* dfworkload: Remove deprecated `deploymentId` and `id` parameters from `list-inbound-connection-endpoints` and `describe-inbound-connection-endpoint` commands.
+
 ## 0.9.83 (2023-03-23)
 
 IMPROVEMENTS:
