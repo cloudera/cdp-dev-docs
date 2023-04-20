@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-aws-environment &#8212; CDP CLI 0.9.84 documentation</title>
+    <title>create-aws-environment &#8212; CDP CLI 0.9.85 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.84 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.85 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new AWS environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.84</p>
+<dd class="field-even"><p>0.9.85</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -257,18 +257,24 @@
 <blockquote>
 <div><p>The number of FreeIPA instances to create per group when creating FreeIPA in the environment</p>
 </div></blockquote>
+<p>recipes -&gt; (array)</p>
+<blockquote>
+<div><p>The recipes for the FreeIPA cluster.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
 <p>multiAz -&gt; (boolean)</p>
 <blockquote>
 <div><p>Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.</p>
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer,multiAz<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer,recipes<span class="o">=</span>string,string,multiAz<span class="o">=</span>boolean
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
   <span class="s2">&quot;instanceCountByGroup&quot;</span>: integer,
+  <span class="s2">&quot;recipes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
   <span class="s2">&quot;multiAz&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
 <span class="o">}</span>
 </pre></div>
@@ -411,6 +417,10 @@
 <p>aksPrivateDnsZoneId -&gt; (string)</p>
 <blockquote>
 <div><p>The ID of an existing private DNS zone used for the AKS.</p>
+</div></blockquote>
+<p>enableOutboundLoadBalancer -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the outbound load balancer was created for this environment.</p>
 </div></blockquote>
 </div></blockquote>
 <p>gcp -&gt; (object)</p>
@@ -639,6 +649,11 @@
 <div><p>The IP addresses of the FreeIPA cluster.</p>
 <p>item -&gt; (string)</p>
 </div></blockquote>
+<p>recipes -&gt; (array)</p>
+<blockquote>
+<div><p>The recipes for the FreeIPA cluster.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
 </div></blockquote>
 <p>proxyConfig -&gt; (object)</p>
 <blockquote>
@@ -736,7 +751,7 @@
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.84 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.85 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>
