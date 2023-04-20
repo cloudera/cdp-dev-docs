@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.85 (2023-04-20)
+
+IMPROVEMENTS:
+* datalake: Add `skipBackupValidation` parameter to `upgrade-datalake` command.
+* environments: Add `enableOutboundLoadBalancer` parameter to `create-azure-environment` command.
+* environments: Add new command `attach-freeIpa-recipes` to attach recipes to FreeIPA.
+* environments: Add new command `detach-freeIpa-recipes` to detach recipes from FreeIPA.
+
 ## 0.9.84 (2023-04-06)
 
 IMPROVEMENTS:

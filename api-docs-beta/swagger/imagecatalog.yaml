@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.84 (BETA)
+  version: 0.9.85 (BETA)
   title: Image catalog service
   license:
     name: Apache 2.0
@@ -34,6 +34,29 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/CreateCustomCatalogResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/imagecatalog/createKubernetesCatalog:
+    post:
+      summary: Creates a Kubernetes catalog
+      description: Creates a Kubernetes catalog
+      operationId: createKubernetesCatalog
+      x-entitlement: COMPUTE_USE_CUSTOM_IMAGE_CATALOG
+      x-right: imagecatalog/createKubernetesCatalog
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateKubernetesCatalogRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateKubernetesCatalogResponse'
         default:
           description: The default response on an error.
           schema:
@@ -165,6 +188,29 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: false
+  /api/v1/imagecatalog/describeKubernetesCatalog:
+    post:
+      summary: Describes a Kubernetes catalog
+      description: Describes a Kubernetes catalog
+      operationId: describeKubernetesCatalog
+      x-entitlement: COMPUTE_USE_CUSTOM_IMAGE_CATALOG
+      x-right: imagecatalog/describeKubernetesCatalog
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeKubernetesCatalogRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DescribeKubernetesCatalogResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/imagecatalog/findDefaultImage:
     post:
       summary: Find default image
@@ -207,6 +253,29 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: false
+  /api/v1/imagecatalog/listKubernetesCatalogs:
+    post:
+      summary: List Kubernetes catalogs
+      description: List Kubernetes catalogs
+      operationId: listKubernetesCatalogs
+      x-entitlement: COMPUTE_USE_CUSTOM_IMAGE_CATALOG
+      x-right: imagecatalog/listKubernetesCatalogs
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListKubernetesCatalogsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListKubernetesCatalogsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/imagecatalog/setFreeipaImage:
     post:
       summary: Add or update FreeIPA image
@@ -244,6 +313,29 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/SetRuntimeImageResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/imagecatalog/updateKubernetesCatalog:
+    post:
+      summary: Updates a Kubernetes catalog
+      description: Updates a Kubernetes catalog
+      operationId: updateKubernetesCatalog
+      x-entitlement: COMPUTE_USE_CUSTOM_IMAGE_CATALOG
+      x-right: imagecatalog/updateKubernetesCatalog
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateKubernetesCatalogRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateKubernetesCatalogResponse'
         default:
           description: The default response on an error.
           schema:
@@ -604,4 +696,117 @@ definitions:
       provider:
         description: Cloud provider - either AWS, AZURE or GCP
         $ref: '#/definitions/VmImageProvider'
+  CreateKubernetesCatalogRequest:
+    type: object
+    description: Create Kubernetes catalog request
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        description: The name of the catalog.
+      content:
+        type: string
+        format: byte
+        description: The catalog content.
+        x-skip-logging: true
+  CreateKubernetesCatalogResponse:
+    type: object
+    description: Create Kubernetes catalog request
+    properties:
+      crn:
+        type: string
+        description: The CRN of the catalog.
+      status:
+        description: The status of the create.
+        $ref: '#/definitions/KubernetesChangeStatus'
+  ListKubernetesCatalogsRequest:
+    type: object
+    description: List Kubernetes catalogs request
+  ListKubernetesCatalogsResponse:
+    type: object
+    description: List Kubernetes catalogs response
+    properties:
+      kubernetesListings:
+        type: array
+        items:
+          $ref: '#/definitions/KubernetesDetail'
+        description: The Kubernetes listing detail.
+  KubernetesDetail:
+    type: object
+    description: Kubernetes List Detail
+    properties:
+      crn:
+        type: string
+        description: The catalog CRN.
+      name:
+        type: string
+        description: The catalog name.
+      creator:
+        type: string
+        description: The creator CRN.
+      description:
+        type: string
+        description: The catalog description.
+  DescribeKubernetesCatalogRequest:
+    type: object
+    description: Describe Kubernetes catalog request
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: The CRN of the catalog.
+  DescribeKubernetesCatalogResponse:
+    type: object
+    description: Describe Kubernetes catalog request
+    properties:
+      crn:
+        type: string
+        description: The CRN of the catalog.
+      name:
+        type: string
+        description: The name of the catalog.
+      creator:
+        type: string
+        description: The CRN of the creator.
+      description:
+        type: string
+        description: The description of the catalog.
+      content:
+        type: string
+        format: byte
+        description: The catalog content.
+        x-skip-logging: true
+  UpdateKubernetesCatalogRequest:
+    type: object
+    description: Update Kubernetes catalog request
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: The CRN of the catalog.
+      content:
+        type: string
+        format: byte
+        description: The catalog content.
+        x-skip-logging: true
+  UpdateKubernetesCatalogResponse:
+    type: object
+    description: Update Kubernetes catalog request
+    properties:
+      crn:
+        type: string
+        description: The CRN of the catalog.
+      status:
+        description: The status of the update.
+        $ref: '#/definitions/KubernetesChangeStatus'
+  KubernetesChangeStatus:
+    type: string
+    description: "Kubernetes Update or Create status\n `CREATED` - Catalog is created. `UPDATED` - Catalog is updated. `FAILED` - Catalog update failed."
+    enum:
+      - CREATED
+      - UPDATED
+      - FAILED
 x-audit: true
