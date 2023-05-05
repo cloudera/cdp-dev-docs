@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-cluster &#8212; CDP CLI 0.9.85 documentation</title>
+    <title>update-cluster &#8212; CDP CLI 0.9.86 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="suspend-vw.html" title="suspend-vw"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.85 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.86 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Updates the Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.85</p>
+<dd class="field-even"><p>0.9.86</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -59,8 +59,11 @@
 --cluster-id &lt;value&gt;
 <span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--whitelist-ip-cidrs &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--whitelist-k8s-cluster-access-ip-cidrs &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--whitelist-workload-access-ip-cidrs &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--aws-update &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--azure-update &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--observability-config &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -79,6 +82,23 @@
 <p><code class="docutils literal notranslate"><span class="pre">--whitelist-ip-cidrs</span></code> (array)</p>
 <blockquote>
 <div><p>List of IP address CIDRs to whitelist. NOTE: CDW is in process of rolling out a new feature to whitelist IP CIDR separately for Kubernetes Clusters and Loadbalancers on CDP Public Cloud. For an existing cluster, if different IP CIDR has been already applied to LoadBalancer and the Kubernetes cluster through the DWX UI, then updating the IP CIDR of such cluster is not supported from CLI. In the upcoming release, the CLI will support this feature. Please make use of UI for the same.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p>Form Factors: public, private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--whitelist-k8s-cluster-access-ip-cidrs</span></code> (array)</p>
+<blockquote>
+<div><p>List of IP address CIDRs to whitelist for kubernetes cluster access.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--whitelist-workload-access-ip-cidrs</span></code> (array)</p>
+<blockquote>
+<div><p>List of IP address CIDRs to whitelist for workload access.</p>
 </div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
@@ -134,6 +154,29 @@
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
   <span class="s2">&quot;renewCertificate&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--observability-config</span></code> (object)</p>
+<blockquote>
+<div><p>Update the cluster observability configurations. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splun. Please refer to the following Cloudera documentation for more info. <a class="reference external" href="https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html">https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html</a></p>
+<p>logsForwardingConfig -&gt; (string)</p>
+<blockquote>
+<div><p>Create the log forwarding configuration in a valid fluentd format. Then that configuration is later inserted into a larger fluentd configuration.</p>
+</div></blockquote>
+<p>proxyCABundle -&gt; (string)</p>
+<blockquote>
+<div><p>Set the proxy CA certificates (PEM Bundle). If you use a TLS-terminating proxy server to inspect outbound internet traffic, you need to provide the proxy server’s CA certificates bundle in PEM bundle format when you configure log forwarding.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">logsForwardingConfig</span><span class="o">=</span>string,proxyCABundle<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;logsForwardingConfig&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;proxyCABundle&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -203,7 +246,7 @@
         <li class="right" >
           <a href="suspend-vw.html" title="suspend-vw"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.85 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.86 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-cluster</a></li> 
       </ul>
