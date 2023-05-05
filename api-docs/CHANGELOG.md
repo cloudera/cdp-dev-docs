@@ -1,5 +1,22 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.86 (2023-05-05)
+
+IMPROVEMENTS:
+* dw: Add new commands `describeDbcConfig`, `updateDbcConfig`, `describeVwConfig`, and `updateVwConfig`
+* dw: Add parameters `whitelistK8sClusterAccessIpCIDRs` and `whitelistWorkloadAccessIpCIDRs` to `createCluster` command. The new parameters replace `whitelistIpCIDRs` on Public Cloud deployments.
+* dw: Add new parameters `workerSubnetIds` and `lbSubnetIds` to `createCluster` command for AWS clusters.
+* dw: Add new parameter `userAssignedManagedIdentity` to `createCluster` command for Azure clusters.
+* dw: Add new parameter `observabilityConfig` to `updateCluster` command.
+* dw: Add new parameter `platformJwtAuth` to `createVw` command.
+* dw: `enableUptimeSLA` has been deprecated for `createCluster` command for Azure clusters.
+* opdb: `environment` and `database` parameters are no longer required for `upgradeDatabase` command.
+* ml: `newWorkspaceParameters` and `backupCrn` parameters are no longer required for `restoreWorkspace` command.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: the `pause-vw` command has been removed in favour of `suspend-vw`
+* dw: Removed `dockerBridgeCidr` and `customId` parameter from `createCluster` command for Azure clusters.
+
 ## 0.9.85 (2023-04-20)
 
 IMPROVEMENTS:
