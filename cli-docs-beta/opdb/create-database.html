@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-database &#8212; CDP CLI 0.9.86 (BETA) documentation</title>
+    <title>create-database &#8212; CDP CLI 0.9.87 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="collect-diagnostics.html" title="collect-diagnostics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.86 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.87 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-database</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create opDb</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.86</p>
+<dd class="field-even"><p>0.9.87</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -67,7 +67,6 @@
 <span class="o">[</span>--disable-ephemeral-storage <span class="p">|</span> --no-disable-ephemeral-storage<span class="o">]</span>
 <span class="o">[</span>--disable-multi-az <span class="p">|</span> --no-disable-multi-az<span class="o">]</span>
 <span class="o">[</span>--attached-storage-for-workers &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--master-node-type &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--disable-kerberos <span class="p">|</span> --no-disable-kerberos<span class="o">]</span>
 <span class="o">[</span>--num-edge-nodes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--gateway-node-type &lt;value&gt;<span class="o">]</span>
@@ -213,15 +212,6 @@
 <span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--master-node-type</span></code> (string)</p>
-<blockquote>
-<div><p>Master node type <cite>LITE</cite> - Use small master instance type to handle less load for master services. <cite>HEAVY</cite> - Use large master instance type to handle more load for master services.</p>
-<p>Possible values:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">LITE</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">HEAVY</span></code></p></li>
-</ul>
-</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--disable-kerberos</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-disable-kerberos</span></code> (boolean)</p>
 <blockquote>
 <div><p>Disable Kerberos authentication.</p>
@@ -272,10 +262,12 @@
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--scale-type</span></code> (string)</p>
 <blockquote>
-<div><p>Scale type. <cite>MICRO</cite> - Create a 2 node cluster (1 gateway and 1 worker) with high availability disabled.</p>
+<div><p>Scale type. <cite>MICRO</cite> - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. <cite>LIGHT</cite> - Create a multi-node cluster with a light master instance type. <cite>HEAVY</cite> - Create a multi-node cluster with heavy master instance type.</p>
 <p>Possible values:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MICRO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIGHT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HEAVY</span></code></p></li>
 </ul>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
@@ -394,7 +386,7 @@
 </div></blockquote>
 <p>scaleType -&gt; (string)</p>
 <blockquote>
-<div><p>Scale type. <cite>MICRO</cite> - Create a 2 node cluster (1 gateway and 1 worker) with high availability disabled.</p>
+<div><p>Scale type. <cite>MICRO</cite> - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. <cite>LIGHT</cite> - Create a multi-node cluster with a light master instance type. <cite>HEAVY</cite> - Create a multi-node cluster with heavy master instance type.</p>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -452,7 +444,7 @@
         <li class="right" >
           <a href="collect-diagnostics.html" title="collect-diagnostics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.86 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.87 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-database</a></li> 
       </ul>
