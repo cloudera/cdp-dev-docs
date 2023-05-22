@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.86*
+*Version: 0.9.87*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -15,22 +15,22 @@ API requests must be signed according to the
 
 | Service Definition | Version |
 | --- | --- |
-| [audit.yaml](./audit.yaml) | 0.9.86 |
-| [compute.yaml](./compute.yaml) | 0.9.86 |
-| [datacatalog.yaml](./datacatalog.yaml) | 0.9.86 |
-| [datahub.yaml](./datahub.yaml) | 0.9.86 |
-| [datalake.yaml](./datalake.yaml) | 0.9.86 |
-| [de.yaml](./de.yaml) | 0.9.86 |
-| [df.yaml](./df.yaml) | 0.9.86 |
-| [dfworkload.yaml](./dfworkload.yaml) | 0.9.86 |
-| [drscp.yaml](./drscp.yaml) | 0.9.86 |
-| [dw.yaml](./dw.yaml) | 0.9.86 |
-| [environments.yaml](./environments.yaml) | 0.9.86 |
-| [iam.yaml](./iam.yaml) | 0.9.86 |
-| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.86 |
-| [ml.yaml](./ml.yaml) | 0.9.86 |
-| [opdb.yaml](./opdb.yaml) | 0.9.86 |
-| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.86 |
+| [audit.yaml](./audit.yaml) | 0.9.87 |
+| [compute.yaml](./compute.yaml) | 0.9.87 |
+| [datacatalog.yaml](./datacatalog.yaml) | 0.9.87 |
+| [datahub.yaml](./datahub.yaml) | 0.9.87 |
+| [datalake.yaml](./datalake.yaml) | 0.9.87 |
+| [de.yaml](./de.yaml) | 0.9.87 |
+| [df.yaml](./df.yaml) | 0.9.87 |
+| [dfworkload.yaml](./dfworkload.yaml) | 0.9.87 |
+| [drscp.yaml](./drscp.yaml) | 0.9.87 |
+| [dw.yaml](./dw.yaml) | 0.9.87 |
+| [environments.yaml](./environments.yaml) | 0.9.87 |
+| [iam.yaml](./iam.yaml) | 0.9.87 |
+| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.87 |
+| [ml.yaml](./ml.yaml) | 0.9.87 |
+| [opdb.yaml](./opdb.yaml) | 0.9.87 |
+| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.87 |
 
 See all the files at once in this site's
 [Github repository](https://github.com/cloudera/cdp-dev-docs/tree/master/api-docs/swagger).

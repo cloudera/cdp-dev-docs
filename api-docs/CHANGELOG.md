@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.87 (2023-05-18)
+
+IMPROVEMENTS:
+* dw: Enable `replicaStatus` field in private cloud.
+* datahub: Add `instanceType` filed to `Instance` object.
+* datalake: Add `discoveryFQDN`, `instanceStatus`, `statusReason`, `sshPort`, `instanceGroup`, `instanceTypeVal` to `Instance` object.
+* de: Support `SPARK3_3` in field `sparkVersion` of `CreateVcRequest` command.
+
 ## 0.9.86 (2023-05-05)
 
 IMPROVEMENTS:
