@@ -1012,6 +1012,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_datalakedetails">DatalakeDetails</a></li>
 <li><a href="#_datalakediagnosticscollectiondetailsresponse">DatalakeDiagnosticsCollectionDetailsResponse</a></li>
 <li><a href="#_datalakediagnosticscollectionresponse">DatalakeDiagnosticsCollectionResponse</a></li>
+<li><a href="#_datalakeinstancestatus">DatalakeInstanceStatus</a></li>
+<li><a href="#_datalakeinstancetype">DatalakeInstanceType</a></li>
 <li><a href="#_datalakeloadbalancerskutype">DatalakeLoadBalancerSkuType</a></li>
 <li><a href="#_datalakeresourcegcptagrequest">DatalakeResourceGCPTagRequest</a></li>
 <li><a href="#_datalakeresourcetagrequest">DatalakeResourceTagRequest</a></li>
@@ -1120,7 +1122,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.86 (BETA)</p>
+<p><em>Version</em> : 0.9.87 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -7446,6 +7448,24 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_datalakeinstancestatus">DatalakeInstanceStatus</h3>
+<div class="paragraph">
+<p>The status of the instance.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (REQUESTED, FAILED, CREATED, ORCHESTRATION_FAILED, SERVICES_RUNNING, SERVICES_HEALTHY, SERVICES_UNHEALTHY, WAITING_FOR_REPAIR, STOPPED, DELETED_ON_PROVIDER_SIDE, DELETED_BY_PROVIDER, DELETE_REQUESTED, DECOMMISSIONED, DECOMMISION_FAILED, TERMINATED)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datalakeinstancetype">DatalakeInstanceType</h3>
+<div class="paragraph">
+<p>The type of the instance.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (GATEWAY, GATEWAY_PRIMARY, CORE)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_datalakeloadbalancerskutype">DatalakeLoadBalancerSkuType</h3>
 <div class="paragraph">
 <p>Represents the Azure load balancer SKU type. The current default is BASIC. To disable the load balancer, use type NONE.</p>
@@ -8708,6 +8728,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>discoveryFQDN</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The FQDN of the instance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>id</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -8720,11 +8752,47 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceGroup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the instance group this instance belongs to.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceStatus</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the instance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_datalakeinstancestatus">DatalakeInstanceStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceTypeVal</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The instance type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_datalakeinstancetype">DatalakeInstanceType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>privateIp</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The private ip of the given instance.</p>
+<p>The private IP of the given instance.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8736,10 +8804,22 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The public ip of the given instance.</p>
+<p>The public IP of the given instance.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sshPort</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The SSH port for the instance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8749,6 +8829,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The actual state of the instance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>statusReason</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The reason for the current status of this instance.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8782,7 +8874,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Some information about the given instance.</p>
+<p>List of instances in this instance group.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_instance">Instance</a> &gt; array</p>
@@ -8794,7 +8886,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the instance group where the given instance is located.</p>
+<p>The name of the instance group.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11566,7 +11658,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-04 19:15:35 -0700
+Last updated 2023-05-19 00:43:14 -0700
 </div>
 </div>
 <br>

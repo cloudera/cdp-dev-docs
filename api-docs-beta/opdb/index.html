@@ -955,7 +955,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listsnapshotsresponse">ListSnapshotsResponse</a></li>
 <li><a href="#_listsupportedenvironmentsrequest">ListSupportedEnvironmentsRequest</a></li>
 <li><a href="#_listsupportedenvironmentsresponse">ListSupportedEnvironmentsResponse</a></li>
-<li><a href="#_masternodetype">MasterNodeType</a></li>
 <li><a href="#_removecoprocessorrequest">RemoveCoprocessorRequest</a></li>
 <li><a href="#_removecoprocessorresponse">RemoveCoprocessorResponse</a></li>
 <li><a href="#_restoresnapshot">RestoreSnapshot</a></li>
@@ -995,7 +994,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.86 (BETA)</p>
+<p><em>Version</em> : 0.9.87 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4596,18 +4595,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>masterNodeType</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optional tags to select predefined master node type to handle different size of work load when hbase root deployed on hdfs</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_masternodetype">MasterNodeType</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>numEdgeNodes</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -7536,16 +7523,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_masternodetype">MasterNodeType</h3>
-<div class="paragraph">
-<p>Master node type
- <code>LITE</code> - Use small master instance type to handle less load for master services. <code>HEAVY</code> - Use large master instance type to handle more load for master services.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : enum (LITE, HEAVY)</p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_removecoprocessorrequest">RemoveCoprocessorRequest</h3>
 <div class="paragraph">
 <p>The request for removing a coprocessor of a table in a database.</p>
@@ -7995,10 +7972,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h3 id="_scaletype">ScaleType</h3>
 <div class="paragraph">
 <p>Scale type.
- <code>MICRO</code> - Create a 2 node cluster (1 gateway and 1 worker) with high availability disabled.</p>
+ <code>MICRO</code> - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. <code>LIGHT</code> - Create a multi-node cluster with a light master instance type. <code>HEAVY</code> - Create a multi-node cluster with heavy master instance type.</p>
 </div>
 <div class="paragraph">
-<p><em>Type</em> : enum (MICRO)</p>
+<p><em>Type</em> : enum (MICRO, LIGHT, HEAVY)</p>
 </div>
 </div>
 <div class="sect2">
@@ -8952,7 +8929,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-04 19:15:35 -0700
+Last updated 2023-05-19 00:43:14 -0700
 </div>
 </div>
 <br>

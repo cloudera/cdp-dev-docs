@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.86 (BETA)
+  version: 0.9.87 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -750,9 +750,6 @@ definitions:
       attachedStorageForWorkers:
         description: Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.
         $ref: '#/definitions/AttachedStorageForWorkers'
-      masterNodeType:
-        description: Optional tags to select predefined master node type to handle different size of work load when hbase root deployed on hdfs
-        $ref: '#/definitions/MasterNodeType'
       disableKerberos:
         type: boolean
         description: Disable Kerberos authentication.
@@ -798,12 +795,6 @@ definitions:
       volumeType:
         description: The volume type. This parameter can be HDD or SSD. Default is HDD.
         $ref: '#/definitions/VolumeType'
-  MasterNodeType:
-    type: string
-    description: "Master node type\n `LITE` - Use small master instance type to handle less load for master services. `HEAVY` - Use large master instance type to handle more load for master services."
-    enum:
-      - LITE
-      - HEAVY
   GatewayNodeType:
     type: string
     description: "Gateway node type.\n `LITE` - Use a small gateway instance type to handle less load for gateway services. `HEAVY` - Use a large gateway instance type to handle more load for gateway services."
@@ -812,9 +803,11 @@ definitions:
       - HEAVY
   ScaleType:
     type: string
-    description: "Scale type.\n `MICRO` - Create a 2 node cluster (1 gateway and 1 worker) with high availability disabled."
+    description: "Scale type.\n `MICRO` - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. `LIGHT` - Create a multi-node cluster with a light master instance type. `HEAVY` - Create a multi-node cluster with heavy master instance type."
     enum:
       - MICRO
+      - LIGHT
+      - HEAVY
   UpdateDatabaseRequest:
     type: object
     description: A request to update the database
