@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>describe-scaling-activity &#8212; CDP CLI 0.9.88 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get-cluster-host-status" href="get-cluster-host-status.html" />
+    <link rel="prev" title="describe-recipe" href="describe-recipe.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-cluster-host-status.html" title="get-cluster-host-status"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="describe-recipe.html" title="describe-recipe"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.88 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-scaling-activity</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="describe-scaling-activity">
+<span id="cli-cdp-datahub-describe-scaling-activity"></span><h1>describe-scaling-activity<a class="headerlink" href="#describe-scaling-activity" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Describes the Scaling Activity using Cluster CRN or Cluster NAME and operation ID.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.88</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Describes the Scaling Activity using Cluster CRN or Cluster NAME and operation ID.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-scaling-activity
+--cluster &lt;value&gt;
+--operation-id &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--operation-id</span></code> (string)</p>
+<blockquote>
+<div><p>Operation ID of the scaling activity.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>scalingActivity -&gt; (object)</p>
+<blockquote>
+<div><p>Information about a Scaling activity.</p>
+<p>operationId -&gt; (string)</p>
+<blockquote>
+<div><p>The operation ID of the scaling activity.</p>
+</div></blockquote>
+<p>startTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The start time of the scaling activity.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The end time of the scaling activity.</p>
+</div></blockquote>
+<p>scalingActivityReason -&gt; (string)</p>
+<blockquote>
+<div><p>The reason of the scaling activity.</p>
+</div></blockquote>
+<p>activityStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the scaling activity. Supported values- ACTIVITY_PENDING - If scaling activity is in pending state, METRICS_COLLECTION_SUCCESS/FAILED - for success/failure of metrics collection, UPSCALE_TRIGGER_SUCCESS/FAILED - for success/failure at the time of upscaling, DOWNSCALE_TRIGGER_SUCCESS/FAILED for success/failure at the time of downscaling, SCHEDULE_BASED_UPSCALE/DOWNSCALE - if schedule based scaling is used, SCALING_FLOW_IN_PROGRESS/SUCCESS/FAILED - State at which the scaling has reached, POLICY_ADJUSTMENT - if policy adjustment is taking place, UNKNOWN - if the state is not known.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-scaling-activity</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="describe-recipe.html"
+                        title="previous chapter">describe-recipe</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get-cluster-host-status.html"
+                        title="next chapter">get-cluster-host-status</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-cluster-host-status.html" title="get-cluster-host-status"
+             >next</a></li>
+        <li class="right" >
+          <a href="describe-recipe.html" title="describe-recipe"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.88 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-scaling-activity</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
