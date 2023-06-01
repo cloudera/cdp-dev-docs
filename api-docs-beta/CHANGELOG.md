@@ -1,5 +1,16 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.88 (2023-06-01)
+
+IMPROVEMENTS:
+* dw: Add new commands `backup-cluster` and `restore-cluster`.
+* datahub: Add new commands `list-scaling-activities` and `describe-scaling-activity`.
+* datahub: Add `javaVersion` parameter to `create-aws-cluster`, `create-azure-cluster` and `create-gcp-cluster` commands.
+* datalake: Add `javaVersion` parameter to `create-aws-datalake`, `create-azure-datalake` and `create-gcp-datalake` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated `enableUptimeSLA` field from `azureOptions` in the `create-cluster` command.
+
 ## 0.9.87 (2023-05-18)
 
 IMPROVEMENTS:
