@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-cluster &#8212; CDP CLI 0.9.88 (BETA) documentation</title>
+    <title>describe-cluster &#8212; CDP CLI 0.9.89 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="delete-user.html" title="delete-user"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.88 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe compute cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.88</p>
+<dd class="field-even"><p>0.9.89</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -146,6 +146,104 @@
 <p>envCrn -&gt; (string)</p>
 <blockquote>
 <div><p>CDP environment CRN.</p>
+</div></blockquote>
+<p>apiEndPoint -&gt; (string)</p>
+<blockquote>
+<div><p>API endpoint.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>clusterStateVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>Cluster state version.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>deletionTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster deletion time in ISO format.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>updateTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster update time in ISO format.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>workloads -&gt; (array)</p>
+<blockquote>
+<div><p>Workloads.</p>
+<p>Form Factors: public</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>clusterOwner -&gt; (object)</p>
+<blockquote>
+<div><p>Compute cluster owner structure.</p>
+<p>Form Factors: public</p>
+<p>email -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s email.</p>
+</div></blockquote>
+<p>firstName -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s firstname.</p>
+</div></blockquote>
+<p>lastName -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s lastname.</p>
+</div></blockquote>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s user ID.</p>
+</div></blockquote>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s account ID.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s actor CRN.</p>
+</div></blockquote>
+</div></blockquote>
+<p>region -&gt; (string)</p>
+<blockquote>
+<div><p>Region.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Message with additional details about the cluster status.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>account -&gt; (string)</p>
+<blockquote>
+<div><p>CDP account ID.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>availableUpgrades -&gt; (array)</p>
+<blockquote>
+<div><p>List of available kubernetes upgrades.</p>
+<p>Form Factors: public</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>imageCatalog -&gt; (object)</p>
+<blockquote>
+<div><p>Image catalog response structure.</p>
+<p>Form Factors: public</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The catalog CRN (either CRN or name is required).</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The catalog name (either CRN or name is required).</p>
+</div></blockquote>
+</div></blockquote>
+<p>storage -&gt; (object)</p>
+<blockquote>
+<div><p>Storage spec response structure.</p>
+<p>Form Factors: public</p>
+<p>csiEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to enable CSI (Container Storage Interface). It further sets specific inline cloud formation policies required for CSI.</p>
+</div></blockquote>
 </div></blockquote>
 <p>labels -&gt; (map)</p>
 <blockquote>
@@ -1297,6 +1395,11 @@
 <div><p>Whether lacework is enabled.</p>
 </div></blockquote>
 </div></blockquote>
+<p>nodeImageUpgradeAvailable -&gt; (boolean)</p>
+<blockquote>
+<div><p>Is a node image upgrade available.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
 </div>
 <div class="section" id="form-factors">
 <h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
@@ -1352,7 +1455,7 @@
         <li class="right" >
           <a href="delete-user.html" title="delete-user"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.88 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
