@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>enable-service &#8212; CDP CLI 0.9.88 documentation</title>
+    <title>enable-service &#8212; CDP CLI 0.9.89 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="disable-service.html" title="disable-service"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.88 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">enable-service</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Enable Cloudera Data Engineering(CDE) Service</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.88</p>
+<dd class="field-even"><p>0.9.89</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -67,6 +67,7 @@
 <span class="o">[</span>--initial-spot-instances &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--root-volume-size &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-public-endpoint <span class="p">|</span> --no-enable-public-endpoint<span class="o">]</span>
+<span class="o">[</span>--deploy-previous-version <span class="p">|</span> --no-deploy-previous-version<span class="o">]</span>
 <span class="o">[</span>--enable-workload-analytics <span class="p">|</span> --no-enable-workload-analytics<span class="o">]</span>
 <span class="o">[</span>--use-ssd <span class="p">|</span> --no-use-ssd<span class="o">]</span>
 <span class="o">[</span>--chart-value-overrides &lt;value&gt;<span class="o">]</span>
@@ -127,6 +128,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">--enable-public-endpoint</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-public-endpoint</span></code> (boolean)</p>
 <blockquote>
 <div><p>Creates a CDE endpoint (Load Balancer) in a publicly accessible subnet. If set false, the endpoint will be created in a private subnet and you will need to setup access to the endpoint manually in your cloud account.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--deploy-previous-version</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-deploy-previous-version</span></code> (boolean)</p>
+<blockquote>
+<div><p>If set to “true”, the previous version of the CDE service will be deployed.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--enable-workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-workload-analytics</span></code> (boolean)</p>
 <blockquote>
@@ -369,6 +374,10 @@
 <blockquote>
 <div><p>If true, the CDE endpoint was created in a publicly accessible subnet.</p>
 </div></blockquote>
+<p>previousVersionDeployed -&gt; (boolean)</p>
+<blockquote>
+<div><p>The “true” value indicates that the previous version of the CDE service was requested to be deployed.</p>
+</div></blockquote>
 <p>workloadAnalyticsEnabled -&gt; (boolean)</p>
 <blockquote>
 <div><p>If true, diagnostic information about job and query execution is sent to Cloudera Workload Manager.</p>
@@ -433,7 +442,7 @@
         <li class="right" >
           <a href="disable-service.html" title="disable-service"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.88 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">enable-service</a></li> 
       </ul>
