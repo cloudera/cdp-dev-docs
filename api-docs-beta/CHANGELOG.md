@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.89 (2023-06-14)
+* de: Add `previousVersionDeployed` to `ServiceDescription` object returned in `describeService`, `vcTier` to `VcDescription` object returned in `describeVc`, `deployPreviousVersion` to `EnableServiceRequest` and `vcTier` to `CreateVcRequest`.
+* datalake: Add `skipBackupValidation` to `UpgradeDatalakeRequest`.
+* environments: Add new command `updateOrchestratorState`.
+* compute: Add `includeDeleted` to `ListClustersRequest`, `values` to `Chart`, `overrides` to `Deployment`, `overrides` to `History`.
+
 ## 0.9.88 (2023-06-01)
 
 IMPROVEMENTS:

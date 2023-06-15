@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.88 (BETA)
+  version: 0.9.89 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -1473,6 +1473,59 @@ definitions:
       envCrn:
         type: string
         description: CDP environment CRN.
+      apiEndPoint:
+        type: string
+        description: API endpoint.
+        x-form-factors: public
+      clusterStateVersion:
+        type: integer
+        format: int32
+        description: Cluster state version.
+        x-form-factors: public
+      deletionTime:
+        type: string
+        description: Compute cluster deletion time in ISO format.
+        x-form-factors: public
+      updateTime:
+        type: string
+        description: Compute cluster update time in ISO format.
+        x-form-factors: public
+      workloads:
+        type: array
+        items:
+          type: string
+        description: Workloads.
+        x-form-factors: public
+      clusterOwner:
+        description: Cluster owner.
+        $ref: '#/definitions/ComputeClusterOwner'
+        x-form-factors: public
+      region:
+        type: string
+        description: Region.
+        x-form-factors: public
+      message:
+        type: string
+        description: Message with additional details about the cluster status.
+        x-form-factors: public
+      account:
+        type: string
+        description: CDP account ID.
+        x-form-factors: public
+      availableUpgrades:
+        type: array
+        items:
+          type: string
+        description: List of available kubernetes upgrades.
+        x-form-factors: public
+      imageCatalog:
+        description: The image catalog details.
+        $ref: '#/definitions/CommonImageCatalogResp'
+        x-form-factors: public
+      storage:
+        description: The storage specifications.
+        $ref: '#/definitions/CommonStorageSpecResp'
+        x-form-factors: public
       labels:
         type: object
         description: Map of labels associated with this cluster.
@@ -1488,6 +1541,10 @@ definitions:
       eks:
         description: EKS state.
         $ref: '#/definitions/EksState'
+        x-form-factors: public
+      nodeImageUpgradeAvailable:
+        type: boolean
+        description: Is a node image upgrade available.
         x-form-factors: public
   ListClustersRequest:
     type: object
@@ -1517,6 +1574,11 @@ definitions:
         type: string
         x-paging-input-token: true
         description: A token to specify where to start paginating. This is the nextToken from a previously truncated response. 1 or empty for first page.
+        x-form-factors: public
+      includeDeleted:
+        type: boolean
+        description: Include deleted clusters in the response. Optional.
+        default: false
         x-form-factors: public
   ListClusterItem:
     type: object
@@ -2524,6 +2586,9 @@ definitions:
       name:
         type: string
         description: The chart name.
+      values:
+        type: string
+        description: Escaped JSON for values.yaml of that chart.
   AvailableDeploymentUpgrade:
     type: object
     description: Available deployment upgrade structure.
@@ -2562,6 +2627,9 @@ definitions:
         items:
           $ref: '#/definitions/AvailableDeploymentUpgrade'
         description: Any upgrades available for this deployment.
+      overrides:
+        type: string
+        description: Escaped JSON overrides for the deployment's properties.
   History:
     type: object
     description: History structure.
@@ -2576,6 +2644,9 @@ definitions:
       chart:
         description: Chart that the deployment was created from.
         $ref: '#/definitions/Chart'
+      overrides:
+        type: string
+        description: Escaped JSON overrides for the deployment's properties for given revision.
   DescribeDeploymentResponse:
     type: object
     description: Response structure for describing a deployment.
@@ -2678,6 +2749,9 @@ definitions:
       namespace:
         type: string
         description: The namespace of the deployment. Lists deployments in all namespaces if not specified.
+      verbose:
+        type: boolean
+        description: Set true to get detailed chart response. Default is false.
   ListDeploymentsResponse:
     type: object
     description: Response structure to list deployments in the cluster.

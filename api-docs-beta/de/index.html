@@ -821,7 +821,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.88 (BETA)</p>
+<p><em>Version</em> : 0.9.89 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -2066,6 +2066,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>enum (SPARK2, SPARK3, SPARK3_3)</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcTier</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Tier of the virtual cluster. Currently supported tiers are CORE and ALLP. CORE tiered virtual cluster enables operational deployment via batch jobs. ALLP virtual clusters are all-purpose virtual clusters supporting both operational batch jobs and interactive sessions. This feature is only supported in CDE-1.19.0 and beyond.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (ALLP, CORE)</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2511,6 +2523,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_customazurefilesconfigs">CustomAzureFilesConfigs</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>deployPreviousVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>If set to "true", the previous version of the CDE service will be deployed.<br>
+<strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3217,6 +3242,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>previousVersionDeployed</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The "true" value indicates that the previous version of the CDE service was requested to be deployed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4227,6 +4264,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcTier</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Tier of the Virtual Cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -4411,7 +4460,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-01 13:56:09 -0700
+Last updated 2023-06-14 15:34:58 -0700
 </div>
 </div>
 <br>
