@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-aws-cluster &#8212; CDP CLI 0.9.89 (BETA) documentation</title>
+    <title>create-aws-cluster &#8212; CDP CLI 0.9.90 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-auto-scale-rules.html" title="create-auto-scale-rules"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.90 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates an AWS workload cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.89</p>
+<dd class="field-even"><p>0.9.90</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -104,7 +104,7 @@
 <div><p>Instance group details.</p>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">nodeCount</span><span class="o">=</span>integer,instanceGroupName<span class="o">=</span>string,instanceGroupType<span class="o">=</span>string,instanceType<span class="o">=</span>string,attachedVolumeConfiguration<span class="o">=[{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}</span>,<span class="o">{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}]</span>,rootVolumeSize<span class="o">=</span>integer,recipeNames<span class="o">=</span>string,string,recoveryMode<span class="o">=</span>string,volumeEncryption<span class="o">={</span><span class="nv">enableEncryption</span><span class="o">=</span>boolean,encryptionKey<span class="o">=</span>string<span class="o">}</span> ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">nodeCount</span><span class="o">=</span>integer,instanceGroupName<span class="o">=</span>string,instanceGroupType<span class="o">=</span>string,instanceType<span class="o">=</span>string,attachedVolumeConfiguration<span class="o">=[{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}</span>,<span class="o">{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}]</span>,rootVolumeSize<span class="o">=</span>integer,recipeNames<span class="o">=</span>string,string,recoveryMode<span class="o">=</span>string,volumeEncryption<span class="o">={</span><span class="nv">enableEncryption</span><span class="o">=</span>boolean,encryptionKey<span class="o">=</span>string<span class="o">}</span>,subnetIds<span class="o">=</span>string,string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -128,7 +128,8 @@
     <span class="s2">&quot;volumeEncryption&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;enableEncryption&quot;</span>: true<span class="p">|</span>false,
       <span class="s2">&quot;encryptionKey&quot;</span>: <span class="s2">&quot;string&quot;</span>
-    <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;subnetIds&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
   <span class="o">}</span>
   ...
 <span class="o">]</span>
@@ -313,7 +314,54 @@
 <blockquote>
 <div><p>The status of the instance. This includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.</p>
 </div></blockquote>
+<p>statusReason -&gt; (string)</p>
+<blockquote>
+<div><p>The reason for the current status of this instance.</p>
 </div></blockquote>
+<p>sshPort -&gt; (integer)</p>
+<blockquote>
+<div><p>The SSH port for the instance.</p>
+</div></blockquote>
+<p>clouderaManagerServer -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the instance has Cloudera Manager deployed or not.</p>
+</div></blockquote>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the instance group this instance belongs to.</p>
+</div></blockquote>
+<p>attachedVolumes -&gt; (array)</p>
+<blockquote>
+<div><p>List of volumes attached to this instance.</p>
+<p>( … recursive … )</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>The availability zone of the instance.</p>
+</div></blockquote>
+<p>instanceVmType -&gt; (string)</p>
+<blockquote>
+<div><p>The VM type of the instance. Supported values depend on the cloud platform.</p>
+</div></blockquote>
+<p>rackId -&gt; (string)</p>
+<blockquote>
+<div><p>The rack ID of the instance in Cloudera Manager.</p>
+</div></blockquote>
+<p>subnetId -&gt; (string)</p>
+<blockquote>
+<div><p>The subnet ID of the instance.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>subnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>The list of subnet IDs in case of multi-availability zone setup</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>availabilityZones -&gt; (array)</p>
+<blockquote>
+<div><p>List of availability zones that this instance group is associated with.</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -469,7 +517,7 @@
         <li class="right" >
           <a href="create-auto-scale-rules.html" title="create-auto-scale-rules"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.90 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-cluster</a></li> 
       </ul>
