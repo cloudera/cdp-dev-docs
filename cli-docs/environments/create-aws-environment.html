@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-aws-environment &#8212; CDP CLI 0.9.89 documentation</title>
+    <title>create-aws-environment &#8212; CDP CLI 0.9.90 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.90 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new AWS environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.89</p>
+<dd class="field-even"><p>0.9.90</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -264,7 +264,7 @@
 </div></blockquote>
 <p>multiAz -&gt; (boolean)</p>
 <blockquote>
-<div><p>Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.</p>
+<div><p>Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.</p>
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
@@ -654,6 +654,86 @@
 <div><p>The recipes for the FreeIPA cluster.</p>
 <p>item -&gt; (string)</p>
 </div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>The instances of the FreeIPA cluster.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Object for a FreeIPA instance providing specific information about the instance.</p>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>The availability zone of the instance.</p>
+</div></blockquote>
+<p>discoveryFQDN -&gt; (string)</p>
+<blockquote>
+<div><p>The fully qualified domain name of the instance in the service discovery cluster.</p>
+</div></blockquote>
+<p>instanceId -&gt; (string)</p>
+<blockquote>
+<div><p>The instance ID for the instance.</p>
+</div></blockquote>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The instance group that contains the instance.</p>
+</div></blockquote>
+<p>instanceStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the instance.</p>
+</div></blockquote>
+<p>instanceStatusReason -&gt; (string)</p>
+<blockquote>
+<div><p>The status reason for the instance.</p>
+</div></blockquote>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of the instance (either GATEWAY or GATEWAY_PRIMARY).</p>
+</div></blockquote>
+<p>instanceVmType -&gt; (string)</p>
+<blockquote>
+<div><p>The VM type of the instance. Supported values depend on the cloud platform.</p>
+</div></blockquote>
+<p>lifeCycle -&gt; (string)</p>
+<blockquote>
+<div><p>The life cycle type for the instance (either NORMAL or SPOT).</p>
+</div></blockquote>
+<p>privateIP -&gt; (string)</p>
+<blockquote>
+<div><p>The private IP of the instance.</p>
+</div></blockquote>
+<p>publicIP -&gt; (string)</p>
+<blockquote>
+<div><p>The public IP of the instance.</p>
+</div></blockquote>
+<p>sshPort -&gt; (integer)</p>
+<blockquote>
+<div><p>The SSH port of the instance.</p>
+</div></blockquote>
+<p>subnetId -&gt; (string)</p>
+<blockquote>
+<div><p>The subnet ID of the instance.</p>
+</div></blockquote>
+<p>attachedVolumes -&gt; (array)</p>
+<blockquote>
+<div><p>List of volumes attached to this instance.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>The attached volume configuration.</p>
+<p>count -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of volumes.</p>
+</div></blockquote>
+<p>volumeType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of volumes.</p>
+</div></blockquote>
+<p>size -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of each volume in GB.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 <p>proxyConfig -&gt; (object)</p>
 <blockquote>
@@ -751,7 +831,7 @@
         <li class="right" >
           <a href="create-aws-credential.html" title="create-aws-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.89 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.90 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-aws-environment</a></li> 
       </ul>
