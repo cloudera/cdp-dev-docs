@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.89 (BETA)
+  version: 0.9.90 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -1525,6 +1525,28 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/UpdateOrchestratorStateResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/updateProxyConfig:
+    post:
+      summary: Updates the proxy config of the given environment.
+      description: Updates the proxy config of the given environment.
+      operationId: updateProxyConfig
+      x-mutating: true
+      x-entitlement: CDP_ENVIRONMENT_EDIT_PROXY_CONFIG
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateProxyConfigRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateProxyConfigResponse'
         default:
           description: The default response on an error.
           schema:
@@ -3888,7 +3910,7 @@ definitions:
         description: Custom instance type of FreeIPA instances.
       multiAz:
         type: boolean
-        description: Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
+        description: Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
   AzureFreeIpaCreationRequest:
     description: Request object for creating FreeIPA in the environment.
     type: object
@@ -3924,9 +3946,6 @@ definitions:
   FreeIpaImageRequest:
     description: Request object for FreeIPA image.
     type: object
-    required:
-      - catalog
-      - id
     properties:
       catalog:
         type: string
@@ -3985,6 +4004,76 @@ definitions:
         description: The recipes for the FreeIPA cluster.
         items:
           type: string
+      instances:
+        type: array
+        description: The instances of the FreeIPA cluster.
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/FreeIpaInstance'
+  FreeIpaInstance:
+    type: object
+    description: Object for a FreeIPA instance providing specific information about the instance.
+    properties:
+      availabilityZone:
+        type: string
+        description: The availability zone of the instance.
+      discoveryFQDN:
+        type: string
+        description: The fully qualified domain name of the instance in the service discovery cluster.
+      instanceId:
+        type: string
+        description: The instance ID for the instance.
+      instanceGroup:
+        type: string
+        description: The instance group that contains the instance.
+      instanceStatus:
+        type: string
+        description: The status of the instance.
+      instanceStatusReason:
+        type: string
+        description: The status reason for the instance.
+      instanceType:
+        type: string
+        description: The type of the instance (either GATEWAY or GATEWAY_PRIMARY).
+      instanceVmType:
+        type: string
+        description: The VM type of the instance. Supported values depend on the cloud platform.
+      lifeCycle:
+        type: string
+        description: The life cycle type for the instance (either NORMAL or SPOT).
+      privateIP:
+        type: string
+        description: The private IP of the instance.
+      publicIP:
+        type: string
+        description: The public IP of the instance.
+      sshPort:
+        type: integer
+        format: int32
+        description: The SSH port of the instance.
+      subnetId:
+        type: string
+        description: The subnet ID of the instance.
+      attachedVolumes:
+        type: array
+        description: List of volumes attached to this instance.
+        items:
+          $ref: '#/definitions/AttachedVolumeDetail'
+  AttachedVolumeDetail:
+    type: object
+    description: The attached volume configuration.
+    properties:
+      count:
+        type: integer
+        format: int32
+        description: The number of volumes.
+      volumeType:
+        type: string
+        description: The type of volumes.
+      size:
+        type: integer
+        format: int32
+        description: The size of each volume in GB.
   ProxyConfig:
     type: object
     description: A proxy config object.
@@ -4894,6 +4983,24 @@ definitions:
   RotateSaltPasswordResponse:
     type: object
     description: Response object for rotating SaltStack user password on FreeIPA instances.
+  UpdateProxyConfigRequest:
+    type: object
+    description: Request object for updating the proxy config of the given environment.
+    required:
+      - environment
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment.
+      proxyConfigName:
+        type: string
+        description: The name of the new proxy config for the environment. Either this or the remove proxy flag has to be given.
+      removeProxy:
+        type: boolean
+        description: Flag to indicate that the current proxy config should be removed for the environment. Either this or a proxy config name has to be given.
+  UpdateProxyConfigResponse:
+    type: object
+    description: Response object for updating the proxy config of the given environment.
   UpdateOrchestratorStateRequest:
     type: object
     description: Request object for running orchestrator engine state update on the FreeIPA cluster.

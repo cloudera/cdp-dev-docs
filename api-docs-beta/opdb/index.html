@@ -908,6 +908,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_createdatabaseresponse">CreateDatabaseResponse</a></li>
 <li><a href="#_createsnapshotrequest">CreateSnapshotRequest</a></li>
 <li><a href="#_createsnapshotresponse">CreateSnapshotResponse</a></li>
+<li><a href="#_customrecipe">CustomRecipe</a></li>
 <li><a href="#_databasedetails">DatabaseDetails</a></li>
 <li><a href="#_deletesnapshotrequest">DeleteSnapshotRequest</a></li>
 <li><a href="#_deletesnapshotresponse">DeleteSnapshotResponse</a></li>
@@ -934,6 +935,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_grouptype">GroupType</a></li>
 <li><a href="#_hbaseconfiguration">HBaseConfiguration</a></li>
 <li><a href="#_image">Image</a></li>
+<li><a href="#_instancegrouptype">InstanceGroupType</a></li>
 <li><a href="#_kerberosconfiguration">KerberosConfiguration</a></li>
 <li><a href="#_keyvaluepair">KeyValuePair</a></li>
 <li><a href="#_kind">Kind</a></li>
@@ -994,7 +996,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.89 (BETA)</p>
+<p><em>Version</em> : 0.9.90 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4607,6 +4609,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>recipes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Custom recipes for the database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_customrecipe">CustomRecipe</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>scaleType</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4849,6 +4863,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_customrecipe">CustomRecipe</h3>
+<div class="paragraph">
+<p>Describe a custom recipe.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceGroup</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Instance group to apply the recipe to.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_instancegrouptype">InstanceGroupType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>names</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the recipe.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6324,6 +6384,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_instancegrouptype">InstanceGroupType</h3>
+<div class="paragraph">
+<p>InstanceGroup Type.
+ <code>WORKER</code> - WORKER value of the InstanceGroup name. <code>LEADER</code> - LEADER value of the InstanceGroup name. <code>MASTER</code> - MASTER value of the InstanceGroup name. <code>GATEWAY</code> - GATEWAY value of the InstanceGroup name. <code>STRONGMETA</code> - STRONGMETA value of the InstanceGroup name. <code>EDGE</code> - EDGE value of the InstanceGroup name.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (WORKER, LEADER, MASTER, GATEWAY, STRONGMETA, EDGE)</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_kerberosconfiguration">KerberosConfiguration</h3>
@@ -8929,7 +8999,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-14 15:34:58 -0700
+Last updated 2023-06-21 23:07:08 -0700
 </div>
 </div>
 <br>

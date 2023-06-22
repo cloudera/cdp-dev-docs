@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.90 (2023-06-21)
+
+IMPROVEMENTS:
+* dw: Add `usePublicWorkerNode` parameter to `create-cluster` command.
+* datahub: Add `instanceGroup.availabilityZones` parameter to `create-aws-cluster` command.
+* datahub: Add `attachedVolumes`, `availabilityZone`, `clouderaManagerServer`, `instanceGroup`, `instanceVmType`, `rackId`, `sshPort`, `statusReason`, and `subnetId` fields to `Instance` object.
+* datahub: Add `instanceGroups.subnetIds` parameter to `create-aws-cluster`, `create-azure-cluster` and `create-gcp-cluster` commands.
+* datalake: Add `availabilityZones` field to `InstanceGroup` object.
+* datalake: Add `attachedVolumes`, `availabilityZone`, `clouderaManagerServer`, `instanceVmType`, `rackId`, and `subnetId` fields to `Instance` object.
+* datalake: Add `multiAz` parameter to `create-aws-datalake` command.
+* environments: Add `instances` field to `FreeipaDetails` object.
+* environments: `image.catalog` and `image.id` parameters are no longer required by `create-aws-environment` and `create-azure-environment` commands.
+
 ## 0.9.89 (2023-06-14)
 * de: Add `previousVersionDeployed` to `ServiceDescription` object returned in `describeService`, `vcTier` to `VcDescription` object returned in `describeVc`, `deployPreviousVersion` to `EnableServiceRequest` and `vcTier` to `CreateVcRequest`.
 * datalake: Add `skipBackupValidation` to `UpgradeDatalakeRequest`.
@@ -21,7 +34,7 @@ BACKWARD INCOMPATIBILITIES:
 
 IMPROVEMENTS:
 * dw: Enable `replicaStatus` field in private cloud.
-* datahub: Add `instanceType` filed to `Instance` object.
+* datahub: Add `instanceType` field to `Instance` object.
 * datalake: Add `discoveryFQDN`, `instanceStatus`, `statusReason`, `sshPort`, `instanceGroup`, `instanceTypeVal` to `Instance` object.
 * de: Support `SPARK3_3` in field `sparkVersion` of `CreateVcRequest` command.
 
