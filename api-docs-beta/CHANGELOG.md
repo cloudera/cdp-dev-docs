@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.91 (2023-06-28)
+
+IMPROVEMENTS:
+* environments: Add `availabilityZones` parameter to `create-gcp-environment` command.
+* ml: Add `mlVersion` parameter to `create-workspace` and `restore-workspace` commands.
+* replicationmanager: Add `collect-diagnostic-bundle`, `download-diagnostic-bundle`, `create-abfs-credential`, `create-aws-credential` and `delete-credential` commands.
+
 ## 0.9.90 (2023-06-21)
 
 IMPROVEMENTS:
