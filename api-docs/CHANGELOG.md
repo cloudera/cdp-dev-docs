@@ -3,6 +3,23 @@
 ## 0.9.91 (2023-06-28)
 
 IMPROVEMENTS:
+* df: Add new command `upgrade-service`.
+* df: Deprecated `clusterUsable` parameter in `ServiceSummary` and `Service` objects.
+* df: Add `skipPreflightChecks` parameter to `enable-service` and `update-service` commands.
+* dfworkload: Add `flowMetricsScalingEnabled` parameter to `create-deployment`and `update-deployment` commands.
+* dfworkload: Add `flowMetricsScalingEnabled` fields to `DeploymentConfiguration` and `RpcDeployment` objects.
+* datahub: `id` and `catalogName` fields as no longer required in `ImageRequest` object.
+* datalake: `id` field is no longer required in `ImageRequest` object.
+* replicationmanager: Add new command `get-command-status`.
+* environments: Add `endpointAccessGatewaySubnetIds` parameter to `create-azure-environment` and `create-gcp-environment` commands.
+* environments: `targetAvailabilityType` parameter is no longer required by `downgrade-freeipa-request` command.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove `enablePrivateSql`, `privateDNSZoneAKS` and `enablePrivateAks` fields from the `AzureActivationOptions` object used by `create-cluster` command.
+
+## 0.9.91 (2023-06-28)
+
+IMPROVEMENTS:
 * environments: Add `availabilityZones` parameter to `create-gcp-environment` command.
 * ml: Add `mlVersion` parameter to `create-workspace` and `restore-workspace` commands.
 * replicationmanager: Add `collect-diagnostic-bundle`, `download-diagnostic-bundle`, `create-abfs-credential`, `create-aws-credential` and `delete-credential` commands.
