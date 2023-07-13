@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-cluster-template &#8212; CDP CLI 0.9.92 documentation</title>
+    <title>get-command-status &#8212; CDP CLI 0.9.92 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="describe-custom-configurations" href="describe-custom-configurations.html" />
-    <link rel="prev" title="describe-cluster-definition" href="describe-cluster-definition.html" /> 
+    <link rel="next" title="get-credentials" href="get-credentials.html" />
+    <link rel="prev" title="download-diagnostic-bundle" href="download-diagnostic-bundle.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="describe-custom-configurations.html" title="describe-custom-configurations"
+          <a href="get-credentials.html" title="get-credentials"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="describe-cluster-definition.html" title="describe-cluster-definition"
+          <a href="download-diagnostic-bundle.html" title="download-diagnostic-bundle"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.92 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-cluster-template</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-command-status</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="describe-cluster-template">
-<span id="cli-cdp-datahub-describe-cluster-template"></span><h1>describe-cluster-template<a class="headerlink" href="#describe-cluster-template" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="get-command-status">
+<span id="cli-cdp-replicationmanager-get-command-status"></span><h1>get-command-status<a class="headerlink" href="#get-command-status" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Describes a cluster template. A cluster template is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical Cloudera Runtime settings.</p>
+<dd class="field-odd"><p>Get the status of the given CM command.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.92</p>
@@ -51,12 +51,13 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Describes a cluster template. A cluster template is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical Cloudera Runtime settings.</p>
+<p>Return the current status of the given CM command.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-cluster-template
---cluster-template-name &lt;value&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-command-status
+--cluster-crn &lt;value&gt;
+--command-id &lt;value&gt;
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -64,9 +65,13 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-template-name</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
 <blockquote>
-<div><p>The name or CRN of the cluster template.</p>
+<div><p>The CRN of the target cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--command-id</span></code> (string)</p>
+<blockquote>
+<div><p>ID of a CM command on the cluster.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -79,49 +84,45 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>clusterTemplate -&gt; (object)</p>
+<p>commandId -&gt; (integer)</p>
 <blockquote>
-<div><p>Information about a cluster template.</p>
-<p>clusterTemplateName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the cluster template.</p>
+<div><p>Id of the CM command.</p>
 </div></blockquote>
-<p>crn -&gt; (string)</p>
+<p>success -&gt; (boolean)</p>
 <blockquote>
-<div><p>The CRN of the cluster template.</p>
+<div><p>Whether the diagnostic collection is successful.</p>
 </div></blockquote>
-<p>description -&gt; (string)</p>
+<p>active -&gt; (boolean)</p>
 <blockquote>
-<div><p>The description of the cluster template.</p>
+<div><p>Whether the command is still active.</p>
 </div></blockquote>
-<p>instanceGroupCount -&gt; (integer)</p>
+<p>name -&gt; (string)</p>
 <blockquote>
-<div><p>The instance group count of the cluster.</p>
+<div><p>Name of the policy.</p>
 </div></blockquote>
-<p>status -&gt; (string)</p>
+<p>startTime -&gt; (string)</p>
 <blockquote>
-<div><p>The status of the cluster template.</p>
+<div><p>Start time of the CM command.</p>
 </div></blockquote>
-<p>tags -&gt; (array)</p>
+<p>endTime -&gt; (string)</p>
 <blockquote>
-<div><p>Tags added to the cluster template.</p>
-<p>item -&gt; (object)</p>
+<div><p>End time of the CM command.</p>
+</div></blockquote>
+<p>resultDataUrl -&gt; (string)</p>
 <blockquote>
-<div><p>Tag for a datahub resource.</p>
-<p>key -&gt; (string)</p>
+<div><p>Some commands have result data URL for downloading the diagnostic bundle. On certain CM versions the bundle download is only available through this URL, but not with download-diagnostic-bundle operation.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
 <blockquote>
-<div><p>The key of tag.</p>
+<div><p>Result message of the command.</p>
 </div></blockquote>
-<p>value -&gt; (string)</p>
+<p>bundleStatus -&gt; (string)</p>
 <blockquote>
-<div><p>The value of the tag.</p>
+<div><p>The current status of the command.</p>
 </div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>clusterTemplateContent -&gt; (string)</p>
+<p>bundleStatusMessage -&gt; (string)</p>
 <blockquote>
-<div><p>The content of the cluster template.</p>
-</div></blockquote>
+<div><p>Further information about the current command status.</p>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -139,7 +140,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">describe-cluster-template</a><ul>
+<li><a class="reference internal" href="#">get-command-status</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -150,11 +151,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="describe-cluster-definition.html"
-                        title="previous chapter">describe-cluster-definition</a></p>
+  <p class="topless"><a href="download-diagnostic-bundle.html"
+                        title="previous chapter">download-diagnostic-bundle</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="describe-custom-configurations.html"
-                        title="next chapter">describe-custom-configurations</a></p>
+  <p class="topless"><a href="get-credentials.html"
+                        title="next chapter">get-credentials</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -173,14 +174,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="describe-custom-configurations.html" title="describe-custom-configurations"
+          <a href="get-credentials.html" title="get-credentials"
              >next</a></li>
         <li class="right" >
-          <a href="describe-cluster-definition.html" title="describe-cluster-definition"
+          <a href="download-diagnostic-bundle.html" title="download-diagnostic-bundle"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.92 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-cluster-template</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-command-status</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
