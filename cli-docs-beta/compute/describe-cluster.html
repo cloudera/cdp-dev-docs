@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-cluster &#8212; CDP CLI 0.9.92 (BETA) documentation</title>
+    <title>describe-cluster &#8212; CDP CLI 0.9.93 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="delete-user.html" title="delete-user"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.92 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.93 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe compute cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.92</p>
+<dd class="field-even"><p>0.9.93</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -624,33 +624,9 @@
 <blockquote>
 <div><p>True to enable istio installation (default false).</p>
 </div></blockquote>
-<p>sidecarCpu -&gt; (string)</p>
+<p>deploymentProfile -&gt; (string)</p>
 <blockquote>
-<div><p>CPU request for istio sidecar container (default 50m).</p>
-</div></blockquote>
-<p>sidecarMemory -&gt; (string)</p>
-<blockquote>
-<div><p>Memory request for istio sidecar container (default 128Mi).</p>
-</div></blockquote>
-<p>gateways -&gt; (object)</p>
-<blockquote>
-<div><p>Istio gateways response structure.</p>
-<p>ingress -&gt; (object)</p>
-<blockquote>
-<div><p>Istio ingress response structure.</p>
-<p>acmCertificates -&gt; (array)</p>
-<blockquote>
-<div><p>Array of ACM certificates.</p>
-<p>item -&gt; (object)</p>
-<blockquote>
-<div><p>ACM certificate response structure.</p>
-<p>arn -&gt; (string)</p>
-<blockquote>
-<div><p>The ARN of the ACM certificate.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
+<div><p>Deployment profile to use. Currently supported are cml and cde.</p>
 </div></blockquote>
 </div></blockquote>
 <p>logging -&gt; (object)</p>
@@ -1177,33 +1153,9 @@
 <blockquote>
 <div><p>True to enable istio installation (default false).</p>
 </div></blockquote>
-<p>sidecarCpu -&gt; (string)</p>
+<p>deploymentProfile -&gt; (string)</p>
 <blockquote>
-<div><p>CPU request for istio sidecar container (default 50m).</p>
-</div></blockquote>
-<p>sidecarMemory -&gt; (string)</p>
-<blockquote>
-<div><p>Memory request for istio sidecar container (default 128Mi).</p>
-</div></blockquote>
-<p>gateways -&gt; (object)</p>
-<blockquote>
-<div><p>Istio gateways response structure.</p>
-<p>ingress -&gt; (object)</p>
-<blockquote>
-<div><p>Istio ingress response structure.</p>
-<p>acmCertificates -&gt; (array)</p>
-<blockquote>
-<div><p>Array of ACM certificates.</p>
-<p>item -&gt; (object)</p>
-<blockquote>
-<div><p>ACM certificate response structure.</p>
-<p>arn -&gt; (string)</p>
-<blockquote>
-<div><p>The ARN of the ACM certificate.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
+<div><p>Deployment profile to use. Currently supported are cml and cde.</p>
 </div></blockquote>
 </div></blockquote>
 <p>logging -&gt; (object)</p>
@@ -1400,6 +1352,29 @@
 <div><p>Is a node image upgrade available.</p>
 <p>Form Factors: public</p>
 </div></blockquote>
+<p>nodeImageUpgrades -&gt; (array)</p>
+<blockquote>
+<div><p>Lists the currently used images and the new upgrades available.</p>
+<p>Form Factors: public</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Structure to list the currently used images and the new upgrades available.</p>
+<p>Form Factors: public</p>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>Instance group name.</p>
+</div></blockquote>
+<p>current -&gt; (string)</p>
+<blockquote>
+<div><p>Currently used node image version.</p>
+</div></blockquote>
+<p>upgrades -&gt; (array)</p>
+<blockquote>
+<div><p>Available node image upgrade versions.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div>
 <div class="section" id="form-factors">
 <h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
@@ -1455,7 +1430,7 @@
         <li class="right" >
           <a href="delete-user.html" title="delete-user"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.92 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.93 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
