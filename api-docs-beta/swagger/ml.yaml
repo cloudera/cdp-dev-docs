@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.92 (BETA)
+  version: 0.9.93 (BETA)
   title: Cloudera Machine Learning
   license:
     name: Apache 2.0
@@ -34,6 +34,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/BackupWorkspaceResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/ml/createModelRegistry:
+    post:
+      summary: Creates a new model registry.
+      description: Create a new model registry by creating a new workspace and install model registry on it.
+      operationId: createModelRegistry
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateModelRegistryRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateModelRegistryResponse'
         default:
           description: The default response on an error.
           schema:
@@ -97,6 +118,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/DeleteInstanceGroupResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/ml/deleteModelRegistry:
+    post:
+      summary: Deletes a model registry.
+      description: Delete a model registry.
+      operationId: deleteModelRegistry
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DeleteModelRegistryRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/DeleteModelRegistryResponse'
         default:
           description: The default response on an error.
           schema:
@@ -249,6 +291,27 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
+  /api/v1/ml/listModelRegistries:
+    post:
+      summary: Lists all model registries.
+      description: List all model registries.
+      operationId: listModelRegistries
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListModelRegistriesRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListModelRegistriesResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/ml/listWorkspaceAccess:
     post:
       summary: ListWorkspaceAccess Cloudera Machine Learning Workspace.
@@ -375,6 +438,27 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
+  /api/v1/ml/refreshModelRegistryConfigmap:
+    post:
+      summary: Refreshes the model registry configmap of the workspace.
+      description: Refreshes the model registry configmap of the workspace from the control plane.
+      operationId: refreshModelRegistryConfigmap
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RefreshModelRegistryConfigmapRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RefreshModelRegistryConfigmapResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
   /api/v1/ml/requestWorkflowCancellation:
     post:
       summary: Request a workflow cancellation.
@@ -475,6 +559,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/SuspendWorkspaceResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: true
+  /api/v1/ml/updateModelRegistry:
+    post:
+      summary: Updates a model registry.
+      description: Update a model registry.
+      operationId: updateModelRegistry
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateModelRegistryRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateModelRegistryResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1141,6 +1246,9 @@ definitions:
       isPrivate:
         type: boolean
         description: The value to indicate if the cluster is private or not.
+      isRestored:
+        type: boolean
+        description: The value to indicate if the workspace is restored one or not
   Workspace:
     type: object
     description: A ML workspace, which includes the cluster and storage.
@@ -1273,6 +1381,9 @@ definitions:
       isPrivate:
         type: boolean
         description: The value to indicate if the cluster is private or not.
+      isRestored:
+        type: boolean
+        description: The value to indicate if the workspace is restored one or not
   UpgradeWorkspaceRequest:
     type: object
     description: Request object for the UpgradeWorkspace method.
@@ -1678,4 +1789,140 @@ definitions:
         items:
           $ref: '#/definitions/WorkflowMetadata'
         description: The list of workflow metedata for cancelled workflows.
+  CreateModelRegistryRequest:
+    type: object
+    description: Request object for creating model registry.
+    properties:
+      namespace:
+        type: string
+        description: The namespace of the model registry.
+      s3AccessKey:
+        type: string
+        description: The S3 access key of Ozone.
+        x-sensitive: true
+      s3SecretKey:
+        type: string
+        description: The S3 secret key of Ozone.
+        x-sensitive: true
+      s3Bucket:
+        type: string
+        description: The s3Bucket of Ozone.
+      s3Endpoint:
+        type: string
+        description: The endpoint of Ozone.
+        x-no-paramfile: true
+      creatorCrn:
+        type: string
+        description: The creator of model registry.
+      environmentCrn:
+        type: string
+        description: The environment CRN of model registry.
+      environmentName:
+        type: string
+        description: The environment name.
+      createWorkspacePayload:
+        description: The create workspace request on which model registry helm chart is deployed.
+        $ref: '#/definitions/CreateWorkspaceRequest'
+      modelRegistryVersion:
+        type: string
+        description: The version of model registry app to install.
+  CreateModelRegistryResponse:
+    type: object
+    description: Response for creating model registry request.
+  ListModelRegistriesRequest:
+    type: object
+    description: Request object for deleting model registry.
+  ListModelRegistriesResponse:
+    type: object
+    description: List of all available model registries.
+    properties:
+      modelRegistries:
+        type: array
+        items:
+          $ref: '#/definitions/ModelRegistry'
+        description: The list of model registry.
+  ModelRegistry:
+    type: object
+    description: Model registry object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The id of model registry.
+      namespace:
+        type: string
+        description: The namespace of model registry.
+      s3Bucket:
+        type: string
+        description: The s3 bucket of model registry.
+      s3Endpoint:
+        type: string
+        description: The Ozone endpoint of model registry.
+      creator:
+        type: string
+        description: The creator of model registry.
+      status:
+        type: string
+        description: The status of model registry.
+      environmentCrn:
+        type: string
+        description: The environment CRN of model registry.
+      createdAt:
+        type: string
+        format: date-time
+        description: The creation time of model registry.
+      crn:
+        type: string
+        description: ModelRegistry CRN.
+      workspaceCrn:
+        type: string
+        description: WorkSpace CRN.
+      environmentName:
+        type: string
+        description: Environment name.
+      workspaceName:
+        type: string
+        description: Workspace name.
+      machineUserCrn:
+        type: string
+        description: The machine user CRN of the model registry.
+  DeleteModelRegistryRequest:
+    type: object
+    description: Request for deleting model registry.
+    properties:
+      id:
+        type: string
+        description: The environment CRN of the model registry.
+      workspaceCrn:
+        type: string
+        description: The workspace CRN of the model registry (Public cloud only).
+      force:
+        type: boolean
+        description: Force delete a model registry workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.
+  DeleteModelRegistryResponse:
+    type: object
+    description: Delete model registry response.
+  UpdateModelRegistryRequest:
+    type: object
+    description: Request for updating model registry.
+    properties:
+      id:
+        type: string
+        description: The id of model registry.
+      modelRegistryVersion:
+        type: string
+        description: The namespace of model registry.
+  UpdateModelRegistryResponse:
+    type: object
+    description: Response for updating model registry request.
+  RefreshModelRegistryConfigmapRequest:
+    type: object
+    description: Request for refreshing workspace's model registry configmap.
+    properties:
+      workspaceCrn:
+        type: string
+        description: Workspace CRN.
+  RefreshModelRegistryConfigmapResponse:
+    type: object
+    description: Response for refreshing workspace's model registry configmap.
 x-audit: true

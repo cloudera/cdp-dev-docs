@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.92 (BETA)
+  version: 0.9.93 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -738,29 +738,6 @@ definitions:
       enabled:
         type: boolean
         description: True to enable logging installation (default false).
-  CommonAcmCertificateResp:
-    type: object
-    description: ACM certificate response structure.
-    properties:
-      arn:
-        type: string
-        description: The ARN of the ACM certificate.
-  CommonIstioIngressResp:
-    type: object
-    description: Istio ingress response structure.
-    properties:
-      acmCertificates:
-        type: array
-        items:
-          $ref: '#/definitions/CommonAcmCertificateResp'
-        description: Array of ACM certificates.
-  CommonIstioGatewaysResp:
-    type: object
-    description: Istio gateways response structure.
-    properties:
-      ingress:
-        description: Configuration options for istio ingress.
-        $ref: '#/definitions/CommonIstioIngressResp'
   CommonIstioResp:
     type: object
     description: Istio response structure.
@@ -768,15 +745,9 @@ definitions:
       enabled:
         type: boolean
         description: True to enable istio installation (default false).
-      sidecarCpu:
+      deploymentProfile:
         type: string
-        description: CPU request for istio sidecar container (default 50m).
-      sidecarMemory:
-        type: string
-        description: Memory request for istio sidecar container (default 128Mi).
-      gateways:
-        description: Configuration options for Istio gateways (ingress and egress).
-        $ref: '#/definitions/CommonIstioGatewaysResp'
+        description: Deployment profile to use. Currently supported are cml and cde.
   CommonHorizontalPodAutoScalerResp:
     type: object
     description: Horizontal pod autoscaler response structure.
@@ -1416,6 +1387,22 @@ definitions:
         type: boolean
         description: Flag to enable CSI (Container Storage Interface). It further sets specific inline cloud formation policies required for CSI.
     x-form-factors: public
+  CommonNodeImageAvailableUpgrade:
+    type: object
+    description: Structure to list the currently used images and the new upgrades available.
+    properties:
+      instanceGroup:
+        type: string
+        description: Instance group name.
+      current:
+        type: string
+        description: Currently used node image version.
+      upgrades:
+        type: array
+        items:
+          type: string
+        description: Available node image upgrade versions.
+    x-form-factors: public
   DescribeClusterResponse:
     type: object
     description: Describe cluster response.
@@ -1545,6 +1532,12 @@ definitions:
       nodeImageUpgradeAvailable:
         type: boolean
         description: Is a node image upgrade available.
+        x-form-factors: public
+      nodeImageUpgrades:
+        type: array
+        items:
+          $ref: '#/definitions/CommonNodeImageAvailableUpgrade'
+        description: Lists the currently used images and the new upgrades available.
         x-form-factors: public
   ListClustersRequest:
     type: object
@@ -2079,29 +2072,6 @@ definitions:
       enabled:
         type: boolean
         description: True to enable logging installation (default false).
-  CommonAcmCertificate:
-    type: object
-    description: ACM certificate request structure.
-    properties:
-      arn:
-        type: string
-        description: The ARN of the ACM certificate.
-  CommonIstioIngress:
-    type: object
-    description: Istio ingress request structure.
-    properties:
-      acmCertificates:
-        type: array
-        items:
-          $ref: '#/definitions/CommonAcmCertificate'
-        description: An array of ACM certificates.
-  CommonIstioGateway:
-    type: object
-    description: Istio gateways request structure.
-    properties:
-      ingress:
-        description: Configuration options for istio ingress.
-        $ref: '#/definitions/CommonIstioIngress'
   CommonIstio:
     type: object
     description: Istio request structure.
@@ -2109,15 +2079,9 @@ definitions:
       enabled:
         type: boolean
         description: True to enable istio installation (default false).
-      sidecarCpu:
+      deploymentProfile:
         type: string
-        description: CPU request for istio sidecar container (default 50m).
-      sidecarMemory:
-        type: string
-        description: Memory request for istio sidecar container (default 128Mi).
-      gateway:
-        description: Configuration options for Istio gateways (ingress and egress).
-        $ref: '#/definitions/CommonIstioGateway'
+        description: Deployment profile to use. Currently supported are cml and cde.
   CommonHorizontalPodAutoScaler:
     type: object
     description: Horizontal pod autoscaler request structure.
@@ -2506,6 +2470,10 @@ definitions:
       overrides:
         type: string
         description: Escaped JSON overrides for the deployment's properties.
+      deploymentProfile:
+        type: string
+        description: Deployment profile to use. Currently supported are cml and cde.
+        x-form-factors: public
   InstallDeploymentResponse:
     type: object
     description: Response structure for installing a deployment.

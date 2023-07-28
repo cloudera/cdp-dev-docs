@@ -1,6 +1,18 @@
 # CDP Control Plane Public API Changelog
 
-## 0.9.91 (2023-06-28)
+## 0.9.93 (2023-07-28)
+
+IMPROVEMENTS:
+* environments: Add `instances` parameter to `downscale-freeipa` command.
+* environments: Add `endpointAccessGatewayScheme` parameter to `create-azure-environment` and `create-gcp-environment` commands.
+* environments: Set `enableTunnel` parameter value to `true` as default in the `create-aws-environment`, `create-azure-environment` and `create-gcp-environment` commands.
+* df: Add `flowMetricsScalingEnabled` field to `Deployment` object.
+* df: Add `userDefinedRouting`, `podCidr`, and `serviceCidr` parameters to `enable-service` command.
+* df: Add `userDefinedRouting`, `podCidr`, and `serviceCidr` fields to `service` object.
+* ml: Add `isRestored` field to `WorkspaceSummary` object.
+* ml: Add `isRestored` field to `Workspace` object.
+
+## 0.9.92 (2023-07-13)
 
 IMPROVEMENTS:
 * df: Add new command `upgrade-service`.

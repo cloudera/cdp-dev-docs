@@ -942,39 +942,46 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_36">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_startdatalakeverticalscaling">Initiates the vertical scaling on Data Lake.</a>
+<li><a href="#_startdatalakehorizontalscaling">Horizontally scale the Data Lake nodes, to add additional compute nodes to the cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_37">Description</a></li>
 <li><a href="#_parameters_37">Parameters</a></li>
 <li><a href="#_responses_37">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_stopdatalake">Stop Datalake</a>
+<li><a href="#_startdatalakeverticalscaling">Initiates the vertical scaling on Data Lake.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_38">Description</a></li>
 <li><a href="#_parameters_38">Parameters</a></li>
 <li><a href="#_responses_38">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
+<li><a href="#_stopdatalake">Stop Datalake</a>
 <ul class="sectlevel3">
 <li><a href="#_description_39">Description</a></li>
 <li><a href="#_parameters_39">Parameters</a></li>
 <li><a href="#_responses_39">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateorchestratorstate">Run orchestrator engine state update on the Data Lake cluster.</a>
+<li><a href="#_synccomponentversionsfromcm">Syncs component versions from CM after a failed upgrade.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_40">Description</a></li>
 <li><a href="#_parameters_40">Parameters</a></li>
 <li><a href="#_responses_40">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<li><a href="#_updateorchestratorstate">Run orchestrator engine state update on the Data Lake cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_41">Description</a></li>
 <li><a href="#_parameters_41">Parameters</a></li>
 <li><a href="#_responses_41">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_42">Description</a></li>
+<li><a href="#_parameters_42">Parameters</a></li>
+<li><a href="#_responses_42">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1096,6 +1103,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_solrbackuprestorestate">SolrBackupRestoreState</a></li>
 <li><a href="#_startdatabaseupgraderequest">StartDatabaseUpgradeRequest</a></li>
 <li><a href="#_startdatabaseupgraderesponse">StartDatabaseUpgradeResponse</a></li>
+<li><a href="#_startdatalakehorizontalscalingrequest">StartDatalakeHorizontalScalingRequest</a></li>
+<li><a href="#_startdatalakehorizontalscalingresponse">StartDatalakeHorizontalScalingResponse</a></li>
 <li><a href="#_startdatalakerequest">StartDatalakeRequest</a></li>
 <li><a href="#_startdatalakeresponse">StartDatalakeResponse</a></li>
 <li><a href="#_startdatalakeverticalscalingrequest">StartDatalakeVerticalScalingRequest</a></li>
@@ -1123,7 +1132,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.92 (BETA)</p>
+<p><em>Version</em> : 0.9.93 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4261,6 +4270,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_startdatalakehorizontalscaling">Horizontally scale the Data Lake nodes, to add additional compute nodes to the cluster.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datalake/startDatalakeHorizontalScaling</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_37">Description</h4>
+<div class="paragraph">
+<p>Horizontally scale the target host group in the Data Lake cluster. The possible option for the instance group are raz_scale_out, hms_scale_out, kafka_scale_out, solr_scale_out, storage_scale_out</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_37">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_startdatalakehorizontalscalingrequest">StartDatalakeHorizontalScalingRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_37">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Successful response to a valid Data Lake horizontal scaling request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_startdatalakehorizontalscalingresponse">StartDatalakeHorizontalScalingResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_startdatalakeverticalscaling">Initiates the vertical scaling on Data Lake.</h3>
 <div class="literalblock">
 <div class="content">
@@ -4268,13 +4363,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_37">Description</h4>
+<h4 id="_description_38">Description</h4>
 <div class="paragraph">
 <p>Initiates the vertical scaling on Data Lake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_37">Parameters</h4>
+<h4 id="_parameters_38">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4305,7 +4400,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_37">Responses</h4>
+<h4 id="_responses_38">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4354,13 +4449,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_38">Description</h4>
+<h4 id="_description_39">Description</h4>
 <div class="paragraph">
 <p>Deprecated, please use 'cdp environments stop-environment' instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_38">Parameters</h4>
+<h4 id="_parameters_39">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4391,7 +4486,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_38">Responses</h4>
+<h4 id="_responses_39">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4440,13 +4535,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_39">Description</h4>
+<h4 id="_description_40">Description</h4>
 <div class="paragraph">
 <p>Syncs component versions from CM after a failed upgrade.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_39">Parameters</h4>
+<h4 id="_parameters_40">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4477,7 +4572,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_39">Responses</h4>
+<h4 id="_responses_40">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4526,13 +4621,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_40">Description</h4>
+<h4 id="_description_41">Description</h4>
 <div class="paragraph">
 <p>Run orchestrator engine state update on the Data Lake cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_40">Parameters</h4>
+<h4 id="_parameters_41">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4563,7 +4658,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_40">Responses</h4>
+<h4 id="_responses_41">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4612,13 +4707,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_41">Description</h4>
+<h4 id="_description_42">Description</h4>
 <div class="paragraph">
 <p>OS or data platform upgrade for the SDX cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_41">Parameters</h4>
+<h4 id="_parameters_42">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4649,7 +4744,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_41">Responses</h4>
+<h4 id="_responses_42">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -11297,6 +11392,98 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_startdatalakehorizontalscalingrequest">StartDatalakeHorizontalScalingRequest</h3>
+<div class="paragraph">
+<p>Data lake horizontal scaling request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datalakeName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>the name of the Data Lake</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceGroupDesiredCount</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The target number of the scaling operation. If the desired count is less than the actual node count the scaling action will be a downscale operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceGroupName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The target host group name to be scaled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_startdatalakehorizontalscalingresponse">StartDatalakeHorizontalScalingResponse</h3>
+<div class="paragraph">
+<p>Data Lake horizontal scaling response</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datalakeName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the datalake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_startdatalakerequest">StartDatalakeRequest</h3>
 <div class="paragraph">
 <p>Request object to start a datalake, deprecated.</p>
@@ -11813,7 +12000,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-07-13 09:37:51 -0700
+Last updated 2023-07-28 07:40:03 -0700
 </div>
 </div>
 <br>

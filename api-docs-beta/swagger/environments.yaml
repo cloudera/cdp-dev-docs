@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.92 (BETA)
+  version: 0.9.93 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -1958,6 +1958,7 @@ definitions:
         description: An description of the environment.
       enableTunnel:
         type: boolean
+        default: true
         description: Whether to enable SSH tunneling for the environment.
       workloadAnalytics:
         type: boolean
@@ -2398,6 +2399,7 @@ definitions:
         description: An description of the environment.
       enableTunnel:
         type: boolean
+        default: true
         description: Whether to enable SSH tunneling for the environment.
       workloadAnalytics:
         type: boolean
@@ -2486,6 +2488,7 @@ definitions:
         description: A description of the environment.
       enableTunnel:
         type: boolean
+        default: true
         description: Whether to enable SSH tunneling for the environment.
       workloadAnalytics:
         type: boolean
@@ -4850,6 +4853,11 @@ definitions:
           - HA
           - TWO_NODE_BASED
         description: The target FreeIPA availability type.
+      instances:
+        type: array
+        items:
+          type: string
+        description: The instance Ids to downscale.
   DownscaleFreeipaResponse:
     type: object
     description: The response object for FreeIPA downscale.
