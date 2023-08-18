@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.94 (2023-08-09)
+
+IMPROVEMENTS:
+* datahub: Add `os` parameter to cluster creation commands.
+* datalake: Add `os` parameter to cluster creation commands.
+* environments: Add `os` parameter to cluster and FreeIPA creation commands.
+* dw: Deprecated `privateSubnetIds` and `publicSubnetIds` parameters for `createCluster` command.
+* ml: Deprecated `workspaceCrn` parameter for `getLogs` and `getAuditEvents` commands.
+
 ## 0.9.93 (2023-07-28)
 
 IMPROVEMENTS:
