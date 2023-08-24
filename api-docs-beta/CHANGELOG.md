@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.95 (2023-08-24)
+
+IMPROVEMENTS:
+* de: Add `networkOutboundType` to `ServiceDescription` object. Currently `udr` is the only supported.
+* de: Update description of `enablePrivateNetwork` field.
+* * dw: Add `impalaKerberosJdbc`, `fengImpalaShell`, and `kerberosImpalaShell` endpoints.
+* dw: Add `hiveAuthenticationMode` field to `CreateVwRequest` object.
+* iam: Add new APIs to set and retrieve default IdP used during Workload initiated SSO. These APIs are - `/iam/getDefaultIdentityProvider` and `/iam/setDefaultIdentityProvider`.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Deprecate `createDbc` command. 
+* iam: Mark `samlProviderName` field as required for `DescribeSamlProviderRequest` and `DeleteSamlProviderRequest`.
+
 ## 0.9.94 (2023-08-09)
 
 IMPROVEMENTS:

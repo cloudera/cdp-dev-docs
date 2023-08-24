@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.94 (BETA)
+  version: 0.9.95 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -796,12 +796,20 @@ definitions:
         items:
           $ref: '#/definitions/CustomRecipe'
         description: Custom recipes for the database.
+      enableGrafana:
+        type: boolean
+        description: To enable grafana server for the database.
+      javaVersion:
+        type: integer
+        format: int32
+        description: Optional tag to configure the major version of Java on the cluster.
   VolumeType:
     type: string
-    description: "Volume Type.\n `HDD` - Hard disk drives (HDD) volume type. Default is HDD. `SSD` - Solid disk drives (SSD) volume type."
+    description: "Volume Type.\n `HDD` - Hard disk drives (HDD) volume type. Default is HDD. `SSD` - Solid disk drives (SSD) volume type. `LOCAL_SSD` - Local SSD volume type."
     enum:
       - HDD
       - SSD
+      - LOCAL_SSD
   AttachedStorageForWorkers:
     type: object
     description: Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.
@@ -1738,6 +1746,9 @@ definitions:
       imageId:
         type: string
         description: ID of a database image to upgrade to. If this is empty, the default image is used.
+      rollingUpgrade:
+        type: boolean
+        description: Perform upgrade in a rolling fashion.
   UpgradeDatabaseResponse:
     type: object
     description: Response with the reason whether upgrade request is accepted or why it is not possible.
