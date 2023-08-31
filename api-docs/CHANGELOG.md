@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.96 (2023-08-30)
+
+IMPROVEMENTS:
+* environments: Add new commands `update-proxy-config`, `validate-aws-cloud-storage`, and `validate-azure-cloud-storage`.
+* environments: Add `instanceType` field to `AWSFreeIpaCreationRequest` object.
+* environments: Add `instanceType` field to `AzureFreeIpaCreationRequest` object.
+* environments: Add `instanceType` field to `GCPFreeIpaCreationRequest` object.
+* datalake: Add new commands `describe-database-server`, `validate-aws-cloud-storage`, and `validate-azure-cloud-storage`.
+* ml: Add `privateCluster` field to `CreateWorkspaceRequest` object.
+
 ## 0.9.95 (2023-08-24)
 
 IMPROVEMENTS:
