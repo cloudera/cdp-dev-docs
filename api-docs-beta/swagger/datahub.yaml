@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.95 (BETA)
+  version: 0.9.96 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -2575,6 +2575,10 @@ definitions:
       datahubDatabase:
         $ref: '#/definitions/DatahubDatabaseType'
         description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
+      multiAz:
+        default: false
+        type: boolean
+        description: Flag that toggles the multi availability zone feature for the given datahub cluster when unsure what subnet IDs can be used. When true, the subnet IDs suggested by the environment will be used.
       loadBalancerSku:
         description: The SKU for the datahub load balancer. Allowed values are "BASIC", "STANDARD", or "NONE".
         $ref: '#/definitions/DatahubLoadBalancerSkuType'
