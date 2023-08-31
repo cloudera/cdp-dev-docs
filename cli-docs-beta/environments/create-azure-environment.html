@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-environment &#8212; CDP CLI 0.9.95 (BETA) documentation</title>
+    <title>create-azure-environment &#8212; CDP CLI 0.9.96 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.95 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.96 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new Azure environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.95</p>
+<dd class="field-even"><p>0.9.96</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -80,6 +80,7 @@
 <span class="o">[</span>--encryption-key-url &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--encryption-key-resource-group-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-outbound-load-balancer <span class="p">|</span> --no-enable-outbound-load-balancer<span class="o">]</span>
+<span class="o">[</span>--flexible-server-subnet-ids &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -264,16 +265,21 @@
 <blockquote>
 <div><p>Custom instance type of FreeIPA instances.</p>
 </div></blockquote>
+<p>multiAz -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag that enables deployment of the FreeIPA in a multi-availability zone.</p>
+</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer,recipes<span class="o">=</span>string,string,instanceType<span class="o">=</span>string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer,recipes<span class="o">=</span>string,string,instanceType<span class="o">=</span>string,multiAz<span class="o">=</span>boolean
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
   <span class="s2">&quot;instanceCountByGroup&quot;</span>: integer,
   <span class="s2">&quot;recipes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-  <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;multiAz&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -364,6 +370,14 @@
 <blockquote>
 <div><p>Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--flexible-server-subnet-ids</span></code> (array)</p>
+<blockquote>
+<div><p>The subnets delegated for flexible server.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -457,6 +471,11 @@
 <p>enableOutboundLoadBalancer -&gt; (boolean)</p>
 <blockquote>
 <div><p>Whether the outbound load balancer was created for this environment.</p>
+</div></blockquote>
+<p>flexibleServerSubnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>The subnets delegated for flexible server.</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
 <p>gcp -&gt; (object)</p>
@@ -897,7 +916,7 @@
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.95 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.96 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>
