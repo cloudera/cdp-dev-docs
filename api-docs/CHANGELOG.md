@@ -1,5 +1,23 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.97 (2023-09-14)
+
+IMPROVEMENTS:
+* environments: Add new commands `set-endpoint-access-gateway`, `update-subnet`, `upgrade-freeipa`, `retry-freeipa`, `list-connected-data-services`, `get-operation`, `set-gcp-audit-credential`, `update-ssh-key`, `update-security-access`, `get-gov-cloud-credential-prerequisites`, `create-aws-gov-cloud-environment`, `create-aws-gov-cloud-credential`, `get-gov-cloud-audit-credential-prerequisites`, and `set-aws-gov-cloud-audit-credential`.
+* datalake: Add new command `create-aws-gov-cloud-datalake`.
+* datalake: Add new target version `VERSION_14` for the `start-database-upgrade` command.
+* datahub: Add new commands `start-instances`, `stop-instances`, and `create-aws-gov-cloud-cluster`.
+* dw: Add new commands `backup-cluster` and `restore-cluster`.
+* dw: Add `reservedComputeNodes` and `reservedSharedServicesNodes` options to the `create-cluster` command for over provisioning.
+* dw: Add `reservedComputeNodes`, `reservedSharedServicesNodes` and `externalBuckets` fields to the `list-clusters` and `describe-clusters` commands.
+* dw: Add `enablePrivateSQL`, `privateDNSZoneAKS`, and `enablePrivateAks` options in the `create-cluster` command for creating private AKS clusters.
+* dw: Add `operationId` and `hueRestorePlans` fields to `RestoreClusterResponse` object.
+* dw: Add `readyCoordinatorReplicas`, `numOfCores`, `memoryCapacity`, and `nodeCount` fields for the `list-vws` and `describe-vw` commands.
+* dw: Add `userGroups`, and `adminGroups` fields to the `list-data-visualizations` and `describe-data-visualization` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove `privateSubnetIds` and `publicSubnetIds` fields from the `awsOptions` paramter for the `create-cluster` command.
+
 ## 0.9.96 (2023-08-30)
 
 IMPROVEMENTS:
@@ -20,7 +38,7 @@ IMPROVEMENTS:
 * iam: Add new APIs to set and retrieve default IdP used during Workload initiated SSO. These APIs are - `/iam/getDefaultIdentityProvider` and `/iam/setDefaultIdentityProvider`.
 
 BACKWARD INCOMPATIBILITIES:
-* dw: Deprecate `createDbc` command. 
+* dw: Deprecate `createDbc` command.
 * iam: Mark `samlProviderName` field as required for `DescribeSamlProviderRequest` and `DeleteSamlProviderRequest`.
 
 ## 0.9.94 (2023-08-09)
