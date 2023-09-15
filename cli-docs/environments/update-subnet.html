@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update-subnet &#8212; CDP CLI 0.9.97 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="upgrade-ccm" href="upgrade-ccm.html" />
+    <link rel="prev" title="update-ssh-key" href="update-ssh-key.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="upgrade-ccm.html" title="upgrade-ccm"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="update-ssh-key.html" title="update-ssh-key"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.97 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-subnet</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="update-subnet">
+<span id="cli-cdp-environments-update-subnet"></span><h1>update-subnet<a class="headerlink" href="#update-subnet" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Updates the subnet(s) of the given environment.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.97</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Updates the subnet(s) of the given environment.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-subnet
+--environment &lt;value&gt;
+<span class="o">[</span>--subnet-ids &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
+<blockquote>
+<div><p>The name or the CRN of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-ids</span></code> (array)</p>
+<blockquote>
+<div><p>The selected subnets to update the given environment to.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>environment -&gt; (object)</p>
+<blockquote>
+<div><p>The environment.</p>
+<p>environmentName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the environment.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN of the environment.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the environment.</p>
+</div></blockquote>
+<p>region -&gt; (string)</p>
+<blockquote>
+<div><p>Region of the environment.</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud platform of the environment.</p>
+</div></blockquote>
+<p>credentialName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the credential of the environment.</p>
+</div></blockquote>
+<p>network -&gt; (object)</p>
+<blockquote>
+<div><p>The network.</p>
+<p>networkName -&gt; (string)</p>
+<blockquote>
+<div><p>Name or id of the network</p>
+</div></blockquote>
+<p>subnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>Subnet names or ids of the network.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>endpointAccessGatewayScheme -&gt; (string)</p>
+<blockquote>
+<div><p>The scheme for the endpoint gateway. PUBLIC indicates an external endpoint that can be accessed over the Internet.</p>
+</div></blockquote>
+<p>endpointAccessGatewaySubnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>The subnets to use for endpoint access gateway.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>aws -&gt; (object)</p>
+<blockquote>
+<div><p>AWS network parameters.</p>
+<p>vpcId -&gt; (string)</p>
+<blockquote>
+<div><p>VPC ids of the specified networks.</p>
+</div></blockquote>
+</div></blockquote>
+<p>azure -&gt; (object)</p>
+<blockquote>
+<div><p>Azure network parameters.</p>
+<p>networkId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the Azure VNet.</p>
+</div></blockquote>
+<p>resourceGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the resource group associated with the VNet.</p>
+</div></blockquote>
+<p>usePublicIp -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to associate public ip’s to the resources within the network.</p>
+</div></blockquote>
+<p>databasePrivateDnsZoneId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of an existing private DNS zone used for the database.</p>
+</div></blockquote>
+<p>aksPrivateDnsZoneId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of an existing private DNS zone used for the AKS.</p>
+</div></blockquote>
+<p>enableOutboundLoadBalancer -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the outbound load balancer was created for this environment.</p>
+</div></blockquote>
+</div></blockquote>
+<p>gcp -&gt; (object)</p>
+<blockquote>
+<div><p>GCP network parameters.</p>
+<p>networkName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the GCP VPC.</p>
+</div></blockquote>
+<p>usePublicIp -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to associate public ip’s to the resources within the network.</p>
+</div></blockquote>
+<p>sharedProjectId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the Google project associated with the VPC.</p>
+</div></blockquote>
+</div></blockquote>
+<p>networkCidr -&gt; (string)</p>
+<blockquote>
+<div><p>The range of private IPv4 addresses that resources will use under this network.</p>
+</div></blockquote>
+<p>subnetMetadata -&gt; (map)</p>
+<blockquote>
+<div><p>Additional subnet metadata of the network.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>Information about a cloud provider subnet.</p>
+<p>subnetId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the subnet.</p>
+</div></blockquote>
+<p>subnetName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the subnet.</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>The availability zone of the subnet.</p>
+</div></blockquote>
+<p>cidr -&gt; (string)</p>
+<blockquote>
+<div><p>The CIDR IP range of the subnet.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>logStorage -&gt; (object)</p>
+<blockquote>
+<div><p>Storage configuration for cluster and audit logs.</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether external log storage is enabled.</p>
+</div></blockquote>
+<p>awsDetails -&gt; (object)</p>
+<blockquote>
+<div><p>AWS-specific log storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The base location to store logs in S3. This should be an s3a:// url.</p>
+</div></blockquote>
+<p>instanceProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The AWS instance profile that which contains the necessary permissions to access the S3 storage location.</p>
+</div></blockquote>
+</div></blockquote>
+<p>azureDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Azure-specific log storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. The location has to be in the following format abfs://filesystem&#64;storage-account-name.dfs.core.windows.net.</p>
+</div></blockquote>
+<p>managedIdentity -&gt; (string)</p>
+<blockquote>
+<div><p>The managed identity associated with the logger. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
+</div></blockquote>
+</div></blockquote>
+<p>gcpDetails -&gt; (object)</p>
+<blockquote>
+<div><p>GCP-specific log storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. This should be a gs:// url.</p>
+</div></blockquote>
+<p>serviceAccountEmail -&gt; (string)</p>
+<blockquote>
+<div><p>Email ID of the service account associated with the logging instances.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>backupStorage -&gt; (object)</p>
+<blockquote>
+<div><p>Storage configuration for backup.</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether external backup storage is enabled. The default value is disabled.</p>
+</div></blockquote>
+<p>awsDetails -&gt; (object)</p>
+<blockquote>
+<div><p>AWS-specific backup storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The base location to store backup in S3. This should be an s3a:// url.</p>
+</div></blockquote>
+<p>instanceProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The AWS instance profile which contains the necessary permissions to access the S3 storage location.</p>
+</div></blockquote>
+</div></blockquote>
+<p>azureDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Azure-specific backup storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. The location has to be in the following format abfs://filesystem&#64;storage-account-name.dfs.core.windows.net.</p>
+</div></blockquote>
+<p>managedIdentity -&gt; (string)</p>
+<blockquote>
+<div><p>The managed identity associated with the backup. This identity should have Storage Blob Data Contributor role on the given storage account.</p>
+</div></blockquote>
+</div></blockquote>
+<p>gcpDetails -&gt; (object)</p>
+<blockquote>
+<div><p>GCP-specific backup storage configuration information.</p>
+<p>storageLocationBase -&gt; (string)</p>
+<blockquote>
+<div><p>The storage location to use. This should be a gs:// url.</p>
+</div></blockquote>
+<p>serviceAccountEmail -&gt; (string)</p>
+<blockquote>
+<div><p>Email ID of the service account associated with the backup instances.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>authentication -&gt; (object)</p>
+<blockquote>
+<div><p>Additional SSH key authentication configuration for accessing cluster node instances.</p>
+<p>publicKey -&gt; (string)</p>
+<blockquote>
+<div><p>SSH Public key string.</p>
+</div></blockquote>
+<p>publicKeyId -&gt; (string)</p>
+<blockquote>
+<div><p>Public SSH key ID already registered in the cloud provider.</p>
+</div></blockquote>
+<p>loginUserName -&gt; (string)</p>
+<blockquote>
+<div><p>The SSH user name created on the nodes for SSH access.</p>
+</div></blockquote>
+</div></blockquote>
+<p>securityAccess -&gt; (object)</p>
+<blockquote>
+<div><p>Security control configuration for FreeIPA and Datalake deployment.</p>
+<p>cidr -&gt; (string)</p>
+<blockquote>
+<div><p>CIDR range which is allowed for inbound traffic. Either IPv4 or IPv6 is allowed.</p>
+</div></blockquote>
+<p>securityGroupIdForKnox -&gt; (string)</p>
+<blockquote>
+<div><p>Security group where Knox-enabled hosts are placed.</p>
+</div></blockquote>
+<p>defaultSecurityGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>Security group where all other hosts are placed.</p>
+</div></blockquote>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Description of the environment</p>
+</div></blockquote>
+<p>statusReason -&gt; (string)</p>
+<blockquote>
+<div><p>The status reason.</p>
+</div></blockquote>
+<p>created -&gt; (datetime)</p>
+<blockquote>
+<div><p>Creation date</p>
+</div></blockquote>
+<p>creator -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the user who has created the given environment.</p>
+</div></blockquote>
+<p>awsDetails -&gt; (object)</p>
+<blockquote>
+<div><p>AWS-specific environment configuration information.</p>
+<p>s3GuardTableName -&gt; (string)</p>
+<blockquote>
+<div><p>The name for the DynamoDB table backing S3Guard.</p>
+</div></blockquote>
+</div></blockquote>
+<p>gcpDetails -&gt; (object)</p>
+<blockquote>
+<div><p>GCP specific environment configuration information.</p>
+<p>sharedProjectId -&gt; (string)</p>
+<blockquote>
+<div><p>ID of the Google project where the resources are created.</p>
+</div></blockquote>
+</div></blockquote>
+<p>workloadAnalytics -&gt; (boolean)</p>
+<blockquote>
+<div><p>When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
+</div></blockquote>
+<p>reportDeploymentLogs -&gt; (boolean)</p>
+<blockquote>
+<div><p>When true, this will report additional diagnostic information back to Cloudera.</p>
+</div></blockquote>
+<p>freeipa -&gt; (object)</p>
+<blockquote>
+<div><p>Details of a FreeIPA cluster.</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN of the FreeIPA cluster.</p>
+</div></blockquote>
+<p>domain -&gt; (string)</p>
+<blockquote>
+<div><p>The domain name of the FreeIPA cluster.</p>
+</div></blockquote>
+<p>hostname -&gt; (string)</p>
+<blockquote>
+<div><p>The hostname of the FreeIPA cluster.</p>
+</div></blockquote>
+<p>serverIP -&gt; (array)</p>
+<blockquote>
+<div><p>The IP addresses of the FreeIPA cluster.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>recipes -&gt; (array)</p>
+<blockquote>
+<div><p>The recipes for the FreeIPA cluster.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>The instances of the FreeIPA cluster.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Object for a FreeIPA instance providing specific information about the instance.</p>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>The availability zone of the instance.</p>
+</div></blockquote>
+<p>discoveryFQDN -&gt; (string)</p>
+<blockquote>
+<div><p>The fully qualified domain name of the instance in the service discovery cluster.</p>
+</div></blockquote>
+<p>instanceId -&gt; (string)</p>
+<blockquote>
+<div><p>The instance ID for the instance.</p>
+</div></blockquote>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The instance group that contains the instance.</p>
+</div></blockquote>
+<p>instanceStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the instance.</p>
+</div></blockquote>
+<p>instanceStatusReason -&gt; (string)</p>
+<blockquote>
+<div><p>The status reason for the instance.</p>
+</div></blockquote>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of the instance (either GATEWAY or GATEWAY_PRIMARY).</p>
+</div></blockquote>
+<p>instanceVmType -&gt; (string)</p>
+<blockquote>
+<div><p>The VM type of the instance. Supported values depend on the cloud platform.</p>
+</div></blockquote>
+<p>lifeCycle -&gt; (string)</p>
+<blockquote>
+<div><p>The life cycle type for the instance (either NORMAL or SPOT).</p>
+</div></blockquote>
+<p>privateIP -&gt; (string)</p>
+<blockquote>
+<div><p>The private IP of the instance.</p>
+</div></blockquote>
+<p>publicIP -&gt; (string)</p>
+<blockquote>
+<div><p>The public IP of the instance.</p>
+</div></blockquote>
+<p>sshPort -&gt; (integer)</p>
+<blockquote>
+<div><p>The SSH port of the instance.</p>
+</div></blockquote>
+<p>subnetId -&gt; (string)</p>
+<blockquote>
+<div><p>The subnet ID of the instance.</p>
+</div></blockquote>
+<p>attachedVolumes -&gt; (array)</p>
+<blockquote>
+<div><p>List of volumes attached to this instance.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>The attached volume configuration.</p>
+<p>count -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of volumes.</p>
+</div></blockquote>
+<p>volumeType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of volumes.</p>
+</div></blockquote>
+<p>size -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of each volume in GB.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>proxyConfig -&gt; (object)</p>
+<blockquote>
+<div><p>A proxy config object.</p>
+<p>proxyConfigName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the proxy config.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the proxy config.</p>
+</div></blockquote>
+<p>protocol -&gt; (string)</p>
+<blockquote>
+<div><p>The protocol.</p>
+</div></blockquote>
+<p>host -&gt; (string)</p>
+<blockquote>
+<div><p>The proxy host.</p>
+</div></blockquote>
+<p>port -&gt; (integer)</p>
+<blockquote>
+<div><p>The proxy port.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>A description for the proxy config.</p>
+</div></blockquote>
+<p>noProxyHosts -&gt; (string)</p>
+<blockquote>
+<div><p>Comma-separated list of ‘CIDR’, ‘[.]host[:port]’ (can be a subdomain as well) and ‘IP[:port]’ entries that should not be proxied. Wildcards are not accepted. For example .cloudera.com,192.168.1.1</p>
+</div></blockquote>
+<p>user -&gt; (string)</p>
+<blockquote>
+<div><p>The proxy user.</p>
+</div></blockquote>
+<p>password -&gt; (string)</p>
+<blockquote>
+<div><p>The proxy password.</p>
+</div></blockquote>
+</div></blockquote>
+<p>tags -&gt; (object)</p>
+<blockquote>
+<div><p>Environment tags object containing the tag values defined for the environment.</p>
+<p>userDefined -&gt; (map)</p>
+<blockquote>
+<div><p>Map of tag names to values, for user-defined tags.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Tag value for the user-defined tag.</p>
+</div></blockquote>
+</div></blockquote>
+<p>defaults -&gt; (map)</p>
+<blockquote>
+<div><p>Map of tag names to values, for default tags.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Tag value for the default tag.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-subnet</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="update-ssh-key.html"
+                        title="previous chapter">update-ssh-key</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="upgrade-ccm.html"
+                        title="next chapter">upgrade-ccm</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="upgrade-ccm.html" title="upgrade-ccm"
+             >next</a></li>
+        <li class="right" >
+          <a href="update-ssh-key.html" title="update-ssh-key"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.97 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-subnet</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
