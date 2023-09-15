@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.96 (BETA)
+  version: 0.9.97 (BETA)
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -1940,6 +1940,16 @@ definitions:
         default: false
         x-form-factors: public
         x-entitlement: CDW_STORAGE_ROLES
+      reservedComputeNodes:
+        x-entitlement: CDW_CLUSTER_OVERPROVISIONER
+        type: integer
+        format: int32
+        description: Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
+      reservedSharedServicesNodes:
+        x-entitlement: CDW_CLUSTER_OVERPROVISIONER
+        type: integer
+        format: int32
+        description: Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
       customRegistryOptions:
         description: Options for custom ACR/ECR/Docker registries.
         $ref: '#/definitions/CustomRegistryOptions'
@@ -1974,6 +1984,9 @@ definitions:
       clusterId:
         type: string
         description: The ID of the cluster.
+      operationId:
+        type: string
+        description: The the ID of the backup operation.
       timestamp:
         type: string
         format: date-time
@@ -2012,6 +2025,11 @@ definitions:
       dbcRestorePlans:
         type: array
         description: Information about the restore-plan of the DbCatalogs.
+        items:
+          $ref: '#/definitions/RestoreClusterEntityPlan'
+      hueRestorePlans:
+        type: array
+        description: Information about the restore-plan of Hue.
         items:
           $ref: '#/definitions/RestoreClusterEntityPlan'
       hiveRestorePlans:
@@ -2127,7 +2145,7 @@ definitions:
         description: Resource ID of the managed identity used by AKS. It is a mandatory parameter for Azure cluster creation.
       subnetId:
         type: string
-        description: ID of Azure subnet where the cluster should be deployed.
+        description: ID of Azure subnet where the cluster should be deployed. It is a mandatory parameter for Azure cluster creation.
       enableAZ:
         type: boolean
         description: Enables Azure Availability Zones for the cluster deployment.
@@ -2161,6 +2179,9 @@ definitions:
         type: boolean
         description: Enable Azure Private AKS mode. Note that this feature is currently unstable due to critical networking issues within the Azure Software Definition Layer (SDN). This problem prevents the deployment of necessary components and results in unpredictable behavior and instability, impacting operations such as environment activation, VW creation, modification, and start/stop operations. While we work towards a resolution with Microsoft, estimated within the next 6-9 months, we recommend utilizing alternative methods like enabling public endpoints or virtual network peering for accessing your Azure Cluster.
         default: false
+      aksVNetIntegrationSubnetName:
+        type: string
+        description: Enable AKS VNet Azure Virtual Network (VNet) integration by specifying the delegated subnet name. An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes without requiring a private link or tunnel.
   PrivateCloudActivationOptions:
     type: object
     description: Options for activating a Private Cloud environment.
@@ -3152,6 +3173,9 @@ definitions:
       podConfigName:
         type: string
         description: Name of the pod configuration.
+      impalaExecutorGroupSets:
+        $ref: '#/definitions/ImpalaExecutorGroupSetsCreateRequest'
+        description: Configures executor group sets for workload aware autoscaling.
   ImpalaOptionsCreateRequest:
     type: object
     description: Impala specific options. It cannot be provided for Virtual Warehouse types other than Impala.
@@ -3244,6 +3268,9 @@ definitions:
         type: integer
         format: int32
         description: DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
+      impalaExecutorGroupSets:
+        $ref: '#/definitions/ImpalaExecutorGroupSetsUpdateRequest'
+        description: Re-configures executor group sets for workload aware autoscaling.
   ImpalaHASettingsUpdateRequest:
     type: object
     description: High Availability settings update options for the Impala Virtual Warehouse.
@@ -3324,6 +3351,9 @@ definitions:
       podConfigName:
         type: string
         description: Name of the pod configuration.
+      impalaExecutorGroupSets:
+        $ref: '#/definitions/ImpalaExecutorGroupSetsResponse'
+        description: Configurations of executor groups sets for workload aware autoscaling.
   ImpalaHASettingsOptionsResponse:
     type: object
     description: Impala High Availability settings for a Virtual Warehouse.
@@ -3398,6 +3428,11 @@ definitions:
         format: int32
         description: Total number of coordinator replicas scheduled for the virtual warehouse. This number contains the number of coordinator replicas in pending state, as well as the replicas that are already running. If this number is zero, then the coordinator functionality is stopped.
         x-omitempty: false
+      readyCoordinatorReplicas:
+        type: integer
+        format: int32
+        description: Total number of ready coordinator replicas in the virtual warehouse. This number only contains the healthy executor replicas that have already started up and are ready to accept requests. If this number is less than the totalCoordinatorReplicas, then the virtual warehouse might still be starting up or there might be a problem scheduling these replicas.
+        x-omitempty: false
   CreateVwRequest:
     type: object
     description: Request object for the createVw method.
@@ -3436,7 +3471,7 @@ definitions:
         type: integer
         format: int32
         default: 0
-        description: Node Count per compute cluster. Implies 'custom' template, even if you pass template explicitly.
+        description: Nodes per compute cluster. If specified, forces 'template' to be 'custom'
       availabilityZone:
         type: string
         description: This feature works only for AWS cluster type. An availability zone to host compute instances. If not specified, defaults to a randomly selected availability zone inferred from available subnets. In order to query possible options, see "availabilityZones" field of describe-cluster or list-clusters command response.
@@ -3688,6 +3723,10 @@ definitions:
       logAnalyticsWorkspaceId:
         type: string
         description: Workspace ID for Azure log analytics.
+      aksVNetIntegrationSubnetName:
+        x-omitempty: false
+        type: string
+        description: AKS VNet integration subnet name. If it's an empty string, then VNet integration is disabled.
   RestartVwRequest:
     type: object
     description: Request object for the restartVw method.
@@ -4010,6 +4049,16 @@ definitions:
         type: boolean
         default: false
         description: Include Kube system.
+  ExternalBucket:
+    type: object
+    description: External bucket details.
+    properties:
+      name:
+        type: string
+        description: Name of the bucket.
+      accessInfo:
+        $ref: '#/definitions/ExternalBucketAccessInfo'
+        description: AccessInfo of the bucket.
   ClusterSummaryResponse:
     type: object
     description: A Cloudera Data Warehouse cluster.
@@ -4048,6 +4097,16 @@ definitions:
         x-form-factors: public
         type: boolean
         description: Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
+      reservedComputeNodes:
+        x-entitlement: CDW_CLUSTER_OVERPROVISIONER
+        type: integer
+        format: int32
+        description: Number of additional reserved nodes for executors and coordinators to use during autoscaling.
+      reservedSharedServicesNodes:
+        x-entitlement: CDW_CLUSTER_OVERPROVISIONER
+        type: integer
+        format: int32
+        description: Number of additional reserved nodes for other services in the cluster.
       computeInstanceTypes:
         type: array
         items:
@@ -4066,6 +4125,20 @@ definitions:
         $ref: '#/definitions/AzureOptionsResponse'
         description: Response object of Azure related cluster options.
         x-form-factors: public
+      description:
+        type: string
+        description: Cluster description.
+      whitelistK8sClusterAccessIpCIDRs:
+        type: string
+        description: List of IP address CIDRs to whitelist for kubernetes cluster access.
+      whitelistWorkloadAccessIpCIDRs:
+        type: string
+        description: List of IP address CIDRs to whitelist for workload access.
+      externalBuckets:
+        type: array
+        description: External buckets attached to the environment.
+        items:
+          $ref: '#/definitions/ExternalBucket'
   DataVisualizationSummary:
     type: object
     description: A Cloudera Data Visualization.
@@ -4088,6 +4161,16 @@ definitions:
       size:
         type: string
         description: The template size for the Cloudera Data Visualization
+      userGroups:
+        type: array
+        items:
+          type: string
+        description: User groups that are allowed to access the Data Visualization.
+      adminGroups:
+        type: array
+        items:
+          type: string
+        description: Admin groups that are allowed to access the Data Visualization.
   DbcSummary:
     type: object
     description: A Database Catalog.
@@ -4154,6 +4237,18 @@ definitions:
       cdhVersion:
         type: string
         description: CDH image version.
+      numOfCores:
+        type: integer
+        format: int32
+        description: Number of cores of the Virtual Warehouse.
+      memoryCapacity:
+        type: integer
+        format: int32
+        description: Memory size of the Virtual Warehouse in MB.
+      nodeCount:
+        type: integer
+        format: int32
+        description: Size of the Virtual Warehouse (node count per compute cluster).
       availabilityZone:
         type: string
         description: Availability zone in which the Virtual Warehouse is running.
@@ -4870,6 +4965,175 @@ definitions:
         items:
           $ref: '#/definitions/CloudUserReference'
         description: The list of users allowed to access the given cluster.
+  ImpalaExecutorGroupSetsCreateRequest:
+    type: object
+    description: Configure executor group sets for workload aware autoscaling.
+    properties:
+      small:
+        $ref: '#/definitions/ImpalaExecutorGroupSetCreateRequest'
+        description: Configure small executor group set for workload aware autoscaling.
+        x-omitempty: false
+      custom1:
+        $ref: '#/definitions/ImpalaExecutorGroupSetCreateRequest'
+        description: Configure first optional custom executor group set for workload aware autoscaling.
+      custom2:
+        $ref: '#/definitions/ImpalaExecutorGroupSetCreateRequest'
+        description: Configure second optional custom executor group set for workload aware autoscaling.
+      custom3:
+        $ref: '#/definitions/ImpalaExecutorGroupSetCreateRequest'
+        description: Configure third optional custom executor group set for workload aware autoscaling.
+      large:
+        $ref: '#/definitions/ImpalaExecutorGroupSetCreateRequest'
+        description: Configure large executor group set for workload aware autoscaling.
+        x-omitempty: false
+  ImpalaExecutorGroupSetsUpdateRequest:
+    type: object
+    description: Re-configure executor group sets for workload aware autoscaling.
+    properties:
+      small:
+        $ref: '#/definitions/ImpalaExecutorGroupSetUpdateRequest'
+        description: Re-configure small executor group set for workload aware autoscaling.
+      custom1:
+        $ref: '#/definitions/ImpalaExecutorGroupSetUpdateRequest'
+        description: Re-configure first optional custom executor group set for workload aware autoscaling.
+      custom2:
+        $ref: '#/definitions/ImpalaExecutorGroupSetUpdateRequest'
+        description: Re-configure second optional custom executor group set for workload aware autoscaling.
+      custom3:
+        $ref: '#/definitions/ImpalaExecutorGroupSetUpdateRequest'
+        description: Re-configure third optional custom executor group set for workload aware autoscaling.
+      large:
+        $ref: '#/definitions/ImpalaExecutorGroupSetUpdateRequest'
+        description: Re-configure large executor group set for workload aware autoscaling.
+  ImpalaExecutorGroupSetsResponse:
+    type: object
+    description: Describes executor group sets for workload aware autoscaling.
+    properties:
+      small:
+        $ref: '#/definitions/ImpalaExecutorGroupSetResponse'
+        description: Describes small executor group set for workload aware autoscaling.
+      custom1:
+        $ref: '#/definitions/ImpalaExecutorGroupSetResponse'
+        description: Describes first custom executor group set for workload aware autoscaling.
+      custom2:
+        $ref: '#/definitions/ImpalaExecutorGroupSetResponse'
+        description: Describes second custom executor group set for workload aware autoscaling.
+      custom3:
+        $ref: '#/definitions/ImpalaExecutorGroupSetResponse'
+        description: Describes third custom executor group set for workload aware autoscaling.
+      large:
+        $ref: '#/definitions/ImpalaExecutorGroupSetResponse'
+        description: Describes large executor group set for workload aware autoscaling.
+  ImpalaExecutorGroupSetCreateRequest:
+    type: object
+    description: Configure independently scaling set of uniformly sized executor groups.
+    properties:
+      execGroupSize:
+        type: integer
+        format: int32
+        description: Set number of executors per executor group.
+        x-omitempty: false
+      minExecutorGroups:
+        type: integer
+        format: int32
+        description: Set minimum number of executor groups allowed.
+        x-omitempty: false
+      maxExecutorGroups:
+        type: integer
+        format: int32
+        description: Set maximum number of executor groups allowed.
+        x-omitempty: false
+      autoSuspendTimeoutSeconds:
+        type: integer
+        format: int32
+        description: Set auto suspend threshold. If not provided defaults will apply.
+      disableAutoSuspend:
+        type: boolean
+        description: Turn off auto suspend. If not provided defaults will apply.
+      triggerScaleUpDelay:
+        type: integer
+        format: int32
+        description: Set scale up threshold in seconds. If not provided defaults will apply.
+      triggerScaleDownDelay:
+        type: integer
+        format: int32
+        description: Set scale down threshold in seconds. If not provided defaults will apply.
+  ImpalaExecutorGroupSetUpdateRequest:
+    type: object
+    description: Re-configure independently scaling set of uniformly sized executor groups.
+    properties:
+      execGroupSize:
+        type: integer
+        format: int32
+        description: Set number of executors per executor group.
+      minExecutorGroups:
+        type: integer
+        format: int32
+        description: Set minimum number of executor groups allowed.
+      maxExecutorGroups:
+        type: integer
+        format: int32
+        description: Set maximum number of executor groups allowed.
+      autoSuspendTimeoutSeconds:
+        type: integer
+        format: int32
+        description: Set auto suspend threshold. If not provided defaults will apply.
+      disableAutoSuspend:
+        type: boolean
+        description: Turn off auto suspend. If not provided defaults will apply.
+      triggerScaleUpDelay:
+        type: integer
+        format: int32
+        description: Set scale up threshold in seconds. If not provided defaults will apply.
+      triggerScaleDownDelay:
+        type: integer
+        format: int32
+        description: Set scale down threshold in seconds. If not provided defaults will apply.
+      deleteGroupSet:
+        type: boolean
+        description: Delete the executor group set.
+  ImpalaExecutorGroupSetResponse:
+    type: object
+    description: Describes configurations for an executor group set.
+    properties:
+      groupSetPrefix:
+        type: string
+        description: Name of resource pool for this executor group set.
+        x-omitempty: false
+      execGroupSize:
+        type: integer
+        format: int32
+        description: Number of executors per executor group.
+        x-omitempty: false
+      minExecutorGroups:
+        type: integer
+        format: int32
+        description: Minimum number of executor groups allowed.
+        x-omitempty: false
+      maxExecutorGroups:
+        type: integer
+        format: int32
+        description: Maximum number of executor groups allowed.
+        x-omitempty: false
+      autoSuspendTimeoutSeconds:
+        type: integer
+        format: int32
+        description: Auto suspend threshold.
+        x-omitempty: false
+      disableAutoSuspend:
+        type: boolean
+        description: Denotes whether auto suspend is turned off.
+        x-omitempty: false
+      triggerScaleUpDelay:
+        type: integer
+        format: int32
+        description: Scale up threshold in seconds.
+        x-omitempty: false
+      triggerScaleDownDelay:
+        type: integer
+        format: int32
+        description: Scale down threshold in seconds.
+        x-omitempty: false
   CloudUserReference:
     type: object
     description: Cloud user definition object.
