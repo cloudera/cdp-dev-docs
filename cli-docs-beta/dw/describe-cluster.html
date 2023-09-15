@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-cluster &#8212; CDP CLI 0.9.96 (BETA) documentation</title>
+    <title>describe-cluster &#8212; CDP CLI 0.9.97 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-backup.html" title="describe-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.96 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.97 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.96</p>
+<dd class="field-even"><p>0.9.97</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -140,6 +140,14 @@
 <div><p>Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.</p>
 <p>Form Factors: public</p>
 </div></blockquote>
+<p>reservedComputeNodes -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of additional reserved nodes for executors and coordinators to use during autoscaling.</p>
+</div></blockquote>
+<p>reservedSharedServicesNodes -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of additional reserved nodes for other services in the cluster.</p>
+</div></blockquote>
 <p>computeInstanceTypes -&gt; (array)</p>
 <blockquote>
 <div><p>Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.</p>
@@ -201,6 +209,46 @@
 <blockquote>
 <div><p>Workspace ID for Azure log analytics.</p>
 </div></blockquote>
+<p>aksVNetIntegrationSubnetName -&gt; (string)</p>
+<blockquote>
+<div><p>AKS VNet integration subnet name. If it’s an empty string, then VNet integration is disabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster description.</p>
+</div></blockquote>
+<p>whitelistK8sClusterAccessIpCIDRs -&gt; (string)</p>
+<blockquote>
+<div><p>List of IP address CIDRs to whitelist for kubernetes cluster access.</p>
+</div></blockquote>
+<p>whitelistWorkloadAccessIpCIDRs -&gt; (string)</p>
+<blockquote>
+<div><p>List of IP address CIDRs to whitelist for workload access.</p>
+</div></blockquote>
+<p>externalBuckets -&gt; (array)</p>
+<blockquote>
+<div><p>External buckets attached to the environment.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>External bucket details.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the bucket.</p>
+</div></blockquote>
+<p>accessInfo -&gt; (object)</p>
+<blockquote>
+<div><p>External bucket definition.</p>
+<p>accessMode -&gt; (string)</p>
+<blockquote>
+<div><p>Specifies whether the external bucket will be added in read-only or read-write mode.</p>
+</div></blockquote>
+<p>kmsCmkArn -&gt; (string)</p>
+<blockquote>
+<div><p>Enable server side encryption with the specified KMS CMK ARN. If the value is empty or unspecified, default server side encryption will be used when the access mode is read-write. Otherwise this value is ignored.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -258,7 +306,7 @@
         <li class="right" >
           <a href="describe-backup.html" title="describe-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.96 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.97 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>

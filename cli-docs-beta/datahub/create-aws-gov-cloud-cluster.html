@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create-aws-gov-cloud-cluster &#8212; CDP CLI 0.9.97 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="create-azure-cluster" href="create-azure-cluster.html" />
+    <link rel="prev" title="create-aws-cluster" href="create-aws-cluster.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-azure-cluster.html" title="create-azure-cluster"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="create-aws-cluster.html" title="create-aws-cluster"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.97 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-aws-gov-cloud-cluster</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="create-aws-gov-cloud-cluster">
+<span id="cli-cdp-datahub-create-aws-gov-cloud-cluster"></span><h1>create-aws-gov-cloud-cluster<a class="headerlink" href="#create-aws-gov-cloud-cluster" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Creates an AWS Data Hub cluster for GovCloud.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.97</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Creates an AWS Data Hub cluster for GovCloud.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-aws-gov-cloud-cluster
+<span class="o">[</span>--cluster-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cluster-definition &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--environment &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cluster-template &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--instance-groups &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--subnet-id &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--image &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--tags &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--request-template &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--datahub-database &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--subnet-ids &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--multi-az <span class="p">|</span> --no-multi-az<span class="o">]</span>
+<span class="o">[</span>--cluster-extension &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--enable-load-balancer <span class="p">|</span> --no-enable-load-balancer<span class="o">]</span>
+<span class="o">[</span>--java-version &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the cluster. This name must be unique, must have between 5 and 40 characters, and must contain only lowercase letters, numbers, and hyphens. Names are case-sensitive.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-definition</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the cluster definition to use for cluster creation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
+<blockquote>
+<div><p>Name or CRN of the environment to use when creating the cluster. The environment must be an AWS GovCloud environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-template</span></code> (string)</p>
+<blockquote>
+<div><p>Name or CRN of the cluster template to use for cluster creation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--instance-groups</span></code> (array)</p>
+<blockquote>
+<div><p>Instance group details.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">nodeCount</span><span class="o">=</span>integer,instanceGroupName<span class="o">=</span>string,instanceGroupType<span class="o">=</span>string,instanceType<span class="o">=</span>string,attachedVolumeConfiguration<span class="o">=[{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}</span>,<span class="o">{</span><span class="nv">volumeSize</span><span class="o">=</span>integer,volumeCount<span class="o">=</span>integer,volumeType<span class="o">=</span>string<span class="o">}]</span>,rootVolumeSize<span class="o">=</span>integer,recipeNames<span class="o">=</span>string,string,recoveryMode<span class="o">=</span>string,volumeEncryption<span class="o">={</span><span class="nv">enableEncryption</span><span class="o">=</span>boolean,encryptionKey<span class="o">=</span>string<span class="o">}</span>,subnetIds<span class="o">=</span>string,string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;nodeCount&quot;</span>: integer,
+    <span class="s2">&quot;instanceGroupName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;instanceGroupType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;attachedVolumeConfiguration&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">&quot;volumeSize&quot;</span>: integer,
+        <span class="s2">&quot;volumeCount&quot;</span>: integer,
+        <span class="s2">&quot;volumeType&quot;</span>: <span class="s2">&quot;string&quot;</span>
+      <span class="o">}</span>
+      ...
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootVolumeSize&quot;</span>: integer,
+    <span class="s2">&quot;recipeNames&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+    <span class="s2">&quot;recoveryMode&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;volumeEncryption&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;enableEncryption&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;encryptionKey&quot;</span>: <span class="s2">&quot;string&quot;</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;subnetIds&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-id</span></code> (string)</p>
+<blockquote>
+<div><p>The subnet ID.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)</p>
+<blockquote>
+<div><p>The details of the image used for cluster instances.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the image used for cluster instances. This is generated by the cloud provider to uniquely identify the image.</p>
+</div></blockquote>
+<p>catalogName -&gt; (string)</p>
+<blockquote>
+<div><p>The image catalog name.</p>
+</div></blockquote>
+<p>os -&gt; (string)</p>
+<blockquote>
+<div><p>The OS of the image used for cluster instances.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">id</span><span class="o">=</span>string,catalogName<span class="o">=</span>string,os<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;catalogName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;os&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
+<blockquote>
+<div><p>Tags to be added to Data Hub related resources.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;key&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--request-template</span></code> (string)</p>
+<blockquote>
+<div><p>JSON template to use for cluster creation. This is different from the cluster template and would be removed in the future.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--datahub-database</span></code> (string)</p>
+<blockquote>
+<div><p>Database type for datahub. Currently supported values: NONE, NON_HA, HA</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NON_HA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-ids</span></code> (array)</p>
+<blockquote>
+<div><p>List of subnet IDs in case of multi availability zone setup.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--multi-az</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-multi-az</span></code> (boolean)</p>
+<blockquote>
+<div><p>Flag that toggles the multi availability zone for the given Data Hub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-extension</span></code> (object)</p>
+<blockquote>
+<div><p>Cluster extensions for Data Hub cluster.</p>
+<p>customProperties -&gt; (string)</p>
+<blockquote>
+<div><p>The custom properties JSON, encoded in base64.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">customProperties</span><span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;customProperties&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-load-balancer</span></code> (boolean)</p>
+<blockquote>
+<div><p>Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--java-version</span></code> (integer)</p>
+<blockquote>
+<div><p>Configure the major version of Java on the cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>cluster -&gt; (object)</p>
+<blockquote>
+<div><p>Information about a cluster.</p>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the cluster.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the cluster.</p>
+</div></blockquote>
+<p>creationDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date when the cluster was created.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the stack.</p>
+</div></blockquote>
+<p>clusterStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the cluster.</p>
+</div></blockquote>
+<p>nodeCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The cluster node count.</p>
+</div></blockquote>
+<p>instanceGroups -&gt; (array)</p>
+<blockquote>
+<div><p>The instance details.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>The type of the instance group which also contains the actual instance(s)</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the instance group where the given instance is located.</p>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>List of instances in this instance group.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Object which holds some details of an instance for the given cluster.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the given instance.</p>
+</div></blockquote>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>The health state of the instance. UNHEALTHY represents instances with unhealthy services, lost instances, or failed operations.</p>
+</div></blockquote>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of the given instance (either GATEWAY, GATEWAY_PRIMARY, or CORE).</p>
+</div></blockquote>
+<p>privateIp -&gt; (string)</p>
+<blockquote>
+<div><p>The private IP of the given instance.</p>
+</div></blockquote>
+<p>publicIp -&gt; (string)</p>
+<blockquote>
+<div><p>The public IP of the given instance.</p>
+</div></blockquote>
+<p>fqdn -&gt; (string)</p>
+<blockquote>
+<div><p>The FQDN of the instance.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the instance. This includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.</p>
+</div></blockquote>
+<p>statusReason -&gt; (string)</p>
+<blockquote>
+<div><p>The reason for the current status of this instance.</p>
+</div></blockquote>
+<p>sshPort -&gt; (integer)</p>
+<blockquote>
+<div><p>The SSH port for the instance.</p>
+</div></blockquote>
+<p>clouderaManagerServer -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the instance has Cloudera Manager deployed or not.</p>
+</div></blockquote>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the instance group this instance belongs to.</p>
+</div></blockquote>
+<p>attachedVolumes -&gt; (array)</p>
+<blockquote>
+<div><p>List of volumes attached to this instance.</p>
+<p>( … recursive … )</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>The availability zone of the instance.</p>
+</div></blockquote>
+<p>instanceVmType -&gt; (string)</p>
+<blockquote>
+<div><p>The VM type of the instance. Supported values depend on the cloud platform.</p>
+</div></blockquote>
+<p>rackId -&gt; (string)</p>
+<blockquote>
+<div><p>The rack ID of the instance in Cloudera Manager.</p>
+</div></blockquote>
+<p>subnetId -&gt; (string)</p>
+<blockquote>
+<div><p>The subnet ID of the instance.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>subnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>The list of subnet IDs in case of multi-availability zone setup</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>availabilityZones -&gt; (array)</p>
+<blockquote>
+<div><p>List of availability zones that this instance group is associated with.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>workloadType -&gt; (string)</p>
+<blockquote>
+<div><p>The workload type for the cluster.</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>The cloud platform.</p>
+</div></blockquote>
+<p>imageDetails -&gt; (object)</p>
+<blockquote>
+<div><p>The details of the image used for cluster instances.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the image used for cluster instances.</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the image used for cluster instances. This is internally generated by the cloud provider to uniquely identify the image.</p>
+</div></blockquote>
+<p>os -&gt; (string)</p>
+<blockquote>
+<div><p>The OS of the image used for cluster instances.</p>
+</div></blockquote>
+<p>catalogUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The image catalog URL.</p>
+</div></blockquote>
+<p>catalogName -&gt; (string)</p>
+<blockquote>
+<div><p>The image catalog name.</p>
+</div></blockquote>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the environment.</p>
+</div></blockquote>
+<p>environmentName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the environment.</p>
+</div></blockquote>
+<p>credentialCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the credential.</p>
+</div></blockquote>
+<p>datalakeCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the attached datalake.</p>
+</div></blockquote>
+<p>clusterTemplateCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the cluster template used for the cluster creation.</p>
+</div></blockquote>
+<p>statusReason -&gt; (string)</p>
+<blockquote>
+<div><p>The status reason.</p>
+</div></blockquote>
+<p>clouderaManager -&gt; (object)</p>
+<blockquote>
+<div><p>Cloudera Manager details.</p>
+<p>version -&gt; (string)</p>
+<blockquote>
+<div><p>Cloudera Manager version.</p>
+</div></blockquote>
+<p>platformVersion -&gt; (string)</p>
+<blockquote>
+<div><p>CDP Platform version.</p>
+</div></blockquote>
+</div></blockquote>
+<p>endpoints -&gt; (object)</p>
+<blockquote>
+<div><p>Object which holds the exposed endpoints for the given cluster.</p>
+<p>endpoints -&gt; (array)</p>
+<blockquote>
+<div><p>The endpoints.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Object which holds the exposed endpoint.</p>
+<p>serviceName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the exposed service</p>
+</div></blockquote>
+<p>serviceUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The server url for the given exposed service’s API.</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>The more consumable name of the exposed service.</p>
+</div></blockquote>
+<p>knoxService -&gt; (string)</p>
+<blockquote>
+<div><p>The related knox entry.</p>
+</div></blockquote>
+<p>mode -&gt; (string)</p>
+<blockquote>
+<div><p>The SSO mode of the given service.</p>
+</div></blockquote>
+<p>open -&gt; (boolean)</p>
+<blockquote>
+<div><p>The access status of the given endpoint. Whether its open or not.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-aws-gov-cloud-cluster</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="create-aws-cluster.html"
+                        title="previous chapter">create-aws-cluster</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="create-azure-cluster.html"
+                        title="next chapter">create-azure-cluster</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-azure-cluster.html" title="create-azure-cluster"
+             >next</a></li>
+        <li class="right" >
+          <a href="create-aws-cluster.html" title="create-aws-cluster"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.97 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-aws-gov-cloud-cluster</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
