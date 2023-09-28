@@ -1378,7 +1378,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.97</p>
+<p><em>Version</em> : 0.9.98</p>
 </div>
 </div>
 <div class="sect2">
@@ -6933,7 +6933,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_65">Description</h4>
 <div class="paragraph">
-<p>Unlocks machine user in the CDP control plane. This operation is idempotent. Unlocking an active machine user will succeed and leave the machine user active.</p>
+<p>Unlocks machine user in the CDP control plane. This operation is idempotent. Unlocking an active machine user will succeed and leave the machine user active. This operation is only supported on Cloudera for Government.</p>
 </div>
 </div>
 <div class="sect3">
@@ -7019,7 +7019,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_66">Description</h4>
 <div class="paragraph">
-<p>Unlocks user in the CDP control plane. This operation is idempotent. Unlocking an active user will succeed and leave the user active.</p>
+<p>Unlocks user in the CDP control plane. This operation is idempotent. Unlocking an active user will succeed and leave the user active. This operation is only supported on Cloudera for Government.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12222,6 +12222,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The current status of the machine user. The possible status values are ACTIVE and CONTROL_PLANE_LOCKED_OUT. ACTIVE indicates that the machine user is active in CDP. An active machine user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the machine user is locked out of the CDP control plane. The locked-out machine user can no longer authenticate to the control plane but can authenticate to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>workloadPasswordDetails</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -14309,6 +14321,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The current status of the user. The possible status values are ACTIVE, CONTROL_PLANE_LOCKED_OUT, and DEACTIVATED. ACTIVE indicates that the user is active in CDP. An active user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the user is locked out of the CDP control plane. The locked-out user can no longer authenticate to the control plane but can authenticate to the workload clusters. DEACTIVATED indicates that the user is deactivated in CDP. A deactivated user can neither authenticate to the control plane nor to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>userId</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -14536,7 +14560,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-14 10:37:10 -0700
+Last updated 2023-09-27 13:17:43 -0700
 </div>
 </div>
 <br>

@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.98 (2023-09-27)
+
+IMPROVEMENTS:
+* consumption: **New Service** to visualize details about Cloudera credits consumption.
+* de: Add `networkOutboundType` field to `enableService` command.
+* iam: Add `status` field to `machineUser` object.
+* environments: The `encryptionKey` field for `createGCPEnvironment` command no longer requires an entitlement.
+
 ## 0.9.97 (2023-09-14)
 
 IMPROVEMENTS:
