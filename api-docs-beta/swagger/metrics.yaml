@@ -1,0 +1,533 @@
+swagger: '2.0'
+schemes:
+  - https
+x-endpoint-name: metrics
+x-products: CDP
+x-form-factors: private
+x-cdp-releases: BETA
+consumes:
+  - application/json
+produces:
+  - application/json
+info:
+  description: Cloudera Private Cloud Control Plane Monitoring Metrics Administration API
+  license:
+    name: Apache 2.0
+  title: Cloudera Control Plane Monitoring Metrics Administration
+  version: 0.9.98 (BETA)
+x-audit: true
+paths:
+  /api/v1/metrics/createRemoteWriteConfig:
+    post:
+      summary: Create remote storage configuration
+      description: Creates a new remote storage configuration.
+      operationId: createRemoteWriteConfig
+      x-mutating: true
+      parameters:
+        - description: CreateRemoteWriteConfigRequest request params
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: '#/definitions/CreateRemoteWriteConfigRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/CreateRemoteWriteConfigResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - remote storage configuration
+  /api/v1/metrics/deleteRemoteWriteConfig:
+    post:
+      summary: Delete remote storage configuration
+      description: Deletes a remote storage configuration.
+      operationId: deleteRemoteWriteConfig
+      x-mutating: true
+      parameters:
+        - description: DeleteRemoteWriteConfigRequest request params
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: '#/definitions/DeleteRemoteWriteConfigRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/DeleteRemoteWriteConfigResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - remote storage configuration
+  /api/v1/metrics/describeRemoteWriteConfig:
+    post:
+      summary: Describe remote storage configuration
+      description: Returns a remote storage configuration
+      operationId: describeRemoteWriteConfig
+      x-mutating: false
+      parameters:
+        - description: DescribeRemoteWriteConfigRequest request params
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: '#/definitions/DescribeRemoteWriteConfigRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/DescribeRemoteWriteConfigResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - remote storage configuration
+  /api/v1/metrics/listRemoteWriteConfigs:
+    post:
+      summary: List remote storage configurations
+      description: Returns all remote storage configurations in the given account
+      operationId: listRemoteWriteConfigs
+      x-mutating: false
+      parameters:
+        - description: ListRemoteWriteConfigsRequest request params
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: '#/definitions/ListRemoteWriteConfigsRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ListRemoteWriteConfigsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - remote storage configuration
+  /api/v1/metrics/updateRemoteWriteConfig:
+    post:
+      summary: Update remote storage configuration
+      description: Updates remote storage configuration.
+      operationId: updateRemoteWriteConfig
+      x-mutating: true
+      parameters:
+        - description: UpdateRemoteWriteConfigRequest request params
+          in: body
+          name: input
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateRemoteWriteConfigRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/UpdateRemoteWriteConfigResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - remote storage configuration
+definitions:
+  Error:
+    type: object
+    description: An object returned on an error.
+    properties:
+      code:
+        type: string
+        description: The error code.
+      message:
+        type: string
+        description: The error message.
+  AuthHeader:
+    type: object
+    description: Authorization header configuration
+    required:
+      - credentials
+    properties:
+      credentials:
+        description: Authorization header credentials
+        type: string
+        x-sensitive: true
+      shouldUpdateCredentialsField:
+        description: Returns true if the credentials field was changed and should be updated
+        type: boolean
+      type:
+        default: Bearer
+        description: Authorization header type
+        type: string
+  AuthHeaderForResponse:
+    type: object
+    description: Authorization header configuration response
+    properties:
+      type:
+        default: Bearer
+        description: Authorization header type
+        type: string
+  BasicAuth:
+    type: object
+    description: Basic auth configuration
+    required:
+      - username
+    properties:
+      username:
+        description: Username for the remote storage configuration
+        type: string
+      shouldUpdatePasswordField:
+        description: Returns true if the password field was changed and should be updated
+        type: boolean
+      password:
+        description: Password for the remote storage config
+        type: string
+        x-sensitive: true
+  BasicAuthForResponse:
+    type: object
+    description: Basic auth configuration response
+    required:
+      - username
+    properties:
+      username:
+        description: Username for the remote storage configuration
+        type: string
+  CreateRemoteWriteConfigRequest:
+    type: object
+    description: Create remote write storage configuration request
+    required:
+      - remoteWriteConfig
+    properties:
+      remoteWriteConfig:
+        description: Remote storage configuration
+        $ref: '#/definitions/RemoteWriteConfigRequestForCreate'
+  CreateRemoteWriteConfigResponse:
+    type: object
+    description: Create remote write storage configuration response
+    required:
+      - remoteWriteConfig
+    properties:
+      remoteWriteConfig:
+        description: Remote storage configuration
+        $ref: '#/definitions/RemoteWriteConfigResponse'
+  DeleteRemoteWriteConfigRequest:
+    type: object
+    description: Delete remote write storage configuration request
+    required:
+      - id
+    properties:
+      id:
+        description: UUID of the remote storage configuration
+        type: string
+  DeleteRemoteWriteConfigResponse:
+    description: Delete remote write storage configuration response
+    type: object
+  DescribeRemoteWriteConfigRequest:
+    type: object
+    description: Describe remote write storage configuration request
+    required:
+      - id
+    properties:
+      id:
+        description: UUID of the remote storage configuration
+        type: string
+  DescribeRemoteWriteConfigResponse:
+    type: object
+    description: Describe remote write storage configuration response
+    required:
+      - remoteWriteConfig
+    properties:
+      remoteWriteConfig:
+        description: Remote storage configuration
+        $ref: '#/definitions/RemoteWriteConfigResponse'
+  ListRemoteWriteConfigsRequest:
+    type: object
+    description: List remote write storage configurations request
+  ListRemoteWriteConfigsResponse:
+    type: object
+    description: List remote write storage configurations response
+    required:
+      - remoteWriteConfigs
+    properties:
+      remoteWriteConfigs:
+        description: List of remote storage configs
+        items:
+          $ref: '#/definitions/RemoteWriteConfigResponse'
+        type: array
+  RemoteWriteConfigResponse:
+    type: object
+    description: Remote write storage configuration
+    required:
+      - address
+      - authMethod
+      - enabled
+      - id
+      - name
+      - accountId
+    properties:
+      address:
+        description: Address of the remote storage
+        type: string
+      authMethod:
+        description: Authentication method of the remote storage
+        type: string
+      enabled:
+        description: Enabled state of the remote storage config
+        type: boolean
+      id:
+        description: UUID of the remote storage configuration
+        type: string
+      name:
+        description: Name of the remote storage configuration
+        type: string
+      accountId:
+        description: Account ID which the remote storage configuration belongs to
+        type: string
+      authHeader:
+        $ref: '#/definitions/AuthHeaderForResponse'
+        description: Authorization header parameters
+      basicAuth:
+        $ref: '#/definitions/BasicAuthForResponse'
+        description: Basic auth parameters
+      customHeaders:
+        additionalProperties:
+          type: string
+        description: Additional custom HTTP header key-value pairs that are sent along with each remote write request.
+        type: object
+      scope:
+        $ref: '#/definitions/RemoteWriteConfigScopeForResponse'
+        description: The scope of this remote storage config
+      integrationConfig:
+        $ref: '#/definitions/IntegrationConfigForResponse'
+        description: The configuration for public cloud metric integration
+      writeRelabelConfigs:
+        description: Relabeling and filtering rules to be applied to the remote write config
+        type: string
+      tls:
+        $ref: '#/definitions/TlsConfigForResponse'
+        description: Tls configuration parameters
+  RemoteWriteConfigRequestForCreate:
+    type: object
+    description: Remote write storage configuration request for create
+    required:
+      - address
+      - authMethod
+      - enabled
+      - name
+      - scope
+    properties:
+      address:
+        description: Address of the remote storage
+        type: string
+      authMethod:
+        description: Authentication method of the remote storage
+        type: string
+      enabled:
+        description: Enabled state of the remote storage config
+        type: boolean
+      name:
+        description: Name of the remote storage configuration
+        type: string
+      scope:
+        $ref: '#/definitions/RemoteWriteConfigScope'
+        description: The scope of this remote storage config
+      authHeader:
+        $ref: '#/definitions/AuthHeader'
+        description: Authorization header parameters
+      basicAuth:
+        $ref: '#/definitions/BasicAuth'
+        description: Basic auth parameters
+      customHeaders:
+        additionalProperties:
+          type: string
+        description: Additional custom HTTP header key-value pairs that are sent along with each remote write request.
+        type: object
+      integrationConfig:
+        $ref: '#/definitions/IntegrationConfig'
+        description: The configuration for public cloud metric integration
+      writeRelabelConfigs:
+        description: Relabeling and filtering rules to be applied to the remote write config
+        type: string
+      tls:
+        $ref: '#/definitions/TlsConfig'
+        description: Tls configuration parameters
+  RemoteWriteConfigScope:
+    type: object
+    description: Remote write storage configuration scope
+    required:
+      - environmentCrn
+      - type
+    properties:
+      environmentCrn:
+        description: Environment CRN filter for the scope. Empty means no filtering
+        type: string
+      type:
+        description: 'The type of this remote storage config. Allowed values: all | controlplane | environments'
+        type: string
+  RemoteWriteConfigScopeForResponse:
+    type: object
+    description: Remote write storage configuration scope for response
+    required:
+      - environmentCrn
+      - type
+    properties:
+      environmentCrn:
+        description: Environment CRN filter for the scope. Empty means no filtering
+        type: string
+      type:
+        description: 'The type of this remote storage configuration. Allowed values: all | controlplane | environments'
+        type: string
+  RemoteWriteStorageRequestForUpdate:
+    type: object
+    description: Remote write storage configuration request for update
+    required:
+      - address
+      - authMethod
+      - enabled
+      - id
+      - name
+      - scope
+    properties:
+      address:
+        description: Address of the remote storage
+        type: string
+      authMethod:
+        description: Authentication method of the remote storage
+        type: string
+      enabled:
+        description: Enabled state of the remote storage config
+        type: boolean
+      id:
+        description: UUID of the remote storage configuration
+        type: string
+      name:
+        description: Name of the remote storage configuration
+        type: string
+      scope:
+        $ref: '#/definitions/RemoteWriteConfigScope'
+        description: The scope of this remote storage config
+      authHeader:
+        $ref: '#/definitions/AuthHeader'
+        description: Authorization header parameters
+      basicAuth:
+        $ref: '#/definitions/BasicAuth'
+        description: Basic auth parameters
+      customHeaders:
+        additionalProperties:
+          type: string
+        description: Additional custom HTTP header key-value pairs that are sent along with each remote write request.
+        type: object
+      integrationConfig:
+        $ref: '#/definitions/IntegrationConfig'
+        description: The configuration for public cloud metric integration
+      writeRelabelConfigs:
+        description: Relabeling and filtering rules to be applied to the remote write config
+        type: string
+      tls:
+        $ref: '#/definitions/TlsConfig'
+        description: Tls configuration parameters
+  TlsConfig:
+    type: object
+    description: Tls configuration
+    required:
+      - insecureSkipVerify
+    properties:
+      insecureSkipVerify:
+        description: Skip tls verification
+        type: boolean
+      serverName:
+        description: Tls ServerName extension to indicate the name of the server.
+        type: string
+      clientCertificate:
+        description: Certificate for client cert authentication to the server
+        type: string
+        x-sensitive: true
+      clientKey:
+        description: Key for client cert authentication to the server
+        type: string
+        x-sensitive: true
+      shouldUpdateClientKeyField:
+        description: Returns true if the ClientKey field was changed and should be updated
+        type: boolean
+  TlsConfigForResponse:
+    type: object
+    description: Tls configuration for response
+    required:
+      - insecureSkipVerify
+      - isClientKeyFieldEmpty
+    properties:
+      insecureSkipVerify:
+        description: Skip tls verification
+        type: boolean
+      isClientKeyFieldEmpty:
+        description: Returns true if the ClientKey field is empty
+        type: boolean
+      serverName:
+        description: Tls ServerName extension to indicate the name of the server.
+        type: string
+      clientCertificate:
+        description: Certificate for client cert authentication to the server
+        type: string
+        x-sensitive: true
+  IntegrationConfig:
+    type: object
+    description: The configuration for public cloud metric integration
+    required:
+      - requestSignerCertificate
+    properties:
+      requestSignerCertificate:
+        description: The public cloud side certificate to use for request signing
+        $ref: '#/definitions/RequestSignerCertificate'
+  IntegrationConfigForResponse:
+    type: object
+    description: The configuration for public cloud metric integration
+    required:
+      - requestSignerCertificate
+    properties:
+      requestSignerCertificate:
+        description: The public cloud side certificate to use for request signing
+        $ref: '#/definitions/RequestSignerCertificateForResponse'
+  RequestSignerCertificate:
+    type: object
+    description: The configuration for public cloud metric integration
+    properties:
+      cdpAccessKeyId:
+        description: The key id of the public cloud certificate
+        type: string
+      privateKey:
+        description: The key information of the certificate
+        type: string
+  RequestSignerCertificateForResponse:
+    type: object
+    description: The configuration for public cloud metric integration
+    properties:
+      cdpAccessKeyId:
+        description: The key id of the public cloud certificate
+        type: string
+      privateKey:
+        description: The key information of the certificate
+        type: string
+  UpdateRemoteWriteConfigRequest:
+    type: object
+    description: Update remote write storage configuration request
+    required:
+      - remoteWriteConfig
+    properties:
+      remoteWriteConfig:
+        description: Remote storage configuration
+        $ref: '#/definitions/RemoteWriteStorageRequestForUpdate'
+  UpdateRemoteWriteConfigResponse:
+    type: object
+    description: Update remote write storage configuration response
+    required:
+      - remoteWriteConfig
+    properties:
+      remoteWriteConfig:
+        description: Remote storage configuration
+        $ref: '#/definitions/RemoteWriteConfigResponse'

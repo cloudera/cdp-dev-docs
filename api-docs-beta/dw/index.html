@@ -1440,6 +1440,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_suspendvwresponse">SuspendVwResponse</a></li>
 <li><a href="#_tagrequest">TagRequest</a></li>
 <li><a href="#_tagresponse">TagResponse</a></li>
+<li><a href="#_updateclusterexternalbucketaccessinfo">UpdateClusterExternalBucketAccessInfo</a></li>
+<li><a href="#_updateclusterobservabilityconfig">UpdateClusterObservabilityConfig</a></li>
 <li><a href="#_updateclusterrequest">UpdateClusterRequest</a></li>
 <li><a href="#_updateclusterresponse">UpdateClusterResponse</a></li>
 <li><a href="#_updatedatavisualizationrequest">UpdateDataVisualizationRequest</a></li>
@@ -1486,7 +1488,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.97 (BETA)</p>
+<p><em>Version</em> : 0.9.98 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -19542,6 +19544,98 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </table>
 </div>
 <div class="sect2">
+<h3 id="_updateclusterexternalbucketaccessinfo">UpdateClusterExternalBucketAccessInfo</h3>
+<div class="paragraph">
+<p>Cluster external bucket definition to update.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>accessMode</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Specifies whether the external bucket will be added in read-only or read-write mode.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (READ, READWRITE)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>kmsCmkArn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Enable server side encryption with the specified KMS CMK ARN. If the value is empty or unspecified, default server side encryption will be used when the access mode is read-write. Otherwise this value is ignored.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updateclusterobservabilityconfig">UpdateClusterObservabilityConfig</h3>
+<div class="paragraph">
+<p>Cluster observability settings to update.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>logsForwardingConfig</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Create the log forwarding configuration in a valid fluentd format. Then that configuration is later inserted into a larger fluentd configuration.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>proxyCABundle</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Set the proxy CA certificates (PEM Bundle). If you use a TLS-terminating proxy server to inspect outbound internet traffic, you need to provide the proxy server&#8217;s CA certificates bundle in PEM bundle format when you configure log forwarding.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updateclusterrequest">UpdateClusterRequest</h3>
 <div class="paragraph">
 <p>Request object for the updateCluster method.</p>
@@ -19614,10 +19708,10 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Update the cluster observability configurations. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splun. Please refer to the following Cloudera documentation for more info. <a href="https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html" class="bare">https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html</a></p>
+<p>Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. <a href="https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html" class="bare">https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_updateclusterrequest_observabilityconfig">observabilityConfig</a></p>
+<p><a href="#_updateclusterobservabilityconfig">UpdateClusterObservabilityConfig</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -19684,7 +19778,7 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 <p>External bucket definition.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string, <a href="#_externalbucketaccessinfo">ExternalBucketAccessInfo</a> &gt; map</p>
+<p>&lt; string, <a href="#_updateclusterexternalbucketaccessinfo">UpdateClusterExternalBucketAccessInfo</a> &gt; map</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -19717,49 +19811,6 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div id="_updateclusterrequest_observabilityconfig" class="paragraph">
-<p><strong>observabilityConfig</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>logsForwardingConfig</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Create the log forwarding configuration in a valid fluentd format. Then that configuration is later inserted into a larger fluentd configuration.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>proxyCABundle</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Set the proxy CA certificates (PEM Bundle). If you use a TLS-terminating proxy server to inspect outbound internet traffic, you need to provide the proxy server&#8217;s CA certificates bundle in PEM bundle format when you configure log forwarding.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -21753,7 +21804,7 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-14 09:40:32 -0700
+Last updated 2023-09-27 13:18:24 -0700
 </div>
 </div>
 <br>
