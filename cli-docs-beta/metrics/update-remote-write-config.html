@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update-remote-write-config &#8212; CDP CLI 0.9.98 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ml" href="../ml/index.html" />
+    <link rel="prev" title="list-remote-write-configs" href="list-remote-write-configs.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../ml/index.html" title="ml"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-remote-write-configs.html" title="list-remote-write-configs"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.98 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">metrics</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-remote-write-config</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="update-remote-write-config">
+<span id="cli-cdp-metrics-update-remote-write-config"></span><h1>update-remote-write-config<a class="headerlink" href="#update-remote-write-config" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Update remote storage configuration</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.98</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Updates remote storage configuration.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-remote-write-config
+--remote-write-config &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--remote-write-config</span></code> (object)</p>
+<blockquote>
+<div><p>Remote write storage configuration request for update</p>
+<p>address -&gt; (string)</p>
+<blockquote>
+<div><p>Address of the remote storage</p>
+</div></blockquote>
+<p>authMethod -&gt; (string)</p>
+<blockquote>
+<div><p>Authentication method of the remote storage</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enabled state of the remote storage config</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>UUID of the remote storage configuration</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the remote storage configuration</p>
+</div></blockquote>
+<p>scope -&gt; (object)</p>
+<blockquote>
+<div><p>Remote write storage configuration scope</p>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Environment CRN filter for the scope. Empty means no filtering</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The type of this remote storage config. Allowed values: all | controlplane | environments</p>
+</div></blockquote>
+</div></blockquote>
+<p>authHeader -&gt; (object)</p>
+<blockquote>
+<div><p>Authorization header configuration</p>
+<p>credentials -&gt; (string)</p>
+<blockquote>
+<div><p>Authorization header credentials</p>
+</div></blockquote>
+<p>shouldUpdateCredentialsField -&gt; (boolean)</p>
+<blockquote>
+<div><p>Returns true if the credentials field was changed and should be updated</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Authorization header type</p>
+</div></blockquote>
+</div></blockquote>
+<p>basicAuth -&gt; (object)</p>
+<blockquote>
+<div><p>Basic auth configuration</p>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>Username for the remote storage configuration</p>
+</div></blockquote>
+<p>shouldUpdatePasswordField -&gt; (boolean)</p>
+<blockquote>
+<div><p>Returns true if the password field was changed and should be updated</p>
+</div></blockquote>
+<p>password -&gt; (string)</p>
+<blockquote>
+<div><p>Password for the remote storage config</p>
+</div></blockquote>
+</div></blockquote>
+<p>customHeaders -&gt; (map)</p>
+<blockquote>
+<div><p>Additional custom HTTP header key-value pairs that are sent along with each remote write request.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>integrationConfig -&gt; (object)</p>
+<blockquote>
+<div><p>The configuration for public cloud metric integration</p>
+<p>requestSignerCertificate -&gt; (object)</p>
+<blockquote>
+<div><p>The configuration for public cloud metric integration</p>
+<p>cdpAccessKeyId -&gt; (string)</p>
+<blockquote>
+<div><p>The key id of the public cloud certificate</p>
+</div></blockquote>
+<p>privateKey -&gt; (string)</p>
+<blockquote>
+<div><p>The key information of the certificate</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>writeRelabelConfigs -&gt; (string)</p>
+<blockquote>
+<div><p>Relabeling and filtering rules to be applied to the remote write config</p>
+</div></blockquote>
+<p>tls -&gt; (object)</p>
+<blockquote>
+<div><p>Tls configuration</p>
+<p>insecureSkipVerify -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip tls verification</p>
+</div></blockquote>
+<p>serverName -&gt; (string)</p>
+<blockquote>
+<div><p>Tls ServerName extension to indicate the name of the server.</p>
+</div></blockquote>
+<p>clientCertificate -&gt; (string)</p>
+<blockquote>
+<div><p>Certificate for client cert authentication to the server</p>
+</div></blockquote>
+<p>clientKey -&gt; (string)</p>
+<blockquote>
+<div><p>Key for client cert authentication to the server</p>
+</div></blockquote>
+<p>shouldUpdateClientKeyField -&gt; (boolean)</p>
+<blockquote>
+<div><p>Returns true if the ClientKey field was changed and should be updated</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">address</span><span class="o">=</span>string,authMethod<span class="o">=</span>string,enabled<span class="o">=</span>boolean,id<span class="o">=</span>string,name<span class="o">=</span>string,scope<span class="o">={</span><span class="nv">environmentCrn</span><span class="o">=</span>string,type<span class="o">=</span>string<span class="o">}</span>,authHeader<span class="o">={</span><span class="nv">credentials</span><span class="o">=</span>string,shouldUpdateCredentialsField<span class="o">=</span>boolean,type<span class="o">=</span>string<span class="o">}</span>,basicAuth<span class="o">={</span><span class="nv">username</span><span class="o">=</span>string,shouldUpdatePasswordField<span class="o">=</span>boolean,password<span class="o">=</span>string<span class="o">}</span>,customHeaders<span class="o">={</span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string<span class="o">}</span>,integrationConfig<span class="o">={</span><span class="nv">requestSignerCertificate</span><span class="o">={</span><span class="nv">cdpAccessKeyId</span><span class="o">=</span>string,privateKey<span class="o">=</span>string<span class="o">}}</span>,writeRelabelConfigs<span class="o">=</span>string,tls<span class="o">={</span><span class="nv">insecureSkipVerify</span><span class="o">=</span>boolean,serverName<span class="o">=</span>string,clientCertificate<span class="o">=</span>string,clientKey<span class="o">=</span>string,shouldUpdateClientKeyField<span class="o">=</span>boolean<span class="o">}</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;authMethod&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;scope&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;environmentCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;authHeader&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;credentials&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;shouldUpdateCredentialsField&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;basicAuth&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;username&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;shouldUpdatePasswordField&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;customHeaders&quot;</span>: <span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
+    ...<span class="o">}</span>,
+  <span class="s2">&quot;integrationConfig&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;requestSignerCertificate&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;cdpAccessKeyId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;privateKey&quot;</span>: <span class="s2">&quot;string&quot;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;writeRelabelConfigs&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;tls&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;insecureSkipVerify&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;serverName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;clientCertificate&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;clientKey&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;shouldUpdateClientKeyField&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>remoteWriteConfig -&gt; (object)</p>
+<blockquote>
+<div><p>Remote write storage configuration</p>
+<p>address -&gt; (string)</p>
+<blockquote>
+<div><p>Address of the remote storage</p>
+</div></blockquote>
+<p>authMethod -&gt; (string)</p>
+<blockquote>
+<div><p>Authentication method of the remote storage</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enabled state of the remote storage config</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>UUID of the remote storage configuration</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the remote storage configuration</p>
+</div></blockquote>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>Account ID which the remote storage configuration belongs to</p>
+</div></blockquote>
+<p>authHeader -&gt; (object)</p>
+<blockquote>
+<div><p>Authorization header configuration response</p>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Authorization header type</p>
+</div></blockquote>
+</div></blockquote>
+<p>basicAuth -&gt; (object)</p>
+<blockquote>
+<div><p>Basic auth configuration response</p>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>Username for the remote storage configuration</p>
+</div></blockquote>
+</div></blockquote>
+<p>customHeaders -&gt; (map)</p>
+<blockquote>
+<div><p>Additional custom HTTP header key-value pairs that are sent along with each remote write request.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>scope -&gt; (object)</p>
+<blockquote>
+<div><p>Remote write storage configuration scope for response</p>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Environment CRN filter for the scope. Empty means no filtering</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The type of this remote storage configuration. Allowed values: all | controlplane | environments</p>
+</div></blockquote>
+</div></blockquote>
+<p>integrationConfig -&gt; (object)</p>
+<blockquote>
+<div><p>The configuration for public cloud metric integration</p>
+<p>requestSignerCertificate -&gt; (object)</p>
+<blockquote>
+<div><p>The configuration for public cloud metric integration</p>
+<p>cdpAccessKeyId -&gt; (string)</p>
+<blockquote>
+<div><p>The key id of the public cloud certificate</p>
+</div></blockquote>
+<p>privateKey -&gt; (string)</p>
+<blockquote>
+<div><p>The key information of the certificate</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>writeRelabelConfigs -&gt; (string)</p>
+<blockquote>
+<div><p>Relabeling and filtering rules to be applied to the remote write config</p>
+</div></blockquote>
+<p>tls -&gt; (object)</p>
+<blockquote>
+<div><p>Tls configuration for response</p>
+<p>insecureSkipVerify -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip tls verification</p>
+</div></blockquote>
+<p>isClientKeyFieldEmpty -&gt; (boolean)</p>
+<blockquote>
+<div><p>Returns true if the ClientKey field is empty</p>
+</div></blockquote>
+<p>serverName -&gt; (string)</p>
+<blockquote>
+<div><p>Tls ServerName extension to indicate the name of the server.</p>
+</div></blockquote>
+<p>clientCertificate -&gt; (string)</p>
+<blockquote>
+<div><p>Certificate for client cert authentication to the server</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-remote-write-config</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-remote-write-configs.html"
+                        title="previous chapter">list-remote-write-configs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../ml/index.html"
+                        title="next chapter">ml</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../ml/index.html" title="ml"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-remote-write-configs.html" title="list-remote-write-configs"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.98 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >metrics</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-remote-write-config</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
