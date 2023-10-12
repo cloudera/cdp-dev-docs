@@ -1352,6 +1352,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_freeipavmlogresponse">FreeipaVmLogResponse</a></li>
 <li><a href="#_gcpcredentialproperties">GCPCredentialProperties</a></li>
 <li><a href="#_gcpfreeipacreationrequest">GCPFreeIpaCreationRequest</a></li>
+<li><a href="#_gcpcredentialprerequisitesresponse">GcpCredentialPrerequisitesResponse</a></li>
 <li><a href="#_gcplogstoragerequest">GcpLogStorageRequest</a></li>
 <li><a href="#_gcpsecurityaccessrequest">GcpSecurityAccessRequest</a></li>
 <li><a href="#_gcptagrequest">GcpTagRequest</a></li>
@@ -1503,7 +1504,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.98</p>
+<p><em>Version</em> : 0.9.99</p>
 </div>
 </div>
 <div class="sect2">
@@ -15162,6 +15163,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_gcpcredentialprerequisitesresponse">GcpCredentialPrerequisitesResponse</h3>
+<div class="paragraph">
+<p>Response object for getting GCP credential prerequisites.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceAccountCreationCommand</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>GCP CLI command to create service account encoded in base64.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_gcplogstoragerequest">GcpLogStorageRequest</h3>
 <div class="paragraph">
 <p>GCP storage configuration for cluster and audit logs.</p>
@@ -15475,7 +15510,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>The kind of cloud platform.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (AWS, AZURE)</p>
+<p>enum (AWS, AZURE, GCP)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -15546,6 +15581,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gcp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Provides the service account creation command for GCP credential creation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_gcpcredentialprerequisitesresponse">GcpCredentialPrerequisitesResponse</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -21620,7 +21667,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-27 13:17:43 -0700
+Last updated 2023-10-12 14:06:05 -0700
 </div>
 </div>
 <br>

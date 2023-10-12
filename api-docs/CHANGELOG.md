@@ -1,5 +1,31 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.99 (2023-10-11)
+
+IMPROVEMENTS:
+* environments: Support GCP for `get-audit-credential-prerequisites` command.
+* de: Support more spark versions for `create-vc` command.
+* datalake: Added `ENTERPRISE` to `DatalakeScaleType` enum of `create-gcp-datalake` command.
+* dw: The `list-events` command has been introduced to track entity and workflow events.
+* dw: In the `update-vw` command the Virtual Warehouse size can ben updated with the `template` / `nodeCount` parameters.
+* dw: The `restore-cluster` command has two new fields, `action` and `message`, these proved tell the restore-plan for clusters.
+* df: Deprecated `SUSPENDING_FLOW` enum value of `DeploymentState`.
+* df: `create-deployment` now allows `node-storage-profile-name` optional parameter to be specified with possible values (STANDARD_AWS, STANDARD_AZURE, PERFORMANCE_AWS or PERFORMANCE_AZURE).
+* df: Added new enum values to `DeploymentState` (STOPPING_FLOW, FLOW_STOPPED, SUSPENDING, RESUMING).
+* dfworkload: Added new property `nodeStorageProfileName` (string) for `DeploymentConfiguration` object.
+* dfworkload: Added new property `valueSet` (boolean) for the `FlowParameter` object.
+* dfworkload: New endpoints and models `start-flow`, `stop-flow`, `resume-deployment`, `suspend-deployment`, `restart-deployment`.
+* dfworkload: Deprecated `transition-flow`, updated description to indicate to refer to `start-flow` and `stop-flow`.
+* dfworkload: Deprecated `FAILED_TO_START` and `SUSPENDING_FLOW` enum values for `detailedState` in the `DeploymentStatus` object.
+* dfworkload: Deprecated `SUSPENDING_FLOW` enum value for `state` in the `DeploymentStatus` object.
+* dfworkload: Deprecated `SUSPEND_FLOW` enum value for `validActions` in the `RpcDeployment` object.
+* dfworkload: Added new enum values to the `validActions` property of `RpcDeployment` (STOP_FLOW, EXPORT, SUSPEND, RESUME, DOWNLOAD_LOG).
+* dfworkload: `nodeStorageProfileName` is now a required for `CreateDeploymentRequest`.
+* dfworkload: Added new enum values for the `detailedState` property of the `DeploymentStatus` object (FAILED_TO_STOP_FLOW, FAILED_TO_START_FLOW, FLOW_STOPPED, STOPPING_FLOW, SUSPENDING, RESUMING, SUSPENDED, FAILED_TO_SUSPEND, FAILED_TO_RESUME, EXCESSIVE_OFFLOAD_TIME).
+* dfworkload: Added new enum values for the `state` property of the `DeploymentStatus` object (STOPPING_FLOW, FLOW_STOPPED, SUSPENDING, RESUMING, SUSPENDED).
+* dfworkload: `InboundConnectionEndpointClientCertificateRequest` object now requires `crn` (string) `environmentCrn` (string) parameters. It also removed `id` as a parameter (it was deprecated previously).
+* dfworkload: `InboundConnectionEndpointClientPrivateKeyRequest` object now requires `crn` (string) and `environmentCrn` (string) parameters. It also removed `id` as a parameter (it was deprecated previously).
+
 ## 0.9.98 (2023-09-27)
 
 IMPROVEMENTS:
