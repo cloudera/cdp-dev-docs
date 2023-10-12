@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-deployment &#8212; CDP CLI 0.9.98 documentation</title>
+    <title>update-deployment &#8212; CDP CLI 0.9.99 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="update-custom-nar-configuration.html" title="update-custom-nar-configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.98 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Updates a deployment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.98</p>
+<dd class="field-even"><p>0.9.99</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -66,6 +66,7 @@
 <span class="o">[</span>--auto-scale-max-nodes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--static-node-count &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--kpis &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cluster-size-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--asset-update-request-crn &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
@@ -104,7 +105,8 @@
         <span class="s2">&quot;assetReferences&quot;</span>: <span class="o">[</span>
           <span class="o">{</span> ... recursive ... <span class="o">}</span>
           ...
-        <span class="o">]</span>
+        <span class="o">]</span>,
+        <span class="s2">&quot;valueSet&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
       <span class="o">}</span>
       ...
     <span class="o">]</span>
@@ -167,6 +169,17 @@
 <span class="o">]</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-size-name</span></code> (string)</p>
+<blockquote>
+<div><p>The deployment t-shirt size</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTRA_SMALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SMALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MEDIUM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LARGE</span></code></p></li>
+</ul>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--asset-update-request-crn</span></code> (string)</p>
 <blockquote>
 <div><p>The CRN of the asset update request. Required when updating assets of an existing deployment.</p>
@@ -229,6 +242,10 @@
 <blockquote>
 <div><p>The list of referenced assets.</p>
 <p>( … recursive … )</p>
+</div></blockquote>
+<p>valueSet -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates if the value of this parameter is set (i.e. not null)</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -354,6 +371,10 @@
 <blockquote>
 <div><p>The size of the cluster to deploy</p>
 </div></blockquote>
+<p>nodeStorageProfileName -&gt; (string)</p>
+<blockquote>
+<div><p>Node storage profile name</p>
+</div></blockquote>
 <p>parametersDirty -&gt; (boolean)</p>
 <blockquote>
 <div><p>Indicates whether or not all current parameter values have successfully been applied to NiFi</p>
@@ -450,7 +471,7 @@
         <li class="right" >
           <a href="update-custom-nar-configuration.html" title="update-custom-nar-configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.98 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-deployment</a></li> 
       </ul>
