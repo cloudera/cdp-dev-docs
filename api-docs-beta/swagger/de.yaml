@@ -5,7 +5,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.98 (BETA)
+  version: 0.9.99 (BETA)
   title: Cloudera Data Engineering
   license:
     name: Apache 2.0
@@ -400,6 +400,22 @@ definitions:
       root_vol_size:
         type: string
         description: Root Volume Size.
+      cpuRequests:
+        type: string
+        description: CPU Requests for the entire CDE service quota.
+        x-form-factors: private
+      memoryRequests:
+        type: string
+        description: Memory requests for the entire CDE service quota, eg. 100Gi.
+        x-form-factors: private
+      gpuRequests:
+        type: string
+        description: GPU requests for the entire CDE service quota.
+        x-form-factors: private
+      resourcePool:
+        type: string
+        description: Resource Pool for the CDE service.
+        x-form-factors: private
   VcSummary:
     type: object
     description: CDE virtual cluster summary.
@@ -511,6 +527,22 @@ definitions:
       actualMemoryRequests:
         type: string
         description: Actual Memory request for the VC. This accounts for other dex apps(eg. livy, airflow), that run in the virtual cluster.
+      gpuRequests:
+        type: string
+        description: GPU requests for autoscaling.
+        x-form-factors: private
+      guaranteedCpuRequests:
+        type: string
+        description: Guaranteed CPU requests for an Elastic Virtual Cluster.
+        x-form-factors: private
+      guaranteedMemoryRequests:
+        type: string
+        description: Guaranteed Memory requests for an Elastic Virtual Cluster - eg. 30Gi.
+        x-form-factors: private
+      guaranteedGpuRequests:
+        type: string
+        description: Guaranteed GPU requests for an Elastic Virtual Cluster.
+        x-form-factors: private
     description: Object to store resources for a CDE service
   ChartValueOverridesRequest:
     type: object
@@ -714,6 +746,26 @@ definitions:
         enum:
           - UDR
         description: Network outbound type. Currently 'udr' is the only supported.
+      cpuRequests:
+        x-form-factors: private
+        type: string
+        description: CPU Requests for the entire CDE service quota.
+      memoryRequests:
+        x-form-factors: private
+        type: string
+        description: Memory requests for the entire CDE service quota, eg. 100Gi.
+      gpuRequests:
+        x-form-factors: private
+        type: string
+        description: GPU requests for the entire CDE service quota.
+      resourcePool:
+        x-form-factors: private
+        type: string
+        description: Resource Pool for the CDE service.
+      nfsStorageClass:
+        x-form-factors: private
+        type: string
+        description: NFS Storage class to override the default storage class in private cloud.
   CustomAzureFilesConfigs:
     type: object
     description: Override Azure Files Configs.
@@ -772,6 +824,18 @@ definitions:
         items:
           type: string
         description: List of CIDRs that would be allowed to access the load balancer.
+      cpuRequests:
+        x-form-factors: private
+        type: string
+        description: CPU Requests for the entire CDE service quota.
+      memoryRequests:
+        x-form-factors: private
+        type: string
+        description: Memory requests for the entire CDE service quota, eg. 100Gi.
+      gpuRequests:
+        x-form-factors: private
+        type: string
+        description: GPU requests for the entire CDE service quota.
   UpdateServiceResponse:
     type: object
     description: Response object for UpdateService request.
@@ -903,6 +967,22 @@ definitions:
       memoryRequests:
         type: string
         description: Memory requests for autoscaling - eg. 30Gi.
+      gpuRequests:
+        x-form-factors: private
+        type: string
+        description: GPU requests for autoscaling.
+      guaranteedCpuRequests:
+        x-form-factors: private
+        type: string
+        description: Guaranteed CPU requests for an Elastic Virtual Cluster.
+      guaranteedMemoryRequests:
+        x-form-factors: private
+        type: string
+        description: Guaranteed Memory requests for an Elastic Virtual Cluster - eg. 30Gi.
+      guaranteedGpuRequests:
+        x-form-factors: private
+        type: string
+        description: Guaranteed GPU requests for an Elastic Virtual Cluster.
       chartValueOverrides:
         type: array
         items:
@@ -922,7 +1002,11 @@ definitions:
         description: Spark version for the virtual cluster. Currently supported spark versions are SPARK2(deprecated), SPARK3 and SPARK3_3. This feature is only supported in CDE-1.7.0 and beyond. SPARK3_3 is supported in CDE-1.19 and beyond.
         enum:
           - SPARK2
+          - SPARK2_4
           - SPARK3
+          - SPARK3_0
+          - SPARK3_1
+          - SPARK3_2
           - SPARK3_3
       vcTier:
         type: string
