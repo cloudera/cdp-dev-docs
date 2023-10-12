@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create-azure-cluster &#8212; CDP CLI 0.9.99 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="create-backup" href="create-backup.html" />
+    <link rel="prev" title="create-aws-cluster" href="create-aws-cluster.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-backup.html" title="create-backup"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="create-aws-cluster.html" title="create-aws-cluster"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="create-azure-cluster">
+<span id="cli-cdp-dw-create-azure-cluster"></span><h1>create-azure-cluster<a class="headerlink" href="#create-azure-cluster" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Create an Azure cluster in the Cloudera Data Warehouse.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.99</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Create an Azure cluster in the Cloudera Data Warehouse environment with the provided settings.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-azure-cluster
+--environment-crn &lt;value&gt;
+--user-assigned-managed-identity &lt;value&gt;
+<span class="o">[</span>--subnet-id &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--kubenet <span class="p">|</span> --no-kubenet<span class="o">]</span>
+<span class="o">[</span>--database-backup-retention-period &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--whitelist-k8s-cluster-access-ip-cidrs &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--whitelist-workload-access-ip-cidrs &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--use-private-load-balancer <span class="p">|</span> --no-use-private-load-balancer<span class="o">]</span>
+<span class="o">[</span>--enable-storage-roles <span class="p">|</span> --no-enable-storage-roles<span class="o">]</span>
+<span class="o">[</span>--reserved-compute-nodes &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--reserved-shared-services-nodes &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--custom-registry-options &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--custom-subdomain &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--enable-az <span class="p">|</span> --no-enable-az<span class="o">]</span>
+<span class="o">[</span>--enable-spot-instances <span class="p">|</span> --no-enable-spot-instances<span class="o">]</span>
+<span class="o">[</span>--compute-instance-types &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--log-analytics-workspace-id &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--outbound-type &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--enable-private-sql <span class="p">|</span> --no-enable-private-sql<span class="o">]</span>
+<span class="o">[</span>--private-dns-zone-aks &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--enable-private-aks <span class="p">|</span> --no-enable-private-aks<span class="o">]</span>
+<span class="o">[</span>--aks-v-net-integration-subnet-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the environment for the cluster to create.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--user-assigned-managed-identity</span></code> (string)</p>
+<blockquote>
+<div><p>Resource ID of the managed identity used by AKS. It is a mandatory parameter for Azure cluster creation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-id</span></code> (string)</p>
+<blockquote>
+<div><p>ID of Azure subnet where the cluster should be deployed. It is a mandatory parameter for Azure cluster creation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--kubenet</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-kubenet</span></code> (boolean)</p>
+<blockquote>
+<div><p>With kubenet, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--database-backup-retention-period</span></code> (integer)</p>
+<blockquote>
+<div><p>PostgreSQL server backup retention days.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--whitelist-k8s-cluster-access-ip-cidrs</span></code> (array)</p>
+<blockquote>
+<div><p>List of IP address CIDRs to whitelist for kubernetes cluster access.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--whitelist-workload-access-ip-cidrs</span></code> (array)</p>
+<blockquote>
+<div><p>List of IP address CIDRs to whitelist for workload access.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--use-private-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-private-load-balancer</span></code> (boolean)</p>
+<blockquote>
+<div><p>Set up load balancer with private IP address. An internal load balancer gets created. Make sure there is connectivity between your client network and the network VNet where CDW environment is deployed.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-storage-roles</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-storage-roles</span></code> (boolean)</p>
+<blockquote>
+<div><p>Enable Storage Roles</p>
+</div></blockquote>
+<p>Form Factors: public</p>
+<p><code class="docutils literal notranslate"><span class="pre">--reserved-compute-nodes</span></code> (integer)</p>
+<blockquote>
+<div><p>Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--reserved-shared-services-nodes</span></code> (integer)</p>
+<blockquote>
+<div><p>Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-registry-options</span></code> (object)</p>
+<blockquote>
+<div><p>Options for custom ACR, ECR, or Docker registry.</p>
+<p>registryType -&gt; (string)</p>
+<blockquote>
+<div><p>Custom registry type.</p>
+</div></blockquote>
+<p>repositoryUrl -&gt; (string)</p>
+<blockquote>
+<div><p>URL of the custom image repository.</p>
+</div></blockquote>
+<p>userName -&gt; (string)</p>
+<blockquote>
+<div><p>Username for custom registry access (required only for Docker type).</p>
+</div></blockquote>
+<p>password -&gt; (string)</p>
+<blockquote>
+<div><p>Password for custom registry access (required only for Docker type).</p>
+</div></blockquote>
+<p>disableImageVerification -&gt; (boolean)</p>
+<blockquote>
+<div><p>Disable image verification.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">registryType</span><span class="o">=</span>string,repositoryUrl<span class="o">=</span>string,userName<span class="o">=</span>string,password<span class="o">=</span>string,disableImageVerification<span class="o">=</span>boolean
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;registryType&quot;</span>: <span class="s2">&quot;ACR&quot;</span><span class="p">|</span><span class="s2">&quot;ECR&quot;</span><span class="p">|</span><span class="s2">&quot;Docker&quot;</span>,
+  <span class="s2">&quot;repositoryUrl&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;userName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;disableImageVerification&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-subdomain</span></code> (string)</p>
+<blockquote>
+<div><p>Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-az</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-az</span></code> (boolean)</p>
+<blockquote>
+<div><p>Enables Azure Availability Zones for the cluster deployment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-spot-instances</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-spot-instances</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to enable spot instances for Virtual warehouses. It cannot be updated later. Defaults to false.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--compute-instance-types</span></code> (array)</p>
+<blockquote>
+<div><p>Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--log-analytics-workspace-id</span></code> (string)</p>
+<blockquote>
+<div><p>Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--outbound-type</span></code> (string)</p>
+<blockquote>
+<div><p>Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. <a class="reference external" href="https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype">https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype</a>, <a class="reference external" href="https://learn.microsoft.com/en-us/azure/aks/nat-gateway">https://learn.microsoft.com/en-us/azure/aks/nat-gateway</a></p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LoadBalancer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UserAssignedNATGateway</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UserDefinedRouting</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-private-sql</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-private-sql</span></code> (boolean)</p>
+<blockquote>
+<div><p>Enables private SQL for the cluster deployment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--private-dns-zone-aks</span></code> (string)</p>
+<blockquote>
+<div><p>Private DNS zone AKS resource ID.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--enable-private-aks</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-private-aks</span></code> (boolean)</p>
+<blockquote>
+<div><p>Enable Azure Private AKS mode. Note that this feature is currently unstable due to critical networking issues within the Azure Software Definition Layer (SDN). This problem prevents the deployment of necessary components and results in unpredictable behavior and instability, impacting operations such as environment activation, VW creation, modification, and start/stop operations. While we work towards a resolution with Microsoft, estimated within the next 6-9 months, we recommend utilizing alternative methods like enabling public endpoints or virtual network peering for accessing your Azure Cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--aks-v-net-integration-subnet-name</span></code> (string)</p>
+<blockquote>
+<div><p>Enable AKS VNet Azure Virtual Network (VNet) integration by specifying the delegated subnet name. An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes without requiring a private link or tunnel.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>clusterId -&gt; (string)</p>
+<blockquote>
+<div><p>ID of new Azure cluster.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-azure-cluster</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="create-aws-cluster.html"
+                        title="previous chapter">create-aws-cluster</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="create-backup.html"
+                        title="next chapter">create-backup</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-backup.html" title="create-backup"
+             >next</a></li>
+        <li class="right" >
+          <a href="create-aws-cluster.html" title="create-aws-cluster"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

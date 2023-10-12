@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>restart-deployment &#8212; CDP CLI 0.9.99 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="resume-deployment" href="resume-deployment.html" />
+    <link rel="prev" title="renew-inbound-connection-endpoint-certificates" href="renew-inbound-connection-endpoint-certificates.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="resume-deployment.html" title="resume-deployment"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="renew-inbound-connection-endpoint-certificates.html" title="renew-inbound-connection-endpoint-certificates"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">restart-deployment</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="restart-deployment">
+<span id="cli-cdp-dfworkload-restart-deployment"></span><h1>restart-deployment<a class="headerlink" href="#restart-deployment" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Restart a deployment.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.99</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Initiates restart of a deployment.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  restart-deployment
+--environment-crn &lt;value&gt;
+--deployment-crn &lt;value&gt;
+<span class="o">[</span>--force-stop-flow <span class="p">|</span> --no-force-stop-flow<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of an environment to execute the command.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--deployment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The deployment crn.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--force-stop-flow</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-force-stop-flow</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to force stop the NiFi flow during restart.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>deployment -&gt; (object)</p>
+<blockquote>
+<div><p>Provides details about a deployment.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the deployment</p>
+</div></blockquote>
+<p>status -&gt; (object)</p>
+<blockquote>
+<div><p>The state and state message associated with a deployment</p>
+<p>detailedState -&gt; (string)</p>
+<blockquote>
+<div><p>The detailed state that the deployment is currently in</p>
+</div></blockquote>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>The state that the deployment is currently in</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Detail message relating to the current status of the deployment</p>
+</div></blockquote>
+</div></blockquote>
+<p>service -&gt; (object)</p>
+<blockquote>
+<div><p>The meta information about a DataFlow service.</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the DataFlow service</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the DataFlow service</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>The cloudPlatform flag of the DataFlow service</p>
+</div></blockquote>
+<p>region -&gt; (object)</p>
+<blockquote>
+<div><p>A cloud region</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the cloud region</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>Display-friendly name of the cloud region</p>
+</div></blockquote>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Crn of associated CDP environment</p>
+</div></blockquote>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the deployment</p>
+</div></blockquote>
+<p>activeInfoAlertCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Current count of active alerts classified as an info</p>
+</div></blockquote>
+<p>activeWarningAlertCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Current count of active alerts classified as a warning</p>
+</div></blockquote>
+<p>activeErrorAlertCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Current count of active alerts classified as an error</p>
+</div></blockquote>
+<p>created -&gt; (integer)</p>
+<blockquote>
+<div><p>Timestamp of the creation of the deployment</p>
+</div></blockquote>
+<p>updated -&gt; (integer)</p>
+<blockquote>
+<div><p>Timestamp of the last time the deployment was modified</p>
+</div></blockquote>
+<p>validActions -&gt; (array)</p>
+<blockquote>
+<div><p>Valid actions that can be applied to the deployment in its current state</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>nifiUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The url to open the deployed flow in NiFi</p>
+</div></blockquote>
+<p>clusterSize -&gt; (string)</p>
+<blockquote>
+<div><p>The initial size of the deployment</p>
+</div></blockquote>
+<p>coresPerNode -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of cores per node for the deployment</p>
+</div></blockquote>
+<p>heapSize -&gt; (double)</p>
+<blockquote>
+<div><p>The heap size for the deployment</p>
+</div></blockquote>
+<p>autoscalingEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether or not autoscaling is enabled for this deployment</p>
+</div></blockquote>
+<p>flowMetricsScalingEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether or not flow metrics scaling is enabled for this deployment</p>
+</div></blockquote>
+<p>autoscaleMinNodes -&gt; (integer)</p>
+<blockquote>
+<div><p>The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true</p>
+</div></blockquote>
+<p>autoscaleMaxNodes -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true</p>
+</div></blockquote>
+<p>staticNodeCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The static number of nodes of the deployment; can only be used when autoscalingEnabled is false</p>
+</div></blockquote>
+<p>flowName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the flow</p>
+</div></blockquote>
+<p>flowVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>The version of the flow</p>
+</div></blockquote>
+<p>flowVersionCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The deployment’s current flow version CRN</p>
+</div></blockquote>
+<p>flowCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The deployment’s current flow CRN</p>
+</div></blockquote>
+<p>creatorCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the user who deployed the flow</p>
+</div></blockquote>
+<p>artifactTypeName -&gt; (string)</p>
+<blockquote>
+<div><p>The type of artifact of the flow</p>
+</div></blockquote>
+<p>currentNodeCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The current node count</p>
+</div></blockquote>
+<p>deployedByUsername -&gt; (string)</p>
+<blockquote>
+<div><p>The username of the person who deployed the flow</p>
+</div></blockquote>
+<p>deployedByName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the person who deployed the flow</p>
+</div></blockquote>
+<p>dfxLocalUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Base URL to the CDF Local instance running this deployment</p>
+</div></blockquote>
+<p>configurationVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>The current version of the deployment’s configuration</p>
+</div></blockquote>
+<p>lastUpdatedByUsername -&gt; (string)</p>
+<blockquote>
+<div><p>The username of the last person to update the deployment</p>
+</div></blockquote>
+<p>cfmNifiVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The CFM NiFi version associated with the deployment</p>
+</div></blockquote>
+<p>memoryLimit -&gt; (double)</p>
+<blockquote>
+<div><p>The memory limit of the deployment</p>
+</div></blockquote>
+<p>inboundConnectionEndpointId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of Inbound Connection Endpoint assigned to the deployment</p>
+</div></blockquote>
+<p>testSession -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates this deployment was created as a test session for designing a flow</p>
+</div></blockquote>
+<p>flowDesignerId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the flow design for a test session deployment.</p>
+</div></blockquote>
+<p>customNarConfigurationId -&gt; (string)</p>
+<blockquote>
+<div><p>The identifier of the custom NAR configuration, if used.</p>
+</div></blockquote>
+<p>nodeStorageProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The node storage profile</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">restart-deployment</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="renew-inbound-connection-endpoint-certificates.html"
+                        title="previous chapter">renew-inbound-connection-endpoint-certificates</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resume-deployment.html"
+                        title="next chapter">resume-deployment</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="resume-deployment.html" title="resume-deployment"
+             >next</a></li>
+        <li class="right" >
+          <a href="renew-inbound-connection-endpoint-certificates.html" title="renew-inbound-connection-endpoint-certificates"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">restart-deployment</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

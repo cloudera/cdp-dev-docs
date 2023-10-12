@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>transition-flow &#8212; CDP CLI 0.9.98 (BETA) documentation</title>
+    <title>transition-flow &#8212; CDP CLI 0.9.99 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -15,21 +15,12 @@
     <script src="../static/underscore.js"></script>
     <script src="../static/doctools.js"></script>
     
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="update-custom-nar-configuration" href="update-custom-nar-configuration.html" />
-    <link rel="prev" title="terminate-deployment" href="terminate-deployment.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="update-custom-nar-configuration.html" title="update-custom-nar-configuration"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="terminate-deployment.html" title="terminate-deployment"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.98 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">transition-flow</a></li> 
       </ul>
     </div>  
@@ -46,12 +37,12 @@
 <dd class="field-odd"><p>Transitions a flow.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.98</p>
+<dd class="field-even"><p>0.9.99</p>
 </dd>
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Transitions the NiFi flow of a deployment to the specified state.</p>
+<p>Transitions the NiFi flow of a deployment to the specified state. Deprecated. Use <cite>start-flow</cite> and <cite>stop-flow</cite> instead.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
@@ -81,6 +72,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">STARTED</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SUSPENDED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STOPPED</span></code></p></li>
 </ul>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
@@ -230,6 +222,10 @@
 <blockquote>
 <div><p>The deployment’s current flow CRN</p>
 </div></blockquote>
+<p>creatorCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the user who deployed the flow</p>
+</div></blockquote>
 <p>artifactTypeName -&gt; (string)</p>
 <blockquote>
 <div><p>The type of artifact of the flow</p>
@@ -282,6 +278,10 @@
 <blockquote>
 <div><p>The identifier of the custom NAR configuration, if used.</p>
 </div></blockquote>
+<p>nodeStorageProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The node storage profile</p>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -309,12 +309,6 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="terminate-deployment.html"
-                        title="previous chapter">terminate-deployment</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="update-custom-nar-configuration.html"
-                        title="next chapter">update-custom-nar-configuration</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -332,14 +326,7 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="update-custom-nar-configuration.html" title="update-custom-nar-configuration"
-             >next</a></li>
-        <li class="right" >
-          <a href="terminate-deployment.html" title="terminate-deployment"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.98 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">transition-flow</a></li> 
       </ul>
     </div>
