@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-database &#8212; CDP CLI 0.9.99 (BETA) documentation</title>
+    <title>describe-database &#8212; CDP CLI 0.9.100 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-client-connectivity.html" title="describe-client-connectivity"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.100 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-database</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe a opDb</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.99</p>
+<dd class="field-even"><p>0.9.100</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -158,6 +158,18 @@
 <blockquote>
 <div><p>The amount of block cache, in Gigabytes, which the database should have.</p>
 </div></blockquote>
+<p>maxCpuUtilization -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum percentage threshold for the CPU utilization of the worker nodes. The CPU utilization is obtained from the Cloudera Manager metric ‘cpu_percent’ across worker nodes. Set 100 or more to disable the CPU metrics.</p>
+</div></blockquote>
+<p>maxComputeNodesForDatabase -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum number of compute nodes, as per these metrics can be scaled up to.</p>
+</div></blockquote>
+<p>minComputeNodesForDatabase -&gt; (integer)</p>
+<blockquote>
+<div><p>The minimum number of compute nodes as per these metrics can be scaled down to.</p>
+</div></blockquote>
 </div></blockquote>
 <p>numStrongMetaServers -&gt; (integer)</p>
 <blockquote>
@@ -189,7 +201,15 @@
 </div></blockquote>
 <p>scaleType -&gt; (string)</p>
 <blockquote>
-<div><p>Scale type. <cite>MICRO</cite> - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. <cite>LIGHT</cite> - Create a multi-node cluster with a light master instance type. <cite>HEAVY</cite> - Create a multi-node cluster with heavy master instance type.</p>
+<div><p>Scale type. <cite>MICRO</cite> - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. <cite>LIGHT</cite> - Create a multi-node cluster with a light master and gateway instance type. <cite>HEAVY</cite> - Create a multi-node cluster with heavy master and gateway instance type.</p>
+</div></blockquote>
+<p>computeNodesCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of active compute nodes in the database (does not include the stopped nodes).</p>
+</div></blockquote>
+<p>totalComputeNodesCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Total number of compute nodes in the database (including stopped nodes).</p>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -247,7 +267,7 @@
         <li class="right" >
           <a href="describe-client-connectivity.html" title="describe-client-connectivity"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.100 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-database</a></li> 
       </ul>

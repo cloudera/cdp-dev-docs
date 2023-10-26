@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-database &#8212; CDP CLI 0.9.99 (BETA) documentation</title>
+    <title>update-database &#8212; CDP CLI 0.9.100 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="stop-database.html" title="stop-database"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.100 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Updates the database</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.99</p>
+<dd class="field-even"><p>0.9.100</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -113,9 +113,21 @@
 <blockquote>
 <div><p>The maximum number of regions per region server.</p>
 </div></blockquote>
+<p>maxCpuUtilization -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum percentage threshold for the CPU utilization of the worker nodes. The CPU utilization is obtained from the Cloudera Manager metric ‘cpu_percent’ across worker nodes. Set 100 or more to disable the CPU metrics.</p>
+</div></blockquote>
+<p>maxComputeNodesForDatabase -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum number of compute nodes, as per these metrics, that can be scaled up to.</p>
+</div></blockquote>
+<p>minComputeNodesForDatabase -&gt; (integer)</p>
+<blockquote>
+<div><p>The minimum number of compute nodes, as per these metrics, that can be scaled down to.</p>
+</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">targetedValueForMetric</span><span class="o">=</span>integer,maxWorkersForDatabase<span class="o">=</span>integer,maxWorkersPerBatch<span class="o">=</span>integer,minWorkersForDatabase<span class="o">=</span>integer,evaluationPeriod<span class="o">=</span>integer,minimumBlockCacheGb<span class="o">=</span>integer,maxHdfsUsagePercentage<span class="o">=</span>integer,maxRegionsPerRegionServer<span class="o">=</span>integer
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">targetedValueForMetric</span><span class="o">=</span>integer,maxWorkersForDatabase<span class="o">=</span>integer,maxWorkersPerBatch<span class="o">=</span>integer,minWorkersForDatabase<span class="o">=</span>integer,evaluationPeriod<span class="o">=</span>integer,minimumBlockCacheGb<span class="o">=</span>integer,maxHdfsUsagePercentage<span class="o">=</span>integer,maxRegionsPerRegionServer<span class="o">=</span>integer,maxCpuUtilization<span class="o">=</span>integer,maxComputeNodesForDatabase<span class="o">=</span>integer,minComputeNodesForDatabase<span class="o">=</span>integer
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -127,7 +139,10 @@
   <span class="s2">&quot;evaluationPeriod&quot;</span>: integer,
   <span class="s2">&quot;minimumBlockCacheGb&quot;</span>: integer,
   <span class="s2">&quot;maxHdfsUsagePercentage&quot;</span>: integer,
-  <span class="s2">&quot;maxRegionsPerRegionServer&quot;</span>: integer
+  <span class="s2">&quot;maxRegionsPerRegionServer&quot;</span>: integer,
+  <span class="s2">&quot;maxCpuUtilization&quot;</span>: integer,
+  <span class="s2">&quot;maxComputeNodesForDatabase&quot;</span>: integer,
+  <span class="s2">&quot;minComputeNodesForDatabase&quot;</span>: integer
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -218,7 +233,7 @@
         <li class="right" >
           <a href="stop-database.html" title="stop-database"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.99 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.100 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
       </ul>
