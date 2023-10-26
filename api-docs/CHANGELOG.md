@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.100 (2023-10-25)
+
+IMPROVEMENTS:
+* datalake: Add `multiAz` option for resizing a datalake.
+* datalake: Add `ENTERPRISE` as a target size in `resize-datalake` command.
+* environments: Add `get-azure-image-terms-policy` and `update-azure-image-terms-policy` commands.
+* environments: Add new parameter `endpointAccessGatewaySubnetIds` to `update-subnet` command.
+* opdb: Add new parameter `scaleType` and `storageType` to `create-database` command.
+
 ## 0.9.99 (2023-10-11)
 
 IMPROVEMENTS:
