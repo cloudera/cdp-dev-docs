@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.99 (BETA)
+  version: 0.9.100 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -2747,6 +2747,12 @@ definitions:
       enableLoadBalancer:
         type: boolean
         description: Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
+      databaseType:
+        type: string
+        description: The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+        enum:
+          - FLEXIBLE_SERVER
+          - SINGLE_SERVER
       javaVersion:
         type: integer
         format: int32

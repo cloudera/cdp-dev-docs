@@ -1435,7 +1435,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.99 (BETA)</p>
+<p><em>Version</em> : 0.9.100 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -6474,7 +6474,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_59">Description</h4>
 <div class="paragraph">
-<p>Set the authentication policy for the account. Check each request parameter for its default values. Changes to the authentication policy only affect authentications that are done after the policy has been updated.</p>
+<p>Set the authentication policy for the account. Any parameters not specified in the request will be cleared, and their default values will be used for authentication. Changes to the authentication policy only affect authentications that are done after the policy has been updated.</p>
 </div>
 </div>
 <div class="sect3">
@@ -9163,6 +9163,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clientIpAddressesAllowed</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of IP addresses and/or CIDRs used for allowing client access to the UI and API services. Both the allowed list and the blocked list will be used to determine whether to grant or block the client&#8217;s access. The blocked list takes precedence over the allowed list. When the list is empty or not set, client IP address will not be validated to be present in the allowed list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clientIpAddressesBlocked</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of IP addresses and/or CIDRs used for blocking client access to the UI and API services. Both the allowed list and the blocked list will be used to determine whether to grant or block the client&#8217;s access. The blocked list takes precedence over the allowed list. When the list is empty or not set, client IP address will not be validated to be absent from the blocked list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14082,6 +14106,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clientIpAddressesAllowed</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of IP addresses and/or CIDRs used for allowing client access to the UI and API services. Duplicated values will be removed automatically. Both the allowed list and the blocked list will be used to determine whether to grant or block the client&#8217;s access. The blocked list takes precedence over the allowed list. When the list is empty or not set, client IP address will not be validated to be present in the allowed list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clientIpAddressesBlocked</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of IP addresses and/or CIDRs used for blocking client access to the UI and API services. Duplicated values will be removed automatically. Both the allowed list and the blocked list will be used to determine whether to grant or block the client&#8217;s access. The blocked list takes precedence over the allowed list. When the list is empty or not set, client IP address will not be validated to be absent from the blocked list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>sessionTokenExpirationSec</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -15764,7 +15812,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-10-12 14:06:02 -0700
+Last updated 2023-10-25 13:54:21 -0700
 </div>
 </div>
 <br>

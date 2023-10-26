@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.99 (BETA)
+  version: 0.9.100 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -835,7 +835,7 @@ definitions:
       - HEAVY
   ScaleType:
     type: string
-    description: "Scale type.\n `MICRO` - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. `LIGHT` - Create a multi-node cluster with a light master instance type. `HEAVY` - Create a multi-node cluster with heavy master instance type."
+    description: "Scale type.\n `MICRO` - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. `LIGHT` - Create a multi-node cluster with a light master and gateway instance type. `HEAVY` - Create a multi-node cluster with heavy master and gateway instance type."
     enum:
       - MICRO
       - LIGHT
@@ -912,6 +912,20 @@ definitions:
         type: integer
         format: int32
         description: The maximum number of regions per region server.
+      maxCpuUtilization:
+        type: integer
+        format: int32
+        description: The maximum percentage threshold for the CPU utilization of the worker nodes. The CPU utilization is obtained from the Cloudera Manager metric 'cpu_percent' across worker nodes. Set 100 or more to disable the CPU metrics.
+      maxComputeNodesForDatabase:
+        type: integer
+        format: int32
+        description: The maximum number of compute nodes, as per these metrics, that can be scaled up to.
+        default: -1
+      minComputeNodesForDatabase:
+        type: integer
+        format: int32
+        description: The minimum number of compute nodes, as per these metrics, that can be scaled down to.
+        default: -1
   AutoScalingConfig:
     type: object
     description: A config for Autoscaling
@@ -940,6 +954,20 @@ definitions:
         type: integer
         format: int32
         description: The amount of block cache, in Gigabytes, which the database should have.
+      maxCpuUtilization:
+        type: integer
+        format: int32
+        description: The maximum percentage threshold for the CPU utilization of the worker nodes. The CPU utilization is obtained from the Cloudera Manager metric 'cpu_percent' across worker nodes. Set 100 or more to disable the CPU metrics.
+      maxComputeNodesForDatabase:
+        type: integer
+        format: int32
+        description: The maximum number of compute nodes, as per these metrics can be scaled up to.
+        default: -1
+      minComputeNodesForDatabase:
+        type: integer
+        format: int32
+        description: The minimum number of compute nodes as per these metrics can be scaled down to.
+        default: -1
   CreateDatabaseResponse:
     type: object
     description: A response which gives status of the database creation
@@ -1233,6 +1261,14 @@ definitions:
       scaleType:
         description: The predetermined size of the cluster.
         $ref: '#/definitions/ScaleType'
+      computeNodesCount:
+        type: integer
+        format: int32
+        description: Number of active compute nodes in the database (does not include the stopped nodes).
+      totalComputeNodesCount:
+        type: integer
+        format: int32
+        description: Total number of compute nodes in the database (including stopped nodes).
   StorageDetailsForWorker:
     type: object
     description: Storage details for the worker node for AWS, Azure, and GCP cloud providers.

@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.99 (BETA)
+  version: 0.9.100 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1607,6 +1607,12 @@ definitions:
       enableRangerRaz:
         type: boolean
         description: Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
+      databaseType:
+        type: string
+        description: The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+        enum:
+          - FLEXIBLE_SERVER
+          - SINGLE_SERVER
       recipes:
         type: array
         items:
@@ -3117,10 +3123,11 @@ definitions:
         description: The target size for the datalake.
         enum:
           - MEDIUM_DUTY_HA
+          - ENTERPRISE
       multiAz:
         type: boolean
         default: false
-        description: Whether the new datalake is deployed in a multi-availability zone way.
+        description: Whether to deploy a new datalake in a multi-availability zone way.
   ResizeDatalakeResponse:
     type: object
     description: Datalake resize response.
@@ -3160,9 +3167,17 @@ definitions:
       instanceGroupName:
         type: string
         description: The target host group name to be scaled.
+        enum:
+          - solr_scale_out
+          - hms_scale_out
+          - raz_scale_out
+          - kafka_scale_out
+          - storage_scale_out
       instanceGroupDesiredCount:
         type: integer
         format: int32
+        minimum: 0
+        maximum: 40
         description: The target number of the scaling operation. If the desired count is less than the actual node count the scaling action will be a downscale operation.
   ScaleHorizontallyResponse:
     type: object
