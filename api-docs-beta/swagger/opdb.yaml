@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.100 (BETA)
+  version: 0.9.101 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -770,9 +770,6 @@ definitions:
         type: integer
         format: int32
         description: Number of edge nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_EDGE_NODE entitlement.
-      gatewayNodeType:
-        description: Optional tags to choose one of the predefined gateway node types.
-        $ref: '#/definitions/GatewayNodeType'
       image:
         description: Image details for the database.
         $ref: '#/definitions/Image'
@@ -827,12 +824,6 @@ definitions:
       volumeType:
         description: The volume type. This parameter can be HDD or SSD. Default is HDD.
         $ref: '#/definitions/VolumeType'
-  GatewayNodeType:
-    type: string
-    description: "Gateway node type.\n `LITE` - Use a small gateway instance type to handle less load for gateway services. `HEAVY` - Use a large gateway instance type to handle more load for gateway services."
-    enum:
-      - LITE
-      - HEAVY
   ScaleType:
     type: string
     description: "Scale type.\n `MICRO` - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. `LIGHT` - Create a multi-node cluster with a light master and gateway instance type. `HEAVY` - Create a multi-node cluster with heavy master and gateway instance type."
@@ -1792,6 +1783,15 @@ definitions:
       rollingUpgrade:
         type: boolean
         description: Perform upgrade in a rolling fashion.
+      edgeUpgradeStrategy:
+        description: Upgrade strategy for edge nodes.
+        $ref: '#/definitions/EdgeUpgradeStrategy'
+  EdgeUpgradeStrategy:
+    type: string
+    description: "Edge node upgrade strategy.\n `ALL` - Upgrade edge nodes together. `ONE_BY_ONE` - Upgrade edge nodes one by one."
+    enum:
+      - ALL
+      - ONE_BY_ONE
   UpgradeDatabaseResponse:
     type: object
     description: Response with the reason whether upgrade request is accepted or why it is not possible.

@@ -927,11 +927,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_dropdatabaserequest">DropDatabaseRequest</a></li>
 <li><a href="#_dropdatabaseresponse">DropDatabaseResponse</a></li>
 <li><a href="#_edgenode">EdgeNode</a></li>
+<li><a href="#_edgeupgradestrategy">EdgeUpgradeStrategy</a></li>
 <li><a href="#_environment">Environment</a></li>
 <li><a href="#_error">Error</a></li>
 <li><a href="#_event">Event</a></li>
 <li><a href="#_eventtype">EventType</a></li>
-<li><a href="#_gatewaynodetype">GatewayNodeType</a></li>
 <li><a href="#_grouptype">GroupType</a></li>
 <li><a href="#_hbaseconfiguration">HBaseConfiguration</a></li>
 <li><a href="#_image">Image</a></li>
@@ -997,7 +997,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.100 (BETA)</p>
+<p><em>Version</em> : 0.9.101 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4638,18 +4638,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>gatewayNodeType</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optional tags to choose one of the predefined gateway node types.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_gatewaynodetype">GatewayNodeType</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>image</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6144,6 +6132,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_edgeupgradestrategy">EdgeUpgradeStrategy</h3>
+<div class="paragraph">
+<p>Edge node upgrade strategy.
+ <code>ALL</code> - Upgrade edge nodes together. <code>ONE_BY_ONE</code> - Upgrade edge nodes one by one.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (ALL, ONE_BY_ONE)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_environment">Environment</h3>
 <div class="paragraph">
 <p>Details of the environment</p>
@@ -6372,16 +6370,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div class="paragraph">
 <p><em>Type</em> : enum (ALERT_DELIVERY, AUTO_HEALING)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_gatewaynodetype">GatewayNodeType</h3>
-<div class="paragraph">
-<p>Gateway node type.
- <code>LITE</code> - Use a small gateway instance type to handle less load for gateway services. <code>HEAVY</code> - Use a large gateway instance type to handle more load for gateway services.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : enum (LITE, HEAVY)</p>
 </div>
 </div>
 <div class="sect2">
@@ -9012,6 +9000,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>edgeUpgradeStrategy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Upgrade strategy for edge nodes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_edgeupgradestrategy">EdgeUpgradeStrategy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>environment</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -9122,7 +9122,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-10-25 13:54:21 -0700
+Last updated 2023-11-09 14:55:26 -0800
 </div>
 </div>
 <br>
