@@ -1,5 +1,21 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.101 (2023-11-09)
+
+IMPROVEMENTS:
+* environments: Add `update-data-service-resources` command.
+* environments: Add `dataServices` parameter for the `create-azure-environment` command.
+* opdb: Add `autoScalingParameters` parameter for `create-database` command.
+* dw: Add `resourcePool` parameter for `create-cluster`, `create-vw` commands.
+* dw: Add `resourcePool` parameter for the `describe-cluster`, `list-data-visualizations`, `list-dbcs`, `list-vws`, `create-data-visualization` commands.
+* dw: Add `namespaceNames` parameter for `create-backup` command.
+* dw: Add `dedicatedExecutorNodes` parameter for the `PrivateCloudActivationOptions` object.
+* df: Add `cancel-delete-project`, `create-project`, `delete-project`, `describe-project`, `list-project-filter-options`, `list-projects`, and `update-project` commands.
+* dw: Deprecate `namespaceName` parameter from the `create-backup` command.
+* dw: Deprecate `hiveAuthenticationMode` parameter from the `create-vw`, and `update-vw` commands.
+* dw: Deprecate `hiveAuthenticationMode` paramter from the `VwSummary` object.
+
+
 ## 0.9.100 (2023-10-25)
 
 IMPROVEMENTS:
