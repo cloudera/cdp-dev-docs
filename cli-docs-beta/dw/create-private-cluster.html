@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-private-cluster &#8212; CDP CLI 0.9.100 (BETA) documentation</title>
+    <title>create-private-cluster &#8212; CDP CLI 0.9.101 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-dbc-diagnostic-data-job.html" title="create-dbc-diagnostic-data-job"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.100 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.101 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-private-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a  a Private Cloud cluster in the Cloudera Data Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.100</p>
+<dd class="field-even"><p>0.9.101</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -62,6 +62,8 @@
 <span class="o">[</span>--security-context-constraint-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--storage-class &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--db-hue &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--resource-pool &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--dedicated-executor-nodes <span class="p">|</span> --no-dedicated-executor-nodes<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -92,6 +94,14 @@
 <p><code class="docutils literal notranslate"><span class="pre">--db-hue</span></code> (string)</p>
 <blockquote>
 <div><p>The name of the HUE database. Not required for embedded databases.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--resource-pool</span></code> (string)</p>
+<blockquote>
+<div><p>The Resource Pool of the cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--dedicated-executor-nodes</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-dedicated-executor-nodes</span></code> (boolean)</p>
+<blockquote>
+<div><p>Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -163,7 +173,7 @@
         <li class="right" >
           <a href="create-dbc-diagnostic-data-job.html" title="create-dbc-diagnostic-data-job"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.100 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.101 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-private-cluster</a></li> 
       </ul>
