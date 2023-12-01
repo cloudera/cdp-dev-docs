@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create-snapshot-policy &#8212; CDP CLI 0.9.102 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="delete-credential" href="delete-credential.html" />
+    <link rel="prev" title="create-policy" href="create-policy.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="delete-credential.html" title="delete-credential"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="create-policy.html" title="create-policy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-snapshot-policy</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="create-snapshot-policy">
+<span id="cli-cdp-replicationmanager-create-snapshot-policy"></span><h1>create-snapshot-policy<a class="headerlink" href="#create-snapshot-policy" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Create snapshot policy.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.102</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Creates a snapshot policy.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-snapshot-policy
+--cluster-crn &lt;value&gt;
+--snapshot-policy-definition &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
+<blockquote>
+<div><p>CRN of the cluster where the snapshot policy will be created.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--snapshot-policy-definition</span></code> (object)</p>
+<blockquote>
+<div><p>Details of the snapshot policy to be created.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the snapshot policy.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The snapshot type of snapshot policies.</p>
+</div></blockquote>
+<p>snapshotRetentionCount -&gt; (object)</p>
+<blockquote>
+<div><p>Defines the number of snapshots to be retained for snapshot policies.</p>
+<p>hourlySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of hourly snapshots to be retained.</p>
+</div></blockquote>
+<p>dailySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of daily snapshots to be retained.</p>
+</div></blockquote>
+<p>weeklySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of weekly snapshots to be retained.</p>
+</div></blockquote>
+<p>monthlySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of monthly snapshots to be retained.</p>
+</div></blockquote>
+<p>yearlySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of yearly snapshots to be retained.</p>
+</div></blockquote>
+</div></blockquote>
+<p>schedule -&gt; (object)</p>
+<blockquote>
+<div><p>Defines the schedule of a snapshot policy.</p>
+<p>minuteOfHour -&gt; (integer)</p>
+<blockquote>
+<div><p>Minute of the hour that hourly, daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 59.</p>
+</div></blockquote>
+<p>hourOfDay -&gt; (integer)</p>
+<blockquote>
+<div><p>Hour of the day that daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 23.</p>
+</div></blockquote>
+<p>dayOfWeek -&gt; (integer)</p>
+<blockquote>
+<div><p>Day of the week that weekly snapshots will be created. Valid values are 1 to 7, 1 representing Sunday.</p>
+</div></blockquote>
+<p>dayOfMonth -&gt; (integer)</p>
+<blockquote>
+<div><p>Day of the month that monthly and yearly snapshots will be created. Valid values are 1 to 31. Additionally 0 to -30 can be used to specify offsets from the last day of the month.</p>
+</div></blockquote>
+<p>monthOfYear -&gt; (integer)</p>
+<blockquote>
+<div><p>Month of the year that yearly snapshots will be created. Valid values are 1 to 12, 1 representing January.</p>
+</div></blockquote>
+<p>hoursForHourly -&gt; (array)</p>
+<blockquote>
+<div><p>Hours of the day that hourly snapshots will be created. Valid values are 0 to 23. If this list is null or empty, then hourly snapshots are created for every hour.</p>
+<p>item -&gt; (integer)</p>
+</div></blockquote>
+</div></blockquote>
+<p>hdfsArguments -&gt; (object)</p>
+<blockquote>
+<div><p>Arguments specific to HDFS snapshot policies.</p>
+<p>pathPatterns -&gt; (array)</p>
+<blockquote>
+<div><p>The path patterns specifying the paths. Paths matching any of them will be eligible for snapshot creation. The pattern matching characters that can be specific are those supported by HDFS.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>hbaseArguments -&gt; (object)</p>
+<blockquote>
+<div><p>Arguments specific to HBase snapshot policies.</p>
+<p>tableRegExps -&gt; (array)</p>
+<blockquote>
+<div><p>The regular expressions specifying the tables. Tables matching any of them will be eligible for snapshot creation.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>storage -&gt; (string)</p>
+<blockquote>
+<div><p>The location where the HBase shapshot is stored.</p>
+</div></blockquote>
+</div></blockquote>
+<p>alert -&gt; (object)</p>
+<blockquote>
+<div><p>Alerting behaviour for snapshot policy activities. Defines whether an alert is sent on certain events related to snapshot policies.</p>
+<p>onStart -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on start of snapshot creation/deletion activity.</p>
+</div></blockquote>
+<p>onSuccess -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on successful completion of snapshot creation/deletion activity.</p>
+</div></blockquote>
+<p>onFail -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on failure of snapshot creation/deletion activity.</p>
+</div></blockquote>
+<p>onAbort -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on abort of snapshot creation/deletion activity.</p>
+</div></blockquote>
+</div></blockquote>
+<p>paused -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to pause the snapshot policy.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">name</span><span class="o">=</span>string,type<span class="o">=</span>string,snapshotRetentionCount<span class="o">={</span><span class="nv">hourlySnapshots</span><span class="o">=</span>integer,dailySnapshots<span class="o">=</span>integer,weeklySnapshots<span class="o">=</span>integer,monthlySnapshots<span class="o">=</span>integer,yearlySnapshots<span class="o">=</span>integer<span class="o">}</span>,schedule<span class="o">={</span><span class="nv">minuteOfHour</span><span class="o">=</span>integer,hourOfDay<span class="o">=</span>integer,dayOfWeek<span class="o">=</span>integer,dayOfMonth<span class="o">=</span>integer,monthOfYear<span class="o">=</span>integer,hoursForHourly<span class="o">=[</span>integer,integer<span class="o">]}</span>,hdfsArguments<span class="o">={</span><span class="nv">pathPatterns</span><span class="o">=[</span>string,string<span class="o">]}</span>,hbaseArguments<span class="o">={</span><span class="nv">tableRegExps</span><span class="o">=[</span>string,string<span class="o">]</span>,storage<span class="o">=</span>string<span class="o">}</span>,alert<span class="o">={</span><span class="nv">onStart</span><span class="o">=</span>boolean,onSuccess<span class="o">=</span>boolean,onFail<span class="o">=</span>boolean,onAbort<span class="o">=</span>boolean<span class="o">}</span>,paused<span class="o">=</span>boolean
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;HDFS&quot;</span><span class="p">|</span><span class="s2">&quot;HBASE&quot;</span>,
+  <span class="s2">&quot;snapshotRetentionCount&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;hourlySnapshots&quot;</span>: integer,
+    <span class="s2">&quot;dailySnapshots&quot;</span>: integer,
+    <span class="s2">&quot;weeklySnapshots&quot;</span>: integer,
+    <span class="s2">&quot;monthlySnapshots&quot;</span>: integer,
+    <span class="s2">&quot;yearlySnapshots&quot;</span>: integer
+  <span class="o">}</span>,
+  <span class="s2">&quot;schedule&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;minuteOfHour&quot;</span>: integer,
+    <span class="s2">&quot;hourOfDay&quot;</span>: integer,
+    <span class="s2">&quot;dayOfWeek&quot;</span>: integer,
+    <span class="s2">&quot;dayOfMonth&quot;</span>: integer,
+    <span class="s2">&quot;monthOfYear&quot;</span>: integer,
+    <span class="s2">&quot;hoursForHourly&quot;</span>: <span class="o">[</span>integer, ...<span class="o">]</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;hdfsArguments&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;pathPatterns&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;hbaseArguments&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;tableRegExps&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+    <span class="s2">&quot;storage&quot;</span>: <span class="s2">&quot;LOCAL&quot;</span><span class="p">|</span><span class="s2">&quot;REMOTE_S3&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;alert&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;onStart&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;onSuccess&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;onFail&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;onAbort&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;paused&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the cluster from where the snapshot policy has been created.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>The detailed description of the action taken.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the request.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-snapshot-policy</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="create-policy.html"
+                        title="previous chapter">create-policy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="delete-credential.html"
+                        title="next chapter">delete-credential</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="delete-credential.html" title="delete-credential"
+             >next</a></li>
+        <li class="right" >
+          <a href="create-policy.html" title="create-policy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-snapshot-policy</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>restore-snapshot &#8212; CDP CLI 0.9.102 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="suspend-policy" href="suspend-policy.html" />
+    <link rel="prev" title="rerun-policy" href="rerun-policy.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="suspend-policy.html" title="suspend-policy"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="rerun-policy.html" title="rerun-policy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">restore-snapshot</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="restore-snapshot">
+<span id="cli-cdp-replicationmanager-restore-snapshot"></span><h1>restore-snapshot<a class="headerlink" href="#restore-snapshot" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Restore snapshot.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.102</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Restores a specific snapshot.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  restore-snapshot
+--cluster-crn &lt;value&gt;
+--restore-snapshot-arguments &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
+<blockquote>
+<div><p>CRN of the cluster where the snapshot policy is.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--restore-snapshot-arguments</span></code> (object)</p>
+<blockquote>
+<div><p>Arguments for restoring a HDFS or HBase snapshot.</p>
+<p>snapshotType -&gt; (string)</p>
+<blockquote>
+<div><p>The snapshot type of snapshot policies.</p>
+</div></blockquote>
+<p>restoreHdfsSnapshotArgs -&gt; (object)</p>
+<blockquote>
+<div><p>Arguments for restoring a HDFS snapshot.</p>
+<p>path -&gt; (string)</p>
+<blockquote>
+<div><p>The snapshotted path.</p>
+</div></blockquote>
+<p>snapshotName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the snapshot to be restored.</p>
+</div></blockquote>
+<p>snapshotPath -&gt; (string)</p>
+<blockquote>
+<div><p>The absolute path of the snapshot to be restored.</p>
+</div></blockquote>
+<p>destinationPath -&gt; (string)</p>
+<blockquote>
+<div><p>The path to restore the snapshot into.</p>
+</div></blockquote>
+<p>distCpArgs -&gt; (object)</p>
+<blockquote>
+<div><p>The distcp arguments for restoring a HDFS snapshot.</p>
+<p>mapreduceServiceName -&gt; (string)</p>
+<blockquote>
+<div><p>The MapReduce or YARN service to use.</p>
+</div></blockquote>
+<p>schedulerPoolName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of a resource pool in the field. The value entered is used by the MapReduce Service you specified when Cloudera Manager executes the MapReduce job for restoring the snapshot.</p>
+</div></blockquote>
+<p>userName -&gt; (string)</p>
+<blockquote>
+<div><p>The CM user used to run the job restoring the snapshot.</p>
+</div></blockquote>
+<p>logPath -&gt; (string)</p>
+<blockquote>
+<div><p>An alternate path for logs.</p>
+</div></blockquote>
+<p>numMaps -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of mappers to use for the mapreduce job restoring the snapshot.</p>
+</div></blockquote>
+<p>bandwidthPerMap -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum bandwidth (in MB) per mapper in the mapreduce job restoring the snapshot.</p>
+</div></blockquote>
+<p>abortOnError -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to abort the job on an error. If selected, files copied up to that point remain in the destination, but no additional files are copied.</p>
+</div></blockquote>
+<p>replicationStrategy -&gt; (string)</p>
+<blockquote>
+<div><p>Replication strategy.</p>
+</div></blockquote>
+<p>skipChecksumChecks -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to skip checksum checks. If set to true, checksum validation will not be performed.</p>
+</div></blockquote>
+<p>removeMissingFiles -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to delete destination files that are missing in source.</p>
+</div></blockquote>
+<p>skipTrash -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to permanently delete destination files that are missing in source.</p>
+</div></blockquote>
+<p>preserveBlockSize -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to preserve the HDFS block size.</p>
+</div></blockquote>
+<p>preserveReplicationCount -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to preserve the HDFS replication count.</p>
+</div></blockquote>
+<p>preservePermissions -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to preserve the HDFS owner, group and permissions.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>restoreHBaseSnapshotArgs -&gt; (object)</p>
+<blockquote>
+<div><p>Arguments for restoring a HBase snapshot.</p>
+<p>snapshotName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the snapshot to be restored.</p>
+</div></blockquote>
+<p>storageType -&gt; (string)</p>
+<blockquote>
+<div><p>The location where the HBase shapshot is stored.</p>
+</div></blockquote>
+<p>creationTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The time when the snapshot to be restored was created. This value should equal the ‘endTime’ attribute of the snapshot restore command that created the snapshot.</p>
+</div></blockquote>
+<p>isClone -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to restore or clone the snapshot. Cloning a snapshot creates a new read/write table that serves the data kept at the time of the snapshot. The original table and the cloned table can be modified independently; new data written to one table does not show up on the other. Restoring a snapshot replaces the current version of a table with different version based on the snapshot.</p>
+</div></blockquote>
+<p>tableName -&gt; (string)</p>
+<blockquote>
+<div><p>If the hbase operation is ‘clone’, a table name should be provided, which will be the name of the new table created when cloning the snapshot. If the hbase operation is ‘restore’, the table name should be empty.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">snapshotType</span><span class="o">=</span>string,restoreHdfsSnapshotArgs<span class="o">={</span><span class="nv">path</span><span class="o">=</span>string,snapshotName<span class="o">=</span>string,snapshotPath<span class="o">=</span>string,destinationPath<span class="o">=</span>string,distCpArgs<span class="o">={</span><span class="nv">mapreduceServiceName</span><span class="o">=</span>string,schedulerPoolName<span class="o">=</span>string,userName<span class="o">=</span>string,logPath<span class="o">=</span>string,numMaps<span class="o">=</span>integer,bandwidthPerMap<span class="o">=</span>integer,abortOnError<span class="o">=</span>boolean,replicationStrategy<span class="o">=</span>string,skipChecksumChecks<span class="o">=</span>boolean,removeMissingFiles<span class="o">=</span>boolean,skipTrash<span class="o">=</span>boolean,preserveBlockSize<span class="o">=</span>boolean,preserveReplicationCount<span class="o">=</span>boolean,preservePermissions<span class="o">=</span>boolean<span class="o">}}</span>,restoreHBaseSnapshotArgs<span class="o">={</span><span class="nv">snapshotName</span><span class="o">=</span>string,storageType<span class="o">=</span>string,creationTime<span class="o">=</span>datetime,isClone<span class="o">=</span>boolean,tableName<span class="o">=</span>string<span class="o">}</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;snapshotType&quot;</span>: <span class="s2">&quot;HDFS&quot;</span><span class="p">|</span><span class="s2">&quot;HBASE&quot;</span>,
+  <span class="s2">&quot;restoreHdfsSnapshotArgs&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;snapshotName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;snapshotPath&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;destinationPath&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;distCpArgs&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;mapreduceServiceName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;schedulerPoolName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;userName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;logPath&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;numMaps&quot;</span>: integer,
+      <span class="s2">&quot;bandwidthPerMap&quot;</span>: integer,
+      <span class="s2">&quot;abortOnError&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;replicationStrategy&quot;</span>: <span class="s2">&quot;DYNAMIC&quot;</span><span class="p">|</span><span class="s2">&quot;STATIC&quot;</span>,
+      <span class="s2">&quot;skipChecksumChecks&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;removeMissingFiles&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;skipTrash&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;preserveBlockSize&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;preserveReplicationCount&quot;</span>: true<span class="p">|</span>false,
+      <span class="s2">&quot;preservePermissions&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+    <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;restoreHBaseSnapshotArgs&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;snapshotName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;storageType&quot;</span>: <span class="s2">&quot;LOCAL&quot;</span><span class="p">|</span><span class="s2">&quot;REMOTE_S3&quot;</span>,
+    <span class="s2">&quot;creationTime&quot;</span>: datetime,
+    <span class="s2">&quot;isClone&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;tableName&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>restoreSnapshotCommand -&gt; (object)</p>
+<blockquote>
+<div><p>Response object for get command status.</p>
+<p>commandId -&gt; (integer)</p>
+<blockquote>
+<div><p>Id of the CM command.</p>
+</div></blockquote>
+<p>success -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the diagnostic collection is successful.</p>
+</div></blockquote>
+<p>active -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command is still active.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the policy.</p>
+</div></blockquote>
+<p>startTime -&gt; (string)</p>
+<blockquote>
+<div><p>Start time of the CM command.</p>
+</div></blockquote>
+<p>endTime -&gt; (string)</p>
+<blockquote>
+<div><p>End time of the CM command.</p>
+</div></blockquote>
+<p>resultDataUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Some commands have result data URL for downloading the diagnostic bundle. On certain CM versions the bundle download is only available through this URL, but not with download-diagnostic-bundle operation.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Result message of the command.</p>
+</div></blockquote>
+<p>bundleStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The current status of the command.</p>
+</div></blockquote>
+<p>bundleStatusMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Further information about the current command status.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">restore-snapshot</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rerun-policy.html"
+                        title="previous chapter">rerun-policy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="suspend-policy.html"
+                        title="next chapter">suspend-policy</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="suspend-policy.html" title="suspend-policy"
+             >next</a></li>
+        <li class="right" >
+          <a href="rerun-policy.html" title="rerun-policy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">restore-snapshot</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

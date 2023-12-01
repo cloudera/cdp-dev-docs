@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-private-link-endpoint &#8212; CDP CLI 0.9.101 (BETA) documentation</title>
+    <title>create-private-link-endpoint &#8212; CDP CLI 0.9.102 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="delete-private-link-endpoint" href="delete-private-link-endpoint.html" />
-    <link rel="prev" title="cloudprivatelinks" href="index.html" /> 
+    <link rel="prev" title="authorize-private-link-service-access" href="authorize-private-link-service-access.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="delete-private-link-endpoint.html" title="delete-private-link-endpoint"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="index.html" title="cloudprivatelinks"
+          <a href="authorize-private-link-service-access.html" title="authorize-private-link-service-access"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.101 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">cloudprivatelinks</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-private-link-endpoint</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates PrivateLink endpoints.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.101</p>
+<dd class="field-even"><p>0.9.102</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -56,12 +56,14 @@
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-private-link-endpoint
---cloud-account-id &lt;value&gt;
+<span class="o">[</span>--cloud-account-id &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--service-components &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-private-dns <span class="p">|</span> --no-enable-private-dns<span class="o">]</span>
 <span class="o">[</span>--service-group &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--environment-crn &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--aws-account-details &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--azure-account-details &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cloud-service-provider &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -143,6 +145,79 @@
 <span class="o">}</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--azure-account-details</span></code> (object)</p>
+<blockquote>
+<div><p>Details of the cloud network and the cross-account role required to create the PrivateLink endpoint.</p>
+<p>azureClientSecretCredential -&gt; (object)</p>
+<blockquote>
+<div><p>Azure client secret credential, either this or credential CRN should be passed.</p>
+<p>clientId -&gt; (string)</p>
+<blockquote>
+<div><p>The client (application) ID of the service principal</p>
+</div></blockquote>
+<p>clientSecret -&gt; (string)</p>
+<blockquote>
+<div><p>A client secret that was generated for the App Registration used to authenticate the client.</p>
+</div></blockquote>
+<p>tenantId -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure Active Directory tenant (directory) Id of the service principal.</p>
+</div></blockquote>
+</div></blockquote>
+<p>credentialCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CDP Credential CRN to fetch the Azure client secret credentials, either this or AzureClientSecretCredential should be passed.</p>
+</div></blockquote>
+<p>subscriptionId -&gt; (string)</p>
+<blockquote>
+<div><p>The Subscription for which the Private link service to be allowed/accessible.</p>
+</div></blockquote>
+<p>resourceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The Resource group under which the Private endpoint to be created.</p>
+</div></blockquote>
+<p>location -&gt; (string)</p>
+<blockquote>
+<div><p>Azure location where endpoint should be created.</p>
+</div></blockquote>
+<p>vNetId -&gt; (string)</p>
+<blockquote>
+<div><p>vNet ID in which the private link should be created.</p>
+</div></blockquote>
+<p>subnetId -&gt; (string)</p>
+<blockquote>
+<div><p>ID of the private subnet in which the private link should be created.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">azureClientSecretCredential</span><span class="o">={</span><span class="nv">clientId</span><span class="o">=</span>string,clientSecret<span class="o">=</span>string,tenantId<span class="o">=</span>string<span class="o">}</span>,credentialCrn<span class="o">=</span>string,subscriptionId<span class="o">=</span>string,resourceGroup<span class="o">=</span>string,location<span class="o">=</span>string,vNetId<span class="o">=</span>string,subnetId<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;azureClientSecretCredential&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;clientId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;clientSecret&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;tenantId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;credentialCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;subscriptionId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;resourceGroup&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;location&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;vNetId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;subnetId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cloud-service-provider</span></code> (string)</p>
+<blockquote>
+<div><p>Supported cloud providers <cite>AWS</cite> - A value indicating AWS as supported cloud provider for creating privatelinks. <cite>AZURE</cite> - A value indicating Azure as supported cloud provider for creating privatelinks.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AWS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AZURE</span></code></p></li>
+</ul>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -185,8 +260,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">cloudprivatelinks</a></p>
+  <p class="topless"><a href="authorize-private-link-service-access.html"
+                        title="previous chapter">authorize-private-link-service-access</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="delete-private-link-endpoint.html"
                         title="next chapter">delete-private-link-endpoint</a></p>
@@ -211,9 +286,9 @@
           <a href="delete-private-link-endpoint.html" title="delete-private-link-endpoint"
              >next</a></li>
         <li class="right" >
-          <a href="index.html" title="cloudprivatelinks"
+          <a href="authorize-private-link-service-access.html" title="authorize-private-link-service-access"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.101 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >cloudprivatelinks</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-private-link-endpoint</a></li> 
       </ul>

@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-snapshot-policies &#8212; CDP CLI 0.9.102 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-snapshot-policy-jobs" href="list-snapshot-policy-jobs.html" />
+    <link rel="prev" title="list-policies" href="list-policies.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-snapshot-policy-jobs.html" title="list-snapshot-policy-jobs"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-policies.html" title="list-policies"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-snapshot-policies</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-snapshot-policies">
+<span id="cli-cdp-replicationmanager-list-snapshot-policies"></span><h1>list-snapshot-policies<a class="headerlink" href="#list-snapshot-policies" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Get All Snapshot Policies.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.102</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Provides a list of all snapshot policies across all available clusters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-snapshot-policies
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>errorResponses -&gt; (array)</p>
+<blockquote>
+<div><p>List of snapshot policy errors.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>API error.</p>
+<p>code -&gt; (integer)</p>
+<blockquote>
+<div><p>Error code.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Error message.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Error status.</p>
+</div></blockquote>
+<p>clusterUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster URL.</p>
+</div></blockquote>
+<p>requestId -&gt; (string)</p>
+<blockquote>
+<div><p>Request ID.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>snapshotPolicyResponses -&gt; (array)</p>
+<blockquote>
+<div><p>List of snapshot policies.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Response object for getSnapshotPolicy.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the snapshot policy.</p>
+</div></blockquote>
+<p>cluster -&gt; (string)</p>
+<blockquote>
+<div><p>The cluster that stores that snapshot policy.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The snapshot type of snapshot policies.</p>
+</div></blockquote>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>The current state of a snapshot policy.</p>
+</div></blockquote>
+<p>scope -&gt; (array)</p>
+<blockquote>
+<div><p>Defines the datasets that are covered by the snapshot policy. Contains path patterns for HDFS snapshot policies and table regular expressions for HBase snapshot policies.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>schedule -&gt; (object)</p>
+<blockquote>
+<div><p>Defines the schedule of a snapshot policy.</p>
+<p>minuteOfHour -&gt; (integer)</p>
+<blockquote>
+<div><p>Minute of the hour that hourly, daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 59.</p>
+</div></blockquote>
+<p>hourOfDay -&gt; (integer)</p>
+<blockquote>
+<div><p>Hour of the day that daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 23.</p>
+</div></blockquote>
+<p>dayOfWeek -&gt; (integer)</p>
+<blockquote>
+<div><p>Day of the week that weekly snapshots will be created. Valid values are 1 to 7, 1 representing Sunday.</p>
+</div></blockquote>
+<p>dayOfMonth -&gt; (integer)</p>
+<blockquote>
+<div><p>Day of the month that monthly and yearly snapshots will be created. Valid values are 1 to 31. Additionally 0 to -30 can be used to specify offsets from the last day of the month.</p>
+</div></blockquote>
+<p>monthOfYear -&gt; (integer)</p>
+<blockquote>
+<div><p>Month of the year that yearly snapshots will be created. Valid values are 1 to 12, 1 representing January.</p>
+</div></blockquote>
+<p>hoursForHourly -&gt; (array)</p>
+<blockquote>
+<div><p>Hours of the day that hourly snapshots will be created. Valid values are 0 to 23. If this list is null or empty, then hourly snapshots are created for every hour.</p>
+<p>item -&gt; (integer)</p>
+</div></blockquote>
+</div></blockquote>
+<p>alert -&gt; (object)</p>
+<blockquote>
+<div><p>Alerting behaviour for snapshot policy activities. Defines whether an alert is sent on certain events related to snapshot policies.</p>
+<p>onStart -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on start of snapshot creation/deletion activity.</p>
+</div></blockquote>
+<p>onSuccess -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on successful completion of snapshot creation/deletion activity.</p>
+</div></blockquote>
+<p>onFail -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on failure of snapshot creation/deletion activity.</p>
+</div></blockquote>
+<p>onAbort -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to alert on abort of snapshot creation/deletion activity.</p>
+</div></blockquote>
+</div></blockquote>
+<p>snapshotRetentionCount -&gt; (object)</p>
+<blockquote>
+<div><p>Defines the number of snapshots to be retained for snapshot policies.</p>
+<p>hourlySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of hourly snapshots to be retained.</p>
+</div></blockquote>
+<p>dailySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of daily snapshots to be retained.</p>
+</div></blockquote>
+<p>weeklySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of weekly snapshots to be retained.</p>
+</div></blockquote>
+<p>monthlySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of monthly snapshots to be retained.</p>
+</div></blockquote>
+<p>yearlySnapshots -&gt; (integer)</p>
+<blockquote>
+<div><p>The number of yearly snapshots to be retained.</p>
+</div></blockquote>
+</div></blockquote>
+<p>paused -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the snapshot policy is suspended.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The description of the snapshot policy.</p>
+</div></blockquote>
+<p>lastCommand -&gt; (object)</p>
+<blockquote>
+<div><p>Detailed information about a snapshot command.</p>
+<p>id -&gt; (integer)</p>
+<blockquote>
+<div><p>The id of the command.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the command.</p>
+</div></blockquote>
+<p>startTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The start time of the command.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The end time of the command, if the command is finished.</p>
+</div></blockquote>
+<p>active -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command is currenlty active.</p>
+</div></blockquote>
+<p>success -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command was successful, if the command has finished.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>The result message of the command, if the command has finished.</p>
+</div></blockquote>
+<p>parent -&gt; (object)</p>
+<blockquote>
+<div><p>Response object for get command status.</p>
+<p>commandId -&gt; (integer)</p>
+<blockquote>
+<div><p>Id of the CM command.</p>
+</div></blockquote>
+<p>success -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the diagnostic collection is successful.</p>
+</div></blockquote>
+<p>active -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command is still active.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the policy.</p>
+</div></blockquote>
+<p>startTime -&gt; (string)</p>
+<blockquote>
+<div><p>Start time of the CM command.</p>
+</div></blockquote>
+<p>endTime -&gt; (string)</p>
+<blockquote>
+<div><p>End time of the CM command.</p>
+</div></blockquote>
+<p>resultDataUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Some commands have result data URL for downloading the diagnostic bundle. On certain CM versions the bundle download is only available through this URL, but not with download-diagnostic-bundle operation.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Result message of the command.</p>
+</div></blockquote>
+<p>bundleStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The current status of the command.</p>
+</div></blockquote>
+<p>bundleStatusMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Further information about the current command status.</p>
+</div></blockquote>
+</div></blockquote>
+<p>children -&gt; (array)</p>
+<blockquote>
+<div><p>List of references to the child commands.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Response object for get command status.</p>
+<p>commandId -&gt; (integer)</p>
+<blockquote>
+<div><p>Id of the CM command.</p>
+</div></blockquote>
+<p>success -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the diagnostic collection is successful.</p>
+</div></blockquote>
+<p>active -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command is still active.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the policy.</p>
+</div></blockquote>
+<p>startTime -&gt; (string)</p>
+<blockquote>
+<div><p>Start time of the CM command.</p>
+</div></blockquote>
+<p>endTime -&gt; (string)</p>
+<blockquote>
+<div><p>End time of the CM command.</p>
+</div></blockquote>
+<p>resultDataUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Some commands have result data URL for downloading the diagnostic bundle. On certain CM versions the bundle download is only available through this URL, but not with download-diagnostic-bundle operation.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Result message of the command.</p>
+</div></blockquote>
+<p>bundleStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The current status of the command.</p>
+</div></blockquote>
+<p>bundleStatusMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Further information about the current command status.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>lastSuccessfulCommand -&gt; (object)</p>
+<blockquote>
+<div><p>Detailed information about a snapshot command.</p>
+<p>id -&gt; (integer)</p>
+<blockquote>
+<div><p>The id of the command.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the command.</p>
+</div></blockquote>
+<p>startTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The start time of the command.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The end time of the command, if the command is finished.</p>
+</div></blockquote>
+<p>active -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command is currenlty active.</p>
+</div></blockquote>
+<p>success -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command was successful, if the command has finished.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>The result message of the command, if the command has finished.</p>
+</div></blockquote>
+<p>parent -&gt; (object)</p>
+<blockquote>
+<div><p>Response object for get command status.</p>
+<p>commandId -&gt; (integer)</p>
+<blockquote>
+<div><p>Id of the CM command.</p>
+</div></blockquote>
+<p>success -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the diagnostic collection is successful.</p>
+</div></blockquote>
+<p>active -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command is still active.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the policy.</p>
+</div></blockquote>
+<p>startTime -&gt; (string)</p>
+<blockquote>
+<div><p>Start time of the CM command.</p>
+</div></blockquote>
+<p>endTime -&gt; (string)</p>
+<blockquote>
+<div><p>End time of the CM command.</p>
+</div></blockquote>
+<p>resultDataUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Some commands have result data URL for downloading the diagnostic bundle. On certain CM versions the bundle download is only available through this URL, but not with download-diagnostic-bundle operation.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Result message of the command.</p>
+</div></blockquote>
+<p>bundleStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The current status of the command.</p>
+</div></blockquote>
+<p>bundleStatusMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Further information about the current command status.</p>
+</div></blockquote>
+</div></blockquote>
+<p>children -&gt; (array)</p>
+<blockquote>
+<div><p>List of references to the child commands.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Response object for get command status.</p>
+<p>commandId -&gt; (integer)</p>
+<blockquote>
+<div><p>Id of the CM command.</p>
+</div></blockquote>
+<p>success -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the diagnostic collection is successful.</p>
+</div></blockquote>
+<p>active -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the command is still active.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the policy.</p>
+</div></blockquote>
+<p>startTime -&gt; (string)</p>
+<blockquote>
+<div><p>Start time of the CM command.</p>
+</div></blockquote>
+<p>endTime -&gt; (string)</p>
+<blockquote>
+<div><p>End time of the CM command.</p>
+</div></blockquote>
+<p>resultDataUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Some commands have result data URL for downloading the diagnostic bundle. On certain CM versions the bundle download is only available through this URL, but not with download-diagnostic-bundle operation.</p>
+</div></blockquote>
+<p>resultMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Result message of the command.</p>
+</div></blockquote>
+<p>bundleStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The current status of the command.</p>
+</div></blockquote>
+<p>bundleStatusMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Further information about the current command status.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>hbaseArguments -&gt; (object)</p>
+<blockquote>
+<div><p>Arguments specific to HBase snapshot policies.</p>
+<p>tableRegExps -&gt; (array)</p>
+<blockquote>
+<div><p>The regular expressions specifying the tables. Tables matching any of them will be eligible for snapshot creation.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>storage -&gt; (string)</p>
+<blockquote>
+<div><p>The location where the HBase shapshot is stored.</p>
+</div></blockquote>
+</div></blockquote>
+<p>hdfsArguments -&gt; (object)</p>
+<blockquote>
+<div><p>Arguments specific to HDFS snapshot policies.</p>
+<p>pathPatterns -&gt; (array)</p>
+<blockquote>
+<div><p>The path patterns specifying the paths. Paths matching any of them will be eligible for snapshot creation. The pattern matching characters that can be specific are those supported by HDFS.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-snapshot-policies</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-policies.html"
+                        title="previous chapter">list-policies</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-snapshot-policy-jobs.html"
+                        title="next chapter">list-snapshot-policy-jobs</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-snapshot-policy-jobs.html" title="list-snapshot-policy-jobs"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-policies.html" title="list-policies"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.102 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-snapshot-policies</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
