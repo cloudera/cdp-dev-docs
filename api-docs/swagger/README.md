@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.101*
+*Version: 0.9.102*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -15,23 +15,23 @@ API requests must be signed according to the
 
 | Service Definition | Version |
 | --- | --- |
-| [audit.yaml](./audit.yaml) | 0.9.101 |
-| [compute.yaml](./compute.yaml) | 0.9.101 |
-| [consumption.yaml](./consumption.yaml) | 0.9.101 |
-| [datacatalog.yaml](./datacatalog.yaml) | 0.9.101 |
-| [datahub.yaml](./datahub.yaml) | 0.9.101 |
-| [datalake.yaml](./datalake.yaml) | 0.9.101 |
-| [de.yaml](./de.yaml) | 0.9.101 |
-| [df.yaml](./df.yaml) | 0.9.101 |
-| [dfworkload.yaml](./dfworkload.yaml) | 0.9.101 |
-| [drscp.yaml](./drscp.yaml) | 0.9.101 |
-| [dw.yaml](./dw.yaml) | 0.9.101 |
-| [environments.yaml](./environments.yaml) | 0.9.101 |
-| [iam.yaml](./iam.yaml) | 0.9.101 |
-| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.101 |
-| [ml.yaml](./ml.yaml) | 0.9.101 |
-| [opdb.yaml](./opdb.yaml) | 0.9.101 |
-| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.101 |
+| [audit.yaml](./audit.yaml) | 0.9.102 |
+| [compute.yaml](./compute.yaml) | 0.9.102 |
+| [consumption.yaml](./consumption.yaml) | 0.9.102 |
+| [datacatalog.yaml](./datacatalog.yaml) | 0.9.102 |
+| [datahub.yaml](./datahub.yaml) | 0.9.102 |
+| [datalake.yaml](./datalake.yaml) | 0.9.102 |
+| [de.yaml](./de.yaml) | 0.9.102 |
+| [df.yaml](./df.yaml) | 0.9.102 |
+| [dfworkload.yaml](./dfworkload.yaml) | 0.9.102 |
+| [drscp.yaml](./drscp.yaml) | 0.9.102 |
+| [dw.yaml](./dw.yaml) | 0.9.102 |
+| [environments.yaml](./environments.yaml) | 0.9.102 |
+| [iam.yaml](./iam.yaml) | 0.9.102 |
+| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.102 |
+| [ml.yaml](./ml.yaml) | 0.9.102 |
+| [opdb.yaml](./opdb.yaml) | 0.9.102 |
+| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.102 |
 
 See all the files at once in this site's
 [Github repository](https://github.com/cloudera/cdp-dev-docs/tree/master/api-docs/swagger).

@@ -1,5 +1,19 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.102 (2023-11-29)
+
+IMPROVEMENTS:
+* ml: Add `create-model-registry`, `delete-model-registry`, `describe-model-registry`, `get-model-registry-kubeconfig`, `grant-model-registry-access` commands.
+* compute: Add support for `DedicatedExternal` clusterType.
+* dh: Add new `environmentName` field on `ClusterSummary` object
+* dfworkload: Introduce export/import deployment related endpoints from the CLI `list-deployment-archives`, `export-deployment` and `import-deployment`.
+
+BACKWARD INCOMPATIBILITIES:
+* dfworkload: Add new enum values for the `detailedState` property of the `DeploymentStatus` object.
+* dfworkload: Add new enum value for the `state` property of the `DeploymentStatus` object.
+* dfworkload: Add new enum values for the `validActions` property of the `RpcDeployment` object.
+
+
 ## 0.9.101 (2023-11-09)
 
 IMPROVEMENTS:
