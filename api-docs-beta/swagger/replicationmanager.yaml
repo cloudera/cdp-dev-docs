@@ -5,7 +5,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.101 (BETA)
+  version: 0.9.103 (BETA)
   title: Cloudera Replication Manager Service
   license:
     name: Apache 2.0
@@ -413,6 +413,195 @@ paths:
           description: Describes a successful response to a valid request.
           schema:
             $ref: '#/definitions/GetCommandStatusResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/createSnapshotPolicy:
+    post:
+      summary: Create snapshot policy.
+      description: Creates a snapshot policy.
+      operationId: createSnapshotPolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateSnapshotPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateSnapshotPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateSnapshotPolicy:
+    post:
+      summary: Update snapshot policy.
+      description: Updates a snapshot policy.
+      operationId: updateSnapshotPolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateSnapshotPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateSnapshotPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/deleteSnapshotPolicy:
+    post:
+      summary: Delete snapshot policy.
+      description: Permanently deletes a specific snapshot policy.
+      operationId: deleteSnapshotPolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DeleteSnapshotPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/DeleteSnapshotPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/listSnapshotPolicies:
+    post:
+      summary: Get All Snapshot Policies.
+      description: Provides a list of all snapshot policies across all available clusters.
+      operationId: listSnapshotPolicies
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListSnapshotPoliciesRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/ListSnapshotPoliciesResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/getSnapshotPolicy:
+    post:
+      summary: Get Snapshot Policy.
+      description: Retrieves a specific snapshot policy from the cluster specified in the request.
+      operationId: getSnapshotPolicy
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetSnapshotPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/GetSnapshotPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/activateSnapshotPolicy:
+    post:
+      summary: Resume snapshot policy.
+      description: Resumes a specific snapshot policy.
+      operationId: activateSnapshotPolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ActivateSnapshotPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/ActivateSnapshotPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/suspendSnapshotPolicy:
+    post:
+      summary: Suspend snapshot policy.
+      description: Suspends a specific snapshot policy.
+      operationId: suspendSnapshotPolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SuspendSnapshotPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/SuspendSnapshotPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/listSnapshotPolicyJobs:
+    post:
+      summary: List snapshot policy jobs.
+      description: Lists jobs triggered by a snapshot policy.
+      operationId: listSnapshotPolicyJobs
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListSnapshotPolicyJobsRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/ListSnapshotPolicyJobsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/restoreSnapshot:
+    post:
+      summary: Restore snapshot.
+      description: Restores a specific snapshot.
+      operationId: restoreSnapshot
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RestoreSnapshotRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/RestoreSnapshotResponse'
         default:
           description: The default response on an error.
           schema:
@@ -993,6 +1182,190 @@ definitions:
       status:
         type: string
         description: The status of the request.
+  CreateSnapshotPolicyRequest:
+    type: object
+    description: Request object for createSnapshotPolicy.
+    required:
+      - clusterCrn
+      - snapshotPolicyDefinition
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy will be created.
+        type: string
+      snapshotPolicyDefinition:
+        description: The details of the snapshot policy to be created.
+        $ref: '#/definitions/SnapshotPolicyDefinition'
+  CreateSnapshotPolicyResponse:
+    type: object
+    description: Response object for createSnapshotPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster from where the snapshot policy has been created.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  UpdateSnapshotPolicyRequest:
+    type: object
+    description: Request object for updateSnapshotPolicy.
+    required:
+      - clusterCrn
+      - name
+      - snapshotPolicyDefinition
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy will be updated.
+        type: string
+      name:
+        description: The name of the snapshot policy to be updated.
+        type: string
+      snapshotPolicyDefinition:
+        description: The details of the snapshot policy to be updated.
+        $ref: '#/definitions/SnapshotPolicyDefinition'
+  UpdateSnapshotPolicyResponse:
+    type: object
+    description: Response object for updateSnapshotPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster from where the snapshot policy has been updated.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  DeleteSnapshotPolicyRequest:
+    type: object
+    description: Request object for deleteSnapshotPolicy.
+    required:
+      - clusterCrn
+      - name
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy is.
+        type: string
+      name:
+        description: The name of the snapshot policy to be deleted.
+        type: string
+  DeleteSnapshotPolicyResponse:
+    type: object
+    description: Response object for deleteSnapshotPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster from where the snapshot policy was deleted.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  SuspendSnapshotPolicyRequest:
+    type: object
+    description: Request object for suspendSnapshotPolicy.
+    required:
+      - clusterCrn
+      - name
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy is.
+        type: string
+      name:
+        description: The name of the snapshot policy to be suspended.
+        type: string
+  SuspendSnapshotPolicyResponse:
+    type: object
+    description: Response object for suspendSnapshotPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the cluster where the snapshot policy is.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  ActivateSnapshotPolicyRequest:
+    type: object
+    description: Request object for activateSnapshotPolicy.
+    required:
+      - clusterCrn
+      - name
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy is.
+        type: string
+      name:
+        description: The name of the snapshot policy to be resumed.
+        type: string
+  ActivateSnapshotPolicyResponse:
+    type: object
+    description: Response object for activateSnapshotPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the cluster where the snapshot policy is.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  ListSnapshotPolicyJobsRequest:
+    type: object
+    description: Request object for listSnapshotPolicyJobs.
+    required:
+      - clusterCrn
+      - name
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy is.
+        type: string
+      name:
+        description: The name of the snapshot policy whose snapshot history will be retrieved.
+        type: string
+  ListSnapshotPolicyJobsResponse:
+    type: object
+    description: Response object for listSnapshotPolicyJobs.
+    required:
+      - jobs
+      - errorResponses
+    properties:
+      jobs:
+        type: array
+        description: The list of snapshot jobs that ran for the snapshot policy.
+        items:
+          $ref: '#/definitions/SnapshotJob'
+      errorResponses:
+        type: array
+        description: List of snapshot policy errors.
+        items:
+          $ref: '#/definitions/ApiError'
+  RestoreSnapshotRequest:
+    type: object
+    description: Request object for restoreSnapshot.
+    required:
+      - clusterCrn
+      - restoreSnapshotArguments
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy is.
+        type: string
+      restoreSnapshotArguments:
+        description: Arguments for restoring a specific snapshot.
+        $ref: '#/definitions/RestoreSnapshotArguments'
+  RestoreSnapshotResponse:
+    type: object
+    description: Response object for restoreSnapshot.
+    properties:
+      restoreSnapshotCommand:
+        description: Details of the CM command that was created to restore the snapshot.
+        $ref: '#/definitions/GetCommandStatusResponse'
   ApiError:
     type: object
     description: API error.
@@ -1751,3 +2124,699 @@ definitions:
     enum:
       - ACCESSKEY
       - CLIENTKEY
+  SnapshotPolicyType:
+    type: string
+    description: The snapshot type of snapshot policies.
+    enum:
+      - HDFS
+      - HBASE
+  ListSnapshotPoliciesRequest:
+    type: object
+    description: Request object for listing all snapshot policies.
+  ListSnapshotPoliciesResponse:
+    type: object
+    description: Response object for a list snapshot policies request.
+    required:
+      - errorResponses
+      - snapshotPolicyResponses
+    properties:
+      errorResponses:
+        description: List of snapshot policy errors.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+      snapshotPolicyResponses:
+        description: List of snapshot policies.
+        type: array
+        items:
+          $ref: '#/definitions/GetSnapshotPolicyResponse'
+  GetSnapshotPolicyRequest:
+    type: object
+    description: Request object for getSnapshotPolicy.
+    required:
+      - clusterCrn
+      - name
+    properties:
+      clusterCrn:
+        description: CRN of the cluster where the snapshot policy is.
+        type: string
+      name:
+        description: The name of the snapshot policy to be retrieved.
+        type: string
+  GetSnapshotPolicyResponse:
+    type: object
+    description: Response object for getSnapshotPolicy.
+    required:
+      - name
+      - cluster
+      - type
+      - state
+      - scope
+      - schedule
+      - alert
+      - snapshotRetentionCount
+      - paused
+    properties:
+      name:
+        description: The name of the snapshot policy.
+        type: string
+      cluster:
+        description: The cluster that stores that snapshot policy.
+        type: string
+      type:
+        description: The type of the snapshot policy.
+        $ref: '#/definitions/SnapshotPolicyType'
+      state:
+        description: The current state of the snapshot policy.
+        $ref: '#/definitions/SnapshotState'
+      scope:
+        description: Defines the datasets that are covered by the snapshot policy. Contains path patterns for HDFS snapshot policies and table regular expressions for HBase snapshot policies.
+        type: array
+        items:
+          type: string
+      schedule:
+        description: The schedule of the snapshot policy.
+        $ref: '#/definitions/SnapshotPolicyScheduleResponse'
+      alert:
+        description: Alerting behaviour of the snapshot policy.
+        $ref: '#/definitions/SnapshotPolicyAlertResponse'
+      snapshotRetentionCount:
+        description: The number of snapshots to be retained for snapshot policies.
+        $ref: '#/definitions/SnapshotRetentionCountResponse'
+      paused:
+        description: Whether the snapshot policy is suspended.
+        type: boolean
+      description:
+        description: The description of the snapshot policy.
+        type: string
+      lastCommand:
+        description: Latest command of the snapshot policy. The command might still be active.
+        $ref: '#/definitions/SnapshotCommand'
+      lastSuccessfulCommand:
+        description: Last successful command of the snapshot policy.
+        $ref: '#/definitions/SnapshotCommand'
+      hbaseArguments:
+        description: Arguments specific to HBase snapshot policies.
+        $ref: '#/definitions/HbaseSnapshotPolicyArgumentsResponse'
+      hdfsArguments:
+        description: Arguments specific to HDFS snapshot policies.
+        $ref: '#/definitions/HdfsSnapshotPolicyArgumentsResponse'
+  SnapshotPolicyScheduleResponse:
+    type: object
+    description: Defines the schedule of a snapshot policy.
+    required:
+      - minuteOfHour
+      - hourOfDay
+      - dayOfWeek
+      - dayOfMonth
+      - monthOfYear
+    properties:
+      minuteOfHour:
+        description: Minute of the hour that hourly, daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 59.
+        type: integer
+        format: int32
+      hourOfDay:
+        description: Hour of the day that daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 23.
+        type: integer
+        format: int32
+      dayOfWeek:
+        description: Day of the week that weekly snapshots will be created. Valid values are 1 to 7, 1 representing Sunday.
+        type: integer
+        format: int32
+      dayOfMonth:
+        description: Day of the month that monthly and yearly snapshots will be created. Valid values are 1 to 31. Additionally 0 to -30 can be used to specify offsets from the last day of the month.
+        type: integer
+        format: int32
+      monthOfYear:
+        description: Month of the year that yearly snapshots will be created. Valid values are 1 to 12, 1 representing January.
+        type: integer
+        format: int32
+      hoursForHourly:
+        description: Hours of the day that hourly snapshots will be created. Valid values are 0 to 23. If this list is null or empty, then hourly snapshots are created for every hour.
+        type: array
+        items:
+          type: integer
+          format: int32
+  SnapshotState:
+    type: string
+    description: The current state of a snapshot policy.
+    enum:
+      - RUNNING
+      - ACTIVE
+      - SUSPENDED
+      - ERROR
+  SnapshotCommand:
+    type: object
+    description: Detailed information about a snapshot command.
+    required:
+      - id
+      - name
+      - startTime
+      - endTime
+      - active
+      - success
+      - resultMessage
+    properties:
+      id:
+        description: The id of the command.
+        type: integer
+        format: int64
+      name:
+        description: The name of the command.
+        type: string
+      startTime:
+        description: The start time of the command.
+        type: string
+        format: date-time
+      endTime:
+        description: The end time of the command, if the command is finished.
+        type: string
+        format: date-time
+      active:
+        description: Whether the command is currenlty active.
+        type: boolean
+      success:
+        description: Whether the command was successful, if the command has finished.
+        type: boolean
+      resultMessage:
+        description: The result message of the command, if the command has finished.
+        type: string
+      parent:
+        description: Reference to the parent command, if any.
+        $ref: '#/definitions/GetCommandStatusResponse'
+      children:
+        description: List of references to the child commands.
+        type: array
+        items:
+          $ref: '#/definitions/GetCommandStatusResponse'
+  HdfsSnapshotPolicyArgumentsResponse:
+    type: object
+    description: Arguments specific to HDFS snapshot policies.
+    required:
+      - pathPatterns
+    properties:
+      pathPatterns:
+        description: The path patterns specifying the paths. Paths matching any of them will be eligible for snapshot creation. The pattern matching characters that can be specific are those supported by HDFS.
+        type: array
+        items:
+          type: string
+  HBaseSnapshotStorageType:
+    type: string
+    description: The location where the HBase shapshot is stored.
+    enum:
+      - LOCAL
+      - REMOTE_S3
+  HbaseSnapshotPolicyArgumentsResponse:
+    type: object
+    description: Arguments specific to HBase snapshot policies.
+    required:
+      - tableRegExps
+      - storage
+    properties:
+      tableRegExps:
+        description: The regular expressions specifying the tables. Tables matching any of them will be eligible for snapshot creation.
+        type: array
+        items:
+          type: string
+      storage:
+        description: The location where the snapshots should be stored.
+        $ref: '#/definitions/HBaseSnapshotStorageType'
+  SnapshotRetentionCountResponse:
+    type: object
+    description: Defines the number of snapshots to be retained for snapshot policies.
+    required:
+      - hourlySnapshots
+      - dailySnapshots
+      - weeklySnapshots
+      - monthlySnapshots
+      - yearlySnapshots
+    properties:
+      hourlySnapshots:
+        description: The number of hourly snapshots to be retained.
+        type: integer
+        format: int64
+      dailySnapshots:
+        description: The number of daily snapshots to be retained.
+        type: integer
+        format: int64
+      weeklySnapshots:
+        description: The number of weekly snapshots to be retained.
+        type: integer
+        format: int64
+      monthlySnapshots:
+        description: The number of monthly snapshots to be retained.
+        type: integer
+        format: int64
+      yearlySnapshots:
+        description: The number of yearly snapshots to be retained.
+        type: integer
+        format: int64
+  SnapshotPolicyAlertResponse:
+    type: object
+    description: Alerting behaviour for snapshot policy activities. Defines whether an alert is sent on certain events related to snapshot policies.
+    required:
+      - onStart
+      - onSuccess
+      - onFail
+      - onAbort
+    properties:
+      onStart:
+        description: Whether to alert on start of snapshot creation/deletion activity.
+        type: boolean
+      onSuccess:
+        description: Whether to alert on successful completion of snapshot creation/deletion activity.
+        type: boolean
+      onFail:
+        description: Whether to alert on failure of snapshot creation/deletion activity.
+        type: boolean
+      onAbort:
+        description: Whether to alert on abort of snapshot creation/deletion activity.
+        type: boolean
+  SnapshotPolicyDefinition:
+    type: object
+    description: Details of the snapshot policy to be created.
+    required:
+      - name
+      - type
+      - snapshotRetentionCount
+      - schedule
+    properties:
+      name:
+        description: The name of the snapshot policy.
+        type: string
+      type:
+        description: The type of the snapshot policy.
+        $ref: '#/definitions/SnapshotPolicyType'
+      snapshotRetentionCount:
+        description: The number of snapshots to be retained for the snapshot policy.
+        $ref: '#/definitions/SnapshotRetentionCountRequest'
+      schedule:
+        description: The schedule of the snapshot policy.
+        $ref: '#/definitions/SnapshotPolicyScheduleRequest'
+      hdfsArguments:
+        description: Arguments specific to HDFS snapshot policies.
+        $ref: '#/definitions/HdfsSnapshotPolicyArgumentsRequest'
+      hbaseArguments:
+        description: Arguments specific to HBase snapshot policies.
+        $ref: '#/definitions/HbaseSnapshotPolicyArgumentsRequest'
+      alert:
+        description: Alerting behaviour of the snapshot policy.
+        $ref: '#/definitions/SnapshotPolicyAlertRequest'
+      paused:
+        description: Whether to pause the snapshot policy.
+        type: boolean
+  HdfsSnapshotPolicyArgumentsRequest:
+    type: object
+    description: Arguments specific to HDFS snapshot policies.
+    required:
+      - pathPatterns
+    properties:
+      pathPatterns:
+        description: The path patterns specifying the paths. Paths matching any of them will be eligible for snapshot creation. The pattern matching characters that can be specific are those supported by HDFS.
+        type: array
+        items:
+          type: string
+  HbaseSnapshotPolicyArgumentsRequest:
+    type: object
+    description: Arguments specific to HBase snapshot policies.
+    required:
+      - tableRegExps
+      - storage
+    properties:
+      tableRegExps:
+        description: The regular expressions specifying the tables. Tables matching any of them will be eligible for snapshot creation.
+        type: array
+        items:
+          type: string
+      storage:
+        description: The location where the snapshots should be stored.
+        $ref: '#/definitions/HBaseSnapshotStorageType'
+  SnapshotRetentionCountRequest:
+    type: object
+    description: Defines the number of snapshots to be retained for snapshot policies.
+    required:
+      - hourlySnapshots
+      - dailySnapshots
+      - weeklySnapshots
+      - monthlySnapshots
+      - yearlySnapshots
+    properties:
+      hourlySnapshots:
+        description: The number of hourly snapshots to be retained.
+        type: integer
+        format: int64
+      dailySnapshots:
+        description: The number of daily snapshots to be retained.
+        type: integer
+        format: int64
+      weeklySnapshots:
+        description: The number of weekly snapshots to be retained.
+        type: integer
+        format: int64
+      monthlySnapshots:
+        description: The number of monthly snapshots to be retained.
+        type: integer
+        format: int64
+      yearlySnapshots:
+        description: The number of yearly snapshots to be retained.
+        type: integer
+        format: int64
+  SnapshotPolicyAlertRequest:
+    type: object
+    description: Alerting behaviour for snapshot policy activities. Defines whether an alert is sent on certain events related to snapshot policies.
+    required:
+      - onStart
+      - onSuccess
+      - onFail
+      - onAbort
+    properties:
+      onStart:
+        description: Whether to alert on start of snapshot creation/deletion activity.
+        type: boolean
+      onSuccess:
+        description: Whether to alert on successful completion of snapshot creation/deletion activity.
+        type: boolean
+      onFail:
+        description: Whether to alert on failure of snapshot creation/deletion activity.
+        type: boolean
+      onAbort:
+        description: Whether to alert on abort of snapshot creation/deletion activity.
+        type: boolean
+  SnapshotPolicyScheduleRequest:
+    type: object
+    description: Defines the schedule of a snapshot policy.
+    required:
+      - minuteOfHour
+      - hourOfDay
+      - dayOfWeek
+      - dayOfMonth
+      - monthOfYear
+    properties:
+      minuteOfHour:
+        description: Minute of the hour that hourly, daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 59.
+        type: integer
+        format: int32
+      hourOfDay:
+        description: Hour of the day that daily, weekly, monthly and yearly snapshots will be created. Valid values are 0 to 23.
+        type: integer
+        format: int32
+      dayOfWeek:
+        description: Day of the week that weekly snapshots will be created. Valid values are 1 to 7, 1 representing Sunday.
+        type: integer
+        format: int32
+      dayOfMonth:
+        description: Day of the month that monthly and yearly snapshots will be created. Valid values are 1 to 31. Additionally 0 to -30 can be used to specify offsets from the last day of the month.
+        type: integer
+        format: int32
+      monthOfYear:
+        description: Month of the year that yearly snapshots will be created. Valid values are 1 to 12, 1 representing January.
+        type: integer
+        format: int32
+      hoursForHourly:
+        description: Hours of the day that hourly snapshots will be created. Valid values are 0 to 23. If this list is null or empty, then hourly snapshots are created for every hour.
+        type: array
+        items:
+          type: integer
+          format: int32
+  SnapshotJob:
+    type: object
+    description: Detailed information about a snapshot job.
+    required:
+      - id
+      - name
+      - startTime
+      - endTime
+      - schedule
+      - snapshotRetentionCount
+      - state
+      - resultMessage
+      - resultDataUrl
+      - snapshotName
+      - clusterId
+    properties:
+      id:
+        type: integer
+        description: The id of the snapshot command.
+        format: int64
+      name:
+        type: string
+        description: The name of the snapshot command.
+      startTime:
+        type: string
+        description: The start time of the snapshot command.
+        format: date-time
+      endTime:
+        type: string
+        description: The end time of the snapshot command.
+        format: date-time
+      schedule:
+        description: The schedule of the snapshot policy.
+        $ref: '#/definitions/SnapshotPolicyScheduleResponse'
+      snapshotRetentionCount:
+        description: The number of snapshots to be retained for the snapshot policy.
+        $ref: '#/definitions/SnapshotRetentionCountResponse'
+      state:
+        type: string
+        description: The state of the snapshot created by the snapshot command.
+      resultMessage:
+        type: string
+        description: The result message for a finished command.
+      resultDataUrl:
+        type: string
+        description: The URL to the command's downloadable result data.
+      snapshotName:
+        type: string
+        description: The name of the snapshot.
+      clusterId:
+        type: string
+        description: The crn of the cluster where the snapshot is.
+      hbaseResult:
+        description: Detailed results for snapshot commands for HBase tables.
+        $ref: '#/definitions/SnapshotResult'
+      hdfsResult:
+        description: Detaileds results for snapshot commands for HDFS paths.
+        $ref: '#/definitions/SnapshotResult'
+      estimatedExpiration:
+        type: string
+        description: The estimated expiration time of the snapshot created by the snapshot command.
+        format: date-time
+  SnapshotResult:
+    type: object
+    description: The detailed results of a snapshot command.
+    required:
+      - processedEntityCount
+      - unprocessedEntityCount
+      - createdSnapshotCount
+      - deletedSnapshotCount
+      - creationErrorCount
+      - deletionErrorCount
+    properties:
+      processedEntityCount:
+        type: integer
+        description: The number of processed entities. Processed tables for HBase, paths for HDFS snapshots.
+        format: int64
+      unprocessedEntityCount:
+        type: integer
+        description: The number of unprocessed entities. Unprocessed tables for HBase, paths for HDFS snapshots.
+        format: int64
+      createdSnapshotCount:
+        type: integer
+        description: The number of snapshots created.
+        format: int64
+      deletedSnapshotCount:
+        type: integer
+        description: The number of snapshots deleted.
+        format: int64
+      creationErrorCount:
+        type: integer
+        description: The number of errors encountered when creating snapshots.
+        format: int64
+      deletionErrorCount:
+        type: integer
+        description: The number of errors encountered when deleting snapshots.
+        format: int64
+      processedEntities:
+        type: array
+        description: The list of processed entities. Processed tables for HBase, paths for HDFS snapshots.
+        items:
+          type: string
+      unprocessedEntities:
+        type: array
+        description: The list of unprocessed entities. Unprocessed tables for HBase, paths for HDFS snapshots.
+        items:
+          type: string
+      createdSnapshots:
+        type: array
+        description: The list of snapshots created.
+        items:
+          $ref: '#/definitions/StoredSnapshot'
+      deletedSnapshots:
+        type: array
+        description: The list of snapshots deleted.
+        items:
+          $ref: '#/definitions/StoredSnapshot'
+      creationErrors:
+        type: array
+        description: The list of errors encountered when creating snapshots.
+        items:
+          $ref: '#/definitions/SnapshotStoreError'
+      deletionErrors:
+        type: array
+        description: The list of errors encountered when deleting snapshots.
+        items:
+          $ref: '#/definitions/SnapshotStoreError'
+  StoredSnapshot:
+    type: object
+    description: Detailed description about a snapshot.
+    required:
+      - snapshotName
+      - path
+    properties:
+      snapshotName:
+        type: string
+        description: The name of the snapshot.
+      path:
+        type: string
+        description: The snapshotted HDFS path/HBase table.
+      snapshotPath:
+        type: string
+        description: The fully qualified path of the snapshot.
+      storage:
+        description: Whether the snapshot is stored locally or remotely.
+        $ref: '#/definitions/HBaseSnapshotStorageType'
+      creationTime:
+        type: string
+        description: The creation time of the snapshot.
+        format: date-time
+  SnapshotStoreError:
+    type: object
+    description: Detailed description about a snapshot operation error.
+    required:
+      - snapshotName
+      - path
+      - error
+    properties:
+      snapshotName:
+        type: string
+        description: The name of the snapshot.
+      path:
+        type: string
+        description: The HDFS path/HBase table name for which the snapshot error occurred.
+      error:
+        type: string
+        description: The description of the error.
+  RestoreSnapshotArguments:
+    type: object
+    description: Arguments for restoring a HDFS or HBase snapshot.
+    required:
+      - snapshotType
+    properties:
+      snapshotType:
+        description: The type of the snapshot to be restored.
+        $ref: '#/definitions/SnapshotPolicyType'
+      restoreHdfsSnapshotArgs:
+        description: Arguments for restoring a HDFS snapshot.
+        $ref: '#/definitions/RestoreHdfsSnapshotArgs'
+      restoreHBaseSnapshotArgs:
+        description: Arguments for restoring a HBase snapshot.
+        $ref: '#/definitions/RestoreHBaseSnapshotArgs'
+  RestoreHBaseSnapshotArgs:
+    type: object
+    description: Arguments for restoring a HBase snapshot.
+    required:
+      - snapshotName
+      - storageType
+      - creationTime
+      - isClone
+    properties:
+      snapshotName:
+        description: The name of the snapshot to be restored.
+        type: string
+      storageType:
+        description: Whether the snapshot is stored locally or remotely.
+        $ref: '#/definitions/HBaseSnapshotStorageType'
+      creationTime:
+        description: The time when the snapshot to be restored was created. This value should equal the 'endTime' attribute of the snapshot restore command that created the snapshot.
+        type: string
+        format: date-time
+      isClone:
+        description: Whether to restore or clone the snapshot. Cloning a snapshot creates a new read/write table that serves the data kept at the time of the snapshot. The original table and the cloned table can be modified independently; new data written to one table does not show up on the other. Restoring a snapshot replaces the current version of a table with different version based on the snapshot.
+        type: boolean
+      tableName:
+        description: If the hbase operation is 'clone', a table name should be provided, which will be the name of the new table created when cloning the snapshot. If the hbase operation is 'restore', the table name should be empty.
+        type: string
+  RestoreHdfsSnapshotArgs:
+    type: object
+    description: Arguments for restoring a HDFS snapshot.
+    required:
+      - path
+      - snapshotName
+      - snapshotPath
+      - destinationPath
+    properties:
+      path:
+        description: The snapshotted path.
+        type: string
+      snapshotName:
+        description: The name of the snapshot to be restored.
+        type: string
+      snapshotPath:
+        description: The absolute path of the snapshot to be restored.
+        type: string
+      destinationPath:
+        description: The path to restore the snapshot into.
+        type: string
+      distCpArgs:
+        description: The distcp arguments for restoring the snapshot. When this attribute is set, disctp will be used to restore the snapshot. When unset, the HDFS copy command will be used to restore the snapshot.
+        $ref: '#/definitions/HdfsDistCpArgs'
+  HdfsDistCpArgs:
+    type: object
+    description: The distcp arguments for restoring a HDFS snapshot.
+    properties:
+      mapreduceServiceName:
+        type: string
+        description: The MapReduce or YARN service to use.
+      schedulerPoolName:
+        type: string
+        description: The name of a resource pool in the field. The value entered is used by the MapReduce Service you specified when Cloudera Manager executes the MapReduce job for restoring the snapshot.
+      userName:
+        type: string
+        description: The CM user used to run the job restoring the snapshot.
+      logPath:
+        type: string
+        description: An alternate path for logs.
+      numMaps:
+        type: integer
+        format: int64
+        description: The number of mappers to use for the mapreduce job restoring the snapshot.
+      bandwidthPerMap:
+        type: integer
+        format: int64
+        description: The maximum bandwidth (in MB) per mapper in the mapreduce job restoring the snapshot.
+      abortOnError:
+        type: boolean
+        description: Whether to abort the job on an error. If selected, files copied up to that point remain in the destination, but no additional files are copied.
+      replicationStrategy:
+        type: string
+        description: Replication strategy.
+        enum:
+          - DYNAMIC
+          - STATIC
+      skipChecksumChecks:
+        type: boolean
+        description: Whether to skip checksum checks. If set to true, checksum validation will not be performed.
+      removeMissingFiles:
+        type: boolean
+        description: Whether to delete destination files that are missing in source.
+      skipTrash:
+        type: boolean
+        description: Whether to permanently delete destination files that are missing in source.
+      preserveBlockSize:
+        type: boolean
+        description: Whether to preserve the HDFS block size.
+      preserveReplicationCount:
+        type: boolean
+        description: Whether to preserve the HDFS replication count.
+      preservePermissions:
+        type: boolean
+        description: Whether to preserve the HDFS owner, group and permissions.

@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.101 (BETA)
+  version: 0.9.103 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -319,7 +319,6 @@ paths:
       summary: Lists edge nodes in a database
       description: Lists edge nodes in a database.
       operationId: listEdgeNodes
-      x-entitlement: COD_EDGE_NODE
       parameters:
         - name: input
           in: body
@@ -555,7 +554,6 @@ paths:
       summary: Update edge nodes in a database
       description: Update edge nodes in a database.
       operationId: updateEdgeNodes
-      x-entitlement: COD_EDGE_NODE
       parameters:
         - name: input
           in: body
@@ -769,7 +767,7 @@ definitions:
       numEdgeNodes:
         type: integer
         format: int32
-        description: Number of edge nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_EDGE_NODE entitlement.
+        description: Number of edge nodes to be created for the database. A positive, non-zero number is required. The default value is 0.
       image:
         description: Image details for the database.
         $ref: '#/definitions/Image'
@@ -800,6 +798,9 @@ definitions:
       computeClusterId:
         type: string
         description: Uses provided compute cluster for Kubernetes clusters instead of creating a new one.
+      storageLocation:
+        type: string
+        description: Provide an optional external storage location for a non-CDP managed bucket as the HBase root.
   VolumeType:
     type: string
     description: "Volume Type.\n `HDD` - Hard disk drives (HDD) volume type. Default is HDD. `SSD` - Solid disk drives (SSD) volume type. `LOCAL_SSD` - Local SSD volume type."
@@ -1248,7 +1249,7 @@ definitions:
       dbEdgeNodeCount:
         type: integer
         format: int32
-        description: The number of edge nodes for this database. Requires the COD_EDGE_NODES entitlement.
+        description: The number of edge nodes for this database.
       scaleType:
         description: The predetermined size of the cluster.
         $ref: '#/definitions/ScaleType'
@@ -2249,12 +2250,12 @@ definitions:
       numAddEdgeNodes:
         type: integer
         format: int32
-        description: The additional number of edge nodes for this database. A positive, non-zero number is required. Requires the COD_EDGE_NODE entitlement.
+        description: The additional number of edge nodes for this database. A positive, non-zero number is required.
       deleteEdgeInstances:
         type: array
         items:
           type: string
-        description: The instance(s) of database edge node to be deleted. An instance id of the node is required. Requires the COD_EDGE_NODE entitlement.
+        description: The instance(s) of database edge node to be deleted. An instance id of the node is required.
   UpdateEdgeNodesResponse:
     type: object
     description: The response for updating edge nodes in a database.

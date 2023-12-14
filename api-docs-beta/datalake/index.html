@@ -1065,6 +1065,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_describedatabaseserverresponse">DescribeDatabaseServerResponse</a></li>
 <li><a href="#_describedatalakerequest">DescribeDatalakeRequest</a></li>
 <li><a href="#_describedatalakeresponse">DescribeDatalakeResponse</a></li>
+<li><a href="#_diskoptions">DiskOptions</a></li>
 <li><a href="#_enablerangerrazrequest">EnableRangerRazRequest</a></li>
 <li><a href="#_enablerangerrazresponse">EnableRangerRazResponse</a></li>
 <li><a href="#_endpoint">Endpoint</a></li>
@@ -1100,6 +1101,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listdatalakesresponse">ListDatalakesResponse</a></li>
 <li><a href="#_listruntimesrequest">ListRuntimesRequest</a></li>
 <li><a href="#_listruntimesresponse">ListRuntimesResponse</a></li>
+<li><a href="#_modifydisks">ModifyDisks</a></li>
 <li><a href="#_preparedatalakeupgraderequest">PrepareDatalakeUpgradeRequest</a></li>
 <li><a href="#_preparedatalakeupgraderesponse">PrepareDatalakeUpgradeResponse</a></li>
 <li><a href="#_productversion">ProductVersion</a></li>
@@ -1169,7 +1171,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.101 (BETA)</p>
+<p><em>Version</em> : 0.9.103 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -8834,6 +8836,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_diskoptions">DiskOptions</h3>
+<div class="paragraph">
+<p>Attached disk configuration(s).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>modifyDisks</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Modifies all the disks attached to all instances in a group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifydisks">ModifyDisks</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_enablerangerrazrequest">EnableRangerRazRequest</h3>
 <div class="paragraph">
 <p>The enable Ranger Raz request.</p>
@@ -10484,6 +10520,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_runtime">Runtime</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_modifydisks">ModifyDisks</h3>
+<div class="paragraph">
+<p>Attached volume configuration.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>size</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Size of disks to modify to on all the instances in a group in GB.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeType</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type of disks to modify to on all the instances in a group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -12487,6 +12569,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>diskOptions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Disk options for vertical scaling - modify disks.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_diskoptions">DiskOptions</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>group</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -13268,7 +13362,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-11-09 14:55:26 -0800
+Last updated 2023-12-13 14:53:56 -0800
 </div>
 </div>
 <br>

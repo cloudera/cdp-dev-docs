@@ -690,25 +690,46 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </li>
 <li><a href="#_paths">Paths</a>
 <ul class="sectlevel2">
-<li><a href="#_createprivatelinkendpoint">Creates PrivateLink endpoints.</a>
+<li><a href="#_authorizeprivatelinkserviceaccess">Authorize private link services access for the cloud account id.</a>
 <ul class="sectlevel3">
 <li><a href="#_description">Description</a></li>
 <li><a href="#_parameters">Parameters</a></li>
 <li><a href="#_responses">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deleteprivatelinkendpoint">Deletes PrivateLink endpoints.</a>
+<li><a href="#_createprivatelinkendpoint">Creates PrivateLink endpoints.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_parameters_2">Parameters</a></li>
 <li><a href="#_responses_2">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getprivatelinkendpointstatus">Gets the statuses of PrivateLink endpoints.</a>
+<li><a href="#_deleteprivatelinkendpoint">Deletes PrivateLink endpoints.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_getprivatelinkendpointstatus">Gets the statuses of PrivateLink endpoints.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_4">Description</a></li>
+<li><a href="#_parameters_4">Parameters</a></li>
+<li><a href="#_responses_4">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_listprivatelinkendpointstatuses">Lists the statuses of the PrivateLink endpoints that are in creation/deletion status.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_5">Description</a></li>
+<li><a href="#_parameters_5">Parameters</a></li>
+<li><a href="#_responses_5">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_listprivatelinkservicesforregion">Lists the PrivateLink services that are supported for the region and service group.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_6">Description</a></li>
+<li><a href="#_parameters_6">Parameters</a></li>
+<li><a href="#_responses_6">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -717,6 +738,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <ul class="sectlevel2">
 <li><a href="#_awsaccountdetails">AWSAccountDetails</a></li>
 <li><a href="#_awsaccountinfo">AWSAccountInfo</a></li>
+<li><a href="#_authorizeprivatelinkserviceaccessrequest">AuthorizePrivateLinkServiceAccessRequest</a></li>
+<li><a href="#_authorizeprivatelinkserviceaccessresponse">AuthorizePrivateLinkServiceAccessResponse</a></li>
+<li><a href="#_authorizeprivatelinkserviceaccessresult">AuthorizePrivateLinkServiceAccessResult</a></li>
+<li><a href="#_azureaccountdetails">AzureAccountDetails</a></li>
+<li><a href="#_azureaccountinfo">AzureAccountInfo</a></li>
+<li><a href="#_azureclientsecretcredential">AzureClientSecretCredential</a></li>
+<li><a href="#_cloudserviceprovider">CloudServiceProvider</a></li>
 <li><a href="#_createprivatelinkendpointrequest">CreatePrivateLinkEndpointRequest</a></li>
 <li><a href="#_createprivatelinkendpointresponse">CreatePrivateLinkEndpointResponse</a></li>
 <li><a href="#_crossaccountroledetails">CrossAccountRoleDetails</a></li>
@@ -725,6 +753,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_error">Error</a></li>
 <li><a href="#_getprivatelinkendpointstatusrequest">GetPrivateLinkEndpointStatusRequest</a></li>
 <li><a href="#_getprivatelinkendpointstatusresponse">GetPrivateLinkEndpointStatusResponse</a></li>
+<li><a href="#_listprivatelinkendpointstatusesrequest">ListPrivateLinkEndpointStatusesRequest</a></li>
+<li><a href="#_listprivatelinkendpointstatusesresponse">ListPrivateLinkEndpointStatusesResponse</a></li>
+<li><a href="#_listprivatelinkservicesforregionrequest">ListPrivateLinkServicesForRegionRequest</a></li>
+<li><a href="#_listprivatelinkservicesforregionresponse">ListPrivateLinkServicesForRegionResponse</a></li>
+<li><a href="#_listprivatelinkservicesforregionresult">ListPrivateLinkServicesForRegionResult</a></li>
 <li><a href="#_privatelinkendpointstatus">PrivateLinkEndpointStatus</a></li>
 </ul>
 </li>
@@ -741,7 +774,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.101 (BETA)</p>
+<p><em>Version</em> : 0.9.103 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -783,6 +816,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_paths">Paths</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_authorizeprivatelinkserviceaccess">Authorize private link services access for the cloud account id.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/cloudprivatelinks/authorizePrivateLinkServiceAccess</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description">Description</h4>
+<div class="paragraph">
+<p>Returns the list of private link service name and its respective authorization status.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_authorizeprivatelinkserviceaccessrequest">AuthorizePrivateLinkServiceAccessRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_authorizeprivatelinkserviceaccessresponse">AuthorizePrivateLinkServiceAccessResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_createprivatelinkendpoint">Creates PrivateLink endpoints.</h3>
 <div class="literalblock">
 <div class="content">
@@ -790,13 +909,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description">Description</h4>
+<h4 id="_description_2">Description</h4>
 <div class="paragraph">
 <p>Creates the PrivateLink Endpoints for specified CDP service components.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters">Parameters</h4>
+<h4 id="_parameters_2">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -827,7 +946,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses">Responses</h4>
+<h4 id="_responses_2">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -876,13 +995,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_2">Description</h4>
+<h4 id="_description_3">Description</h4>
 <div class="paragraph">
 <p>Deletes the PrivateLink Endpoints for specified CDP service components.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_2">Parameters</h4>
+<h4 id="_parameters_3">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -913,7 +1032,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_2">Responses</h4>
+<h4 id="_responses_3">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -962,13 +1081,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_3">Description</h4>
+<h4 id="_description_4">Description</h4>
 <div class="paragraph">
-<p>Returns the statuses of the PrivateLink endpoints in creation/deletion.</p>
+<p>Returns the statuses of the PrivateLink endpoints in creation/deletion. Please use ListPrivateLinkEndpointStatuses as replacement. Deprecated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_3">Parameters</h4>
+<h4 id="_parameters_4">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -999,7 +1118,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_3">Responses</h4>
+<h4 id="_responses_4">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1023,6 +1142,178 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_getprivatelinkendpointstatusresponse">GetPrivateLinkEndpointStatusResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listprivatelinkendpointstatuses">Lists the statuses of the PrivateLink endpoints that are in creation/deletion status.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/cloudprivatelinks/listPrivateLinkEndpointStatuses</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_5">Description</h4>
+<div class="paragraph">
+<p>Returns the statuses of the PrivateLink endpoints in creation/deletion.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_5">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listprivatelinkendpointstatusesrequest">ListPrivateLinkEndpointStatusesRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_5">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listprivatelinkendpointstatusesresponse">ListPrivateLinkEndpointStatusesResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listprivatelinkservicesforregion">Lists the PrivateLink services that are supported for the region and service group.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/cloudprivatelinks/listPrivateLinkServicesForRegion</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_6">Description</h4>
+<div class="paragraph">
+<p>Returns the list of private link service name and the mapped service component.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_6">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listprivatelinkservicesforregionrequest">ListPrivateLinkServicesForRegionRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_6">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listprivatelinkservicesforregionresponse">ListPrivateLinkServicesForRegionResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1198,6 +1489,448 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_authorizeprivatelinkserviceaccessrequest">AuthorizePrivateLinkServiceAccessRequest</h3>
+<div class="paragraph">
+<p>Request object for the AuthorizePrivateLinkServicesAccess method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cloudAccountId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Account ID to authorize access for PrivateLink.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>region</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Region where the private link service exists.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceComponents</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH].</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceGroup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDP service group. Currently supported "CDP-CONTROL-PLANE" for PaaS.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_authorizeprivatelinkserviceaccessresponse">AuthorizePrivateLinkServiceAccessResponse</h3>
+<div class="paragraph">
+<p>Response object for the AuthorizePrivateLinkServicesAccess method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>authorizePrivateLinkServiceAccessResults</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of AuthorizePrivateLinkServiceAccessResult objects.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_authorizeprivatelinkserviceaccessresult">AuthorizePrivateLinkServiceAccessResult</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_authorizeprivatelinkserviceaccessresult">AuthorizePrivateLinkServiceAccessResult</h3>
+<div class="paragraph">
+<p>Authorization response containing PrivateLink service name, service component and its authorization status.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>authorizationStatus</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Authorization status for the private link service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>availabilityZoneList</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Availability zone list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hostname</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Hostname of the Private Link Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>privateLinkService</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the Private link service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceComponent</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDP service component.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vpceClientTcpPortList</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VPCE Client TCP port list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_azureaccountdetails">AzureAccountDetails</h3>
+<div class="paragraph">
+<p>Details of the cloud network and the cross-account role required to create the PrivateLink endpoint.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureClientSecretCredential</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure client secret credential, either this or credential CRN should be passed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureclientsecretcredential">AzureClientSecretCredential</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>credentialCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDP Credential CRN to fetch the Azure client secret credentials, either this or AzureClientSecretCredential should be passed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>location</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure location where endpoint should be created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceGroup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Resource group under which the Private endpoint to be created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>subnetId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the private subnet in which the private link should be created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>subscriptionId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Subscription for which the Private link service to be allowed/accessible.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vNetId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>vNet ID in which the private link should be created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_azureaccountinfo">AzureAccountInfo</h3>
+<div class="paragraph">
+<p>Details of the cloud network and the cross-account role required to delete the PrivateLink endpoint.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureClientSecretCredential</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure client secret credential, either this or credential CRN should be passed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureclientsecretcredential">AzureClientSecretCredential</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>credentialCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDP Credential CRN to fetch the Azure client secret credentials, either this or AzureClientSecretCredential should be passed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>location</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Region in which VPC exists.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vNetId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>vNet ID in which the private link should be created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_azureclientsecretcredential">AzureClientSecretCredential</h3>
+<div class="paragraph">
+<p>Azure client secret credential, either this or credential CRN should be passed.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clientId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The client (application) ID of the service principal</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clientSecret</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>A client secret that was generated for the App Registration used to authenticate the client.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tenantId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The Azure Active Directory tenant (directory) Id of the service principal.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_cloudserviceprovider">CloudServiceProvider</h3>
+<div class="paragraph">
+<p>Supported cloud providers
+ <code>AWS</code> - A value indicating AWS as supported cloud provider for creating privatelinks. <code>AZURE</code> - A value indicating Azure as supported cloud provider for creating privatelinks.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (AWS, AZURE)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_createprivatelinkendpointrequest">CreatePrivateLinkEndpointRequest</h3>
 <div class="paragraph">
 <p>Request object for the CreatePrivateLinkEndpoint method.</p>
@@ -1230,14 +1963,38 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureAccountDetails</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure account details where PrivateLink endpoint is created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureaccountdetails">AzureAccountDetails</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>cloudAccountId</strong><br>
-<em>required</em></p>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Account ID to authorize access for PrivateLink.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cloudServiceProvider</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cloud Service Provider. Currently supporting AWS and Azure.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_cloudserviceprovider">CloudServiceProvider</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1404,6 +2161,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureAccountInfo</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure account details to delete the PrivateLink endpoint from.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureaccountinfo">AzureAccountInfo</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>environmentCrn</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -1512,7 +2281,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_getprivatelinkendpointstatusrequest">GetPrivateLinkEndpointStatusRequest</h3>
 <div class="paragraph">
-<p>Request object for GetPrivateLinkEndpointStatus method.</p>
+<p>Request object for GetPrivateLinkEndpointStatus method. Please use ListPrivateLinkEndpointStatusesRequest as replacement. Deprecated.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1546,7 +2315,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_getprivatelinkendpointstatusresponse">GetPrivateLinkEndpointStatusResponse</h3>
 <div class="paragraph">
-<p>Response object for GetPrivateLinkEndpointStatus method.</p>
+<p>Response object for GetPrivateLinkEndpointStatus method. Please use ListPrivateLinkEndpointStatusesResponse as replacement. Deprecated.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1572,6 +2341,236 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_privatelinkendpointstatus">PrivateLinkEndpointStatus</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listprivatelinkendpointstatusesrequest">ListPrivateLinkEndpointStatusesRequest</h3>
+<div class="paragraph">
+<p>Request object for listPrivateLinkEndpointStatuses method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>trackingId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Tracking ID of the create endpoint request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listprivatelinkendpointstatusesresponse">ListPrivateLinkEndpointStatusesResponse</h3>
+<div class="paragraph">
+<p>Response object for listPrivateLinkEndpointStatuses method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>privatelinkEndpoints</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of statuses of PrivateLink endpoints.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_privatelinkendpointstatus">PrivateLinkEndpointStatus</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listprivatelinkservicesforregionrequest">ListPrivateLinkServicesForRegionRequest</h3>
+<div class="paragraph">
+<p>Request object for the ListPrivateLinkServicesForTheRegion method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>region</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Region for which the private link services to be queried.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceGroup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CDP service group. Currently supported "CDP-CONTROL-PLANE" for PaaS.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listprivatelinkservicesforregionresponse">ListPrivateLinkServicesForRegionResponse</h3>
+<div class="paragraph">
+<p>Response object for the ListPrivateLinkServicesForTheRegion method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>listPrivateLinkServicesForRegionResults</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of ListPrivateLinkServicesForTheRegionResult objects to be returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_listprivatelinkservicesforregionresult">ListPrivateLinkServicesForRegionResult</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listprivatelinkservicesforregionresult">ListPrivateLinkServicesForRegionResult</h3>
+<div class="paragraph">
+<p>Response object containing PL service name and CDP service component.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>availabilityZoneList</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Availability zone list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hostname</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Hostname of the Private Link Service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>privateLinkService</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the Private link service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceComponent</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CDP Service component.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vpceClientTcpPortList</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VPCE Client tcp port list.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1676,7 +2675,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-11-09 14:55:26 -0800
+Last updated 2023-12-13 14:53:56 -0800
 </div>
 </div>
 <br>

@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.101 (BETA)
+  version: 0.9.103 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -3106,7 +3106,6 @@ definitions:
     required:
       - networkName
       - subnetNames
-      - sharedProjectId
     properties:
       networkName:
         type: string
@@ -4699,6 +4698,10 @@ definitions:
         uniqueItems: true
         items:
           $ref: '#/definitions/FreeIpaInstance'
+      instanceCountByGroup:
+        type: integer
+        format: int32
+        description: The number of FreeIPA instances to create per group when creating FreeIPA in environment.
   FreeIpaInstance:
     type: object
     description: Object for a FreeIPA instance providing specific information about the instance.
@@ -5609,6 +5612,9 @@ definitions:
       imageId:
         type: string
         description: Target image ID for upgrade.
+      allowMajorOsUpgrade:
+        type: boolean
+        description: Allows the upgrade to a subsequent major OS version in the series.
   UpgradeFreeipaResponse:
     type: object
     description: The response object for FreeIPA upgrade.

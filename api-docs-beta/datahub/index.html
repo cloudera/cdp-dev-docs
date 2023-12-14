@@ -1231,6 +1231,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_describereciperesponse">DescribeRecipeResponse</a></li>
 <li><a href="#_describescalingactivityrequest">DescribeScalingActivityRequest</a></li>
 <li><a href="#_describescalingactivityresponse">DescribeScalingActivityResponse</a></li>
+<li><a href="#_diskoptions">DiskOptions</a></li>
 <li><a href="#_endpoint">Endpoint</a></li>
 <li><a href="#_endpoints">Endpoints</a></li>
 <li><a href="#_error">Error</a></li>
@@ -1281,6 +1282,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listrecipesresponse">ListRecipesResponse</a></li>
 <li><a href="#_listscalingactivitiesrequest">ListScalingActivitiesRequest</a></li>
 <li><a href="#_listscalingactivitiesresponse">ListScalingActivitiesResponse</a></li>
+<li><a href="#_modifydisks">ModifyDisks</a></li>
 <li><a href="#_prepareclusterupgraderequest">PrepareClusterUpgradeRequest</a></li>
 <li><a href="#_prepareclusterupgraderesponse">PrepareClusterUpgradeResponse</a></li>
 <li><a href="#_recipe">Recipe</a></li>
@@ -1347,7 +1349,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.101 (BETA)</p>
+<p><em>Version</em> : 0.9.103 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -7997,6 +7999,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>multiAz</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.<br>
+<strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>nodeCount</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -9212,6 +9227,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The CRN of the environment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environmentName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -13230,6 +13257,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_diskoptions">DiskOptions</h3>
+<div class="paragraph">
+<p>Attached disk configuration(s).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>modifyDisks</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Modifies all the disks attached to all instances in a group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_modifydisks">ModifyDisks</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_endpoint">Endpoint</h3>
 <div class="paragraph">
 <p>Object which holds the exposed endpoint.</p>
@@ -16124,6 +16185,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_modifydisks">ModifyDisks</h3>
+<div class="paragraph">
+<p>Attached volume configuration.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>size</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Size of disks to modify on all the instances in a group in GB.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeType</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type of disks to modify on all the instances in a group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_prepareclusterupgraderequest">PrepareClusterUpgradeRequest</h3>
 <div class="paragraph">
 <p>Request object to Data Hub upgrade preparation. This command indicates the upgrade preparation for a specific image or a selected runtime version. Important to note that the imageId or the runtime parameter must be present in the request.</p>
@@ -17237,6 +17344,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>diskOptions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Disk options for vertical scaling. Available options are - add, remove, or modify.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_diskoptions">DiskOptions</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>group</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -18026,7 +18145,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-11-09 14:55:26 -0800
+Last updated 2023-12-13 14:53:56 -0800
 </div>
 </div>
 <br>

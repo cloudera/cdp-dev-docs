@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.101 (BETA)
+  version: 0.9.103 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1068,6 +1068,9 @@ definitions:
       instanceTemplate:
         description: Instance template that specifies the core information for the vertical scale.
         $ref: '#/definitions/InstanceTemplate'
+      diskOptions:
+        description: Disk options for vertical scaling - modify disks.
+        $ref: '#/definitions/DiskOptions'
   StartDatalakeVerticalScalingResponse:
     type: object
     description: The response object for Data Lake vertical scaling.
@@ -1082,6 +1085,27 @@ definitions:
       instanceType:
         type: string
         description: The type of the instance.
+  DiskOptions:
+    type: object
+    description: Attached disk configuration(s).
+    properties:
+      modifyDisks:
+        description: Modifies all the disks attached to all instances in a group.
+        $ref: '#/definitions/ModifyDisks'
+  ModifyDisks:
+    type: object
+    description: Attached volume configuration.
+    required:
+      - volumeType
+      - size
+    properties:
+      volumeType:
+        type: string
+        description: Type of disks to modify to on all the instances in a group.
+      size:
+        type: integer
+        format: int32
+        description: Size of disks to modify to on all the instances in a group in GB.
   DatalakeDetails:
     type: object
     description: Details about a datalake

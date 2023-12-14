@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.101 (BETA)
+  version: 0.9.103 (BETA)
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -2290,6 +2290,10 @@ definitions:
       usePublicWorkerNode:
         type: boolean
         description: Set up worker node with public IP address. In AWS it is created in public subnets.
+      enablePrivateEKS:
+        type: boolean
+        description: Use this option to set up AWS EKS cluster in private only mode with restricted access only from internal/peered networks. Ensure you have ccmv2 setup functional to achieve this integration.
+        default: false
       enableStorageRoles:
         type: boolean
         description: Enable Storage Roles
@@ -2312,16 +2316,6 @@ definitions:
       customSubdomain:
         type: string
         description: Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.
-      privateSubnetIds:
-        type: array
-        description: IDs of private AWS subnets where the cluster should be deployed.
-        items:
-          type: string
-      publicSubnetIds:
-        type: array
-        description: IDs of public AWS subnets where the cluster should be deployed.
-        items:
-          type: string
       workerSubnetIds:
         type: array
         description: IDs of AWS subnets where the cluster worker nodes should be deployed.
@@ -2613,6 +2607,10 @@ definitions:
     type: object
     description: Options for activating an AWS environment.
     properties:
+      enablePrivateEKS:
+        type: boolean
+        description: Use this option to set up AWS EKS cluster in private only mode with restricted access only from internal/peered networks. Ensure you have ccmv2 setup functional to achieve this integration.
+        default: false
       workerSubnetIds:
         type: array
         description: IDs of AWS subnets where the cluster worker nodes should be deployed.
