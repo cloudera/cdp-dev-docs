@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.103 (2023-12-13)
+
+IMPROVEMENTS:
+* datahub: Add `multiAz` and `databaseType` parameters to `create-azure-cluster` command.
+* datalake: Add `multiAz` and `databaseType` parameters to `create-azure-datalake` command.
+* environments: Add new `update-azure-database-resources` command.
+* environments: Add `multiAz` and `flexibleServerSubnetIds` parameters to `create-azure-environment` command.
+* environments: Add `instanceCountByGroup` field on `FreeipaDetails` object.
+
+
 ## 0.9.102 (2023-11-29)
 
 IMPROVEMENTS:
