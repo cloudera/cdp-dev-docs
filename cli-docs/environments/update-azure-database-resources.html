@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-gcp-environment &#8212; CDP CLI 0.9.103 documentation</title>
+    <title>update-azure-database-resources &#8212; CDP CLI 0.9.103 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="create-private-environment" href="create-private-environment.html" />
-    <link rel="prev" title="create-gcp-credential" href="create-gcp-credential.html" /> 
+    <link rel="next" title="update-azure-encryption-resources" href="update-azure-encryption-resources.html" />
+    <link rel="prev" title="update-azure-credential" href="update-azure-credential.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-private-environment.html" title="create-private-environment"
+          <a href="update-azure-encryption-resources.html" title="update-azure-encryption-resources"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="create-gcp-credential.html" title="create-gcp-credential"
+          <a href="update-azure-credential.html" title="update-azure-credential"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.103 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
+        <li class="nav-item nav-item-this"><a href="">update-azure-database-resources</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="create-gcp-environment">
-<span id="cli-cdp-environments-create-gcp-environment"></span><h1>create-gcp-environment<a class="headerlink" href="#create-gcp-environment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="update-azure-database-resources">
+<span id="cli-cdp-environments-update-azure-database-resources"></span><h1>update-azure-database-resources<a class="headerlink" href="#update-azure-database-resources" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Creates a new GCP environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
+<dd class="field-odd"><p>Update the Azure database resources for the environment.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.103</p>
@@ -51,30 +51,14 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Creates a new GCP environment.</p>
+<p>Updates the Azure database resources for the environment. Enables deploying private Flexible Server for the existing environment.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-gcp-environment
---environment-name &lt;value&gt;
---credential-name &lt;value&gt;
---region &lt;value&gt;
---public-key &lt;value&gt;
---use-public-ip <span class="p">|</span> --no-use-public-ip
---existing-network-params &lt;value&gt;
-<span class="o">[</span>--security-access &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--log-storage &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--enable-tunnel <span class="p">|</span> --no-enable-tunnel<span class="o">]</span>
-<span class="o">[</span>--workload-analytics <span class="p">|</span> --no-workload-analytics<span class="o">]</span>
-<span class="o">[</span>--report-deployment-logs <span class="p">|</span> --no-report-deployment-logs<span class="o">]</span>
-<span class="o">[</span>--free-ipa &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--endpoint-access-gateway-scheme &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--endpoint-access-gateway-subnet-ids &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--tags &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--proxy-config-name &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--encryption-key &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--availability-zones &lt;value&gt;<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-azure-database-resources
+--environment &lt;value&gt;
+<span class="o">[</span>--database-private-dns-zone-id &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--flexible-server-subnet-ids &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -82,197 +66,17 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
 <blockquote>
-<div><p>The name of the environment. Must contain only lowercase letters, numbers and hyphens.</p>
+<div><p>The name or CRN of the environment.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--credential-name</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--database-private-dns-zone-id</span></code> (string)</p>
 <blockquote>
-<div><p>Name of the credential to use for the environment.</p>
+<div><p>The full Azure resource ID of the existing Private DNS Zone used for Flexible Server and Single Server Databases.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--region</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--flexible-server-subnet-ids</span></code> (array)</p>
 <blockquote>
-<div><p>The region of the environment.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--public-key</span></code> (string)</p>
-<blockquote>
-<div><p>Public SSH key string. The associated private key can be used to get root-level access to the Data Lake instance and Data Hub cluster instances.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--use-public-ip</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-public-ip</span></code> (boolean)</p>
-<blockquote>
-<div><p>Whether to associate public ip’s to the resources within the network.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--existing-network-params</span></code> (object)</p>
-<blockquote>
-<div><p>Request object for creating an GCP environment using existing VPC and subnets.</p>
-<p>networkName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the GCP VPC.</p>
-</div></blockquote>
-<p>subnetNames -&gt; (array)</p>
-<blockquote>
-<div><p>One or more subnet names within the VPC. Google VPC’s are global, please give subnets from single geographic region only to reduce latency.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-<p>sharedProjectId -&gt; (string)</p>
-<blockquote>
-<div><p>The ID of the Google project associated with the VPC.</p>
-</div></blockquote>
-</div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">networkName</span><span class="o">=</span>string,subnetNames<span class="o">=</span>string,string,sharedProjectId<span class="o">=</span>string
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;networkName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;subnetNames&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-  <span class="s2">&quot;sharedProjectId&quot;</span>: <span class="s2">&quot;string&quot;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--security-access</span></code> (object)</p>
-<blockquote>
-<div><p>Firewall rules for FreeIPA, Data Lake and Data Hub deployment.</p>
-<p>securityGroupIdForKnox -&gt; (string)</p>
-<blockquote>
-<div><p>Firewall rule for Knox hosts.</p>
-</div></blockquote>
-<p>defaultSecurityGroupId -&gt; (string)</p>
-<blockquote>
-<div><p>Firewall rule for other hosts.</p>
-</div></blockquote>
-</div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">securityGroupIdForKnox</span><span class="o">=</span>string,defaultSecurityGroupId<span class="o">=</span>string
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;securityGroupIdForKnox&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;defaultSecurityGroupId&quot;</span>: <span class="s2">&quot;string&quot;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--log-storage</span></code> (object)</p>
-<blockquote>
-<div><p>GCP storage configuration for cluster and audit logs.</p>
-<p>storageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The Google storage bucket to use. This should be a gs:// url.</p>
-</div></blockquote>
-<p>serviceAccountEmail -&gt; (string)</p>
-<blockquote>
-<div><p>Email id of the service account to be associated with the instances. This service account should have “storage.ObjectCreator” role on the given storage bucket.</p>
-</div></blockquote>
-<p>backupStorageLocationBase -&gt; (string)</p>
-<blockquote>
-<div><p>The Google storage bucket to use. This should be a gs:// url.</p>
-</div></blockquote>
-</div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">storageLocationBase</span><span class="o">=</span>string,serviceAccountEmail<span class="o">=</span>string,backupStorageLocationBase<span class="o">=</span>string
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;storageLocationBase&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;serviceAccountEmail&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;backupStorageLocationBase&quot;</span>: <span class="s2">&quot;string&quot;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
-<blockquote>
-<div><p>A description of the environment.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--enable-tunnel</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-tunnel</span></code> (boolean)</p>
-<blockquote>
-<div><p>Whether to enable SSH tunneling for the environment.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--workload-analytics</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-workload-analytics</span></code> (boolean)</p>
-<blockquote>
-<div><p>When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--report-deployment-logs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-report-deployment-logs</span></code> (boolean)</p>
-<blockquote>
-<div><p>When true, this will report additional diagnostic information back to Cloudera.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--free-ipa</span></code> (object)</p>
-<blockquote>
-<div><p>Request object for creating FreeIPA in the environment.</p>
-<p>instanceCountByGroup -&gt; (integer)</p>
-<blockquote>
-<div><p>The number of FreeIPA instances to create per group when creating FreeIPA in the environment</p>
-</div></blockquote>
-<p>recipes -&gt; (array)</p>
-<blockquote>
-<div><p>The recipes for the FreeIPA cluster.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-<p>instanceType -&gt; (string)</p>
-<blockquote>
-<div><p>Custom instance type of FreeIPA instances.</p>
-</div></blockquote>
-</div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceCountByGroup</span><span class="o">=</span>integer,recipes<span class="o">=</span>string,string,instanceType<span class="o">=</span>string
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;instanceCountByGroup&quot;</span>: integer,
-  <span class="s2">&quot;recipes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-  <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-scheme</span></code> (string)</p>
-<blockquote>
-<div><p>The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC.</p>
-<p>Possible values:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PRIVATE</span></code></p></li>
-</ul>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--endpoint-access-gateway-subnet-ids</span></code> (array)</p>
-<blockquote>
-<div><p>The subnets to use for endpoint access gateway.</p>
-</div></blockquote>
-<p>Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (array)</p>
-<blockquote>
-<div><p>Tags that can be attached to GCP resources. Please refer to Google documentation for the rules <a class="reference external" href="https://cloud.google.com/compute/docs/labeling-resources#label_format">https://cloud.google.com/compute/docs/labeling-resources#label_format</a>.</p>
-</div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
-  <span class="o">{</span>
-    <span class="s2">&quot;key&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;string&quot;</span>
-  <span class="o">}</span>
-  ...
-<span class="o">]</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--proxy-config-name</span></code> (string)</p>
-<blockquote>
-<div><p>Name of the proxy config to use for the environment.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--encryption-key</span></code> (string)</p>
-<blockquote>
-<div><p>Key Resource ID of the customer managed encryption key to encrypt GCP resources.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--availability-zones</span></code> (array)</p>
-<blockquote>
-<div><p>The zones of the environment in the given region. Multi-zone selection is not supported in GCP yet. It accepts only one zone until support is added.</p>
+<div><p>The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.</p>
 </div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
@@ -769,6 +573,19 @@
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
+<p>azureDatabaseResources -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing details of database resources for Azure cloud.</p>
+<p>databasePrivateDnsZoneId -&gt; (string)</p>
+<blockquote>
+<div><p>The full Azure resource ID of the existing Private DNS Zone used for Flexible Server and Single Server Databases.</p>
+</div></blockquote>
+<p>flexibleServerSubnetIds -&gt; (array)</p>
+<blockquote>
+<div><p>The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
 </div>
 <div class="section" id="form-factors">
 <h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
@@ -785,7 +602,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">create-gcp-environment</a><ul>
+<li><a class="reference internal" href="#">update-azure-database-resources</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -796,11 +613,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="create-gcp-credential.html"
-                        title="previous chapter">create-gcp-credential</a></p>
+  <p class="topless"><a href="update-azure-credential.html"
+                        title="previous chapter">update-azure-credential</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="create-private-environment.html"
-                        title="next chapter">create-private-environment</a></p>
+  <p class="topless"><a href="update-azure-encryption-resources.html"
+                        title="next chapter">update-azure-encryption-resources</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -819,14 +636,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-private-environment.html" title="create-private-environment"
+          <a href="update-azure-encryption-resources.html" title="update-azure-encryption-resources"
              >next</a></li>
         <li class="right" >
-          <a href="create-gcp-credential.html" title="create-gcp-credential"
+          <a href="update-azure-credential.html" title="update-azure-credential"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.103 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">create-gcp-environment</a></li> 
+        <li class="nav-item nav-item-this"><a href="">update-azure-database-resources</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
