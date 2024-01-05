@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.103 (BETA)
+  version: 0.9.104 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -747,6 +747,9 @@ definitions:
       autoScalingParameters:
         description: Parameters to configure the AutoScaling
         $ref: '#/definitions/AutoScalingParameters'
+      disableExternalDB:
+        type: boolean
+        description: Skips external database creation to avoid DB creation time.
       subnetId:
         type: string
         description: Override subnet where the database will be deployed. Disables Multi-AZ if set.

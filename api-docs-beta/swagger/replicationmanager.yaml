@@ -5,7 +5,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.103 (BETA)
+  version: 0.9.104 (BETA)
   title: Cloudera Replication Manager Service
   license:
     name: Apache 2.0
@@ -270,27 +270,6 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/replicationmanager/updatePolicy:
-    post:
-      summary: Update a Replication Policy.
-      description: Updates an existing replication policy with the given parameters on a specific cluster.
-      operationId: updatePolicy
-      x-mutating: true
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/UpdatePolicyRequest'
-      responses:
-        200:
-          description: Describes a successful response to a valid request.
-          schema:
-            $ref: '#/definitions/UpdatePolicyResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
   /api/v1/replicationmanager/suspendPolicy:
     post:
       summary: Stop all replication tasks defined by the policy.
@@ -333,23 +312,233 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/replicationmanager/rerunPolicy:
+  /api/v1/replicationmanager/createHbasePolicy:
     post:
-      summary: Rerun policy job.
-      description: Instantly starts a new job of a provided policy.
-      operationId: rerunPolicy
+      summary: Create an HBase Replication Policy.
+      description: Creates a new HBase replication policy with the given name on a specific cluster.
+      operationId: createHbasePolicy
       x-mutating: true
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/RerunPolicyRequest'
+            $ref: '#/definitions/CreateHbasePolicyRequest'
       responses:
         200:
           description: Describes a successful response to a valid request.
           schema:
-            $ref: '#/definitions/RerunPolicyResponse'
+            $ref: '#/definitions/CreateHbasePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateHbasePolicy:
+    post:
+      summary: Update an HBase Replication Policy.
+      description: Updates an existing HBase replication policy with the given parameters on a specific cluster.
+      operationId: updateHbasePolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateHbasePolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateHbasePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/continueHbaseSetup:
+    post:
+      summary: Continue the setup of an HBase policy.
+      description: Continues the setup of an HBase policy. If an HBase policy has a Classic Cluster source, the HBase service on the source will not be restarted automatically. The restart on the source needs to be executed manually, and then the continue setup step has to be called. There is no need to call this command if the source cluster is not a Classic Cluster.
+      operationId: continueHbaseSetup
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ContinueHbaseSetupRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/ContinueHbaseSetupResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/suspendHbasePolicy:
+    post:
+      summary: Suspend an HBase replication policy.
+      description: Pauses an active HBase replication policy. Note that if the destination cluster's Cloudera Manager API version is higher than 50 then it suspends all HBase replication policies between the same source and destination cluster, while if it is less than 45 then it only suspends the selected policy. Suspend is not available for versions between 45 and 50.
+      operationId: suspendHbasePolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SuspendHbasePolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/SuspendHbasePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/activateHbasePolicy:
+    post:
+      summary: Resume a suspended HBase replication policy.
+      description: Resumes an HBase replication policy if it has previously been suspended. Note that if the destination cluster's Cloudera Manager API version is higher than 50 then it resumes all HBase replication policies between the same source and destination cluster, while if it is less than 45 then it only resumes the selected policy. Resume is not available for versions between 45 and 50.
+      operationId: activateHbasePolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ActivateHbasePolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/ActivateHbasePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/deleteHbasePolicy:
+    post:
+      summary: Delete an HBase Replication Policy.
+      description: Permanently deletes a specific HBase replication policy.
+      operationId: deleteHbasePolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DeleteHbasePolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/DeleteHbasePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/repairHbasePolicy:
+    post:
+      summary: Repair a failed HBase policy.
+      description: Attempts to repair an HBase policy in failed update state by resending the last update.
+      operationId: repairHbasePolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RepairHbasePolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/RepairHbasePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/retryFailedHbaseSnapshots:
+    post:
+      summary: Retry failed snapshots for an HBase policy.
+      description: Reruns the failed initial snapshots (and only the failed ones) in the replication policy if it has failed to replicate the existing data of some or all tables.
+      operationId: retryFailedHbaseSnapshots
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RetryFailedHbaseSnapshotsRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/RetryFailedHbaseSnapshotsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/retryFailedHbaseFirstTimeSetup:
+    post:
+      summary: Retry failed first time setup for an HBase policy.
+      description: Runs the first time setup configuration between the source and destination clusters if the first time setup has failed for the given policy.
+      operationId: retryFailedHbaseFirstTimeSetup
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RetryFailedHbaseFirstTimeSetupRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/RetryFailedHbaseFirstTimeSetupResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/listPairedHbaseClusters:
+    post:
+      summary: List cluster CRNs which have an active HBase policy.
+      description: Provides a list of cluster CRNs with active HBase policies.
+      operationId: listPairedHbaseClusters
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListPairedHbaseClustersRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/ListPairedHbaseClustersResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/getHbaseTimeSeries:
+    post:
+      summary: Retrieve time series data for an HBase replication peer.
+      description: Returns time series data for an HBase replication peer based on the provided parameters.
+      operationId: getHbaseTimeSeries
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetHbaseTimeSeriesRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/GetHbaseTimeSeriesResponse'
         default:
           description: The default response on an error.
           schema:
@@ -758,7 +947,7 @@ definitions:
         description: Name of the credential to update.
         type: string
       type:
-        description: 'Type of the credential. Additional accpeted parameters by type: IAM: none; ACCESSKEY: accessKey, secretKey. Superfluous parameters are ignored.'
+        description: 'Type of the credential. Additional accepted parameters by type: IAM: none; ACCESSKEY: accessKey, secretKey. Superfluous parameters are ignored.'
         $ref: '#/definitions/AwsCloudCredentialType'
       accessKey:
         description: AWS access key.
@@ -923,92 +1112,432 @@ definitions:
   CreatePolicyResponse:
     type: object
     description: Response object for createPolicy.
-  UpdatePolicyRequest:
+  CreateHbasePolicyRequest:
     type: object
-    description: Update a replication policy request.
+    description: Create an HBase replication policy.
     required:
       - clusterCrn
       - policyName
-      - updatePolicyDefinition
+      - policyDefinition
+    properties:
+      clusterCrn:
+        description: CRN of the destination cluster.
+        type: string
+      policyName:
+        type: string
+        description: Name of the new policy.
+      policyDefinition:
+        description: Policy definition.
+        $ref: '#/definitions/HbasePolicyDefinition'
+  CreateHbasePolicyResponse:
+    type: object
+    description: Response object for createHbasePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  UpdateHbasePolicyRequest:
+    type: object
+    description: Update HBase replication policy request.
+    required:
+      - clusterCrn
+      - policyId
+      - updateHbasePolicyDefinition
     properties:
       clusterCrn:
         type: string
         description: The CRN of the cluster where the policy will be updated.
-      policyName:
+      policyId:
         type: string
-        description: The name of the policy to be updated.
-      updatePolicyDefinition:
+        description: The ID of the policy to be updated.
+      updateHbasePolicyDefinition:
         description: The policy definition.
-        $ref: '#/definitions/UpdatePolicyDefinition'
-  UpdatePolicyDefinition:
+        $ref: '#/definitions/UpdateHbasePolicyDefinition'
+  UpdateHbasePolicyDefinition:
     type: object
-    description: Policy update request definition.
+    description: HBase policy update request definition.
     properties:
       name:
+        type: string
         description: The policy name.
-        type: string
-      suspend:
-        description: Whether to suspend the policy. Changing this is the same as using suspend-policy (suspend = true) and activate-policy (suspend = false).
-        type: boolean
-      sourceUpdateDataset:
-        description: The source dataset to replicate.
-        $ref: '#/definitions/SourceUpdateDataset'
-      frequencyInSec:
-        description: Policy's frequency in seconds.
-        type: integer
-        format: int64
-      targetDataset:
-        description: The path of the dataset to replicate to.
-        type: string
-      startTime:
-        description: Policy start time.
-        type: string
-        format: date-time
-      endTime:
-        description: Policy end time.
-        type: string
-        format: date-time
-      distcpMaxMaps:
-        description: Maximum Map jobs to use for replication.
-        type: integer
-        format: int64
-      distcpMapBandwidth:
-        description: Maximum bandwidth to use for replication.
-        type: integer
-        format: int64
-      queueName:
-        description: YARN queue name if not default.
-        type: string
-      tdeSameKey:
-        description: Whether to use TDE same key.
-        type: boolean
       description:
+        type: string
         description: Description of the policy.
-        type: string
-      enableSnapshotBasedReplication:
-        description: Whether to enable snapshot based replication.
-        type: boolean
-      cloudEncryptionAlgorithm:
-        description: The type of cloud encryption algorithm. Can be used only for HDP/Ambari managed clusters. Supported values are AES256,SSE-KMS.
-        type: string
-      cloudEncryptionKey:
-        description: The encryption key for the selected cloud encryption algorithm.
-        type: string
-      plugins:
-        description: The list of plugins.
+      tables:
+        description: List of tables to be replicated. The items should be in "namespace:tablename" format.
         x-default: null
         type: array
         items:
           type: string
-      hiveExternalTableBaseDirectory:
-        description: The base directory path on the target where to put the replicated Hive external tables.
-        type: string
-      cmPolicySubmitUser:
-        description: CM policy submit user.
-        $ref: '#/definitions/CmPolicySubmitUser'
-  UpdatePolicyResponse:
+  UpdateHbasePolicyResponse:
     type: object
-    description: Response object for updatePolicy.
+    description: Response object for updateHbasePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request (Successful or an error).
+  ContinueHbaseSetupRequest:
+    type: object
+    description: Continue an HBase setup for Classic Cluster source.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the destination cluster.
+      policyId:
+        type: string
+        description: The ID of the HBase policy.
+  ContinueHbaseSetupResponse:
+    type: object
+    description: Response object for continueHbaseSetup.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  ActivateHbasePolicyRequest:
+    type: object
+    description: Activate an HBase replication policy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the destination cluster.
+      policyId:
+        type: string
+        description: ID of the HBase policy.
+  ActivateHbasePolicyResponse:
+    type: object
+    description: Response object for activateHbasePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  SuspendHbasePolicyRequest:
+    type: object
+    description: Suspend an HBase replication policy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the destination cluster.
+      policyId:
+        type: string
+        description: ID of the HBase policy.
+  SuspendHbasePolicyResponse:
+    type: object
+    description: Response object for suspendHbasePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  DeleteHbasePolicyRequest:
+    type: object
+    description: Request object to delete an HBase replication policy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the destination cluster.
+      policyId:
+        type: string
+        description: ID of the HBase policy.
+      force:
+        type: boolean
+        description: Option to force delete an Hbase policy. It should be used if the normal delete fails (e.g. when the source cluster is unreachable).
+  DeleteHbasePolicyResponse:
+    type: object
+    description: Response object for deleteHbasePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  RepairHbasePolicyRequest:
+    type: object
+    description: Attempt to repair an HBase replication policy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the destination cluster.
+      policyId:
+        type: string
+        description: ID of the HBase policy.
+  RepairHbasePolicyResponse:
+    type: object
+    description: Response object for repairHbasePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  RetryFailedHbaseSnapshotsRequest:
+    type: object
+    description: Request object to retry failed snapshots for an HBase policy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the destination cluster.
+      policyId:
+        type: string
+        description: ID of the HBase policy.
+  RetryFailedHbaseSnapshotsResponse:
+    type: object
+    description: Response object for retryFailedHbaseSnapshots.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  RetryFailedHbaseFirstTimeSetupRequest:
+    type: object
+    description: Request object to retry first time setup for an HBase policy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the destination cluster.
+      policyId:
+        type: string
+        description: ID of the HBase policy.
+      machineUser:
+        description: Machine user details to use for the replication. If not specified, an internal machine user will be created and synchronized to the required environments.
+        $ref: '#/definitions/MachineUser'
+      sourceRestartType:
+        description: Type of restart for the source cluster. This is only accepted if the source is not a Classic Cluster and the destination has restart-type support. Default is ROLLING_RESTART.
+        $ref: '#/definitions/RestartType'
+      targetRestartType:
+        description: Type of restart for the destination cluster. This is only accepted if the cluster has restart-type support. Default is ROLLING_RESTART.
+        $ref: '#/definitions/RestartType'
+  RetryFailedHbaseFirstTimeSetupResponse:
+    type: object
+    description: Response object for retryFailedHbaseFirstTimeSetup.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
+  ListPairedHbaseClustersRequest:
+    type: object
+    description: Request to list all paired HBase cluster CRNs.
+  ListPairedHbaseClustersResponse:
+    type: object
+    description: Response object for listPairedHbaseClusters.
+    properties:
+      pairings:
+        description: The list of CRN pairings.
+        type: array
+        items:
+          $ref: '#/definitions/HbaseCrnPairs'
+      crnsMissingHbaseService:
+        description: Cluster CRNs where the HBase service was missing and pairing status could not be determined.
+        type: array
+        items:
+          type: string
+      unreachableClusters:
+        description: The list of errors for unreachable clusters.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  GetHbaseTimeSeriesRequest:
+    type: object
+    description: Request to retrieve time series data for an HBase replication peer.
+    required:
+      - clusterCrn
+      - policyId
+      - metric
+    properties:
+      clusterCrn:
+        description: CRN of the destination cluster of the policy.
+        type: string
+      policyId:
+        description: ID of the policy that the time series data is requested for.
+        type: string
+      metric:
+        description: Name of the HBase replication peer metric.
+        type: string
+        enum:
+          - age_of_last_shipped_operation
+          - log_edits_filtered_rate
+          - log_edits_read_rate
+          - log_queue_size
+          - log_read_in_bytes_rate
+          - shipped_batches_rate
+          - shipped_ops_rate
+          - shipped_size_in_kb_rate
+          - age_of_last_shipped_operation_25th_percentile
+          - age_of_last_shipped_operation_75th_percentile
+          - age_of_last_shipped_operation_90th_percentile
+          - age_of_last_shipped_operation_98th_percentile
+          - age_of_last_shipped_operation_99th_percentile
+          - age_of_last_shipped_operation_999th_percentile
+          - age_of_last_shipped_operation_max
+          - age_of_last_shipped_operation_mean
+          - age_of_last_shipped_operation_median
+          - age_of_last_shipped_operation_min
+          - age_of_last_shipped_operation_rate
+          - shipped_hfiles_rate
+          - size_of_hfile_refs_queue
+      startTime:
+        description: Start time of the time series data. Defaults to 5 minutes before end time.
+        type: string
+        format: date-time
+      endTime:
+        description: End time of the time series data. Defaults to current time.
+        type: string
+        format: date-time
+      rollup:
+        description: Aggregate rollup level for time series data. Defaults to RAW data.
+        type: string
+        enum:
+          - RAW
+          - TEN_MINUTELY
+          - HOURLY
+          - SIX_HOURLY
+          - DAILY
+          - WEEKLY
+  GetHbaseTimeSeriesResponse:
+    type: object
+    description: Response object for getHbaseTimeSeries.
+    properties:
+      hbasePeerName:
+        type: string
+        description: Name of the HBase peer used for replication.
+      sourceCluster:
+        type: string
+        description: 'Name of source cluster in the format: "dataCenterName$cluster name", for example "DC-Europe$My Source 42".'
+      targetCluster:
+        type: string
+        description: 'Name of destination cluster in the format: "dataCenterName$cluster name", for example "DC-US$My Destination 17".'
+      timeSeries:
+        description: Time series data with additional metadata.
+        $ref: '#/definitions/HbaseTimeSeries'
+  HbaseTimeSeries:
+    type: object
+    description: HBase time series data and metadata.
+    properties:
+      metadata:
+        description: Metadata regarding the time series data.
+        $ref: '#/definitions/HbaseTimeSeriesMetadata'
+      data:
+        description: List of time series data points.
+        type: array
+        items:
+          $ref: '#/definitions/HbaseTimeSeriesData'
+  HbaseTimeSeriesMetadata:
+    type: object
+    description: Time series metadata.
+    properties:
+      metricName:
+        description: Name of the metric.
+        type: string
+      startTime:
+        description: Start time of the time series data.
+        type: string
+        format: date-time
+      endTime:
+        description: End time of the time series data.
+        type: string
+        format: date-time
+      attributes:
+        description: Attributes of the resource providing time series data.
+        $ref: '#/definitions/HbaseTimeSeriesMetadataAttributes'
+      unitNumerator:
+        description: Unit numerator.
+        type: string
+      unitDenominator:
+        description: Unit denominator.
+        type: string
+  HbaseTimeSeriesMetadataAttributes:
+    type: object
+    description: Attributes of the resource providing time series data.
+    properties:
+      serviceName:
+        description: Service name.
+        type: string
+      clusterName:
+        description: Cluster name.
+        type: string
+  HbaseTimeSeriesData:
+    type: object
+    description: Time series data point.
+    properties:
+      timestamp:
+        description: Timestamp of the data point.
+        type: string
+        format: date-time
+      value:
+        description: Value of the data point.
+        type: number
+        format: double
   SuspendPolicyRequest:
     type: object
     description: Suspend a replication policy.
@@ -1153,35 +1682,6 @@ definitions:
       bundleStatusMessage:
         description: Further information about the current command status.
         type: string
-  RerunPolicyRequest:
-    type: object
-    description: Request object for rerun policy.
-    required:
-      - clusterCrn
-      - policyName
-    properties:
-      clusterCrn:
-        type: string
-        description: The CRN of the cluster where the replication policy run gets executed.
-      policyName:
-        type: string
-        description: The name of the policy to rerun.
-  RerunPolicyResponse:
-    type: object
-    description: Response object for rerun policy.
-    properties:
-      clusterCrn:
-        type: string
-        description: The CRN of the cluster where the replication policy run gets executed.
-      requestId:
-        type: string
-        description: The ID of the request. Populated only for Ambari backend.
-      message:
-        type: string
-        description: The output of rerun policy command.
-      status:
-        type: string
-        description: The status of the request.
   CreateSnapshotPolicyRequest:
     type: object
     description: Request object for createSnapshotPolicy.
@@ -1913,16 +2413,6 @@ definitions:
       hiveArguments:
         description: Arguments for Hive replication, null if HDFS replication.
         $ref: '#/definitions/HiveArguments'
-  SourceUpdateDataset:
-    type: object
-    description: Extra properties for updating the source dataset.
-    properties:
-      hdfsArguments:
-        description: Updatable arguments for HDFS replication.
-        $ref: '#/definitions/HdfsUpdateArguments'
-      hiveArguments:
-        description: Updatable arguments for Hive replication, null if HDFS replication.
-        $ref: '#/definitions/HiveArguments'
   HdfsArguments:
     type: object
     description: Extra properties for HDFS.
@@ -1950,44 +2440,6 @@ definitions:
         $ref: '#/definitions/Preserve'
       deletePolicy:
         description: Deletion behavior.
-        type: string
-        enum:
-          - KEEP_DELETED_FILES
-          - DELETE_TO_TRASH
-          - DELETE_PERMANENTLY
-      alert:
-        description: Alerting behavior.
-        $ref: '#/definitions/Alert'
-      exclusionFilters:
-        description: Exclusion filters in glob format.
-        type: array
-        x-default: null
-        items:
-          type: string
-  HdfsUpdateArguments:
-    type: object
-    description: Updatable HDFS properties.
-    properties:
-      replicationStrategy:
-        description: Replication strategy.
-        type: string
-        enum:
-          - DYNAMIC
-          - STATIC
-      mapReduceService:
-        description: The name of the MapReduce service.
-        type: string
-      logPath:
-        description: The HDFS path where the replication log files should be written to.
-        type: string
-      errorHandling:
-        description: Error handling strategy.
-        $ref: '#/definitions/ErrorHandling'
-      preserve:
-        description: Properties to preserve.
-        $ref: '#/definitions/Preserve'
-      deletePolicy:
-        description: Deletion behavior for the target side when files are removed on the source side. KEEP_DELETED_FILES:Keep deleted source files on the target, DELETE_TO_TRASH:Remove the deleted source files to trash on the target, DELETE_PERMANENTLY:Permanently remove deleted files on the target.
         type: string
         enum:
           - KEEP_DELETED_FILES
@@ -2112,6 +2564,95 @@ definitions:
       sourceUser:
         description: Source user.
         type: string
+  HbasePolicyDefinition:
+    type: object
+    description: HBase policy definition.
+    required:
+      - hbasePolicyArguments
+      - sourceCluster
+      - targetCluster
+      - initialSnapshot
+    properties:
+      hbasePolicyArguments:
+        description: HBase policy arguments.
+        $ref: '#/definitions/HbasePolicyArguments'
+      sourceCluster:
+        description: 'Name of source cluster in the format: "dataCenterName$cluster name", for example "DC-Europe$My Source 42."'
+        type: string
+      targetCluster:
+        description: 'Name of destination cluster in the format: "dataCenterName$cluster name", for example "DC-US$My Destination 17".'
+        type: string
+      initialSnapshot:
+        description: If set to true, the current data in the table will be replicated before the HBase replication peer gets enabled. If set to false, only the data changed after the policy creation will be replicated.
+        type: boolean
+      description:
+        description: Description of the policy.
+        type: string
+      machineUser:
+        description: Machine user details to use for the replication. If not specified, an internal machine user will be created and synchronized to the required environments.
+        $ref: '#/definitions/MachineUser'
+      queueName:
+        description: YARN queue name to use for initial snapshot if not default.
+        type: string
+      distcpMaxMaps:
+        description: Maximum Map jobs to use for initial snapshot.
+        type: integer
+        format: int64
+      sourceRestartType:
+        description: Type of restart for the source cluster. This is only accepted if the source is not a Classic Cluster and the destination has restart-type support. Default is ROLLING_RESTART.
+        $ref: '#/definitions/RestartType'
+      targetRestartType:
+        description: Type of restart for the destination cluster. This is only accepted if the cluster has restart-type support. Default is ROLLING_RESTART.
+        $ref: '#/definitions/RestartType'
+  HbasePolicyArguments:
+    type: object
+    description: HBase replication parameters.
+    properties:
+      tables:
+        description: List of tables to be replicated. The key should be in "namespace:tablename" format. If this list is empty, then the whole database will be replicated.
+        type: array
+        x-default: null
+        items:
+          type: string
+      credentialLocation:
+        description: Location of the credentials provided for initial snapshots. Setting it to 'SAFETY_VALVE' indicates that the credentials are available in safety valves on the source cluster, otherwise credentials have to be defined in the 'cloudCredential' property. Defaults to 'EXTERNAL_ACCOUNT'.
+        type: string
+        enum:
+          - EXTERNAL_ACCOUNT
+          - SAFETY_VALVE
+      cloudCredential:
+        description: Cloud credentials to use to replicate the initial snapshot if the credential location is specified as 'EXTERNAL_ACCOUNT'.
+        type: string
+      validateReplicationSetup:
+        description: Whether to validate replication setup after policy creation.
+        type: boolean
+  MachineUser:
+    type: object
+    description: Username and password for the machine user.
+    required:
+      - user
+      - password
+      - createUser
+    properties:
+      user:
+        description: Username.
+        type: string
+      password:
+        description: Password.
+        x-sensitive: true
+        type: string
+      createUser:
+        description: This option has no effect if the machine user already exists. Otherwise if 'true', a new machine user is created. If 'false', an error is returned indicating that the user does not exist.
+        type: boolean
+  HbaseCrnPairs:
+    type: object
+    description: HBase CRN pairs.
+    properties:
+      pairedCrns:
+        description: The list of CRNs which are peers of each other.
+        type: array
+        items:
+          type: string
   AwsCloudCredentialType:
     type: string
     description: AWS cloud credential type.
@@ -2130,6 +2671,12 @@ definitions:
     enum:
       - HDFS
       - HBASE
+  RestartType:
+    type: string
+    description: Type of restart for a cluster.
+    enum:
+      - RESTART
+      - ROLLING_RESTART
   ListSnapshotPoliciesRequest:
     type: object
     description: Request object for listing all snapshot policies.

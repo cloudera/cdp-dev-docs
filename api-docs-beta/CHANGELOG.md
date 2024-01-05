@@ -1,5 +1,9 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.104 (2024-01-04)
+Maintenance update
+
+
 ## 0.9.103 (2023-12-13)
 
 IMPROVEMENTS:

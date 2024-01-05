@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="copyright" content="Copyright © 2023 Cloudera, Inc. All rights reserved.">
+<meta name="copyright" content="Copyright © 2024 Cloudera, Inc. All rights reserved.">
 <title>Cloudera Replication Manager Service</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
@@ -690,200 +690,263 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </li>
 <li><a href="#_paths">Paths</a>
 <ul class="sectlevel2">
-<li><a href="#_activatepolicy">Resume all replication tasks defined by the policy.</a>
+<li><a href="#_activatehbasepolicy">Resume a suspended HBase replication policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description">Description</a></li>
 <li><a href="#_parameters">Parameters</a></li>
 <li><a href="#_responses">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_activatesnapshotpolicy">Resume snapshot policy.</a>
+<li><a href="#_activatepolicy">Resume all replication tasks defined by the policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_parameters_2">Parameters</a></li>
 <li><a href="#_responses_2">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_collectdiagnosticbundle">Collect diagnostic bundle for a policy.</a>
+<li><a href="#_activatesnapshotpolicy">Resume snapshot policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createabfscredential">Create an ABFS Cloud Credential.</a>
+<li><a href="#_collectdiagnosticbundle">Collect diagnostic bundle for a policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_4">Description</a></li>
 <li><a href="#_parameters_4">Parameters</a></li>
 <li><a href="#_responses_4">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createawscredential">Create an AWS Cloud Credential.</a>
+<li><a href="#_continuehbasesetup">Continue the setup of an HBase policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_5">Description</a></li>
 <li><a href="#_parameters_5">Parameters</a></li>
 <li><a href="#_responses_5">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createpolicy">Create a Replication Policy.</a>
+<li><a href="#_createabfscredential">Create an ABFS Cloud Credential.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_6">Description</a></li>
 <li><a href="#_parameters_6">Parameters</a></li>
 <li><a href="#_responses_6">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createsnapshotpolicy">Create snapshot policy.</a>
+<li><a href="#_createawscredential">Create an AWS Cloud Credential.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_7">Description</a></li>
 <li><a href="#_parameters_7">Parameters</a></li>
 <li><a href="#_responses_7">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deletecredential">Delete Cloud Credential.</a>
+<li><a href="#_createhbasepolicy">Create an HBase Replication Policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_8">Description</a></li>
 <li><a href="#_parameters_8">Parameters</a></li>
 <li><a href="#_responses_8">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deletepolicy">Delete Replication Policy.</a>
+<li><a href="#_createpolicy">Create a Replication Policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_9">Description</a></li>
 <li><a href="#_parameters_9">Parameters</a></li>
 <li><a href="#_responses_9">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deletesnapshotpolicy">Delete snapshot policy.</a>
+<li><a href="#_createsnapshotpolicy">Create snapshot policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_10">Description</a></li>
 <li><a href="#_parameters_10">Parameters</a></li>
 <li><a href="#_responses_10">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_downloaddiagnosticbundle">Download diagnostic bundle for a policy.</a>
+<li><a href="#_deletecredential">Delete Cloud Credential.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_11">Description</a></li>
 <li><a href="#_parameters_11">Parameters</a></li>
 <li><a href="#_responses_11">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getcommandstatus">Get the status of the given CM command.</a>
+<li><a href="#_deletehbasepolicy">Delete an HBase Replication Policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_12">Description</a></li>
 <li><a href="#_parameters_12">Parameters</a></li>
 <li><a href="#_responses_12">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getcredentials">Get Cloud Credentials from a Cluster.</a>
+<li><a href="#_deletepolicy">Delete Replication Policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_13">Description</a></li>
 <li><a href="#_parameters_13">Parameters</a></li>
 <li><a href="#_responses_13">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getsnapshotpolicy">Get Snapshot Policy.</a>
+<li><a href="#_deletesnapshotpolicy">Delete snapshot policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_14">Description</a></li>
 <li><a href="#_parameters_14">Parameters</a></li>
 <li><a href="#_responses_14">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listallcredentials">Lists Cloud Credentials.</a>
+<li><a href="#_downloaddiagnosticbundle">Download diagnostic bundle for a policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_15">Description</a></li>
 <li><a href="#_parameters_15">Parameters</a></li>
 <li><a href="#_responses_15">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listclusterservicestatuses">Lists Cluster Service Statuses.</a>
+<li><a href="#_getcommandstatus">Get the status of the given CM command.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_16">Description</a></li>
 <li><a href="#_parameters_16">Parameters</a></li>
 <li><a href="#_responses_16">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listclusters">Lists all clusters.</a>
+<li><a href="#_getcredentials">Get Cloud Credentials from a Cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_17">Description</a></li>
 <li><a href="#_parameters_17">Parameters</a></li>
 <li><a href="#_responses_17">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listpolicies">Get All Replication Policies.</a>
+<li><a href="#_gethbasetimeseries">Retrieve time series data for an HBase replication peer.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_18">Description</a></li>
 <li><a href="#_parameters_18">Parameters</a></li>
 <li><a href="#_responses_18">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listsnapshotpolicies">Get All Snapshot Policies.</a>
+<li><a href="#_getsnapshotpolicy">Get Snapshot Policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_19">Description</a></li>
 <li><a href="#_parameters_19">Parameters</a></li>
 <li><a href="#_responses_19">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listsnapshotpolicyjobs">List snapshot policy jobs.</a>
+<li><a href="#_listallcredentials">Lists Cloud Credentials.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_20">Description</a></li>
 <li><a href="#_parameters_20">Parameters</a></li>
 <li><a href="#_responses_20">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_rerunpolicy">Rerun policy job.</a>
+<li><a href="#_listclusterservicestatuses">Lists Cluster Service Statuses.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_21">Description</a></li>
 <li><a href="#_parameters_21">Parameters</a></li>
 <li><a href="#_responses_21">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoresnapshot">Restore snapshot.</a>
+<li><a href="#_listclusters">Lists all clusters.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_22">Description</a></li>
 <li><a href="#_parameters_22">Parameters</a></li>
 <li><a href="#_responses_22">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_suspendpolicy">Stop all replication tasks defined by the policy.</a>
+<li><a href="#_listpairedhbaseclusters">List cluster CRNs which have an active HBase policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_23">Description</a></li>
 <li><a href="#_parameters_23">Parameters</a></li>
 <li><a href="#_responses_23">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_suspendsnapshotpolicy">Suspend snapshot policy.</a>
+<li><a href="#_listpolicies">Get All Replication Policies.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_24">Description</a></li>
 <li><a href="#_parameters_24">Parameters</a></li>
 <li><a href="#_responses_24">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateabfscredential">Update an ABFS Cloud Credential.</a>
+<li><a href="#_listsnapshotpolicies">Get All Snapshot Policies.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_25">Description</a></li>
 <li><a href="#_parameters_25">Parameters</a></li>
 <li><a href="#_responses_25">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateawscredential">Update an AWS Cloud Credential.</a>
+<li><a href="#_listsnapshotpolicyjobs">List snapshot policy jobs.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_26">Description</a></li>
 <li><a href="#_parameters_26">Parameters</a></li>
 <li><a href="#_responses_26">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatepolicy">Update a Replication Policy.</a>
+<li><a href="#_repairhbasepolicy">Repair a failed HBase policy.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_27">Description</a></li>
 <li><a href="#_parameters_27">Parameters</a></li>
 <li><a href="#_responses_27">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatesnapshotpolicy">Update snapshot policy.</a>
+<li><a href="#_restoresnapshot">Restore snapshot.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_28">Description</a></li>
 <li><a href="#_parameters_28">Parameters</a></li>
 <li><a href="#_responses_28">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_retryfailedhbasefirsttimesetup">Retry failed first time setup for an HBase policy.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_29">Description</a></li>
+<li><a href="#_parameters_29">Parameters</a></li>
+<li><a href="#_responses_29">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_retryfailedhbasesnapshots">Retry failed snapshots for an HBase policy.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_30">Description</a></li>
+<li><a href="#_parameters_30">Parameters</a></li>
+<li><a href="#_responses_30">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_suspendhbasepolicy">Suspend an HBase replication policy.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_31">Description</a></li>
+<li><a href="#_parameters_31">Parameters</a></li>
+<li><a href="#_responses_31">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_suspendpolicy">Stop all replication tasks defined by the policy.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_32">Description</a></li>
+<li><a href="#_parameters_32">Parameters</a></li>
+<li><a href="#_responses_32">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_suspendsnapshotpolicy">Suspend snapshot policy.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_33">Description</a></li>
+<li><a href="#_parameters_33">Parameters</a></li>
+<li><a href="#_responses_33">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updateabfscredential">Update an ABFS Cloud Credential.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_34">Description</a></li>
+<li><a href="#_parameters_34">Parameters</a></li>
+<li><a href="#_responses_34">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updateawscredential">Update an AWS Cloud Credential.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_35">Description</a></li>
+<li><a href="#_parameters_35">Parameters</a></li>
+<li><a href="#_responses_35">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updatehbasepolicy">Update an HBase Replication Policy.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_36">Description</a></li>
+<li><a href="#_parameters_36">Parameters</a></li>
+<li><a href="#_responses_36">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updatesnapshotpolicy">Update snapshot policy.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_37">Description</a></li>
+<li><a href="#_parameters_37">Parameters</a></li>
+<li><a href="#_responses_37">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -891,6 +954,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
 <li><a href="#_abfscloudcredentialtype">AbfsCloudCredentialType</a></li>
+<li><a href="#_activatehbasepolicyrequest">ActivateHbasePolicyRequest</a></li>
+<li><a href="#_activatehbasepolicyresponse">ActivateHbasePolicyResponse</a></li>
 <li><a href="#_activatepolicyrequest">ActivatePolicyRequest</a></li>
 <li><a href="#_activatepolicyresponse">ActivatePolicyResponse</a></li>
 <li><a href="#_activatesnapshotpolicyrequest">ActivateSnapshotPolicyRequest</a></li>
@@ -904,10 +969,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_codproperties">CodProperties</a></li>
 <li><a href="#_collectdiagnosticbundlerequest">CollectDiagnosticBundleRequest</a></li>
 <li><a href="#_collectdiagnosticbundleresponse">CollectDiagnosticBundleResponse</a></li>
+<li><a href="#_continuehbasesetuprequest">ContinueHbaseSetupRequest</a></li>
+<li><a href="#_continuehbasesetupresponse">ContinueHbaseSetupResponse</a></li>
 <li><a href="#_createabfscredentialrequest">CreateAbfsCredentialRequest</a></li>
 <li><a href="#_createabfscredentialresponse">CreateAbfsCredentialResponse</a></li>
 <li><a href="#_createawscredentialrequest">CreateAwsCredentialRequest</a></li>
 <li><a href="#_createawscredentialresponse">CreateAwsCredentialResponse</a></li>
+<li><a href="#_createhbasepolicyrequest">CreateHbasePolicyRequest</a></li>
+<li><a href="#_createhbasepolicyresponse">CreateHbasePolicyResponse</a></li>
 <li><a href="#_createpolicyrequest">CreatePolicyRequest</a></li>
 <li><a href="#_createpolicyresponse">CreatePolicyResponse</a></li>
 <li><a href="#_createsnapshotpolicyrequest">CreateSnapshotPolicyRequest</a></li>
@@ -918,6 +987,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_customconfigs">CustomConfigs</a></li>
 <li><a href="#_deletecredentialrequest">DeleteCredentialRequest</a></li>
 <li><a href="#_deletecredentialresponse">DeleteCredentialResponse</a></li>
+<li><a href="#_deletehbasepolicyrequest">DeleteHbasePolicyRequest</a></li>
+<li><a href="#_deletehbasepolicyresponse">DeleteHbasePolicyResponse</a></li>
 <li><a href="#_deletepolicyrequest">DeletePolicyRequest</a></li>
 <li><a href="#_deletepolicyresponse">DeletePolicyResponse</a></li>
 <li><a href="#_deletesnapshotpolicyrequest">DeleteSnapshotPolicyRequest</a></li>
@@ -930,16 +1001,24 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_getcommandstatusresponse">GetCommandStatusResponse</a></li>
 <li><a href="#_getcredentialsrequest">GetCredentialsRequest</a></li>
 <li><a href="#_getcredentialsresponse">GetCredentialsResponse</a></li>
+<li><a href="#_gethbasetimeseriesrequest">GetHbaseTimeSeriesRequest</a></li>
+<li><a href="#_gethbasetimeseriesresponse">GetHbaseTimeSeriesResponse</a></li>
 <li><a href="#_getsnapshotpolicyrequest">GetSnapshotPolicyRequest</a></li>
 <li><a href="#_getsnapshotpolicyresponse">GetSnapshotPolicyResponse</a></li>
 <li><a href="#_hbasesnapshotstoragetype">HBaseSnapshotStorageType</a></li>
+<li><a href="#_hbasecrnpairs">HbaseCrnPairs</a></li>
+<li><a href="#_hbasepolicyarguments">HbasePolicyArguments</a></li>
+<li><a href="#_hbasepolicydefinition">HbasePolicyDefinition</a></li>
 <li><a href="#_hbasesnapshotpolicyargumentsrequest">HbaseSnapshotPolicyArgumentsRequest</a></li>
 <li><a href="#_hbasesnapshotpolicyargumentsresponse">HbaseSnapshotPolicyArgumentsResponse</a></li>
+<li><a href="#_hbasetimeseries">HbaseTimeSeries</a></li>
+<li><a href="#_hbasetimeseriesdata">HbaseTimeSeriesData</a></li>
+<li><a href="#_hbasetimeseriesmetadata">HbaseTimeSeriesMetadata</a></li>
+<li><a href="#_hbasetimeseriesmetadataattributes">HbaseTimeSeriesMetadataAttributes</a></li>
 <li><a href="#_hdfsarguments">HdfsArguments</a></li>
 <li><a href="#_hdfsdistcpargs">HdfsDistCpArgs</a></li>
 <li><a href="#_hdfssnapshotpolicyargumentsrequest">HdfsSnapshotPolicyArgumentsRequest</a></li>
 <li><a href="#_hdfssnapshotpolicyargumentsresponse">HdfsSnapshotPolicyArgumentsResponse</a></li>
-<li><a href="#_hdfsupdatearguments">HdfsUpdateArguments</a></li>
 <li><a href="#_hivearguments">HiveArguments</a></li>
 <li><a href="#_hivedatabaseandtables">HiveDatabaseAndTables</a></li>
 <li><a href="#_listallcredentialsrequest">ListAllCredentialsRequest</a></li>
@@ -948,6 +1027,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listclusterservicestatusesresponse">ListClusterServiceStatusesResponse</a></li>
 <li><a href="#_listclustersrequest">ListClustersRequest</a></li>
 <li><a href="#_listclustersresponse">ListClustersResponse</a></li>
+<li><a href="#_listpairedhbaseclustersrequest">ListPairedHbaseClustersRequest</a></li>
+<li><a href="#_listpairedhbaseclustersresponse">ListPairedHbaseClustersResponse</a></li>
 <li><a href="#_listpoliciesrequest">ListPoliciesRequest</a></li>
 <li><a href="#_listpoliciesresponse">ListPoliciesResponse</a></li>
 <li><a href="#_listsnapshotpoliciesrequest">ListSnapshotPoliciesRequest</a></li>
@@ -955,19 +1036,25 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_listsnapshotpolicyjobsrequest">ListSnapshotPolicyJobsRequest</a></li>
 <li><a href="#_listsnapshotpolicyjobsresponse">ListSnapshotPolicyJobsResponse</a></li>
 <li><a href="#_location">Location</a></li>
+<li><a href="#_machineuser">MachineUser</a></li>
 <li><a href="#_policy">Policy</a></li>
 <li><a href="#_policydefinition">PolicyDefinition</a></li>
 <li><a href="#_policyinstanceresponse">PolicyInstanceResponse</a></li>
 <li><a href="#_policyreport">PolicyReport</a></li>
 <li><a href="#_policyreportdetails">PolicyReportDetails</a></li>
 <li><a href="#_preserve">Preserve</a></li>
-<li><a href="#_rerunpolicyrequest">RerunPolicyRequest</a></li>
-<li><a href="#_rerunpolicyresponse">RerunPolicyResponse</a></li>
+<li><a href="#_repairhbasepolicyrequest">RepairHbasePolicyRequest</a></li>
+<li><a href="#_repairhbasepolicyresponse">RepairHbasePolicyResponse</a></li>
+<li><a href="#_restarttype">RestartType</a></li>
 <li><a href="#_restorehbasesnapshotargs">RestoreHBaseSnapshotArgs</a></li>
 <li><a href="#_restorehdfssnapshotargs">RestoreHdfsSnapshotArgs</a></li>
 <li><a href="#_restoresnapshotarguments">RestoreSnapshotArguments</a></li>
 <li><a href="#_restoresnapshotrequest">RestoreSnapshotRequest</a></li>
 <li><a href="#_restoresnapshotresponse">RestoreSnapshotResponse</a></li>
+<li><a href="#_retryfailedhbasefirsttimesetuprequest">RetryFailedHbaseFirstTimeSetupRequest</a></li>
+<li><a href="#_retryfailedhbasefirsttimesetupresponse">RetryFailedHbaseFirstTimeSetupResponse</a></li>
+<li><a href="#_retryfailedhbasesnapshotsrequest">RetryFailedHbaseSnapshotsRequest</a></li>
+<li><a href="#_retryfailedhbasesnapshotsresponse">RetryFailedHbaseSnapshotsResponse</a></li>
 <li><a href="#_serviceinfo">ServiceInfo</a></li>
 <li><a href="#_snapshotcommand">SnapshotCommand</a></li>
 <li><a href="#_snapshotjob">SnapshotJob</a></li>
@@ -983,8 +1070,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_snapshotstate">SnapshotState</a></li>
 <li><a href="#_snapshotstoreerror">SnapshotStoreError</a></li>
 <li><a href="#_sourcedataset">SourceDataset</a></li>
-<li><a href="#_sourceupdatedataset">SourceUpdateDataset</a></li>
 <li><a href="#_storedsnapshot">StoredSnapshot</a></li>
+<li><a href="#_suspendhbasepolicyrequest">SuspendHbasePolicyRequest</a></li>
+<li><a href="#_suspendhbasepolicyresponse">SuspendHbasePolicyResponse</a></li>
 <li><a href="#_suspendpolicyrequest">SuspendPolicyRequest</a></li>
 <li><a href="#_suspendpolicyresponse">SuspendPolicyResponse</a></li>
 <li><a href="#_suspendsnapshotpolicyrequest">SuspendSnapshotPolicyRequest</a></li>
@@ -994,9 +1082,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_updateabfscredentialresponse">UpdateAbfsCredentialResponse</a></li>
 <li><a href="#_updateawscredentialrequest">UpdateAwsCredentialRequest</a></li>
 <li><a href="#_updateawscredentialresponse">UpdateAwsCredentialResponse</a></li>
-<li><a href="#_updatepolicydefinition">UpdatePolicyDefinition</a></li>
-<li><a href="#_updatepolicyrequest">UpdatePolicyRequest</a></li>
-<li><a href="#_updatepolicyresponse">UpdatePolicyResponse</a></li>
+<li><a href="#_updatehbasepolicydefinition">UpdateHbasePolicyDefinition</a></li>
+<li><a href="#_updatehbasepolicyrequest">UpdateHbasePolicyRequest</a></li>
+<li><a href="#_updatehbasepolicyresponse">UpdateHbasePolicyResponse</a></li>
 <li><a href="#_updatesnapshotpolicyrequest">UpdateSnapshotPolicyRequest</a></li>
 <li><a href="#_updatesnapshotpolicyresponse">UpdateSnapshotPolicyResponse</a></li>
 </ul>
@@ -1014,7 +1102,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.103 (BETA)</p>
+<p><em>Version</em> : 0.9.104 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -1056,6 +1144,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_paths">Paths</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_activatehbasepolicy">Resume a suspended HBase replication policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/activateHbasePolicy</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description">Description</h4>
+<div class="paragraph">
+<p>Resumes an HBase replication policy if it has previously been suspended. Note that if the destination cluster&#8217;s Cloudera Manager API version is higher than 50 then it resumes all HBase replication policies between the same source and destination cluster, while if it is less than 45 then it only resumes the selected policy. Resume is not available for versions between 45 and 50.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_activatehbasepolicyrequest">ActivateHbasePolicyRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_activatehbasepolicyresponse">ActivateHbasePolicyResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_activatepolicy">Resume all replication tasks defined by the policy.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1063,13 +1237,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description">Description</h4>
+<h4 id="_description_2">Description</h4>
 <div class="paragraph">
 <p>Resumes all replication tasks defined by the policy if the policy is currently suspended.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters">Parameters</h4>
+<h4 id="_parameters_2">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1100,7 +1274,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses">Responses</h4>
+<h4 id="_responses_2">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1149,13 +1323,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_2">Description</h4>
+<h4 id="_description_3">Description</h4>
 <div class="paragraph">
 <p>Resumes a specific snapshot policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_2">Parameters</h4>
+<h4 id="_parameters_3">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1186,7 +1360,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_2">Responses</h4>
+<h4 id="_responses_3">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1235,13 +1409,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_3">Description</h4>
+<h4 id="_description_4">Description</h4>
 <div class="paragraph">
 <p>Triggers the collection of diagnostic bundle for a policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_3">Parameters</h4>
+<h4 id="_parameters_4">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1272,7 +1446,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_3">Responses</h4>
+<h4 id="_responses_4">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1314,6 +1488,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_continuehbasesetup">Continue the setup of an HBase policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/continueHbaseSetup</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_5">Description</h4>
+<div class="paragraph">
+<p>Continues the setup of an HBase policy. If an HBase policy has a Classic Cluster source, the HBase service on the source will not be restarted automatically. The restart on the source needs to be executed manually, and then the continue setup step has to be called. There is no need to call this command if the source cluster is not a Classic Cluster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_5">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_continuehbasesetuprequest">ContinueHbaseSetupRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_5">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_continuehbasesetupresponse">ContinueHbaseSetupResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_createabfscredential">Create an ABFS Cloud Credential.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1321,13 +1581,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_4">Description</h4>
+<h4 id="_description_6">Description</h4>
 <div class="paragraph">
 <p>Creates a new ABFS cloud credential.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_4">Parameters</h4>
+<h4 id="_parameters_6">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1358,7 +1618,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_4">Responses</h4>
+<h4 id="_responses_6">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1407,13 +1667,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_5">Description</h4>
+<h4 id="_description_7">Description</h4>
 <div class="paragraph">
 <p>Creates a new AWS cloud credential.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_5">Parameters</h4>
+<h4 id="_parameters_7">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1444,7 +1704,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_5">Responses</h4>
+<h4 id="_responses_7">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1486,6 +1746,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_createhbasepolicy">Create an HBase Replication Policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/createHbasePolicy</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_8">Description</h4>
+<div class="paragraph">
+<p>Creates a new HBase replication policy with the given name on a specific cluster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_8">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_createhbasepolicyrequest">CreateHbasePolicyRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_8">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_createhbasepolicyresponse">CreateHbasePolicyResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_createpolicy">Create a Replication Policy.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1493,13 +1839,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_6">Description</h4>
+<h4 id="_description_9">Description</h4>
 <div class="paragraph">
 <p>Creates a new replication policy with the given name on a specific cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_6">Parameters</h4>
+<h4 id="_parameters_9">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1530,7 +1876,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_6">Responses</h4>
+<h4 id="_responses_9">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1579,13 +1925,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_7">Description</h4>
+<h4 id="_description_10">Description</h4>
 <div class="paragraph">
 <p>Creates a snapshot policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_7">Parameters</h4>
+<h4 id="_parameters_10">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1616,7 +1962,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_7">Responses</h4>
+<h4 id="_responses_10">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1665,13 +2011,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_8">Description</h4>
+<h4 id="_description_11">Description</h4>
 <div class="paragraph">
 <p>Permanently deletes a specific cloud credential.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_8">Parameters</h4>
+<h4 id="_parameters_11">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1702,7 +2048,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_8">Responses</h4>
+<h4 id="_responses_11">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1744,6 +2090,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_deletehbasepolicy">Delete an HBase Replication Policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/deleteHbasePolicy</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_12">Description</h4>
+<div class="paragraph">
+<p>Permanently deletes a specific HBase replication policy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_12">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_deletehbasepolicyrequest">DeleteHbasePolicyRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_12">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_deletehbasepolicyresponse">DeleteHbasePolicyResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_deletepolicy">Delete Replication Policy.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1751,13 +2183,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_9">Description</h4>
+<h4 id="_description_13">Description</h4>
 <div class="paragraph">
 <p>Permanently deletes a specific replication policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_9">Parameters</h4>
+<h4 id="_parameters_13">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1788,7 +2220,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_9">Responses</h4>
+<h4 id="_responses_13">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1837,13 +2269,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_10">Description</h4>
+<h4 id="_description_14">Description</h4>
 <div class="paragraph">
 <p>Permanently deletes a specific snapshot policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_10">Parameters</h4>
+<h4 id="_parameters_14">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1874,7 +2306,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_10">Responses</h4>
+<h4 id="_responses_14">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1923,13 +2355,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_11">Description</h4>
+<h4 id="_description_15">Description</h4>
 <div class="paragraph">
 <p>Downloads the previously collected diagnostic bundle if available. Before calling, the get-command-status command shall be polled until the command&#8217;s status shows 'DOWNLOADABLE_WITH_CLI'. If the status is 'DOWNLOADABLE_WITH_URL', the result can be downloaded with the given result data URL only.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_11">Parameters</h4>
+<h4 id="_parameters_15">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1960,7 +2392,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_11">Responses</h4>
+<h4 id="_responses_15">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2009,13 +2441,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_12">Description</h4>
+<h4 id="_description_16">Description</h4>
 <div class="paragraph">
 <p>Return the current status of the given CM command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_12">Parameters</h4>
+<h4 id="_parameters_16">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2046,7 +2478,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_12">Responses</h4>
+<h4 id="_responses_16">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2095,13 +2527,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_13">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
 <p>Returns cloud credentials on a specific cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_13">Parameters</h4>
+<h4 id="_parameters_17">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2132,7 +2564,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_13">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2174,6 +2606,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_gethbasetimeseries">Retrieve time series data for an HBase replication peer.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/getHbaseTimeSeries</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_18">Description</h4>
+<div class="paragraph">
+<p>Returns time series data for an HBase replication peer based on the provided parameters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_18">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_gethbasetimeseriesrequest">GetHbaseTimeSeriesRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_18">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_gethbasetimeseriesresponse">GetHbaseTimeSeriesResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_getsnapshotpolicy">Get Snapshot Policy.</h3>
 <div class="literalblock">
 <div class="content">
@@ -2181,13 +2699,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Retrieves a specific snapshot policy from the cluster specified in the request.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_14">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2218,7 +2736,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2267,13 +2785,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_20">Description</h4>
 <div class="paragraph">
 <p>Provides a detailed list of cloud credentials across all available clusters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_15">Parameters</h4>
+<h4 id="_parameters_20">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2304,7 +2822,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_20">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2353,13 +2871,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_21">Description</h4>
 <div class="paragraph">
 <p>Provides a list of cluster service (e.g. HDFS, Hive, YARN, etc.) statuses.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_16">Parameters</h4>
+<h4 id="_parameters_21">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2390,7 +2908,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_21">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2439,13 +2957,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_17">Description</h4>
+<h4 id="_description_22">Description</h4>
 <div class="paragraph">
 <p>Provides a detailed list of all available clusters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_17">Parameters</h4>
+<h4 id="_parameters_22">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2476,7 +2994,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_17">Responses</h4>
+<h4 id="_responses_22">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2518,6 +3036,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_listpairedhbaseclusters">List cluster CRNs which have an active HBase policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/listPairedHbaseClusters</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_23">Description</h4>
+<div class="paragraph">
+<p>Provides a list of cluster CRNs with active HBase policies.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_23">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listpairedhbaseclustersrequest">ListPairedHbaseClustersRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_23">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_listpairedhbaseclustersresponse">ListPairedHbaseClustersResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_listpolicies">Get All Replication Policies.</h3>
 <div class="literalblock">
 <div class="content">
@@ -2525,13 +3129,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_24">Description</h4>
 <div class="paragraph">
 <p>Provides a list of all replication policies across all available clusters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_18">Parameters</h4>
+<h4 id="_parameters_24">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2562,7 +3166,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_24">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2611,13 +3215,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_19">Description</h4>
+<h4 id="_description_25">Description</h4>
 <div class="paragraph">
 <p>Provides a list of all snapshot policies across all available clusters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_19">Parameters</h4>
+<h4 id="_parameters_25">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2648,7 +3252,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_19">Responses</h4>
+<h4 id="_responses_25">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2697,13 +3301,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_20">Description</h4>
+<h4 id="_description_26">Description</h4>
 <div class="paragraph">
 <p>Lists jobs triggered by a snapshot policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_20">Parameters</h4>
+<h4 id="_parameters_26">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2734,7 +3338,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_20">Responses</h4>
+<h4 id="_responses_26">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2776,20 +3380,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_rerunpolicy">Rerun policy job.</h3>
+<h3 id="_repairhbasepolicy">Repair a failed HBase policy.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/replicationmanager/rerunPolicy</pre>
+<pre>POST /api/v1/replicationmanager/repairHbasePolicy</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_21">Description</h4>
+<h4 id="_description_27">Description</h4>
 <div class="paragraph">
-<p>Instantly starts a new job of a provided policy.</p>
+<p>Attempts to repair an HBase policy in failed update state by resending the last update.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_21">Parameters</h4>
+<h4 id="_parameters_27">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2813,14 +3417,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_rerunpolicyrequest">RerunPolicyRequest</a></p>
+<p><a href="#_repairhbasepolicyrequest">RepairHbasePolicyRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_21">Responses</h4>
+<h4 id="_responses_27">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2843,7 +3447,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Describes a successful response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_rerunpolicyresponse">RerunPolicyResponse</a></p>
+<p><a href="#_repairhbasepolicyresponse">RepairHbasePolicyResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2869,13 +3473,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_22">Description</h4>
+<h4 id="_description_28">Description</h4>
 <div class="paragraph">
 <p>Restores a specific snapshot.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_22">Parameters</h4>
+<h4 id="_parameters_28">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2906,7 +3510,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_22">Responses</h4>
+<h4 id="_responses_28">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2948,6 +3552,264 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_retryfailedhbasefirsttimesetup">Retry failed first time setup for an HBase policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/retryFailedHbaseFirstTimeSetup</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_29">Description</h4>
+<div class="paragraph">
+<p>Runs the first time setup configuration between the source and destination clusters if the first time setup has failed for the given policy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_29">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_retryfailedhbasefirsttimesetuprequest">RetryFailedHbaseFirstTimeSetupRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_29">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_retryfailedhbasefirsttimesetupresponse">RetryFailedHbaseFirstTimeSetupResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retryfailedhbasesnapshots">Retry failed snapshots for an HBase policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/retryFailedHbaseSnapshots</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_30">Description</h4>
+<div class="paragraph">
+<p>Reruns the failed initial snapshots (and only the failed ones) in the replication policy if it has failed to replicate the existing data of some or all tables.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_30">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_retryfailedhbasesnapshotsrequest">RetryFailedHbaseSnapshotsRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_30">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_retryfailedhbasesnapshotsresponse">RetryFailedHbaseSnapshotsResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_suspendhbasepolicy">Suspend an HBase replication policy.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/replicationmanager/suspendHbasePolicy</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_31">Description</h4>
+<div class="paragraph">
+<p>Pauses an active HBase replication policy. Note that if the destination cluster&#8217;s Cloudera Manager API version is higher than 50 then it suspends all HBase replication policies between the same source and destination cluster, while if it is less than 45 then it only suspends the selected policy. Suspend is not available for versions between 45 and 50.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_31">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_suspendhbasepolicyrequest">SuspendHbasePolicyRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_31">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Describes a successful response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_suspendhbasepolicyresponse">SuspendHbasePolicyResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_suspendpolicy">Stop all replication tasks defined by the policy.</h3>
 <div class="literalblock">
 <div class="content">
@@ -2955,13 +3817,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_23">Description</h4>
+<h4 id="_description_32">Description</h4>
 <div class="paragraph">
 <p>Stops all replication tasks defined by the policy. Replication will resume after activating the policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_23">Parameters</h4>
+<h4 id="_parameters_32">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2992,7 +3854,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_23">Responses</h4>
+<h4 id="_responses_32">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3041,13 +3903,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_24">Description</h4>
+<h4 id="_description_33">Description</h4>
 <div class="paragraph">
 <p>Suspends a specific snapshot policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_24">Parameters</h4>
+<h4 id="_parameters_33">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3078,7 +3940,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_24">Responses</h4>
+<h4 id="_responses_33">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3127,13 +3989,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_25">Description</h4>
+<h4 id="_description_34">Description</h4>
 <div class="paragraph">
 <p>Updates an existing ABFS cloud credential.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_25">Parameters</h4>
+<h4 id="_parameters_34">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3164,7 +4026,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_25">Responses</h4>
+<h4 id="_responses_34">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3213,13 +4075,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_26">Description</h4>
+<h4 id="_description_35">Description</h4>
 <div class="paragraph">
 <p>Updates an existing AWS cloud credential.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_26">Parameters</h4>
+<h4 id="_parameters_35">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3250,7 +4112,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_26">Responses</h4>
+<h4 id="_responses_35">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3292,20 +4154,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_updatepolicy">Update a Replication Policy.</h3>
+<h3 id="_updatehbasepolicy">Update an HBase Replication Policy.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/replicationmanager/updatePolicy</pre>
+<pre>POST /api/v1/replicationmanager/updateHbasePolicy</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_27">Description</h4>
+<h4 id="_description_36">Description</h4>
 <div class="paragraph">
-<p>Updates an existing replication policy with the given parameters on a specific cluster.</p>
+<p>Updates an existing HBase replication policy with the given parameters on a specific cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_27">Parameters</h4>
+<h4 id="_parameters_36">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3329,14 +4191,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_updatepolicyrequest">UpdatePolicyRequest</a></p>
+<p><a href="#_updatehbasepolicyrequest">UpdateHbasePolicyRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_27">Responses</h4>
+<h4 id="_responses_36">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3359,7 +4221,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Describes a successful response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_updatepolicyresponse">UpdatePolicyResponse</a></p>
+<p><a href="#_updatehbasepolicyresponse">UpdateHbasePolicyResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3385,13 +4247,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_28">Description</h4>
+<h4 id="_description_37">Description</h4>
 <div class="paragraph">
 <p>Updates a snapshot policy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_28">Parameters</h4>
+<h4 id="_parameters_37">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3422,7 +4284,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_28">Responses</h4>
+<h4 id="_responses_37">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3476,6 +4338,110 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="paragraph">
 <p><em>Type</em> : enum (ACCESSKEY, CLIENTKEY)</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_activatehbasepolicyrequest">ActivateHbasePolicyRequest</h3>
+<div class="paragraph">
+<p>Activate an HBase replication policy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the destination cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the HBase policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_activatehbasepolicyresponse">ActivateHbasePolicyResponse</h3>
+<div class="paragraph">
+<p>Response object for activateHbasePolicy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_activatepolicyrequest">ActivatePolicyRequest</h3>
@@ -4314,6 +5280,110 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_continuehbasesetuprequest">ContinueHbaseSetupRequest</h3>
+<div class="paragraph">
+<p>Continue an HBase setup for Classic Cluster source.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the destination cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of the HBase policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_continuehbasesetupresponse">ContinueHbaseSetupResponse</h3>
+<div class="paragraph">
+<p>Response object for continueHbaseSetup.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_createabfscredentialrequest">CreateAbfsCredentialRequest</h3>
 <div class="paragraph">
 <p>Request object for creating ABFS cloud credentials. Currently supported cloud credentials: ABFS Access Key for Ambari clusters, ABFS Client Secret for CM clusters.</p>
@@ -4576,6 +5646,122 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_apierror">ApiError</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_createhbasepolicyrequest">CreateHbasePolicyRequest</h3>
+<div class="paragraph">
+<p>Create an HBase replication policy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the destination cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyDefinition</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Policy definition.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_hbasepolicydefinition">HbasePolicyDefinition</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the new policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_createhbasepolicyresponse">CreateHbasePolicyResponse</h3>
+<div class="paragraph">
+<p>Response object for createHbasePolicy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5119,6 +6305,122 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_apierror">ApiError</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_deletehbasepolicyrequest">DeleteHbasePolicyRequest</h3>
+<div class="paragraph">
+<p>Request object to delete an HBase replication policy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the destination cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>force</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Option to force delete an Hbase policy. It should be used if the normal delete fails (e.g. when the source cluster is unreachable).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the HBase policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_deletehbasepolicyresponse">DeleteHbasePolicyResponse</h3>
+<div class="paragraph">
+<p>Response object for deleteHbasePolicy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5761,6 +7063,170 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_gethbasetimeseriesrequest">GetHbaseTimeSeriesRequest</h3>
+<div class="paragraph">
+<p>Request to retrieve time series data for an HBase replication peer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the destination cluster of the policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>endTime</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>End time of the time series data. Defaults to current time.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>metric</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the HBase replication peer metric.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (age_of_last_shipped_operation, log_edits_filtered_rate, log_edits_read_rate, log_queue_size, log_read_in_bytes_rate, shipped_batches_rate, shipped_ops_rate, shipped_size_in_kb_rate, age_of_last_shipped_operation_25th_percentile, age_of_last_shipped_operation_75th_percentile, age_of_last_shipped_operation_90th_percentile, age_of_last_shipped_operation_98th_percentile, age_of_last_shipped_operation_99th_percentile, age_of_last_shipped_operation_999th_percentile, age_of_last_shipped_operation_max, age_of_last_shipped_operation_mean, age_of_last_shipped_operation_median, age_of_last_shipped_operation_min, age_of_last_shipped_operation_rate, shipped_hfiles_rate, size_of_hfile_refs_queue)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the policy that the time series data is requested for.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>rollup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Aggregate rollup level for time series data. Defaults to RAW data.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (RAW, TEN_MINUTELY, HOURLY, SIX_HOURLY, DAILY, WEEKLY)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>startTime</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Start time of the time series data. Defaults to 5 minutes before end time.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_gethbasetimeseriesresponse">GetHbaseTimeSeriesResponse</h3>
+<div class="paragraph">
+<p>Response object for getHbaseTimeSeries.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hbasePeerName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the HBase peer used for replication.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceCluster</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of source cluster in the format: "dataCenterName$cluster name", for example "DC-Europe$My Source 42".</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>targetCluster</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of destination cluster in the format: "dataCenterName$cluster name", for example "DC-US$My Destination 17".</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>timeSeries</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Time series data with additional metadata.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_hbasetimeseries">HbaseTimeSeries</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_getsnapshotpolicyrequest">GetSnapshotPolicyRequest</h3>
 <div class="paragraph">
 <p>Request object for getSnapshotPolicy.</p>
@@ -6006,6 +7472,252 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_hbasecrnpairs">HbaseCrnPairs</h3>
+<div class="paragraph">
+<p>HBase CRN pairs.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>pairedCrns</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of CRNs which are peers of each other.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hbasepolicyarguments">HbasePolicyArguments</h3>
+<div class="paragraph">
+<p>HBase replication parameters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cloudCredential</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cloud credentials to use to replicate the initial snapshot if the credential location is specified as 'EXTERNAL_ACCOUNT'.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>credentialLocation</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Location of the credentials provided for initial snapshots. Setting it to 'SAFETY_VALVE' indicates that the credentials are available in safety valves on the source cluster, otherwise credentials have to be defined in the 'cloudCredential' property. Defaults to 'EXTERNAL_ACCOUNT'.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (EXTERNAL_ACCOUNT, SAFETY_VALVE)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tables</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of tables to be replicated. The key should be in "namespace:tablename" format. If this list is empty, then the whole database will be replicated.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>validateReplicationSetup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether to validate replication setup after policy creation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hbasepolicydefinition">HbasePolicyDefinition</h3>
+<div class="paragraph">
+<p>HBase policy definition.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>description</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Description of the policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>distcpMaxMaps</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Maximum Map jobs to use for initial snapshot.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hbasePolicyArguments</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>HBase policy arguments.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_hbasepolicyarguments">HbasePolicyArguments</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>initialSnapshot</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>If set to true, the current data in the table will be replicated before the HBase replication peer gets enabled. If set to false, only the data changed after the policy creation will be replicated.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>machineUser</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Machine user details to use for the replication. If not specified, an internal machine user will be created and synchronized to the required environments.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_machineuser">MachineUser</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>queueName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>YARN queue name to use for initial snapshot if not default.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceCluster</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of source cluster in the format: "dataCenterName$cluster name", for example "DC-Europe$My Source 42."</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceRestartType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type of restart for the source cluster. This is only accepted if the source is not a Classic Cluster and the destination has restart-type support. Default is ROLLING_RESTART.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_restarttype">RestartType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>targetCluster</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of destination cluster in the format: "dataCenterName$cluster name", for example "DC-US$My Destination 17".</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>targetRestartType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type of restart for the destination cluster. This is only accepted if the cluster has restart-type support. Default is ROLLING_RESTART.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_restarttype">RestartType</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_hbasesnapshotpolicyargumentsrequest">HbaseSnapshotPolicyArgumentsRequest</h3>
 <div class="paragraph">
 <p>Arguments specific to HBase snapshot policies.</p>
@@ -6092,6 +7804,238 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hbasetimeseries">HbaseTimeSeries</h3>
+<div class="paragraph">
+<p>HBase time series data and metadata.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>data</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of time series data points.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_hbasetimeseriesdata">HbaseTimeSeriesData</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>metadata</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Metadata regarding the time series data.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_hbasetimeseriesmetadata">HbaseTimeSeriesMetadata</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hbasetimeseriesdata">HbaseTimeSeriesData</h3>
+<div class="paragraph">
+<p>Time series data point.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>timestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Timestamp of the data point.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>value</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Value of the data point.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>number (double)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hbasetimeseriesmetadata">HbaseTimeSeriesMetadata</h3>
+<div class="paragraph">
+<p>Time series metadata.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>attributes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Attributes of the resource providing time series data.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_hbasetimeseriesmetadataattributes">HbaseTimeSeriesMetadataAttributes</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>endTime</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>End time of the time series data.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>metricName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the metric.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>startTime</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Start time of the time series data.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>unitDenominator</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Unit denominator.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>unitNumerator</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Unit numerator.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hbasetimeseriesmetadataattributes">HbaseTimeSeriesMetadataAttributes</h3>
+<div class="paragraph">
+<p>Attributes of the resource providing time series data.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serviceName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Service name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6486,124 +8430,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_hdfsupdatearguments">HdfsUpdateArguments</h3>
-<div class="paragraph">
-<p>Updatable HDFS properties.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>alert</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Alerting behavior.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_alert">Alert</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>deletePolicy</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Deletion behavior for the target side when files are removed on the source side. KEEP_DELETED_FILES:Keep deleted source files on the target, DELETE_TO_TRASH:Remove the deleted source files to trash on the target, DELETE_PERMANENTLY:Permanently remove deleted files on the target.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (KEEP_DELETED_FILES, DELETE_TO_TRASH, DELETE_PERMANENTLY)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>errorHandling</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Error handling strategy.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_errorhandling">ErrorHandling</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>exclusionFilters</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Exclusion filters in glob format.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>logPath</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The HDFS path where the replication log files should be written to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>mapReduceService</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the MapReduce service.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>preserve</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Properties to preserve.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_preserve">Preserve</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>replicationStrategy</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Replication strategy.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (DYNAMIC, STATIC)</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_hivearguments">HiveArguments</h3>
 <div class="paragraph">
 <p>Hive replication arguments.</p>
@@ -6876,6 +8702,73 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>List of errors for unreachable clusters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_apierror">ApiError</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_listpairedhbaseclustersrequest">ListPairedHbaseClustersRequest</h3>
+<div class="paragraph">
+<p>Request to list all paired HBase cluster CRNs.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listpairedhbaseclustersresponse">ListPairedHbaseClustersResponse</h3>
+<div class="paragraph">
+<p>Response object for listPairedHbaseClusters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>crnsMissingHbaseService</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster CRNs where the HBase service was missing and pairing status could not be determined.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>pairings</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of CRN pairings.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_hbasecrnpairs">HbaseCrnPairs</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>unreachableClusters</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The list of errors for unreachable clusters.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_apierror">ApiError</a> &gt; array</p>
@@ -7175,6 +9068,64 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>number (double)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_machineuser">MachineUser</h3>
+<div class="paragraph">
+<p>Username and password for the machine user.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>createUser</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>This option has no effect if the machine user already exists. Otherwise if 'true', a new machine user is created. If 'false', an error is returned indicating that the user does not exist.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>password</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Password.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>user</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Username.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -8045,9 +9996,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_rerunpolicyrequest">RerunPolicyRequest</h3>
+<h3 id="_repairhbasepolicyrequest">RepairHbasePolicyRequest</h3>
 <div class="paragraph">
-<p>Request object for rerun policy.</p>
+<p>Attempt to repair an HBase replication policy.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -8069,7 +10020,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the cluster where the replication policy run gets executed.</p>
+<p>CRN of the destination cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8077,11 +10028,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>policyName</strong><br>
+<p><strong>policyId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the policy to rerun.</p>
+<p>ID of the HBase policy.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8091,9 +10042,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_rerunpolicyresponse">RerunPolicyResponse</h3>
+<h3 id="_repairhbasepolicyresponse">RepairHbasePolicyResponse</h3>
 <div class="paragraph">
-<p>Response object for rerun policy.</p>
+<p>Response object for repairHbasePolicy.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -8115,7 +10066,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the cluster where the replication policy run gets executed.</p>
+<p>The CRN of the input cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8127,19 +10078,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The output of rerun policy command.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requestId</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The ID of the request. Populated only for Ambari backend.</p>
+<p>The detailed description of the action taken.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8159,6 +10098,15 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_restarttype">RestartType</h3>
+<div class="paragraph">
+<p>Type of restart for a cluster.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (RESTART, ROLLING_RESTART)</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_restorehbasesnapshotargs">RestoreHBaseSnapshotArgs</h3>
@@ -8457,6 +10405,250 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_getcommandstatusresponse">GetCommandStatusResponse</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_retryfailedhbasefirsttimesetuprequest">RetryFailedHbaseFirstTimeSetupRequest</h3>
+<div class="paragraph">
+<p>Request object to retry first time setup for an HBase policy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the destination cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>machineUser</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Machine user details to use for the replication. If not specified, an internal machine user will be created and synchronized to the required environments.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_machineuser">MachineUser</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the HBase policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceRestartType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type of restart for the source cluster. This is only accepted if the source is not a Classic Cluster and the destination has restart-type support. Default is ROLLING_RESTART.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_restarttype">RestartType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>targetRestartType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type of restart for the destination cluster. This is only accepted if the cluster has restart-type support. Default is ROLLING_RESTART.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_restarttype">RestartType</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_retryfailedhbasefirsttimesetupresponse">RetryFailedHbaseFirstTimeSetupResponse</h3>
+<div class="paragraph">
+<p>Response object for retryFailedHbaseFirstTimeSetup.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_retryfailedhbasesnapshotsrequest">RetryFailedHbaseSnapshotsRequest</h3>
+<div class="paragraph">
+<p>Request object to retry failed snapshots for an HBase policy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the destination cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the HBase policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_retryfailedhbasesnapshotsresponse">RetryFailedHbaseSnapshotsResponse</h3>
+<div class="paragraph">
+<p>Response object for retryFailedHbaseSnapshots.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -9727,52 +11919,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_sourceupdatedataset">SourceUpdateDataset</h3>
-<div class="paragraph">
-<p>Extra properties for updating the source dataset.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>hdfsArguments</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Updatable arguments for HDFS replication.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_hdfsupdatearguments">HdfsUpdateArguments</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>hiveArguments</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Updatable arguments for Hive replication, null if HDFS replication.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_hivearguments">HiveArguments</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_storedsnapshot">StoredSnapshot</h3>
 <div class="paragraph">
 <p>Detailed description about a snapshot.</p>
@@ -9849,6 +11995,110 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_hbasesnapshotstoragetype">HBaseSnapshotStorageType</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_suspendhbasepolicyrequest">SuspendHbasePolicyRequest</h3>
+<div class="paragraph">
+<p>Suspend an HBase replication policy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CRN of the destination cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>policyId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ID of the HBase policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_suspendhbasepolicyresponse">SuspendHbasePolicyResponse</h3>
+<div class="paragraph">
+<p>Response object for suspendHbasePolicy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -10260,7 +12510,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Type of the credential. Additional accpeted parameters by type: IAM: none; ACCESSKEY: accessKey, secretKey. Superfluous parameters are ignored.</p>
+<p>Type of the credential. Additional accepted parameters by type: IAM: none; ACCESSKEY: accessKey, secretKey. Superfluous parameters are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_awscloudcredentialtype">AwsCloudCredentialType</a></p>
@@ -10304,9 +12554,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_updatepolicydefinition">UpdatePolicyDefinition</h3>
+<h3 id="_updatehbasepolicydefinition">UpdateHbasePolicyDefinition</h3>
 <div class="paragraph">
-<p>Policy update request definition.</p>
+<p>HBase policy update request definition.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -10324,119 +12574,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cloudEncryptionAlgorithm</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The type of cloud encryption algorithm. Can be used only for HDP/Ambari managed clusters. Supported values are AES256,SSE-KMS.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cloudEncryptionKey</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The encryption key for the selected cloud encryption algorithm.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cmPolicySubmitUser</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>CM policy submit user.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_cmpolicysubmituser">CmPolicySubmitUser</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>description</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Description of the policy.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>distcpMapBandwidth</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Maximum bandwidth to use for replication.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int64)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>distcpMaxMaps</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Maximum Map jobs to use for replication.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int64)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enableSnapshotBasedReplication</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether to enable snapshot based replication.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>endTime</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Policy end time.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>frequencyInSec</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Policy&#8217;s frequency in seconds.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int64)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>hiveExternalTableBaseDirectory</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The base directory path on the target where to put the replicated Hive external tables.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10456,95 +12598,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>plugins</strong><br>
+<p><strong>tables</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of plugins.</p>
+<p>List of tables to be replicated. The items should be in "namespace:tablename" format.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>queueName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>YARN queue name if not default.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>sourceUpdateDataset</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The source dataset to replicate.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_sourceupdatedataset">SourceUpdateDataset</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>startTime</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Policy start time.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string (date-time)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>suspend</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether to suspend the policy. Changing this is the same as using suspend-policy (suspend = true) and activate-policy (suspend = false).</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>targetDataset</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The path of the dataset to replicate to.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tdeSameKey</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether to use TDE same key.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_updatepolicyrequest">UpdatePolicyRequest</h3>
+<h3 id="_updatehbasepolicyrequest">UpdateHbasePolicyRequest</h3>
 <div class="paragraph">
-<p>Update a replication policy request.</p>
+<p>Update HBase replication policy request.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -10574,11 +12644,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>policyName</strong><br>
+<p><strong>policyId</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the policy to be updated.</p>
+<p>The ID of the policy to be updated.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10586,27 +12656,88 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>updatePolicyDefinition</strong><br>
+<p><strong>updateHbasePolicyDefinition</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The policy definition.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_updatepolicydefinition">UpdatePolicyDefinition</a></p>
+<p><a href="#_updatehbasepolicydefinition">UpdateHbasePolicyDefinition</a></p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_updatepolicyresponse">UpdatePolicyResponse</h3>
+<h3 id="_updatehbasepolicyresponse">UpdateHbasePolicyResponse</h3>
 <div class="paragraph">
-<p>Response object for updatePolicy.</p>
+<p>Response object for updateHbasePolicy.</p>
 </div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the input cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The detailed description of the action taken.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>requestId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ID of the request. Populated only for Ambari backend.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the request (Successful or an error).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_updatesnapshotpolicyrequest">UpdateSnapshotPolicyRequest</h3>
@@ -10729,12 +12860,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-12-13 14:53:56 -0800
+Last updated 2024-01-05 09:17:12 -0800
 </div>
 </div>
 <br>
 <p style="margin-left: 2em">
-  Copyright © 2023 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
+  Copyright © 2024 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
 </p>
 </body>
 </html>
