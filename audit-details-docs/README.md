@@ -1,6 +1,6 @@
 # CDP Control Plane Audit Event Details Documentation
 
-*Version: 0.9.103*
+*Version: 0.9.104*
 
 Each CDP control plane audit event source defines its own structures for
 event-specific details, which are provided as JSON for some types of events.
@@ -15,4 +15,4 @@ for more information.
 
 ----
 
-Documentation Copyright © 2023 Cloudera, Inc. All rights reserved.
+Documentation Copyright © 2024 Cloudera, Inc. All rights reserved.
