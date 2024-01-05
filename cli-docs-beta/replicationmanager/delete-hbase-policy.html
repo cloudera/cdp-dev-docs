@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>rerun-policy &#8212; CDP CLI 0.9.103 (BETA) documentation</title>
+    <title>delete-hbase-policy &#8212; CDP CLI 0.9.104 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="restore-snapshot" href="restore-snapshot.html" />
-    <link rel="prev" title="list-snapshot-policy-jobs" href="list-snapshot-policy-jobs.html" /> 
+    <link rel="next" title="delete-policy" href="delete-policy.html" />
+    <link rel="prev" title="delete-credential" href="delete-credential.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="restore-snapshot.html" title="restore-snapshot"
+          <a href="delete-policy.html" title="delete-policy"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="list-snapshot-policy-jobs.html" title="list-snapshot-policy-jobs"
+          <a href="delete-credential.html" title="delete-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.103 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">rerun-policy</a></li> 
+        <li class="nav-item nav-item-this"><a href="">delete-hbase-policy</a></li> 
       </ul>
     </div>  
 
@@ -39,25 +39,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rerun-policy">
-<span id="cli-cdp-replicationmanager-rerun-policy"></span><h1>rerun-policy<a class="headerlink" href="#rerun-policy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="delete-hbase-policy">
+<span id="cli-cdp-replicationmanager-delete-hbase-policy"></span><h1>delete-hbase-policy<a class="headerlink" href="#delete-hbase-policy" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Rerun policy job.</p>
+<dd class="field-odd"><p>Delete an HBase Replication Policy.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.103</p>
+<dd class="field-even"><p>0.9.104</p>
 </dd>
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Instantly starts a new job of a provided policy.</p>
+<p>Permanently deletes a specific HBase replication policy.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  rerun-policy
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  delete-hbase-policy
 --cluster-crn &lt;value&gt;
---policy-name &lt;value&gt;
+--policy-id &lt;value&gt;
+<span class="o">[</span>--force <span class="p">|</span> --no-force<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -67,11 +68,15 @@
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
 <blockquote>
-<div><p>The CRN of the cluster where the replication policy run gets executed.</p>
+<div><p>CRN of the destination cluster.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--policy-name</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--policy-id</span></code> (string)</p>
 <blockquote>
-<div><p>The name of the policy to rerun.</p>
+<div><p>ID of the HBase policy.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--force</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-force</span></code> (boolean)</p>
+<blockquote>
+<div><p>Option to force delete an Hbase policy. It should be used if the normal delete fails (e.g. when the source cluster is unreachable).</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -86,15 +91,11 @@
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
 <p>clusterCrn -&gt; (string)</p>
 <blockquote>
-<div><p>The CRN of the cluster where the replication policy run gets executed.</p>
-</div></blockquote>
-<p>requestId -&gt; (string)</p>
-<blockquote>
-<div><p>The ID of the request. Populated only for Ambari backend.</p>
+<div><p>The CRN of the input cluster.</p>
 </div></blockquote>
 <p>message -&gt; (string)</p>
 <blockquote>
-<div><p>The output of rerun policy command.</p>
+<div><p>The detailed description of the action taken.</p>
 </div></blockquote>
 <p>status -&gt; (string)</p>
 <blockquote>
@@ -116,7 +117,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">rerun-policy</a><ul>
+<li><a class="reference internal" href="#">delete-hbase-policy</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -127,11 +128,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="list-snapshot-policy-jobs.html"
-                        title="previous chapter">list-snapshot-policy-jobs</a></p>
+  <p class="topless"><a href="delete-credential.html"
+                        title="previous chapter">delete-credential</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="restore-snapshot.html"
-                        title="next chapter">restore-snapshot</a></p>
+  <p class="topless"><a href="delete-policy.html"
+                        title="next chapter">delete-policy</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -150,18 +151,18 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="restore-snapshot.html" title="restore-snapshot"
+          <a href="delete-policy.html" title="delete-policy"
              >next</a></li>
         <li class="right" >
-          <a href="list-snapshot-policy-jobs.html" title="list-snapshot-policy-jobs"
+          <a href="delete-credential.html" title="delete-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.103 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">rerun-policy</a></li> 
+        <li class="nav-item nav-item-this"><a href="">delete-hbase-policy</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2023, Cloudera, Inc..
+        &#169; Copyright 2024, Cloudera, Inc..
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
     </div>
   </body>

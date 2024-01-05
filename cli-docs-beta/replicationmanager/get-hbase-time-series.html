@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get-hbase-time-series &#8212; CDP CLI 0.9.104 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get-snapshot-policy" href="get-snapshot-policy.html" />
+    <link rel="prev" title="get-credentials" href="get-credentials.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-snapshot-policy.html" title="get-snapshot-policy"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="get-credentials.html" title="get-credentials"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-hbase-time-series</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get-hbase-time-series">
+<span id="cli-cdp-replicationmanager-get-hbase-time-series"></span><h1>get-hbase-time-series<a class="headerlink" href="#get-hbase-time-series" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Retrieve time series data for an HBase replication peer.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.104</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Returns time series data for an HBase replication peer based on the provided parameters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-hbase-time-series
+--cluster-crn &lt;value&gt;
+--policy-id &lt;value&gt;
+--metric &lt;value&gt;
+<span class="o">[</span>--start-time &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--end-time &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--rollup &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
+<blockquote>
+<div><p>CRN of the destination cluster of the policy.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--policy-id</span></code> (string)</p>
+<blockquote>
+<div><p>ID of the policy that the time series data is requested for.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--metric</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the HBase replication peer metric.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_edits_filtered_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_edits_read_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_queue_size</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_read_in_bytes_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shipped_batches_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shipped_ops_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shipped_size_in_kb_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_25th_percentile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_75th_percentile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_90th_percentile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_98th_percentile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_99th_percentile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_999th_percentile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_max</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_mean</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_median</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_min</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age_of_last_shipped_operation_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shipped_hfiles_rate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_of_hfile_refs_queue</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--start-time</span></code> (datetime)</p>
+<blockquote>
+<div><p>Start time of the time series data. Defaults to 5 minutes before end time.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--end-time</span></code> (datetime)</p>
+<blockquote>
+<div><p>End time of the time series data. Defaults to current time.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--rollup</span></code> (string)</p>
+<blockquote>
+<div><p>Aggregate rollup level for time series data. Defaults to RAW data.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RAW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEN_MINUTELY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HOURLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SIX_HOURLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DAILY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WEEKLY</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>hbasePeerName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the HBase peer used for replication.</p>
+</div></blockquote>
+<p>sourceCluster -&gt; (string)</p>
+<blockquote>
+<div><p>Name of source cluster in the format: “dataCenterName$cluster name”, for example “DC-Europe$My Source 42”.</p>
+</div></blockquote>
+<p>targetCluster -&gt; (string)</p>
+<blockquote>
+<div><p>Name of destination cluster in the format: “dataCenterName$cluster name”, for example “DC-US$My Destination 17”.</p>
+</div></blockquote>
+<p>timeSeries -&gt; (object)</p>
+<blockquote>
+<div><p>HBase time series data and metadata.</p>
+<p>metadata -&gt; (object)</p>
+<blockquote>
+<div><p>Time series metadata.</p>
+<p>metricName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the metric.</p>
+</div></blockquote>
+<p>startTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>Start time of the time series data.</p>
+</div></blockquote>
+<p>endTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>End time of the time series data.</p>
+</div></blockquote>
+<p>attributes -&gt; (object)</p>
+<blockquote>
+<div><p>Attributes of the resource providing time series data.</p>
+<p>serviceName -&gt; (string)</p>
+<blockquote>
+<div><p>Service name.</p>
+</div></blockquote>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster name.</p>
+</div></blockquote>
+</div></blockquote>
+<p>unitNumerator -&gt; (string)</p>
+<blockquote>
+<div><p>Unit numerator.</p>
+</div></blockquote>
+<p>unitDenominator -&gt; (string)</p>
+<blockquote>
+<div><p>Unit denominator.</p>
+</div></blockquote>
+</div></blockquote>
+<p>data -&gt; (array)</p>
+<blockquote>
+<div><p>List of time series data points.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Time series data point.</p>
+<p>timestamp -&gt; (datetime)</p>
+<blockquote>
+<div><p>Timestamp of the data point.</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>Value of the data point.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-hbase-time-series</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="get-credentials.html"
+                        title="previous chapter">get-credentials</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get-snapshot-policy.html"
+                        title="next chapter">get-snapshot-policy</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-snapshot-policy.html" title="get-snapshot-policy"
+             >next</a></li>
+        <li class="right" >
+          <a href="get-credentials.html" title="get-credentials"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-hbase-time-series</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
