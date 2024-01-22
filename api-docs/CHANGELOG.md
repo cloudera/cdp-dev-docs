@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.105 (2024-01-19)
+IMPROVEMENTS:
+* environments: Add `update-azure-availability-zones` command.
+* environments: Add `availabilityZones` parameter to the `create-azure-environment` command.
+* environments: Add `multiAz` parameter to the `Environment` object.
+* datahub: Add `availabilityZones` parameter to the `create-azure-cluster` command.
+* df: Add `create-flow-version-tag`, `delete-flow-version-tag`, `list-flow-definition-versions`, and `list-flow-version-tags` commands.
+* dfworkload: Add `export-deployment`, `import-deployment`, `list-deployment-archives`, `download-client-certificates-encoded` commands.
+* opdb: Add `recipes` and `image` parameters to the `create-database` command.
+
 ## 0.9.104 (2024-01-04)
 Maintenance update
 
