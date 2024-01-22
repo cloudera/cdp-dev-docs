@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-deployment &#8212; CDP CLI 0.9.104 (BETA) documentation</title>
+    <title>create-deployment &#8212; CDP CLI 0.9.105 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,19 +16,19 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="create-project" href="create-project.html" />
+    <link rel="next" title="create-flow-version-tag" href="create-flow-version-tag.html" />
     <link rel="prev" title="cancel-delete-project" href="cancel-delete-project.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-project.html" title="create-project"
+          <a href="create-flow-version-tag.html" title="create-flow-version-tag"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="cancel-delete-project.html" title="cancel-delete-project"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Initiate and create deployment on workload</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.104</p>
+<dd class="field-even"><p>0.9.105</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -59,9 +59,12 @@
 --service-crn &lt;value&gt;
 --flow-version-crn &lt;value&gt;
 --deployment-name &lt;value&gt;
+<span class="o">[</span>--from-archive &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--import-parameters-from &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cluster-size-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--static-node-count &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--auto-scaling-enabled <span class="p">|</span> --no-auto-scaling-enabled<span class="o">]</span>
+<span class="o">[</span>--flow-metrics-scaling-enabled <span class="p">|</span> --no-flow-metrics-scaling-enabled<span class="o">]</span>
 <span class="o">[</span>--auto-scale-min-nodes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--auto-scale-max-nodes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cfm-nifi-version &lt;value&gt;<span class="o">]</span>
@@ -92,9 +95,17 @@
 <blockquote>
 <div><p>Unique name for the deployment.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--from-archive</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the deployment configuration archive to import deployment configurations from. This argument cannot be used with –import-parameters-from.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--import-parameters-from</span></code> (string)</p>
+<blockquote>
+<div><p>The name of deployment configuration archive to import parameter groups values from. This argument cannot be used when using the –from-archive argument.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cluster-size-name</span></code> (string)</p>
 <blockquote>
-<div><p>Size for the cluster. The default is EXTRA_SMALL.</p>
+<div><p>Size for the cluster. The default is EXTRA_SMALL. This argument will be ignored if –from-archive is used.</p>
 <p>Possible values:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">EXTRA_SMALL</span></code></p></li>
@@ -105,23 +116,27 @@
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--static-node-count</span></code> (integer)</p>
 <blockquote>
-<div><p>The static number of nodes provisioned. The default is 1.</p>
+<div><p>The static number of nodes provisioned. The default is 1. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--auto-scaling-enabled</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-auto-scaling-enabled</span></code> (boolean)</p>
 <blockquote>
-<div><p>Automatic node scaling. The default is disabled.</p>
+<div><p>Automatic node scaling. The default is disabled. This argument will be ignored if –from-archive is used.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--flow-metrics-scaling-enabled</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-flow-metrics-scaling-enabled</span></code> (boolean)</p>
+<blockquote>
+<div><p>Flow metrics enabled for scaling. The default is disabled. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--auto-scale-min-nodes</span></code> (integer)</p>
 <blockquote>
-<div><p>The minimum number of nodes for automatic scaling.</p>
+<div><p>The minimum number of nodes for automatic scaling. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--auto-scale-max-nodes</span></code> (integer)</p>
 <blockquote>
-<div><p>The maximum number of nodes for automatic scaling.</p>
+<div><p>The maximum number of nodes for automatic scaling. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cfm-nifi-version</span></code> (string)</p>
 <blockquote>
-<div><p>The CFM NiFi version. Defaults to the latest version.</p>
+<div><p>The CFM NiFi version. Defaults to the latest version. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--auto-start-flow</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-auto-start-flow</span></code> (boolean)</p>
 <blockquote>
@@ -129,7 +144,7 @@
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--parameter-groups</span></code> (array)</p>
 <blockquote>
-<div><p>Parameter groups with each requiring a value or assets.</p>
+<div><p>Parameter groups with each requiring a value or assets. If –from-archive or –import-parameters-from is used, then parameters defined here will override what is defined in the archive. Sensitive parameters must always be specified here.</p>
 </div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
@@ -150,7 +165,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--kpis</span></code> (array)</p>
 <blockquote>
-<div><p>Key Performance Indicators with associated alerts.</p>
+<div><p>Key Performance Indicators with associated alerts. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
@@ -180,7 +195,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--custom-nar-configuration</span></code> (object)</p>
 <blockquote>
-<div><p>Custom NAR configuration properties</p>
+<div><p>Custom NAR configuration properties. This argument will be ignored if –from-archive is used.</p>
 <p>username -&gt; (string)</p>
 <blockquote>
 <div><p>Username for access to NAR storage location</p>
@@ -213,11 +228,11 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--inbound-hostname</span></code> (string)</p>
 <blockquote>
-<div><p>The FQDN of inbound host or just the prefix part of the hostname</p>
+<div><p>The FQDN of inbound host or just the prefix part of the hostname. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--listen-components</span></code> (array)</p>
 <blockquote>
-<div><p>Listen components port and protocol data</p>
+<div><p>Listen components port and protocol data. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">protocol</span><span class="o">=</span>string,port<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
@@ -235,7 +250,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--node-storage-profile-name</span></code> (string)</p>
 <blockquote>
-<div><p>Node storage profile name</p>
+<div><p>Node storage profile name. This argument will be ignored if –from-archive is used.</p>
 <p>Possible values:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">STANDARD_AWS</span></code></p></li>
@@ -246,7 +261,7 @@
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--project-crn</span></code> (string)</p>
 <blockquote>
-<div><p>CRN for the project to assign this deployment to. Not specifying this will result in the deployment to be unassigned to any project.</p>
+<div><p>CRN for the project to assign this deployment to. Not specifying this will result in the deployment to be unassigned to any project. This argument will be ignored if –from-archive is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -293,8 +308,8 @@
   <p class="topless"><a href="cancel-delete-project.html"
                         title="previous chapter">cancel-delete-project</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="create-project.html"
-                        title="next chapter">create-project</a></p>
+  <p class="topless"><a href="create-flow-version-tag.html"
+                        title="next chapter">create-flow-version-tag</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -313,12 +328,12 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-project.html" title="create-project"
+          <a href="create-flow-version-tag.html" title="create-flow-version-tag"
              >next</a></li>
         <li class="right" >
           <a href="cancel-delete-project.html" title="cancel-delete-project"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>
