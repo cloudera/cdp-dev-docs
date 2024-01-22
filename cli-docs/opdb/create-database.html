@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-database &#8212; CDP CLI 0.9.104 documentation</title>
+    <title>create-database &#8212; CDP CLI 0.9.105 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="collect-diagnostics.html" title="collect-diagnostics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-database</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create opDb</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.104</p>
+<dd class="field-even"><p>0.9.105</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -59,8 +59,10 @@
 --environment-name &lt;value&gt;
 --database-name &lt;value&gt;
 <span class="o">[</span>--auto-scaling-parameters &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--image &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--scale-type &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--storage-type &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--recipes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -119,6 +121,29 @@
 <span class="o">}</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--image</span></code> (object)</p>
+<blockquote>
+<div><p>Details of an Image.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>Image ID for the database.</p>
+</div></blockquote>
+<p>catalog -&gt; (string)</p>
+<blockquote>
+<div><p>Catalog name for the image.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">id</span><span class="o">=</span>string,catalog<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;catalog&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--scale-type</span></code> (string)</p>
 <blockquote>
 <div><p>Scale type. <cite>MICRO</cite> - Create a 2-node cluster (1 gateway and 1 worker) with high availability disabled. <cite>LIGHT</cite> - Create a multi-node cluster with a light master and gateway instance type. <cite>HEAVY</cite> - Create a multi-node cluster with heavy master and gateway instance type.</p>
@@ -139,6 +164,24 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">HDFS</span></code></p></li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--recipes</span></code> (array)</p>
+<blockquote>
+<div><p>Custom recipes for the database.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">names</span><span class="o">=</span>string,string,instanceGroup<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;names&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+    <span class="s2">&quot;instanceGroup&quot;</span>: <span class="s2">&quot;WORKER&quot;</span><span class="p">|</span><span class="s2">&quot;LEADER&quot;</span><span class="p">|</span><span class="s2">&quot;MASTER&quot;</span><span class="p">|</span><span class="s2">&quot;GATEWAY&quot;</span><span class="p">|</span><span class="s2">&quot;STRONGMETA&quot;</span><span class="p">|</span><span class="s2">&quot;EDGE&quot;</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -253,7 +296,7 @@
         <li class="right" >
           <a href="collect-diagnostics.html" title="collect-diagnostics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-database</a></li> 
       </ul>

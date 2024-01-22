@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-environment &#8212; CDP CLI 0.9.104 documentation</title>
+    <title>create-azure-environment &#8212; CDP CLI 0.9.105 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new Azure environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.104</p>
+<dd class="field-even"><p>0.9.105</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -80,6 +80,7 @@
 <span class="o">[</span>--encryption-key-url &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--encryption-key-resource-group-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-outbound-load-balancer <span class="p">|</span> --no-enable-outbound-load-balancer<span class="o">]</span>
+<span class="o">[</span>--availability-zones &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--flexible-server-subnet-ids &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--data-services &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
@@ -371,6 +372,14 @@
 <blockquote>
 <div><p>Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--availability-zones</span></code> (array)</p>
+<blockquote>
+<div><p>The zones of the environment in the given region.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--flexible-server-subnet-ids</span></code> (array)</p>
 <blockquote>
 <div><p>The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.</p>
@@ -818,6 +827,10 @@
 <blockquote>
 <div><p>The number of FreeIPA instances to create per group when creating FreeIPA in environment.</p>
 </div></blockquote>
+<p>multiAz -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the given FreeIPA is deployed in a multi-availability zone way or not.</p>
+</div></blockquote>
 </div></blockquote>
 <p>proxyConfig -&gt; (object)</p>
 <blockquote>
@@ -949,7 +962,7 @@
         <li class="right" >
           <a href="create-azure-credential.html" title="create-azure-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.104 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-environment</a></li> 
       </ul>
