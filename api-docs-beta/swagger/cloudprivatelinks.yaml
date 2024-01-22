@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.104 (BETA)
+  version: 0.9.105 (BETA)
   title: Cloudera CloudPrivateLinks API Service
   license:
     name: Apache 2.0
@@ -178,9 +178,6 @@ definitions:
     type: object
     description: Request object for the CreatePrivateLinkEndpoint method.
     properties:
-      cloudAccountId:
-        type: string
-        description: Account ID to authorize access for PrivateLink.
       serviceComponents:
         type: array
         items:
@@ -390,6 +387,9 @@ definitions:
     type: object
     description: Details of the cloud network and the cross-account role required to create the PrivateLink endpoint.
     properties:
+      cloudAccountId:
+        type: string
+        description: Account ID to authorize access for PrivateLink.
       crossAccountRoleDetails:
         description: Cross account role details.
         $ref: '#/definitions/CrossAccountRoleDetails'
