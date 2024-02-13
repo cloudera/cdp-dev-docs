@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.106 (2024-02-12)
+IMPROVEMENTS:
+* cloudprivatelinks: Add `authorizePrivateLinkServiceAccess`, `createPrivateLinkEndpoint`, `deletePrivateLinkEndpoint`, `getPrivateLinkEndpointStatus`, `listPrivateLinkEndpointStatuses`, `listPrivateLinkServicesForRegion` APIs.
+* datahub: Add `recipes` field to `InstanceGroup` object.
+* datahub: Add `flexibleServerDelegatedSubnetId` parameter to the `create-azure-cluster` command.
+* datalake: Add `recipes` field to `InstanceGroup` object.
+* datalake: Add `flexibleServerDelegatedSubnetId` parameter to `create-azure-datalake` command.
+
+
+
 ## 0.9.105 (2024-01-19)
 IMPROVEMENTS:
 * environments: Add `update-azure-availability-zones` command.
