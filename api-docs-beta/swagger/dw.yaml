@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.105 (BETA)
+  version: 0.9.106 (BETA)
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -335,7 +335,7 @@ paths:
       x-mutating: true
       x-form-factors: public
       summary: Suspend Cloudera Data Warehouse cluster.
-      description: Suspend Cloudera Data Warehouse cluster. Supported only on Azure. Suspend cluster requires a "Running" Azure CDW, trying to suspend a cluster already in "Stopped" or "Error" state is not supported. Every Virtual Warehouse and Database Catalog which belongs to that CDW must be stopped first. This operation will stop the AKS cluster for this CDW instance, however leaves other cloud resources in "Running" state, including the Postgres database.
+      description: Suspend Cloudera Data Warehouse cluster. Supported only on Azure. Suspend cluster requires a "Running" Azure CDW, trying to suspend a cluster already in "Stopped" or "Error" state is not supported. Every Virtual Warehouse and Database Catalog which belongs to that CDW must be stopped first. This operation will stop the AKS cluster for this CDW instance, however leaves other cloud resources in "Running" state, including the Postgres database. Please refer to the following AKS documentation for start/stop feature https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster?tabs=azure-cli
       operationId: suspendCluster
       parameters:
         - name: input
@@ -358,7 +358,7 @@ paths:
       x-mutating: true
       x-form-factors: public
       summary: Resume Cloudera Data Warehouse cluster.
-      description: Resume Cloudera Data Warehouse cluster. Supported only on Azure. Resume cluster will start a stopped CDW cluster. Resuming a cluster in "Running" or "Error" state is not supported. Resume will start the AKS instance which belongs to this CDW.
+      description: Resume Cloudera Data Warehouse cluster. Supported only on Azure. Resume cluster will start a stopped CDW cluster. Resuming a cluster in "Running" or "Error" state is not supported. Resume will start the AKS instance which belongs to this CDW. Please refer to the following AKS documentation for start/stop feature https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster?tabs=azure-cli
       operationId: resumeCluster
       parameters:
         - name: input
@@ -2362,12 +2362,12 @@ definitions:
       userAssignedManagedIdentity:
         type: string
         description: Resource ID of the managed identity used by AKS. It is a mandatory parameter for Azure cluster creation.
-      subnetId:
+      subnetName:
         type: string
-        description: ID of Azure subnet where the cluster should be deployed. It is a mandatory parameter for Azure cluster creation.
-      kubenet:
+        description: Name of Azure subnet where the cluster should be deployed. It is a mandatory parameter for Azure cluster creation.
+      useOverlayNetworking:
         type: boolean
-        description: With kubenet, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes.
+        description: With overlay network nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes.
       databaseBackupRetentionPeriod:
         type: integer
         format: int32
@@ -2383,7 +2383,7 @@ definitions:
         items:
           type: string
         description: List of IP address CIDRs to whitelist for workload access.
-      usePrivateLoadBalancer:
+      useInternalLoadBalancer:
         type: boolean
         description: Set up load balancer with private IP address. An internal load balancer gets created. Make sure there is connectivity between your client network and the network VNet where CDW environment is deployed.
       enableStorageRoles:
@@ -2441,7 +2441,7 @@ definitions:
         type: boolean
         description: Enable Azure Private AKS mode.
         default: false
-      aksVNetIntegrationSubnetName:
+      aksVNETIntegrationSubnetName:
         type: string
         description: Enable AKS VNet Azure Virtual Network (VNet) integration by specifying the delegated subnet name. An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes without requiring a private link or tunnel.
   CreatePrivateClusterRequest:

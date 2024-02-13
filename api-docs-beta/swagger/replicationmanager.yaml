@@ -5,7 +5,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.105 (BETA)
+  version: 0.9.106 (BETA)
   title: Cloudera Replication Manager Service
   license:
     name: Apache 2.0
@@ -186,6 +186,48 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/createGcsCredential:
+    post:
+      summary: Create a GCS Cloud Credential.
+      description: Creates a new GCS cloud credential.
+      operationId: createGcsCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateGcsCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateGcsCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateGcsCredential:
+    post:
+      summary: Update a GCS Cloud Credential.
+      description: Updates an existing GCS cloud credential.
+      operationId: updateGcsCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateGcsCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateGcsCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/replicationmanager/deleteCredential:
     post:
       summary: Delete Cloud Credential.
@@ -203,6 +245,27 @@ paths:
           description: Describes a successful response to a valid request.
           schema:
             $ref: '#/definitions/DeleteCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/getClusterConfig:
+    post:
+      summary: Get configuration of a cluster.
+      description: Retrieves configuration of a specific cluster.
+      operationId: getClusterConfig
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetClusterConfigRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/GetClusterConfigResponse'
         default:
           description: The default response on an error.
           schema:
@@ -270,6 +333,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updatePolicy:
+    post:
+      summary: Update a Replication Policy.
+      description: Updates an existing replication policy with the given parameters on a specific cluster.
+      operationId: updatePolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdatePolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdatePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/replicationmanager/suspendPolicy:
     post:
       summary: Stop all replication tasks defined by the policy.
@@ -308,6 +392,70 @@ paths:
           description: Describes a successful response to a valid request.
           schema:
             $ref: '#/definitions/ActivatePolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/rerunPolicy:
+    post:
+      summary: Rerun policy job.
+      description: Instantly starts a new job of a provided policy.
+      operationId: rerunPolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RerunPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/RerunPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/abortPolicy:
+    post:
+      summary: Abort replication policy.
+      description: Abort all running instances of the replication policy.
+      operationId: abortPolicy
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AbortPolicyRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/AbortPolicyResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/listPolicyJobs:
+    post:
+      summary: List policy jobs.
+      description: Returns a list of jobs triggered by a replication policy.
+      operationId: listPolicyJobs
+      x-mutating: false
+      x-paging-default-max-items: 100
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListPolicyJobsRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/ListPolicyJobsResponse'
         default:
           description: The default response on an error.
           schema:
@@ -518,6 +666,27 @@ paths:
           description: Describes a successful response to a valid request.
           schema:
             $ref: '#/definitions/ListPairedHbaseClustersResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/verifyHbaseClusterPair:
+    post:
+      summary: Verify a source-destination cluster pair for HBase policy creation.
+      description: Returns whether the cluster pair is ready for policy creation, or if there are some manual steps that need to be performed before.
+      operationId: verifyHbaseClusterPair
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/VerifyHbaseClusterPairRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/VerifyHbaseClusterPairResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1050,9 +1219,148 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ApiError'
+  CreateGcsCredentialRequest:
+    type: object
+    description: Request object for creating GCS cloud credentials.
+    required:
+      - name
+      - clusters
+      - type
+    properties:
+      name:
+        description: Name of the credential.
+        type: string
+      clusters:
+        description: List of cluster CRNs where the credential should be created.
+        type: array
+        items:
+          type: string
+      type:
+        description: 'Type of the credential. Additional accepted parameters by type: PRIVATEKEY: clientEmail, privateKeyId, privateKey. Superfluous parameters are ignored.'
+        $ref: '#/definitions/GcsCloudCredentialType'
+      clientEmail:
+        description: Client email.
+        type: string
+      privateKeyId:
+        description: GCS private key ID.
+        type: string
+      privateKey:
+        description: GCS private key.
+        type: string
+        x-sensitive: true
+  CreateGcsCredentialResponse:
+    type: object
+    description: Response object for creating GCS credentials.
+    properties:
+      errors:
+        description: The list of response errors in case of a partial failure while creating the credential.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  UpdateGcsCredentialRequest:
+    type: object
+    description: Request object for updating GCS cloud credentials.
+    required:
+      - name
+      - type
+    properties:
+      name:
+        description: Name of the credential to update.
+        type: string
+      type:
+        description: 'Type of the credential. Additional accepted parameters by type: PRIVATEKEY: clientEmail, privateKeyId, privateKey. Superfluous parameters are ignored.'
+        $ref: '#/definitions/GcsCloudCredentialType'
+      clientEmail:
+        description: Client email.
+        type: string
+      privateKeyId:
+        description: GCS private key ID.
+        type: string
+      privateKey:
+        description: GCS private key.
+        type: string
+        x-sensitive: true
+  UpdateGcsCredentialResponse:
+    type: object
+    description: Response object for updating GCS credentials.
+    properties:
+      errors:
+        description: List of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  GetClusterConfigRequest:
+    type: object
+    description: Request object for getClusterConfig.
+    required:
+      - clusterCrn
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster.
+  GetClusterConfigResponse:
+    type: object
+    description: Response object for getClusterConfig.
+    properties:
+      clusterCrn:
+        description: The CRN of the cluster.
+        type: string
+      cmApiVersion:
+        description: Cloudera Manager API version.
+        type: integer
+        format: int32
+      underlyingFsForHive:
+        description: Underlying file system for Hive.
+        type: string
+        enum:
+          - HDFS
+          - S3
+          - WASB
+          - ABFS
+          - GCS
+      dmx:
+        description: Configuration related to DMX.
+        type: object
+        properties:
+          hbaseSuspend:
+            description: Suspend type for HBase policies.
+            $ref: '#/definitions/HbaseSuspendType'
+      featureSupport:
+        description: A map of available features and whether they are supported on the cluster.
+        type: object
+        additionalProperties:
+          type: boolean
+      services:
+        description: A list of service configurations.
+        type: array
+        items:
+          $ref: '#/definitions/ServiceConfiguration'
+  ServiceConfiguration:
+    description: Configuration related to a service.
+    type: object
+    properties:
+      name:
+        description: The name of the service.
+        type: string
+      configs:
+        description: Service configuration map.
+        type: object
+        additionalProperties:
+          type: string
+  HbaseSuspendType:
+    description: Describes how suspend and resume affects HBase policies on the cluster. 'ALL' means that suspend/resume affects all HBase policies with the same source and destination cluster, while 'POLICY' means that only the selected policy gets suspended/resumed. 'NOT_SUPPORTED' means that this feature is not available on the cluster.
+    type: string
+    enum:
+      - POLICY
+      - ALL
+      - NOT_SUPPORTED
   ListPoliciesRequest:
     type: object
     description: Request object for listing all policies.
+    properties:
+      clusterCrn:
+        type: string
+        description: CRN of the cluster where the policies are stored.
   ListPoliciesResponse:
     type: object
     description: Response object for a list policies request.
@@ -1112,6 +1420,92 @@ definitions:
   CreatePolicyResponse:
     type: object
     description: Response object for createPolicy.
+  UpdatePolicyRequest:
+    type: object
+    description: Update a replication policy request.
+    required:
+      - clusterCrn
+      - policyId
+      - updatePolicyDefinition
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster where the policy will be updated.
+      policyId:
+        type: string
+        description: The ID of the policy to be updated.
+      updatePolicyDefinition:
+        description: The policy definition.
+        $ref: '#/definitions/UpdatePolicyDefinition'
+  UpdatePolicyDefinition:
+    type: object
+    description: Policy update request definition.
+    properties:
+      name:
+        description: The policy name.
+        type: string
+      suspend:
+        description: Whether to suspend the policy. Changing this is the same as using suspend-policy (suspend = true) and activate-policy (suspend = false).
+        type: boolean
+      sourceUpdateDataset:
+        description: The source dataset to replicate.
+        $ref: '#/definitions/SourceUpdateDataset'
+      frequencyInSec:
+        description: Policy's frequency in seconds.
+        type: integer
+        format: int64
+      targetDataset:
+        description: The path of the dataset to replicate to.
+        type: string
+      startTime:
+        description: Policy start time.
+        type: string
+        format: date-time
+      endTime:
+        description: Policy end time.
+        type: string
+        format: date-time
+      distcpMaxMaps:
+        description: Maximum Map jobs to use for replication.
+        type: integer
+        format: int64
+      distcpMapBandwidth:
+        description: Maximum bandwidth to use for replication.
+        type: integer
+        format: int64
+      queueName:
+        description: YARN queue name if not default.
+        type: string
+      tdeSameKey:
+        description: Whether to use TDE same key.
+        type: boolean
+      description:
+        description: Description of the policy.
+        type: string
+      enableSnapshotBasedReplication:
+        description: Whether to enable snapshot based replication.
+        type: boolean
+      cloudEncryptionAlgorithm:
+        description: The type of cloud encryption algorithm. Can be used only for HDP/Ambari managed clusters. Supported values are AES256,SSE-KMS.
+        type: string
+      cloudEncryptionKey:
+        description: The encryption key for the selected cloud encryption algorithm.
+        type: string
+      plugins:
+        description: The list of plugins.
+        x-default: null
+        type: array
+        items:
+          type: string
+      hiveExternalTableBaseDirectory:
+        description: The base directory path on the target where to put the replicated Hive external tables.
+        type: string
+      cmPolicySubmitUser:
+        description: CM policy submit user.
+        $ref: '#/definitions/CmPolicySubmitUser'
+  UpdatePolicyResponse:
+    type: object
+    description: Response object for updatePolicy.
   CreateHbasePolicyRequest:
     type: object
     description: Create an HBase replication policy.
@@ -1407,6 +1801,61 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ApiError'
+  VerifyHbaseClusterPairRequest:
+    type: object
+    description: Request to verify a cluster pairing for HBase policy creation prerequisites.
+    required:
+      - sourceClusterCrn
+      - destinationClusterCrn
+    properties:
+      sourceClusterCrn:
+        type: string
+        description: CRN of the source cluster.
+      destinationClusterCrn:
+        type: string
+        description: CRN of the destination cluster.
+  VerifyHbaseClusterPairResponse:
+    type: object
+    description: Response object for verifyHbaseClusterPair.
+    properties:
+      pairingStatus:
+        description: The current status of pairing.
+        type: string
+      pairedStatus:
+        description: Substatus of an active pairing. Indicates if a pairing is resettable or in an erroneous state.
+        type: string
+      pairingMessage:
+        description: Description of the pairing status.
+        type: string
+      beforePolicySteps:
+        description: Manual steps to perform before HBase policy creation.
+        type: object
+        properties:
+          summary:
+            description: Summary of the steps to perform.
+            type: string
+          documentationLink:
+            description: Link to the HBase replication manual steps documentation.
+            type: string
+          source:
+            description: Steps to perform for the source cluster.
+            $ref: '#/definitions/VerificationSteps'
+          destination:
+            description: Steps to perform for the destination cluster.
+            $ref: '#/definitions/VerificationSteps'
+      afterPolicySteps:
+        description: Manual steps to perform after HBase policy creation.
+        type: object
+        properties:
+          summary:
+            description: Summary of the steps to perform.
+            type: string
+          source:
+            description: Steps to perform for the source cluster.
+            $ref: '#/definitions/VerificationSteps'
+          destination:
+            description: Steps to perform for the destination cluster.
+            $ref: '#/definitions/VerificationSteps'
   GetHbaseTimeSeriesRequest:
     type: object
     description: Request to retrieve time series data for an HBase replication peer.
@@ -1682,6 +2131,111 @@ definitions:
       bundleStatusMessage:
         description: Further information about the current command status.
         type: string
+  RerunPolicyRequest:
+    type: object
+    description: Request object for rerun policy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster where the replication policy run gets executed.
+      policyId:
+        type: string
+        description: The ID of the policy to rerun.
+  RerunPolicyResponse:
+    type: object
+    description: Response object for rerun policy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster where the replication policy run gets executed.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The output of rerun policy command.
+      status:
+        type: string
+        description: The status of the request.
+  ListPolicyJobsRequest:
+    type: object
+    description: Request object for listing policy jobs.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster where the replication policy is.
+      policyId:
+        type: string
+        description: The ID of the policy.
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 100
+        x-paging-page-size: true
+        description: The size of each page. Defaults to 10.
+        default: 10
+      startingToken:
+        type: string
+        x-paging-input-token: true
+        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response. 1 or empty for first page.
+  ListPolicyJobsResponse:
+    type: object
+    description: Response object for listPolicyJobs.
+    properties:
+      totalResults:
+        description: Total number of jobs for the policy.
+        type: integer
+        format: int64
+      results:
+        description: Number of jobs in the response.
+        type: integer
+        format: int64
+      jobs:
+        description: List of policy jobs.
+        x-paging-result: true
+        type: array
+        items:
+          $ref: '#/definitions/PolicyInstanceResponse'
+      nextToken:
+        type: string
+        x-paging-output-token: true
+        description: The token to use when requesting the next set of results. If not present, there are no additional results.
+  AbortPolicyRequest:
+    type: object
+    description: Request object for abortPolicy.
+    required:
+      - clusterCrn
+      - policyId
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster where the replication policy is.
+      policyId:
+        type: string
+        description: The ID of the policy.
+  AbortPolicyResponse:
+    type: object
+    description: Response object for abortPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
   CreateSnapshotPolicyRequest:
     type: object
     description: Request object for createSnapshotPolicy.
@@ -2413,6 +2967,16 @@ definitions:
       hiveArguments:
         description: Arguments for Hive replication, null if HDFS replication.
         $ref: '#/definitions/HiveArguments'
+  SourceUpdateDataset:
+    type: object
+    description: Extra properties for updating the source dataset.
+    properties:
+      hdfsArguments:
+        description: Updatable arguments for HDFS replication.
+        $ref: '#/definitions/HdfsUpdateArguments'
+      hiveArguments:
+        description: Updatable arguments for Hive replication, null if HDFS replication.
+        $ref: '#/definitions/HiveArguments'
   HdfsArguments:
     type: object
     description: Extra properties for HDFS.
@@ -2440,6 +3004,44 @@ definitions:
         $ref: '#/definitions/Preserve'
       deletePolicy:
         description: Deletion behavior.
+        type: string
+        enum:
+          - KEEP_DELETED_FILES
+          - DELETE_TO_TRASH
+          - DELETE_PERMANENTLY
+      alert:
+        description: Alerting behavior.
+        $ref: '#/definitions/Alert'
+      exclusionFilters:
+        description: Exclusion filters in glob format.
+        type: array
+        x-default: null
+        items:
+          type: string
+  HdfsUpdateArguments:
+    type: object
+    description: Updatable HDFS properties.
+    properties:
+      replicationStrategy:
+        description: Replication strategy.
+        type: string
+        enum:
+          - DYNAMIC
+          - STATIC
+      mapReduceService:
+        description: The name of the MapReduce service.
+        type: string
+      logPath:
+        description: The HDFS path where the replication log files should be written to.
+        type: string
+      errorHandling:
+        description: Error handling strategy.
+        $ref: '#/definitions/ErrorHandling'
+      preserve:
+        description: Properties to preserve.
+        $ref: '#/definitions/Preserve'
+      deletePolicy:
+        description: Deletion behavior for the target side when files are removed on the source side. KEEP_DELETED_FILES:Keep deleted source files on the target, DELETE_TO_TRASH:Remove the deleted source files to trash on the target, DELETE_PERMANENTLY:Permanently remove deleted files on the target.
         type: string
         enum:
           - KEEP_DELETED_FILES
@@ -2598,6 +3200,10 @@ definitions:
         description: Maximum Map jobs to use for initial snapshot.
         type: integer
         format: int64
+      distcpMapBandwidth:
+        description: Maximum bandwidth per mapper to use for initial snapshot.
+        type: integer
+        format: int64
       sourceRestartType:
         description: Type of restart for the source cluster. This is only accepted if the source is not a Classic Cluster and the destination has restart-type support. Default is ROLLING_RESTART.
         $ref: '#/definitions/RestartType'
@@ -2626,6 +3232,22 @@ definitions:
       validateReplicationSetup:
         description: Whether to validate replication setup after policy creation.
         type: boolean
+      forceSetup:
+        description: Whether setup should be forced if one of the clusters is already paired with another cluster. Forced setup is only possible if either there are no HBase replication policies between the pair or if the other cluster in the pair is currently unreachable. Note that when set to 'true' the existing pairing for the selected source or target cluster will be cleared and the first-time setup will be initiated with the chosen new source or destination cluster.
+        type: boolean
+      databaseArguments:
+        description: Optional parameters used for HBase database replication.
+        $ref: '#/definitions/HbaseDatabaseArguments'
+  HbaseDatabaseArguments:
+    type: object
+    description: HBase database replication arguments.
+    properties:
+      replicationStrategy:
+        description: Whether to replicate all tables or only the ones where the replication scope has been set. Defaults to ALL_TABLES.
+        type: string
+        enum:
+          - ALL_TABLES
+          - TABLES_WITH_REPLICATION_SCOPE_SET
   MachineUser:
     type: object
     description: Username and password for the machine user.
@@ -2653,6 +3275,18 @@ definitions:
         type: array
         items:
           type: string
+  VerificationSteps:
+    type: object
+    description: Verification steps.
+    properties:
+      clusterManagerUrl:
+        description: The cluster manager URL to reach the cluster's UI.
+        type: string
+      steps:
+        description: The list of manual steps to perform or verify.
+        type: array
+        items:
+          type: string
   AwsCloudCredentialType:
     type: string
     description: AWS cloud credential type.
@@ -2665,6 +3299,11 @@ definitions:
     enum:
       - ACCESSKEY
       - CLIENTKEY
+  GcsCloudCredentialType:
+    type: string
+    description: GCS cloud credential type.
+    enum:
+      - PRIVATEKEY
   SnapshotPolicyType:
     type: string
     description: The snapshot type of snapshot policies.
