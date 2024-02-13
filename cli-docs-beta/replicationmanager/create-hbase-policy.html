@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-hbase-policy &#8212; CDP CLI 0.9.105 (BETA) documentation</title>
+    <title>create-hbase-policy &#8212; CDP CLI 0.9.106 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="create-policy" href="create-policy.html" />
-    <link rel="prev" title="create-aws-credential" href="create-aws-credential.html" /> 
+    <link rel="prev" title="create-gcs-credential" href="create-gcs-credential.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="create-policy.html" title="create-policy"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="create-aws-credential.html" title="create-aws-credential"
+          <a href="create-gcs-credential.html" title="create-gcs-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.106 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-hbase-policy</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create an HBase Replication Policy.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.105</p>
+<dd class="field-even"><p>0.9.106</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -97,6 +97,18 @@
 <blockquote>
 <div><p>Whether to validate replication setup after policy creation.</p>
 </div></blockquote>
+<p>forceSetup -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether setup should be forced if one of the clusters is already paired with another cluster. Forced setup is only possible if either there are no HBase replication policies between the pair or if the other cluster in the pair is currently unreachable. Note that when set to ‘true’ the existing pairing for the selected source or target cluster will be cleared and the first-time setup will be initiated with the chosen new source or destination cluster.</p>
+</div></blockquote>
+<p>databaseArguments -&gt; (object)</p>
+<blockquote>
+<div><p>HBase database replication arguments.</p>
+<p>replicationStrategy -&gt; (string)</p>
+<blockquote>
+<div><p>Whether to replicate all tables or only the ones where the replication scope has been set. Defaults to ALL_TABLES.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 <p>sourceCluster -&gt; (string)</p>
 <blockquote>
@@ -138,6 +150,10 @@
 <blockquote>
 <div><p>Maximum Map jobs to use for initial snapshot.</p>
 </div></blockquote>
+<p>distcpMapBandwidth -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum bandwidth per mapper to use for initial snapshot.</p>
+</div></blockquote>
 <p>sourceRestartType -&gt; (string)</p>
 <blockquote>
 <div><p>Type of restart for a cluster.</p>
@@ -148,7 +164,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">hbasePolicyArguments</span><span class="o">={</span><span class="nv">tables</span><span class="o">=[</span>string,string<span class="o">]</span>,credentialLocation<span class="o">=</span>string,cloudCredential<span class="o">=</span>string,validateReplicationSetup<span class="o">=</span>boolean<span class="o">}</span>,sourceCluster<span class="o">=</span>string,targetCluster<span class="o">=</span>string,initialSnapshot<span class="o">=</span>boolean,description<span class="o">=</span>string,machineUser<span class="o">={</span><span class="nv">user</span><span class="o">=</span>string,password<span class="o">=</span>string,createUser<span class="o">=</span>boolean<span class="o">}</span>,queueName<span class="o">=</span>string,distcpMaxMaps<span class="o">=</span>integer,sourceRestartType<span class="o">=</span>string,targetRestartType<span class="o">=</span>string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">hbasePolicyArguments</span><span class="o">={</span><span class="nv">tables</span><span class="o">=[</span>string,string<span class="o">]</span>,credentialLocation<span class="o">=</span>string,cloudCredential<span class="o">=</span>string,validateReplicationSetup<span class="o">=</span>boolean,forceSetup<span class="o">=</span>boolean,databaseArguments<span class="o">={</span><span class="nv">replicationStrategy</span><span class="o">=</span>string<span class="o">}}</span>,sourceCluster<span class="o">=</span>string,targetCluster<span class="o">=</span>string,initialSnapshot<span class="o">=</span>boolean,description<span class="o">=</span>string,machineUser<span class="o">={</span><span class="nv">user</span><span class="o">=</span>string,password<span class="o">=</span>string,createUser<span class="o">=</span>boolean<span class="o">}</span>,queueName<span class="o">=</span>string,distcpMaxMaps<span class="o">=</span>integer,distcpMapBandwidth<span class="o">=</span>integer,sourceRestartType<span class="o">=</span>string,targetRestartType<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -157,7 +173,11 @@
     <span class="s2">&quot;tables&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
     <span class="s2">&quot;credentialLocation&quot;</span>: <span class="s2">&quot;EXTERNAL_ACCOUNT&quot;</span><span class="p">|</span><span class="s2">&quot;SAFETY_VALVE&quot;</span>,
     <span class="s2">&quot;cloudCredential&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;validateReplicationSetup&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+    <span class="s2">&quot;validateReplicationSetup&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;forceSetup&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;databaseArguments&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;replicationStrategy&quot;</span>: <span class="s2">&quot;ALL_TABLES&quot;</span><span class="p">|</span><span class="s2">&quot;TABLES_WITH_REPLICATION_SCOPE_SET&quot;</span>
+    <span class="o">}</span>
   <span class="o">}</span>,
   <span class="s2">&quot;sourceCluster&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;targetCluster&quot;</span>: <span class="s2">&quot;string&quot;</span>,
@@ -170,6 +190,7 @@
   <span class="o">}</span>,
   <span class="s2">&quot;queueName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;distcpMaxMaps&quot;</span>: integer,
+  <span class="s2">&quot;distcpMapBandwidth&quot;</span>: integer,
   <span class="s2">&quot;sourceRestartType&quot;</span>: <span class="s2">&quot;RESTART&quot;</span><span class="p">|</span><span class="s2">&quot;ROLLING_RESTART&quot;</span>,
   <span class="s2">&quot;targetRestartType&quot;</span>: <span class="s2">&quot;RESTART&quot;</span><span class="p">|</span><span class="s2">&quot;ROLLING_RESTART&quot;</span>
 <span class="o">}</span>
@@ -225,8 +246,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="create-aws-credential.html"
-                        title="previous chapter">create-aws-credential</a></p>
+  <p class="topless"><a href="create-gcs-credential.html"
+                        title="previous chapter">create-gcs-credential</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="create-policy.html"
                         title="next chapter">create-policy</a></p>
@@ -251,9 +272,9 @@
           <a href="create-policy.html" title="create-policy"
              >next</a></li>
         <li class="right" >
-          <a href="create-aws-credential.html" title="create-aws-credential"
+          <a href="create-gcs-credential.html" title="create-gcs-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.106 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-hbase-policy</a></li> 
       </ul>

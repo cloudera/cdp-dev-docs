@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-cluster &#8212; CDP CLI 0.9.105 (BETA) documentation</title>
+    <title>create-azure-cluster &#8212; CDP CLI 0.9.106 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.106 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create an Azure cluster in the Cloudera Data Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.105</p>
+<dd class="field-even"><p>0.9.106</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -58,12 +58,12 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-azure-cluster
 --environment-crn &lt;value&gt;
 --user-assigned-managed-identity &lt;value&gt;
-<span class="o">[</span>--subnet-id &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--kubenet <span class="p">|</span> --no-kubenet<span class="o">]</span>
+<span class="o">[</span>--subnet-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--use-overlay-networking <span class="p">|</span> --no-use-overlay-networking<span class="o">]</span>
 <span class="o">[</span>--database-backup-retention-period &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--whitelist-k8s-cluster-access-ip-cidrs &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--whitelist-workload-access-ip-cidrs &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--use-private-load-balancer <span class="p">|</span> --no-use-private-load-balancer<span class="o">]</span>
+<span class="o">[</span>--use-internal-load-balancer <span class="p">|</span> --no-use-internal-load-balancer<span class="o">]</span>
 <span class="o">[</span>--enable-storage-roles <span class="p">|</span> --no-enable-storage-roles<span class="o">]</span>
 <span class="o">[</span>--reserved-compute-nodes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--reserved-shared-services-nodes &lt;value&gt;<span class="o">]</span>
@@ -77,7 +77,7 @@
 <span class="o">[</span>--enable-private-sql <span class="p">|</span> --no-enable-private-sql<span class="o">]</span>
 <span class="o">[</span>--private-dns-zone-aks &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-private-aks <span class="p">|</span> --no-enable-private-aks<span class="o">]</span>
-<span class="o">[</span>--aks-v-net-integration-subnet-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--aks-vnet-integration-subnet-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -93,13 +93,13 @@
 <blockquote>
 <div><p>Resource ID of the managed identity used by AKS. It is a mandatory parameter for Azure cluster creation.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--subnet-id</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-name</span></code> (string)</p>
 <blockquote>
-<div><p>ID of Azure subnet where the cluster should be deployed. It is a mandatory parameter for Azure cluster creation.</p>
+<div><p>Name of Azure subnet where the cluster should be deployed. It is a mandatory parameter for Azure cluster creation.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--kubenet</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-kubenet</span></code> (boolean)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--use-overlay-networking</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-overlay-networking</span></code> (boolean)</p>
 <blockquote>
-<div><p>With kubenet, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes.</p>
+<div><p>With overlay network nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--database-backup-retention-period</span></code> (integer)</p>
 <blockquote>
@@ -121,7 +121,7 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--use-private-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-private-load-balancer</span></code> (boolean)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--use-internal-load-balancer</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-use-internal-load-balancer</span></code> (boolean)</p>
 <blockquote>
 <div><p>Set up load balancer with private IP address. An internal load balancer gets created. Make sure there is connectivity between your client network and the network VNet where CDW environment is deployed.</p>
 </div></blockquote>
@@ -222,7 +222,7 @@
 <blockquote>
 <div><p>Enable Azure Private AKS mode.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--aks-v-net-integration-subnet-name</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--aks-vnet-integration-subnet-name</span></code> (string)</p>
 <blockquote>
 <div><p>Enable AKS VNet Azure Virtual Network (VNet) integration by specifying the delegated subnet name. An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes without requiring a private link or tunnel.</p>
 </div></blockquote>
@@ -296,7 +296,7 @@
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.105 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.106 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>
