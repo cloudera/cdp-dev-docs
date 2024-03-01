@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.106 (BETA)
+  version: 0.9.107 (BETA)
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -575,7 +575,7 @@ paths:
       x-mutating: true
       x-no-compatibility-guarantee: true
       summary: Creates a backup from the cluster configuration and settings.
-      description: Creates a backup from the configuration and settings, including all the connected DbCatalogs, Virtual Warehouses and Data Visualisation Apps. The returned data may be used to restore all the entities by using the "restore-cluster" command.
+      description: Creates a backup from the configuration and settings, including all the connected DbCatalogs, Virtual Warehouses and Data Visualisation Apps. The returned data may be used to restore all the entities by using the "restore-cluster" command. The CDW doesn't provide centralized management of the backups. Learn more at https://docs.cloudera.com/data-warehouse/cloud/backup-and-restore/topics/dw-environment-reactivation.html
       operationId: backupCluster
       parameters:
         - name: input
@@ -597,7 +597,7 @@ paths:
       x-mutating: true
       x-no-compatibility-guarantee: true
       summary: Restores the cluster from a backup data made by "backup-cluster" command.
-      description: Restores the cluster from a backup data made by "backup-cluster" command. The operation restores the default DbCatalog configuration, the Virtual Warehouses and the Data Visualisation Apps.
+      description: Restores the cluster from a backup data made by "backup-cluster" command. The operation restores the default DbCatalog configuration, the Virtual Warehouses and the Data Visualisation Apps. Learn more at https://docs.cloudera.com/data-warehouse/cloud/backup-and-restore/topics/dw-environment-reactivation.html
       operationId: restoreCluster
       parameters:
         - name: input
@@ -1917,6 +1917,54 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/GetLogsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/dw/getK8sCertPEM:
+    post:
+      summary: Gets Kubernetes certificate in PEM format.
+      description: Gets the Kubernetes certificate in PEM format for the given cluster ID of the CDW environment.
+      operationId: getK8sCertPEM
+      x-mutating: false
+      x-form-factors: private
+      x-no-compatibility-guarantee: true
+      x-right: dw/getK8sCertPEM
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetK8sCertPEMRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/GetK8sCertPEMResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/dw/getK8sCertJKS:
+    post:
+      summary: Gets Kubernetes certificates in JKS format.
+      description: Gets the Kubernetes certificate in a Java Truststore for the given cluster ID of the CDW environment.
+      operationId: getK8sCertJKS
+      x-mutating: false
+      x-form-factors: private
+      x-no-compatibility-guarantee: true
+      x-right: dw/getK8sCertJKS
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetK8sCertJKSRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/GetK8sCertJKSResponse'
         default:
           description: The default response on an error.
           schema:
@@ -6320,4 +6368,47 @@ definitions:
         description: A list of available namespaces for backup, corresponding to the CDW entities.
         items:
           type: string
+  GetK8sCertPEMRequest:
+    type: object
+    description: Request object for the getK8sCertPEM method.
+    x-form-factors: private
+    required:
+      - clusterId
+    properties:
+      clusterId:
+        type: string
+        description: The cluster ID of the CDW environment to get the Kubernetes certificates for.
+  GetK8sCertPEMResponse:
+    type: object
+    description: The response object for the getK8sCertPEM method.
+    x-form-factors: private
+    properties:
+      pem:
+        x-sensitive: true
+        type: string
+        description: The Kubernetes certificate in PEM format.
+  GetK8sCertJKSRequest:
+    type: object
+    description: Request object for the getK8sCertJKS method.
+    x-form-factors: private
+    required:
+      - clusterId
+    properties:
+      clusterId:
+        type: string
+        description: The cluster ID of the CDW environment to get the Kubernetes certificates for.
+  GetK8sCertJKSResponse:
+    type: object
+    description: The response object for the getK8sCertJKS method.
+    x-form-factors: private
+    properties:
+      password:
+        x-sensitive: true
+        type: string
+        description: The password for the received Java truststore.
+      data:
+        type: string
+        format: byte
+        description: Base64 encoded Java truststore.
+        x-skip-logging: true
 x-audit: true
