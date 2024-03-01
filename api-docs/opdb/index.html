@@ -778,6 +778,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
+<li><a href="#_attachedstorageforworkers">AttachedStorageForWorkers</a></li>
 <li><a href="#_autoscalingparameters">AutoScalingParameters</a></li>
 <li><a href="#_clientconfigurationdetails">ClientConfigurationDetails</a></li>
 <li><a href="#_collectdiagnosticsrequest">CollectDiagnosticsRequest</a></li>
@@ -804,6 +805,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_image">Image</a></li>
 <li><a href="#_instancegrouptype">InstanceGroupType</a></li>
 <li><a href="#_kerberosconfiguration">KerberosConfiguration</a></li>
+<li><a href="#_keyvaluepair">KeyValuePair</a></li>
 <li><a href="#_kind">Kind</a></li>
 <li><a href="#_listdatabasesrequest">ListDatabasesRequest</a></li>
 <li><a href="#_listdatabasesresponse">ListDatabasesResponse</a></li>
@@ -820,6 +822,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_storagetype">StorageType</a></li>
 <li><a href="#_upgradedatabaserequest">UpgradeDatabaseRequest</a></li>
 <li><a href="#_upgradedatabaseresponse">UpgradeDatabaseResponse</a></li>
+<li><a href="#_volumetype">VolumeType</a></li>
 </ul>
 </li>
 </ul>
@@ -835,7 +838,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.106</p>
+<p><em>Version</em> : 0.9.107</p>
 </div>
 </div>
 <div class="sect2">
@@ -1914,6 +1917,66 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_attachedstorageforworkers">AttachedStorageForWorkers</h3>
+<div class="paragraph">
+<p>Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The number of Volumes. Default is 4. Valid Range: Minimum value of 1, maximum value 8.<br>
+<strong>Minimum value</strong> : <code>1</code><br>
+<strong>Maximum value</strong> : <code>8</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The target size of the volume, in GiB. Default is 2048.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The volume type. This parameter can be HDD or SSD. Default is HDD.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_volumetype">VolumeType</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_autoscalingparameters">AutoScalingParameters</h3>
 <div class="paragraph">
 <p>A Parameters to configure AutoScaling</p>
@@ -2400,6 +2463,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>attachedStorageForWorkers</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_attachedstorageforworkers">AttachedStorageForWorkers</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>autoScalingParameters</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -2412,6 +2487,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customUserTags</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Optional tags to apply to launched infrastructure resources</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_keyvaluepair">KeyValuePair</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>databaseName</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -2420,6 +2507,66 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disableJwtAuth</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Disable OAuth Bearer (JWT) authentication scheme.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disableKerberos</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Disable Kerberos authentication.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disableMultiAz</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Disable deployment into multiple availability-zones (the database will be deployed into one subnet).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enableGrafana</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>To enable grafana server for the database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enableRegionCanary</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>To enable the region canary for the database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2444,6 +2591,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_image">Image</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>numEdgeNodes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of edge nodes to be created for the database. A positive, non-zero number is required. The default value is 0.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2480,6 +2639,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_storagetype">StorageType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>subnetId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Override subnet where the database will be deployed. Disables Multi-AZ if set.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3434,6 +3605,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_keyvaluepair">KeyValuePair</h3>
+<div class="paragraph">
+<p>Generic key-value type, because map&lt;&gt; is not supported</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>key</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Key</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>value</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Value</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_kind">Kind</h3>
 <div class="paragraph">
 <p>A categorization of a connector to describe how it is broadly used.
@@ -3951,12 +4168,22 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_volumetype">VolumeType</h3>
+<div class="paragraph">
+<p>Volume Type.
+ <code>HDD</code> - Hard disk drives (HDD) volume type. Default is HDD. <code>SSD</code> - Solid disk drives (SSD) volume type. <code>LOCAL_SSD</code> - Local SSD volume type.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (HDD, SSD, LOCAL_SSD)</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-02-12 15:15:51 -0800
+Last updated 2024-02-29 13:13:19 -0800
 </div>
 </div>
 <br>

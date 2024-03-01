@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.107 (2024-02-28)
+IMPROVEMENTS:
+* iam: Add `OPDB` to `WorkloadName` enum of `generateWorkloadAuthToken` command.
+* dw: Update description of `backupCluster` command.
+* ml: Add `backupCrn` parameter to `createModelRegistry` command.
+* ml: Make `provisionK8sRequest` parameter required in `createWorkspace` command.
+* opdb: Add `attachedStorageForWorkers`, `customUserTags`, `disableJwtAuth`, `disableKerberos`, `disableMultiAz`, `enableGrafana`, `enableRegionCanary`, `numEdgeNodes` and `subnetId` parameters to the `create-database` command.
+
+
+
 ## 0.9.106 (2024-02-12)
 IMPROVEMENTS:
 * cloudprivatelinks: Add `authorizePrivateLinkServiceAccess`, `createPrivateLinkEndpoint`, `deletePrivateLinkEndpoint`, `getPrivateLinkEndpointStatus`, `listPrivateLinkEndpointStatuses`, `listPrivateLinkServicesForRegion` APIs.
