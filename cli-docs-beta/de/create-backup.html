@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create-backup &#8212; CDP CLI 0.9.108 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="create-vc" href="create-vc.html" />
+    <link rel="prev" title="cancel-backup" href="cancel-backup.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-vc.html" title="create-vc"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="cancel-backup.html" title="cancel-backup"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.108 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-backup</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="create-backup">
+<span id="cli-cdp-de-create-backup"></span><h1>create-backup<a class="headerlink" href="#create-backup" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Backup Cloudera Data Engineering(CDE) Service</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.108</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Initiates service backup and returns a backup ID, which can be used for log retrieval, restoration, deletion, and backup cancellation. Service backup includes the definition of the Service and its Virtual Clusters along with Virtual Clusters contents (jobs, resources, and credentials).</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-backup
+--service-id &lt;value&gt;
+<span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--backup-path &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--include-vc <span class="p">|</span> --no-include-vc<span class="o">]</span>
+<span class="o">[</span>--timeout &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--backup-vc-content-options &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--service-id</span></code> (string)</p>
+<blockquote>
+<div><p>Service ID of the service to backup.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
+<blockquote>
+<div><p>Backup description.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--backup-path</span></code> (string)</p>
+<blockquote>
+<div><p>Backup file relative path. The path should not include file name, and be relative to the service backup location. The service backup location can be found in the service description obtained via the ‘describe-service’ command.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--include-vc</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-include-vc</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to backup service virtual clusters. By default, virtual clusters are backed up.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--timeout</span></code> (integer)</p>
+<blockquote>
+<div><p>Backup operation timeout in seconds.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--backup-vc-content-options</span></code> (object)</p>
+<blockquote>
+<div><p>Backup virtual cluster content options.</p>
+<p>includeJobs -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to backup jobs. By default, jobs are backed up.</p>
+</div></blockquote>
+<p>includeJobResources -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to backup job resources. By default, job resources are backed up.</p>
+</div></blockquote>
+<p>includeResources -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to backup resources. By default, resources are backed up.</p>
+</div></blockquote>
+<p>includeResourceCredentials -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to backup resource credentials. By default, resource credentials are backed up.</p>
+</div></blockquote>
+<p>includeCredentials -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to backup credentials. By default, credentials are backed up.</p>
+</div></blockquote>
+<p>includeCredentialSecrets -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to backup credential secrets. Secrets are obfuscated while storing. By default, credential secrets are backed up.</p>
+</div></blockquote>
+<p>jobFilter -&gt; (array)</p>
+<blockquote>
+<div><p>Filter jobs for backup using ‘fieldname(operator)argument’ syntax. Here, ‘fieldname’ is one of the job fields (e.g. name, type, etc.), and ‘operator’ is one of (‘eq’, ‘noteq’, ‘lte’, ‘lt’, ‘gte’, ‘gt’, ‘in’, ‘notin’, ‘like’, ‘rlike’, ‘is’, ‘isnot’). Multiple filters are ANDed. For example, ‘name(eq)SparkPi’. This will only take effect if jobs are backed up, as controlled by the ‘includeJobs’ option.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>resourceFilter -&gt; (array)</p>
+<blockquote>
+<div><p>Filter resources for backup using ‘fieldname(operator)argument’ syntax. Here, ‘fieldname’ is one of the resource fields (e.g. name, type, status, etc.), and ‘operator’ is one of (‘eq’, ‘noteq’, ‘lte’, ‘lt’, ‘gte’, ‘gt’, ‘in’, ‘notin’, ‘like’, ‘rlike’, ‘is’, ‘isnot’). Multiple filters are ANDed. For example, ‘name(eq)test-resource’. This will only take effect if resources are backed up, as controlled by the ‘includeResources’ option.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>credentialFilter -&gt; (array)</p>
+<blockquote>
+<div><p>Filter credentials for backup using ‘fieldname(operator)argument’ syntax. Here, ‘fieldname’ is one of the credential fields (e.g. name, type, etc.), and ‘operator’ is one of (‘eq’, ‘noteq’, ‘lte’, ‘lt’, ‘gte’, ‘gt’, ‘in’, ‘notin’, ‘like’, ‘rlike’, ‘is’, ‘isnot’). Multiple filters are ANDed. For example, ‘name(eq)test-credential’. This will only take effect if credentials are backed up, as controlled by the ‘includeCredentials’ option.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>validateArchive -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to validate backup archive. By default, backup archive is not validated.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">includeJobs</span><span class="o">=</span>boolean,includeJobResources<span class="o">=</span>boolean,includeResources<span class="o">=</span>boolean,includeResourceCredentials<span class="o">=</span>boolean,includeCredentials<span class="o">=</span>boolean,includeCredentialSecrets<span class="o">=</span>boolean,jobFilter<span class="o">=</span>string,string,resourceFilter<span class="o">=</span>string,string,credentialFilter<span class="o">=</span>string,string,validateArchive<span class="o">=</span>boolean
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;includeJobs&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;includeJobResources&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;includeResources&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;includeResourceCredentials&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;includeCredentials&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;includeCredentialSecrets&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;jobFilter&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;resourceFilter&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;credentialFilter&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;validateArchive&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>backupID -&gt; (integer)</p>
+<blockquote>
+<div><p>Backup ID, which can be used for log retrieval, restoration, deletion, and backup cancellation.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-backup</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cancel-backup.html"
+                        title="previous chapter">cancel-backup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="create-vc.html"
+                        title="next chapter">create-vc</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-vc.html" title="create-vc"
+             >next</a></li>
+        <li class="right" >
+          <a href="cancel-backup.html" title="cancel-backup"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.108 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">create-backup</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
