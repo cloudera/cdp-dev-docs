@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>describe-backup &#8212; CDP CLI 0.9.108 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="describe-service" href="describe-service.html" />
+    <link rel="prev" title="delete-vc" href="delete-vc.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="describe-service.html" title="describe-service"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="delete-vc.html" title="delete-vc"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.108 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-backup</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="describe-backup">
+<span id="cli-cdp-de-describe-backup"></span><h1>describe-backup<a class="headerlink" href="#describe-backup" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Describe Cloudera Data Engineering(CDE) Service Backup</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.108</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Describe a backup using the associated backup ID.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-backup
+--backup-id &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--backup-id</span></code> (integer)</p>
+<blockquote>
+<div><p>The ID of the backup to describe.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>backup -&gt; (object)</p>
+<blockquote>
+<div><p>Service backup object.</p>
+<p>id -&gt; (integer)</p>
+<blockquote>
+<div><p>Backup ID.</p>
+</div></blockquote>
+<p>serviceID -&gt; (string)</p>
+<blockquote>
+<div><p>Service ID of a backed-up CDE service.</p>
+</div></blockquote>
+<p>serviceName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of a backed-up CDE service.</p>
+</div></blockquote>
+<p>serviceVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Version of a backed-up CDE service.</p>
+</div></blockquote>
+<p>environmentName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of CDP environment with which a backed-up CDE service was associated.</p>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN of CDP environment with which a backed-up CDE service was associated.</p>
+</div></blockquote>
+<p>creator -&gt; (string)</p>
+<blockquote>
+<div><p>The workload name of the user who created this backup.</p>
+</div></blockquote>
+<p>creatorCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN of of the user who created this backup.</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>The cloud platform where a backed-up CDE service was enabled.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Backup status.</p>
+</div></blockquote>
+<p>created -&gt; (string)</p>
+<blockquote>
+<div><p>The time when the backup was created.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Backup description.</p>
+</div></blockquote>
+<p>errorMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Error message, only set when there is an error.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-backup</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="delete-vc.html"
+                        title="previous chapter">delete-vc</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="describe-service.html"
+                        title="next chapter">describe-service</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="describe-service.html" title="describe-service"
+             >next</a></li>
+        <li class="right" >
+          <a href="delete-vc.html" title="delete-vc"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.108 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-backup</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
