@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.107 (BETA)
+  version: 0.9.108 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -654,13 +654,16 @@ definitions:
         description: Flag to indicate if yunikorn is enabled.
       version:
         type: string
-        description: Version.
+        description: Version. Deprecated.
+        x-deprecated: true
       appSortingPolicy:
         type: string
-        description: The app sorting policy.
+        description: The app sorting policy. Deprecated.
+        x-deprecated: true
       nodeSortingPolicy:
         type: string
-        description: The node sorting policy.
+        description: The node sorting policy. Deprecated.
+        x-deprecated: true
   CommonNvidiaResp:
     type: object
     description: Nvidia response structure.
@@ -748,7 +751,7 @@ definitions:
         description: True to enable istio installation (default false).
       deploymentProfile:
         type: string
-        description: Deployment profile to use. Currently supported are cml and cde.
+        description: Deployment profile to use. Currently supported are common, cml and cde.
   CommonHorizontalPodAutoScalerResp:
     type: object
     description: Horizontal pod autoscaler response structure.
@@ -1784,7 +1787,8 @@ definitions:
     properties:
       version:
         type: string
-        description: Kubernetes version (default 1.19).
+        description: Kubernetes version (default 1.27). Deprecated.
+        x-deprecated: true
   CommonNetworkTopology:
     type: object
     description: Network topology structure.
@@ -1840,7 +1844,8 @@ definitions:
         x-sensitive: true
       enabled:
         type: boolean
-        description: Flag to enable secret encryption.
+        description: Flag to enable secret encryption (default true). Deprecated.
+        x-deprecated: true
   CommonVolumeEncryption:
     type: object
     description: Volume encryption request structure.
@@ -1985,16 +1990,20 @@ definitions:
     properties:
       enabled:
         type: boolean
-        description: Flag to enable yunikorn.
+        description: Flag to enable yunikorn (default true). Deprecated.
+        x-deprecated: true
       version:
         type: string
-        description: Version.
+        description: Version is ignored for overrides will be removed soon. Deprecated.
+        x-deprecated: true
       appSortingPolicy:
         type: string
-        description: The app sorting policy.
+        description: The app sorting policy is ignored for overrides will be removed soon. Deprecated.
+        x-deprecated: true
       nodeSortingPolicy:
         type: string
-        description: The node sorting policy.
+        description: The node sorting policy is ignored for overrides will be removed soon. Deprecated.
+        x-deprecated: true
   CommonNvidia:
     type: object
     description: Nvidia request structure.
@@ -2079,10 +2088,12 @@ definitions:
     properties:
       enabled:
         type: boolean
-        description: True to enable istio installation (default false).
+        description: True to enable istio installation (default true). Deprecated.
+        x-deprecated: true
       deploymentProfile:
         type: string
-        description: Deployment profile to use. Currently supported are cml and cde.
+        description: Deployment profile to use. Currently supported are common, cml and cde (default common). Deprecated.
+        x-deprecated: true
   CommonHorizontalPodAutoScaler:
     type: object
     description: Horizontal pod autoscaler request structure.
@@ -2144,7 +2155,8 @@ definitions:
         description: Horizontal pod autoscaler specs.
         $ref: '#/definitions/CommonHorizontalPodAutoScaler'
       istio:
-        description: Istio specs.
+        description: Istio specs. Deprecated.
+        x-deprecated: true
         $ref: '#/definitions/CommonIstio'
       logging:
         description: Logging specs.
@@ -2162,7 +2174,8 @@ definitions:
         type: string
         description: Repository for images.
       yunikorn:
-        description: Yunikorn specs.
+        description: Yunikorn specs. Deprecated.
+        x-deprecated: true
         $ref: '#/definitions/CommonYuniKorn'
       telemetryKmsKeyArn:
         type: string
@@ -2201,7 +2214,8 @@ definitions:
           $ref: '#/definitions/CommonInstanceGroup'
         description: Instance groups.
       kubernetes:
-        description: Kubernetes details.
+        description: K8s details. Deprecated.
+        x-deprecated: true
         $ref: '#/definitions/CommonKubernetes'
       network:
         description: Network.

@@ -1588,7 +1588,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.107 (BETA)</p>
+<p><em>Version</em> : 0.9.108 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -11237,18 +11237,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enableStorageRoles</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enable Storage Roles checkbox was checked when creating/activating this cluster.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>environmentCrn</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -12000,19 +11988,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enableStorageRoles</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enable Storage Roles<br>
-<strong>Default</strong> : <code>false</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>environmentCrn</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -12317,19 +12292,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Whether to enable spot instances for Virtual warehouses. It cannot be updated later. Defaults to false.<br>
-<strong>Default</strong> : <code>false</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enableStorageRoles</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enable Storage Roles<br>
 <strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
@@ -12884,7 +12846,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enable Storage Roles<br>
+<p>DEPRECATED - Enable Storage Roles<br>
 <strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
@@ -13496,24 +13458,23 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memorySize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Set Metastore container memory size. If not provided, small will apply.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (small, medium, large)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>name</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Name of the Database Catalog.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tenantStorageRole</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tenant Storage Role if the feature is enabled for the account.<br>
-<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -14600,6 +14561,18 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The ID of the Database Catalog.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memorySize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Metastore container memory size.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20378,18 +20351,6 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 <p>string</p>
 </div></div></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>keepImageVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>true - keep the current image version. false - set to latest image version when rebuilding the Database Catalog. If not provided, the latest image version will be set.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -20431,18 +20392,6 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>keepImageVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Set it to true to keep the current image version. Set it to false to use the latest image version when rebuilding the Virtual Warehouse. If not provided, the latest image version will be set.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -22664,6 +22613,18 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memorySize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Set Metastore container memory size. If not provided, small will apply.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (small, medium, large)</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -24557,7 +24518,7 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-02-29 13:12:09 -0800
+Last updated 2024-03-13 13:08:17 -0700
 </div>
 </div>
 <br>

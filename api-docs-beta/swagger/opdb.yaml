@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.107 (BETA)
+  version: 0.9.108 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -1773,6 +1773,22 @@ definitions:
   PrepareUpgradeDatabaseRequest:
     type: object
     description: Asynchronous request to prepare cluster upgrade.
+    required:
+      - environment
+      - database
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment.
+      database:
+        type: string
+        description: The name or CRN of the database.
+      runtime:
+        type: string
+        description: The CDP Runtime version to upgrade to.
+      imageId:
+        type: string
+        description: ID of a database image to upgrade to.
   EdgeUpgradeStrategy:
     type: string
     description: "Edge node upgrade strategy.\n `ALL` - Upgrade edge nodes together. `ONE_BY_ONE` - Upgrade edge nodes one by one."
