@@ -1,5 +1,22 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.108 (2024-03-13)
+IMPROVEMENTS:
+* datalake: Add `rollingUpgradeEnabled` parameter to `upgrade-cluster` request.
+* datalake: Add `totalPredicatedDurationInMinutes` field in the response of `backup-datalake-status` command.
+* datalake: Add `predicatedDurationInMinutes` field to `BackupRestoreOperationStatus` object.
+* de: Add `backupLocation` field to `ServiceDescription` object.
+* de: Add `create-backup`, `cancel-backup`, `delete-backup`, `describe-backup`, `get-backup-logs`, `get-service-init-logs`, `list-backups` and `restore-service` commands.
+* dw: Add `memorySize` parameter to `create-dbc` and `update-dbc` commands.
+* dw: Add `memorySize` field to `DbcSummary` object.
+* environments: Add `encryptionAtHost` parameter to `create-azure-environment-request` command.
+* ml: `provisionK8sRequest` parameter is no longer required in `create-workspace` command.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove `keepImageVersion` parameter from `rebuild-dbc` and `rebuild-vw` requests.
+* ml: Remove `createWorkspacePayload` parameter from the `create-model-registry` command.
+
+
 ## 0.9.107 (2024-02-28)
 IMPROVEMENTS:
 * iam: Add `OPDB` to `WorkloadName` enum of `generateWorkloadAuthToken` command.
