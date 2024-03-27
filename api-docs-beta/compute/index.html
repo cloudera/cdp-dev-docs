@@ -869,6 +869,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_commonclustermetadata">CommonClusterMetadata</a></li>
 <li><a href="#_commonclusterowner">CommonClusterOwner</a></li>
 <li><a href="#_commonclusterspec">CommonClusterSpec</a></li>
+<li><a href="#_commondeploymentprofiledetailsresp">CommonDeploymentProfileDetailsResp</a></li>
 <li><a href="#_commondeployments">CommonDeployments</a></li>
 <li><a href="#_commondeploymentsresp">CommonDeploymentsResp</a></li>
 <li><a href="#_commonevent">CommonEvent</a></li>
@@ -880,7 +881,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_commoninstancegroup">CommonInstanceGroup</a></li>
 <li><a href="#_commoninstancestatecounts">CommonInstanceStateCounts</a></li>
 <li><a href="#_commonistio">CommonIstio</a></li>
-<li><a href="#_commonistioresp">CommonIstioResp</a></li>
 <li><a href="#_commonkubernetes">CommonKubernetes</a></li>
 <li><a href="#_commonlogging">CommonLogging</a></li>
 <li><a href="#_commonloggingresp">CommonLoggingResp</a></li>
@@ -984,7 +984,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.108 (BETA)</p>
+<p><em>Version</em> : 0.9.109 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -5077,6 +5077,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_commondeploymentprofiledetailsresp">CommonDeploymentProfileDetailsResp</h3>
+<div class="paragraph">
+<p>Deployment Profile details response structure.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>deploymentProfile</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Deployment profile used. Currently supported is common.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Deployment enable flag.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_commondeployments">CommonDeployments</h3>
 <div class="paragraph">
 <p>Deployments request structure.</p>
@@ -5270,7 +5316,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>Istio specs.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_commonistioresp">CommonIstioResp</a></p>
+<p><a href="#_commondeploymentprofiledetailsresp">CommonDeploymentProfileDetailsResp</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>knox</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Knox specs.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_commondeploymentprofiledetailsresp">CommonDeploymentProfileDetailsResp</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -6019,52 +6077,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>True to enable istio installation (default true). Deprecated.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_commonistioresp">CommonIstioResp</h3>
-<div class="paragraph">
-<p>Istio response structure.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>deploymentProfile</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Deployment profile to use. Currently supported are common, cml and cde.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enabled</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>True to enable istio installation (default false).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -12350,7 +12362,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-13 13:08:17 -0700
+Last updated 2024-03-27 12:11:08 -0700
 </div>
 </div>
 <br>

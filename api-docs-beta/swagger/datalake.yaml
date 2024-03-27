@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.108 (BETA)
+  version: 0.9.109 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -823,7 +823,7 @@ paths:
             $ref: '#/definitions/Error'
   /api/v1/datalake/resizeDatalake:
     post:
-      summary: Resizes the given datalake to the given target size. Currently, the only valid use of this is for resizing a light duty datalake to a medium duty datalake.
+      summary: Resizes the given datalake to the given target size.
       description: Resizes the datalake to the given size.
       operationId: resizeDatalake
       x-mutating: true
@@ -3159,7 +3159,7 @@ definitions:
         description: The name or CRN of the datalake.
       targetSize:
         type: string
-        description: The target size for the datalake.
+        description: The target size for the datalake. The resize target size can be MEDIUM_DUTY or ENTERPRISE. If the runtime version >= 7.2.17 target size is ENTERPRISE. If not, the target size is MEDIUM_DUTY.
         enum:
           - MEDIUM_DUTY_HA
           - ENTERPRISE
@@ -3194,7 +3194,7 @@ definitions:
         description: The Cloudbreak version used to create the data lake.
   ScaleHorizontallyRequest:
     type: object
-    description: Data lake horizontal scaling request.
+    description: Data Lake horizontal scaling request.
     required:
       - datalakeName
       - instanceGroupName
@@ -3202,7 +3202,7 @@ definitions:
     properties:
       datalakeName:
         type: string
-        description: the name of the Data Lake
+        description: The name of the Data Lake
       instanceGroupName:
         type: string
         description: The target host group name to be scaled.

@@ -939,7 +939,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_tags_32">Tags</a></li>
 </ul>
 </li>
-<li><a href="#_getclientcertificateencoded">Get Inbound Connection Endpoint Client Certificate (in PEM encoding)</a>
+<li><a href="#_getclientcertificateencoded">Get Inbound Connection Endpoint Client Certificate (in PEM encoding). Deprecated. Use <code>download-client-certificates-encoded</code> instead.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_32">Description</a></li>
 <li><a href="#_parameters_32">Parameters</a></li>
@@ -955,7 +955,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_tags_34">Tags</a></li>
 </ul>
 </li>
-<li><a href="#_getclientprivatekeyencoded">Get Inbound Connection Endpoint Client&#8217;s Private Key (in PEM encoding)</a>
+<li><a href="#_getclientprivatekeyencoded">Get Inbound Connection Endpoint Client&#8217;s Private Key (in PEM encoding). Deprecated. Use <code>download-client-certificates-encoded</code> instead.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_34">Description</a></li>
 <li><a href="#_parameters_34">Parameters</a></li>
@@ -1142,7 +1142,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.108 (BETA)</p>
+<p><em>Version</em> : 0.9.109 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4339,7 +4339,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getclientcertificateencoded">Get Inbound Connection Endpoint Client Certificate (in PEM encoding)</h3>
+<h3 id="_getclientcertificateencoded">Get Inbound Connection Endpoint Client Certificate (in PEM encoding). Deprecated. Use <code>download-client-certificates-encoded</code> instead.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificate-encoded</pre>
@@ -4348,7 +4348,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_32">Description</h4>
 <div class="paragraph">
-<p>Get Inbound Connection Endpoint Client Certificate (in PEM encoding)</p>
+<p>Get Inbound Connection Endpoint Client Certificate (in PEM encoding). Deprecated. Use <code>download-client-certificates-encoded</code> instead.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4541,7 +4541,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getclientprivatekeyencoded">Get Inbound Connection Endpoint Client&#8217;s Private Key (in PEM encoding)</h3>
+<h3 id="_getclientprivatekeyencoded">Get Inbound Connection Endpoint Client&#8217;s Private Key (in PEM encoding). Deprecated. Use <code>download-client-certificates-encoded</code> instead.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-private-key-encoded</pre>
@@ -4550,7 +4550,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_34">Description</h4>
 <div class="paragraph">
-<p>Get Inbound Connection Endpoint Client&#8217;s Private Key (in PEM encoding)</p>
+<p>Get Inbound Connection Endpoint Client&#8217;s Private Key (in PEM encoding). Deprecated. Use <code>download-client-certificates-encoded</code> instead.</p>
 </div>
 </div>
 <div class="sect3">
@@ -5656,7 +5656,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>The number of CPU Cores per node</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
+<p>number (double)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5698,13 +5698,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>name</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The name of this Cluster Size</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (EXTRA_SMALL, SMALL, MEDIUM, LARGE)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6304,10 +6304,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>clusterSizeName</strong><br>
-<em>required</em></p>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The size of the cluster to deploy</p>
+<p>The size of the cluster to deploy. Deprecated. Use 'clusterSize.name' instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>enum (EXTRA_SMALL, SMALL, MEDIUM, LARGE)</p>
@@ -9891,7 +9891,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The initial size of the deployment</p>
+<p>The initial size of the deployment. Deprecated. Use 'clusterSizeParams.name' instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>enum (EXTRA_SMALL, SMALL, MEDIUM, LARGE)</p>
@@ -9915,7 +9915,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The number of cores per node for the deployment</p>
+<p>The number of cores per node for the deployment. Deprecated. Use 'clusterSizeParams.coresPerNode' instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -10095,7 +10095,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The heap size for the deployment</p>
+<p>The heap size for the deployment. Deprecated. Use 'clusterSizeParams.heapSize' instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>number (double)</p>
@@ -10131,7 +10131,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The memory limit of the deployment</p>
+<p>The memory limit of the deployment. Deprecated. Use 'clusterSizeParams.memoryLimit' instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>number (double)</p>
@@ -10484,7 +10484,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The size of the cluster to deploy</p>
+<p>The size of the cluster to deploy. Deprecated. Use 'clusterSize.name' instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>enum (EXTRA_SMALL, SMALL, MEDIUM, LARGE)</p>
@@ -11862,7 +11862,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The deployment t-shirt size</p>
+<p>The deployment t-shirt size. Deprecated. Use 'clusterSize.name' instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>enum (EXTRA_SMALL, SMALL, MEDIUM, LARGE)</p>
@@ -12304,7 +12304,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-13 13:08:17 -0700
+Last updated 2024-03-27 12:11:08 -0700
 </div>
 </div>
 <br>

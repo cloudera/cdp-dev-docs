@@ -1,5 +1,22 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.109 (2024-03-27)
+IMPROVEMENTS:
+* datalake: Add `scaleHorizontally` command.
+* dw: Add `hiveKerberosJdbc`, `impalaFengKerberosJdbc`, and `fengKerberosImpalaShell` fields in response of `describeVw` and `listVws` commands.
+* dfworkload: deprecated `download-client-certificate-encoded`, use `download-client-certificates-encoded` instead.
+* dfworkload: deprecated `download-client-private-key-encoded`, use `download-client-certificates-encoded` instead.
+* dfworkload: `name` parameter of `clusterSize` object is now an enum.
+* dfworkload: deprecated `clusterSizeName` parameter of `create-deployment` command.
+* dfworkload: deprecated `clusterSize`, `coresPerNode`, and `memoryLimit` parameters of command responses that include `RpcDeployment` object.
+* dfworkload: deprecated `clusterSizeName` parameter of command responses that include `RpcDeploymentConfiguration` object.
+* dfworkload: deprecated `clusterSizeName` parameter of `update-deployment` command.
+* de: Add `fullAccessUsers`, `fullAccessGroups`, `viewOnlyUsers`, and `viewOnlyGroups` parameters to `createVc` command.
+
+BACKWARD INCOMPATIBILITIES:
+* dfworkload: The `coresPerNode` parameter of the `clusterSize` object has a type change from integer to double.
+
+
 ## 0.9.108 (2024-03-13)
 IMPROVEMENTS:
 * datalake: Add `rollingUpgradeEnabled` parameter to `upgrade-cluster` request.
