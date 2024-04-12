@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.110 (2024-04-10)
+IMPROVEMENTS:
+* environments: Add `updateCustomDockerRegistry` command.
+* environments: Add `instanceId` parameter to `getFreeipaStatus` command.
+* datalake: Add `enableRangerRms` parameter to `createAWSDatalake` command.
+* dw: deprecated `delegationUsername` and `delegationPassword` options for `privateCloudOptions` parameter for `createCluster` command.
+* datahub: Add `getVmTypes` command.
+* de: Add `fullAccessUsers`, `fullAccessGroups`, `viewOnlyUsers`, and `viewOnlyGroups` parameters to `updateVc` command.
+
+
 ## 0.9.109 (2024-03-27)
 IMPROVEMENTS:
 * datalake: Add `scaleHorizontally` command.
