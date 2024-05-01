@@ -991,25 +991,39 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_43">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<li><a href="#_updatetoawsimdsv1">Updates Data Lake AWS cluster to use IMDSv1.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_44">Description</a></li>
 <li><a href="#_parameters_44">Parameters</a></li>
 <li><a href="#_responses_44">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_validateawscloudstorage">Validates AWS cloud storage.</a>
+<li><a href="#_updatetoawsimdsv2">Updates Data Lake AWS cluster to use IMDSv2.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_45">Description</a></li>
 <li><a href="#_parameters_45">Parameters</a></li>
 <li><a href="#_responses_45">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_validateazurecloudstorage">Validates Azure cloud storage.</a>
+<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_46">Description</a></li>
 <li><a href="#_parameters_46">Parameters</a></li>
 <li><a href="#_responses_46">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_validateawscloudstorage">Validates AWS cloud storage.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_47">Description</a></li>
+<li><a href="#_parameters_47">Parameters</a></li>
+<li><a href="#_responses_47">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_validateazurecloudstorage">Validates Azure cloud storage.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_48">Description</a></li>
+<li><a href="#_parameters_48">Parameters</a></li>
+<li><a href="#_responses_48">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1045,6 +1059,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_createazuredatalakeresponse">CreateAzureDatalakeResponse</a></li>
 <li><a href="#_creategcpdatalakerequest">CreateGCPDatalakeRequest</a></li>
 <li><a href="#_creategcpdatalakeresponse">CreateGCPDatalakeResponse</a></li>
+<li><a href="#_customdatabasecomputestorage">CustomDatabaseComputeStorage</a></li>
+<li><a href="#_custominstancedisk">CustomInstanceDisk</a></li>
+<li><a href="#_custominstancetype">CustomInstanceType</a></li>
 <li><a href="#_databasebackuprestorestate">DatabaseBackupRestoreState</a></li>
 <li><a href="#_databaseserversslconfig">DatabaseServerSslConfig</a></li>
 <li><a href="#_datalake">Datalake</a></li>
@@ -1056,6 +1073,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_datalakeinstancetype">DatalakeInstanceType</a></li>
 <li><a href="#_datalakeloadbalancerskutype">DatalakeLoadBalancerSkuType</a></li>
 <li><a href="#_datalakeresourcegcptagrequest">DatalakeResourceGCPTagRequest</a></li>
+<li><a href="#_datalakeresourcetag">DatalakeResourceTag</a></li>
 <li><a href="#_datalakeresourcetagrequest">DatalakeResourceTagRequest</a></li>
 <li><a href="#_datalakescaletype">DatalakeScaleType</a></li>
 <li><a href="#_datalakevmlogrequest">DatalakeVmLogRequest</a></li>
@@ -1151,6 +1169,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_synccomponentversionsfromcmresponse">SyncComponentVersionsFromCmResponse</a></li>
 <li><a href="#_updateorchestratorstaterequest">UpdateOrchestratorStateRequest</a></li>
 <li><a href="#_updateorchestratorstateresponse">UpdateOrchestratorStateResponse</a></li>
+<li><a href="#_updatetoawsimdsv1request">UpdateToAwsImdsV1Request</a></li>
+<li><a href="#_updatetoawsimdsv1response">UpdateToAwsImdsV1Response</a></li>
+<li><a href="#_updatetoawsimdsv2request">UpdateToAwsImdsV2Request</a></li>
+<li><a href="#_updatetoawsimdsv2response">UpdateToAwsImdsV2Response</a></li>
 <li><a href="#_upgradedatalakerequest">UpgradeDatalakeRequest</a></li>
 <li><a href="#_upgradedatalakeresponse">UpgradeDatalakeResponse</a></li>
 <li><a href="#_validateawscloudstoragerequest">ValidateAwsCloudStorageRequest</a></li>
@@ -1172,7 +1194,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.111 (BETA)</p>
+<p><em>Version</em> : 0.9.112 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4912,6 +4934,178 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_updatetoawsimdsv1">Updates Data Lake AWS cluster to use IMDSv1.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datalake/updateToAwsImdsV1</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_44">Description</h4>
+<div class="paragraph">
+<p>Updates Data Lake AWS cluster to use IMDSv1.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_44">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updatetoawsimdsv1request">UpdateToAwsImdsV1Request</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_44">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updatetoawsimdsv1response">UpdateToAwsImdsV1Response</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updatetoawsimdsv2">Updates Data Lake AWS cluster to use IMDSv2.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datalake/updateToAwsImdsV2</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_45">Description</h4>
+<div class="paragraph">
+<p>Updates Data Lake AWS cluster to use IMDSv2.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_45">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updatetoawsimdsv2request">UpdateToAwsImdsV2Request</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_45">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updatetoawsimdsv2response">UpdateToAwsImdsV2Response</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_upgradedatalake">OS or data platform upgrade for the SDX cluster.</h3>
 <div class="literalblock">
 <div class="content">
@@ -4919,13 +5113,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_44">Description</h4>
+<h4 id="_description_46">Description</h4>
 <div class="paragraph">
 <p>OS or data platform upgrade for the SDX cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_44">Parameters</h4>
+<h4 id="_parameters_46">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4956,7 +5150,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_44">Responses</h4>
+<h4 id="_responses_46">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5005,13 +5199,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_45">Description</h4>
+<h4 id="_description_47">Description</h4>
 <div class="paragraph">
 <p>Validates AWS cloud storage for Data Lake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_45">Parameters</h4>
+<h4 id="_parameters_47">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5042,7 +5236,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_45">Responses</h4>
+<h4 id="_responses_47">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5091,13 +5285,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_46">Description</h4>
+<h4 id="_description_48">Description</h4>
 <div class="paragraph">
 <p>Validates Azure cloud storage for Data Lake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_46">Parameters</h4>
+<h4 id="_parameters_48">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5128,7 +5322,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_46">Responses</h4>
+<h4 id="_responses_48">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7574,6 +7768,144 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_customdatabasecomputestorage">CustomDatabaseComputeStorage</h3>
+<div class="paragraph">
+<p>Request object for modified database storage properties.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The modified instance type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>storageSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The modified storage size for the database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_custominstancedisk">CustomInstanceDisk</h3>
+<div class="paragraph">
+<p>Request object for modified instance disk.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>diskSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The modified disk size</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the modified instance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_custominstancetype">CustomInstanceType</h3>
+<div class="paragraph">
+<p>Request object for modified instance type.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The modified instance type</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name of the modified instance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_databasebackuprestorestate">DatabaseBackupRestoreState</h3>
 <div class="paragraph">
 <p>The state of the database backup/restore operation.</p>
@@ -7790,6 +8122,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tags</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Datalake tags object containing the tag values defined for the datalake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_datalakeresourcetag">DatalakeResourceTag</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -8184,6 +8528,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tags</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Datalake tags object containing the tag values defined for the datalake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_datalakeresourcetag">DatalakeResourceTag</a> &gt; array</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8418,6 +8774,52 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h3 id="_datalakeresourcegcptagrequest">DatalakeResourceGCPTagRequest</h3>
 <div class="paragraph">
 <p>A label that can be attached to GCP Data Lake resources. Please refer to Google documentation for the rules <a href="https://cloud.google.com/compute/docs/labeling-resources#label_format" class="bare">https://cloud.google.com/compute/docs/labeling-resources#label_format</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>key</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The key of tag.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>value</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The value of the tag.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_datalakeresourcetag">DatalakeResourceTag</h3>
+<div class="paragraph">
+<p>Tag for a datalake resource.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -11243,6 +11645,42 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customDatabaseComputeStorage</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Any custom database properties to override defaults.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_customdatabasecomputestorage">CustomDatabaseComputeStorage</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customInstanceDisks</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Any custom instance disk size to override defaults.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_custominstancedisk">CustomInstanceDisk</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customInstanceTypes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Any custom instance type to override defaults.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_custominstancetype">CustomInstanceType</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>datalakeName</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -11382,6 +11820,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tags</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Datalake tags object containing the tag values defined for the datalake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_datalakeresourcetag">DatalakeResourceTag</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -12913,6 +13363,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_updatetoawsimdsv1request">UpdateToAwsImdsV1Request</h3>
+<div class="paragraph">
+<p>Request object for updating Data Lake to use AWS IMDSv1.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>crn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the Data Lake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updatetoawsimdsv1response">UpdateToAwsImdsV1Response</h3>
+<div class="paragraph">
+<p>Response object for updating Data Lake to AWS IMDSv1.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updatetoawsimdsv2request">UpdateToAwsImdsV2Request</h3>
+<div class="paragraph">
+<p>Request object for updating Data Lake to use AWS IMDSv2.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>crn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the Data Lake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updatetoawsimdsv2response">UpdateToAwsImdsV2Response</h3>
+<div class="paragraph">
+<p>Response object for updating Data Lake to AWS IMDSv2.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_upgradedatalakerequest">UpgradeDatalakeRequest</h3>
 <div class="paragraph">
 <p>Request object to upgrade datalake.</p>
@@ -13505,7 +14041,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-04-11 13:59:35 -0700
+Last updated 2024-04-30 12:46:39 -0700
 </div>
 </div>
 <br>
