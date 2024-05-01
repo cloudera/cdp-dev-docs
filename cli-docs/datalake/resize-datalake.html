@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>resize-datalake &#8212; CDP CLI 0.9.111 documentation</title>
+    <title>resize-datalake &#8212; CDP CLI 0.9.112 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="replace-recipes.html" title="replace-recipes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.111 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.112 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">resize-datalake</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Resizes the given datalake to the given target size.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.111</p>
+<dd class="field-even"><p>0.9.112</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -59,6 +59,9 @@
 --datalake-name &lt;value&gt;
 --target-size &lt;value&gt;
 <span class="o">[</span>--multi-az <span class="p">|</span> --no-multi-az<span class="o">]</span>
+<span class="o">[</span>--custom-instance-types &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--custom-instance-disks &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--custom-database-compute-storage &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -83,6 +86,65 @@
 <blockquote>
 <div><p>Whether to deploy a new datalake in a multi-availability zone way.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-instance-types</span></code> (array)</p>
+<blockquote>
+<div><p>Any custom instance type to override defaults.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">name</span><span class="o">=</span>string,instanceType<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-instance-disks</span></code> (array)</p>
+<blockquote>
+<div><p>Any custom instance disk size to override defaults.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">name</span><span class="o">=</span>string,diskSize<span class="o">=</span>integer ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;diskSize&quot;</span>: integer
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-database-compute-storage</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for modified database storage properties.</p>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>The modified instance type.</p>
+</div></blockquote>
+<p>storageSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The modified storage size for the database.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceType</span><span class="o">=</span>string,storageSize<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;storageSize&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -121,6 +183,22 @@
 <p>cloudbreakVersion -&gt; (string)</p>
 <blockquote>
 <div><p>The Cloudbreak version used to create the data lake.</p>
+</div></blockquote>
+<p>tags -&gt; (array)</p>
+<blockquote>
+<div><p>Datalake tags object containing the tag values defined for the datalake.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Tag for a datalake resource.</p>
+<p>key -&gt; (string)</p>
+<blockquote>
+<div><p>The key of tag.</p>
+</div></blockquote>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>The value of the tag.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -177,7 +255,7 @@
         <li class="right" >
           <a href="replace-recipes.html" title="replace-recipes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.111 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.112 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">resize-datalake</a></li> 
       </ul>
