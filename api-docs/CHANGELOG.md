@@ -1,6 +1,16 @@
 # CDP Control Plane Public API Changelog
 
-## 0.9.110 (2024-04-10)
+## 0.9.112 (2024-04-25)
+IMPROVEMENTS:
+* datalake: Add `customInstanceTypes`, `customInstanceDisks` and `customDatabaseComputeStorage` parameters to `resizeDatalake` command.
+* datalake: Add `tag` field to the output of `describeDatalake` command.
+* de: Add `archiveBasePath` and `archiveLocation` to `Backup` object to display backup archive location.
+* dw: Remove deprecated `namespaceName` parameter from `createBackup` command.
+* dw: Deprecate `podConfigName` from `AutoscalingOptions` object.
+* opdb: Add `rootVolumeSize` parameter to `createDatabase` command.
+
+
+## 0.9.111 (2024-04-10)
 IMPROVEMENTS:
 * environments: Add `updateCustomDockerRegistry` command.
 * environments: Add `instanceId` parameter to `getFreeipaStatus` command.
@@ -8,6 +18,7 @@ IMPROVEMENTS:
 * dw: deprecated `delegationUsername` and `delegationPassword` options for `privateCloudOptions` parameter for `createCluster` command.
 * datahub: Add `getVmTypes` command.
 * de: Add `fullAccessUsers`, `fullAccessGroups`, `viewOnlyUsers`, and `viewOnlyGroups` parameters to `updateVc` command.
+* ml: Add new `upgradeModelRegistry` and `rollbackModelRegistryUpgrade` command.
 
 
 ## 0.9.109 (2024-03-27)
