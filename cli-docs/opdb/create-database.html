@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-database &#8212; CDP CLI 0.9.112 documentation</title>
+    <title>create-database &#8212; CDP CLI 0.9.113+0.ge7d375f2c36.dirty documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="collect-diagnostics.html" title="collect-diagnostics"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.112 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113+0.ge7d375f2c36.dirty documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-database</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create opDb</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.112</p>
+<dd class="field-even"><p>0.9.113</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -73,6 +73,7 @@
 <span class="o">[</span>--recipes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-grafana <span class="p">|</span> --no-enable-grafana<span class="o">]</span>
 <span class="o">[</span>--root-volume-size &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--volume-encryptions &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -270,6 +271,24 @@
 <blockquote>
 <div><p>Root volume size in GiB.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--volume-encryptions</span></code> (array)</p>
+<blockquote>
+<div><p>Specifies encryption key to encrypt volume for instance group. It is currently supported for AWS cloud provider only.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">encryptionKey</span><span class="o">=</span>string,instanceGroup<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;encryptionKey&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;instanceGroup&quot;</span>: <span class="s2">&quot;WORKER&quot;</span><span class="p">|</span><span class="s2">&quot;LEADER&quot;</span><span class="p">|</span><span class="s2">&quot;MASTER&quot;</span><span class="p">|</span><span class="s2">&quot;GATEWAY&quot;</span><span class="p">|</span><span class="s2">&quot;STRONGMETA&quot;</span><span class="p">|</span><span class="s2">&quot;EDGE&quot;</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -384,7 +403,7 @@
         <li class="right" >
           <a href="collect-diagnostics.html" title="collect-diagnostics"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.112 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113+0.ge7d375f2c36.dirty documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-database</a></li> 
       </ul>
