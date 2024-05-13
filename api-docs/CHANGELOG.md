@@ -1,5 +1,10 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.113 (2024-05-07)
+IMPROVEMENTS:
+* opdb: Add `volumeEncryptions` parameter to `createDatabase` command.
+* environments: Replace `userManagedIdentity` with `encryptionUserManagedIdentity` in `createAzureEnvironment` command.
+
 ## 0.9.112 (2024-04-25)
 IMPROVEMENTS:
 * datalake: Add `customInstanceTypes`, `customInstanceDisks` and `customDatabaseComputeStorage` parameters to `resizeDatalake` command.
