@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.113 (BETA)
+  version: 0.9.114 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -971,6 +971,14 @@ definitions:
         type: integer
         format: int32
         description: The amount of block cache, in Gigabytes, which the database should have.
+      maxHdfsUsagePercentage:
+        type: integer
+        format: int32
+        description: The maximum percentage of HDFS utilization for the database before the scaling is triggered.
+      maxRegionsPerRegionServer:
+        type: integer
+        format: int32
+        description: The maximum number of regions per region server.
       maxCpuUtilization:
         type: integer
         format: int32

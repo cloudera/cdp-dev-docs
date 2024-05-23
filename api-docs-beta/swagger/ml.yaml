@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.113 (BETA)
+  version: 0.9.114 (BETA)
   title: Cloudera Machine Learning
   license:
     name: Apache 2.0
@@ -1199,7 +1199,7 @@ definitions:
         description: The value for the tag.
   ProvisionK8sRequest:
     type: object
-    description: Request object for workspace provision.
+    description: Request object for workspace provision. Required in public cloud.
     required:
       - instanceGroups
       - environmentName
@@ -2406,6 +2406,7 @@ definitions:
       - appName
       - environmentCrn
       - isPrivateCluster
+      - mlservingVersion
     properties:
       appName:
         type: string
@@ -2416,6 +2417,9 @@ definitions:
       isPrivateCluster:
         type: boolean
         description: Whether to create a private cluster.
+      mlservingVersion:
+        type: string
+        description: The version of ML workload app to install.
       provisionK8sRequest:
         description: The request for Kubernetes cluster provisioning. Required in public cloud.
         $ref: '#/definitions/MlServingProvisionK8sRequest'
