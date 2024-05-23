@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>get-deployment-configuration &#8212; CDP CLI 0.9.113 (BETA) documentation</title>
+    <title>get-deployment-configuration &#8212; CDP CLI 0.9.114 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="get-default-custom-nar-configuration.html" title="get-default-custom-nar-configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Retrieves the deployment configuration.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.113</p>
+<dd class="field-even"><p>0.9.114</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -256,9 +256,21 @@
 <blockquote>
 <div><p>Indicates whether or not the flow should be started during deployment creation.</p>
 </div></blockquote>
-<p>clusterSizeName -&gt; (string)</p>
+<p>clusterSize -&gt; (object)</p>
 <blockquote>
-<div><p>The size of the cluster to deploy.</p>
+<div><p>Cluster scaling parameters.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of this Cluster Size.</p>
+</div></blockquote>
+<p>coresPerNode -&gt; (double)</p>
+<blockquote>
+<div><p>The number of CPU Cores per node (will be truncated to the nearest integer).</p>
+</div></blockquote>
+<p>memoryLimit -&gt; (double)</p>
+<blockquote>
+<div><p>The memory limit (will be truncated to the nearest integer).</p>
+</div></blockquote>
 </div></blockquote>
 <p>nodeStorageProfileName -&gt; (string)</p>
 <blockquote>
@@ -307,6 +319,10 @@
 <p>projectCrn -&gt; (string)</p>
 <blockquote>
 <div><p>The crn of the project this deployment belongs to, or null if does not belong to a project.</p>
+</div></blockquote>
+<p>assetConfigurationAvailable -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates whether the cluster is configured to accept FILE/FILES type parameters.</p>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -364,7 +380,7 @@
         <li class="right" >
           <a href="get-default-custom-nar-configuration.html" title="get-default-custom-nar-configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration</a></li> 
       </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>restart-deployment &#8212; CDP CLI 0.9.113 (BETA) documentation</title>
+    <title>restart-deployment &#8212; CDP CLI 0.9.114 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="renew-inbound-connection-endpoint-certificates.html" title="renew-inbound-connection-endpoint-certificates"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restart-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Restart a deployment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.113</p>
+<dd class="field-even"><p>0.9.114</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -94,22 +94,22 @@
 <div><p>Provides details about a deployment.</p>
 <p>name -&gt; (string)</p>
 <blockquote>
-<div><p>The name of the deployment</p>
+<div><p>The name of the deployment.</p>
 </div></blockquote>
 <p>status -&gt; (object)</p>
 <blockquote>
-<div><p>The state and state message associated with a deployment</p>
+<div><p>The state and state message associated with a deployment.</p>
 <p>detailedState -&gt; (string)</p>
 <blockquote>
-<div><p>The detailed state that the deployment is currently in</p>
+<div><p>The detailed state that the deployment is currently in.</p>
 </div></blockquote>
 <p>state -&gt; (string)</p>
 <blockquote>
-<div><p>The state that the deployment is currently in</p>
+<div><p>The state that the deployment is currently in.</p>
 </div></blockquote>
 <p>message -&gt; (string)</p>
 <blockquote>
-<div><p>Detail message relating to the current status of the deployment</p>
+<div><p>Detail message relating to the current status of the deployment.</p>
 </div></blockquote>
 </div></blockquote>
 <p>service -&gt; (object)</p>
@@ -146,31 +146,31 @@
 </div></blockquote>
 <p>crn -&gt; (string)</p>
 <blockquote>
-<div><p>The CRN of the deployment</p>
+<div><p>The CRN of the deployment.</p>
 </div></blockquote>
 <p>activeInfoAlertCount -&gt; (integer)</p>
 <blockquote>
-<div><p>Current count of active alerts classified as an info</p>
+<div><p>Current count of active alerts classified as an info.</p>
 </div></blockquote>
 <p>activeWarningAlertCount -&gt; (integer)</p>
 <blockquote>
-<div><p>Current count of active alerts classified as a warning</p>
+<div><p>Current count of active alerts classified as a warning.</p>
 </div></blockquote>
 <p>activeErrorAlertCount -&gt; (integer)</p>
 <blockquote>
-<div><p>Current count of active alerts classified as an error</p>
+<div><p>Current count of active alerts classified as an error.</p>
 </div></blockquote>
 <p>created -&gt; (integer)</p>
 <blockquote>
-<div><p>Timestamp of the creation of the deployment</p>
+<div><p>Timestamp of the creation of the deployment.</p>
 </div></blockquote>
 <p>updated -&gt; (integer)</p>
 <blockquote>
-<div><p>Timestamp of the last time the deployment was modified</p>
+<div><p>Timestamp of the last time the deployment was modified.</p>
 </div></blockquote>
 <p>validActions -&gt; (array)</p>
 <blockquote>
-<div><p>Valid actions that can be applied to the deployment in its current state</p>
+<div><p>Valid actions that can be applied to the deployment in its current state.</p>
 <p>item -&gt; (string)</p>
 </div></blockquote>
 <p>project -&gt; (object)</p>
@@ -191,87 +191,135 @@
 </div></blockquote>
 <p>nifiUrl -&gt; (string)</p>
 <blockquote>
-<div><p>The url to open the deployed flow in NiFi</p>
+<div><p>The url to open the deployed flow in NiFi.</p>
+</div></blockquote>
+<p>clusterSizeParams -&gt; (object)</p>
+<blockquote>
+<div><p>Cluster scaling parameters.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of this Cluster Size.</p>
+</div></blockquote>
+<p>coresPerNode -&gt; (double)</p>
+<blockquote>
+<div><p>The number of CPU Cores per node (will be truncated to the nearest integer).</p>
+</div></blockquote>
+<p>memoryLimit -&gt; (double)</p>
+<blockquote>
+<div><p>The memory limit (will be truncated to the nearest integer).</p>
+</div></blockquote>
+<p>text -&gt; (string)</p>
+<blockquote>
+<div><p>The text (i.e., the human readable name) for this Cluster Size.</p>
+</div></blockquote>
+<p>heapSize -&gt; (double)</p>
+<blockquote>
+<div><p>The heap size.</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to signal whether this ClusterSize is enabled.</p>
+</div></blockquote>
+<p>customClusterSizeLimits -&gt; (object)</p>
+<blockquote>
+<div><p>Limits for the custom cluster size type.</p>
+<p>maximumCpuCoresPerNode -&gt; (double)</p>
+<blockquote>
+<div><p>The maximum number of CPU Cores per node, that fit on the node type.</p>
+</div></blockquote>
+<p>minimumCpuCoresPerNode -&gt; (double)</p>
+<blockquote>
+<div><p>The minimum number of CPU Cores per node, that fit on the node type.</p>
+</div></blockquote>
+<p>maximumMemoryLimit -&gt; (double)</p>
+<blockquote>
+<div><p>The upper memory limit that is available on the node type.</p>
+</div></blockquote>
+<p>minimumMemoryLimit -&gt; (double)</p>
+<blockquote>
+<div><p>The lower memory limit that is available on the node type.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 <p>autoscalingEnabled -&gt; (boolean)</p>
 <blockquote>
-<div><p>Whether or not autoscaling is enabled for this deployment</p>
+<div><p>Whether or not autoscaling is enabled for this deployment.</p>
 </div></blockquote>
 <p>flowMetricsScalingEnabled -&gt; (boolean)</p>
 <blockquote>
-<div><p>Whether or not flow metrics scaling is enabled for this deployment</p>
+<div><p>Whether or not flow metrics scaling is enabled for this deployment.</p>
 </div></blockquote>
 <p>autoscaleMinNodes -&gt; (integer)</p>
 <blockquote>
-<div><p>The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true</p>
+<div><p>The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true.</p>
 </div></blockquote>
 <p>autoscaleMaxNodes -&gt; (integer)</p>
 <blockquote>
-<div><p>The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true</p>
+<div><p>The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true.</p>
 </div></blockquote>
 <p>staticNodeCount -&gt; (integer)</p>
 <blockquote>
-<div><p>The static number of nodes of the deployment; can only be used when autoscalingEnabled is false</p>
+<div><p>The static number of nodes of the deployment; can only be used when autoscalingEnabled is false.</p>
 </div></blockquote>
 <p>flowName -&gt; (string)</p>
 <blockquote>
-<div><p>The name of the flow</p>
+<div><p>The name of the flow.</p>
 </div></blockquote>
 <p>flowVersion -&gt; (integer)</p>
 <blockquote>
-<div><p>The version of the flow</p>
+<div><p>The version of the flow.</p>
 </div></blockquote>
 <p>flowVersionCrn -&gt; (string)</p>
 <blockquote>
-<div><p>The deployment’s current flow version CRN</p>
+<div><p>The deployment’s current flow version CRN.</p>
 </div></blockquote>
 <p>flowCrn -&gt; (string)</p>
 <blockquote>
-<div><p>The deployment’s current flow CRN</p>
+<div><p>The deployment’s current flow CRN.</p>
 </div></blockquote>
 <p>creatorCrn -&gt; (string)</p>
 <blockquote>
-<div><p>The CRN of the user who deployed the flow</p>
+<div><p>The CRN of the user who deployed the flow.</p>
 </div></blockquote>
 <p>artifactTypeName -&gt; (string)</p>
 <blockquote>
-<div><p>The type of artifact of the flow</p>
+<div><p>The type of artifact of the flow.</p>
 </div></blockquote>
 <p>currentNodeCount -&gt; (integer)</p>
 <blockquote>
-<div><p>The current node count</p>
+<div><p>The current node count.</p>
 </div></blockquote>
 <p>deployedByUsername -&gt; (string)</p>
 <blockquote>
-<div><p>The username of the person who deployed the flow</p>
+<div><p>The username of the person who deployed the flow.</p>
 </div></blockquote>
 <p>deployedByName -&gt; (string)</p>
 <blockquote>
-<div><p>The name of the person who deployed the flow</p>
+<div><p>The name of the person who deployed the flow.</p>
 </div></blockquote>
 <p>dfxLocalUrl -&gt; (string)</p>
 <blockquote>
-<div><p>Base URL to the CDF Local instance running this deployment</p>
+<div><p>Base URL to the CDF Local instance running this deployment.</p>
 </div></blockquote>
 <p>configurationVersion -&gt; (integer)</p>
 <blockquote>
-<div><p>The current version of the deployment’s configuration</p>
+<div><p>The current version of the deployment’s configuration.</p>
 </div></blockquote>
 <p>lastUpdatedByUsername -&gt; (string)</p>
 <blockquote>
-<div><p>The username of the last person to update the deployment</p>
+<div><p>The username of the last person to update the deployment.</p>
 </div></blockquote>
 <p>cfmNifiVersion -&gt; (string)</p>
 <blockquote>
-<div><p>The CFM NiFi version associated with the deployment</p>
+<div><p>The CFM NiFi version associated with the deployment.</p>
 </div></blockquote>
 <p>inboundConnectionEndpointId -&gt; (string)</p>
 <blockquote>
-<div><p>The ID of Inbound Connection Endpoint assigned to the deployment</p>
+<div><p>The ID of Inbound Connection Endpoint assigned to the deployment.</p>
 </div></blockquote>
 <p>testSession -&gt; (boolean)</p>
 <blockquote>
-<div><p>Indicates this deployment was created as a test session for designing a flow</p>
+<div><p>Indicates this deployment was created as a test session for designing a flow.</p>
 </div></blockquote>
 <p>flowDesignerId -&gt; (string)</p>
 <blockquote>
@@ -281,13 +329,17 @@
 <blockquote>
 <div><p>The identifier of the custom NAR configuration, if used.</p>
 </div></blockquote>
+<p>customPythonConfigurationId -&gt; (string)</p>
+<blockquote>
+<div><p>The identifier of the custom python configuration, if used.</p>
+</div></blockquote>
 <p>nodeStorageProfile -&gt; (string)</p>
 <blockquote>
-<div><p>The node storage profile</p>
+<div><p>The node storage profile.</p>
 </div></blockquote>
 <p>projectCrn -&gt; (string)</p>
 <blockquote>
-<div><p>The crn of the project this deployment belongs to, or null if does not belong to a project</p>
+<div><p>The crn of the project this deployment belongs to, or null if does not belong to a project.</p>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -345,7 +397,7 @@
         <li class="right" >
           <a href="renew-inbound-connection-endpoint-certificates.html" title="renew-inbound-connection-endpoint-certificates"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restart-deployment</a></li> 
       </ul>

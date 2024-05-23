@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>change-flow-version &#8212; CDP CLI 0.9.114 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="create-deployment" href="create-deployment.html" />
+    <link rel="prev" title="cancel-delete-project" href="cancel-delete-project.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-deployment.html" title="create-deployment"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="cancel-delete-project.html" title="cancel-delete-project"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">change-flow-version</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="change-flow-version">
+<span id="cli-cdp-df-change-flow-version"></span><h1>change-flow-version<a class="headerlink" href="#change-flow-version" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Initiate and change the flow version of a running deployment</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.114</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Initiates a deployment change flow version on the control plane, and change the flow version of a running deployment on the workload. This operation is supported for the CLI only.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  change-flow-version
+--service-crn &lt;value&gt;
+--flow-version-crn &lt;value&gt;
+--deployment-crn &lt;value&gt;
+<span class="o">[</span>--strategy &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--wait-for-flow-to-stop-in-minutes &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--parameter-groups &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--kpis &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--service-crn</span></code> (string)</p>
+<blockquote>
+<div><p>CRN for the service.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--flow-version-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The intended target flow definition version CRN to change to for the deployment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--deployment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>CRN for the deployment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--strategy</span></code> (string)</p>
+<blockquote>
+<div><p>The strategy to use during change flow version. The default is STOP_AND_PROCESS_DATA.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_AND_PROCESS_DATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_AND_EMPTY_QUEUES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ONLY_RESTART_AFFECTED_COMPONENTS</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--wait-for-flow-to-stop-in-minutes</span></code> (integer)</p>
+<blockquote>
+<div><p>The max time in minutes to wait for flow to bleed out. This is only relevant when using the default change flow version strategy (STOP_AND_PROCESS_DATA). The default wait time is 15 minutes.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--parameter-groups</span></code> (array)</p>
+<blockquote>
+<div><p>Parameter groups with each requiring a value or assets.</p>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;parameters&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;assetReferences&quot;</span>: <span class="o">[</span>
+          <span class="o">{</span> ... recursive ... <span class="o">}</span>
+          ...
+        <span class="o">]</span>
+      <span class="o">}</span>
+      ...
+    <span class="o">]</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--kpis</span></code> (array)</p>
+<blockquote>
+<div><p>Key Performance Indicators with associated alerts. If these are specified, the KPIs here will replace all the existing KPIs in the deployment.</p>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;metricId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;componentId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;alert&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;thresholdMoreThan&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;unitId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;value&quot;</span>: double
+      <span class="o">}</span>,
+      <span class="s2">&quot;thresholdLessThan&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;unitId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;value&quot;</span>: double
+      <span class="o">}</span>,
+      <span class="s2">&quot;frequencyTolerance&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;value&quot;</span>: double,
+        <span class="s2">&quot;unit&quot;</span>: <span class="o">{</span>
+          <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;SECONDS&quot;</span><span class="p">|</span><span class="s2">&quot;MINUTES&quot;</span><span class="p">|</span><span class="s2">&quot;HOURS&quot;</span><span class="p">|</span><span class="s2">&quot;DAYS&quot;</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN for the deployment where change flow version was performed.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">change-flow-version</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cancel-delete-project.html"
+                        title="previous chapter">cancel-delete-project</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="create-deployment.html"
+                        title="next chapter">create-deployment</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="create-deployment.html" title="create-deployment"
+             >next</a></li>
+        <li class="right" >
+          <a href="cancel-delete-project.html" title="cancel-delete-project"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">change-flow-version</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
