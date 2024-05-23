@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-deployment &#8212; CDP CLI 0.9.113 documentation</title>
+    <title>create-deployment &#8212; CDP CLI 0.9.114 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="create-flow-version-tag" href="create-flow-version-tag.html" />
-    <link rel="prev" title="cancel-delete-project" href="cancel-delete-project.html" /> 
+    <link rel="prev" title="change-flow-version" href="change-flow-version.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="create-flow-version-tag.html" title="create-flow-version-tag"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="cancel-delete-project.html" title="cancel-delete-project"
+          <a href="change-flow-version.html" title="change-flow-version"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Initiate and create deployment on workload</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.113</p>
+<dd class="field-even"><p>0.9.114</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -62,6 +62,7 @@
 <span class="o">[</span>--from-archive &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--import-parameters-from &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cluster-size-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cluster-size &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--static-node-count &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--auto-scaling-enabled <span class="p">|</span> --no-auto-scaling-enabled<span class="o">]</span>
 <span class="o">[</span>--flow-metrics-scaling-enabled <span class="p">|</span> --no-flow-metrics-scaling-enabled<span class="o">]</span>
@@ -72,6 +73,7 @@
 <span class="o">[</span>--parameter-groups &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--kpis &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--custom-nar-configuration &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--custom-python-configuration &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--inbound-hostname &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--listen-components &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--node-storage-profile-name &lt;value&gt;<span class="o">]</span>
@@ -114,6 +116,34 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">LARGE</span></code></p></li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-size</span></code> (object)</p>
+<blockquote>
+<div><p>Size for the cluster. The default cluster size is EXTRA_SMALL. This argument will be ignored if –from-archive is used.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster size name.</p>
+</div></blockquote>
+<p>coresPerNode -&gt; (double)</p>
+<blockquote>
+<div><p>Cluster Cores Per Node (will be truncated to the nearest integer).</p>
+</div></blockquote>
+<p>memoryLimit -&gt; (double)</p>
+<blockquote>
+<div><p>Cluster GB Per Node (will be truncated to the nearest integer).</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">name</span><span class="o">=</span>string,coresPerNode<span class="o">=</span>double,memoryLimit<span class="o">=</span>double
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;EXTRA_SMALL&quot;</span><span class="p">|</span><span class="s2">&quot;SMALL&quot;</span><span class="p">|</span><span class="s2">&quot;MEDIUM&quot;</span><span class="p">|</span><span class="s2">&quot;LARGE&quot;</span><span class="p">|</span><span class="s2">&quot;CUSTOM&quot;</span>,
+  <span class="s2">&quot;coresPerNode&quot;</span>: double,
+  <span class="s2">&quot;memoryLimit&quot;</span>: double
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--static-node-count</span></code> (integer)</p>
 <blockquote>
 <div><p>The static number of nodes provisioned. The default is 1. This argument will be ignored if –from-archive is used.</p>
@@ -226,6 +256,39 @@
 <span class="o">}</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-python-configuration</span></code> (object)</p>
+<blockquote>
+<div><p>Custom Python configuration properties. This argument will be ignored if –from-archive is used.</p>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>Username for access to Python storage location</p>
+</div></blockquote>
+<p>password -&gt; (string)</p>
+<blockquote>
+<div><p>Password for access to Python storage location</p>
+</div></blockquote>
+<p>storageLocation -&gt; (string)</p>
+<blockquote>
+<div><p>Storage location containing custom Python files</p>
+</div></blockquote>
+<p>configurationVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>Custom configuration version number</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">username</span><span class="o">=</span>string,password<span class="o">=</span>string,storageLocation<span class="o">=</span>string,configurationVersion<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;username&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;storageLocation&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;configurationVersion&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--inbound-hostname</span></code> (string)</p>
 <blockquote>
 <div><p>The FQDN of inbound host or just the prefix part of the hostname. This argument will be ignored if –from-archive is used.</p>
@@ -305,8 +368,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="cancel-delete-project.html"
-                        title="previous chapter">cancel-delete-project</a></p>
+  <p class="topless"><a href="change-flow-version.html"
+                        title="previous chapter">change-flow-version</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="create-flow-version-tag.html"
                         title="next chapter">create-flow-version-tag</a></p>
@@ -331,9 +394,9 @@
           <a href="create-flow-version-tag.html" title="create-flow-version-tag"
              >next</a></li>
         <li class="right" >
-          <a href="cancel-delete-project.html" title="cancel-delete-project"
+          <a href="change-flow-version.html" title="change-flow-version"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.113 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>
