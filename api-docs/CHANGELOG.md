@@ -1,5 +1,33 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.114 (2024-05-22)
+IMPROVEMENTS:
+* environments: Update description of `environmentName` property of `DescribeEnvironmentRequest` object.
+* df: Add new enum value to the `state` property of the `DeploymentStatus` object (CHANGING_FLOW_VERSION).
+* df: Add new property `EncryptionParameters` to the `Service` object.
+* df: Add new parameter `deploymentCrn` to `initiateDeployment` command.
+* df: Add new parameter `uuids` to `listDiagnostics` command.
+* df: Add new parameter `includeNifiDiagnostics` to `startGetDiagnosticsCollection` command.
+* dfworkload: Add `create-custom-python-configuration`, `delete-custom-python-configuration`, `get-custom-python-configuration`, `update-custom-python-configuration`, `validate-custom-python-configuration`, `change-flow-version` and `cancel-change-flow-version` commands.
+* dfworkload: Add new enum values to the `detailedState` property of the `DeploymentStatus` object (CHANGING_FLOW_VERSION, FAILED_TO_PREPARE_FOR_CHANGE_FLOW_VERSION, FAILED_TO_CHANGE_FLOW_VERSION, CANCELLING_CHANGE_FLOW_VERSION, FAILED_TO_CANCEL_CHANGE_FLOW_VERSION, PROMETHEUS_APPROACHING_MEMORY_LIMIT).
+* dfworkload: Add new enum value to the `state` property of the `DeploymentStatus` object (CHANGING_FLOW_VERSION).
+* dfworkload: Add new enum values to the `validActions` property of the `RpcDeployment` object (CHANGE_FLOW_VERSION, RETRY_CHANGE_FLOW_VERSION, CANCEL_CHANGE_FLOW_VERSION)
+* dfworkload: Add new parameter `clusterSize` to `create-deployment` and `update-deployment` commands.
+* dfworkload: Add new property `CustomClusterSizeLimits` to the `ClusterSize` object.
+* dfworkload: Add new enum value for all `clusterSize` and `clusterSizeName` enums (CUSTOM).
+* dfworkload: Add new parameter `waitForFlowToStopInMinutes` to stop-flow command.
+* dfworkload: Add new properties `customPythonConfigurationCrn` and `clusterSize` to the `RpcImportedDeploymentConfiguration` object.
+* dfworkload: deprecated `clusterSizeName` property in `RpcImportedDeploymentConfiguration` object.
+* dfworkload: Add new properties `assetConfigurationAvailable` and `clusterSize` to the `RpcDeploymentConfiguration` object.
+* dfworkload: deprecated `clusterSizeName` property in `RpcDeploymentConfiguration` object.
+* dfworkload: Add new properties `customPythonConfigurationId` and `clusterSizeParams` to the `RpcDeployment` object.
+* dfworkload: Add new properties `customPythonConfigurationCrn` and `clusterSize` to the `RpcImportedDeploymentConfiguration` object.
+* dw: Add new enum values to the `requiresUpdate` property of `DescribeServerSettingItem` (IMPALA, HIVE, TRINO, CDW_HUE).
+* ml: Update description of `ProvisionK8sRequest` object.
+
+BACKWARD INCOMPATIBILITIES:
+* datalake: The `datalakeName` parameter of the `CreateAWSDatalakeRequest`, `CreateAWSDatalakeRequest` and `CreateGCPDatalakeRequest` objects have a property `maxLength` change from 100 to 40.
+
 ## 0.9.113 (2024-05-07)
 IMPROVEMENTS:
 * opdb: Add `volumeEncryptions` parameter to `createDatabase` command.

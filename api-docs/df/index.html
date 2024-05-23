@@ -1099,6 +1099,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_disableserviceresponse">DisableServiceResponse</a></li>
 <li><a href="#_enableservicerequest">EnableServiceRequest</a></li>
 <li><a href="#_enableserviceresponse">EnableServiceResponse</a></li>
+<li><a href="#_encryptionparameters">EncryptionParameters</a></li>
+<li><a href="#_encryptionstrategy">EncryptionStrategy</a></li>
 <li><a href="#_error">Error</a></li>
 <li><a href="#_event">Event</a></li>
 <li><a href="#_eventdetail">EventDetail</a></li>
@@ -1210,7 +1212,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.113</p>
+<p><em>Version</em> : 0.9.114</p>
 </div>
 </div>
 <div class="sect2">
@@ -6876,7 +6878,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>The state that the deployment is currently in.</p>
 </div>
 <div class="paragraph">
-<p><em>Type</em> : enum (DEPLOYING, GOOD_HEALTH, CONCERNING_HEALTH, BAD_HEALTH, STARTING_FLOW, SUSPENDING_FLOW, SUSPENDED, UPDATING, TERMINATING, RESTARTING, UPGRADING, ROLLING_BACK, STOPPED, UNKNOWN, IMPORTING_FLOW, STOPPING_FLOW, FLOW_STOPPED, SUSPENDING, RESUMING)</p>
+<p><em>Type</em> : enum (DEPLOYING, GOOD_HEALTH, CONCERNING_HEALTH, BAD_HEALTH, STARTING_FLOW, SUSPENDING_FLOW, SUSPENDED, UPDATING, TERMINATING, RESTARTING, UPGRADING, ROLLING_BACK, STOPPED, UNKNOWN, IMPORTING_FLOW, STOPPING_FLOW, FLOW_STOPPED, SUSPENDING, RESUMING, CHANGING_FLOW_VERSION)</p>
 </div>
 </div>
 <div class="sect2">
@@ -7998,6 +8000,61 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_encryptionparameters">EncryptionParameters</h3>
+<div class="paragraph">
+<p>The encryption parameters used by the DataFlow service for K8s secret encryption and EBS volume encryption.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>encryptionKeyArn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The AWS KMS key ARN used for encryption of Kubernetes secrets and EBS volumes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>encryptionStrategy</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The encryption strategy used by the DataFlow service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_encryptionstrategy">EncryptionStrategy</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_encryptionstrategy">EncryptionStrategy</h3>
+<div class="paragraph">
+<p>The encryption strategy used by the DataFlow service.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (ENVIRONMENT_LEVEL)</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_error">Error</h3>
@@ -9551,6 +9608,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>deploymentCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The deployment CRN for a deployment where change flow version is being performed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>flowVersionCrn</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -10182,6 +10251,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>uuids</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of UUIDs to list in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -13168,6 +13249,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>encryptionParameters</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The encryption parameters used by DataFlow service for encrypting K8s secrets and EBS volumes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_encryptionparameters">EncryptionParameters</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>environmentCrn</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -13937,6 +14030,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>includeNifiDiagnostics</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Indicates if the heap and thread dumps are needed for a flow.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>startTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -14314,7 +14419,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-05-11 17:09:03 -0700
+Last updated 2024-05-22 20:42:55 -0700
 </div>
 </div>
 <br>
