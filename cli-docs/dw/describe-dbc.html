@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-dbc &#8212; CDP CLI 0.9.114 documentation</title>
+    <title>describe-dbc &#8212; CDP CLI 0.9.115 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-data-visualization.html" title="describe-data-visualization"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.115 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-dbc</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe a Database Catalog.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.114</p>
+<dd class="field-even"><p>0.9.115</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -140,6 +140,75 @@
 <div><p>The name of the Resource Pool the Database Catalog is in.</p>
 <p>Form Factors: private</p>
 </div></blockquote>
+<p>resources -&gt; (map)</p>
+<blockquote>
+<div><p>The actual resources used by the Database Catalog.</p>
+<p>Form Factors: private</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>The resource requirements of a component.</p>
+<p>Form Factors: private</p>
+<p>cpu -&gt; (float)</p>
+<blockquote>
+<div><p>Overall CPU requirements.</p>
+</div></blockquote>
+<p>memory -&gt; (string)</p>
+<blockquote>
+<div><p>Overall memory requirements.</p>
+</div></blockquote>
+<p>breakdown -&gt; (object)</p>
+<blockquote>
+<div><p>Breakdown of the service memory requirements.</p>
+<p>Form Factors: private</p>
+<p>xms -&gt; (string)</p>
+<blockquote>
+<div><p>Java VM configuration for -Xms (initial and minimum heap size).</p>
+</div></blockquote>
+<p>xmx -&gt; (string)</p>
+<blockquote>
+<div><p>Java VM configuration for -Xmx (maximum heap size).</p>
+</div></blockquote>
+<p>headroom -&gt; (string)</p>
+<blockquote>
+<div><p>Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.</p>
+</div></blockquote>
+<p>xss -&gt; (string)</p>
+<blockquote>
+<div><p>Java VM configuration for -Xss (thread stack size).</p>
+</div></blockquote>
+<p>maxDirectMemorySize -&gt; (string)</p>
+<blockquote>
+<div><p>Java VM configuration for -XX:MaxDirectMemorySize (limit for Direct Byte Buffers).</p>
+</div></blockquote>
+<p>waitQueueSize -&gt; (integer)</p>
+<blockquote>
+<div><p>Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.</p>
+</div></blockquote>
+</div></blockquote>
+<p>ephemeralStorage -&gt; (string)</p>
+<blockquote>
+<div><p>Temporary storage for CDW pods, used for storing configurations and temporary data needed during a process. The lifespan of ephemeral storage is tied to the pod.</p>
+</div></blockquote>
+<p>localStorageSize -&gt; (object)</p>
+<blockquote>
+<div><p>Storage related information.</p>
+<p>Form Factors: private</p>
+<p>scratch -&gt; (string)</p>
+<blockquote>
+<div><p>Local disk space used for writing scratch data.</p>
+</div></blockquote>
+<p>cache -&gt; (string)</p>
+<blockquote>
+<div><p>Local disk space used for writing cache data.</p>
+</div></blockquote>
+<p>overhead -&gt; (string)</p>
+<blockquote>
+<div><p>Local disk space used for writing other temporary data, tools, etc.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -196,7 +265,7 @@
         <li class="right" >
           <a href="describe-data-visualization.html" title="describe-data-visualization"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.114 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.115 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-dbc</a></li> 
       </ul>
