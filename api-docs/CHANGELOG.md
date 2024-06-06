@@ -1,5 +1,27 @@
 # CDP Control Plane Public API Changelog
 
+# 0.9.115 (2024-06-05)
+* de: Add new property `allPurposeInstanceGroupDetails` to `ServiceResources` object.
+* de: Add new property `sessionTimeout` to `VcDescription` object.
+* de: Add new parameters `allPurposeInstanceType`, `allPurposeMinimumInstances`, `allPurposeMaximumInstances`, `allPurposeMinimumSpotInstances`, `allPurposeMaximumSpotInstances`, `allPurposeInitialInstances`, `allPurposeInitialSpotInstances`, and `allPurposeRootVolumeSize` to `enableService` command.
+* de: Add new parameters `allPurposeMinimumInstances`, `allPurposeMaximumInstances`, `allPurposeMinimumSpotInstances`, `allPurposeMaximumSpotInstances` to `updateService` command.
+* de: Add new parameter `sessionTimeout` to `createVc` command.
+* dw: Add new commands `listResourceTemplates`, `createResourceTemplate`, `updateResourceTemplate`, and `deleteResourceTemplate`.
+* dw: Add new parameter `resourcePool` to `updateCluster` command.
+* dw: Add new parameter `hiveServerHaMode` to `createVw` command.
+* dw: Add new parameter `ebsLLAPSpillGB` to `createVw` command.
+* dw: Add new parameters `resourcePool` and `hiveServerHaMode` to `updateVw` command.
+* dw: Add new property `dbClientCredentials` to `PrivateCloudActivationOptions` object.
+* dw: Add new property `resources` to `DbSummary` object.
+* dw: Add new property `hiveServerHaMode` to `VwSummary` object.
+* dw: Add new property `ebsLLAPSpillGB` to `VwSummary` object.
+* environments: Add new command `getFreeipaUpgradeOptions`.
+* ml: Add new parameters `whitelistAuthorizedIPRanges` and `authorizedIPRanges` to `createModelRegistry` command.
+
+BACKWARD INCOMPATIBILITIES:
+* cloudprivatelinks: Remove `serviceComponents` parameter from `authorizePrivateLinkServiceAccess` command.
+
+
 ## 0.9.114 (2024-05-22)
 IMPROVEMENTS:
 * environments: Update description of `environmentName` property of `DescribeEnvironmentRequest` object.
