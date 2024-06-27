@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>validate-cluster &#8212; CDP CLI 0.9.115 (BETA) documentation</title>
+    <title>validate-cluster &#8212; CDP CLI 0.9.117 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="upgrade-deployment.html" title="upgrade-deployment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.115 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.117 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">validate-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Validate compute cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.115</p>
+<dd class="field-even"><p>0.9.117</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -56,8 +56,11 @@
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  validate-cluster
---metadata &lt;value&gt;
-<span class="o">[</span>--spec &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--environment &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--tags &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--network &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -65,398 +68,34 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--metadata</span></code> (object)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
 <blockquote>
-<div><p>Cluster metadata structure.</p>
-<p>environmentCrn -&gt; (string)</p>
-<blockquote>
-<div><p>Environment CRN.</p>
+<div><p>Environment CRN. Required.</p>
 </div></blockquote>
-<p>name -&gt; (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--name</span></code> (string)</p>
 <blockquote>
-<div><p>Cluster name.</p>
+<div><p>Cluster name. Required.</p>
 </div></blockquote>
-<p>clusterOwner -&gt; (object)</p>
-<blockquote>
-<div><p>Cluster owner structure.</p>
-<p>email -&gt; (string)</p>
-<blockquote>
-<div><p>Owner’s email.</p>
-</div></blockquote>
-<p>firstName -&gt; (string)</p>
-<blockquote>
-<div><p>Owner’s firstname.</p>
-</div></blockquote>
-<p>lastName -&gt; (string)</p>
-<blockquote>
-<div><p>Owner’s lastname.</p>
-</div></blockquote>
-<p>userId -&gt; (string)</p>
-<blockquote>
-<div><p>Owner’s user ID.</p>
-</div></blockquote>
-<p>accountId -&gt; (string)</p>
-<blockquote>
-<div><p>Owner’s account ID.</p>
-</div></blockquote>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>Owner’s actor CRN.</p>
-</div></blockquote>
-</div></blockquote>
-<p>description -&gt; (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
 <blockquote>
 <div><p>Cluster description.</p>
 </div></blockquote>
-<p>labels -&gt; (map)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (map)</p>
 <blockquote>
-<div><p>Labels.</p>
-<p>key -&gt; (string)</p>
-<p>value -&gt; (string)</p>
-</div></blockquote>
-<p>workloads -&gt; (array)</p>
-<blockquote>
-<div><p>Cluster workloads.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
+<div><p>Cluster level tags.</p>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">environmentCrn</span><span class="o">=</span>string,name<span class="o">=</span>string,clusterOwner<span class="o">={</span><span class="nv">email</span><span class="o">=</span>string,firstName<span class="o">=</span>string,lastName<span class="o">=</span>string,userId<span class="o">=</span>string,accountId<span class="o">=</span>string,crn<span class="o">=</span>string<span class="o">}</span>,clusterType<span class="o">=</span>string,description<span class="o">=</span>string,labels<span class="o">={</span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string<span class="o">}</span>,workloads<span class="o">=</span>string,string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;environmentCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;clusterOwner&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;firstName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;lastName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;userId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;accountId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;crn&quot;</span>: <span class="s2">&quot;string&quot;</span>
-  <span class="o">}</span>,
-  <span class="s2">&quot;clusterType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;labels&quot;</span>: <span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
-    ...<span class="o">}</span>,
-  <span class="s2">&quot;workloads&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
-<span class="o">}</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  ...<span class="o">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--spec</span></code> (object)</p>
-<blockquote>
-<div><p>Cluster spec request structure.</p>
-<p>bootstrapScript -&gt; (string)</p>
-<blockquote>
-<div><p>Bootstrap script.</p>
-</div></blockquote>
-<p>deployments -&gt; (object)</p>
-<blockquote>
-<div><p>Deployments request structure.</p>
-<p>autoscaler -&gt; (object)</p>
-<blockquote>
-<div><p>Autoscaler request structure.</p>
-<p>scaleDownDelayAfterAdd -&gt; (string)</p>
-<blockquote>
-<div><p>How long after scale up that scale down evaluation resumes. (Azure/AWS Support).</p>
-</div></blockquote>
-<p>scaleDownDelayAfterDelete -&gt; (string)</p>
-<blockquote>
-<div><p>How long after node deletion that scale down evaluation resumes, defaults to scanInterval. (Azure/AWS Support).</p>
-</div></blockquote>
-<p>scaleDownDelayAfterFailure -&gt; (string)</p>
-<blockquote>
-<div><p>How long after scale down failure that scale down evaluation resumes. (Azure/AWS Support).</p>
-</div></blockquote>
-<p>scaleDownEnabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Scale down flag. (AWS Support).</p>
-</div></blockquote>
-<p>scaleDownNonEmptyCandidatesCount -&gt; (integer)</p>
-<blockquote>
-<div><p>Maximum number of non empty nodes considered in one iteration as candidates for scale down with drain. Lower value means better CA responsiveness but possible slower scale down latency. Higher value can affect CA performance with big clusters (100s of nodes). Set to non positive value to turn this heuristic off - CA will not limit the number of nodes it considers. (AWS Support).</p>
-</div></blockquote>
-<p>scaleDownUnneededTime -&gt; (string)</p>
-<blockquote>
-<div><p>How long a node should be unneeded before it is eligible for scale down. (Azure/AWS Support).</p>
-</div></blockquote>
-<p>scaleDownUtilizationThreshold -&gt; (double)</p>
-<blockquote>
-<div><p>Node utilization level, defined as the sum of requested resources divided by capacity,. below which a node can be considered for scale down. (Azure/AWS Support).</p>
-</div></blockquote>
-<p>scanInterval -&gt; (string)</p>
-<blockquote>
-<div><p>Scan interval. (Azure/AWS Support).</p>
-</div></blockquote>
-<p>skipNodesWithLocalStorage -&gt; (boolean)</p>
-<blockquote>
-<div><p>Skip nodes with local storage flag. (AWS Support).</p>
-</div></blockquote>
-<p>skipNodesWithSystemPods -&gt; (boolean)</p>
-<blockquote>
-<div><p>Skip nodes with system pods. (AWS Support).</p>
-</div></blockquote>
-<p>maxGracefulTerminationSec -&gt; (integer)</p>
-<blockquote>
-<div><p>Maximum number of seconds CA waits for pod termination when trying to scale down a node. (Azure Support).</p>
-</div></blockquote>
-<p>scaleDownUnreadyTime -&gt; (string)</p>
-<blockquote>
-<div><p>How long an unready node should be unneeded before it is eligible for scale down. (Azure Support).</p>
-</div></blockquote>
-</div></blockquote>
-<p>horizontalPodAutoscaler -&gt; (object)</p>
-<blockquote>
-<div><p>Horizontal pod autoscaler request structure.</p>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Enable flag.</p>
-</div></blockquote>
-</div></blockquote>
-<p>istio -&gt; (object)</p>
-<blockquote>
-<div><p>Istio request structure.</p>
-</div></blockquote>
-<p>logging -&gt; (object)</p>
-<blockquote>
-<div><p>Logging request structure.</p>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>True to enable logging installation (default false).</p>
-</div></blockquote>
-</div></blockquote>
-<p>metering -&gt; (object)</p>
-<blockquote>
-<div><p>Metering request structure.</p>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Flag to enable metering installation.</p>
-</div></blockquote>
-<p>services -&gt; (array)</p>
-<blockquote>
-<div><p>Array of services.</p>
-<p>item -&gt; (object)</p>
-<blockquote>
-<div><p>Metering service request structure.</p>
-<p>serviceType -&gt; (string)</p>
-<blockquote>
-<div><p>Service type.</p>
-</div></blockquote>
-<p>serviceVersion -&gt; (string)</p>
-<blockquote>
-<div><p>Service version.</p>
-</div></blockquote>
-<p>workloadCrn -&gt; (string)</p>
-<blockquote>
-<div><p>Workload CRN.</p>
-</div></blockquote>
-<p>clusterCrn -&gt; (string)</p>
-<blockquote>
-<div><p>Cluster CRN.</p>
-</div></blockquote>
-<p>serviceConfiguration -&gt; (string)</p>
-<blockquote>
-<div><p>Service configuration.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>monitoring -&gt; (object)</p>
-<blockquote>
-<div><p>Monitoring request structure.</p>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Flag to enable Monitoring installation.</p>
-</div></blockquote>
-<p>alertmanager -&gt; (object)</p>
-<blockquote>
-<div><p>Alertmanager request structure.</p>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Flag to enable alertmanager.</p>
-</div></blockquote>
-</div></blockquote>
-<p>serverResourceLimit -&gt; (object)</p>
-<blockquote>
-<div><p>Resource limits request structure.</p>
-<p>cpu -&gt; (string)</p>
-<blockquote>
-<div><p>Prometheus server CPU limit (default 1000m).</p>
-</div></blockquote>
-<p>memory -&gt; (string)</p>
-<blockquote>
-<div><p>Prometheus server memory limit (default 2048M).</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>nvidia -&gt; (object)</p>
-<blockquote>
-<div><p>Nvidia request structure.</p>
-<p>gpuLabelKey -&gt; (string)</p>
-<blockquote>
-<div><p>GPU label key.</p>
-</div></blockquote>
-<p>gpuLabelValue -&gt; (string)</p>
-<blockquote>
-<div><p>GPU label value.</p>
-</div></blockquote>
-</div></blockquote>
-<p>repository -&gt; (string)</p>
-<blockquote>
-<div><p>Repository for images.</p>
-</div></blockquote>
-<p>yunikorn -&gt; (object)</p>
-<blockquote>
-<div><p>YuniKorn request structure.</p>
-</div></blockquote>
-<p>telemetryKmsKeyArn -&gt; (string)</p>
-<blockquote>
-<div><p>Telemetry KMS key ARN.</p>
-</div></blockquote>
-</div></blockquote>
-<p>instanceGroups -&gt; (array)</p>
-<blockquote>
-<div><p>Instance groups.</p>
-<p>item -&gt; (object)</p>
-<blockquote>
-<div><p>Instance group structure.</p>
-<p>name -&gt; (string)</p>
-<blockquote>
-<div><p>Name.</p>
-</div></blockquote>
-<p>instanceCount -&gt; (integer)</p>
-<blockquote>
-<div><p>Instance count.</p>
-</div></blockquote>
-<p>autoscaling -&gt; (object)</p>
-<blockquote>
-<div><p>AutoScaling structure.</p>
-<p>maxInstance -&gt; (integer)</p>
-<blockquote>
-<div><p>Max instances.</p>
-</div></blockquote>
-<p>minInstance -&gt; (integer)</p>
-<blockquote>
-<div><p>Min instances.</p>
-</div></blockquote>
-<p>enabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Enable flag.</p>
-</div></blockquote>
-</div></blockquote>
-<p>enableCfsQuota -&gt; (boolean)</p>
-<blockquote>
-<div><p>Enables CPU CFS quota. Defaults to true if not specified.</p>
-</div></blockquote>
-<p>instanceImage -&gt; (string)</p>
-<blockquote>
-<div><p>Instance image.</p>
-</div></blockquote>
-<p>instanceTier -&gt; (string)</p>
-<blockquote>
-<div><p>Instance tier.</p>
-</div></blockquote>
-<p>kubeReservedCpu -&gt; (integer)</p>
-<blockquote>
-<div><p>Reserved kubelet CPU in millicpu.</p>
-</div></blockquote>
-<p>kubeReservedMemory -&gt; (integer)</p>
-<blockquote>
-<div><p>Reserved kubelet memory in MiB.</p>
-</div></blockquote>
-<p>kubeReservedStorage -&gt; (integer)</p>
-<blockquote>
-<div><p>Reserved kubelet ephemeral storage in MiB.</p>
-</div></blockquote>
-<p>labels -&gt; (map)</p>
-<blockquote>
-<div><p>Labels.</p>
-<p>key -&gt; (string)</p>
-<p>value -&gt; (string)</p>
-</div></blockquote>
-<p>rootVolume -&gt; (object)</p>
-<blockquote>
-<div><p>Root volume structure.</p>
-<p>size -&gt; (integer)</p>
-<blockquote>
-<div><p>Root volume size.</p>
-</div></blockquote>
-</div></blockquote>
-<p>singleZone -&gt; (boolean)</p>
-<blockquote>
-<div><p>Use single availability zone. Simple boolean for EKS. AKS is used in conjunction with UseAvailabilityZones.</p>
-</div></blockquote>
-<p>systemReservedCpu -&gt; (integer)</p>
-<blockquote>
-<div><p>Reserved OS CPU in millicpu.</p>
-</div></blockquote>
-<p>systemReservedMemory -&gt; (integer)</p>
-<blockquote>
-<div><p>Reserved OS memory in MiB.</p>
-</div></blockquote>
-<p>systemReservedStorage -&gt; (integer)</p>
-<blockquote>
-<div><p>Reserved OS ephemeral storage in MiB.</p>
-</div></blockquote>
-<p>taints -&gt; (map)</p>
-<blockquote>
-<div><p>Taints.</p>
-<p>key -&gt; (string)</p>
-<p>value -&gt; (string)</p>
-</div></blockquote>
-<p>useAvailabilityZones -&gt; (boolean)</p>
-<blockquote>
-<div><p>Used for Azure clusters only.</p>
-</div></blockquote>
-<p>instanceTypes -&gt; (array)</p>
-<blockquote>
-<div><p>Instance types. General purpose: M4, M5, M5a, M5ad, and M5d. Compute optimized: C3, C4, C5, C5d, C5n, and cc2.8xlarge. Memory optimized: cr1.8xlarge, R3, R4, R5, R5a, R5ad, R5d, X1, X1e, and z1d. Storage optimized: D2, H1, hs1.8xlarge, I2, I3, and I3en. Accelerated computing: F1, G2, G3, P2, and P3.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-<p>accelerator -&gt; (object)</p>
-<blockquote>
-<div><p>Accelerator structure.</p>
-<p>count -&gt; (integer)</p>
-<blockquote>
-<div><p>GPU count.</p>
-</div></blockquote>
-<p>type -&gt; (string)</p>
-<blockquote>
-<div><p>GPU type.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p>kubernetes -&gt; (object)</p>
-<blockquote>
-<div><p>Kubernetes specs.</p>
-</div></blockquote>
-<p>network -&gt; (object)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--network</span></code> (object)</p>
 <blockquote>
 <div><p>Network structure.</p>
-<p>cidr -&gt; (string)</p>
-<blockquote>
-<div><p>VPC CIDR.</p>
-</div></blockquote>
-<p>plugin -&gt; (string)</p>
-<blockquote>
-<div><p>Network plugin.</p>
-</div></blockquote>
-<p>topology -&gt; (object)</p>
-<blockquote>
-<div><p>Network topology structure.</p>
-<p>subnets -&gt; (array)</p>
-<blockquote>
-<div><p>Subnets.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-</div></blockquote>
-<p>inboundProxyCidrs -&gt; (array)</p>
-<blockquote>
-<div><p>Allow these CIDR for inbound communication when using environment proxy settings. Only if backend supports it.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
 <p>podCidr -&gt; (string)</p>
 <blockquote>
 <div><p>The pod CIDR to use if the backend provider supports setting this.</p>
@@ -465,215 +104,32 @@
 <blockquote>
 <div><p>The CIDR for services declared inside of Kubernetes if the backend provider supports setting this.</p>
 </div></blockquote>
-</div></blockquote>
-<p>security -&gt; (object)</p>
+<p>subnets -&gt; (array)</p>
 <blockquote>
-<div><p>Security request structure.</p>
-<p>apiServer -&gt; (object)</p>
-<blockquote>
-<div><p>API server request structure.</p>
-<p>authorizedIpRanges -&gt; (array)</p>
-<blockquote>
-<div><p>An array of IPv4 CIDR blocks.</p>
+<div><p>Subnets.</p>
 <p>item -&gt; (string)</p>
 </div></blockquote>
-<p>enabled -&gt; (boolean)</p>
+<p>outboundType -&gt; (string)</p>
 <blockquote>
-<div><p>Flag to enable whitelist of IP Ranges (CIDR block) for public access to the kubernetes API server.</p>
+<div><p>Cluster outbound type. Currently supported is udr.</p>
 </div></blockquote>
 </div></blockquote>
-<p>secretEncryption -&gt; (object)</p>
-<blockquote>
-<div><p>Secret encryption request structure.</p>
-<p>customerKmsKeyArn -&gt; (string)</p>
-<blockquote>
-<div><p>The KMS key ARN used.</p>
-</div></blockquote>
-</div></blockquote>
-<p>volumeEncryption -&gt; (object)</p>
-<blockquote>
-<div><p>Volume encryption request structure.</p>
-<p>customerKmsKeyArn -&gt; (string)</p>
-<blockquote>
-<div><p>The KMS key ARN used.</p>
-</div></blockquote>
-</div></blockquote>
-<p>private -&gt; (boolean)</p>
-<blockquote>
-<div><p>Flag set to true for a private cluster with API Server having internal IP addressees.</p>
-</div></blockquote>
-</div></blockquote>
-<p>sshKeypairName -&gt; (string)</p>
-<blockquote>
-<div><p>SSH keypair.</p>
-</div></blockquote>
-<p>workerEgressRules -&gt; (array)</p>
-<blockquote>
-<div><p>Array of egress rules of the form protocol:fromPort[:toPort[:CIDR]].</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-<p>workerIngressRules -&gt; (array)</p>
-<blockquote>
-<div><p>Array of ingress rules of the form protocol:fromPort[:toPort[:CIDR]].</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
-<p>imageCatalog -&gt; (object)</p>
-<blockquote>
-<div><p>Image catalog request structure.</p>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>The catalog CRN (either CRN or name is required).</p>
-</div></blockquote>
-<p>name -&gt; (string)</p>
-<blockquote>
-<div><p>The catalog name (either CRN or name is required).</p>
-</div></blockquote>
-</div></blockquote>
-<p>storage -&gt; (object)</p>
-<blockquote>
-<div><p>Storage spec request structure.</p>
-<p>csiEnabled -&gt; (boolean)</p>
-<blockquote>
-<div><p>Flag to enable Container Storage Interface (CSI). It further sets specific inline cloud formation policies required for CSI.</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">cidr</span><span class="o">=</span>string,plugin<span class="o">=</span>string,topology<span class="o">={</span><span class="nv">subnets</span><span class="o">=[</span>string,string<span class="o">]}</span>,inboundProxyCidrs<span class="o">=</span>string,string,podCidr<span class="o">=</span>string,serviceCidr<span class="o">=</span>string,subnets<span class="o">=</span>string,string,outboundType<span class="o">=</span>string
+</pre></div>
+</div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;bootstrapScript&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;deployments&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;autoscaler&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;scaleDownDelayAfterAdd&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;scaleDownDelayAfterDelete&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;scaleDownDelayAfterFailure&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;scaleDownEnabled&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;scaleDownNonEmptyCandidatesCount&quot;</span>: integer,
-      <span class="s2">&quot;scaleDownUnneededTime&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;scaleDownUtilizationThreshold&quot;</span>: double,
-      <span class="s2">&quot;scanInterval&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;skipNodesWithLocalStorage&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;skipNodesWithSystemPods&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;maxGracefulTerminationSec&quot;</span>: integer,
-      <span class="s2">&quot;scaleDownUnreadyTime&quot;</span>: <span class="s2">&quot;string&quot;</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;horizontalPodAutoscaler&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;istio&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;deploymentProfile&quot;</span>: <span class="s2">&quot;string&quot;</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;logging&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;metering&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;services&quot;</span>: <span class="o">[</span>
-        <span class="o">{</span>
-          <span class="s2">&quot;serviceType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-          <span class="s2">&quot;serviceVersion&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-          <span class="s2">&quot;workloadCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-          <span class="s2">&quot;clusterCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-          <span class="s2">&quot;serviceConfiguration&quot;</span>: <span class="s2">&quot;string&quot;</span>
-        <span class="o">}</span>
-        ...
-      <span class="o">]</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;monitoring&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;alertmanager&quot;</span>: <span class="o">{</span>
-        <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-      <span class="o">}</span>,
-      <span class="s2">&quot;serverResourceLimit&quot;</span>: <span class="o">{</span>
-        <span class="s2">&quot;cpu&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-        <span class="s2">&quot;memory&quot;</span>: <span class="s2">&quot;string&quot;</span>
-      <span class="o">}</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;nvidia&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;gpuLabelKey&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;gpuLabelValue&quot;</span>: <span class="s2">&quot;string&quot;</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;repository&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;yunikorn&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;appSortingPolicy&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;nodeSortingPolicy&quot;</span>: <span class="s2">&quot;string&quot;</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;telemetryKmsKeyArn&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="s2">&quot;cidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;plugin&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;topology&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;subnets&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
   <span class="o">}</span>,
-  <span class="s2">&quot;instanceGroups&quot;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;instanceCount&quot;</span>: integer,
-      <span class="s2">&quot;autoscaling&quot;</span>: <span class="o">{</span>
-        <span class="s2">&quot;maxInstance&quot;</span>: integer,
-        <span class="s2">&quot;minInstance&quot;</span>: integer,
-        <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-      <span class="o">}</span>,
-      <span class="s2">&quot;enableCfsQuota&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;instanceImage&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;instanceTier&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;kubeReservedCpu&quot;</span>: integer,
-      <span class="s2">&quot;kubeReservedMemory&quot;</span>: integer,
-      <span class="s2">&quot;kubeReservedStorage&quot;</span>: integer,
-      <span class="s2">&quot;labels&quot;</span>: <span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
-        ...<span class="o">}</span>,
-      <span class="s2">&quot;rootVolume&quot;</span>: <span class="o">{</span>
-        <span class="s2">&quot;size&quot;</span>: integer
-      <span class="o">}</span>,
-      <span class="s2">&quot;singleZone&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;systemReservedCpu&quot;</span>: integer,
-      <span class="s2">&quot;systemReservedMemory&quot;</span>: integer,
-      <span class="s2">&quot;systemReservedStorage&quot;</span>: integer,
-      <span class="s2">&quot;taints&quot;</span>: <span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
-        ...<span class="o">}</span>,
-      <span class="s2">&quot;useAvailabilityZones&quot;</span>: true<span class="p">|</span>false,
-      <span class="s2">&quot;instanceTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-      <span class="s2">&quot;accelerator&quot;</span>: <span class="o">{</span>
-        <span class="s2">&quot;count&quot;</span>: integer,
-        <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;string&quot;</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-    ...
-  <span class="o">]</span>,
-  <span class="s2">&quot;kubernetes&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;string&quot;</span>
-  <span class="o">}</span>,
-  <span class="s2">&quot;network&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;cidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;plugin&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;topology&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;subnets&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;inboundProxyCidrs&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-    <span class="s2">&quot;podCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;serviceCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>
-  <span class="o">}</span>,
-  <span class="s2">&quot;security&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;apiServer&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;authorizedIpRanges&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;secretEncryption&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;customerKmsKeyArn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-      <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;volumeEncryption&quot;</span>: <span class="o">{</span>
-      <span class="s2">&quot;customerKmsKeyArn&quot;</span>: <span class="s2">&quot;string&quot;</span>
-    <span class="o">}</span>,
-    <span class="s2">&quot;private&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-  <span class="o">}</span>,
-  <span class="s2">&quot;sshKeypairName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;workerEgressRules&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-  <span class="s2">&quot;workerIngressRules&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
-  <span class="s2">&quot;imageCatalog&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;crn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>
-  <span class="o">}</span>,
-  <span class="s2">&quot;storage&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;csiEnabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-  <span class="o">}</span>
+  <span class="s2">&quot;inboundProxyCidrs&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;podCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;serviceCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;subnets&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;outboundType&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -811,7 +267,7 @@
         <li class="right" >
           <a href="upgrade-deployment.html" title="upgrade-deployment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.115 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.117 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">validate-cluster</a></li> 
       </ul>

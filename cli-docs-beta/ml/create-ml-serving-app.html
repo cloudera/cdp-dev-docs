@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-ml-serving-app &#8212; CDP CLI 0.9.115 (BETA) documentation</title>
+    <title>create-ml-serving-app &#8212; CDP CLI 0.9.117 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="backup-workspace.html" title="backup-workspace"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.115 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.117 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-ml-serving-app</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Machine Learning Serving App.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.115</p>
+<dd class="field-even"><p>0.9.117</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -58,14 +58,13 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-ml-serving-app
 --app-name &lt;value&gt;
 --environment-crn &lt;value&gt;
---is-private-cluster <span class="p">|</span> --no-is-private-cluster
 --mlserving-version &lt;value&gt;
+--cluster-crn &lt;value&gt;
 <span class="o">[</span>--provision-k8s-request &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--use-public-load-balancer <span class="p">|</span> --no-use-public-load-balancer<span class="o">]</span>
 <span class="o">[</span>--disable-tls <span class="p">|</span> --no-disable-tls<span class="o">]</span>
 <span class="o">[</span>--skip-validation <span class="p">|</span> --no-skip-validation<span class="o">]</span>
-<span class="o">[</span>--whitelist-authorized-ip-ranges <span class="p">|</span> --no-whitelist-authorized-ip-ranges<span class="o">]</span>
-<span class="o">[</span>--authorized-ip-ranges &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--load-balancer-ip-whitelists &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -81,13 +80,13 @@
 <blockquote>
 <div><p>The environment CRN for the App.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--is-private-cluster</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-is-private-cluster</span></code> (boolean)</p>
-<blockquote>
-<div><p>Whether to create a private cluster.</p>
-</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--mlserving-version</span></code> (string)</p>
 <blockquote>
 <div><p>The version of ML workload app to install.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The cluster CRN of an existing cluster that the AI inference App will use.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--provision-k8s-request</span></code> (object)</p>
 <blockquote>
@@ -232,13 +231,9 @@
 <blockquote>
 <div><p>Skip pre-flight validations if requested.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--whitelist-authorized-ip-ranges</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-whitelist-authorized-ip-ranges</span></code> (boolean)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--load-balancer-ip-whitelists</span></code> (array)</p>
 <blockquote>
-<div><p>Whether to whitelist only authorized-ip-ranges given or all public IPs</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--authorized-ip-ranges</span></code> (array)</p>
-<blockquote>
-<div><p>The whitelist of CIDR blocks which can access the API server.</p>
+<div><p>The whitelist of IPs for load balancer.</p>
 </div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
@@ -314,7 +309,7 @@
         <li class="right" >
           <a href="backup-workspace.html" title="backup-workspace"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.115 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.117 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-ml-serving-app</a></li> 
       </ul>
