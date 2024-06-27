@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+# 0.9.117 (2024-06-26)
+* cloudprivatelinks: Add new property `status` to `AuthorizePrivateLinkServiceAccessResponse` object.
+* de: Add support for `Spark 3.5` to `createVc` command.
+* compute: Add new properties `isDefault` and `clusterShape` to `ListClusterItems` object.
+* compute: Update description of `includeDeleted` in `ListClusters` command.
+* dw: Deprecate properties `waitQueueSize` and `headroom` in `CreateApplicationResourcesBreakdown` object.
+
 # 0.9.115 (2024-06-05)
 * de: Add new property `allPurposeInstanceGroupDetails` to `ServiceResources` object.
 * de: Add new property `sessionTimeout` to `VcDescription` object.

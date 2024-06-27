@@ -977,18 +977,25 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_41">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgrademodelregistry">Upgrade a model registry.</a>
+<li><a href="#_upgrademlservingapp">Upgrade a Cloudera Machine Learning Serving App.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_42">Description</a></li>
 <li><a href="#_parameters_42">Parameters</a></li>
 <li><a href="#_responses_42">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
+<li><a href="#_upgrademodelregistry">Upgrade a model registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_43">Description</a></li>
 <li><a href="#_parameters_43">Parameters</a></li>
 <li><a href="#_responses_43">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_44">Description</a></li>
+<li><a href="#_parameters_44">Parameters</a></li>
+<li><a href="#_responses_44">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1102,6 +1109,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_suspendworkspaceresponse">SuspendWorkspaceResponse</a></li>
 <li><a href="#_tag">Tag</a></li>
 <li><a href="#_topology">Topology</a></li>
+<li><a href="#_upgrademlservingapprequest">UpgradeMlServingAppRequest</a></li>
+<li><a href="#_upgrademlservingappresponse">UpgradeMlServingAppResponse</a></li>
 <li><a href="#_upgrademodelregistryrequest">UpgradeModelRegistryRequest</a></li>
 <li><a href="#_upgrademodelregistryresponse">UpgradeModelRegistryResponse</a></li>
 <li><a href="#_upgradestate">UpgradeState</a></li>
@@ -1126,7 +1135,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.115 (BETA)</p>
+<p><em>Version</em> : 0.9.117 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4694,6 +4703,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_upgrademlservingapp">Upgrade a Cloudera Machine Learning Serving App.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/ml/upgradeMlServingApp</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_42">Description</h4>
+<div class="paragraph">
+<p>Upgrades a Cloudera Machine Learning Serving App to the latest available version.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_42">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_upgrademlservingapprequest">UpgradeMlServingAppRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_42">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_upgrademlservingappresponse">UpgradeMlServingAppResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_upgrademodelregistry">Upgrade a model registry.</h3>
 <div class="literalblock">
 <div class="content">
@@ -4701,13 +4796,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_42">Description</h4>
+<h4 id="_description_43">Description</h4>
 <div class="paragraph">
 <p>Upgrade a model registry.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_42">Parameters</h4>
+<h4 id="_parameters_43">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4738,7 +4833,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_42">Responses</h4>
+<h4 id="_responses_43">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4787,13 +4882,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_43">Description</h4>
+<h4 id="_description_44">Description</h4>
 <div class="paragraph">
 <p>Upgrades a Cloudera Machine Learning workspace to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_43">Parameters</h4>
+<h4 id="_parameters_44">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4824,7 +4919,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_43">Responses</h4>
+<h4 id="_responses_44">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5485,14 +5580,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>authorizedIPRanges</strong><br>
-<em>optional</em></p>
+<p><strong>clusterCrn</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The whitelist of CIDR blocks which can access the API server.</p>
+<p>The cluster CRN of an existing cluster that the AI inference App will use.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5521,14 +5616,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>isPrivateCluster</strong><br>
-<em>required</em></p>
+<p><strong>loadBalancerIPWhitelists</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether to create a private cluster.</p>
+<p>The whitelist of IPs for load balancer.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5574,18 +5669,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The boolean flag to request a public load balancer. By default, a private load balancer is used.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>whitelistAuthorizedIPRanges</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether to whitelist only authorizedIPRanges given or all public IPs</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -7956,6 +8039,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterCrn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The cluster CRN of an existing cluster that the AI inference App will use.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>clusterName</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -10253,6 +10348,49 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_upgrademlservingapprequest">UpgradeMlServingAppRequest</h3>
+<div class="paragraph">
+<p>Request object for the UpgradeMlServingApp method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>appCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The serving app CRN.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_upgrademlservingappresponse">UpgradeMlServingAppResponse</h3>
+<div class="paragraph">
+<p>Response object for the UpgradeMlServingApp method.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_upgrademodelregistryrequest">UpgradeModelRegistryRequest</h3>
 <div class="paragraph">
 <p>Request for upgrading model registry.</p>
@@ -11354,7 +11492,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-05 15:17:59 -0700
+Last updated 2024-06-26 16:38:56 -0700
 </div>
 </div>
 <br>
