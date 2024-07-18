@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.117 (BETA)
+  version: 0.9.118 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -293,6 +293,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datalake/restartDatalakeInstances:
+    post:
+      summary: Restarts instances of a datalake on Cloud provider.
+      description: Restarts instances of a datalake on Cloud provider.
+      operationId: restartDatalakeInstances
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RestartDatalakeInstancesRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RestartDatalakeInstancesResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/datalake/getClusterServiceStatus:
     post:
       summary: Get cluster service status.
@@ -568,6 +589,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datalake/cancelRestore:
+    post:
+      summary: Cancels the restore that was performed.
+      description: Cancels a currently running restore operation. The operation must be in a STARTED or IN_PROGRESS state.
+      operationId: cancelRestore
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CancelRestoreRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/CancelRestoreResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/datalake/replaceRecipes:
     post:
       summary: Replaces recipes for the given instance groups.
@@ -585,6 +627,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ReplaceRecipesResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datalake/rotateDbCertificate:
+    post:
+      summary: Rotates database ssl certificate for a specific Data Lake
+      description: Rotates database ssl certificate for a specific Data Lake.
+      operationId: rotateDbCertificate
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RotateDbCertificateRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RotateDbCertificateResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1949,6 +2012,24 @@ definitions:
         items:
           type: string
         description: List of instance ids.
+  RestartDatalakeInstancesRequest:
+    type: object
+    description: Request object for restart datalake instances request.
+    required:
+      - datalakeName
+      - instances
+    properties:
+      datalakeName:
+        type: string
+        description: The name or CRN of the datalake.
+      instances:
+        type: array
+        items:
+          type: string
+        description: List of instance ids.
+  RestartDatalakeInstancesResponse:
+    type: object
+    description: Response object for restart datalake instances request.
   GetClusterServiceStatusRequest:
     type: object
     description: Request object to get service status.
@@ -2044,6 +2125,18 @@ definitions:
     type: object
     description: Response object of starting a datalake, deprecated.
     x-deprecated: true
+  RotateDbCertificateRequest:
+    type: object
+    description: Request object to rotate ssl certificate a datalake.
+    required:
+      - datalakeName
+    properties:
+      datalakeName:
+        type: string
+        description: The name or CRN of the datalake.
+  RotateDbCertificateResponse:
+    type: object
+    description: Response object to rotate ssl certificate a datalake.
   StopDatalakeRequest:
     type: object
     description: Request object to stop a datalake, deprecated.
@@ -2412,6 +2505,28 @@ definitions:
       result:
         type: string
         description: Result of the cancel backup request. It can contain a description of the current process state or guidelines to a customer on the next steps.
+  CancelRestoreRequest:
+    type: object
+    description: Details of the restore that has to be cancelled.
+    required:
+      - restoreId
+    properties:
+      restoreId:
+        type: string
+        description: Restore-id that identifies the restore to be cancelled.
+      force:
+        type: boolean
+        default: false
+        description: Mark the operation as cancelled regardless of the progress.
+  CancelRestoreResponse:
+    type: object
+    description: Response to restore invalidation request.
+    required:
+      - result
+    properties:
+      result:
+        type: string
+        description: Result of the invalidation request.
   DatalakeBackup:
     type: object
     description: Backup object with details of backup performed.
@@ -3277,6 +3392,12 @@ definitions:
       customDatabaseComputeStorage:
         $ref: '#/definitions/CustomDatabaseComputeStorage'
         description: Any custom database properties to override defaults.
+      skipValidation:
+        type: boolean
+        description: Skips the validation steps that run prior to the resize. If this option is not provided, the validations are performed by default. If skip-validation and validation-only are used together an error is thrown.
+      validationOnly:
+        type: boolean
+        description: Runs only the validation steps and then returns. If this option is not provided, the resize is performed as normal by default. If skip-validation and validation-only are used together an error is thrown.
   ResizeDatalakeResponse:
     type: object
     description: Datalake resize response.

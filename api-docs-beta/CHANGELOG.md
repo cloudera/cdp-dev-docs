@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.118 (2024-07-18)
+* cloudprivatelinks: Add `cloudServiceProvider` argument to `deletePrivateLinkEndpoint` command.
+* datalake: Add new command `cancelRestore`.
+* datalake: Add new parameters `skipValidation` and `validationOnly` to `resizeDatalake` command.
+* dw: Deprecate `computeInstanceTypes` parameter in `createAwsCluster` and `createAzureCluster` commands.
+* dw: Deprecate `computeInstanceTypes` property in response of `clusterSummary` command.
+* environments: Add new parameters `imageId` and `allowMajorOsUpgrade` to `upgradeFreeipa` command.
+* ml: Add new properties `version` and `endpointPublicAccess` to `ModelRegistry` object.
+
 # 0.9.117 (2024-06-26)
 * cloudprivatelinks: Add new property `status` to `AuthorizePrivateLinkServiceAccessResponse` object.
 * de: Add support for `Spark 3.5` to `createVc` command.
