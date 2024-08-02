@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.118 (BETA) documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.119 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.118</p>
+<dd class="field-even"><p>0.9.119</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -199,11 +199,6 @@
 <blockquote>
 <div><p>Use this option to activate the environment with fewer than half of the standard required IAM permissions on your AWS cross-account IAM role.</p>
 </div></blockquote>
-<p>additionalInstanceTypes -&gt; (array)</p>
-<blockquote>
-<div><p>Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.</p>
-<p>item -&gt; (string)</p>
-</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">enablePrivateEKS</span><span class="o">=</span>boolean,workerSubnetIds<span class="o">=</span>string,string,lbSubnetIds<span class="o">=</span>string,string,customAmiId<span class="o">=</span>string,nodeRoleCDWManagedPolicyArn<span class="o">=</span>string,enableSpotInstances<span class="o">=</span>boolean,reducedPermissionMode<span class="o">=</span>boolean,computeInstanceTypes<span class="o">=</span>string,string,additionalInstanceTypes<span class="o">=</span>string,string
@@ -250,9 +245,21 @@
 <blockquote>
 <div><p>Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. <a class="reference external" href="https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype">https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype</a>, <a class="reference external" href="https://learn.microsoft.com/en-us/azure/aks/nat-gateway">https://learn.microsoft.com/en-us/azure/aks/nat-gateway</a></p>
 </div></blockquote>
+<p>aksPodCIDR -&gt; (string)</p>
+<blockquote>
+<div><p>Pod CIDR required for Azure CNI networking. Please refer to the following Azure documentation, <a class="reference external" href="https://docs.microsoft.com/en-us/azure/aks/azure-cni-overlay">https://docs.microsoft.com/en-us/azure/aks/azure-cni-overlay</a>.</p>
+</div></blockquote>
 <p>enablePrivateSQL -&gt; (boolean)</p>
 <blockquote>
 <div><p>Enables private SQL for the cluster deployment.</p>
+</div></blockquote>
+<p>privateSQLSubnetName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the delegated subnet where the private SQL should be deployed.</p>
+</div></blockquote>
+<p>privateDNSZoneSQL -&gt; (string)</p>
+<blockquote>
+<div><p>Private DNS zone ID for the PostgreSQL server.</p>
 </div></blockquote>
 <p>privateDNSZoneAKS -&gt; (string)</p>
 <blockquote>
@@ -268,7 +275,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">userAssignedManagedIdentity</span><span class="o">=</span>string,subnetId<span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,computeInstanceTypes<span class="o">=</span>string,string,logAnalyticsWorkspaceId<span class="o">=</span>string,outboundType<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean,aksVNetIntegrationSubnetName<span class="o">=</span>string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">userAssignedManagedIdentity</span><span class="o">=</span>string,subnetId<span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,computeInstanceTypes<span class="o">=</span>string,string,logAnalyticsWorkspaceId<span class="o">=</span>string,outboundType<span class="o">=</span>string,aksPodCIDR<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateSQLSubnetName<span class="o">=</span>string,privateDNSZoneSQL<span class="o">=</span>string,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean,aksVNetIntegrationSubnetName<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -280,7 +287,10 @@
   <span class="s2">&quot;computeInstanceTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
   <span class="s2">&quot;logAnalyticsWorkspaceId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;outboundType&quot;</span>: <span class="s2">&quot;LoadBalancer&quot;</span><span class="p">|</span><span class="s2">&quot;UserAssignedNATGateway&quot;</span><span class="p">|</span><span class="s2">&quot;UserDefinedRouting&quot;</span>,
+  <span class="s2">&quot;aksPodCIDR&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;enablePrivateSQL&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;privateSQLSubnetName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;privateDNSZoneSQL&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;privateDNSZoneAKS&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;enablePrivateAks&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;aksVNetIntegrationSubnetName&quot;</span>: <span class="s2">&quot;string&quot;</span>
@@ -424,7 +434,7 @@
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>

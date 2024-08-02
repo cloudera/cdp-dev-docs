@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-cluster &#8212; CDP CLI 0.9.118 (BETA) documentation</title>
+    <title>create-azure-cluster &#8212; CDP CLI 0.9.119 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create an Azure cluster in the Cloudera Data Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.118</p>
+<dd class="field-even"><p>0.9.119</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -72,7 +72,10 @@
 <span class="o">[</span>--enable-spot-instances <span class="p">|</span> --no-enable-spot-instances<span class="o">]</span>
 <span class="o">[</span>--log-analytics-workspace-id &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--outbound-type &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--aks-pod-cidr &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-private-sql <span class="p">|</span> --no-enable-private-sql<span class="o">]</span>
+<span class="o">[</span>--private-sql-subnet-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--private-dns-zone-sql &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--private-dns-zone-aks &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-private-aks <span class="p">|</span> --no-enable-private-aks<span class="o">]</span>
 <span class="o">[</span>--aks-vnet-integration-subnet-name &lt;value&gt;<span class="o">]</span>
@@ -195,9 +198,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">UserDefinedRouting</span></code></p></li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--aks-pod-cidr</span></code> (string)</p>
+<blockquote>
+<div><p>Pod CIDR required for Azure CNI networking. Please refer to the following Azure documentation, <a class="reference external" href="https://docs.microsoft.com/en-us/azure/aks/azure-cni-overlay">https://docs.microsoft.com/en-us/azure/aks/azure-cni-overlay</a>.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--enable-private-sql</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-enable-private-sql</span></code> (boolean)</p>
 <blockquote>
 <div><p>Enables private SQL for the cluster deployment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--private-sql-subnet-name</span></code> (string)</p>
+<blockquote>
+<div><p>Name of the delegated subnet where the private SQL should be deployed.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--private-dns-zone-sql</span></code> (string)</p>
+<blockquote>
+<div><p>Private DNS zone ID for the PostgreSQL server.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--private-dns-zone-aks</span></code> (string)</p>
 <blockquote>
@@ -281,7 +296,7 @@
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>
