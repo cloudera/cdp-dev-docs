@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.118 (BETA)
+  version: 0.9.119 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -1837,6 +1837,48 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/RotateSaltPasswordResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/rotateFreeipaSecrets:
+    post:
+      summary: Rotate FreeIPA related secret for FreeIPA instances.
+      description: Rotate FreeIPA related secrets for FreeIPA instances.
+      operationId: rotateFreeipaSecrets
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RotateFreeipaSecretsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/RotateFreeipaSecretsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/listFreeipaSecretTypes:
+    post:
+      summary: Lists all FreeIPA related secret types.
+      description: Lists FreeIPA related secret types for FreeIPA instances.
+      operationId: listFreeipaSecretTypes
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListFreeipaSecretTypesRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListFreeipaSecretTypesResponse'
         default:
           description: The default response on an error.
           schema:
@@ -6090,6 +6132,55 @@ definitions:
   RotateSaltPasswordResponse:
     type: object
     description: Response object for rotating SaltStack user password on FreeIPA instances.
+  RotateFreeipaSecretsRequest:
+    type: object
+    description: Request object for starting secret rotation for FreeIPA.
+    required:
+      - environment
+      - secretTypes
+    properties:
+      environment:
+        type: string
+        description: The environment CRN where FreeIPA is located and we wish to rotate secrets.
+      secretTypes:
+        type: array
+        items:
+          type: string
+        description: The list of secrets that need replacement.
+  RotateFreeipaSecretsResponse:
+    type: object
+    description: Response object for rotating secrets.
+  ListFreeipaSecretTypesRequest:
+    type: object
+    description: Request for listing possible secret values for Freeipa.
+    required:
+      - environment
+    properties:
+      environment:
+        type: string
+        description: The environment CRN where Freeipa is located.
+  ListFreeipaSecretTypesResponse:
+    type: object
+    description: Response for listing possible secret values for Freeipa.
+    required:
+      - freeipaSecretTypes
+    properties:
+      freeipaSecretTypes:
+        type: array
+        items:
+          $ref: '#/definitions/SecretTypeResponse'
+        description: The list of secret types supported by FreeIpa.
+  SecretTypeResponse:
+    x-mutating: false
+    type: object
+    description: Response object for showing the secret types and descriptions.
+    properties:
+      secretType:
+        type: string
+        description: The type of secret that can be used with the rotate-freeipa-secrets command.
+      description:
+        type: string
+        description: The description of the secret type.
   UpdateProxyConfigRequest:
     type: object
     description: Request object for updating the proxy config of the given environment.

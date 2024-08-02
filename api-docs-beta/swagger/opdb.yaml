@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.118 (BETA)
+  version: 0.9.119 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -827,6 +827,14 @@ definitions:
         items:
           $ref: '#/definitions/VolumeEncryption'
         description: Specifies encryption key to encrypt volume for instance group. It is currently supported for AWS cloud provider only.
+      gatewayNodesCount:
+        type: integer
+        format: int32
+        description: Number of gateway nodes to be created for the database. When multiple gateway nodes are present Knox works in HA mode. A positive, non-zero number is required. The default value is 1. Requires the COD_RESTWORKERS entitlement.
+      restworkerNodesCount:
+        type: integer
+        format: int32
+        description: Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.
       computeClusterCrn:
         type: string
         description: Utilizes the existing compute cluster with the provided CRN instead of creating a new one.
@@ -2223,9 +2231,6 @@ definitions:
   Image:
     type: object
     description: Details of an Image.
-    required:
-      - id
-      - catalog
     properties:
       id:
         type: string

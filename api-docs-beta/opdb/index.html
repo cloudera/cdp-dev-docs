@@ -998,7 +998,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.118 (BETA)</p>
+<p><em>Version</em> : 0.9.119 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4687,6 +4687,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gatewayNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of gateway nodes to be created for the database. When multiple gateway nodes are present Knox works in HA mode. A positive, non-zero number is required. The default value is 1. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>image</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4731,6 +4743,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_customrecipe">CustomRecipe</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>restworkerNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6455,7 +6479,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>catalog</strong><br>
-<em>required</em></p>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Catalog name for the image.</p>
@@ -6467,7 +6491,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>id</strong><br>
-<em>required</em></p>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Image ID for the database.</p>
@@ -9301,7 +9325,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-07-18 14:49:35 -0700
+Last updated 2024-08-02 09:24:46 -0700
 </div>
 </div>
 <br>

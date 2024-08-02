@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.118 (BETA)*
+*Version: 0.9.119 (BETA)*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -15,25 +15,25 @@ API requests must be signed according to the
 
 | Service Definition | Version |
 | --- | --- |
-| [audit.yaml](./audit.yaml) | 0.9.118 |
-| [cloudprivatelinks.yaml](./cloudprivatelinks.yaml) | 0.9.118 |
-| [compute.yaml](./compute.yaml) | 0.9.118 |
-| [consumption.yaml](./consumption.yaml) | 0.9.118 |
-| [datacatalog.yaml](./datacatalog.yaml) | 0.9.118 |
-| [datahub.yaml](./datahub.yaml) | 0.9.118 |
-| [datalake.yaml](./datalake.yaml) | 0.9.118 |
-| [de.yaml](./de.yaml) | 0.9.118 |
-| [df.yaml](./df.yaml) | 0.9.118 |
-| [dfworkload.yaml](./dfworkload.yaml) | 0.9.118 |
-| [drscp.yaml](./drscp.yaml) | 0.9.118 |
-| [dw.yaml](./dw.yaml) | 0.9.118 |
-| [environments.yaml](./environments.yaml) | 0.9.118 |
-| [iam.yaml](./iam.yaml) | 0.9.118 |
-| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.118 |
-| [metrics.yaml](./metrics.yaml) | 0.9.118 |
-| [ml.yaml](./ml.yaml) | 0.9.118 |
-| [opdb.yaml](./opdb.yaml) | 0.9.118 |
-| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.118 |
+| [audit.yaml](./audit.yaml) | 0.9.119 |
+| [cloudprivatelinks.yaml](./cloudprivatelinks.yaml) | 0.9.119 |
+| [compute.yaml](./compute.yaml) | 0.9.119 |
+| [consumption.yaml](./consumption.yaml) | 0.9.119 |
+| [datacatalog.yaml](./datacatalog.yaml) | 0.9.119 |
+| [datahub.yaml](./datahub.yaml) | 0.9.119 |
+| [datalake.yaml](./datalake.yaml) | 0.9.119 |
+| [de.yaml](./de.yaml) | 0.9.119 |
+| [df.yaml](./df.yaml) | 0.9.119 |
+| [dfworkload.yaml](./dfworkload.yaml) | 0.9.119 |
+| [drscp.yaml](./drscp.yaml) | 0.9.119 |
+| [dw.yaml](./dw.yaml) | 0.9.119 |
+| [environments.yaml](./environments.yaml) | 0.9.119 |
+| [iam.yaml](./iam.yaml) | 0.9.119 |
+| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.119 |
+| [metrics.yaml](./metrics.yaml) | 0.9.119 |
+| [ml.yaml](./ml.yaml) | 0.9.119 |
+| [opdb.yaml](./opdb.yaml) | 0.9.119 |
+| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.119 |
 
 See all the files at once in this site's
 [Github repository](https://github.com/cloudera/cdp-dev-docs/tree/master/api-docs/swagger).
