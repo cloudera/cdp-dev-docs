@@ -1,5 +1,25 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.119 (2024-07-31)
+* datahub/datalake: Add new `rotate-db-certificate` command.
+* de: Add new `force` and `includeJobRuns` options to `create-backup` command.
+* dw: Add a new command to activate AWS Cluster `create-aws-cluster`.
+* dw: Add a new command to activate Azure Cluster `create-azure-cluster`.
+* dw: Add a new command to activate a Cluster on Private Cloud `create-private-cluster`.
+* dw: Add `privateSQLSubnetName` and `privateDNSZoneSQL` fields to the `create-cluster`, `create-azure-cluster`, `list-clusters` and `describe-cluster` commands.
+* dw: Add `aksPodCIDR` field to the `create-cluster`, `create-azure-cluster`, `list-clusters` and `describe-cluster` commands.
+* dw: Add deployed cluster `version` field to  `describe-cluster` and `list-clusters` responses.
+* dw: Add `useOverlayNetwork` / `enablePrivateLoadBalancer` fields to `describe-cluster` and `list-clusters` response.
+* dw: Add `enablePrivateSQL` / `privateDNSZoneAKS` / `enablePrivateAKS` / `userAssignedManagedIdentity` in the Azure options of `describe-cluster` and `list-clusters` response.
+* dw: Add a new field `impalaQueryLog` to `create-vw` / `describe-vw` / `list-vws` and `update-vw` command.
+* dw: Add a new field `enabledPrivateEKS` to `create-cluster` / `create-aws-cluster` / `describe-cluster` and `list-clusters` command.
+* dw: Add a new field `enableStatestoreHighAvailability` to `create-vw` / `update-vw` / `describe-vw` and `list-vws` commands, for Impala.
+* dw: Deprecate `additionalInstanceTypes` field in some commands.
+* opdb: Remove `id` and `catalog` as required parameters for database `image` details input provided to `create-database` command.
+
+BACKWARD INCOMPATIBILITIES:
+* cloudprivatelinks: Remove deprecated `get-private-link-endpoint-status` command.
+
 ## 0.9.118 (2024-07-18)
 * cloudprivatelinks: Add `cloudServiceProvider` argument to `deletePrivateLinkEndpoint` command.
 * datalake: Add new command `cancelRestore`.
@@ -9,14 +29,14 @@
 * environments: Add new parameters `imageId` and `allowMajorOsUpgrade` to `upgradeFreeipa` command.
 * ml: Add new properties `version` and `endpointPublicAccess` to `ModelRegistry` object.
 
-# 0.9.117 (2024-06-26)
+## 0.9.117 (2024-06-26)
 * cloudprivatelinks: Add new property `status` to `AuthorizePrivateLinkServiceAccessResponse` object.
 * de: Add support for `Spark 3.5` to `createVc` command.
 * compute: Add new properties `isDefault` and `clusterShape` to `ListClusterItems` object.
 * compute: Update description of `includeDeleted` in `ListClusters` command.
 * dw: Deprecate properties `waitQueueSize` and `headroom` in `CreateApplicationResourcesBreakdown` object.
 
-# 0.9.115 (2024-06-05)
+## 0.9.115 (2024-06-05)
 * de: Add new property `allPurposeInstanceGroupDetails` to `ServiceResources` object.
 * de: Add new property `sessionTimeout` to `VcDescription` object.
 * de: Add new parameters `allPurposeInstanceType`, `allPurposeMinimumInstances`, `allPurposeMaximumInstances`, `allPurposeMinimumSpotInstances`, `allPurposeMaximumSpotInstances`, `allPurposeInitialInstances`, `allPurposeInitialSpotInstances`, and `allPurposeRootVolumeSize` to `enableService` command.
