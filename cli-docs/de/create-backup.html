@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-backup &#8212; CDP CLI 0.9.118 documentation</title>
+    <title>create-backup &#8212; CDP CLI 0.9.119 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="cancel-backup.html" title="cancel-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-backup</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Backup Cloudera Data Engineering(CDE) Service</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.118</p>
+<dd class="field-even"><p>0.9.119</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -62,6 +62,7 @@
 <span class="o">[</span>--include-vc <span class="p">|</span> --no-include-vc<span class="o">]</span>
 <span class="o">[</span>--timeout &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--backup-vc-content-options &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--force <span class="p">|</span> --no-force<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -116,6 +117,10 @@
 <blockquote>
 <div><p>Whether to backup credential secrets. Secrets are obfuscated while storing. By default, credential secrets are backed up.</p>
 </div></blockquote>
+<p>includeJobRuns -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether to backup job runs. By default, job runs are backed up.</p>
+</div></blockquote>
 <p>jobFilter -&gt; (array)</p>
 <blockquote>
 <div><p>Filter jobs for backup using ‘fieldname(operator)argument’ syntax. Here, ‘fieldname’ is one of the job fields (e.g. name, type, etc.), and ‘operator’ is one of (‘eq’, ‘noteq’, ‘lte’, ‘lt’, ‘gte’, ‘gt’, ‘in’, ‘notin’, ‘like’, ‘rlike’, ‘is’, ‘isnot’). Multiple filters are ANDed. For example, ‘name(eq)SparkPi’. This will only take effect if jobs are backed up, as controlled by the ‘includeJobs’ option.</p>
@@ -137,7 +142,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">includeJobs</span><span class="o">=</span>boolean,includeJobResources<span class="o">=</span>boolean,includeResources<span class="o">=</span>boolean,includeResourceCredentials<span class="o">=</span>boolean,includeCredentials<span class="o">=</span>boolean,includeCredentialSecrets<span class="o">=</span>boolean,jobFilter<span class="o">=</span>string,string,resourceFilter<span class="o">=</span>string,string,credentialFilter<span class="o">=</span>string,string,validateArchive<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">includeJobs</span><span class="o">=</span>boolean,includeJobResources<span class="o">=</span>boolean,includeResources<span class="o">=</span>boolean,includeResourceCredentials<span class="o">=</span>boolean,includeCredentials<span class="o">=</span>boolean,includeCredentialSecrets<span class="o">=</span>boolean,includeJobRuns<span class="o">=</span>boolean,jobFilter<span class="o">=</span>string,string,resourceFilter<span class="o">=</span>string,string,credentialFilter<span class="o">=</span>string,string,validateArchive<span class="o">=</span>boolean
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -148,6 +153,7 @@
   <span class="s2">&quot;includeResourceCredentials&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;includeCredentials&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;includeCredentialSecrets&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;includeJobRuns&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;jobFilter&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
   <span class="s2">&quot;resourceFilter&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
   <span class="s2">&quot;credentialFilter&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
@@ -155,6 +161,10 @@
 <span class="o">}</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--force</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-force</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to ignore validation errors and proceed with the backup forcefully. By default, the backup operation is not forced.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -225,7 +235,7 @@
         <li class="right" >
           <a href="cancel-backup.html" title="cancel-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-backup</a></li> 
       </ul>

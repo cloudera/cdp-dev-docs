@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-cluster &#8212; CDP CLI 0.9.118 documentation</title>
+    <title>describe-cluster &#8212; CDP CLI 0.9.119 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-backup.html" title="describe-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.118</p>
+<dd class="field-even"><p>0.9.119</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -130,6 +130,10 @@
 <blockquote>
 <div><p>The cloud platform of the environment that was used to create this cluster.</p>
 </div></blockquote>
+<p>version -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the deployed CDW cluster.</p>
+</div></blockquote>
 <p>enableSpotInstances -&gt; (boolean)</p>
 <blockquote>
 <div><p>Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.</p>
@@ -142,11 +146,6 @@
 <p>reservedSharedServicesNodes -&gt; (integer)</p>
 <blockquote>
 <div><p>Number of additional reserved nodes for other services in the cluster.</p>
-</div></blockquote>
-<p>additionalInstanceTypes -&gt; (array)</p>
-<blockquote>
-<div><p>Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.</p>
-<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>awsOptions -&gt; (object)</p>
 <blockquote>
@@ -195,9 +194,37 @@
 <blockquote>
 <div><p>The current outbound type setting.</p>
 </div></blockquote>
+<p>aksPodCIDR -&gt; (string)</p>
+<blockquote>
+<div><p>Pod CIDR setting for Azure CNI networking.</p>
+</div></blockquote>
 <p>logAnalyticsWorkspaceId -&gt; (string)</p>
 <blockquote>
 <div><p>Workspace ID for Azure log analytics.</p>
+</div></blockquote>
+<p>privateSQLSubnetName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the delegated subnet where the private SQL should be deployed.</p>
+</div></blockquote>
+<p>privateDNSZoneSQL -&gt; (string)</p>
+<blockquote>
+<div><p>Private DNS zone ID for the PostgreSQL server.</p>
+</div></blockquote>
+<p>enablePrivateSQL -&gt; (boolean)</p>
+<blockquote>
+<div><p>Denotes whether the private SQL is enabled for the cluster.</p>
+</div></blockquote>
+<p>privateDNSZoneAKS -&gt; (string)</p>
+<blockquote>
+<div><p>The resource ID of the private DNS zone for the AKS cluster.</p>
+</div></blockquote>
+<p>enablePrivateAKS -&gt; (boolean)</p>
+<blockquote>
+<div><p>Denotes whether the AKS cluster is in private mode.</p>
+</div></blockquote>
+<p>userAssignedManagedIdentity -&gt; (string)</p>
+<blockquote>
+<div><p>The resource ID of the managed identity used by the AKS cluster.</p>
 </div></blockquote>
 </div></blockquote>
 <p>description -&gt; (string)</p>
@@ -211,6 +238,14 @@
 <p>whitelistWorkloadAccessIpCIDRs -&gt; (string)</p>
 <blockquote>
 <div><p>List of IP address CIDRs to whitelist for workload access.</p>
+</div></blockquote>
+<p>useOverlayNetwork -&gt; (boolean)</p>
+<blockquote>
+<div><p>Denotes whether the overlay network is being used for the cluster.</p>
+</div></blockquote>
+<p>enablePrivateLoadBalancer -&gt; (boolean)</p>
+<blockquote>
+<div><p>Denotes whether the private load balancer is enabled for the cluster.</p>
 </div></blockquote>
 <p>resourcePool -&gt; (string)</p>
 <blockquote>
@@ -297,7 +332,7 @@
         <li class="right" >
           <a href="describe-backup.html" title="describe-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.118 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.119 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
       </ul>
