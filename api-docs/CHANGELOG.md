@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.120 (2024-08-14)
+* datalake: Add `rangerCloudAccessAuthorizerRole` parameter to `validate-aws-cloud-storage` command.
+* datalake: Add new property `dryRunValidation` to `AdminOperationsBackupRestoreState` object.
+* dw: Deprecate property `templateName` in `create-data-visualization` command.
+* dw: Deprecate property `template` in `create-vw` command.
+* environments: Add new property `created` to `Credential` object.
+* cloudprivatelinks: Add new `revoke-private-link-service-access` command.
+* cloudprivatelinks: Make `cloudServiceProvider` parameter required in `create-private-link-endpoint` and `delete-private-link-endpoint` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove `format` parameter from `ConfigBlockReq` and `ConfigBlockResp` objects.
+* cloudprivatelinks: Remove properties `serviceComponents` and `environmentCrn` in `create-private-link-endpoint` and `delete-private-link-endpoint` commands.
+
 ## 0.9.119 (2024-07-31)
 * datahub/datalake: Add new `rotate-db-certificate` command.
 * de: Add new `force` and `includeJobRuns` options to `create-backup` command.
