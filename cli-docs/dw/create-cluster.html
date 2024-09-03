@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.120 documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.121 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.120</p>
+<dd class="field-even"><p>0.9.121</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -139,30 +139,15 @@
 <blockquote>
 <div><p>URL of the custom image repository.</p>
 </div></blockquote>
-<p>userName -&gt; (string)</p>
-<blockquote>
-<div><p>Username for custom registry access (required only for Docker type).</p>
-</div></blockquote>
-<p>password -&gt; (string)</p>
-<blockquote>
-<div><p>Password for custom registry access (required only for Docker type).</p>
-</div></blockquote>
-<p>disableImageVerification -&gt; (boolean)</p>
-<blockquote>
-<div><p>Disable image verification.</p>
-</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">registryType</span><span class="o">=</span>string,repositoryUrl<span class="o">=</span>string,userName<span class="o">=</span>string,password<span class="o">=</span>string,disableImageVerification<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">registryType</span><span class="o">=</span>string,repositoryUrl<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;registryType&quot;</span>: <span class="s2">&quot;ACR&quot;</span><span class="p">|</span><span class="s2">&quot;ECR&quot;</span><span class="p">|</span><span class="s2">&quot;Docker&quot;</span>,
-  <span class="s2">&quot;repositoryUrl&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;userName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;disableImageVerification&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+  <span class="s2">&quot;registryType&quot;</span>: <span class="s2">&quot;ACR&quot;</span><span class="p">|</span><span class="s2">&quot;ECR&quot;</span>,
+  <span class="s2">&quot;repositoryUrl&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -198,6 +183,11 @@
 <p>reducedPermissionMode -&gt; (boolean)</p>
 <blockquote>
 <div><p>Use this option to activate the environment with fewer than half of the standard required IAM permissions on your AWS cross-account IAM role.</p>
+</div></blockquote>
+<p>computeInstanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
@@ -236,6 +226,11 @@
 <p>enableSpotInstances -&gt; (boolean)</p>
 <blockquote>
 <div><p>Whether to enable spot instances for Virtual warehouses. It cannot be updated later. If the AzureActivationOptions is not provided it defaults to false.</p>
+</div></blockquote>
+<p>computeInstanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
 <p>logAnalyticsWorkspaceId -&gt; (string)</p>
 <blockquote>
@@ -429,7 +424,7 @@
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>

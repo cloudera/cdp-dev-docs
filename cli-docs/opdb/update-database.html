@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update-database &#8212; CDP CLI 0.9.121 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="upgrade-database" href="upgrade-database.html" />
+    <link rel="prev" title="stop-database" href="stop-database.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="upgrade-database.html" title="upgrade-database"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="stop-database.html" title="stop-database"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="update-database">
+<span id="cli-cdp-opdb-update-database"></span><h1>update-database<a class="headerlink" href="#update-database" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Updates the database</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.121</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Update an operational database in an environment</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-database
+--environment-name &lt;value&gt;
+--database-name &lt;value&gt;
+<span class="o">[</span>--auto-scaling-parameters &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--num-desired-strong-meta-servers &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--remove-strong-meta-servers <span class="p">|</span> --no-remove-strong-meta-servers<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
+<blockquote>
+<div><p>environment name</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--database-name</span></code> (string)</p>
+<blockquote>
+<div><p>database name</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--auto-scaling-parameters</span></code> (object)</p>
+<blockquote>
+<div><p>A Parameters to configure AutoScaling</p>
+<p>targetedValueForMetric -&gt; (integer)</p>
+<blockquote>
+<div><p>The target value of the metric a user expect to maintain for the cluster</p>
+</div></blockquote>
+<p>maxWorkersForDatabase -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of worker nodes as per this metrics can be scaled up to.</p>
+</div></blockquote>
+<p>maxWorkersPerBatch -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of worker nodes as per this metrics can be scaled up to in one batch.</p>
+</div></blockquote>
+<p>minWorkersForDatabase -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum number of worker nodes as per this metrics can be scaled down to.</p>
+</div></blockquote>
+<p>evaluationPeriod -&gt; (integer)</p>
+<blockquote>
+<div><p>Period of metrics(in seconds) needs to be considered.</p>
+</div></blockquote>
+<p>minimumBlockCacheGb -&gt; (integer)</p>
+<blockquote>
+<div><p>The amount of block cache, in Gigabytes, which the database should have.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">targetedValueForMetric</span><span class="o">=</span>integer,maxWorkersForDatabase<span class="o">=</span>integer,maxWorkersPerBatch<span class="o">=</span>integer,minWorkersForDatabase<span class="o">=</span>integer,evaluationPeriod<span class="o">=</span>integer,minimumBlockCacheGb<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;targetedValueForMetric&quot;</span>: integer,
+  <span class="s2">&quot;maxWorkersForDatabase&quot;</span>: integer,
+  <span class="s2">&quot;maxWorkersPerBatch&quot;</span>: integer,
+  <span class="s2">&quot;minWorkersForDatabase&quot;</span>: integer,
+  <span class="s2">&quot;evaluationPeriod&quot;</span>: integer,
+  <span class="s2">&quot;minimumBlockCacheGb&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--num-desired-strong-meta-servers</span></code> (integer)</p>
+<blockquote>
+<div><p>The desired number of strong meta servers for this database. A positive, non-zero number is required. Use remove-strong-meta-servers to remove strong meta servers entirely. Requires the COD_STRONG_META_SERVERS entitlement.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--remove-strong-meta-servers</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-remove-strong-meta-servers</span></code> (boolean)</p>
+<blockquote>
+<div><p>Removes any strong meta servers provisioned for this database. Requires the COD_STRONG_META_SERVERS entitlement.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of whether the update was successful or not.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-database</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stop-database.html"
+                        title="previous chapter">stop-database</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="upgrade-database.html"
+                        title="next chapter">upgrade-database</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="upgrade-database.html" title="upgrade-database"
+             >next</a></li>
+        <li class="right" >
+          <a href="stop-database.html" title="stop-database"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
