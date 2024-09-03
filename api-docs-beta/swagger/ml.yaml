@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.120 (BETA)
+  version: 0.9.121 (BETA)
   title: Cloudera Machine Learning
   license:
     name: Apache 2.0
@@ -20,8 +20,8 @@ produces:
 paths:
   /api/v1/ml/addInstanceGroupsMlServingApp:
     post:
-      summary: Add new Cloudera Machine Learning Serving App's cluster instance groups.
-      description: Add new Cloudera Machine Learning Serving App's cluster instance groups.
+      summary: Add instance group to an existing Cloudera AI Inference Service instance.
+      description: Add instance group to an existing Cloudera AI Inference Service instance.
       operationId: addInstanceGroupsMlServingApp
       parameters:
         - name: input
@@ -62,8 +62,8 @@ paths:
       x-mutating: true
   /api/v1/ml/createMlServingApp:
     post:
-      summary: Create a Cloudera Machine Learning Serving App.
-      description: Provision a Kubernetes cluster and install the Cloudera Machine Learning application in it.
+      summary: Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.
+      description: Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.
       operationId: createMlServingApp
       parameters:
         - name: input
@@ -167,8 +167,8 @@ paths:
       x-mutating: true
   /api/v1/ml/deleteInstanceGroupMlServingApp:
     post:
-      summary: Deletes an instance group from the cluster.
-      description: Deletes an instance group from a Cloudera Machine Serving App's cluster.
+      summary: Deletes an instance group from a Cloudera AI Inference Service instance.
+      description: Deletes an instance group from a Cloudera AI Inference Service instance.
       operationId: deleteInstanceGroupMlServingApp
       parameters:
         - name: input
@@ -188,8 +188,8 @@ paths:
       x-mutating: true
   /api/v1/ml/deleteMlServingApp:
     post:
-      summary: Deletes Cloudera Machine Learning Serving App.
-      description: Gracefully deletes the CML Serve App.
+      summary: Deletes Cloudera AI Inference Service instance.
+      description: Gracefully deletes the Cloudera AI Inference Service instance without deleting the cluster.
       operationId: deleteMlServingApp
       parameters:
         - name: input
@@ -251,8 +251,8 @@ paths:
       x-mutating: true
   /api/v1/ml/describeMlServingApp:
     post:
-      summary: Describe Cloudera Machine Learning Serving App.
-      description: Describe Cloudera Machine Learning Serving App.
+      summary: Describe Cloudera AI Inference Service instance.
+      description: Describe Cloudera AI Inference Service instance.
       operationId: describeMlServingApp
       parameters:
         - name: input
@@ -398,8 +398,8 @@ paths:
       x-mutating: false
   /api/v1/ml/getMlServingAppKubeconfig:
     post:
-      summary: Return kubeconfig for Ml Serving App.
-      description: Gets the Kubeconfig of the Ml Serving cluster.
+      summary: Return kubeconfig for a Cloudera AI Inference Service Kubernetes cluster.
+      description: Gets the Kubeconfig of the Cloudera AI Inference Service kubernetes cluster.
       operationId: getMlServingAppKubeconfig
       parameters:
         - name: input
@@ -440,8 +440,8 @@ paths:
       x-mutating: false
   /api/v1/ml/grantMlServingAppAccess:
     post:
-      summary: Grant access to Cloudera Machine Learning Model Serving App.
-      description: Grants an AWS user to perform Kubernetes operations on a Cloudera Machine Learning Model Serving App.
+      summary: Grants admin access to a Cloudera AI Inference Service cluster.
+      description: Grants an AWS user permissions to perform Kubernetes operations on a Cloudera AI Inference Service cluster.
       operationId: grantMlServingAppAccess
       parameters:
         - name: input
@@ -524,8 +524,8 @@ paths:
       x-mutating: false
   /api/v1/ml/listMlServingAppAccess:
     post:
-      summary: List member access for Cloudera Machine Learning Model Serving App.
-      description: Lists users that can perform Kubernetes operations on a Cloudera Machine Learning Model Serving App
+      summary: List members that have Kubernetes access to a Cloudera AI Inference Service cluster.
+      description: Lists users that can perform Kubernetes operations on a Cloudera AI Inference Service cluster.
       operationId: listMlServingAppAccess
       parameters:
         - name: input
@@ -545,8 +545,8 @@ paths:
       x-mutating: false
   /api/v1/ml/listMlServingApps:
     post:
-      summary: List all Cloudera Machine Learning Serving Apps.
-      description: List all Cloudera Machine Learning Serving Apps.
+      summary: List all Cloudera AI Inference Service instances.
+      description: List all Cloudera AI Inference Service instances.
       operationId: listMlServingApps
       parameters:
         - name: input
@@ -734,8 +734,8 @@ paths:
       x-mutating: true
   /api/v1/ml/modifyMlServingApp:
     post:
-      summary: Modify a Cloudera Machine Learning Serving App's cluster instance group.
-      description: Modify a Cloudera Machine Learning Serving App's cluster instance group.
+      summary: Modify instance groups for a Cloudera AI Inference Service cluster.
+      description: Modify instance groups for a Cloudera AI Inference Service cluster.
       operationId: modifyMlServingApp
       parameters:
         - name: input
@@ -860,8 +860,8 @@ paths:
       x-mutating: true
   /api/v1/ml/revokeMlServingAppAccess:
     post:
-      summary: Revoke access to Cloudera Machine Learning Model Serving App.
-      description: Revokes an AWS user to perform Kubernetes operations on a Cloudera Machine Learning Model Serving App.
+      summary: Revokes access to a Cloudera AI Inference Service cluster.
+      description: Revokes an AWS user permissions on a Cloudera AI Inference Service cluster.
       operationId: revokeMlServingAppAccess
       parameters:
         - name: input
@@ -965,8 +965,8 @@ paths:
       x-mutating: true
   /api/v1/ml/upgradeMlServingApp:
     post:
-      summary: Upgrade a Cloudera Machine Learning Serving App.
-      description: Upgrades a Cloudera Machine Learning Serving App to the latest available version.
+      summary: Upgrade a Cloudera AI Inference Service instance.
+      description: Upgrade a Cloudera AI Inference Service instance to the latest available version.
       operationId: upgradeMlServingApp
       parameters:
         - name: input
@@ -1378,38 +1378,38 @@ definitions:
         x-sensitive: true
   DeleteInstanceGroupMlServingAppRequest:
     type: object
-    description: Request object for the DeleteInstanceGroupMLServing method.
+    description: Request object for the DeleteInstanceGroupMlServingApp method.
     required:
       - appCrn
       - instanceGroupName
     properties:
       appCrn:
         type: string
-        description: The CRN of the MLServing App from which instance group is to be deleted.
+        description: The CRN of the Cloudera AI Inference Service from which instance group is to be deleted.
       instanceGroupName:
         type: string
-        description: The instance group that we want to delete from the MLServing App.
+        description: The instance group to be deleted from the Cloudera AI Inference Service instance.
   DeleteInstanceGroupMlServingAppResponse:
     type: object
-    description: Response object for the DeleteInstanceGroupMLServing method.
+    description: Response object for the DeleteInstanceGroupMlServingApp method.
   AddInstanceGroupsMlServingAppRequest:
     type: object
-    description: Request object for AddInstanceGroupsMlServing method.
+    description: Request object for AddInstanceGroupsMlServingApp method.
     required:
       - appCrn
       - instanceGroups
     properties:
       appCrn:
         type: string
-        description: The CRN of the MLServing App to which the instance groups are to be added.
+        description: The CRN of the Cloudera AI Inference Service instance to which the instance groups will be added.
       instanceGroups:
         type: array
         items:
           $ref: '#/definitions/InstanceGroup'
-        description: The instance groups that we want to add to the MLServing App.
+        description: The instance groups to be added to the Cloudera AI Inference Service instance.
   AddInstanceGroupsMlServingAppResponse:
     type: object
-    description: Response object for AddInstanceGroupsMlServing.
+    description: Response object for AddInstanceGroupsMlServingApp method.
   CreateWorkspaceRequest:
     type: object
     description: Request object for the CreateWorkspace method.
@@ -2045,11 +2045,11 @@ definitions:
         description: The CRN of the workspace to list access.
   GetMlServingAppKubeconfigRequest:
     type: object
-    description: Request object for the GetMlServingKubeconfig method.
+    description: Request object for the GetMlServingAppKubeconfig method.
     properties:
       appCrn:
         type: string
-        description: The CRN of the app to list access.
+        description: The CRN of the Cloudera AI Inference Service instance for retrieving the kubeconfig.
   GetModelRegistryKubeconfigRequest:
     type: object
     description: Request object for GetModelRegistryKubeconfig.
@@ -2076,13 +2076,13 @@ definitions:
         x-sensitive: true
   GetMlServingAppKubeconfigResponse:
     type: object
-    description: Response object for the GetMlServingKubeconfig method.
+    description: Response object for the GetMlServingAppKubeconfig method.
     required:
       - kubeconfig
     properties:
       kubeconfig:
         type: string
-        description: The list of users that have access.
+        description: The kubeconfig of the Cloudera AI Inference Kubernetes cluster.
         x-sensitive: true
   GetLatestWorkspaceVersionRequest:
     type: object
@@ -2558,30 +2558,23 @@ definitions:
     required:
       - appName
       - environmentCrn
-      - mlservingVersion
       - clusterCrn
     properties:
       appName:
         type: string
-        description: The name of the App to create.
+        description: The name of the Cloudera AI Inference Service to be created.
       environmentCrn:
         type: string
-        description: The environment CRN for the App.
-      mlservingVersion:
-        type: string
-        description: The version of ML workload app to install.
+        description: The environment CRN.
       clusterCrn:
         type: string
-        description: The cluster CRN of an existing cluster that the AI inference App will use.
+        description: The cluster CRN of an existing cluster where Cloudera AI Inference Service instance will be deployed.
       provisionK8sRequest:
         description: The request for Kubernetes cluster provisioning. Required in public cloud.
         $ref: '#/definitions/MlServingProvisionK8sRequest'
       usePublicLoadBalancer:
         type: boolean
         description: The boolean flag to request a public load balancer. By default, a private load balancer is used.
-      disableTLS:
-        type: boolean
-        description: The boolean flag to disable TLS setup for MlServingApp. By default, the TLS is enabled.
       skipValidation:
         type: boolean
         description: Skip pre-flight validations if requested.
@@ -2594,17 +2587,17 @@ definitions:
         type: array
         items:
           type: string
-        description: The list of subnets used for the load balancer that CML creates.
+        description: The list of subnets to be used for the load balancer.
       staticSubdomain:
         type: string
-        description: The static subdomain to be used for the serving app.
+        description: The static subdomain to be used for the Cloudera AI Inference Service instance.
   CreateMlServingAppResponse:
     type: object
     description: Response object for the CreateMlServingApp method.
     properties:
       appCrn:
         type: string
-        description: The CRN of the App created.
+        description: The CRN of the Cloudera AI Inference Service created.
   UpgradeMlServingAppRequest:
     type: object
     description: Request object for the UpgradeMlServingApp method.
@@ -2613,7 +2606,7 @@ definitions:
     properties:
       appCrn:
         type: string
-        description: The serving app CRN.
+        description: The Cloudera AI Inference Service CRN.
   UpgradeMlServingAppResponse:
     type: object
     description: Response object for the UpgradeMlServingApp method.
@@ -2625,13 +2618,13 @@ definitions:
     properties:
       appCrn:
         type: string
-        description: The CRN Of the App to delete.
+        description: The CRN of the Cloudera AI Inference Service to be deleted.
   DeleteMlServingAppResponse:
     type: object
     description: Response object for the DeleteMlServingApp method.
   MlServingProvisionK8sRequest:
     type: object
-    description: Request object for CML Serving App cluster provision.
+    description: Request object for provisioning Cloudera AI Inference Service instance groups.
     required:
       - instanceGroups
       - environmentCrn
@@ -2678,60 +2671,60 @@ definitions:
     properties:
       appCrn:
         type: string
-        description: The CRN Of the App.
+        description: The CRN of the Cloudera AI Inference Service.
   DescribeMlServingAppResponse:
     type: object
     description: Response object for the DescribeMlServingApp method.
     properties:
       app:
-        description: The Cloudera Machine Learning Serving App
+        description: The Cloudera AI Inference Service instance.
         $ref: '#/definitions/MlServingApp'
   MlServingApp:
     type: object
-    description: The Cloudera Machine Learning Serving App
+    description: The Cloudera AI Inference Service instance.
     required:
       - cloudPlatform
     properties:
       cloudPlatform:
         type: string
-        description: The cloud platform of the environment that was used to create this app.
+        description: The cloud platform of the environment that was used to create this instance.
       appName:
         type: string
-        description: The name of the App.
+        description: The name of the Cloudera AI Inference Service instance.
       appCrn:
         type: string
-        description: The CRN of the App.
+        description: The CRN of the Cloudera AI Inference Service instance.
       environmentCrn:
         type: string
-        description: The CRN of the environment used by App.
+        description: The CRN of the environment.
       environmentName:
         type: string
-        description: The name of the environment used by App.
+        description: The name of the environment.
       namespace:
         type: string
-        description: The namespace used the App.
+        description: The namespace used for this service.
       ownerEmail:
         type: string
-        description: The email of the user who created the App.
+        description: The email of the user who created this service.
       mlServingVersion:
         type: string
-        description: The version of Cloudera Machine Learning Serving software this App is running.
+        description: The Cloudera AI Inference Service version running on this instance.
       isPrivateCluster:
         type: boolean
-        description: Is this App installed on a private cluster.
+        description: Is this service installed on a private cluster.
       creationDate:
         type: string
         format: date-time
-        description: Creation date of workspace.
+        description: Creation date of Cloudera AI Inference Service instance.
       cluster:
         description: The Kubernetes cluster information.
         $ref: '#/definitions/KubernetesCluster'
       status:
         type: string
-        description: The status of the MlServingApp
+        description: The status of the Cloudera AI Inference Service instance.
       usePublicLoadBalancer:
         type: boolean
-        description: Indicates if this MlServingApp uses a public load balancer
+        description: Indicates if this Cloudera AI Inference Service instance uses a public load balancer.
       httpsEnabled:
         type: boolean
         description: Indicates if HTTPs communication was enabled on this application when it was provisioned.
@@ -2739,7 +2732,7 @@ definitions:
         type: array
         items:
           type: string
-        description: The list of subnets used for the load balancer that CML creates.
+        description: The list of subnets used for the load balancer.
   KubernetesCluster:
     type: object
     description: The Kubernetes cluster information
@@ -2783,7 +2776,7 @@ definitions:
         description: The instance groups.
       clusterCrn:
         type: string
-        description: The cluster CRN of an existing cluster that the AI inference App will use.
+        description: The cluster CRN of the kubernetes cluster.
   ListRelevantInstancesRequest:
     type: object
     description: Request object for the ListRelevantInstances method.
@@ -2922,10 +2915,10 @@ definitions:
     properties:
       resourceCrn:
         type: string
-        description: The CRN of the Model Serving App to grant access to.
+        description: The CRN of the Cloudera AI Inference Service instance to which access is to be granted.
       identifier:
         type: string
-        description: The cloud provider user id, such as ARN, which will be granted access to the Model Serving App's Kubernetes cluster.
+        description: The cloud provider user id, such as ARN, which will be granted access to the Cloudera AI Inference Service Kubernetes cluster.
   GrantMlServingAppAccessResponse:
     type: object
     description: Response object for the GrantMlServingAppAccess method.
@@ -2938,14 +2931,14 @@ definitions:
         x-sensitive: true
   RevokeMlServingAppAccessRequest:
     type: object
-    description: Request object for the RevokeMlServingApp method.
+    description: Request object for the RevokeMlServingAppAccess method.
     properties:
       resourceCrn:
         type: string
-        description: The CRN of the Model Serving App to grant access to.
+        description: The CRN of the Cloudera AI Inference Service instance to revoke access.
       identifier:
         type: string
-        description: The cloud provider user id, such as ARN, which will be granted access to the Model Serving App's Kubernetes cluster.
+        description: The cloud provider user ID, such as ARN, from which access to the Cloudera AI Inference Service Kubernetes cluster needs to be revoked.
   RevokeMlServingAppAccessResponse:
     type: object
     description: Response object for the RevokeMlServingAppAccess method.
@@ -2955,7 +2948,7 @@ definitions:
     properties:
       resourceCrn:
         type: string
-        description: The CRN of the Model Serving App to list access.
+        description: The CRN of the Cloudera AI Inference Service to list access.
   ListMlServingAppAccessResponse:
     type: object
     description: Response object for the ListMlServingAppAccess method.
@@ -2971,7 +2964,7 @@ definitions:
         x-sensitive: true
   ModifyMlServingAppRequest:
     type: object
-    description: Request object for the ModifyMlServingApp.
+    description: Request object for the ModifyMlServingApp method.
     required:
       - appCrn
       - instanceGroupName
@@ -2981,22 +2974,22 @@ definitions:
     properties:
       appCrn:
         type: string
-        description: The CRN of the workspace cluster to modify.
+        description: The CRN of the Cloudera AI Inference Service to be modified.
       instanceGroupName:
         type: string
-        description: The name of the instance group of the workspace cluster to modify.
+        description: The name of the instance group to be modified.
       min:
         type: integer
         format: int32
-        description: The desired minimum number of instances in the workspace cluster instance group.
+        description: The desired minimum number of instances in the instance group.
       max:
         type: integer
         format: int32
-        description: The desired maximum number of instances in the workspace cluster instance group.
+        description: The desired maximum number of instances in the instance group.
       instanceType:
         type: string
-        description: The desired instance type of the workspace cluster instance group.
+        description: The desired instance type of the instance group.
   ModifyMlServingAppResponse:
     type: object
-    description: Response object for ModifyMlServingApp.
+    description: Response object for ModifyMlServingApp method.
 x-audit: true

@@ -781,46 +781,60 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_13">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listbackups">List Cloudera Data Engineering(CDE) Service Backups</a>
+<li><a href="#_getupgradestatus">Get CDE Service Upgrade Status.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_14">Description</a></li>
 <li><a href="#_parameters_14">Parameters</a></li>
 <li><a href="#_responses_14">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listservices">List Cloudera Data Engineering(CDE) Services</a>
+<li><a href="#_listbackups">List Cloudera Data Engineering(CDE) Service Backups</a>
 <ul class="sectlevel3">
 <li><a href="#_description_15">Description</a></li>
 <li><a href="#_parameters_15">Parameters</a></li>
 <li><a href="#_responses_15">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listvcs">List Virtual Clusters</a>
+<li><a href="#_listservices">List Cloudera Data Engineering(CDE) Services</a>
 <ul class="sectlevel3">
 <li><a href="#_description_16">Description</a></li>
 <li><a href="#_parameters_16">Parameters</a></li>
 <li><a href="#_responses_16">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoreservice">Restore Cloudera Data Engineering(CDE) Service</a>
+<li><a href="#_listvcs">List Virtual Clusters</a>
 <ul class="sectlevel3">
 <li><a href="#_description_17">Description</a></li>
 <li><a href="#_parameters_17">Parameters</a></li>
 <li><a href="#_responses_17">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateservice">Update Cloudera Data Engineering (CDE) Service</a>
+<li><a href="#_restoreservice">Restore Cloudera Data Engineering(CDE) Service</a>
 <ul class="sectlevel3">
 <li><a href="#_description_18">Description</a></li>
 <li><a href="#_parameters_18">Parameters</a></li>
 <li><a href="#_responses_18">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatevc">Update Cloudera Data Engineering (CDE) Virtual Cluster</a>
+<li><a href="#_updateservice">Update Cloudera Data Engineering (CDE) Service</a>
 <ul class="sectlevel3">
 <li><a href="#_description_19">Description</a></li>
 <li><a href="#_parameters_19">Parameters</a></li>
 <li><a href="#_responses_19">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updatevc">Update Cloudera Data Engineering (CDE) Virtual Cluster</a>
+<ul class="sectlevel3">
+<li><a href="#_description_20">Description</a></li>
+<li><a href="#_parameters_20">Parameters</a></li>
+<li><a href="#_responses_20">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradeservice">Trigger a particular step (prepare, backup, upgrade, resume) of the upgrade framework.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_21">Description</a></li>
+<li><a href="#_parameters_21">Parameters</a></li>
+<li><a href="#_responses_21">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -861,6 +875,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_getkubeconfigresponse">GetKubeconfigResponse</a></li>
 <li><a href="#_getserviceinitlogsrequest">GetServiceInitLogsRequest</a></li>
 <li><a href="#_getserviceinitlogsresponse">GetServiceInitLogsResponse</a></li>
+<li><a href="#_getupgradestatusrequest">GetUpgradeStatusRequest</a></li>
+<li><a href="#_getupgradestatusresponse">GetUpgradeStatusResponse</a></li>
 <li><a href="#_listbackupsrequest">ListBackupsRequest</a></li>
 <li><a href="#_listbackupsresponse">ListBackupsResponse</a></li>
 <li><a href="#_listservicesrequest">ListServicesRequest</a></li>
@@ -879,6 +895,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_updateserviceresponse">UpdateServiceResponse</a></li>
 <li><a href="#_updatevcrequest">UpdateVcRequest</a></li>
 <li><a href="#_updatevcresponse">UpdateVcResponse</a></li>
+<li><a href="#_upgradeservicerequest">UpgradeServiceRequest</a></li>
+<li><a href="#_upgradeserviceresponse">UpgradeServiceResponse</a></li>
 <li><a href="#_vcdescription">VcDescription</a></li>
 <li><a href="#_vcresources">VcResources</a></li>
 <li><a href="#_vcsummary">VcSummary</a></li>
@@ -897,7 +915,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.120 (BETA)</p>
+<p><em>Version</em> : 0.9.121 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -2057,6 +2075,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_getupgradestatus">Get CDE Service Upgrade Status.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/de/getUpgradeStatus</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_14">Description</h4>
+<div class="paragraph">
+<p>The current status of the CDE Service upgrade. If all the steps are completed allStepsCompleted would be true. After a particular step triggered by upgrade-service is completed nextStep would point to the next step to take.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_14">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_getupgradestatusrequest">GetUpgradeStatusRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_14">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_getupgradestatusresponse">GetUpgradeStatusResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_listbackups">List Cloudera Data Engineering(CDE) Service Backups</h3>
 <div class="literalblock">
 <div class="content">
@@ -2064,13 +2168,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_15">Description</h4>
 <div class="paragraph">
 <p>List all service backups.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_14">Parameters</h4>
+<h4 id="_parameters_15">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2101,7 +2205,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_15">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2150,13 +2254,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_16">Description</h4>
 <div class="paragraph">
 <p>Returns list of cde services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_15">Parameters</h4>
+<h4 id="_parameters_16">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2187,7 +2291,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_16">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2236,13 +2340,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
 <p>Returns a list of virtual clusters for a given CDE service.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_16">Parameters</h4>
+<h4 id="_parameters_17">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2273,7 +2377,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2322,13 +2426,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_17">Description</h4>
+<h4 id="_description_18">Description</h4>
 <div class="paragraph">
 <p>Initiates the service restoration process and returns the ID of the service being restored.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_17">Parameters</h4>
+<h4 id="_parameters_18">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2359,7 +2463,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_17">Responses</h4>
+<h4 id="_responses_18">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2408,13 +2512,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Returns update response consisting of operation ID that can be used to log update events.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_18">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2445,7 +2549,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2494,13 +2598,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_19">Description</h4>
+<h4 id="_description_20">Description</h4>
 <div class="paragraph">
 <p>Updates Cloudera Data Engineering (CDE) Virtual Cluster and returns details of updated CDE service.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_19">Parameters</h4>
+<h4 id="_parameters_20">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2531,7 +2635,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_19">Responses</h4>
+<h4 id="_responses_20">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2555,6 +2659,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_updatevcresponse">UpdateVcResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_upgradeservice">Trigger a particular step (prepare, backup, upgrade, resume) of the upgrade framework.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/de/upgradeService</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_21">Description</h4>
+<div class="paragraph">
+<p>Trigger a particular step (prepare, backup, upgrade, resume) of the multi-step upgrade process. Use get-upgrade-status to know what is the next step to take.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_21">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_upgradeservicerequest">UpgradeServiceRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_21">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_upgradeserviceresponse">UpgradeServiceResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3619,6 +3809,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sparkConfigs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Spark configs that will be applied to all the spark jobs inside a virtual cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>sparkVersion</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4293,6 +4495,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureDatabasePrivateDNSZoneId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Resource ID of the custom private DNS zone associated with the Azure database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureFilesharePrivateDNSZoneId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Resource ID of custom private DNS zone for Azure storage account.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4990,6 +5216,98 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The token to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_getupgradestatusrequest">GetUpgradeStatusRequest</h3>
+<div class="paragraph">
+<p>Request object for GetUpgradeStatus method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster ID of the service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_getupgradestatusresponse">GetUpgradeStatusResponse</h3>
+<div class="paragraph">
+<p>Response object for GetUpgradeStatus request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>allStepsCompleted</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether all the steps of the multi-step upgrade process completed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>nextStep</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The next step to take in multi-step upgrade process. Currently supported steps are prepare, backup, upgrade and resume.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (prepare, backup, upgrade, resume)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>upgradeStatusMessage</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the upgrade.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6472,6 +6790,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>discardSparkConfigs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Discard the Spark configs inside a VC.<br>
+<strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>fullAccessGroups</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6492,6 +6823,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sparkConfigs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Spark configs that will be applied to all the spark jobs inside a virtual cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6562,6 +6905,87 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_vcdescription">VcDescription</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_upgradeservicerequest">UpgradeServiceRequest</h3>
+<div class="paragraph">
+<p>Request object for upgrading a service.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster ID of the service to upgrade.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>step</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The maintenance step to be performed. Currently supported steps are prepare, backup, upgrade, cancel and resume.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (prepare, backup, upgrade, cancel, resume)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_upgradeserviceresponse">UpgradeServiceResponse</h3>
+<div class="paragraph">
+<p>Response object for UpgradeService request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status message of upgrade operation.<br>
+<strong>Default</strong> : <code>"upgrade step triggered successfully"</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6752,6 +7176,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_smtpconfigresponse">SmtpConfigResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sparkConfigs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Spark configs that will be applied to all the spark jobs inside a virtual cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7058,7 +7494,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-08-14 13:40:30 -0700
+Last updated 2024-09-03 10:29:52 -0700
 </div>
 </div>
 <br>

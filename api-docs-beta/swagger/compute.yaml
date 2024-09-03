@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.120 (BETA)
+  version: 0.9.121 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -1365,15 +1365,9 @@ definitions:
         items:
           type: string
         description: Suspended processes.
-      stopDeleteOnError:
-        type: boolean
-        description: Whether to stop deletion on error.
       csiEnabled:
         type: boolean
         description: Whether CSI is enabled.
-      laceworkEnabled:
-        type: boolean
-        description: Whether lacework is enabled.
     x-form-factors: public
   CommonImageCatalogResp:
     type: object
@@ -1799,60 +1793,9 @@ definitions:
       version:
         type: string
         description: Helm version to be upgraded to.
-  CommonKubernetes:
-    type: object
-    description: Kubernetes specs. Deprecated.
-    properties:
-      version:
-        type: string
-        description: Kubernetes version (default 1.28).
-    x-deprecated: true
-  CommonNetworkTopology:
-    type: object
-    description: Network topology structure. Deprecated.
-    properties:
-      subnets:
-        type: array
-        items:
-          type: string
-        description: Subnets.
-    x-deprecated: true
   CommonNetwork:
     type: object
     description: Network structure.
-    properties:
-      cidr:
-        type: string
-        description: VPC CIDR. Deprecated.
-        x-deprecated: true
-      plugin:
-        type: string
-        description: Network plugin (default multus). Deprecated.
-        x-deprecated: true
-      topology:
-        description: Network topology. Deprecated.
-        x-deprecated: true
-        $ref: '#/definitions/CommonNetworkTopology'
-      inboundProxyCidrs:
-        type: array
-        items:
-          type: string
-        description: Allow these CIDR for inbound communication when using environment proxy settings. Only if backend supports it. Deprecated.
-        x-deprecated: true
-      podCidr:
-        type: string
-        description: The pod CIDR to use if the backend provider supports setting this.
-      serviceCidr:
-        type: string
-        description: The CIDR for services declared inside of Kubernetes if the backend provider supports setting this.
-      subnets:
-        type: array
-        items:
-          type: string
-        description: Subnets.
-      outboundType:
-        type: string
-        description: Cluster outbound type. Currently supported is udr.
   CommonApiServer:
     type: object
     description: API server request structure.
@@ -2015,127 +1958,6 @@ definitions:
       accelerator:
         description: Used only for GCP clusters. This is used to set GPU type and count for the cluster.
         $ref: '#/definitions/CommonAccelerator'
-  CommonYuniKorn:
-    type: object
-    description: YuniKorn request structure. Deprecated.
-    properties:
-      enabled:
-        type: boolean
-        description: Flag to enable yunikorn (default true).
-      version:
-        type: string
-        description: Version is ignored for overrides will be removed soon.
-      appSortingPolicy:
-        type: string
-        description: The app sorting policy is ignored for overrides will be removed soon.
-      nodeSortingPolicy:
-        type: string
-        description: The node sorting policy is ignored for overrides will be removed soon.
-    x-deprecated: true
-  CommonNvidia:
-    type: object
-    description: Nvidia request structure. Deprecated.
-    properties:
-      gpuLabelKey:
-        type: string
-        description: GPU label key.
-      gpuLabelValue:
-        type: string
-        description: GPU label value.
-    x-deprecated: true
-  CommonAlertmanager:
-    type: object
-    description: Alertmanager request structure. Deprecated.
-    properties:
-      enabled:
-        type: boolean
-        description: Flag to enable alertmanager.
-    x-deprecated: true
-  CommonResourceLimit:
-    type: object
-    description: Resource limits request structure. Deprecated.
-    properties:
-      cpu:
-        type: string
-        description: Prometheus server CPU limit (default 1000m).
-      memory:
-        type: string
-        description: Prometheus server memory limit (default 2048M).
-    x-deprecated: true
-  CommonMonitoring:
-    type: object
-    description: Monitoring request structure. Deprecated.
-    properties:
-      enabled:
-        type: boolean
-        description: Flag to enable Monitoring installation.
-      alertmanager:
-        description: Alertmanager.
-        $ref: '#/definitions/CommonAlertmanager'
-      serverResourceLimit:
-        description: Server resource limits.
-        $ref: '#/definitions/CommonResourceLimit'
-    x-deprecated: true
-  CommonMeteringService:
-    type: object
-    description: Metering service request structure. Deprecated.
-    properties:
-      serviceType:
-        type: string
-        description: Service type.
-      serviceVersion:
-        type: string
-        description: Service version.
-      workloadCrn:
-        type: string
-        description: Workload CRN.
-      clusterCrn:
-        type: string
-        description: Cluster CRN.
-      serviceConfiguration:
-        type: string
-        description: Service configuration.
-    x-deprecated: true
-  CommonMetering:
-    type: object
-    description: Metering request structure. Deprecated.
-    properties:
-      enabled:
-        type: boolean
-        description: Flag to enable metering installation.
-      services:
-        type: array
-        items:
-          $ref: '#/definitions/CommonMeteringService'
-        description: Array of services.
-    x-deprecated: true
-  CommonLogging:
-    type: object
-    description: Logging request structure. Deprecated.
-    properties:
-      enabled:
-        type: boolean
-        description: True to enable logging installation (default false).
-    x-deprecated: true
-  CommonIstio:
-    type: object
-    description: Istio request structure. Deprecated.
-    properties:
-      enabled:
-        type: boolean
-        description: True to enable istio installation (default true).
-      deploymentProfile:
-        type: string
-        description: Deployment profile to use. Currently supported are common, cml and cde (default common).
-    x-deprecated: true
-  CommonHorizontalPodAutoScaler:
-    type: object
-    description: Horizontal pod autoscaler request structure. Deprecated.
-    properties:
-      enabled:
-        type: boolean
-        description: Enable flag.
-    x-deprecated: true
   CommonAutoscaler:
     type: object
     description: Autoscaler request structure.
@@ -2179,41 +2001,6 @@ definitions:
       scaleDownUnreadyTime:
         type: string
         description: How long an unready node should be unneeded before it is eligible for scale down. (Azure Support).
-  CommonDeployments:
-    type: object
-    description: Deployments request structure. Deprecated.
-    properties:
-      autoscaler:
-        description: Autoscaler specs.
-        $ref: '#/definitions/CommonAutoscaler'
-      horizontalPodAutoscaler:
-        description: Horizontal pod autoscaler specs.
-        $ref: '#/definitions/CommonHorizontalPodAutoScaler'
-      istio:
-        description: Istio specs.
-        $ref: '#/definitions/CommonIstio'
-      logging:
-        description: Logging specs.
-        $ref: '#/definitions/CommonLogging'
-      metering:
-        description: Metering specs.
-        $ref: '#/definitions/CommonMetering'
-      monitoring:
-        description: Monitoring specs.
-        $ref: '#/definitions/CommonMonitoring'
-      nvidia:
-        description: Nvidia specs.
-        $ref: '#/definitions/CommonNvidia'
-      repository:
-        type: string
-        description: Repository for images.
-      yunikorn:
-        description: Yunikorn specs.
-        $ref: '#/definitions/CommonYuniKorn'
-      telemetryKmsKeyArn:
-        type: string
-        description: Telemetry KMS key ARN.
-    x-deprecated: true
   CommonImageCatalog:
     type: object
     description: Image catalog request structure.
@@ -2231,105 +2018,6 @@ definitions:
       csiEnabled:
         type: boolean
         description: Flag to enable Container Storage Interface (CSI). It further sets specific inline cloud formation policies required for CSI.
-  CommonClusterSpec:
-    type: object
-    description: Cluster spec request structure. Deprecated.
-    properties:
-      bootstrapScript:
-        type: string
-        description: Bootstrap script.
-        x-skip-logging: true
-      deployments:
-        description: Deployments.
-        $ref: '#/definitions/CommonDeployments'
-      instanceGroups:
-        type: array
-        items:
-          $ref: '#/definitions/CommonInstanceGroup'
-        description: Instance groups.
-      kubernetes:
-        description: K8s details.
-        $ref: '#/definitions/CommonKubernetes'
-      network:
-        description: Network.
-        $ref: '#/definitions/CommonNetwork'
-      security:
-        description: Security.
-        $ref: '#/definitions/CommonSecurity'
-      sshKeypairName:
-        type: string
-        description: SSH keypair.
-        x-sensitive: true
-      workerEgressRules:
-        type: array
-        items:
-          type: string
-        description: Array of egress rules of the form protocol:fromPort[:toPort[:CIDR]].
-      workerIngressRules:
-        type: array
-        items:
-          type: string
-        description: Array of ingress rules of the form protocol:fromPort[:toPort[:CIDR]].
-      imageCatalog:
-        description: The image catalog details.
-        $ref: '#/definitions/CommonImageCatalog'
-      storage:
-        description: The storage specifications.
-        $ref: '#/definitions/CommonStorageSpec'
-    x-deprecated: true
-  CommonClusterOwner:
-    type: object
-    description: Cluster owner structure. Deprecated.
-    properties:
-      email:
-        type: string
-        description: Owner's email.
-      firstName:
-        type: string
-        description: Owner's firstname.
-      lastName:
-        type: string
-        description: Owner's lastname.
-      userId:
-        type: string
-        description: Owner's user ID.
-      accountId:
-        type: string
-        description: Owner's account ID.
-      crn:
-        type: string
-        description: Owner's actor CRN.
-    x-deprecated: true
-  CommonClusterMetadata:
-    type: object
-    description: Cluster metadata structure. Deprecated.
-    properties:
-      environmentCrn:
-        type: string
-        description: Environment CRN.
-      name:
-        type: string
-        description: Cluster name.
-      clusterOwner:
-        description: Cluster owner.
-        $ref: '#/definitions/CommonClusterOwner'
-      clusterType:
-        type: string
-        description: Cluster type. Default is Shared.
-      description:
-        type: string
-        description: Cluster description.
-      labels:
-        type: object
-        description: Labels.
-        additionalProperties:
-          type: string
-      workloads:
-        type: array
-        items:
-          type: string
-        description: Cluster workloads.
-    x-deprecated: true
   CommonStatusMessage:
     type: object
     description: Cluster status structure.
@@ -2343,18 +2031,10 @@ definitions:
   CreateClusterRequest:
     type: object
     description: Request object for creating a cluster.
+    required:
+      - environment
+      - name
     properties:
-      metadata:
-        description: Specifies the metadata. Deprecated.
-        x-deprecated: true
-        $ref: '#/definitions/CommonClusterMetadata'
-      spec:
-        description: Specifies the spec. Deprecated.
-        x-deprecated: true
-        $ref: '#/definitions/CommonClusterSpec'
-      skipValidation:
-        type: boolean
-        description: Skip validation.
       environment:
         type: string
         description: Environment CRN. Required.
@@ -2372,19 +2052,17 @@ definitions:
       network:
         description: Network.
         $ref: '#/definitions/CommonNetwork'
+      skipValidation:
+        type: boolean
+        description: Skip validation.
     x-form-factors: public
   ValidateClusterRequest:
     type: object
     description: Request object for validating a cluster.
+    required:
+      - environment
+      - name
     properties:
-      metadata:
-        description: Specifies the metadata. Deprecated.
-        x-deprecated: true
-        $ref: '#/definitions/CommonClusterMetadata'
-      spec:
-        description: Specifies the spec. Deprecated.
-        x-deprecated: true
-        $ref: '#/definitions/CommonClusterSpec'
       environment:
         type: string
         description: Environment CRN. Required.

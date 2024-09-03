@@ -998,7 +998,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.120 (BETA)</p>
+<p><em>Version</em> : 0.9.121 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -3906,7 +3906,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The maximum percentage threshold for the CPU utilization of the worker nodes. The CPU utilization is obtained from the Cloudera Manager metric 'cpu_percent' across worker nodes. Set 100 or more to disable the CPU metrics.</p>
+<p>This configuration is effective when compute nodes are enabled. The maximum percentage threshold for the CPU utilization of nodes. The CPU utilization is obtained from the Cloudera Manager metric 'cpu_percent' across worker and compute nodes. Set 100 or more to disable the CPU metrics.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -5229,6 +5229,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gatewayNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of gateway nodes for the database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>hueEndpoint</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5258,6 +5270,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The number of strong meta servers for this database. Requires the COD_STRONG_META_SERVERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>restworkerNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of REST Worker nodes for the database.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -8735,7 +8759,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h3 id="_storagetype">StorageType</h3>
 <div class="paragraph">
 <p>Storage type for clusters.
- <code>CLOUD_WITH_EPHEMERAL</code> - Cloud with ephemeral storage. <code>CLOUD</code> - Cloud storage without ephemeral storage. <code>HDFS</code> - HDFS storage.</p>
+ <code>CLOUD_WITH_EPHEMERAL</code> - Cloud with ephemeral storage. <code>CLOUD</code> - Cloud storage without ephemeral storage. <code>HDFS</code> - HDFS storage. <code>CLOUD_WITH_EPHEMERAL_DATATIERING</code> - Cloud with Ephemeral Storage and Datatiering.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : enum (CLOUD_WITH_EPHEMERAL, CLOUD, HDFS)</p>
@@ -8810,6 +8834,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>numDesiredRestworkerNodes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Sets the desired number of REST Worker nodes for the database. A positive, non-zero number is required. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>numDesiredStrongMetaServers</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -8818,6 +8854,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>removeRestworkerNodes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8852,9 +8900,34 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="paragraph">
 <p>A response to database update request</p>
 </div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Status of whether the update was successful or not.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_updateedgenodesrequest">UpdateEdgeNodesRequest</h3>
@@ -9325,7 +9398,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-08-14 13:40:30 -0700
+Last updated 2024-09-03 10:29:52 -0700
 </div>
 </div>
 <br>

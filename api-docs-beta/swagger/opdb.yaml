@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.120 (BETA)
+  version: 0.9.121 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -871,7 +871,7 @@ definitions:
       - HEAVY
   StorageType:
     type: string
-    description: "Storage type for clusters.\n `CLOUD_WITH_EPHEMERAL` - Cloud with ephemeral storage. `CLOUD` - Cloud storage without ephemeral storage. `HDFS` - HDFS storage."
+    description: "Storage type for clusters.\n `CLOUD_WITH_EPHEMERAL` - Cloud with ephemeral storage. `CLOUD` - Cloud storage without ephemeral storage. `HDFS` - HDFS storage. `CLOUD_WITH_EPHEMERAL_DATATIERING` - Cloud with Ephemeral Storage and Datatiering."
     enum:
       - CLOUD_WITH_EPHEMERAL
       - CLOUD
@@ -905,6 +905,13 @@ definitions:
       verticalScale:
         description: Vertical Scale request for database.
         $ref: '#/definitions/GroupType'
+      numDesiredRestworkerNodes:
+        type: integer
+        format: int32
+        description: Sets the desired number of REST Worker nodes for the database. A positive, non-zero number is required. Requires the COD_RESTWORKERS entitlement.
+      removeRestworkerNodes:
+        type: boolean
+        description: Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.
   AutoScalingParameters:
     type: object
     description: A Parameters to configure AutoScaling
@@ -944,7 +951,7 @@ definitions:
       maxCpuUtilization:
         type: integer
         format: int32
-        description: The maximum percentage threshold for the CPU utilization of the worker nodes. The CPU utilization is obtained from the Cloudera Manager metric 'cpu_percent' across worker nodes. Set 100 or more to disable the CPU metrics.
+        description: This configuration is effective when compute nodes are enabled. The maximum percentage threshold for the CPU utilization of nodes. The CPU utilization is obtained from the Cloudera Manager metric 'cpu_percent' across worker and compute nodes. Set 100 or more to disable the CPU metrics.
       maxComputeNodesForDatabase:
         type: integer
         format: int32
@@ -1017,6 +1024,10 @@ definitions:
   UpdateDatabaseResponse:
     type: object
     description: A response to database update request
+    properties:
+      status:
+        type: string
+        description: Status of whether the update was successful or not.
   ConfigurationType:
     type: string
     description: "Type of an HBase configuration.\n `SERVICE` - Service level configuration. `MASTER` - Configuration for the Master nodes. `REGIONSERVER` - Configuration for the RegionServer nodes. `STRONGMETA` - Configuration for the StrongMeta RegionServer nodes. `GATEWAY` - Configuration for the Gateway nodes."
@@ -1286,6 +1297,14 @@ definitions:
         type: integer
         format: int32
         description: Total number of compute nodes in the database (including stopped nodes).
+      gatewayNodesCount:
+        type: integer
+        format: int32
+        description: Number of gateway nodes for the database.
+      restworkerNodesCount:
+        type: integer
+        format: int32
+        description: Number of REST Worker nodes for the database.
   StorageDetailsForWorker:
     type: object
     description: Storage details for the worker node for AWS, Azure, and GCP cloud providers.
