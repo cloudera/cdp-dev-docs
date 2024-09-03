@@ -1,5 +1,23 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.121 (2024-09-03)
+* de: Add new property `sparkConfigs` to `VcDescription` object.
+* de: Add `sparkConfigs` parameter to `createVc` and `updateVc` commands.
+* de: Add new commands `upgradeService` and `getUpgradeStatus`.
+* de: Add new properties `azureFilesharePrivateDNSZoneId` and `azureDatabasePrivateDNSZoneId` to `enableService` command.
+* dw: Remove deprecation tag from `computeInstanceType` parameter in `createAwsCluster` and `createAzureCluster` commands.
+* dw: Remove deprecation tag from `computeInstanceType` property in `AwsActivationOptions` and `AzureActivationOptions` objects.
+* dw: Remove deprecation tag from `computeInstanceType` field in the response of `clusterSummary` command.
+* ml: Add new commands `addInstanceGroupsMlServingApp`, `createMlServingApp`, `deleteInstanceGroupMlServingApp`, `deleteMlServingApp`, `describeMlServingApp`, `getMlServingAppKubeconfig`, `grantMlServingAppAccess`, `listInstanceTypeConfiguration`, `listMlServingAppAccess`, `listMlServingApps`, `listRelevantInstances`, `modifyMlServingApp`, `revokeMlServingAppAccess`, and `upgradeMlServingApp`.
+* opdb: Update description of `StorageType` object.
+* opdb: Add new command `updateDatabase`.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove `Docker` value from enum `registryType` in `CustomRegistryOptions` object.
+* dw: Remove `userName`, `password`, and `disableImageVerification` properties from `CustomRegistryOptions` object.
+* dw: Remove `upgradeCluster` command.
+
+
 ## 0.9.120 (2024-08-14)
 * datalake: Add `rangerCloudAccessAuthorizerRole` parameter to `validate-aws-cloud-storage` command.
 * datalake: Add new property `dryRunValidation` to `AdminOperationsBackupRestoreState` object.
