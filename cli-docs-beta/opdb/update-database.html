@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-database &#8212; CDP CLI 0.9.120 (BETA) documentation</title>
+    <title>update-database &#8212; CDP CLI 0.9.121 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="stop-database.html" title="stop-database"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Updates the database</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.120</p>
+<dd class="field-even"><p>0.9.121</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -63,6 +63,8 @@
 <span class="o">[</span>--remove-strong-meta-servers <span class="p">|</span> --no-remove-strong-meta-servers<span class="o">]</span>
 <span class="o">[</span>--catalog &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--vertical-scale &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--num-desired-restworker-nodes &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--remove-restworker-nodes <span class="p">|</span> --no-remove-restworker-nodes<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -115,7 +117,7 @@
 </div></blockquote>
 <p>maxCpuUtilization -&gt; (integer)</p>
 <blockquote>
-<div><p>The maximum percentage threshold for the CPU utilization of the worker nodes. The CPU utilization is obtained from the Cloudera Manager metric ‘cpu_percent’ across worker nodes. Set 100 or more to disable the CPU metrics.</p>
+<div><p>This configuration is effective when compute nodes are enabled. The maximum percentage threshold for the CPU utilization of nodes. The CPU utilization is obtained from the Cloudera Manager metric ‘cpu_percent’ across worker and compute nodes. Set 100 or more to disable the CPU metrics.</p>
 </div></blockquote>
 <p>maxComputeNodesForDatabase -&gt; (integer)</p>
 <blockquote>
@@ -167,6 +169,14 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">MASTER</span></code></p></li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--num-desired-restworker-nodes</span></code> (integer)</p>
+<blockquote>
+<div><p>Sets the desired number of REST Worker nodes for the database. A positive, non-zero number is required. Requires the COD_RESTWORKERS entitlement.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--remove-restworker-nodes</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-remove-restworker-nodes</span></code> (boolean)</p>
+<blockquote>
+<div><p>Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -178,6 +188,10 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of whether the update was successful or not.</p>
+</div></blockquote>
 </div>
 <div class="section" id="form-factors">
 <h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
@@ -233,7 +247,7 @@
         <li class="right" >
           <a href="stop-database.html" title="stop-database"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
       </ul>

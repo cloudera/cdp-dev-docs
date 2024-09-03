@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-vc &#8212; CDP CLI 0.9.120 (BETA) documentation</title>
+    <title>update-vc &#8212; CDP CLI 0.9.121 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,19 +16,19 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="df" href="../df/index.html" />
+    <link rel="next" title="upgrade-service" href="upgrade-service.html" />
     <link rel="prev" title="update-service" href="update-service.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../df/index.html" title="df"
+          <a href="upgrade-service.html" title="upgrade-service"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="update-service.html" title="update-service"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vc</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Update Cloudera Data Engineering (CDE) Virtual Cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.120</p>
+<dd class="field-even"><p>0.9.121</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -63,6 +63,8 @@
 <span class="o">[</span>--full-access-groups &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--view-only-users &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--view-only-groups &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--spark-configs &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--discard-spark-configs <span class="p">|</span> --no-discard-spark-configs<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -114,6 +116,23 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--spark-configs</span></code> (map)</p>
+<blockquote>
+<div><p>Spark configs that will be applied to all the spark jobs inside a virtual cluster.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  ...<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--discard-spark-configs</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-discard-spark-configs</span></code> (boolean)</p>
+<blockquote>
+<div><p>Discard the Spark configs inside a VC.</p>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -305,6 +324,15 @@
 <blockquote>
 <div><p>Default timeout for Sessions.</p>
 </div></blockquote>
+<p>sparkConfigs -&gt; (map)</p>
+<blockquote>
+<div><p>Spark configs that will be applied to all the spark jobs inside a virtual cluster.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Spark configs that will be applied to all the spark jobs inside a virtual cluster.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -336,8 +364,8 @@
   <p class="topless"><a href="update-service.html"
                         title="previous chapter">update-service</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../df/index.html"
-                        title="next chapter">df</a></p>
+  <p class="topless"><a href="upgrade-service.html"
+                        title="next chapter">upgrade-service</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -356,12 +384,12 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../df/index.html" title="df"
+          <a href="upgrade-service.html" title="upgrade-service"
              >next</a></li>
         <li class="right" >
           <a href="update-service.html" title="update-service"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >de</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vc</a></li> 
       </ul>

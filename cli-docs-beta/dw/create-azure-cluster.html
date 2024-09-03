@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-azure-cluster &#8212; CDP CLI 0.9.120 (BETA) documentation</title>
+    <title>create-azure-cluster &#8212; CDP CLI 0.9.121 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create an Azure cluster in the Cloudera Data Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.120</p>
+<dd class="field-even"><p>0.9.121</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -70,6 +70,7 @@
 <span class="o">[</span>--custom-subdomain &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--enable-az <span class="p">|</span> --no-enable-az<span class="o">]</span>
 <span class="o">[</span>--enable-spot-instances <span class="p">|</span> --no-enable-spot-instances<span class="o">]</span>
+<span class="o">[</span>--compute-instance-types &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--log-analytics-workspace-id &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--outbound-type &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--aks-pod-cidr &lt;value&gt;<span class="o">]</span>
@@ -145,30 +146,15 @@
 <blockquote>
 <div><p>URL of the custom image repository.</p>
 </div></blockquote>
-<p>userName -&gt; (string)</p>
-<blockquote>
-<div><p>Username for custom registry access (required only for Docker type).</p>
-</div></blockquote>
-<p>password -&gt; (string)</p>
-<blockquote>
-<div><p>Password for custom registry access (required only for Docker type).</p>
-</div></blockquote>
-<p>disableImageVerification -&gt; (boolean)</p>
-<blockquote>
-<div><p>Disable image verification.</p>
-</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">registryType</span><span class="o">=</span>string,repositoryUrl<span class="o">=</span>string,userName<span class="o">=</span>string,password<span class="o">=</span>string,disableImageVerification<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">registryType</span><span class="o">=</span>string,repositoryUrl<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;registryType&quot;</span>: <span class="s2">&quot;ACR&quot;</span><span class="p">|</span><span class="s2">&quot;ECR&quot;</span><span class="p">|</span><span class="s2">&quot;Docker&quot;</span>,
-  <span class="s2">&quot;repositoryUrl&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;userName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;disableImageVerification&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+  <span class="s2">&quot;registryType&quot;</span>: <span class="s2">&quot;ACR&quot;</span><span class="p">|</span><span class="s2">&quot;ECR&quot;</span>,
+  <span class="s2">&quot;repositoryUrl&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -184,6 +170,14 @@
 <blockquote>
 <div><p>Whether to enable spot instances for Virtual warehouses. It cannot be updated later. Defaults to false.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--compute-instance-types</span></code> (array)</p>
+<blockquote>
+<div><p>NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--log-analytics-workspace-id</span></code> (string)</p>
 <blockquote>
 <div><p>Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.</p>
@@ -296,7 +290,7 @@
         <li class="right" >
           <a href="create-aws-cluster.html" title="create-aws-cluster"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.120 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.121 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-azure-cluster</a></li> 
       </ul>
