@@ -848,7 +848,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.121</p>
+<p><em>Version</em> : 0.9.122</p>
 </div>
 </div>
 <div class="sect2">
@@ -2679,6 +2679,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gatewayNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of gateway nodes to be created for the database. When multiple gateway nodes are present Knox works in HA mode. A positive, non-zero number is required. The default value is 1. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>image</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -2711,6 +2723,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_customrecipe">CustomRecipe</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>restworkerNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2961,6 +2985,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gatewayNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of gateway nodes for the database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>hueEndpoint</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -2981,6 +3017,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>restworkerNodesCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of REST Worker nodes for the database.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3660,7 +3708,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h3 id="_instancegrouptype">InstanceGroupType</h3>
 <div class="paragraph">
 <p>InstanceGroup Type.
- <code>WORKER</code> - WORKER value of the InstanceGroup name. <code>LEADER</code> - LEADER value of the InstanceGroup name. <code>MASTER</code> - MASTER value of the InstanceGroup name. <code>GATEWAY</code> - GATEWAY value of the InstanceGroup name. <code>STRONGMETA</code> - STRONGMETA value of the InstanceGroup name. <code>EDGE</code> - EDGE value of the InstanceGroup name.</p>
+ <code>WORKER</code> - WORKER value of the InstanceGroup name. <code>LEADER</code> - LEADER value of the InstanceGroup name. <code>MASTER</code> - MASTER value of the InstanceGroup name. <code>GATEWAY</code> - GATEWAY value of the InstanceGroup name. <code>STRONGMETA</code> - STRONGMETA value of the InstanceGroup name. <code>EDGE</code> - EDGE value of the InstanceGroup name. <code>COMPUTE</code> - COMPUTE value of the InstanceGroup name. <code>RESTWORKER</code> - RESTWORKER value of the InstanceGroup name.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : enum (WORKER, LEADER, MASTER, GATEWAY, STRONGMETA, EDGE)</p>
@@ -4241,6 +4289,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>numDesiredRestworkerNodes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Sets the desired number of REST Worker nodes for the database. A positive, non-zero number is required. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>numDesiredStrongMetaServers</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4249,6 +4309,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>removeRestworkerNodes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4465,7 +4537,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-03 11:10:46 -0700
+Last updated 2024-09-12 14:56:21 -0700
 </div>
 </div>
 <br>

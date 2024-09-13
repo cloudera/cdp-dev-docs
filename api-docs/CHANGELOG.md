@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.122 (2024-09-11)
+* dw: Add new parameter `impalaExecutorGroupSets` to the autoscale options for the `createVw`, `updateVw`, `listVws`, and `describeVw` commands.
+* opdb: Add new parameters `gatewayNodesCount` and `restworkerNodesCount` to `createDatabase` command.
+* opdb: Add new parameters `numDesiredRestworkerNodes` and `removeRestworkerNodes` to `updateDatabase` command.
+* opdb: Add new properties `gatewayNodesCount` and `restworkerNodesCount` to `DatabaseDetails` object.
+
 ## 0.9.121 (2024-09-03)
 * de: Add new property `sparkConfigs` to `VcDescription` object.
 * de: Add `sparkConfigs` parameter to `createVc` and `updateVc` commands.
