@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.122 (BETA) documentation</title>
+    <title>rebuild-freeipa &#8212; CDP CLI 0.9.122 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="create-instance-groups" href="create-instance-groups.html" />
-    <link rel="prev" title="add-user" href="add-user.html" /> 
+    <link rel="next" title="repair-freeipa" href="repair-freeipa.html" />
+    <link rel="prev" title="list-proxy-configs" href="list-proxy-configs.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-instance-groups.html" title="create-instance-groups"
+          <a href="repair-freeipa.html" title="repair-freeipa"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="add-user.html" title="add-user"
+          <a href="list-proxy-configs.html" title="list-proxy-configs"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.122 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">rebuild-freeipa</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="create-cluster">
-<span id="cli-cdp-compute-create-cluster"></span><h1>create-cluster<a class="headerlink" href="#create-cluster" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="rebuild-freeipa">
+<span id="cli-cdp-environments-rebuild-freeipa"></span><h1>rebuild-freeipa<a class="headerlink" href="#rebuild-freeipa" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Create compute cluster</p>
+<dd class="field-odd"><p>Recreate FreeIPA in case of disaster.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.122</p>
@@ -51,17 +51,16 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Creates compute cluster.</p>
+<p>If FreeIPA backups are available and all of the FreeIPA nodes are lost, this command recreates FreeIPA from scratch and restores backup.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-cluster
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  rebuild-freeipa
 --environment &lt;value&gt;
---name &lt;value&gt;
-<span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--tags &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--network &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--skip-validation <span class="p">|</span> --no-skip-validation<span class="o">]</span>
+--freeipa-crn &lt;value&gt;
+--instance-to-restore-fqdn &lt;value&gt;
+--full-backup-storage-location &lt;value&gt;
+--data-backup-storage-location &lt;value&gt;
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -71,42 +70,23 @@
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
 <blockquote>
-<div><p>Environment CRN. Required.</p>
+<div><p>The environment name or CRN.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--name</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--freeipa-crn</span></code> (string)</p>
 <blockquote>
-<div><p>Cluster name. Required.</p>
+<div><p>CRN of the FreeIPA to rebuild. Must be in the environment specified in ‘environmentName’.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--instance-to-restore-fqdn</span></code> (string)</p>
 <blockquote>
-<div><p>Cluster description.</p>
+<div><p>The instance’s Fully Qualified Domain Name (FQDN) that will be restored from the backups. This must match the FQDN of the instance from which the backup was taken.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--tags</span></code> (map)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--full-backup-storage-location</span></code> (string)</p>
 <blockquote>
-<div><p>Cluster level tags.</p>
+<div><p>Full backup location on the cloud storage. This backup was created during the provisioning of the instance. By default, no additional full backups are created for a single instance.</p>
 </div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
-  ...<span class="o">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--network</span></code> (object)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--data-backup-storage-location</span></code> (string)</p>
 <blockquote>
-<div><p>Network structure.</p>
-</div></blockquote>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-
-<span class="o">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">--skip-validation</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-validation</span></code> (boolean)</p>
-<blockquote>
-<div><p>Skip validation.</p>
+<div><p>Data/hourly backup location on the cloud storage. These are created in every hour. Usually the lastest one is required, so there won’t be any data loss.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -119,106 +99,86 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>clusterId -&gt; (string)</p>
+<p>operation -&gt; (object)</p>
 <blockquote>
-<div><p>Compute cluster ID.</p>
-</div></blockquote>
-<p>clusterStatus -&gt; (object)</p>
+<div><p>Response object for a FreeIPA operation.</p>
+<p>operationId -&gt; (string)</p>
 <blockquote>
-<div><p>Cluster status structure.</p>
-<p>message -&gt; (string)</p>
-<blockquote>
-<div><p>Message.</p>
+<div><p>Operation ID of the request for this operation. This ID can be used for getting status of the operation.</p>
 </div></blockquote>
 <p>status -&gt; (string)</p>
 <blockquote>
-<div><p>Status.</p>
+<div><p>Status of an operation.</p>
 </div></blockquote>
-</div></blockquote>
-<p>uri -&gt; (string)</p>
+<p>successfulOperationDetails -&gt; (array)</p>
 <blockquote>
-<div><p>Uniform Resource Identifier of cluster.</p>
-</div></blockquote>
-<p>clusterCrn -&gt; (string)</p>
-<blockquote>
-<div><p>Compute cluster CRN.</p>
-</div></blockquote>
-<p>validationResponse -&gt; (object)</p>
-<blockquote>
-<div><p>Pre-flight validation check response structure.</p>
-<p>result -&gt; (string)</p>
-<blockquote>
-<div><p>Validation result.</p>
-</div></blockquote>
-<p>summary -&gt; (object)</p>
-<blockquote>
-<div><p>Validation summary structure.</p>
-<p>passed -&gt; (integer)</p>
-<blockquote>
-<div><p>Total number of passed validations.</p>
-</div></blockquote>
-<p>warning -&gt; (integer)</p>
-<blockquote>
-<div><p>Total number of validations that passed but have warnings associated with them.</p>
-</div></blockquote>
-<p>failed -&gt; (integer)</p>
-<blockquote>
-<div><p>Total number of failed validations.</p>
-</div></blockquote>
-<p>skipped -&gt; (integer)</p>
-<blockquote>
-<div><p>Total number of skipped validations.</p>
-</div></blockquote>
-<p>total -&gt; (integer)</p>
-<blockquote>
-<div><p>Total number of validations.</p>
-</div></blockquote>
-</div></blockquote>
-<p>message -&gt; (string)</p>
-<blockquote>
-<div><p>A message describing end result of the validations.</p>
-</div></blockquote>
-<p>validations -&gt; (array)</p>
-<blockquote>
-<div><p>The list of detailed validation result.</p>
+<div><p>List of details for all successful operations. If the operation is only partially successful both successful and failure operation details will be populated.</p>
 <p>item -&gt; (object)</p>
 <blockquote>
-<div><p>Validation result structure.</p>
-<p>name -&gt; (string)</p>
+<div><p>Details object of the operation for success or falure.</p>
+<p>environmentCrn -&gt; (string)</p>
 <blockquote>
-<div><p>Name.</p>
-</div></blockquote>
-<p>description -&gt; (string)</p>
-<blockquote>
-<div><p>Description.</p>
-</div></blockquote>
-<p>category -&gt; (string)</p>
-<blockquote>
-<div><p>Validation check categories such as COMMON, ENTITLEMENTS, CONTROL_PLANE, NETWORK, or DEPLOYMENT. New values may be added in the future.</p>
-</div></blockquote>
-<p>status -&gt; (string)</p>
-<blockquote>
-<div><p>Validation check status such as PASSED, FAILED, or SKIPPED. New values may be added in the future.</p>
+<div><p>environment crn.</p>
 </div></blockquote>
 <p>message -&gt; (string)</p>
 <blockquote>
-<div><p>A short, human-readable message that describes the end result of the validation.</p>
+<div><p>The detail of the success or failure.</p>
 </div></blockquote>
-<p>detailedMessage -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>failureOperationDetails -&gt; (array)</p>
 <blockquote>
-<div><p>A supporting message which contains additional details, such as subnet names, instance types, etc.</p>
-</div></blockquote>
-<p>duration -&gt; (string)</p>
+<div><p>List of details for failed operations. If the operation is only partially successful both successful and failure operation details will be populated.</p>
+<p>item -&gt; (object)</p>
 <blockquote>
-<div><p>Time taken to get the end result of the validation in a human-readable time format.</p>
+<div><p>Details object of the operation for success or falure.</p>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>environment crn.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>The detail of the success or failure.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
+<p>error -&gt; (string)</p>
+<blockquote>
+<div><p>The error will be populated on any error and it may be populated when the operation failure details are empty. Typically contains high level information such as the associated failure phase.</p>
+</div></blockquote>
+<p>startDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>Date when the operation started.</p>
+</div></blockquote>
+<p>endDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>Date when the operation ended. Omitted if operation has not ended.</p>
+</div></blockquote>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The environment CRN of the FreeIPA to rebuild</p>
+</div></blockquote>
+<p>freeipaCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN of the FreeIPA to rebuild. Must be in the environment specified in ‘environmentName’.</p>
+</div></blockquote>
+<p>instanceToRestoreFqdn -&gt; (string)</p>
+<blockquote>
+<div><p>The instance’s Fully Qualified Domain Name (FQDN) that will be restored from the backups. This must match the FQDN of the instance from which the backup was taken.</p>
+</div></blockquote>
+<p>fullBackupStorageLocation -&gt; (string)</p>
+<blockquote>
+<div><p>Full backup location on the cloud storage. This backup was created during the provisioning of the instance. By default, no additional full backups are created for a single instance.</p>
+</div></blockquote>
+<p>dataBackupStorageLocation -&gt; (string)</p>
+<blockquote>
+<div><p>Data/hourly backup location on the cloud storage. These are created in every hour. Usually the lastest one is required, so there won’t be any data loss.</p>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
 <h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
-<p>public</p>
+<p>public, private</p>
 </div>
 </div>
 
@@ -231,7 +191,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">create-cluster</a><ul>
+<li><a class="reference internal" href="#">rebuild-freeipa</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -242,11 +202,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="add-user.html"
-                        title="previous chapter">add-user</a></p>
+  <p class="topless"><a href="list-proxy-configs.html"
+                        title="previous chapter">list-proxy-configs</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="create-instance-groups.html"
-                        title="next chapter">create-instance-groups</a></p>
+  <p class="topless"><a href="repair-freeipa.html"
+                        title="next chapter">repair-freeipa</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -265,14 +225,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-instance-groups.html" title="create-instance-groups"
+          <a href="repair-freeipa.html" title="repair-freeipa"
              >next</a></li>
         <li class="right" >
-          <a href="add-user.html" title="add-user"
+          <a href="list-proxy-configs.html" title="list-proxy-configs"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.122 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">rebuild-freeipa</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
