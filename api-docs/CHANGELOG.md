@@ -1,5 +1,8 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.123 (2024-09-26)
+* dw: Deprecate `reservedComputeNodes` and `reservedSharedServicesNodes` fields in some commands.
+
 ## 0.9.122 (2024-09-11)
 * dw: Add new parameter `impalaExecutorGroupSets` to the autoscale options for the `createVw`, `updateVw`, `listVws`, and `describeVw` commands.
 * opdb: Add new parameters `gatewayNodesCount` and `restworkerNodesCount` to `createDatabase` command.
