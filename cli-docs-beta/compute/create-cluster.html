@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.123 (BETA) documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.124 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,19 +16,19 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="create-instance-groups" href="create-instance-groups.html" />
+    <link rel="next" title="delete-cluster" href="delete-cluster.html" />
     <link rel="prev" title="add-user" href="add-user.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-instance-groups.html" title="create-instance-groups"
+          <a href="delete-cluster.html" title="delete-cluster"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="add-user.html" title="add-user"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.123 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create compute cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.123</p>
+<dd class="field-even"><p>0.9.124</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -97,13 +97,38 @@
 <p><code class="docutils literal notranslate"><span class="pre">--network</span></code> (object)</p>
 <blockquote>
 <div><p>Network structure.</p>
+<p>subnets -&gt; (array)</p>
+<blockquote>
+<div><p>Subnets.</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
+<p>podCidr -&gt; (string)</p>
+<blockquote>
+<div><p>The pod CIDR to use if the backend provider supports setting this.</p>
+</div></blockquote>
+<p>serviceCidr -&gt; (string)</p>
+<blockquote>
+<div><p>The CIDR for services declared inside of Kubernetes if the backend provider supports setting this.</p>
+</div></blockquote>
+<p>outboundType -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster outbound type. Currently supported is udr.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">subnets</span><span class="o">=</span>string,string,podCidr<span class="o">=</span>string,serviceCidr<span class="o">=</span>string,outboundType<span class="o">=</span>string
+</pre></div>
+</div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-
+  <span class="s2">&quot;subnets&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;podCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;serviceCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;outboundType&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
+<p>Form Factors: public</p>
 <p><code class="docutils literal notranslate"><span class="pre">--skip-validation</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-validation</span></code> (boolean)</p>
 <blockquote>
 <div><p>Skip validation.</p>
@@ -146,6 +171,7 @@
 <p>validationResponse -&gt; (object)</p>
 <blockquote>
 <div><p>Pre-flight validation check response structure.</p>
+<p>Form Factors: public</p>
 <p>result -&gt; (string)</p>
 <blockquote>
 <div><p>Validation result.</p>
@@ -153,6 +179,7 @@
 <p>summary -&gt; (object)</p>
 <blockquote>
 <div><p>Validation summary structure.</p>
+<p>Form Factors: public</p>
 <p>passed -&gt; (integer)</p>
 <blockquote>
 <div><p>Total number of passed validations.</p>
@@ -184,6 +211,7 @@
 <p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Validation result structure.</p>
+<p>Form Factors: public</p>
 <p>name -&gt; (string)</p>
 <blockquote>
 <div><p>Name.</p>
@@ -245,8 +273,8 @@
   <p class="topless"><a href="add-user.html"
                         title="previous chapter">add-user</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="create-instance-groups.html"
-                        title="next chapter">create-instance-groups</a></p>
+  <p class="topless"><a href="delete-cluster.html"
+                        title="next chapter">delete-cluster</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -265,12 +293,12 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="create-instance-groups.html" title="create-instance-groups"
+          <a href="delete-cluster.html" title="delete-cluster"
              >next</a></li>
         <li class="right" >
           <a href="add-user.html" title="add-user"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.123 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>

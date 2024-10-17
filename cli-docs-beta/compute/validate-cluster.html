@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>validate-cluster &#8212; CDP CLI 0.9.123 (BETA) documentation</title>
+    <title>validate-cluster &#8212; CDP CLI 0.9.124 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="upgrade-deployment.html" title="upgrade-deployment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.123 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">validate-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Validate compute cluster</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.123</p>
+<dd class="field-even"><p>0.9.124</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -96,13 +96,38 @@
 <p><code class="docutils literal notranslate"><span class="pre">--network</span></code> (object)</p>
 <blockquote>
 <div><p>Network structure.</p>
+<p>subnets -&gt; (array)</p>
+<blockquote>
+<div><p>Subnets.</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
+<p>podCidr -&gt; (string)</p>
+<blockquote>
+<div><p>The pod CIDR to use if the backend provider supports setting this.</p>
+</div></blockquote>
+<p>serviceCidr -&gt; (string)</p>
+<blockquote>
+<div><p>The CIDR for services declared inside of Kubernetes if the backend provider supports setting this.</p>
+</div></blockquote>
+<p>outboundType -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster outbound type. Currently supported is udr.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">subnets</span><span class="o">=</span>string,string,podCidr<span class="o">=</span>string,serviceCidr<span class="o">=</span>string,outboundType<span class="o">=</span>string
+</pre></div>
+</div>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-
+  <span class="s2">&quot;subnets&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;podCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;serviceCidr&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;outboundType&quot;</span>: <span class="s2">&quot;string&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
+<p>Form Factors: public</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -121,6 +146,7 @@
 <p>summary -&gt; (object)</p>
 <blockquote>
 <div><p>Validation summary structure.</p>
+<p>Form Factors: public</p>
 <p>passed -&gt; (integer)</p>
 <blockquote>
 <div><p>Total number of passed validations.</p>
@@ -152,6 +178,7 @@
 <p>item -&gt; (object)</p>
 <blockquote>
 <div><p>Validation result structure.</p>
+<p>Form Factors: public</p>
 <p>name -&gt; (string)</p>
 <blockquote>
 <div><p>Name.</p>
@@ -237,7 +264,7 @@
         <li class="right" >
           <a href="upgrade-deployment.html" title="upgrade-deployment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.123 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">validate-cluster</a></li> 
       </ul>
