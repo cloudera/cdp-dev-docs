@@ -1,0 +1,1563 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>describe-cluster &#8212; CDP CLI 0.9.124 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="describe-deployment" href="describe-deployment.html" />
+    <link rel="prev" title="delete-cluster" href="delete-cluster.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="describe-deployment.html" title="describe-deployment"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="delete-cluster.html" title="delete-cluster"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="describe-cluster">
+<span id="cli-cdp-compute-describe-cluster"></span><h1>describe-cluster<a class="headerlink" href="#describe-cluster" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Describe compute cluster</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.124</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Describe compute cluster details in a CDP Environment</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-cluster
+--cluster-crn &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
+<blockquote>
+<div><p>Compute cluster CRN.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>envName -&gt; (string)</p>
+<blockquote>
+<div><p>CDP environment name.</p>
+</div></blockquote>
+<p>envCloudProvider -&gt; (string)</p>
+<blockquote>
+<div><p>object representing CDP Environment cloud provider type <cite>AWS</cite> - CDP Environment installed in AWS <cite>AZURE</cite> - CDP Environment installed in Azure <cite>OPENSHIFT</cite> - CDP Environment installed as on-premise instalation using CDP DC services in base cluster</p>
+</div></blockquote>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster name.</p>
+</div></blockquote>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster CRN.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Description about the cluster.</p>
+<p>Form Factors: private</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster status.</p>
+</div></blockquote>
+<p>computePlatform -&gt; (string)</p>
+<blockquote>
+<div><p>object representing CDP Compute Cluster Platform provider <cite>OPENSHIFT</cite> - OpenShift Container Platform cluster as compute platform (private cloud only). <cite>EKS</cite> - EKS cluster as compute platform <cite>AKS</cite> - AKS cluster as compute platform <cite>RKE</cite> - Rancher RKE as compute platform (private cloud only).</p>
+</div></blockquote>
+<p>computePlatformVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster platform version.</p>
+<p>Form Factors: private</p>
+</div></blockquote>
+<p>kubernetesVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Kubernetes version.</p>
+</div></blockquote>
+<p>clusterSize -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of nodes in the cluster.</p>
+<p>Form Factors: private</p>
+</div></blockquote>
+<p>dashboardUrl -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster platform dashboard url.</p>
+</div></blockquote>
+<p>isClouderaManaged -&gt; (boolean)</p>
+<blockquote>
+<div><p>Is compute cluster cloudera managed or not.</p>
+<p>Form Factors: private</p>
+</div></blockquote>
+<p>clusterType -&gt; (string)</p>
+<blockquote>
+<div><p>Object representing compute cluster types. <cite>DedicatedExternal</cite> - Value representing an external dedicated compute cluster. <cite>Shared</cite> - Value representing a shared compute cluster. <cite>Dedicated</cite> - Value representing an embedded dedicated compute cluster.</p>
+</div></blockquote>
+<p>creationTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster creation time in ISO format.</p>
+</div></blockquote>
+<p>clusterId -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster ID.</p>
+</div></blockquote>
+<p>envCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CDP environment CRN.</p>
+</div></blockquote>
+<p>apiEndPoint -&gt; (string)</p>
+<blockquote>
+<div><p>API endpoint.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>clusterStateVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>Cluster state version.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>deletionTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster deletion time in ISO format.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>updateTime -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster update time in ISO format.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>workloads -&gt; (array)</p>
+<blockquote>
+<div><p>Workloads.</p>
+<p>Form Factors: public</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>clusterOwner -&gt; (object)</p>
+<blockquote>
+<div><p>Compute cluster owner structure.</p>
+<p>Form Factors: public</p>
+<p>email -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s email.</p>
+</div></blockquote>
+<p>firstName -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s firstname.</p>
+</div></blockquote>
+<p>lastName -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s lastname.</p>
+</div></blockquote>
+<p>userId -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s user ID.</p>
+</div></blockquote>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s account ID.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>Owner’s actor CRN.</p>
+</div></blockquote>
+</div></blockquote>
+<p>region -&gt; (string)</p>
+<blockquote>
+<div><p>Region.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Message with additional details about the cluster status.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>account -&gt; (string)</p>
+<blockquote>
+<div><p>CDP account ID.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>availableUpgrades -&gt; (array)</p>
+<blockquote>
+<div><p>List of available kubernetes upgrades.</p>
+<p>Form Factors: public</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>imageCatalog -&gt; (object)</p>
+<blockquote>
+<div><p>Image catalog response structure.</p>
+<p>Form Factors: public</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The catalog CRN (either CRN or name is required).</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The catalog name (either CRN or name is required).</p>
+</div></blockquote>
+</div></blockquote>
+<p>storage -&gt; (object)</p>
+<blockquote>
+<div><p>Storage spec response structure.</p>
+<p>Form Factors: public</p>
+<p>csiEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to enable CSI (Container Storage Interface). It further sets specific inline cloud formation policies required for CSI.</p>
+</div></blockquote>
+</div></blockquote>
+<p>labels -&gt; (map)</p>
+<blockquote>
+<div><p>Map of labels associated with this cluster.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>bootstrapScript -&gt; (string)</p>
+<blockquote>
+<div><p>Bootstrap script used to setup this cluster.</p>
+</div></blockquote>
+<p>aks -&gt; (object)</p>
+<blockquote>
+<div><p>AKS state response structure.</p>
+<p>Form Factors: public</p>
+<p>provider -&gt; (string)</p>
+<blockquote>
+<div><p>Cloud provider.</p>
+</div></blockquote>
+<p>clusterDisplayName -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster display name.</p>
+</div></blockquote>
+<p>clusterResourceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The Cluster ResourceGroup. Filled based on Parent ResourceGroup or ClusterDisplayName.</p>
+</div></blockquote>
+<p>clusterResourceGroupCreated -&gt; (boolean)</p>
+<blockquote>
+<div><p>Specifies whether ClusterResourceGroup was created or not.</p>
+</div></blockquote>
+<p>enableHttpApplicationRouting -&gt; (boolean)</p>
+<blockquote>
+<div><p>Specifies whether httpApplicationRouting addon is enabled or not.</p>
+</div></blockquote>
+<p>enableMonitoring -&gt; (boolean)</p>
+<blockquote>
+<div><p>Specifies whether monitoring addon is enabled or not.</p>
+</div></blockquote>
+<p>logAnalyticsWorkspaceResourceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The resource group for the Azure Log Analytics Workspace.</p>
+</div></blockquote>
+<p>logAnalyticsWorkspace -&gt; (string)</p>
+<blockquote>
+<div><p>An existing Azure Log Analytics Workspace for monitoring addon.</p>
+</div></blockquote>
+<p>virtualNetworkResourceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The resource group for the Azure Virtual Network. Composite of agent virtual network subnet ID.</p>
+</div></blockquote>
+<p>virtualNetwork -&gt; (string)</p>
+<blockquote>
+<div><p>An existing Azure Virtual Network. Composite of agent virtual network subnet ID.</p>
+</div></blockquote>
+<p>subnets -&gt; (array)</p>
+<blockquote>
+<div><p>An array specifying existing Azure Virtual Subnets. Composite of agent virtual network subnet IDs.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>selectedSubnet -&gt; (string)</p>
+<blockquote>
+<div><p>Selected Subnet from the list that is provided</p>
+</div></blockquote>
+<p>parentResourceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>The ResourceGroup which may be used for almost all the Azure resources created (with VirtualNetwork and Node ResourceGroup being exceptions).</p>
+</div></blockquote>
+<p>adminUsername -&gt; (string)</p>
+<blockquote>
+<div><p>The username to use for Linux VMs.</p>
+</div></blockquote>
+<p>sshPublicKeyContents -&gt; (string)</p>
+<blockquote>
+<div><p>The content of the SSH configuration for Linux VMs, Opposite to sshPublicKey.</p>
+</div></blockquote>
+<p>sshPublicKey -&gt; (string)</p>
+<blockquote>
+<div><p>The local path of the SSH configuration for Linux VMs, Opposite to sshPublicKeyContents.</p>
+</div></blockquote>
+<p>dnsServiceIp -&gt; (string)</p>
+<blockquote>
+<div><p>An IP address assigned to the kubernetes DNS service, it must be within the kubernetes service address range specified in serviceCidr.</p>
+</div></blockquote>
+<p>dockerBridgeCidr -&gt; (string)</p>
+<blockquote>
+<div><p>A CIDR notation IP range assigned to the Docker bridge network, it must not overlap with any Azure Subnet IP ranges or the kubernetes service address range.</p>
+</div></blockquote>
+<p>networkPlugin -&gt; (string)</p>
+<blockquote>
+<div><p>The plugin used for kubernetes network.</p>
+</div></blockquote>
+<p>networkPolicy -&gt; (string)</p>
+<blockquote>
+<div><p>The policy used for kubernetes network.</p>
+</div></blockquote>
+<p>podCidr -&gt; (string)</p>
+<blockquote>
+<div><p>A CIDR notation IP range from which to assign pod IPs when networkPlugin is using kubenet.</p>
+</div></blockquote>
+<p>serviceCidr -&gt; (string)</p>
+<blockquote>
+<div><p>A CIDR notation IP range from which to assign service cluster IPs, it must not overlap with any Azure Subnet IP ranges.</p>
+</div></blockquote>
+<p>networkCidrs -&gt; (array)</p>
+<blockquote>
+<div><p>The actual CIDR ranges of the virtual network.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>workerIngressRules -&gt; (array)</p>
+<blockquote>
+<div><p>Ingress rules for worker nodes.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>workerEgressRules -&gt; (array)</p>
+<blockquote>
+<div><p>Egress rules for worker nodes.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>masterDnsPrefix -&gt; (string)</p>
+<blockquote>
+<div><p>DNS prefix used for hostnames in the cluster.</p>
+</div></blockquote>
+<p>tags -&gt; (map)</p>
+<blockquote>
+<div><p>Tags.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>instanceGroups -&gt; (map)</p>
+<blockquote>
+<div><p>Instance groups.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>AKS instance group response structure.</p>
+<p>Form Factors: public</p>
+<p>instanceGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>Instance group name.</p>
+</div></blockquote>
+<p>instanceGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>Instance group ID.</p>
+</div></blockquote>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>Instance type.</p>
+</div></blockquote>
+<p>instanceTier -&gt; (string)</p>
+<blockquote>
+<div><p>Instance tier.</p>
+</div></blockquote>
+<p>instanceStates -&gt; (object)</p>
+<blockquote>
+<div><p>Instance state counts response structure.</p>
+<p>Form Factors: public</p>
+<p>running -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of instances in running state.</p>
+</div></blockquote>
+<p>creating -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of instances in creating state.</p>
+</div></blockquote>
+<p>terminating -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of instances in terminating state.</p>
+</div></blockquote>
+<p>total -&gt; (integer)</p>
+<blockquote>
+<div><p>Total number of instances.</p>
+</div></blockquote>
+</div></blockquote>
+<p>instanceCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Instance count.</p>
+</div></blockquote>
+<p>nodeVolumeSize -&gt; (integer)</p>
+<blockquote>
+<div><p>Node volume size.</p>
+</div></blockquote>
+<p>enableAutoScaling -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable auto scaling.</p>
+</div></blockquote>
+<p>minInstance -&gt; (integer)</p>
+<blockquote>
+<div><p>Min instances.</p>
+</div></blockquote>
+<p>maxInstance -&gt; (integer)</p>
+<blockquote>
+<div><p>Max instances.</p>
+</div></blockquote>
+<p>singleZone -&gt; (boolean)</p>
+<blockquote>
+<div><p>Single zone.</p>
+</div></blockquote>
+<p>labels -&gt; (map)</p>
+<blockquote>
+<div><p>Labels.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>taints -&gt; (map)</p>
+<blockquote>
+<div><p>Taints.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>tags -&gt; (map)</p>
+<blockquote>
+<div><p>Tags.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>kubeReservedCpu -&gt; (integer)</p>
+<blockquote>
+<div><p>Kube reserved CPU.</p>
+</div></blockquote>
+<p>kubeReservedMemory -&gt; (integer)</p>
+<blockquote>
+<div><p>Kube reserved memory.</p>
+</div></blockquote>
+<p>kubeReservedStorage -&gt; (integer)</p>
+<blockquote>
+<div><p>Kube reserved storage.</p>
+</div></blockquote>
+<p>systemReservedCpu -&gt; (integer)</p>
+<blockquote>
+<div><p>System reserved CPU.</p>
+</div></blockquote>
+<p>systemReservedMemory -&gt; (integer)</p>
+<blockquote>
+<div><p>System reserved memory.</p>
+</div></blockquote>
+<p>systemReservedStorage -&gt; (integer)</p>
+<blockquote>
+<div><p>System reserved storage.</p>
+</div></blockquote>
+<p>availabilityZones -&gt; (array)</p>
+<blockquote>
+<div><p>Availability zones.</p>
+<p>item -&gt; (integer)</p>
+</div></blockquote>
+<p>nodePool -&gt; (object)</p>
+<blockquote>
+<div><p>AKS node pool response structure.</p>
+<p>Form Factors: public</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Type.</p>
+</div></blockquote>
+<p>provisioningState -&gt; (string)</p>
+<blockquote>
+<div><p>Provisioning state.</p>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>AKS pool instance.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>AKS pool instance response structure.</p>
+<p>Form Factors: public</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name.</p>
+</div></blockquote>
+<p>instanceId -&gt; (string)</p>
+<blockquote>
+<div><p>Instance ID.</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>Availability zone.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>availabilityZones -&gt; (array)</p>
+<blockquote>
+<div><p>Availability zones.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>AKS pool instance.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>AKS pool instance response structure.</p>
+<p>Form Factors: public</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name.</p>
+</div></blockquote>
+<p>instanceId -&gt; (string)</p>
+<blockquote>
+<div><p>Instance ID.</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>Availability zone.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>isSystem -&gt; (boolean)</p>
+<blockquote>
+<div><p>True for a system node.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>deployments -&gt; (object)</p>
+<blockquote>
+<div><p>Deployments response structure.</p>
+<p>Form Factors: public</p>
+<p>autoscaler -&gt; (object)</p>
+<blockquote>
+<div><p>Autoscaler response structure.</p>
+<p>Form Factors: public</p>
+<p>scaleDownDelayAfterAdd -&gt; (string)</p>
+<blockquote>
+<div><p>How long after scale up that scale down evaluation resumes. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownDelayAfterDelete -&gt; (string)</p>
+<blockquote>
+<div><p>How long after node deletion that scale down evaluation resumes, defaults to scanInterval. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownDelayAfterFailure -&gt; (string)</p>
+<blockquote>
+<div><p>How long after scale down failure that scale down evaluation resumes. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Scale down flag. (AWS Support).</p>
+</div></blockquote>
+<p>scaleDownNonEmptyCandidatesCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of non empty nodes considered in one iteration as candidates for scale down with drain. Lower value means better CA responsiveness but possible slower scale down latency. Higher value can affect CA performance with big clusters (100s of nodes). Set to non positive value to turn this heuristic off - CA will not limit the number of nodes it considers. (AWS Support).</p>
+</div></blockquote>
+<p>scaleDownUnneededTime -&gt; (string)</p>
+<blockquote>
+<div><p>How long a node should be unneeded before it is eligible for scale down. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownUtilizationThreshold -&gt; (double)</p>
+<blockquote>
+<div><p>Node utilization level, defined as the sum of requested resources divided by capacity,. below which a node can be considered for scale down. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scanInterval -&gt; (string)</p>
+<blockquote>
+<div><p>Scan interval. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>skipNodesWithLocalStorage -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip nodes with local storage flag. (AWS Support).</p>
+</div></blockquote>
+<p>skipNodesWithSystemPods -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip nodes with system pods. (AWS Support).</p>
+</div></blockquote>
+<p>maxGracefulTerminationSec -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of seconds CA waits for pod termination when trying to scale down a node. (Azure Support).</p>
+</div></blockquote>
+<p>scaleDownUnreadyTime -&gt; (string)</p>
+<blockquote>
+<div><p>How long an unready node should be unneeded before it is eligible for scale down. (Azure Support).</p>
+</div></blockquote>
+</div></blockquote>
+<p>horizontalPodAutoscaler -&gt; (object)</p>
+<blockquote>
+<div><p>Horizontal pod autoscaler response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable flag.</p>
+</div></blockquote>
+</div></blockquote>
+<p>istio -&gt; (object)</p>
+<blockquote>
+<div><p>Deployment Profile details response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Deployment enable flag.</p>
+</div></blockquote>
+<p>deploymentProfile -&gt; (string)</p>
+<blockquote>
+<div><p>Deployment profile used. Currently supported is common.</p>
+</div></blockquote>
+</div></blockquote>
+<p>logging -&gt; (object)</p>
+<blockquote>
+<div><p>Logging response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>True to enable logging installation (default false).</p>
+</div></blockquote>
+</div></blockquote>
+<p>metering -&gt; (object)</p>
+<blockquote>
+<div><p>Metering response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if Monitoring is enabled.</p>
+</div></blockquote>
+<p>services -&gt; (array)</p>
+<blockquote>
+<div><p>Array of services.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Metering service response structure.</p>
+<p>Form Factors: public</p>
+<p>serviceType -&gt; (string)</p>
+<blockquote>
+<div><p>Service type.</p>
+</div></blockquote>
+<p>serviceVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Service version.</p>
+</div></blockquote>
+<p>workloadCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Workload CRN.</p>
+</div></blockquote>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster CRN.</p>
+</div></blockquote>
+<p>serviceConfiguration -&gt; (string)</p>
+<blockquote>
+<div><p>Service configuration.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>monitoring -&gt; (object)</p>
+<blockquote>
+<div><p>Monitoring response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if Monitoring is enabled.</p>
+</div></blockquote>
+<p>alertmanager -&gt; (object)</p>
+<blockquote>
+<div><p>Alertmanager response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if Alertmanager is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>serverResourceLimits -&gt; (object)</p>
+<blockquote>
+<div><p>Resource limits response structure.</p>
+<p>Form Factors: public</p>
+<p>cpu -&gt; (string)</p>
+<blockquote>
+<div><p>Prometheus server CPU limit (default 1000m).</p>
+</div></blockquote>
+<p>memory -&gt; (string)</p>
+<blockquote>
+<div><p>Prometheus server memory limit (default 2048M).</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>nvidia -&gt; (object)</p>
+<blockquote>
+<div><p>Nvidia response structure.</p>
+<p>Form Factors: public</p>
+<p>gpuLabelKey -&gt; (string)</p>
+<blockquote>
+<div><p>GPU label key.</p>
+</div></blockquote>
+<p>gpuLabelValue -&gt; (string)</p>
+<blockquote>
+<div><p>GPU label value.</p>
+</div></blockquote>
+</div></blockquote>
+<p>repository -&gt; (string)</p>
+<blockquote>
+<div><p>Repository for images.</p>
+</div></blockquote>
+<p>yunikorn -&gt; (object)</p>
+<blockquote>
+<div><p>YuniKorn response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if yunikorn is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>telemetryKmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>Telemetry KMS key ARN.</p>
+</div></blockquote>
+<p>knox -&gt; (object)</p>
+<blockquote>
+<div><p>Deployment Profile details response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Deployment enable flag.</p>
+</div></blockquote>
+<p>deploymentProfile -&gt; (string)</p>
+<blockquote>
+<div><p>Deployment profile used. Currently supported is common.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>userData -&gt; (string)</p>
+<blockquote>
+<div><p>User data.</p>
+</div></blockquote>
+<p>security -&gt; (object)</p>
+<blockquote>
+<div><p>Security response structure.</p>
+<p>Form Factors: public</p>
+<p>apiServer -&gt; (object)</p>
+<blockquote>
+<div><p>API server response structure.</p>
+<p>Form Factors: public</p>
+<p>authorizedIpRanges -&gt; (array)</p>
+<blockquote>
+<div><p>An array of IPv4 CIDR blocks.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if whitelist of IP Ranges (CIDR block) for public access to the kubernetes API server is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>secretEncryption -&gt; (object)</p>
+<blockquote>
+<div><p>Secret Encryption response structure.</p>
+<p>Form Factors: public</p>
+<p>customerKmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>The KMS key ARN used.</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if secret encryption is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>volumeEncryption -&gt; (object)</p>
+<blockquote>
+<div><p>Volume encryption response structure.</p>
+<p>Form Factors: public</p>
+<p>customerKmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>The KMS key ARN used.</p>
+</div></blockquote>
+</div></blockquote>
+<p>private -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if this is a private cluster with API Server having internal IP addressees.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>eks -&gt; (object)</p>
+<blockquote>
+<div><p>EKS state response structure.</p>
+<p>Form Factors: public</p>
+<p>provider -&gt; (string)</p>
+<blockquote>
+<div><p>Provider.</p>
+</div></blockquote>
+<p>clusterDisplayName -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster display name.</p>
+</div></blockquote>
+<p>userData -&gt; (string)</p>
+<blockquote>
+<div><p>User data for this cluster.</p>
+</div></blockquote>
+<p>virtualNetwork -&gt; (string)</p>
+<blockquote>
+<div><p>Virtual network details.</p>
+</div></blockquote>
+<p>existingVirtualNetwork -&gt; (boolean)</p>
+<blockquote>
+<div><p>Existing virtual network if used.</p>
+</div></blockquote>
+<p>subnets -&gt; (array)</p>
+<blockquote>
+<div><p>Subnets.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>workerSubnets -&gt; (array)</p>
+<blockquote>
+<div><p>Worker subnets.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>securityGroups -&gt; (array)</p>
+<blockquote>
+<div><p>Security groups.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>serviceRole -&gt; (string)</p>
+<blockquote>
+<div><p>Service role.</p>
+</div></blockquote>
+<p>workerInstanceProfile -&gt; (string)</p>
+<blockquote>
+<div><p>Worker instance profile.</p>
+</div></blockquote>
+<p>associateWorkerNodePublicIp -&gt; (boolean)</p>
+<blockquote>
+<div><p>Associate worker node public IP.</p>
+</div></blockquote>
+<p>vpcCidr -&gt; (string)</p>
+<blockquote>
+<div><p>VPC CIDR.</p>
+</div></blockquote>
+<p>workerIngressRules -&gt; (array)</p>
+<blockquote>
+<div><p>Ingress rules for worker nodes.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>workerEgressRules -&gt; (array)</p>
+<blockquote>
+<div><p>Egress rules for worker nodes.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>workerSecurityGroup -&gt; (string)</p>
+<blockquote>
+<div><p>Worker security group.</p>
+</div></blockquote>
+<p>telemetryEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Telemetry enabled.</p>
+</div></blockquote>
+<p>telemetryLoggingEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Telemetry logging enabled.</p>
+</div></blockquote>
+<p>telemetryLoggingStorageLocation -&gt; (string)</p>
+<blockquote>
+<div><p>Telemetry logging storage location.</p>
+</div></blockquote>
+<p>telemetryLoggingBucket -&gt; (string)</p>
+<blockquote>
+<div><p>Telemetry logging bucket.</p>
+</div></blockquote>
+<p>telemetryLoggingRootDir -&gt; (string)</p>
+<blockquote>
+<div><p>Telemetry logging root dir.</p>
+</div></blockquote>
+<p>telemetryKmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>Telemetry logging root dir.</p>
+</div></blockquote>
+<p>tags -&gt; (map)</p>
+<blockquote>
+<div><p>Tags.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>sshKeyPairName -&gt; (string)</p>
+<blockquote>
+<div><p>SSH key pair name.</p>
+</div></blockquote>
+<p>kmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>KMS key ARN.</p>
+</div></blockquote>
+<p>instanceGroups -&gt; (map)</p>
+<blockquote>
+<div><p>Instance groups.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>EKS instance group response structure.</p>
+<p>Form Factors: public</p>
+<p>ami -&gt; (string)</p>
+<blockquote>
+<div><p>AMI.</p>
+</div></blockquote>
+<p>imageParam -&gt; (string)</p>
+<blockquote>
+<div><p>Image param.</p>
+</div></blockquote>
+<p>instanceGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>Instance group name.</p>
+</div></blockquote>
+<p>instanceGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>Instance group ID.</p>
+</div></blockquote>
+<p>instanceTier -&gt; (string)</p>
+<blockquote>
+<div><p>Instance tier.</p>
+</div></blockquote>
+<p>instanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>Instance types.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>instanceCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Instance count.</p>
+</div></blockquote>
+<p>instanceStates -&gt; (object)</p>
+<blockquote>
+<div><p>Instance state counts response structure.</p>
+<p>Form Factors: public</p>
+<p>running -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of instances in running state.</p>
+</div></blockquote>
+<p>creating -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of instances in creating state.</p>
+</div></blockquote>
+<p>terminating -&gt; (integer)</p>
+<blockquote>
+<div><p>Number of instances in terminating state.</p>
+</div></blockquote>
+<p>total -&gt; (integer)</p>
+<blockquote>
+<div><p>Total number of instances.</p>
+</div></blockquote>
+</div></blockquote>
+<p>singleZone -&gt; (boolean)</p>
+<blockquote>
+<div><p>Single zone.</p>
+</div></blockquote>
+<p>minInstance -&gt; (integer)</p>
+<blockquote>
+<div><p>Min instances.</p>
+</div></blockquote>
+<p>maxInstance -&gt; (integer)</p>
+<blockquote>
+<div><p>Max instances.</p>
+</div></blockquote>
+<p>nodeInstanceRole -&gt; (string)</p>
+<blockquote>
+<div><p>Node instance role.</p>
+</div></blockquote>
+<p>nodeVolumeSize -&gt; (integer)</p>
+<blockquote>
+<div><p>Node volume size.</p>
+</div></blockquote>
+<p>labels -&gt; (map)</p>
+<blockquote>
+<div><p>Labels.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>taints -&gt; (map)</p>
+<blockquote>
+<div><p>Taints.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>tags -&gt; (map)</p>
+<blockquote>
+<div><p>Tags.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>autoscalingEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Autoscaling enabled.</p>
+</div></blockquote>
+<p>kubeReservedCpu -&gt; (integer)</p>
+<blockquote>
+<div><p>Kube reserved CPU.</p>
+</div></blockquote>
+<p>kubeReservedMemory -&gt; (integer)</p>
+<blockquote>
+<div><p>Kube reserved memory.</p>
+</div></blockquote>
+<p>kubeReservedStorage -&gt; (integer)</p>
+<blockquote>
+<div><p>Kube reserved storage.</p>
+</div></blockquote>
+<p>systemReservedCpu -&gt; (integer)</p>
+<blockquote>
+<div><p>System reserved CPU.</p>
+</div></blockquote>
+<p>systemReservedMemory -&gt; (integer)</p>
+<blockquote>
+<div><p>System reserved memory.</p>
+</div></blockquote>
+<p>systemReservedStorage -&gt; (integer)</p>
+<blockquote>
+<div><p>System reserved storage.</p>
+</div></blockquote>
+<p>enableCfsQuota -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable cfs quota.</p>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>EKS Instance.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>EKS instance response structure.</p>
+<p>Form Factors: public</p>
+<p>instanceId -&gt; (string)</p>
+<blockquote>
+<div><p>Instance ID.</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>Availability zone.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>events -&gt; (array)</p>
+<blockquote>
+<div><p>Events.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Event response structure.</p>
+<p>Form Factors: public</p>
+<p>details -&gt; (string)</p>
+<blockquote>
+<div><p>Details.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Event name.</p>
+</div></blockquote>
+<p>progress -&gt; (string)</p>
+<blockquote>
+<div><p>Progress.</p>
+</div></blockquote>
+<p>resourceType -&gt; (string)</p>
+<blockquote>
+<div><p>Resource type.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status.</p>
+</div></blockquote>
+<p>statusReason -&gt; (string)</p>
+<blockquote>
+<div><p>Status reason.</p>
+</div></blockquote>
+<p>timestamp -&gt; (string)</p>
+<blockquote>
+<div><p>Timestamp.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>instanceGroupStatus -&gt; (string)</p>
+<blockquote>
+<div><p>Instance group status.</p>
+</div></blockquote>
+<p>lTNameSuffix -&gt; (string)</p>
+<blockquote>
+<div><p>Launch Template name suffix.</p>
+</div></blockquote>
+<p>instanceRequirementswithMetadata -&gt; (object)</p>
+<blockquote>
+<div><p>Instance requirements with metadata response structure.</p>
+<p>Form Factors: public</p>
+<p>architectureTypes -&gt; (array)</p>
+<blockquote>
+<div><p>The architecture types. For eg, i386, x86_64, arm64, x86_64_mac, arm64_mac.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>virtualizationTypes -&gt; (array)</p>
+<blockquote>
+<div><p>The virtualization types. For eg. hvm, paravirtual.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>instanceRequirements -&gt; (object)</p>
+<blockquote>
+<div><p>Instance requirements structure.</p>
+<p>Form Factors: public</p>
+<p>allowedInstanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>Instance types to include.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>cpuTypes -&gt; (array)</p>
+<blockquote>
+<div><p>CPU types required. For eg. intel, amd, amazon-web-services etc.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>excludedInstanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>Instance types to exclude, ignored if AllowedInstanceTypes is set.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>maxCpu -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum vCpu count.</p>
+</div></blockquote>
+<p>minCpu -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum vCpu count.</p>
+</div></blockquote>
+<p>maxMemory -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum memory requirement in MiB.</p>
+</div></blockquote>
+<p>minMemory -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum memory requirement in MiB.</p>
+</div></blockquote>
+<p>acceleratorConfig -&gt; (object)</p>
+<blockquote>
+<div><p>Accelerator Configurations structure</p>
+<p>Form Factors: public</p>
+<p>acceleratorManufacturers -&gt; (array)</p>
+<blockquote>
+<div><p>Accelerator Manufacturer type. For eg. amazon-web-service, AMD, nvidia.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>acceleratorTypes -&gt; (array)</p>
+<blockquote>
+<div><p>Accelerator Types. For eg. gpu, inference.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>instanceProfile -&gt; (string)</p>
+<blockquote>
+<div><p>Instance profile name.</p>
+</div></blockquote>
+<p>imdsVersions -&gt; (array)</p>
+<blockquote>
+<div><p>IMDS versions.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>deployments -&gt; (object)</p>
+<blockquote>
+<div><p>Deployments response structure.</p>
+<p>Form Factors: public</p>
+<p>autoscaler -&gt; (object)</p>
+<blockquote>
+<div><p>Autoscaler response structure.</p>
+<p>Form Factors: public</p>
+<p>scaleDownDelayAfterAdd -&gt; (string)</p>
+<blockquote>
+<div><p>How long after scale up that scale down evaluation resumes. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownDelayAfterDelete -&gt; (string)</p>
+<blockquote>
+<div><p>How long after node deletion that scale down evaluation resumes, defaults to scanInterval. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownDelayAfterFailure -&gt; (string)</p>
+<blockquote>
+<div><p>How long after scale down failure that scale down evaluation resumes. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Scale down flag. (AWS Support).</p>
+</div></blockquote>
+<p>scaleDownNonEmptyCandidatesCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of non empty nodes considered in one iteration as candidates for scale down with drain. Lower value means better CA responsiveness but possible slower scale down latency. Higher value can affect CA performance with big clusters (100s of nodes). Set to non positive value to turn this heuristic off - CA will not limit the number of nodes it considers. (AWS Support).</p>
+</div></blockquote>
+<p>scaleDownUnneededTime -&gt; (string)</p>
+<blockquote>
+<div><p>How long a node should be unneeded before it is eligible for scale down. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scaleDownUtilizationThreshold -&gt; (double)</p>
+<blockquote>
+<div><p>Node utilization level, defined as the sum of requested resources divided by capacity,. below which a node can be considered for scale down. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>scanInterval -&gt; (string)</p>
+<blockquote>
+<div><p>Scan interval. (Azure/AWS Support).</p>
+</div></blockquote>
+<p>skipNodesWithLocalStorage -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip nodes with local storage flag. (AWS Support).</p>
+</div></blockquote>
+<p>skipNodesWithSystemPods -&gt; (boolean)</p>
+<blockquote>
+<div><p>Skip nodes with system pods. (AWS Support).</p>
+</div></blockquote>
+<p>maxGracefulTerminationSec -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of seconds CA waits for pod termination when trying to scale down a node. (Azure Support).</p>
+</div></blockquote>
+<p>scaleDownUnreadyTime -&gt; (string)</p>
+<blockquote>
+<div><p>How long an unready node should be unneeded before it is eligible for scale down. (Azure Support).</p>
+</div></blockquote>
+</div></blockquote>
+<p>horizontalPodAutoscaler -&gt; (object)</p>
+<blockquote>
+<div><p>Horizontal pod autoscaler response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable flag.</p>
+</div></blockquote>
+</div></blockquote>
+<p>istio -&gt; (object)</p>
+<blockquote>
+<div><p>Deployment Profile details response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Deployment enable flag.</p>
+</div></blockquote>
+<p>deploymentProfile -&gt; (string)</p>
+<blockquote>
+<div><p>Deployment profile used. Currently supported is common.</p>
+</div></blockquote>
+</div></blockquote>
+<p>logging -&gt; (object)</p>
+<blockquote>
+<div><p>Logging response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>True to enable logging installation (default false).</p>
+</div></blockquote>
+</div></blockquote>
+<p>metering -&gt; (object)</p>
+<blockquote>
+<div><p>Metering response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if Monitoring is enabled.</p>
+</div></blockquote>
+<p>services -&gt; (array)</p>
+<blockquote>
+<div><p>Array of services.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Metering service response structure.</p>
+<p>Form Factors: public</p>
+<p>serviceType -&gt; (string)</p>
+<blockquote>
+<div><p>Service type.</p>
+</div></blockquote>
+<p>serviceVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Service version.</p>
+</div></blockquote>
+<p>workloadCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Workload CRN.</p>
+</div></blockquote>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster CRN.</p>
+</div></blockquote>
+<p>serviceConfiguration -&gt; (string)</p>
+<blockquote>
+<div><p>Service configuration.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>monitoring -&gt; (object)</p>
+<blockquote>
+<div><p>Monitoring response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if Monitoring is enabled.</p>
+</div></blockquote>
+<p>alertmanager -&gt; (object)</p>
+<blockquote>
+<div><p>Alertmanager response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if Alertmanager is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>serverResourceLimits -&gt; (object)</p>
+<blockquote>
+<div><p>Resource limits response structure.</p>
+<p>Form Factors: public</p>
+<p>cpu -&gt; (string)</p>
+<blockquote>
+<div><p>Prometheus server CPU limit (default 1000m).</p>
+</div></blockquote>
+<p>memory -&gt; (string)</p>
+<blockquote>
+<div><p>Prometheus server memory limit (default 2048M).</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>nvidia -&gt; (object)</p>
+<blockquote>
+<div><p>Nvidia response structure.</p>
+<p>Form Factors: public</p>
+<p>gpuLabelKey -&gt; (string)</p>
+<blockquote>
+<div><p>GPU label key.</p>
+</div></blockquote>
+<p>gpuLabelValue -&gt; (string)</p>
+<blockquote>
+<div><p>GPU label value.</p>
+</div></blockquote>
+</div></blockquote>
+<p>repository -&gt; (string)</p>
+<blockquote>
+<div><p>Repository for images.</p>
+</div></blockquote>
+<p>yunikorn -&gt; (object)</p>
+<blockquote>
+<div><p>YuniKorn response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if yunikorn is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>telemetryKmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>Telemetry KMS key ARN.</p>
+</div></blockquote>
+<p>knox -&gt; (object)</p>
+<blockquote>
+<div><p>Deployment Profile details response structure.</p>
+<p>Form Factors: public</p>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Deployment enable flag.</p>
+</div></blockquote>
+<p>deploymentProfile -&gt; (string)</p>
+<blockquote>
+<div><p>Deployment profile used. Currently supported is common.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>sshPublicKey -&gt; (string)</p>
+<blockquote>
+<div><p>SSH public key.</p>
+</div></blockquote>
+<p>networkPlugin -&gt; (string)</p>
+<blockquote>
+<div><p>Network plugin.</p>
+</div></blockquote>
+<p>serviceCidr -&gt; (string)</p>
+<blockquote>
+<div><p>Service CIDR.</p>
+</div></blockquote>
+<p>inboundProxyCidrs -&gt; (array)</p>
+<blockquote>
+<div><p>Array of inbound proxy CIDRs.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>security -&gt; (object)</p>
+<blockquote>
+<div><p>Security response structure.</p>
+<p>Form Factors: public</p>
+<p>apiServer -&gt; (object)</p>
+<blockquote>
+<div><p>API server response structure.</p>
+<p>Form Factors: public</p>
+<p>authorizedIpRanges -&gt; (array)</p>
+<blockquote>
+<div><p>An array of IPv4 CIDR blocks.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if whitelist of IP Ranges (CIDR block) for public access to the kubernetes API server is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>secretEncryption -&gt; (object)</p>
+<blockquote>
+<div><p>Secret Encryption response structure.</p>
+<p>Form Factors: public</p>
+<p>customerKmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>The KMS key ARN used.</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if secret encryption is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>volumeEncryption -&gt; (object)</p>
+<blockquote>
+<div><p>Volume encryption response structure.</p>
+<p>Form Factors: public</p>
+<p>customerKmsKeyArn -&gt; (string)</p>
+<blockquote>
+<div><p>The KMS key ARN used.</p>
+</div></blockquote>
+</div></blockquote>
+<p>private -&gt; (boolean)</p>
+<blockquote>
+<div><p>Flag to indicate if this is a private cluster with API Server having internal IP addressees.</p>
+</div></blockquote>
+</div></blockquote>
+<p>suspendedProcesses -&gt; (array)</p>
+<blockquote>
+<div><p>Suspended processes.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>csiEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether CSI is enabled.</p>
+</div></blockquote>
+</div></blockquote>
+<p>nodeImageUpgradeAvailable -&gt; (boolean)</p>
+<blockquote>
+<div><p>Is a node image upgrade available.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>nodeImageUpgrades -&gt; (array)</p>
+<blockquote>
+<div><p>Lists the currently used images and the new upgrades available.</p>
+<p>Form Factors: public</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Structure to list the currently used images and the new upgrades available.</p>
+<p>Form Factors: public</p>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>Instance group name.</p>
+</div></blockquote>
+<p>current -&gt; (string)</p>
+<blockquote>
+<div><p>Currently used node image version.</p>
+</div></blockquote>
+<p>upgrades -&gt; (array)</p>
+<blockquote>
+<div><p>Available node image upgrade versions.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>isDefault -&gt; (boolean)</p>
+<blockquote>
+<div><p>The cluster which is automatically created for every containerized environment.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>clusterShape -&gt; (string)</p>
+<blockquote>
+<div><p>The clusterShape represents the shape of the cluster, which can be “Embedded” or “Externalized”.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-cluster</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="delete-cluster.html"
+                        title="previous chapter">delete-cluster</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="describe-deployment.html"
+                        title="next chapter">describe-deployment</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="describe-deployment.html" title="describe-deployment"
+             >next</a></li>
+        <li class="right" >
+          <a href="delete-cluster.html" title="delete-cluster"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-cluster</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
