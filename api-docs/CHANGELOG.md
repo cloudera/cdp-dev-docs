@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.124 (2024-10-16)
+* ml: Change descriptions of APIs to reflect naming change from `Cloudera Machine Learning` to `Cloudera AI`.
+* ml: Add new command `addInstanceGroups`.
+* ml Add new properties `cpu`, `gpu`, and `memory` to `WorkspaceInstanceGroup` object.
+* compute: Add new commands `createCluster`, `deleteCluster`, `describeCluster`, `listDeployments`, and `validateCluster`.
+* datahub: Add new parameter `diskOptions` to `startClusterVerticalScaling` command.
+
 ## 0.9.123 (2024-09-26)
 * dw: Deprecate `reservedComputeNodes` and `reservedSharedServicesNodes` fields in some commands.
 

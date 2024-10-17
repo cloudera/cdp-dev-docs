@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="copyright" content="Copyright © 2024 Cloudera, Inc. All rights reserved.">
-<title>Cloudera Machine Learning</title>
+<title>Cloudera AI</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
 @import url(//fonts.googleapis.com/css?family=Noticia+Text:400,400italic);
@@ -675,7 +675,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Cloudera Machine Learning</h1>
+<h1>Cloudera AI</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -690,340 +690,347 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </li>
 <li><a href="#_paths">Paths</a>
 <ul class="sectlevel2">
-<li><a href="#_addinstancegroupsmlservingapp">Add instance group to an existing Cloudera AI Inference Service instance.</a>
+<li><a href="#_addinstancegroups">Add new Cloudera AI workbench cluster instance groups.</a>
 <ul class="sectlevel3">
 <li><a href="#_description">Description</a></li>
 <li><a href="#_parameters">Parameters</a></li>
 <li><a href="#_responses">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_backupworkspace">Backup a workspace.</a>
+<li><a href="#_addinstancegroupsmlservingapp">Add instance group to an existing Cloudera AI Inference Service instance.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_parameters_2">Parameters</a></li>
 <li><a href="#_responses_2">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createmlservingapp">Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.</a>
+<li><a href="#_backupworkspace">Backup a Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createmodelregistry">Creates a new model registry.</a>
+<li><a href="#_createmlservingapp">Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_4">Description</a></li>
 <li><a href="#_parameters_4">Parameters</a></li>
 <li><a href="#_responses_4">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_createworkspace">Create a Cloudera Machine Learning workspace.</a>
+<li><a href="#_createmodelregistry">Creates a new model registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_5">Description</a></li>
 <li><a href="#_parameters_5">Parameters</a></li>
 <li><a href="#_responses_5">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deletebackup">Deletes a backup snapshot.</a>
+<li><a href="#_createworkspace">Create a Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_6">Description</a></li>
 <li><a href="#_parameters_6">Parameters</a></li>
 <li><a href="#_responses_6">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deleteinstancegroup">Deletes an instance group from the cluster.</a>
+<li><a href="#_deletebackup">Deletes a backup snapshot.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_7">Description</a></li>
 <li><a href="#_parameters_7">Parameters</a></li>
 <li><a href="#_responses_7">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deleteinstancegroupmlservingapp">Deletes an instance group from a Cloudera AI Inference Service instance.</a>
+<li><a href="#_deleteinstancegroup">Deletes an instance group from the cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_8">Description</a></li>
 <li><a href="#_parameters_8">Parameters</a></li>
 <li><a href="#_responses_8">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deletemlservingapp">Deletes Cloudera AI Inference Service instance.</a>
+<li><a href="#_deleteinstancegroupmlservingapp">Deletes an instance group from a Cloudera AI Inference Service instance.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_9">Description</a></li>
 <li><a href="#_parameters_9">Parameters</a></li>
 <li><a href="#_responses_9">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deletemodelregistry">Deletes a model registry.</a>
+<li><a href="#_deletemlservingapp">Deletes Cloudera AI Inference Service instance.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_10">Description</a></li>
 <li><a href="#_parameters_10">Parameters</a></li>
 <li><a href="#_responses_10">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_deleteworkspace">Delete Cloudera Machine Learning Workspace.</a>
+<li><a href="#_deletemodelregistry">Deletes a model registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_11">Description</a></li>
 <li><a href="#_parameters_11">Parameters</a></li>
 <li><a href="#_responses_11">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_describemlservingapp">Describe Cloudera AI Inference Service instance.</a>
+<li><a href="#_deleteworkspace">Delete Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_12">Description</a></li>
 <li><a href="#_parameters_12">Parameters</a></li>
 <li><a href="#_responses_12">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_describemodelregistry">Describe Cloudera Machine Learning Model Registry.</a>
+<li><a href="#_describemlservingapp">Describe Cloudera AI Inference Service instance.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_13">Description</a></li>
 <li><a href="#_parameters_13">Parameters</a></li>
 <li><a href="#_responses_13">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_describeworkspace">Describe Cloudera Machine Learning Workspace.</a>
+<li><a href="#_describemodelregistry">Describe Cloudera AI Model Registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_14">Description</a></li>
 <li><a href="#_parameters_14">Parameters</a></li>
 <li><a href="#_responses_14">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getauditevents">Gets all the events belong to a workspace crn.</a>
+<li><a href="#_describeworkspace">Describe Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_15">Description</a></li>
 <li><a href="#_parameters_15">Parameters</a></li>
 <li><a href="#_responses_15">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getkubeconfig">ListWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_getauditevents">Gets all the events belong to a workbench crn.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_16">Description</a></li>
 <li><a href="#_parameters_16">Parameters</a></li>
 <li><a href="#_responses_16">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getlatestworkspaceversion">GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.</a>
+<li><a href="#_getkubeconfig">ListWorkspaceAccess Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_17">Description</a></li>
 <li><a href="#_parameters_17">Parameters</a></li>
 <li><a href="#_responses_17">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getlogs">Gets all the logs belong to a request id.</a>
+<li><a href="#_getlatestworkspaceversion">GetLatestWorkspaceVersion Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_18">Description</a></li>
 <li><a href="#_parameters_18">Parameters</a></li>
 <li><a href="#_responses_18">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getmlservingappkubeconfig">Return kubeconfig for a Cloudera AI Inference Service Kubernetes cluster.</a>
+<li><a href="#_getlogs">Gets all the logs belong to a request id.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_19">Description</a></li>
 <li><a href="#_parameters_19">Parameters</a></li>
 <li><a href="#_responses_19">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getmodelregistrykubeconfig">GetModelRegistryKubeconfig returns kube config for model registry.</a>
+<li><a href="#_getmlservingappkubeconfig">Return kubeconfig for a Cloudera AI Inference Service Kubernetes cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_20">Description</a></li>
 <li><a href="#_parameters_20">Parameters</a></li>
 <li><a href="#_responses_20">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_grantmlservingappaccess">Grants admin access to a Cloudera AI Inference Service cluster.</a>
+<li><a href="#_getmodelregistrykubeconfig">GetModelRegistryKubeconfig returns kube config for model registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_21">Description</a></li>
 <li><a href="#_parameters_21">Parameters</a></li>
 <li><a href="#_responses_21">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_grantmodelregistryaccess">GrantModelRegistryAccess Cloudera Machine Learning Model Registry.</a>
+<li><a href="#_grantmlservingappaccess">Grants admin access to a Cloudera AI Inference Service cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_22">Description</a></li>
 <li><a href="#_parameters_22">Parameters</a></li>
 <li><a href="#_responses_22">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_grantworkspaceaccess">GrantWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_grantmodelregistryaccess">GrantModelRegistryAccess Cloudera AI Model Registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_23">Description</a></li>
 <li><a href="#_parameters_23">Parameters</a></li>
 <li><a href="#_responses_23">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listinstancetypeconfiguration">List the instance configuration for a given instance type.</a>
+<li><a href="#_grantworkspaceaccess">GrantWorkspaceAccess Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_24">Description</a></li>
 <li><a href="#_parameters_24">Parameters</a></li>
 <li><a href="#_responses_24">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listmlservingappaccess">List members that have Kubernetes access to a Cloudera AI Inference Service cluster.</a>
+<li><a href="#_listinstancetypeconfiguration">List the instance configuration for a given instance type.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_25">Description</a></li>
 <li><a href="#_parameters_25">Parameters</a></li>
 <li><a href="#_responses_25">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listmlservingapps">List all Cloudera AI Inference Service instances.</a>
+<li><a href="#_listmlservingappaccess">List members that have Kubernetes access to a Cloudera AI Inference Service cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_26">Description</a></li>
 <li><a href="#_parameters_26">Parameters</a></li>
 <li><a href="#_responses_26">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listmodelregistries">Lists all model registries.</a>
+<li><a href="#_listmlservingapps">List all Cloudera AI Inference Service instances.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_27">Description</a></li>
 <li><a href="#_parameters_27">Parameters</a></li>
 <li><a href="#_responses_27">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listmodelregistryaccess">ListWorkspaceAccess Cloudera Machine Learning Model Registry.</a>
+<li><a href="#_listmodelregistries">Lists all model registries.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_28">Description</a></li>
 <li><a href="#_parameters_28">Parameters</a></li>
 <li><a href="#_responses_28">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listrelevantinstances">List the instance types for CML workspace creation that have the requested resource.</a>
+<li><a href="#_listmodelregistryaccess">ListWorkspaceAccess Cloudera AI Model Registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_29">Description</a></li>
 <li><a href="#_parameters_29">Parameters</a></li>
 <li><a href="#_responses_29">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listworkspaceaccess">ListWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_listrelevantinstances">List the instance types for Cloudera AI workbench creation that have the requested resource.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_30">Description</a></li>
 <li><a href="#_parameters_30">Parameters</a></li>
 <li><a href="#_responses_30">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listworkspacebackups">List backup snapshots of a workspace.</a>
+<li><a href="#_listworkspaceaccess">ListWorkspaceAccess Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_31">Description</a></li>
 <li><a href="#_parameters_31">Parameters</a></li>
 <li><a href="#_responses_31">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listworkspaces">List Cloudera Machine Learning workspaces.</a>
+<li><a href="#_listworkspacebackups">List backup snapshots of a workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_32">Description</a></li>
 <li><a href="#_parameters_32">Parameters</a></li>
 <li><a href="#_responses_32">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_modifyclusterinstancegroup">Modify Cloudera Machine Learning workspace cluster instance group.</a>
+<li><a href="#_listworkspaces">List Cloudera AI workbenches.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_33">Description</a></li>
 <li><a href="#_parameters_33">Parameters</a></li>
 <li><a href="#_responses_33">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_modifyclustersecurity">Modify Cloudera Machine Learning workspace cluster security.</a>
+<li><a href="#_modifyclusterinstancegroup">Modify Cloudera AI workbench cluster instance group.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_34">Description</a></li>
 <li><a href="#_parameters_34">Parameters</a></li>
 <li><a href="#_responses_34">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_modifymlservingapp">Modify instance groups for a Cloudera AI Inference Service cluster.</a>
+<li><a href="#_modifyclustersecurity">Modify Cloudera AI workbench cluster security.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_35">Description</a></li>
 <li><a href="#_parameters_35">Parameters</a></li>
 <li><a href="#_responses_35">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_modifyworkspaceloadbalancer">Modify Cloudera Machine Learning workspace loadbalancer.</a>
+<li><a href="#_modifymlservingapp">Modify instance groups for a Cloudera AI Inference Service cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_36">Description</a></li>
 <li><a href="#_parameters_36">Parameters</a></li>
 <li><a href="#_responses_36">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_refreshmodelregistryconfigmap">Refreshes the model registry configmap of the workspace.</a>
+<li><a href="#_modifyworkspaceloadbalancer">Modify Cloudera AI workbench loadbalancer.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_37">Description</a></li>
 <li><a href="#_parameters_37">Parameters</a></li>
 <li><a href="#_responses_37">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_requestworkflowcancellation">Request a workflow cancellation.</a>
+<li><a href="#_refreshmodelregistryconfigmap">Refreshes the model registry configmap of the workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_38">Description</a></li>
 <li><a href="#_parameters_38">Parameters</a></li>
 <li><a href="#_responses_38">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoreworkspace">Restore a Cloudera Machine Learning workspace.</a>
+<li><a href="#_requestworkflowcancellation">Request a workflow cancellation.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_39">Description</a></li>
 <li><a href="#_parameters_39">Parameters</a></li>
 <li><a href="#_responses_39">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_resumeworkspace">Resume Cloudera Machine Learning workspace.</a>
+<li><a href="#_restoreworkspace">Restore a Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_40">Description</a></li>
 <li><a href="#_parameters_40">Parameters</a></li>
 <li><a href="#_responses_40">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_revokemlservingappaccess">Revokes access to a Cloudera AI Inference Service cluster.</a>
+<li><a href="#_resumeworkspace">Resume Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_41">Description</a></li>
 <li><a href="#_parameters_41">Parameters</a></li>
 <li><a href="#_responses_41">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_revokemodelregistryaccess">RevokeModelRegistryAccess Cloudera Machine Learning Model Registry.</a>
+<li><a href="#_revokemlservingappaccess">Revokes access to a Cloudera AI Inference Service cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_42">Description</a></li>
 <li><a href="#_parameters_42">Parameters</a></li>
 <li><a href="#_responses_42">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</a>
+<li><a href="#_revokemodelregistryaccess">RevokeModelRegistryAccess Cloudera AI Model Registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_43">Description</a></li>
 <li><a href="#_parameters_43">Parameters</a></li>
 <li><a href="#_responses_43">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_rollbackmodelregistryupgrade">Rollback a model registry upgrade. Restore prior model registry.</a>
+<li><a href="#_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_44">Description</a></li>
 <li><a href="#_parameters_44">Parameters</a></li>
 <li><a href="#_responses_44">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_suspendworkspace">Suspend Cloudera Machine Learning workspace.</a>
+<li><a href="#_rollbackmodelregistryupgrade">Rollback a model registry upgrade. Restore prior model registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_45">Description</a></li>
 <li><a href="#_parameters_45">Parameters</a></li>
 <li><a href="#_responses_45">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgrademlservingapp">Upgrade a Cloudera AI Inference Service instance.</a>
+<li><a href="#_suspendworkspace">Suspend Cloudera AI workbench.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_46">Description</a></li>
 <li><a href="#_parameters_46">Parameters</a></li>
 <li><a href="#_responses_46">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgrademodelregistry">Upgrade a model registry.</a>
+<li><a href="#_upgrademlservingapp">Upgrade a Cloudera AI Inference Service instance.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_47">Description</a></li>
 <li><a href="#_parameters_47">Parameters</a></li>
 <li><a href="#_responses_47">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</a>
+<li><a href="#_upgrademodelregistry">Upgrade a model registry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_48">Description</a></li>
 <li><a href="#_parameters_48">Parameters</a></li>
 <li><a href="#_responses_48">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradeworkspace">Upgrade Cloudera AI workbench.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_49">Description</a></li>
+<li><a href="#_parameters_49">Parameters</a></li>
+<li><a href="#_responses_49">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1032,6 +1039,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <ul class="sectlevel2">
 <li><a href="#_addinstancegroupsmlservingapprequest">AddInstanceGroupsMlServingAppRequest</a></li>
 <li><a href="#_addinstancegroupsmlservingappresponse">AddInstanceGroupsMlServingAppResponse</a></li>
+<li><a href="#_addinstancegroupsrequest">AddInstanceGroupsRequest</a></li>
+<li><a href="#_addinstancegroupsresponse">AddInstanceGroupsResponse</a></li>
 <li><a href="#_auditevent">AuditEvent</a></li>
 <li><a href="#_auditevents">AuditEvents</a></li>
 <li><a href="#_auditlog">AuditLog</a></li>
@@ -1168,12 +1177,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Install and manage Cloudera Machine Learning applications.</p>
+<p>Install and manage Cloudera AI applications.</p>
 </div>
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.123</p>
+<p><em>Version</em> : 0.9.124</p>
 </div>
 </div>
 <div class="sect2">
@@ -1215,6 +1224,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_paths">Paths</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_addinstancegroups">Add new Cloudera AI workbench cluster instance groups.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/ml/addInstanceGroups</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description">Description</h4>
+<div class="paragraph">
+<p>Add new Cloudera AI workbench cluster instance groups.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_addinstancegroupsrequest">AddInstanceGroupsRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_addinstancegroupsresponse">AddInstanceGroupsResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_addinstancegroupsmlservingapp">Add instance group to an existing Cloudera AI Inference Service instance.</h3>
 <div class="literalblock">
 <div class="content">
@@ -1222,13 +1317,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description">Description</h4>
+<h4 id="_description_2">Description</h4>
 <div class="paragraph">
 <p>Add instance group to an existing Cloudera AI Inference Service instance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters">Parameters</h4>
+<h4 id="_parameters_2">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1259,7 +1354,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses">Responses</h4>
+<h4 id="_responses_2">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1301,20 +1396,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_backupworkspace">Backup a workspace.</h3>
+<h3 id="_backupworkspace">Backup a Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/backupWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_2">Description</h4>
+<h4 id="_description_3">Description</h4>
 <div class="paragraph">
-<p>Backup a workspace.</p>
+<p>Backup a Cloudera AI workbench.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_2">Parameters</h4>
+<h4 id="_parameters_3">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1345,7 +1440,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_2">Responses</h4>
+<h4 id="_responses_3">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1394,13 +1489,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_3">Description</h4>
+<h4 id="_description_4">Description</h4>
 <div class="paragraph">
 <p>Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_3">Parameters</h4>
+<h4 id="_parameters_4">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1431,7 +1526,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_3">Responses</h4>
+<h4 id="_responses_4">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1480,13 +1575,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_4">Description</h4>
+<h4 id="_description_5">Description</h4>
 <div class="paragraph">
-<p>Create a new model registry by creating a new workspace and install model registry on it.</p>
+<p>Create a new model registry by creating a new workbench and install model registry on it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_4">Parameters</h4>
+<h4 id="_parameters_5">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1517,7 +1612,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_4">Responses</h4>
+<h4 id="_responses_5">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1559,20 +1654,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_createworkspace">Create a Cloudera Machine Learning workspace.</h3>
+<h3 id="_createworkspace">Create a Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/createWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_5">Description</h4>
+<h4 id="_description_6">Description</h4>
 <div class="paragraph">
-<p>Provision a Kubernetes cluster and install the Cloudera Machine Learning application in it.</p>
+<p>Provision a Kubernetes cluster and install the Cloudera AI application in it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_5">Parameters</h4>
+<h4 id="_parameters_6">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1603,7 +1698,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_5">Responses</h4>
+<h4 id="_responses_6">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1652,13 +1747,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_6">Description</h4>
+<h4 id="_description_7">Description</h4>
 <div class="paragraph">
-<p>Deletes a Cloudera Machine Learning workspace backup.</p>
+<p>Deletes a Cloudera AI workbench backup.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_6">Parameters</h4>
+<h4 id="_parameters_7">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1689,7 +1784,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_6">Responses</h4>
+<h4 id="_responses_7">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1738,13 +1833,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_7">Description</h4>
+<h4 id="_description_8">Description</h4>
 <div class="paragraph">
-<p>Deletes an instance group from a Cloudera Machine Learning workspace.</p>
+<p>Deletes an instance group from a Cloudera AI workbench.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_7">Parameters</h4>
+<h4 id="_parameters_8">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1775,7 +1870,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_7">Responses</h4>
+<h4 id="_responses_8">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1824,13 +1919,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_8">Description</h4>
+<h4 id="_description_9">Description</h4>
 <div class="paragraph">
 <p>Deletes an instance group from a Cloudera AI Inference Service instance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_8">Parameters</h4>
+<h4 id="_parameters_9">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1861,7 +1956,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_8">Responses</h4>
+<h4 id="_responses_9">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1910,13 +2005,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_9">Description</h4>
+<h4 id="_description_10">Description</h4>
 <div class="paragraph">
 <p>Gracefully deletes the Cloudera AI Inference Service instance without deleting the cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_9">Parameters</h4>
+<h4 id="_parameters_10">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -1947,7 +2042,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_9">Responses</h4>
+<h4 id="_responses_10">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -1996,13 +2091,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_10">Description</h4>
+<h4 id="_description_11">Description</h4>
 <div class="paragraph">
 <p>Delete a model registry.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_10">Parameters</h4>
+<h4 id="_parameters_11">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2033,7 +2128,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_10">Responses</h4>
+<h4 id="_responses_11">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2075,20 +2170,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deleteworkspace">Delete Cloudera Machine Learning Workspace.</h3>
+<h3 id="_deleteworkspace">Delete Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/deleteWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_11">Description</h4>
+<h4 id="_description_12">Description</h4>
 <div class="paragraph">
-<p>Deletes a Cloudera Machine Learning workspace.</p>
+<p>Deletes a Cloudera AI workbench.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_11">Parameters</h4>
+<h4 id="_parameters_12">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2119,7 +2214,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_11">Responses</h4>
+<h4 id="_responses_12">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2168,13 +2263,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_12">Description</h4>
+<h4 id="_description_13">Description</h4>
 <div class="paragraph">
 <p>Describe Cloudera AI Inference Service instance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_12">Parameters</h4>
+<h4 id="_parameters_13">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2205,7 +2300,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_12">Responses</h4>
+<h4 id="_responses_13">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2247,20 +2342,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_describemodelregistry">Describe Cloudera Machine Learning Model Registry.</h3>
+<h3 id="_describemodelregistry">Describe Cloudera AI Model Registry.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/describeModelRegistry</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_13">Description</h4>
+<h4 id="_description_14">Description</h4>
 <div class="paragraph">
-<p>Describes a Cloudera Machine Learning Model Registry.</p>
+<p>Describes a Cloudera AI Model Registry.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_13">Parameters</h4>
+<h4 id="_parameters_14">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2291,7 +2386,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_13">Responses</h4>
+<h4 id="_responses_14">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2333,20 +2428,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_describeworkspace">Describe Cloudera Machine Learning Workspace.</h3>
+<h3 id="_describeworkspace">Describe Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/describeWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_15">Description</h4>
 <div class="paragraph">
-<p>Describes a Cloudera Machine Learning workspace.</p>
+<p>Describes a Cloudera AI workbench.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_14">Parameters</h4>
+<h4 id="_parameters_15">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2377,7 +2472,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_15">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2419,20 +2514,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getauditevents">Gets all the events belong to a workspace crn.</h3>
+<h3 id="_getauditevents">Gets all the events belong to a workbench crn.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/getAuditEvents</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_16">Description</h4>
 <div class="paragraph">
-<p>Gets all the events belong to a workspace crn.</p>
+<p>Gets all the events belong to a workbench crn.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_15">Parameters</h4>
+<h4 id="_parameters_16">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2463,7 +2558,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_16">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2505,20 +2600,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getkubeconfig">ListWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
+<h3 id="_getkubeconfig">ListWorkspaceAccess Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/getKubeconfig</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
-<p>Lists users that can perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
+<p>Lists users that can perform Kubernetes operations on a Cloudera AI workbench via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_16">Parameters</h4>
+<h4 id="_parameters_17">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2549,7 +2644,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2591,20 +2686,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getlatestworkspaceversion">GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.</h3>
+<h3 id="_getlatestworkspaceversion">GetLatestWorkspaceVersion Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/getLatestWorkspaceVersion</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_17">Description</h4>
+<h4 id="_description_18">Description</h4>
 <div class="paragraph">
-<p>Retrieves the latest version that Cloudera Machine Learning deploys to workspaces.</p>
+<p>Retrieves the latest version that Cloudera AI deploys to workbenches.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_17">Parameters</h4>
+<h4 id="_parameters_18">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2635,7 +2730,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_17">Responses</h4>
+<h4 id="_responses_18">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2684,13 +2779,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Gets all the logs belong to a request id.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_18">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2721,7 +2816,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2770,13 +2865,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_19">Description</h4>
+<h4 id="_description_20">Description</h4>
 <div class="paragraph">
 <p>Gets the Kubeconfig of the Cloudera AI Inference Service kubernetes cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_19">Parameters</h4>
+<h4 id="_parameters_20">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2807,7 +2902,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_19">Responses</h4>
+<h4 id="_responses_20">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2856,13 +2951,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_20">Description</h4>
+<h4 id="_description_21">Description</h4>
 <div class="paragraph">
 <p>Gets the Kubeconfig of the model registry cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_20">Parameters</h4>
+<h4 id="_parameters_21">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2893,7 +2988,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_20">Responses</h4>
+<h4 id="_responses_21">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2942,13 +3037,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_21">Description</h4>
+<h4 id="_description_22">Description</h4>
 <div class="paragraph">
 <p>Grants an AWS user permissions to perform Kubernetes operations on a Cloudera AI Inference Service cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_21">Parameters</h4>
+<h4 id="_parameters_22">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2979,7 +3074,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_21">Responses</h4>
+<h4 id="_responses_22">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3021,20 +3116,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_grantmodelregistryaccess">GrantModelRegistryAccess Cloudera Machine Learning Model Registry.</h3>
+<h3 id="_grantmodelregistryaccess">GrantModelRegistryAccess Cloudera AI Model Registry.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/grantModelRegistryAccess</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_22">Description</h4>
+<h4 id="_description_23">Description</h4>
 <div class="paragraph">
-<p>Grants an AWS user to perform Kubernetes operations on a Cloudera Machine Learning model registry via EKS.</p>
+<p>Grants an AWS user to perform Kubernetes operations on a Cloudera AI model registry via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_22">Parameters</h4>
+<h4 id="_parameters_23">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3065,7 +3160,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_22">Responses</h4>
+<h4 id="_responses_23">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3107,20 +3202,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_grantworkspaceaccess">GrantWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
+<h3 id="_grantworkspaceaccess">GrantWorkspaceAccess Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/grantWorkspaceAccess</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_23">Description</h4>
+<h4 id="_description_24">Description</h4>
 <div class="paragraph">
-<p>Grants an AWS user to perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
+<p>Grants an AWS user to perform Kubernetes operations on a Cloudera AI workbench via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_23">Parameters</h4>
+<h4 id="_parameters_24">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3151,7 +3246,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_23">Responses</h4>
+<h4 id="_responses_24">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3200,13 +3295,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_24">Description</h4>
+<h4 id="_description_25">Description</h4>
 <div class="paragraph">
 <p>List of instances.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_24">Parameters</h4>
+<h4 id="_parameters_25">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3237,7 +3332,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_24">Responses</h4>
+<h4 id="_responses_25">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3286,13 +3381,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_25">Description</h4>
+<h4 id="_description_26">Description</h4>
 <div class="paragraph">
 <p>Lists users that can perform Kubernetes operations on a Cloudera AI Inference Service cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_25">Parameters</h4>
+<h4 id="_parameters_26">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3323,7 +3418,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_25">Responses</h4>
+<h4 id="_responses_26">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3372,13 +3467,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_26">Description</h4>
+<h4 id="_description_27">Description</h4>
 <div class="paragraph">
 <p>List all Cloudera AI Inference Service instances.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_26">Parameters</h4>
+<h4 id="_parameters_27">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3409,7 +3504,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_26">Responses</h4>
+<h4 id="_responses_27">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3458,13 +3553,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_27">Description</h4>
+<h4 id="_description_28">Description</h4>
 <div class="paragraph">
 <p>List all model registries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_27">Parameters</h4>
+<h4 id="_parameters_28">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3495,7 +3590,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_27">Responses</h4>
+<h4 id="_responses_28">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3537,20 +3632,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listmodelregistryaccess">ListWorkspaceAccess Cloudera Machine Learning Model Registry.</h3>
+<h3 id="_listmodelregistryaccess">ListWorkspaceAccess Cloudera AI Model Registry.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/listModelRegistryAccess</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_28">Description</h4>
+<h4 id="_description_29">Description</h4>
 <div class="paragraph">
-<p>Lists users that can perform Kubernetes operations on a Cloudera Machine Learning model registry via EKS.</p>
+<p>Lists users that can perform Kubernetes operations on a Cloudera AI model registry via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_28">Parameters</h4>
+<h4 id="_parameters_29">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3581,7 +3676,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_28">Responses</h4>
+<h4 id="_responses_29">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3623,20 +3718,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listrelevantinstances">List the instance types for CML workspace creation that have the requested resource.</h3>
+<h3 id="_listrelevantinstances">List the instance types for Cloudera AI workbench creation that have the requested resource.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/listRelevantInstances</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_29">Description</h4>
+<h4 id="_description_30">Description</h4>
 <div class="paragraph">
-<p>List of relevant instance type for CML workspace creation.</p>
+<p>List of relevant instance type for Cloudera AI workbench creation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_29">Parameters</h4>
+<h4 id="_parameters_30">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3667,7 +3762,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_29">Responses</h4>
+<h4 id="_responses_30">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3709,20 +3804,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listworkspaceaccess">ListWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
+<h3 id="_listworkspaceaccess">ListWorkspaceAccess Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/listWorkspaceAccess</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_30">Description</h4>
+<h4 id="_description_31">Description</h4>
 <div class="paragraph">
-<p>Lists users that can perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
+<p>Lists users that can perform Kubernetes operations on a Cloudera AI workbench via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_30">Parameters</h4>
+<h4 id="_parameters_31">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3753,7 +3848,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_30">Responses</h4>
+<h4 id="_responses_31">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3795,20 +3890,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listworkspacebackups">List backup snapshots of a workspace.</h3>
+<h3 id="_listworkspacebackups">List backup snapshots of a workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/listWorkspaceBackups</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_31">Description</h4>
+<h4 id="_description_32">Description</h4>
 <div class="paragraph">
-<p>List backup snapshots of a workspace.</p>
+<p>List backup snapshots of a workbench.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_31">Parameters</h4>
+<h4 id="_parameters_32">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3839,7 +3934,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_31">Responses</h4>
+<h4 id="_responses_32">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3881,20 +3976,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listworkspaces">List Cloudera Machine Learning workspaces.</h3>
+<h3 id="_listworkspaces">List Cloudera AI workbenches.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/listWorkspaces</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_32">Description</h4>
+<h4 id="_description_33">Description</h4>
 <div class="paragraph">
-<p>List Cloudera Machine Learning workspaces.</p>
+<p>List Cloudera AI workbenches.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_32">Parameters</h4>
+<h4 id="_parameters_33">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3925,7 +4020,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_32">Responses</h4>
+<h4 id="_responses_33">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -3967,20 +4062,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modifyclusterinstancegroup">Modify Cloudera Machine Learning workspace cluster instance group.</h3>
+<h3 id="_modifyclusterinstancegroup">Modify Cloudera AI workbench cluster instance group.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/modifyClusterInstanceGroup</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_33">Description</h4>
+<h4 id="_description_34">Description</h4>
 <div class="paragraph">
-<p>Modify a Cloudera Machine Learning workspace cluster instance group.</p>
+<p>Modify a Cloudera AI workbench cluster instance group.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_33">Parameters</h4>
+<h4 id="_parameters_34">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4011,7 +4106,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_33">Responses</h4>
+<h4 id="_responses_34">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4053,20 +4148,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modifyclustersecurity">Modify Cloudera Machine Learning workspace cluster security.</h3>
+<h3 id="_modifyclustersecurity">Modify Cloudera AI workbench cluster security.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/modifyClusterSecurity</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_34">Description</h4>
+<h4 id="_description_35">Description</h4>
 <div class="paragraph">
-<p>Modify a Cloudera Machine Learning workspace cluster security.</p>
+<p>Modify a Cloudera AI workbench cluster security.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_34">Parameters</h4>
+<h4 id="_parameters_35">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4097,7 +4192,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_34">Responses</h4>
+<h4 id="_responses_35">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4146,13 +4241,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_35">Description</h4>
+<h4 id="_description_36">Description</h4>
 <div class="paragraph">
 <p>Modify instance groups for a Cloudera AI Inference Service cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_35">Parameters</h4>
+<h4 id="_parameters_36">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4183,7 +4278,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_35">Responses</h4>
+<h4 id="_responses_36">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4225,20 +4320,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modifyworkspaceloadbalancer">Modify Cloudera Machine Learning workspace loadbalancer.</h3>
+<h3 id="_modifyworkspaceloadbalancer">Modify Cloudera AI workbench loadbalancer.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/modifyWorkspaceLoadBalancer</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_36">Description</h4>
+<h4 id="_description_37">Description</h4>
 <div class="paragraph">
-<p>Modify a Cloudera Machine Learning workspace loadbalancer.</p>
+<p>Modify a Cloudera AI workbench loadbalancer.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_36">Parameters</h4>
+<h4 id="_parameters_37">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4269,7 +4364,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_36">Responses</h4>
+<h4 id="_responses_37">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4311,20 +4406,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_refreshmodelregistryconfigmap">Refreshes the model registry configmap of the workspace.</h3>
+<h3 id="_refreshmodelregistryconfigmap">Refreshes the model registry configmap of the workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/refreshModelRegistryConfigmap</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_37">Description</h4>
+<h4 id="_description_38">Description</h4>
 <div class="paragraph">
-<p>Refreshes the model registry configmap of the workspace from the control plane.</p>
+<p>Refreshes the model registry configmap of the workbench from the control plane.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_37">Parameters</h4>
+<h4 id="_parameters_38">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4355,7 +4450,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_37">Responses</h4>
+<h4 id="_responses_38">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4404,13 +4499,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_38">Description</h4>
+<h4 id="_description_39">Description</h4>
 <div class="paragraph">
 <p>Request a long running workflow cancellation by resource ID and workflow type.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_38">Parameters</h4>
+<h4 id="_parameters_39">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4441,7 +4536,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_38">Responses</h4>
+<h4 id="_responses_39">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4483,20 +4578,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_restoreworkspace">Restore a Cloudera Machine Learning workspace.</h3>
+<h3 id="_restoreworkspace">Restore a Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/restoreWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_39">Description</h4>
+<h4 id="_description_40">Description</h4>
 <div class="paragraph">
-<p>Create a new workspace based on an existing workspace backup snapshot.</p>
+<p>Create a new workbench based on an existing workbench backup snapshot.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_39">Parameters</h4>
+<h4 id="_parameters_40">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4527,7 +4622,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_39">Responses</h4>
+<h4 id="_responses_40">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4569,20 +4664,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_resumeworkspace">Resume Cloudera Machine Learning workspace.</h3>
+<h3 id="_resumeworkspace">Resume Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/resumeWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_40">Description</h4>
+<h4 id="_description_41">Description</h4>
 <div class="paragraph">
-<p>Resume a Cloudera Machine Learnings workspace.</p>
+<p>Resume a Cloudera Machine Learnings workbench.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_40">Parameters</h4>
+<h4 id="_parameters_41">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4613,7 +4708,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_40">Responses</h4>
+<h4 id="_responses_41">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4662,13 +4757,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_41">Description</h4>
+<h4 id="_description_42">Description</h4>
 <div class="paragraph">
 <p>Revokes an AWS user permissions on a Cloudera AI Inference Service cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_41">Parameters</h4>
+<h4 id="_parameters_42">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4699,7 +4794,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_41">Responses</h4>
+<h4 id="_responses_42">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4741,20 +4836,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_revokemodelregistryaccess">RevokeModelRegistryAccess Cloudera Machine Learning Model Registry.</h3>
+<h3 id="_revokemodelregistryaccess">RevokeModelRegistryAccess Cloudera AI Model Registry.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/revokeModelRegistryAccess</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_42">Description</h4>
+<h4 id="_description_43">Description</h4>
 <div class="paragraph">
-<p>Revokes an AWS user to perform Kubernetes operations on a Cloudera Machine Learning model registry via EKS.</p>
+<p>Revokes an AWS user to perform Kubernetes operations on a Cloudera AI model registry via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_42">Parameters</h4>
+<h4 id="_parameters_43">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4785,7 +4880,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_42">Responses</h4>
+<h4 id="_responses_43">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4827,20 +4922,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera Machine Learning Workspace.</h3>
+<h3 id="_revokeworkspaceaccess">RevokeWorkspaceAccess Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/revokeWorkspaceAccess</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_43">Description</h4>
+<h4 id="_description_44">Description</h4>
 <div class="paragraph">
-<p>Revokes an AWS user to perform Kubernetes operations on a Cloudera Machine Learning workspace via EKS.</p>
+<p>Revokes an AWS user to perform Kubernetes operations on a Cloudera AI workbench via EKS.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_43">Parameters</h4>
+<h4 id="_parameters_44">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4871,7 +4966,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_43">Responses</h4>
+<h4 id="_responses_44">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4920,13 +5015,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_44">Description</h4>
+<h4 id="_description_45">Description</h4>
 <div class="paragraph">
 <p>Rollback a model registry upgrade. Restore prior model registry.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_44">Parameters</h4>
+<h4 id="_parameters_45">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4957,7 +5052,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_44">Responses</h4>
+<h4 id="_responses_45">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4999,20 +5094,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_suspendworkspace">Suspend Cloudera Machine Learning workspace.</h3>
+<h3 id="_suspendworkspace">Suspend Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/suspendWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_45">Description</h4>
+<h4 id="_description_46">Description</h4>
 <div class="paragraph">
-<p>Suspend a Cloudera Machine Learning workspace.</p>
+<p>Suspend a Cloudera AI workbench.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_45">Parameters</h4>
+<h4 id="_parameters_46">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5043,7 +5138,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_45">Responses</h4>
+<h4 id="_responses_46">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5092,13 +5187,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_46">Description</h4>
+<h4 id="_description_47">Description</h4>
 <div class="paragraph">
 <p>Upgrade a Cloudera AI Inference Service instance to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_46">Parameters</h4>
+<h4 id="_parameters_47">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5129,7 +5224,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_46">Responses</h4>
+<h4 id="_responses_47">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5178,13 +5273,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_47">Description</h4>
+<h4 id="_description_48">Description</h4>
 <div class="paragraph">
 <p>Upgrade a model registry.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_47">Parameters</h4>
+<h4 id="_parameters_48">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5215,7 +5310,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_47">Responses</h4>
+<h4 id="_responses_48">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5257,20 +5352,20 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_upgradeworkspace">Upgrade Cloudera Machine Learning workspace.</h3>
+<h3 id="_upgradeworkspace">Upgrade Cloudera AI workbench.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/ml/upgradeWorkspace</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_48">Description</h4>
+<h4 id="_description_49">Description</h4>
 <div class="paragraph">
-<p>Upgrades a Cloudera Machine Learning workspace to the latest available version.</p>
+<p>Upgrades a Cloudera AI workbench to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_48">Parameters</h4>
+<h4 id="_parameters_49">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -5301,7 +5396,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_48">Responses</h4>
+<h4 id="_responses_49">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -5403,9 +5498,64 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_addinstancegroupsrequest">AddInstanceGroupsRequest</h3>
+<div class="paragraph">
+<p>Request object for AddInstanceGroups.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceGroups</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The instance groups that we want to add to the workbench.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_instancegroup">InstanceGroup</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>workspaceCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the workbench to which the instance groups are to be added.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_addinstancegroupsresponse">AddInstanceGroupsResponse</h3>
+<div class="paragraph">
+<p>Response object for AddInstanceGroups.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_auditevent">AuditEvent</h3>
 <div class="paragraph">
-<p>Audit event descibes an performed or performing in a given workspace.</p>
+<p>Audit event descibes an performed or performing in a given workbench.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -5475,7 +5625,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Workspace crn where the event observed.</p>
+<p>workbench crn where the event observed.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5487,7 +5637,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_auditevents">AuditEvents</h3>
 <div class="paragraph">
-<p>AuditEvents contains all the audit events for a given workspace crn.</p>
+<p>AuditEvents contains all the audit events for a given workbench crn.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -5509,7 +5659,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>AuditEvent belong to the workspace crn.</p>
+<p>AuditEvent belong to the workbench crn.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_auditevent">AuditEvent</a> &gt; array</p>
@@ -5521,7 +5671,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Workspace crn unique for the set of audit events.</p>
+<p>workbench crn unique for the set of audit events.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5773,11 +5923,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>isCrossNsBackup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Status whether the backup is cross namespace enabled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>workspaceVersionAtBackup</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of the backed-up workspace at the time of backup.</p>
+<p>The version of the backed-up workbench at the time of backup.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5789,7 +5951,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_backupmetadata">BackupMetadata</h3>
 <div class="paragraph">
-<p>Backup metadata response object for the workspace summary.</p>
+<p>Backup metadata response object for the workbench summary.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -5823,7 +5985,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Whether successful backups are available for the workspace.</p>
+<p>Whether successful backups are available for the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -5871,7 +6033,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_backupworkspacerequest">BackupWorkspaceRequest</h3>
 <div class="paragraph">
-<p>The request object for workspace backup.</p>
+<p>The request object for Cloudera AI workbench backup.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -5929,7 +6091,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>CRN of the workspace to backup.</p>
+<p>CRN of the workbench to backup.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5941,7 +6103,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_backupworkspaceresponse">BackupWorkspaceResponse</h3>
 <div class="paragraph">
-<p>The response object for workspace backup.</p>
+<p>The response object for Cloudera AI workbench backup.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -6341,7 +6503,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of subnets used for the load balancer that CML creates.</p>
+<p>The list of subnets used for the load balancer that Cloudera AI creates.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -6432,7 +6594,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.</p>
+<p>The boolean flag to disable TLS setup for workbench. By default, the TLS is enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -6444,7 +6606,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enables Cloudera Machine Learning governance by integrating with Cloudera Atlas. By default, this flag is disabled.</p>
+<p>Enables Cloudera AI governance by integrating with Cloudera Atlas. By default, this flag is disabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -6480,7 +6642,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to create.</p>
+<p>The environment for the workbench to create.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6552,7 +6714,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Outbound Types provided for the workspace.</p>
+<p>Outbound Types provided for the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_outboundtypes">OutboundTypes</a> &gt; array</p>
@@ -6576,7 +6738,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The request for Kubernetes workspace provision. Required in public cloud.</p>
+<p>The request for Kubernetes workbench provision. Required in public cloud.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_provisionk8srequest">ProvisionK8sRequest</a></p>
@@ -6600,7 +6762,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The static subdomain to be used for the workspace.</p>
+<p>The static subdomain to be used for the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6612,7 +6774,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of subnets used for the load balancer that CML creates.</p>
+<p>The list of subnets used for the load balancer that Cloudera AI creates.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -6648,7 +6810,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to create.</p>
+<p>The name of the workbench to create.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6826,7 +6988,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The instance group that we want to delete from the workspace.</p>
+<p>The instance group that we want to delete from the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6838,7 +7000,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace from which instance group is to be deleted.</p>
+<p>The CRN of the workbench from which instance group is to be deleted.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6924,7 +7086,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Force delete a model registry workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.</p>
+<p>Force delete a model registry workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -6960,7 +7122,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Deprecated. The workspace CRN of the model registry (Public cloud only).</p>
+<p>Deprecated. The workbench CRN of the model registry (Public cloud only).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7003,7 +7165,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to delete.</p>
+<p>The environment for the workbench to delete.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7015,7 +7177,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.</p>
+<p>Force delete a workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -7027,7 +7189,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.</p>
+<p>The remove storage flag indicates weather to keep the backing workbench filesystem storage or remove it during delete.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -7039,7 +7201,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
+<p>The CRN of the workbench to delete. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7051,7 +7213,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to delete.</p>
+<p>The name of the workbench to delete.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7196,7 +7358,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The workspace.</p>
+<p>The registry.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_modelregistry">ModelRegistry</a></p>
@@ -7230,7 +7392,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to describe.</p>
+<p>The environment for the workbench to describe.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7242,7 +7404,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to describe. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
+<p>The CRN of the workbench to describe. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7254,7 +7416,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to describe.</p>
+<p>The name of the workbench to describe.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7288,7 +7450,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The workspace.</p>
+<p>The workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_workspace">Workspace</a></p>
@@ -7428,7 +7590,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_getauditeventsrequest">GetAuditEventsRequest</h3>
 <div class="paragraph">
-<p>GetAuditEventsRequest to get all audit events for a given workspace crn.</p>
+<p>GetAuditEventsRequest to get all audit events for a given workbench crn.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -7450,7 +7612,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Resource crn for which audit events to be fetched. Resource can be workspace or model registry.</p>
+<p>Resource crn for which audit events to be fetched. Resource can be workbench or model registry.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7474,7 +7636,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_getauditeventsresponse">GetAuditEventsResponse</h3>
 <div class="paragraph">
-<p>GetAuditEventsResponse containes all the audit events for a given workspace crn.</p>
+<p>GetAuditEventsResponse containes all the audit events for a given workbench crn.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -7496,7 +7658,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Contains all the audit events for a given workspace crn.</p>
+<p>Contains all the audit events for a given workbench crn.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_auditevents">AuditEvents</a></p>
@@ -7530,7 +7692,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
+<p>The environment that the workbench is a member of.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7542,7 +7704,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to list access.</p>
+<p>The CRN of the workbench to list access.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7554,7 +7716,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to list access.</p>
+<p>The name of the workbench to list access.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7631,7 +7793,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The latest version of a workspace that is used when deploying Cloudera Machine Learning workspaces.</p>
+<p>The latest version of a workbench that is used when deploying Cloudera AI workbenches.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8089,7 +8251,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
+<p>The environment that the workbench is a member of.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8101,7 +8263,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud provider user id which will be granted access to the workspace&#8217;s Kubernetes cluster.</p>
+<p>The cloud provider user id which will be granted access to the workbench&#8217;s Kubernetes cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8113,7 +8275,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to grant access to. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
+<p>The CRN of the workbench to grant access to. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8125,7 +8287,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to grant access to.</p>
+<p>The name of the workbench to grant access to.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9190,7 +9352,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
+<p>The environment that the workbench is a member of.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9202,7 +9364,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to list access. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
+<p>The CRN of the workbench to list access. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9214,7 +9376,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to list access.</p>
+<p>The name of the workbench to list access.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9282,7 +9444,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>When set to true, will return the metadata of the environment where the backed-up workspace is/was present.</p>
+<p>When set to true, will return the metadata of the environment where the backed-up workbench is/was present.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -9316,7 +9478,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment for the workspace to list backups for.</p>
+<p>The environment for the workbench to list backups for.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9340,7 +9502,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to list backups for. If this field is specified, environmentName and workspaceName are ignored.</p>
+<p>The CRN of the workbench to list backups for. If this field is specified, environmentName and workspaceName are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9352,7 +9514,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to list backups for.</p>
+<p>The name of the workbench to list backups for.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9454,7 +9616,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of workspaces.</p>
+<p>The list of workbenches.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_workspacesummary">WorkspaceSummary</a> &gt; array</p>
@@ -9940,7 +10102,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Deprecated. WorkSpace CRN. This field is no longer used.</p>
+<p>Deprecated. workbench CRN. This field is no longer used.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9952,7 +10114,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Deprecated, please refer to serviceName. Workspace name.</p>
+<p>Deprecated, please refer to serviceName. workbench name.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10032,7 +10194,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the instance group of the workspace cluster to modify.</p>
+<p>The name of the instance group of the workbench cluster to modify.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10044,7 +10206,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The desired instance type of the workspace cluster instance group.</p>
+<p>The desired instance type of the workbench cluster instance group.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10056,7 +10218,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The desired autoscaling min of the workspace cluster instance group.</p>
+<p>The desired autoscaling min of the workbench cluster instance group.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -10068,7 +10230,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The desired autoscaling min of the workspace cluster instance group.</p>
+<p>The desired autoscaling min of the workbench cluster instance group.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -10080,7 +10242,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace cluster to modify.</p>
+<p>The CRN of the workbench cluster to modify.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10147,7 +10309,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace cluster to modify.</p>
+<p>The CRN of the workbench cluster to modify.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10293,7 +10455,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace cluster to modify.</p>
+<p>The CRN of the workbench cluster to modify.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10369,7 +10531,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_provisionk8srequest">ProvisionK8sRequest</h3>
 <div class="paragraph">
-<p>Request object for workspace provision. Required in public cloud.</p>
+<p>Request object for workbench provision. Required in public cloud.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -10391,7 +10553,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment for the workspace to create.</p>
+<p>The name of the environment for the workbench to create.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10439,7 +10601,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_provisiontag">ProvisionTag</h3>
 <div class="paragraph">
-<p>Contains a single tag entry that will be configured on cloud resources associated with a workspace.</p>
+<p>Contains a single tag entry that will be configured on cloud resources associated with a workbench.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -10485,7 +10647,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_refreshmodelregistryconfigmaprequest">RefreshModelRegistryConfigmapRequest</h3>
 <div class="paragraph">
-<p>Request for refreshing workspace&#8217;s model registry configmap.</p>
+<p>Request for refreshing workbench&#8217;s model registry configmap.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -10507,7 +10669,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Workspace CRN.</p>
+<p>workbench CRN.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10519,7 +10681,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_refreshmodelregistryconfigmapresponse">RefreshModelRegistryConfigmapResponse</h3>
 <div class="paragraph">
-<p>Response for refreshing workspace&#8217;s model registry configmap.</p>
+<p>Response for refreshing workbench&#8217;s model registry configmap.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
@@ -10760,7 +10922,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The parameters required for a new Cloudera Machine Learning workspace.</p>
+<p>The parameters required for a new Cloudera AI workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_createworkspacerequest">CreateWorkspaceRequest</a></p>
@@ -10818,7 +10980,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the Cloudera Machine Learning workspace being provisioned.</p>
+<p>The CRN of the Cloudera AI workbench being provisioned.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10852,7 +11014,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to resume.</p>
+<p>The CRN of the workbench to resume.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11017,7 +11179,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment that the workspace is a member of.</p>
+<p>The environment that the workbench is a member of.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11029,7 +11191,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud provider user id which will be granted access to the workspace&#8217;s Kubernetes cluster.</p>
+<p>The cloud provider user id which will be granted access to the workbench&#8217;s Kubernetes cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11041,7 +11203,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to revoke access to. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
+<p>The CRN of the workbench to revoke access to. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11053,7 +11215,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace to revoke access to.</p>
+<p>The name of the workbench to revoke access to.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11173,7 +11335,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace to suspend.</p>
+<p>The CRN of the workbench to suspend.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11194,7 +11356,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_tag">Tag</h3>
 <div class="paragraph">
-<p>Contains a single tag entry associated with a workspace.</p>
+<p>Contains a single tag entry associated with a workbench.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -11385,7 +11547,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_upgradestate">UpgradeState</h3>
 <div class="paragraph">
-<p>Response object for the workspace summary.</p>
+<p>Response object for the workbench summary.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -11419,7 +11581,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The current upgrade state of the workspace.</p>
+<p>The current upgrade state of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11453,7 +11615,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The environment of the workspace.</p>
+<p>The environment of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11465,7 +11627,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of workspace to upgrade to.</p>
+<p>The version of workbench to upgrade to.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11477,7 +11639,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.</p>
+<p>The CRN of the workbench. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11489,7 +11651,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace.</p>
+<p>The name of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11592,7 +11754,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_workspace">Workspace</h3>
 <div class="paragraph">
-<p>A ML workspace, which includes the cluster and storage.</p>
+<p>A ML workbench, which includes the cluster and storage.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -11626,7 +11788,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Backup MetaData for this Workspace</p>
+<p>The Backup MetaData for this workbench</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_backupmetadata">BackupMetadata</a></p>
@@ -11638,7 +11800,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud platform of the environment that was used to create this workspace.</p>
+<p>The cloud platform of the environment that was used to create this workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11662,7 +11824,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Cluster ID for the workspace.</p>
+<p>The Cluster ID for the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11674,7 +11836,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Creation date of workspace.</p>
+<p>Creation date of workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string (date-time)</p>
@@ -11686,7 +11848,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the creator of the workspace.</p>
+<p>The CRN of the creator of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11698,7 +11860,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace.</p>
+<p>The CRN of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11734,7 +11896,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace&#8217;s environment.</p>
+<p>The name of the workbench&#8217;s environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11746,7 +11908,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Failure message from the most recent failure that has occurred during workspace provisioning.</p>
+<p>Failure message from the most recent failure that has occurred during workbench provisioning.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11758,7 +11920,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>filesystemID used by the workspace</p>
+<p>filesystemID used by the workbench</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11782,7 +11944,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The health info information of the workspace.</p>
+<p>The health info information of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_healthinfo">HealthInfo</a> &gt; array</p>
@@ -11818,7 +11980,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace.</p>
+<p>The name of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11830,7 +11992,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The workspace&#8217;s current status.</p>
+<p>The workbench&#8217;s current status.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11842,7 +12004,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>URL of the workspace&#8217;s user interface.</p>
+<p>URL of the workbench&#8217;s user interface.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11866,7 +12028,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The value to indicate if the workspace is restored one or not</p>
+<p>The value to indicate if the workbench is restored one or not</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -11914,7 +12076,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If usage monitoring is enabled or not on this workspace.</p>
+<p>If usage monitoring is enabled or not on this workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -11938,7 +12100,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The subnets of the workspace.</p>
+<p>The subnets of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -11950,7 +12112,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of subnets used for the load balancer that CML creates.</p>
+<p>The list of subnets used for the load balancer that Cloudera AI creates.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -11962,7 +12124,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tags provided by the user at the time of workspace creation.</p>
+<p>Tags provided by the user at the time of workbench creation.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_tag">Tag</a> &gt; array</p>
@@ -11974,7 +12136,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The upgrade state contains the workspace upgrade information.</p>
+<p>The upgrade state contains the workbench upgrade information.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_upgradestate">UpgradeState</a></p>
@@ -11986,7 +12148,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of Cloudera Machine Learning that was installed on the workspace.</p>
+<p>The version of Cloudera AI that was installed on the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12010,7 +12172,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_workspaceinstancegroup">WorkspaceInstanceGroup</h3>
 <div class="paragraph">
-<p>Instance group information to show in workspace details.</p>
+<p>Instance group information to show in workbench details.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -12026,6 +12188,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cpu</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of CPUs attached to this instance type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gpu</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Number of GPUs attached to this instance type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>instanceCount</strong><br>
@@ -12088,6 +12274,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memory</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Memory in GiB attached to this instance type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>minInstances</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -12104,7 +12302,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tags are key/value pairs that are applied to all tag-able resources deployed in the workspace&#8217;s cloud environment.</p>
+<p>Tags are key/value pairs that are applied to all tag-able resources deployed in the workbench&#8217;s cloud environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_tag">Tag</a> &gt; array</p>
@@ -12116,7 +12314,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_workspacesummary">WorkspaceSummary</h3>
 <div class="paragraph">
-<p>A Cloudera Machine Learning workspace which includes the deployed configuration details.</p>
+<p>A Cloudera AI workbench which includes the deployed configuration details.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -12138,7 +12336,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Backup Metadata for the workspace.</p>
+<p>The Backup Metadata for the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_backupmetadata">BackupMetadata</a></p>
@@ -12150,7 +12348,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The cloud platform of the environment that was used to create this workspace.</p>
+<p>The cloud platform of the environment that was used to create this workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12162,7 +12360,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The Cluster ID for the workspace.</p>
+<p>The Cluster ID for the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12174,7 +12372,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Creation date of workspace.</p>
+<p>Creation date of workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string (date-time)</p>
@@ -12186,7 +12384,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the creator of the workspace.</p>
+<p>The CRN of the creator of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12198,7 +12396,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the workspace.</p>
+<p>The CRN of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12222,7 +12420,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace&#8217;s environment.</p>
+<p>The name of the workbench&#8217;s environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12234,7 +12432,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Failure message from the most recent failure that has occurred during workspace provisioning.</p>
+<p>Failure message from the most recent failure that has occurred during workbench provisioning.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12246,7 +12444,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workspace uses.</p>
+<p>A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workbench uses.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12258,7 +12456,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The health info information of the workspace.</p>
+<p>The health info information of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_healthinfo">HealthInfo</a> &gt; array</p>
@@ -12270,7 +12468,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Indicates if HTTPs communication was enabled on this workspace when provisioned.</p>
+<p>Indicates if HTTPs communication was enabled on this workbench when provisioned.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -12282,7 +12480,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the workspace.</p>
+<p>The name of the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12294,7 +12492,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The workspace&#8217;s current status.</p>
+<p>The workbench&#8217;s current status.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12306,7 +12504,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>URL of the workspace&#8217;s user interface.</p>
+<p>URL of the workbench&#8217;s user interface.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12330,7 +12528,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The value to indicate if the workspace is restored one or not</p>
+<p>The value to indicate if the workbench is restored one or not</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -12366,7 +12564,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If usage monitoring is enabled or not on this workspace.</p>
+<p>If usage monitoring is enabled or not on this workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -12390,7 +12588,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The upgrade state contains the workspace upgrade information.</p>
+<p>The upgrade state contains the workbench upgrade information.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_upgradestate">UpgradeState</a></p>
@@ -12402,7 +12600,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The version of Cloudera Machine Learning that was installed on the workspace.</p>
+<p>The version of Cloudera AI that was installed on the workbench.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12416,7 +12614,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-27 08:28:57 -0700
+Last updated 2024-10-16 16:47:32 -0700
 </div>
 </div>
 <br>
