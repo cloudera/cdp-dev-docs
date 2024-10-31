@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vw-diagnostic-data-job &#8212; CDP CLI 0.9.124 (BETA) documentation</title>
+    <title>create-vw-diagnostic-data-job &#8212; CDP CLI 0.9.125 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-vw.html" title="create-vw"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw-diagnostic-data-job</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a diagnostic job for the given Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.124</p>
+<dd class="field-even"><p>0.9.125</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -64,8 +64,6 @@
 <span class="o">[</span>--case-number &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--bundle-metadata &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--force <span class="p">|</span> --no-force<span class="o">]</span>
-<span class="o">[</span>--hive-download-options &lt;value&gt;<span class="o">]</span>
-<span class="o">[</span>--impala-download-options &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -119,99 +117,6 @@
 <blockquote>
 <div><p>Forced recreation of the diagnostic job.</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--hive-download-options</span></code> (object)</p>
-<blockquote>
-<div><p>Flags that denote which diagnostics to include for a Hive Virtual Warehouse.</p>
-<p>includeHms -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the HMS diagnostics.</p>
-</div></blockquote>
-<p>includeErrordump -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the error dump.</p>
-</div></blockquote>
-<p>includeGclogs -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the Garbage collector logs.</p>
-</div></blockquote>
-<p>includeHeapdump -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the heap-dump.</p>
-</div></blockquote>
-<p>includeLogs -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include logs.</p>
-</div></blockquote>
-<p>includeComputeResourceInfo -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include compute resource info.</p>
-</div></blockquote>
-<p>includeKubernetesResourceInfo -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include Kubernetes resource info.</p>
-</div></blockquote>
-</div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">includeHms</span><span class="o">=</span>boolean,includeErrordump<span class="o">=</span>boolean,includeGclogs<span class="o">=</span>boolean,includeHeapdump<span class="o">=</span>boolean,includeLogs<span class="o">=</span>boolean,includeComputeResourceInfo<span class="o">=</span>boolean,includeKubernetesResourceInfo<span class="o">=</span>boolean
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;includeHms&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeErrordump&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeGclogs&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeHeapdump&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeLogs&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeComputeResourceInfo&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeKubernetesResourceInfo&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>Form Factors: public</p>
-<p><code class="docutils literal notranslate"><span class="pre">--impala-download-options</span></code> (object)</p>
-<blockquote>
-<div><p>Flags that denote which diagnostics to include for an Impala Virtual Warehouse.</p>
-<p>includeHms -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the HMS diagnostics.</p>
-</div></blockquote>
-<p>includeMinidump -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the minidump.</p>
-</div></blockquote>
-<p>includeProfile -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the profile.</p>
-</div></blockquote>
-<p>includeSidecar -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the sidecar diagnostics.</p>
-</div></blockquote>
-<p>includeWorkload -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include the workload diagnostics.</p>
-</div></blockquote>
-<p>includeKubernetesResourceInfo -&gt; (boolean)</p>
-<blockquote>
-<div><p>Include kubernetes resource info.</p>
-</div></blockquote>
-</div></blockquote>
-<p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">includeHms</span><span class="o">=</span>boolean,includeMinidump<span class="o">=</span>boolean,includeProfile<span class="o">=</span>boolean,includeSidecar<span class="o">=</span>boolean,includeWorkload<span class="o">=</span>boolean,includeKubernetesResourceInfo<span class="o">=</span>boolean
-</pre></div>
-</div>
-<p>JSON Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;includeHms&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeMinidump&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeProfile&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeSidecar&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeWorkload&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;includeKubernetesResourceInfo&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>Form Factors: public</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -296,7 +201,7 @@
         <li class="right" >
           <a href="create-vw.html" title="create-vw"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw-diagnostic-data-job</a></li> 
       </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-database &#8212; CDP CLI 0.9.124 (BETA) documentation</title>
+    <title>update-database &#8212; CDP CLI 0.9.125 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="stop-database.html" title="stop-database"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Updates the database</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.124</p>
+<dd class="field-even"><p>0.9.125</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -65,6 +65,7 @@
 <span class="o">[</span>--vertical-scale &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--num-desired-restworker-nodes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--remove-restworker-nodes <span class="p">|</span> --no-remove-restworker-nodes<span class="o">]</span>
+<span class="o">[</span>--switch-instance-type &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -177,6 +178,29 @@
 <blockquote>
 <div><p>Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--switch-instance-type</span></code> (object)</p>
+<blockquote>
+<div><p>Parameters to configure custom VM Instance Types.</p>
+<p>instanceGroup -&gt; (string)</p>
+<blockquote>
+<div><p>InstanceGroup Type. <cite>WORKER</cite> - WORKER value of the InstanceGroup name. <cite>LEADER</cite> - LEADER value of the InstanceGroup name. <cite>MASTER</cite> - MASTER value of the InstanceGroup name. <cite>GATEWAY</cite> - GATEWAY value of the InstanceGroup name. <cite>STRONGMETA</cite> - STRONGMETA value of the InstanceGroup name. <cite>EDGE</cite> - EDGE value of the InstanceGroup name. <cite>COMPUTE</cite> - COMPUTE value of the InstanceGroup name. <cite>RESTWORKER</cite> - RESTWORKER value of the InstanceGroup name.</p>
+</div></blockquote>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>The Custom VM Instance Type.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">instanceGroup</span><span class="o">=</span>string,instanceType<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;instanceGroup&quot;</span>: <span class="s2">&quot;WORKER&quot;</span><span class="p">|</span><span class="s2">&quot;LEADER&quot;</span><span class="p">|</span><span class="s2">&quot;MASTER&quot;</span><span class="p">|</span><span class="s2">&quot;GATEWAY&quot;</span><span class="p">|</span><span class="s2">&quot;STRONGMETA&quot;</span><span class="p">|</span><span class="s2">&quot;EDGE&quot;</span>,
+  <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -247,7 +271,7 @@
         <li class="right" >
           <a href="stop-database.html" title="stop-database"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-database</a></li> 
       </ul>
