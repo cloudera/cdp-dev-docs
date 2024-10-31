@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-azure-database-resources &#8212; CDP CLI 0.9.124 documentation</title>
+    <title>update-azure-database-resources &#8212; CDP CLI 0.9.125 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="update-azure-credential.html" title="update-azure-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-azure-database-resources</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Update the Azure database resources for the environment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.124</p>
+<dd class="field-even"><p>0.9.125</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -372,6 +372,34 @@
 <div><p>The name for the DynamoDB table backing S3Guard.</p>
 </div></blockquote>
 </div></blockquote>
+<p>azureDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Azure specific environment configuration information.</p>
+<p>resourceGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.</p>
+</div></blockquote>
+<p>resourceEncryptionParameters -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing details of encryption parameters for Azure cloud.</p>
+<p>encryptionKeyUrl -&gt; (string)</p>
+<blockquote>
+<div><p>URL of the key which is used to encrypt the Azure Managed Disks.</p>
+</div></blockquote>
+<p>encryptionKeyResourceGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which is used to encrypt the Azure Managed Disks.</p>
+</div></blockquote>
+<p>diskEncryptionSetId -&gt; (string)</p>
+<blockquote>
+<div><p>ID of the Disk Encryption Set created in Azure which is used to encrypt Managed Disks of FreeIPA, Data Lake, Data Hub and PostgreSQL.</p>
+</div></blockquote>
+<p>encryptionUserManagedIdentity -&gt; (string)</p>
+<blockquote>
+<div><p>User managed identity for encryption.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 <p>gcpDetails -&gt; (object)</p>
 <blockquote>
 <div><p>GCP specific environment configuration information.</p>
@@ -589,6 +617,50 @@
 <div><p>The CRN of the configured custom docker registry for data services on the environment.</p>
 </div></blockquote>
 </div></blockquote>
+<p>awsComputeClusterConfiguration -&gt; (object)</p>
+<blockquote>
+<div><p>Externalized compute cluster configuration for the environment.</p>
+<p>privateCluster -&gt; (boolean)</p>
+<blockquote>
+<div><p>If true, creates private cluster.</p>
+</div></blockquote>
+<p>kubeApiAuthorizedIpRanges -&gt; (array)</p>
+<blockquote>
+<div><p>Kubernetes API authorized IP ranges in CIDR notation.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>workerNodeSubnets -&gt; (array)</p>
+<blockquote>
+<div><p>Subnets for Kubernetes Worker Nodes</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>azureComputeClusterConfiguration -&gt; (object)</p>
+<blockquote>
+<div><p>Externalized compute cluster configuration for the environment.</p>
+<p>privateCluster -&gt; (boolean)</p>
+<blockquote>
+<div><p>If true, creates private cluster.</p>
+</div></blockquote>
+<p>kubeApiAuthorizedIpRanges -&gt; (array)</p>
+<blockquote>
+<div><p>Kubernetes API authorized IP ranges in CIDR notation.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>outboundType -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster egress with defined outbound type in Azure Kubernetes Service.</p>
+</div></blockquote>
+<p>workerNodeSubnets -&gt; (array)</p>
+<blockquote>
+<div><p>Subnets for Kubernetes Worker Nodes</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>computeClusterEnabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Compute clusters enabled</p>
+</div></blockquote>
 </div></blockquote>
 <p>azureDatabaseResources -&gt; (object)</p>
 <blockquote>
@@ -658,7 +730,7 @@
         <li class="right" >
           <a href="update-azure-credential.html" title="update-azure-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.124 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-azure-database-resources</a></li> 
       </ul>
