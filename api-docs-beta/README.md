@@ -1,30 +1,30 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.124 (BETA)*
+*Version: 0.9.125 (BETA)*
 
 Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.124 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.124 |
-| [compute](./compute/index.html) | 0.9.124 |
-| [consumption](./consumption/index.html) | 0.9.124 |
-| [datacatalog](./datacatalog/index.html) | 0.9.124 |
-| [datahub](./datahub/index.html) | 0.9.124 |
-| [datalake](./datalake/index.html) | 0.9.124 |
-| [de](./de/index.html) | 0.9.124 |
-| [df](./df/index.html) | 0.9.124 |
-| [dfworkload](./dfworkload/index.html) | 0.9.124 |
-| [drscp](./drscp/index.html) | 0.9.124 |
-| [dw](./dw/index.html) | 0.9.124 |
-| [environments](./environments/index.html) | 0.9.124 |
-| [iam](./iam/index.html) | 0.9.124 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.124 |
-| [metrics](./metrics/index.html) | 0.9.124 |
-| [ml](./ml/index.html) | 0.9.124 |
-| [opdb](./opdb/index.html) | 0.9.124 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.124 |
+| [audit](./audit/index.html) | 0.9.125 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.125 |
+| [compute](./compute/index.html) | 0.9.125 |
+| [consumption](./consumption/index.html) | 0.9.125 |
+| [datacatalog](./datacatalog/index.html) | 0.9.125 |
+| [datahub](./datahub/index.html) | 0.9.125 |
+| [datalake](./datalake/index.html) | 0.9.125 |
+| [de](./de/index.html) | 0.9.125 |
+| [df](./df/index.html) | 0.9.125 |
+| [dfworkload](./dfworkload/index.html) | 0.9.125 |
+| [drscp](./drscp/index.html) | 0.9.125 |
+| [dw](./dw/index.html) | 0.9.125 |
+| [environments](./environments/index.html) | 0.9.125 |
+| [iam](./iam/index.html) | 0.9.125 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.125 |
+| [metrics](./metrics/index.html) | 0.9.125 |
+| [ml](./ml/index.html) | 0.9.125 |
+| [opdb](./opdb/index.html) | 0.9.125 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.125 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).

@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.124 (BETA)
+  version: 0.9.125 (BETA)
   title: Operational Database service
   license:
     name: Apache 2.0
@@ -417,6 +417,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ListSupportedEnvironmentsResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
+  /api/v1/opdb/listSupportedInstanceTypes:
+    post:
+      summary: Lists instance types supported by COD
+      description: Lists instance types supported by COD.
+      operationId: listSupportedInstanceTypes
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListSupportedInstanceTypesRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListSupportedInstanceTypesResponse'
         default:
           description: The default response on an error.
           schema:
@@ -901,6 +922,12 @@ definitions:
       - CLOUD_WITH_EPHEMERAL
       - CLOUD
       - HDFS
+  ArchitectureType:
+    type: string
+    description: "Architecture type for cluster.\n `X86_64` - X64 CPU Architecture is used for the cluster. `ARM64` - ARM64 CPU Architecture is used for the cluster."
+    enum:
+      - X86_64
+      - ARM64
   UpdateDatabaseRequest:
     type: object
     description: A request to update the database
@@ -937,6 +964,19 @@ definitions:
       removeRestworkerNodes:
         type: boolean
         description: Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.
+      switchInstanceType:
+        description: Provide custom VM instance types to switch instance types for instance groups. Requires COD_USE_CUSTOM_INSTANCE_TYPES entitlement.
+        $ref: '#/definitions/CustomInstanceType'
+  CustomInstanceType:
+    type: object
+    description: Parameters to configure custom VM Instance Types.
+    properties:
+      instanceGroup:
+        description: The Instance Group Type.
+        $ref: '#/definitions/InstanceGroupType'
+      instanceType:
+        type: string
+        description: The Custom VM Instance Type.
   AutoScalingParameters:
     type: object
     description: A Parameters to configure AutoScaling
@@ -1348,6 +1388,13 @@ definitions:
       volumeType:
         description: The volume type.
         $ref: '#/definitions/VolumeType'
+  CloudPlatform:
+    type: string
+    description: "Cloud Provider that cluster is exhibited on.\n `AWS` - AWS `AZURE` - Azure `GCP` - GCP"
+    enum:
+      - AWS
+      - AZURE
+      - GCP
   DescribeDatabaseRequest:
     type: object
     description: request to get details of the database in a particular environment
@@ -2383,4 +2430,49 @@ definitions:
     enum:
       - GATEWAY
       - MASTER
+  ListSupportedInstanceTypesRequest:
+    type: object
+    description: The request for listing supported instance types.
+    required:
+      - cloudPlatform
+      - storageType
+      - scaleType
+    properties:
+      cloudPlatform:
+        description: The name of Cloud Platform.
+        $ref: '#/definitions/CloudPlatform'
+      storageType:
+        description: The Storage Type.
+        $ref: '#/definitions/StorageType'
+      scaleType:
+        description: The Scale Type.
+        $ref: '#/definitions/ScaleType'
+      instanceGroup:
+        description: The Instance Group Type.
+        $ref: '#/definitions/InstanceGroupType'
+      architecture:
+        description: The Architecture.
+        $ref: '#/definitions/ArchitectureType'
+  ListSupportedInstanceTypesResponse:
+    type: object
+    description: The response for listing supported instance types.
+    properties:
+      supportedInstanceTypesLists:
+        type: array
+        items:
+          $ref: '#/definitions/SupportedInstanceTypesList'
+        description: List of supported instance types.
+  SupportedInstanceTypesList:
+    type: object
+    description: Instance Types list for listing supported instance types.
+    properties:
+      instanceGroup:
+        type: string
+        description: The Instance Group Type.
+      defaultInstanceTypes:
+        type: string
+        description: The default instance type.
+      supportedInstanceTypes:
+        type: string
+        description: The other instance types supported.
 x-audit: true

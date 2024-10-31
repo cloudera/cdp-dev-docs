@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.124 (BETA)
+  version: 0.9.125 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -161,7 +161,6 @@ paths:
       description: Gets a single deployment along with its extended history. This can also include all of the known templates.
       operationId: describeDeployment
       x-entitlement: COMPUTE_API_LIFTIE
-      x-form-factors: public
       parameters:
         - name: input
           in: body
@@ -367,7 +366,6 @@ paths:
       description: Upgrades a deployment to a different chart.
       operationId: upgradeDeployment
       x-entitlement: COMPUTE_API_LIFTIE
-      x-form-factors: public
       parameters:
         - name: input
           in: body
@@ -2213,7 +2211,6 @@ definitions:
       name:
         type: string
         description: The name of the deployment.
-    x-form-factors: public
   Chart:
     type: object
     description: Chart structure.
@@ -2233,7 +2230,6 @@ definitions:
       values:
         type: string
         description: Escaped JSON for values.yaml of that chart.
-    x-form-factors: public
   AvailableDeploymentUpgrade:
     type: object
     description: Available deployment upgrade structure.
@@ -2244,7 +2240,6 @@ definitions:
       deploymentVersion:
         type: string
         description: The version of the deployment that is available to upgrade to.
-    x-form-factors: public
   Deployment:
     type: object
     description: Deployment structure.
@@ -2276,7 +2271,6 @@ definitions:
       overrides:
         type: string
         description: Escaped JSON overrides for the deployment's properties.
-    x-form-factors: public
   History:
     type: object
     description: History structure.
@@ -2294,7 +2288,6 @@ definitions:
       overrides:
         type: string
         description: Escaped JSON overrides for the deployment's properties for given revision.
-    x-form-factors: public
   DescribeDeploymentResponse:
     type: object
     description: Response structure for describing a deployment.
@@ -2311,7 +2304,6 @@ definitions:
         type: string
         description: Escaped JSON overrides for the deployment's properties. Deprecated.
         x-deprecated: true
-    x-form-factors: public
   UpgradeDeploymentRequest:
     type: object
     description: Request structure for upgrading a deployment.
@@ -2335,7 +2327,6 @@ definitions:
       overrides:
         type: string
         description: Escaped JSON overrides for the deployment's properties.
-    x-form-factors: public
   UpgradeDeploymentResponse:
     type: object
     description: Response structure for upgrading a deployment.
@@ -2359,7 +2350,6 @@ definitions:
       chart:
         description: Chart that the deployment was created from.
         $ref: '#/definitions/Chart'
-    x-form-factors: public
   RollbackDeploymentRequest:
     type: object
     description: Request structure to rollback a deployment.

@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.124 (BETA)
+  version: 0.9.125 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -3784,6 +3784,16 @@ definitions:
           s3GuardTableName:
             type: string
             description: The name for the DynamoDB table backing S3Guard.
+      azureDetails:
+        type: object
+        description: Azure specific environment configuration information.
+        properties:
+          resourceGroupName:
+            type: string
+            description: Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.
+          resourceEncryptionParameters:
+            $ref: '#/definitions/AzureResourceEncryptionParameters'
+            description: Object containing details of encryption parameters for Azure cloud.
       gcpDetails:
         type: object
         description: GCP specific environment configuration information.
@@ -5203,7 +5213,7 @@ definitions:
         type: array
         items:
           type: string
-        description: Kubernetes API authorized IP ranges in CIDR notation. Mutually exclusive with privateCluster. Default value is 0.0.0.0/0.
+        description: Kubernetes API authorized IP ranges in CIDR notation. Mutually exclusive with privateCluster.
       workerNodeSubnets:
         type: array
         items:
@@ -5220,7 +5230,7 @@ definitions:
         type: array
         items:
           type: string
-        description: Kubernetes API authorized IP ranges in CIDR notation. Mutually exclusive with privateCluster. Default value is 0.0.0.0/0.
+        description: Kubernetes API authorized IP ranges in CIDR notation. Mutually exclusive with privateCluster.
       outboundType:
         type: string
         enum:

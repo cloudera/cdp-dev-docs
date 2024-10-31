@@ -1,5 +1,24 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.125 (2024-10-30)
+* datalake: Add new object 'DiskOptions' to 'StartDatalakeVerticalScalingRequest' & 'startDatalakeVerticalScaling' object.
+* datalake: Add new object 'AddDisks', 'ModifyDisks' to 'DiskOptions' object.
+* datalake: Add support for adding new additional storages or modifying existing additional storages to 'startDatalakeVerticalScaling' command.
+* replicationmanager: Support for HBase replication with create-hbase-policy, update-hbase-policy, continue-hbase-setup, suspend-hbase-policy, activate-hbase-policy, delete-hbase-policy, list-paired-hbase-clusters and verify-hbase-cluster-pair commands.
+* replicationmanager: Add get-cluster-config command.
+* environments: Add 'azureDetails' to the 'Environment' object.
+* environments: Add new commands 'initializeAWSComputeCluster' and 'initializeAzureComputeCluster'.
+* environments: Add new properties 'enableComputeCluster' and 'computeClusterConfiguration' to 'CreateAWSEnvironmentRequest' object.
+* environments: Add new properties 'enableComputeCluster' and 'computeClusterConfiguration' to 'CreateAzureEnvironmentRequest' object.
+* environments: Add new property 'computeClusterEnabled' to 'EnvironmentSummary' object.
+* environments: Add new property 'awsComputeClusterConfiguration', 'azureComputeClusterConfiguration' and 'computeClusterEnabled' to 'Environment' object.
+* dw: Deprecate property 'downloadOptions' in 'CreateDbcDiagnosticDataJobRequest'.
+* dw: Deprecate properties 'hiveDownloadOptions' and 'impalaDownloadOptions' in 'CreateDbcDiagnosticDataJobResponse'.
+* dw: Deprecate 'HiveCreateDiagnosticDataDownloadOptions', 'ImpalaCreateDiagnosticDataDownloadOptions', 'DBCCreateDiagnosticDataDownloadOptions' and 'ClusterCreateDiagnosticDataDownloadOptions'.
+
+BACKWARD INCOMPATIBILITIES:
+* ml: Remove 'isCrossNsBackup' option from 'BackupDetail' object.
+
 ## 0.9.124 (2024-10-16)
 * ml: Change descriptions of APIs to reflect naming change from `Cloudera Machine Learning` to `Cloudera AI`.
 * ml: Add new command `addInstanceGroups`.
