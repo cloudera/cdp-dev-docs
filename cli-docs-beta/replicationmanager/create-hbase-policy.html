@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-hbase-policy &#8212; CDP CLI 0.9.125 (BETA) documentation</title>
+    <title>create-hbase-policy &#8212; CDP CLI 0.9.126 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="create-policy" href="create-policy.html" />
-    <link rel="prev" title="create-gcs-credential" href="create-gcs-credential.html" /> 
+    <link rel="prev" title="create-gcs-private-key-credential" href="create-gcs-private-key-credential.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="create-policy.html" title="create-policy"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="create-gcs-credential.html" title="create-gcs-credential"
+          <a href="create-gcs-private-key-credential.html" title="create-gcs-private-key-credential"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.126 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">replicationmanager</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-hbase-policy</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create an HBase Replication Policy.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.125</p>
+<dd class="field-even"><p>0.9.126</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -122,6 +122,10 @@
 <blockquote>
 <div><p>If set to true, the current data in the table will be replicated before the HBase replication peer gets enabled. If set to false, only the data changed after the policy creation will be replicated.</p>
 </div></blockquote>
+<p>exportSnapshotUser -&gt; (string)</p>
+<blockquote>
+<div><p>If set, the user specified by this parameter will be used to export the initial snapshot on the source.</p>
+</div></blockquote>
 <p>description -&gt; (string)</p>
 <blockquote>
 <div><p>Description of the policy.</p>
@@ -164,7 +168,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">hbasePolicyArguments</span><span class="o">={</span><span class="nv">tables</span><span class="o">=[</span>string,string<span class="o">]</span>,credentialLocation<span class="o">=</span>string,cloudCredential<span class="o">=</span>string,validateReplicationSetup<span class="o">=</span>boolean,forceSetup<span class="o">=</span>boolean,databaseArguments<span class="o">={</span><span class="nv">replicationStrategy</span><span class="o">=</span>string<span class="o">}}</span>,sourceCluster<span class="o">=</span>string,targetCluster<span class="o">=</span>string,initialSnapshot<span class="o">=</span>boolean,description<span class="o">=</span>string,machineUser<span class="o">={</span><span class="nv">user</span><span class="o">=</span>string,password<span class="o">=</span>string,createUser<span class="o">=</span>boolean<span class="o">}</span>,queueName<span class="o">=</span>string,distcpMaxMaps<span class="o">=</span>integer,distcpMapBandwidth<span class="o">=</span>integer,sourceRestartType<span class="o">=</span>string,targetRestartType<span class="o">=</span>string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">hbasePolicyArguments</span><span class="o">={</span><span class="nv">tables</span><span class="o">=[</span>string,string<span class="o">]</span>,credentialLocation<span class="o">=</span>string,cloudCredential<span class="o">=</span>string,validateReplicationSetup<span class="o">=</span>boolean,forceSetup<span class="o">=</span>boolean,databaseArguments<span class="o">={</span><span class="nv">replicationStrategy</span><span class="o">=</span>string<span class="o">}}</span>,sourceCluster<span class="o">=</span>string,targetCluster<span class="o">=</span>string,initialSnapshot<span class="o">=</span>boolean,exportSnapshotUser<span class="o">=</span>string,description<span class="o">=</span>string,machineUser<span class="o">={</span><span class="nv">user</span><span class="o">=</span>string,password<span class="o">=</span>string,createUser<span class="o">=</span>boolean<span class="o">}</span>,queueName<span class="o">=</span>string,distcpMaxMaps<span class="o">=</span>integer,distcpMapBandwidth<span class="o">=</span>integer,sourceRestartType<span class="o">=</span>string,targetRestartType<span class="o">=</span>string
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -182,6 +186,7 @@
   <span class="s2">&quot;sourceCluster&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;targetCluster&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;initialSnapshot&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;exportSnapshotUser&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;machineUser&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;string&quot;</span>,
@@ -246,8 +251,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="create-gcs-credential.html"
-                        title="previous chapter">create-gcs-credential</a></p>
+  <p class="topless"><a href="create-gcs-private-key-credential.html"
+                        title="previous chapter">create-gcs-private-key-credential</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="create-policy.html"
                         title="next chapter">create-policy</a></p>
@@ -272,9 +277,9 @@
           <a href="create-policy.html" title="create-policy"
              >next</a></li>
         <li class="right" >
-          <a href="create-gcs-credential.html" title="create-gcs-credential"
+          <a href="create-gcs-private-key-credential.html" title="create-gcs-private-key-credential"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.125 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.126 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >replicationmanager</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-hbase-policy</a></li> 
       </ul>
