@@ -5,7 +5,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.125 (BETA)
+  version: 0.9.126 (BETA)
   title: Cloudera Replication Manager Service
   license:
     name: Apache 2.0
@@ -123,23 +123,128 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/replicationmanager/updateAwsCredential:
+  /api/v1/replicationmanager/createAwsAccessKeyCredential:
     post:
-      summary: Update an AWS Cloud Credential.
-      description: Updates an existing AWS cloud credential.
-      operationId: updateAwsCredential
+      summary: Create an AWS Access Key cloud credential.
+      description: Creates a new AWS Access Key cloud credential.
+      operationId: createAwsAccessKeyCredential
       x-mutating: true
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/UpdateAwsCredentialRequest'
+            $ref: '#/definitions/CreateAwsAccessKeyCredentialRequest'
       responses:
         200:
           description: Describes a successful response to a valid request.
           schema:
-            $ref: '#/definitions/UpdateAwsCredentialResponse'
+            $ref: '#/definitions/CreateAwsAccessKeyCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateAwsAccessKeyCredential:
+    post:
+      summary: Update an AWS Access Key cloud credential.
+      description: Updates an existing AWS Access Key cloud credential.
+      operationId: updateAwsAccessKeyCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateAwsAccessKeyCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateAwsAccessKeyCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/createAwsIamCredential:
+    post:
+      summary: Create an AWS IAM Role based cloud credential.
+      description: Creates a new AWS IAM Role based cloud credential.
+      operationId: createAwsIamCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateAwsIamCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateAwsIamCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateAwsIamCredential:
+    post:
+      summary: Update an AWS IAM Role based cloud credential.
+      description: Updates an existing AWS IAM Role based cloud credential.
+      operationId: updateAwsIamCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateAwsIamCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateAwsIamCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/createAwsIdbrokerCredential:
+    post:
+      summary: Create an AWS IDBroker cloud credential.
+      description: Creates a new AWS IDBroker cloud credential.
+      operationId: createAwsIdbrokerCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateAwsIdbrokerCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateAwsIdbrokerCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateAwsIdbrokerCredential:
+    post:
+      summary: Update an AWS IDBroker cloud credential.
+      description: Updates an existing AWS IDBroker cloud credential.
+      operationId: updateAwsIdbrokerCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateAwsIdbrokerCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateAwsIdbrokerCredentialResponse'
         default:
           description: The default response on an error.
           schema:
@@ -165,65 +270,128 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/replicationmanager/updateAbfsCredential:
+  /api/v1/replicationmanager/createAbfsAccessKeyCredential:
     post:
-      summary: Update an ABFS Cloud Credential.
-      description: Updates an existing ABFS cloud credential.
-      operationId: updateAbfsCredential
+      summary: Create an ABFS Access Key based account in DLM Engine.
+      description: Creates a new ABFS Access Key based account in DLM Engine.
+      operationId: createAbfsAccessKeyCredential
       x-mutating: true
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/UpdateAbfsCredentialRequest'
+            $ref: '#/definitions/CreateAbfsAccessKeyCredentialRequest'
       responses:
         200:
           description: Describes a successful response to a valid request.
           schema:
-            $ref: '#/definitions/UpdateAbfsCredentialResponse'
+            $ref: '#/definitions/CreateAbfsAccessKeyCredentialResponse'
         default:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/replicationmanager/createGcsCredential:
+  /api/v1/replicationmanager/updateAbfsAccessKeyCredential:
     post:
-      summary: Create a GCS Cloud Credential.
-      description: Creates a new GCS cloud credential.
-      operationId: createGcsCredential
+      summary: Update an ABFS Access Key based account in DLM Engine.
+      description: Updates an existing ABFS Access Key based account in DLM Engine.
+      operationId: updateAbfsAccessKeyCredential
       x-mutating: true
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/CreateGcsCredentialRequest'
+            $ref: '#/definitions/UpdateAbfsAccessKeyCredentialRequest'
       responses:
         200:
           description: Describes a successful response to a valid request.
           schema:
-            $ref: '#/definitions/CreateGcsCredentialResponse'
+            $ref: '#/definitions/UpdateAbfsAccessKeyCredentialResponse'
         default:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
-  /api/v1/replicationmanager/updateGcsCredential:
+  /api/v1/replicationmanager/createAbfsClientKeyCredential:
     post:
-      summary: Update a GCS Cloud Credential.
-      description: Updates an existing GCS cloud credential.
-      operationId: updateGcsCredential
+      summary: Create an Azure Active Directory Service Principal account in Cloudera Manager.
+      description: Creates a new Azure Active Directory Service Principal account in Cloudera Manager.
+      operationId: createAbfsClientKeyCredential
       x-mutating: true
       parameters:
         - name: input
           in: body
           required: true
           schema:
-            $ref: '#/definitions/UpdateGcsCredentialRequest'
+            $ref: '#/definitions/CreateAbfsClientKeyCredentialRequest'
       responses:
         200:
           description: Describes a successful response to a valid request.
           schema:
-            $ref: '#/definitions/UpdateGcsCredentialResponse'
+            $ref: '#/definitions/CreateAbfsClientKeyCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateAbfsClientKeyCredential:
+    post:
+      summary: Update an Azure Active Directory Service Principal account in Cloudera Manager.
+      description: Updates an existing Azure Active Directory Service Principal account in Cloudera Manager.
+      operationId: updateAbfsClientKeyCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateAbfsClientKeyCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateAbfsClientKeyCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/createGcsPrivateKeyCredential:
+    post:
+      summary: Create a GCS Private Key cloud credential.
+      description: Creates a new GCS Private Key cloud credential.
+      operationId: createGcsPrivateKeyCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateGcsPrivateKeyCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/CreateGcsPrivateKeyCredentialResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/replicationmanager/updateGcsPrivateKeyCredential:
+    post:
+      summary: Update a GCS Private Key cloud credential.
+      description: Updates an existing GCS Private Key cloud credential.
+      operationId: updateGcsPrivateKeyCredential
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateGcsPrivateKeyCredentialRequest'
+      responses:
+        200:
+          description: Describes a successful response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateGcsPrivateKeyCredentialResponse'
         default:
           description: The default response on an error.
           schema:
@@ -1105,19 +1273,92 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ApiError'
-  UpdateAwsCredentialRequest:
+  CreateAwsIdbrokerCredentialRequest:
     type: object
-    description: Request object for updating AWS cloud credentials.
+    description: Request object for creating AWS IDBroker cloud credentials.
+    required:
+      - clusters
+      - name
+      - idbrokerAddress
+      - idbrokerCabPath
+    properties:
+      clusters:
+        description: List of cluster CRNs where the credential should be created.
+        type: array
+        items:
+          type: string
+        x-sensitive: false
+      name:
+        description: Name of the credential.
+        type: string
+        x-sensitive: false
+      idbrokerAddress:
+        description: The address of the IDBroker endpoint that will be used for authentication, for example http(s)://[IDBROKER_HOST]:[IDBROKER_PORT]/gateway.
+        type: string
+        x-sensitive: false
+        x-no-paramfile: true
+      idbrokerCabPath:
+        description: The name of the IDBroker topology that will be used for authentication.
+        type: string
+        x-sensitive: false
+  CreateAwsIdbrokerCredentialResponse:
+    type: object
+    description: Response object for creating AWS IDBroker cloud credentials.
+    properties:
+      errors:
+        description: The list of response errors in case of a partial failure while creating the credential.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  UpdateAwsIdbrokerCredentialRequest:
+    type: object
+    description: Request object for updating AWS IdBroker cloud credentials.
     required:
       - name
-      - type
+      - idbrokerAddress
+      - idbrokerCabPath
     properties:
       name:
         description: Name of the credential to update.
         type: string
-      type:
-        description: 'Type of the credential. Additional accepted parameters by type: IAM: none; ACCESSKEY: accessKey, secretKey. Superfluous parameters are ignored.'
-        $ref: '#/definitions/AwsCloudCredentialType'
+        x-sensitive: false
+      idbrokerAddress:
+        description: The address of the IDBroker endpoint that will be used for authentication, for example http(s)://[IDBROKER_HOST]:[IDBROKER_PORT]/gateway.
+        type: string
+        x-sensitive: false
+        x-no-paramfile: true
+      idbrokerCabPath:
+        description: The name of the IDBroker topology that will be used for authentication.
+        type: string
+        x-sensitive: false
+  UpdateAwsIdbrokerCredentialResponse:
+    type: object
+    description: Response object for updating AWS IdBroker cloud credentials.
+    properties:
+      errors:
+        description: The list of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  CreateAwsAccessKeyCredentialRequest:
+    type: object
+    description: Request object for creating AWS Access Key cloud credentials.
+    required:
+      - clusters
+      - name
+      - accessKey
+      - secretKey
+    properties:
+      clusters:
+        description: List of cluster CRNs where the credential should be created.
+        type: array
+        items:
+          type: string
+        x-sensitive: false
+      name:
+        description: Name of the credential.
+        type: string
+        x-sensitive: false
       accessKey:
         description: AWS access key.
         type: string
@@ -1126,9 +1367,83 @@ definitions:
         description: AWS secret key.
         type: string
         x-sensitive: true
-  UpdateAwsCredentialResponse:
+  CreateAwsAccessKeyCredentialResponse:
     type: object
-    description: Response object for updating AWS credentials.
+    description: Response object for creating AWS Access Key cloud credentials.
+    properties:
+      errors:
+        description: The list of response errors in case of a partial failure while creating the credential.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  UpdateAwsAccessKeyCredentialRequest:
+    type: object
+    description: Request object for updating AWS Access Key cloud credentials.
+    required:
+      - name
+      - accessKey
+      - secretKey
+    properties:
+      name:
+        description: Name of the credential to update.
+        type: string
+        x-sensitive: false
+      accessKey:
+        description: AWS access key.
+        type: string
+        x-sensitive: true
+      secretKey:
+        description: AWS secret key.
+        type: string
+        x-sensitive: true
+  UpdateAwsAccessKeyCredentialResponse:
+    type: object
+    description: Response object for updating AWS Access Key cloud credentials.
+    properties:
+      errors:
+        description: The list of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  CreateAwsIamCredentialRequest:
+    type: object
+    description: Request object for creating AWS IAM Role based cloud credentials.
+    required:
+      - clusters
+      - name
+    properties:
+      clusters:
+        description: List of cluster CRNs where the credential should be created.
+        type: array
+        items:
+          type: string
+        x-sensitive: false
+      name:
+        description: Name of the credential.
+        type: string
+        x-sensitive: false
+  CreateAwsIamCredentialResponse:
+    type: object
+    description: Response object for creating AWS IAM Role based cloud credentials.
+    properties:
+      errors:
+        description: The list of response errors in case of a partial failure while creating the credential.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  UpdateAwsIamCredentialRequest:
+    type: object
+    description: Request object for updating AWS IAM Role based cloud credentials.
+    required:
+      - name
+    properties:
+      name:
+        description: Name of the credential to update.
+        type: string
+        x-sensitive: false
+  UpdateAwsIamCredentialResponse:
+    type: object
+    description: Response object for updating AWS IAM Role based cloud credentials.
     properties:
       errors:
         description: The list of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
@@ -1180,19 +1495,25 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ApiError'
-  UpdateAbfsCredentialRequest:
+  CreateAbfsAccessKeyCredentialRequest:
     type: object
-    description: Request object for updating ABFS cloud credentials.
+    description: Request object for creating ABFS Access Key based accounts in DLM Engine.
     required:
+      - clusters
       - name
-      - type
+      - accessKey
+      - storageAccountName
     properties:
+      clusters:
+        description: List of cluster CRNs where the credential should be created.
+        type: array
+        items:
+          type: string
+        x-sensitive: false
       name:
-        description: Name of the credential to update.
+        description: Name of the credential.
         type: string
-      type:
-        description: 'Type of the credential. Additional accepted parameters by type: ACCESSKEY: storageAccountName, accessKey; CLIENTKEY: clientId, clientSecretKey, tenantId. Superfluous parameters are ignored. ACCESSKEY is only supported on Ambari, while CLIENTKEY is only supported on Cloudera Manager.'
-        $ref: '#/definitions/AbfsCloudCredentialType'
+        x-sensitive: false
       accessKey:
         description: ABFS access key.
         type: string
@@ -1200,6 +1521,63 @@ definitions:
       storageAccountName:
         description: ABFS storage account name.
         type: string
+  CreateAbfsAccessKeyCredentialResponse:
+    type: object
+    description: Response object for creating ABFS Access Key based accounts in DLM Engine.
+    properties:
+      errors:
+        description: The list of response errors in case of a partial failure while creating the credential.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  UpdateAbfsAccessKeyCredentialRequest:
+    type: object
+    description: Request object for updating ABFS Access Key based accounts in DLM Engine.
+    required:
+      - name
+      - accessKey
+      - storageAccountName
+    properties:
+      name:
+        description: Name of the credential to update.
+        type: string
+        x-sensitive: false
+      accessKey:
+        description: ABFS access key.
+        type: string
+        x-sensitive: true
+      storageAccountName:
+        description: ABFS storage account name.
+        type: string
+  UpdateAbfsAccessKeyCredentialResponse:
+    type: object
+    description: Response object for updating ABFS Access Key based accounts in DLM Engine.
+    properties:
+      errors:
+        description: The list of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  CreateAbfsClientKeyCredentialRequest:
+    type: object
+    description: Request object for creating Azure Active Directory Service Principal accounts in Cloudera Manager.
+    required:
+      - clusters
+      - name
+      - clientId
+      - clientSecretKey
+      - tenantId
+    properties:
+      clusters:
+        description: List of cluster CRNs where the credential should be created.
+        type: array
+        items:
+          type: string
+        x-sensitive: false
+      name:
+        description: Name of the credential.
+        type: string
+        x-sensitive: false
       clientId:
         description: Client ID of an Active Directory service principal account.
         type: string
@@ -1210,66 +1588,67 @@ definitions:
       tenantId:
         description: Tenant ID of an Active Directory service principal account.
         type: string
-  UpdateAbfsCredentialResponse:
+  CreateAbfsClientKeyCredentialResponse:
     type: object
-    description: Response object for updating ABFS credentials.
-    properties:
-      errors:
-        description: List of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
-        type: array
-        items:
-          $ref: '#/definitions/ApiError'
-  CreateGcsCredentialRequest:
-    type: object
-    description: Request object for creating GCS cloud credentials.
-    required:
-      - name
-      - clusters
-      - type
-    properties:
-      name:
-        description: Name of the credential.
-        type: string
-      clusters:
-        description: List of cluster CRNs where the credential should be created.
-        type: array
-        items:
-          type: string
-      type:
-        description: 'Type of the credential. Additional accepted parameters by type: PRIVATEKEY: clientEmail, privateKeyId, privateKey. Superfluous parameters are ignored.'
-        $ref: '#/definitions/GcsCloudCredentialType'
-      clientEmail:
-        description: Client email.
-        type: string
-      privateKeyId:
-        description: GCS private key ID.
-        type: string
-      privateKey:
-        description: GCS private key.
-        type: string
-        x-sensitive: true
-  CreateGcsCredentialResponse:
-    type: object
-    description: Response object for creating GCS credentials.
+    description: Response object for creating Azure Active Directory Service Principal accounts in Cloudera Manager.
     properties:
       errors:
         description: The list of response errors in case of a partial failure while creating the credential.
         type: array
         items:
           $ref: '#/definitions/ApiError'
-  UpdateGcsCredentialRequest:
+  UpdateAbfsClientKeyCredentialRequest:
     type: object
-    description: Request object for updating GCS cloud credentials.
+    description: Request object for updating Azure Active Directory Service Principal accounts in Cloudera Manager.
     required:
       - name
-      - type
+      - clientId
+      - clientSecretKey
+      - tenantId
     properties:
       name:
         description: Name of the credential to update.
         type: string
-      type:
-        description: 'Type of the credential. Additional accepted parameters by type: PRIVATEKEY: clientEmail, privateKeyId, privateKey. Superfluous parameters are ignored.'
-        $ref: '#/definitions/GcsCloudCredentialType'
+        x-sensitive: false
+      clientId:
+        description: Client ID of an Active Directory service principal account.
+        type: string
+      clientSecretKey:
+        description: Client Key of an Active Directory service principal account.
+        type: string
+        x-sensitive: true
+      tenantId:
+        description: Tenant ID of an Active Directory service principal account.
+        type: string
+  UpdateAbfsClientKeyCredentialResponse:
+    type: object
+    description: Response object for updating Azure Active Directory Service Principal accounts in Cloudera Manager.
+    properties:
+      errors:
+        description: The list of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  CreateGcsPrivateKeyCredentialRequest:
+    type: object
+    description: Request object for creating GCS Private Key cloud credentials.
+    required:
+      - clusters
+      - name
+      - clientEmail
+      - privateKeyId
+      - privateKey
+    properties:
+      clusters:
+        description: List of cluster CRNs where the credential should be created.
+        type: array
+        items:
+          type: string
+        x-sensitive: false
+      name:
+        description: Name of the credential.
+        type: string
+        x-sensitive: false
       clientEmail:
         description: Client email.
         type: string
@@ -1280,12 +1659,44 @@ definitions:
         description: GCS private key.
         type: string
         x-sensitive: true
-  UpdateGcsCredentialResponse:
+  CreateGcsPrivateKeyCredentialResponse:
     type: object
-    description: Response object for updating GCS credentials.
+    description: Response object for creating GCS Private Key cloud credentials.
     properties:
       errors:
-        description: List of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
+        description: The list of response errors in case of a partial failure while creating the credential.
+        type: array
+        items:
+          $ref: '#/definitions/ApiError'
+  UpdateGcsPrivateKeyCredentialRequest:
+    type: object
+    description: Request object for updating GCS Private Key cloud credentials.
+    required:
+      - name
+      - clientEmail
+      - privateKeyId
+      - privateKey
+    properties:
+      name:
+        description: Name of the credential to update.
+        type: string
+        x-sensitive: false
+      clientEmail:
+        description: Client email.
+        type: string
+      privateKeyId:
+        description: GCS private key ID.
+        type: string
+      privateKey:
+        description: GCS private key.
+        type: string
+        x-sensitive: true
+  UpdateGcsPrivateKeyCredentialResponse:
+    type: object
+    description: Response object for updating GCS Private Key cloud credentials.
+    properties:
+      errors:
+        description: The list of response errors in case of partial failure (e.g. updating the credential failed on one of three clusters).
         type: array
         items:
           $ref: '#/definitions/ApiError'
@@ -1400,6 +1811,19 @@ definitions:
   DeletePolicyResponse:
     type: object
     description: Response object for deletePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
   CreatePolicyRequest:
     type: object
     description: Create a replication policy.
@@ -1420,6 +1844,19 @@ definitions:
   CreatePolicyResponse:
     type: object
     description: Response object for createPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
   UpdatePolicyRequest:
     type: object
     description: Update a replication policy request.
@@ -1506,6 +1943,19 @@ definitions:
   UpdatePolicyResponse:
     type: object
     description: Response object for updatePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request (Successful or an error).
   CreateHbasePolicyRequest:
     type: object
     description: Create an HBase replication policy.
@@ -2003,6 +2453,19 @@ definitions:
   SuspendPolicyResponse:
     type: object
     description: Response object for suspendPolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
   ActivatePolicyRequest:
     type: object
     description: Activate a replication policy.
@@ -2019,6 +2482,19 @@ definitions:
   ActivatePolicyResponse:
     type: object
     description: Response object for resumePolicy.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the input cluster.
+      requestId:
+        type: string
+        description: The ID of the request. Populated only for Ambari backend.
+      message:
+        type: string
+        description: The detailed description of the action taken.
+      status:
+        type: string
+        description: The status of the request.
   DownloadDiagnosticBundleRequest:
     type: object
     description: Request to download the diagnostic bundle for the given cluster and command id.
@@ -2794,6 +3270,9 @@ definitions:
       target:
         description: Replication target details.
         $ref: '#/definitions/TargetDetails'
+      cmPolicySubmitUser:
+        description: CM policy submit user.
+        $ref: '#/definitions/CmPolicySubmitUserResponse'
   PolicyInstanceResponse:
     type: object
     description: Policy execution details.
@@ -3166,6 +3645,16 @@ definitions:
       sourceUser:
         description: Source user.
         type: string
+  CmPolicySubmitUserResponse:
+    type: object
+    description: The user that the replication policy uses to perform operations on the source or target cluster.
+    properties:
+      userName:
+        description: Username.
+        type: string
+      sourceUser:
+        description: Source user.
+        type: string
   HbasePolicyDefinition:
     type: object
     description: HBase policy definition.
@@ -3187,6 +3676,9 @@ definitions:
       initialSnapshot:
         description: If set to true, the current data in the table will be replicated before the HBase replication peer gets enabled. If set to false, only the data changed after the policy creation will be replicated.
         type: boolean
+      exportSnapshotUser:
+        description: If set, the user specified by this parameter will be used to export the initial snapshot on the source.
+        type: string
       description:
         description: Description of the policy.
         type: string
@@ -3299,11 +3791,6 @@ definitions:
     enum:
       - ACCESSKEY
       - CLIENTKEY
-  GcsCloudCredentialType:
-    type: string
-    description: GCS cloud credential type.
-    enum:
-      - PRIVATEKEY
   SnapshotPolicyType:
     type: string
     description: The snapshot type of snapshot policies.
