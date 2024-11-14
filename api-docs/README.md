@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.125*
+*Version: 0.9.126*
 
 [CHANGELOG](CHANGELOG.md)
 
@@ -8,24 +8,24 @@ Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.125 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.125 |
-| [compute](./compute/index.html) | 0.9.125 |
-| [consumption](./consumption/index.html) | 0.9.125 |
-| [datacatalog](./datacatalog/index.html) | 0.9.125 |
-| [datahub](./datahub/index.html) | 0.9.125 |
-| [datalake](./datalake/index.html) | 0.9.125 |
-| [de](./de/index.html) | 0.9.125 |
-| [df](./df/index.html) | 0.9.125 |
-| [dfworkload](./dfworkload/index.html) | 0.9.125 |
-| [drscp](./drscp/index.html) | 0.9.125 |
-| [dw](./dw/index.html) | 0.9.125 |
-| [environments](./environments/index.html) | 0.9.125 |
-| [iam](./iam/index.html) | 0.9.125 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.125 |
-| [ml](./ml/index.html) | 0.9.125 |
-| [opdb](./opdb/index.html) | 0.9.125 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.125 |
+| [audit](./audit/index.html) | 0.9.126 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.126 |
+| [compute](./compute/index.html) | 0.9.126 |
+| [consumption](./consumption/index.html) | 0.9.126 |
+| [datacatalog](./datacatalog/index.html) | 0.9.126 |
+| [datahub](./datahub/index.html) | 0.9.126 |
+| [datalake](./datalake/index.html) | 0.9.126 |
+| [de](./de/index.html) | 0.9.126 |
+| [df](./df/index.html) | 0.9.126 |
+| [dfworkload](./dfworkload/index.html) | 0.9.126 |
+| [drscp](./drscp/index.html) | 0.9.126 |
+| [dw](./dw/index.html) | 0.9.126 |
+| [environments](./environments/index.html) | 0.9.126 |
+| [iam](./iam/index.html) | 0.9.126 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.126 |
+| [ml](./ml/index.html) | 0.9.126 |
+| [opdb](./opdb/index.html) | 0.9.126 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.126 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).

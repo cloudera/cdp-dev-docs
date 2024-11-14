@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.126 (2024-11-13)
+* cloudprivatelinks: Add properties `subscriptionId` and `cloudServiceProvider` to `AuthorizePrivateLinkServiceAccessRequest` and `RevokePrivateLinkServiceAccessRequest` objects.
+* datahub: Change description of property `type` in  `Recipe`, `RecipeSummary` and `CreateRecipeRequest` objects.
+* dw: Deprecate properties `dbDas` and `dbHue` in `PrivateCloudActivationOptions` object.
+* dw: Deprecate properties `dbMetastore`, `dbDas` and `dbHue` in `CreateDbcRequest` object.
+* dw: Deprecate property `securityContextConstraintName` in `CreatePrivateClusterRequest` and `PrivateCloudActivationOptions` objects.
+* environments: Deprecate property `s3GuardTableName` in `CreateAWSEnvironmentRequest`, `CreateAWSGovCloudEnvironmentRequest` and `Environment` object’s `awsDetails` objects.
+* environments: Add new command `lastSyncStatus`.
+* replicationmanager: Add new properties `clusterCrn`, `requestId`, `message` and `status` to `ActivatePolicyResponse`, `CreatePolicyResponse`, `DeletePolicyResponse` and `SuspendPolicyResponse` objects.
+
 ## 0.9.125 (2024-10-30)
 * datalake: Add new object 'DiskOptions' to 'StartDatalakeVerticalScalingRequest' & 'startDatalakeVerticalScaling' object.
 * datalake: Add new object 'AddDisks', 'ModifyDisks' to 'DiskOptions' object.
