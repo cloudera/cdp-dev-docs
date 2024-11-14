@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>get-upgrade-vw-versions &#8212; CDP CLI 0.9.126 documentation</title>
+    <title>last-sync-status &#8212; CDP CLI 0.9.126 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="health-check" href="health-check.html" />
-    <link rel="prev" title="get-upgrade-dbc-versions" href="get-upgrade-dbc-versions.html" /> 
+    <link rel="next" title="list-audit-credentials" href="list-audit-credentials.html" />
+    <link rel="prev" title="initialize-azure-compute-cluster" href="initialize-azure-compute-cluster.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="health-check.html" title="health-check"
+          <a href="list-audit-credentials.html" title="list-audit-credentials"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="get-upgrade-dbc-versions.html" title="get-upgrade-dbc-versions"
+          <a href="initialize-azure-compute-cluster.html" title="initialize-azure-compute-cluster"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.126 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">get-upgrade-vw-versions</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">last-sync-status</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="get-upgrade-vw-versions">
-<span id="cli-cdp-dw-get-upgrade-vw-versions"></span><h1>get-upgrade-vw-versions<a class="headerlink" href="#get-upgrade-vw-versions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="last-sync-status">
+<span id="cli-cdp-environments-last-sync-status"></span><h1>last-sync-status<a class="headerlink" href="#last-sync-status" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Gets the latest version and latest compatible version for Virtual Warehouse.</p>
+<dd class="field-odd"><p>Returns status of the sync operation for the environment crn.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.126</p>
@@ -51,13 +51,12 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Gets the latest version and latest compatible version for Virtual Warehouse.</p>
+<p>Returns status of the sync operation for the environment based on crn.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-upgrade-vw-versions
---cluster-id &lt;value&gt;
---vw-id &lt;value&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  last-sync-status
+--env-name-or-crn &lt;value&gt;
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -65,13 +64,9 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--cluster-id</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--env-name-or-crn</span></code> (string)</p>
 <blockquote>
-<div><p>The ID of the Virtual Warehouse’s cluster.</p>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">--vw-id</span></code> (string)</p>
-<blockquote>
-<div><p>The ID of the Virtual Warehouse.</p>
+<div><p>Name or Crn of the environment.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -84,21 +79,61 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>latestVersion -&gt; (string)</p>
+<p>operationId -&gt; (string)</p>
 <blockquote>
-<div><p>The latest available CDW version.</p>
+<div><p>UUID of the request for this operation. This Id can be used for geting status on the operation.</p>
 </div></blockquote>
-<p>compatibleVersion -&gt; (string)</p>
+<p>operationType -&gt; (string)</p>
 <blockquote>
-<div><p>The latest compatible CDW version.</p>
+<div><p>Operation Type.</p>
 </div></blockquote>
-<p>latestCDPVersion -&gt; (string)</p>
+<p>status -&gt; (string)</p>
 <blockquote>
-<div><p>The latest available CDP version.</p>
+<div><p>Status of a sync operation.</p>
 </div></blockquote>
-<p>compatibleCDPVersion -&gt; (string)</p>
+<p>success -&gt; (array)</p>
 <blockquote>
-<div><p>The latest compatible CDP version.</p>
+<div><p>List of sync operation details for all succeeded environments.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Details object of the sync operation for success or falure.</p>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>environment crn.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>The detail of the success or failure.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>failure -&gt; (array)</p>
+<blockquote>
+<div><p>List of sync operation details for all failed environments.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Details object of the sync operation for success or falure.</p>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>environment crn.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>The detail of the success or failure.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>error -&gt; (string)</p>
+<blockquote>
+<div><p>If there is any error associated. The error will be populated on any error and it may be populated when the operation failure details are empty.</p>
+</div></blockquote>
+<p>startDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>Date when the sync operation started.</p>
+</div></blockquote>
+<p>endDate -&gt; (datetime)</p>
+<blockquote>
+<div><p>Date when the sync operation ended. Omitted if operation has not ended.</p>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -116,7 +151,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">get-upgrade-vw-versions</a><ul>
+<li><a class="reference internal" href="#">last-sync-status</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -127,11 +162,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="get-upgrade-dbc-versions.html"
-                        title="previous chapter">get-upgrade-dbc-versions</a></p>
+  <p class="topless"><a href="initialize-azure-compute-cluster.html"
+                        title="previous chapter">initialize-azure-compute-cluster</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="health-check.html"
-                        title="next chapter">health-check</a></p>
+  <p class="topless"><a href="list-audit-credentials.html"
+                        title="next chapter">list-audit-credentials</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -150,14 +185,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="health-check.html" title="health-check"
+          <a href="list-audit-credentials.html" title="list-audit-credentials"
              >next</a></li>
         <li class="right" >
-          <a href="get-upgrade-dbc-versions.html" title="get-upgrade-dbc-versions"
+          <a href="initialize-azure-compute-cluster.html" title="initialize-azure-compute-cluster"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.126 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">get-upgrade-vw-versions</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">last-sync-status</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
