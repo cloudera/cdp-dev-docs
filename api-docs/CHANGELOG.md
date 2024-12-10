@@ -1,5 +1,19 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.127 (2024-12-06)
+* compute: Add `resume-cluster` and `suspend-cluster` commands.
+* dw: Deprecate property `downloadOptions` in `CreateClusterDiagnosticDataJobRequest` object.
+* dw: the Cluster EOL Support information is available under `list-clusters` and `describe-cluster` command's `productSupport` field.
+* dw: the `instanceType` field made available in the `create-vw`, `list-vws`, `describe-vw` commands.
+* environments: Add property `operationId` in `InitializeAzureComputeClusterResponse` and `InitializeAWSComputeClusterResponse` objects.
+* ml: Remove property `mlVersion` from `CreateWorkspaceRequest` object.
+* opdb: Add `create-snapshot`, `delete-snapshot`, `list-restore-snapshots`, `list-snapshots`, and `restore-snapshot` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: The `additionalInstanceTypes` field has been removed from the `create-cluster`, `create-aws-cluster`, `create-azure-cluster` commands in favor of the `instanceType` field in `create-vw` command.
+* dw: The `templateName` filed has been renamed to `resourceTemplate` in the `create-data-visualization` command.
+* dw: The `template` field has been removed in favor of `tShirtSize` in the `create-vw`, `update-vw` commands.
+
 ## 0.9.126 (2024-11-13)
 * cloudprivatelinks: Add properties `subscriptionId` and `cloudServiceProvider` to `AuthorizePrivateLinkServiceAccessRequest` and `RevokePrivateLinkServiceAccessRequest` objects.
 * datahub: Change description of property `type` in  `Recipe`, `RecipeSummary` and `CreateRecipeRequest` objects.

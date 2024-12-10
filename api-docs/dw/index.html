@@ -1293,6 +1293,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_adduserrequest">AddUserRequest</a></li>
 <li><a href="#_adduserresponse">AddUserResponse</a></li>
 <li><a href="#_allowedinstancetypes">AllowedInstanceTypes</a></li>
+<li><a href="#_allowedinstancetypeswithdefault">AllowedInstanceTypesWithDefault</a></li>
 <li><a href="#_applicationconfigdiff">ApplicationConfigDiff</a></li>
 <li><a href="#_applicationconfigreq">ApplicationConfigReq</a></li>
 <li><a href="#_applicationconfigresp">ApplicationConfigResp</a></li>
@@ -1312,6 +1313,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_clouduserreference">CloudUserReference</a></li>
 <li><a href="#_clustercreatediagnosticdatadownloadoptions">ClusterCreateDiagnosticDataDownloadOptions</a></li>
 <li><a href="#_clusterdiagnosticdatajob">ClusterDiagnosticDataJob</a></li>
+<li><a href="#_clustersummaryproductsupportresponse">ClusterSummaryProductSupportResponse</a></li>
 <li><a href="#_clustersummaryresponse">ClusterSummaryResponse</a></li>
 <li><a href="#_configblock">ConfigBlock</a></li>
 <li><a href="#_configblockdiff">ConfigBlockDiff</a></li>
@@ -1563,7 +1565,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.126</p>
+<p><em>Version</em> : 0.9.127</p>
 </div>
 </div>
 <div class="sect2">
@@ -9098,6 +9100,88 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hive</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Allowed instance types for Hive Virtual Warehouses.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_allowedinstancetypeswithdefault">AllowedInstanceTypesWithDefault</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>impala</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Allowed instance types for Impala Virtual Warehouses.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_allowedinstancetypeswithdefault">AllowedInstanceTypesWithDefault</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>trino</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Allowed instance types for Trino Virtual Warehouses.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_allowedinstancetypeswithdefault">AllowedInstanceTypesWithDefault</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_allowedinstancetypeswithdefault">AllowedInstanceTypesWithDefault</h3>
+<div class="paragraph">
+<p>Allowed Virtual Warehouse compute instance types and their defaults.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>allowed</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Allowed values for the compute instance type usage. One of these values can be used in the 'create-vw' command&#8217;s 'instance-type' field .</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Default value for the compute instance type usage. This instance type will be used in the 'create-vw' command&#8217;s 'instance-type' field in case it has to be customized. The default value also depends on the cloud platform of the Cluster (AWS/Azure).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -10032,18 +10116,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>additionalInstanceTypes</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>computeInstanceTypes</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -10888,7 +10960,7 @@ The cluster level instance type selection will be replaced by virtual warehouse 
 <div class="sect2">
 <h3 id="_clustercreatediagnosticdatadownloadoptions">ClusterCreateDiagnosticDataDownloadOptions</h3>
 <div class="paragraph">
-<p>Flags that denote which diagnostics to include for the cluster.</p>
+<p>DEPRECATED: Included by default, no need to specify</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -11054,6 +11126,64 @@ The cluster level instance type selection will be replaced by virtual warehouse 
 </table>
 </div>
 <div class="sect2">
+<h3 id="_clustersummaryproductsupportresponse">ClusterSummaryProductSupportResponse</h3>
+<div class="paragraph">
+<p>Support lifecycle details of the given Cluster version (see version field). Learn more at Support lifecycle site: <a href="https://www.cloudera.com/services-and-support/support-lifecycle-policy.html" class="bare">https://www.cloudera.com/services-and-support/support-lifecycle-policy.html</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>expiryDate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Shows the expiration date of the support for this Cluster version.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Status of the support lifecycle. <em>COVERED</em>: The Cluster version has active support. <em>EXPIRED</em>: The Cluster version is no-longer supported. <em>UNKNOWN</em>: The Cluster version is missing or incorrect.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_clustersummaryresponse">ClusterSummaryResponse</h3>
 <div class="paragraph">
 <p>A Cloudera Data Warehouse cluster.</p>
@@ -11072,18 +11202,6 @@ The cluster level instance type selection will be replaced by virtual warehouse 
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>additionalInstanceTypes</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>awsOptions</strong><br>
@@ -11260,6 +11378,18 @@ The cluster level instance type selection will be replaced by virtual warehouse 
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>productSupport</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Support lifecycle details of the given Cluster version (see version field). Learn more at Support lifecycle site: <a href="https://www.cloudera.com/services-and-support/support-lifecycle-policy.html" class="bare">https://www.cloudera.com/services-and-support/support-lifecycle-policy.html</a>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_clustersummaryproductsupportresponse">ClusterSummaryProductSupportResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12103,18 +12233,6 @@ The cluster level instance type selection will be replaced by virtual warehouse 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>additionalInstanceTypes</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>computeInstanceTypes</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -12888,7 +13006,7 @@ The cluster level instance type selection will be replaced by virtual warehouse 
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Cluster diagnostic options. If not provided, everything will be included in the Diagnostic Data.</p>
+<p>DEPRECATED: All logs are included by default. No need to specify options</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_clustercreatediagnosticdatadownloadoptions">ClusterCreateDiagnosticDataDownloadOptions</a></p>
@@ -13335,11 +13453,11 @@ The cluster level instance type selection will be replaced by virtual warehouse 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>templateName</strong><br>
+<p><strong>resourceTemplate</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED: Use resourceTemplate parameter instead that will be made available in the upcoming release. The template size for the Cloudera Data Visualization.</p>
+<p>The name of the available resource template to use for the Cloudera Data Visualization.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -14433,6 +14551,18 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Instance type for this Virtual Warehouse. To learn what instance types are allowed to be used for a Hive or an Impala Virtual Warehouse, please use the 'describe-allowed-instance-types' command. The command output will list the usable instance types in its 'hive' and 'impala' fields accordingly.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>name</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -14495,6 +14625,18 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tShirtSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of T-shirt size to use, which will determine the number of nodes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (xsmall, small, medium, large)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>tags</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -14503,18 +14645,6 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_tagrequest">TagRequest</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>template</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (xsmall, small, medium, large)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -21528,7 +21658,7 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Dump of configuration received by calling "dump-cluster" command.</p>
+<p>Backup data of configuration received by calling "backup-cluster" command.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -23605,11 +23735,11 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>template</strong><br>
+<p><strong>tShirtSize</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.</p>
+<p>Name of T-shirt size to use, which will determine the number of nodes.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>enum (xsmall, small, medium, large)</p>
@@ -24492,6 +24622,18 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instanceType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The underlying instance type for this Virtual Warehouse.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>jwtAuth</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -24881,6 +25023,18 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 <p>integer (int32)</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>trinoCli</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Command-line client that connects to Trino Virtual Warehouse to execute SQL queries.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 <div id="_vwsummary_jwtauth" class="paragraph">
@@ -24984,7 +25138,7 @@ creating Default Database Catalogs is deprecated and explicitly disabled. Denote
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-11-13 12:36:17 -0800
+Last updated 2024-12-06 11:15:04 -0800
 </div>
 </div>
 <br>
