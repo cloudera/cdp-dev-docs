@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.126 (BETA)
+  version: 0.9.127 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -2431,6 +2431,14 @@ definitions:
       description:
         type: string
         description: A description for the credential.
+      skipOrgPolicyDecisions:
+        type: boolean
+        default: false
+        description: Skips organization policy decisions during cloud storage validation.
+      verifyPermissions:
+        type: boolean
+        default: false
+        description: When true, verifies credential permissions.
       awsCredentialProperties:
         description: The credential properties that closely related to those that have been created on AWS.
         $ref: '#/definitions/AwsCredentialProperties'
