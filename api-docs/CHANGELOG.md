@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.128 (2024-12-11)
+* iam: Add `migrateUsersToIdentityProvider` command.
+* datahub: Deprecate `rotateSaltPassword` command.
+* datalake: Deprecate `rotateSaltPassword` command.
+* environments2: Deprecate `rotateSaltPassword` command.
+
 ## 0.9.127 (2024-12-06)
 * compute: Add `resume-cluster` and `suspend-cluster` commands.
 * dw: Deprecate property `downloadOptions` in `CreateClusterDiagnosticDataJobRequest` object.
