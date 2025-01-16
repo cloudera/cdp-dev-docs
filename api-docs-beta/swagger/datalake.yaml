@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.128 (BETA)
+  version: 0.9.129 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1583,6 +1583,10 @@ definitions:
         description: Datalake tags object containing the tag values defined for the datalake.
         items:
           $ref: '#/definitions/DatalakeResourceTag'
+      security:
+        $ref: '#/definitions/SecurityResponse'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   DatalakeResourceTagRequest:
     type: object
     description: Tag for a datalake resource.
@@ -1745,6 +1749,10 @@ definitions:
         type: integer
         format: int32
         description: Configure the major version of Java on the cluster.
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateAWSDatalakeResponse:
     type: object
     description: Response object for create AWS datalake request.
@@ -1808,6 +1816,10 @@ definitions:
         type: integer
         format: int32
         description: Configure the major version of Java on the cluster.
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateAWSGovCloudDatalakeResponse:
     type: object
     description: Response object for creating AWS Data Lake request on GovCloud.
@@ -1884,6 +1896,10 @@ definitions:
         type: boolean
         default: false
         description: Creates CDP datalake distributed across multiple availability zones in an Azure region.
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateAzureDatalakeResponse:
     type: object
     description: Response object for create Azure datalake request.
@@ -1944,6 +1960,14 @@ definitions:
         type: integer
         format: int32
         description: Configure the major version of Java on the cluster.
+      multiAz:
+        type: boolean
+        default: false
+        description: Creates CDP datalake distributed across multiple availability zones in GCP region.
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateGCPDatalakeResponse:
     type: object
     description: Response object for create GCP Data Lake request.
@@ -3832,6 +3856,10 @@ definitions:
       javaVersion:
         type: string
         description: The default Java version to be set on the Data Lake cluster.
+      rollingRestart:
+        default: false
+        type: boolean
+        description: If set to true Cloudera Manager will use Rolling Restart to restart services running on the cluster. This operation can take a long time. Default value is false.
   SetDefaultJavaVersionResponse:
     type: object
     description: Response object for setting the default Java version on the Data Lake cluster.
@@ -3839,3 +3867,25 @@ definitions:
       operationId:
         type: string
         description: The id of the related operation.
+  SecurityRequest:
+    type: object
+    description: Security related configuration for Data Hub cluster.
+    properties:
+      seLinux:
+        x-entitlement: CDP_SECURITY_ENFORCING_SELINUX
+        type: string
+        description: Override default SELinux configuration which is PERMISSIVE by default
+        enum:
+          - PERMISSIVE
+          - ENFORCING
+  SecurityResponse:
+    type: object
+    description: Security related configuration for Data Hub cluster.
+    properties:
+      seLinux:
+        x-entitlement: CDP_SECURITY_ENFORCING_SELINUX
+        type: string
+        description: Override default SELinux configuration which is PERMISSIVE by default
+        enum:
+          - PERMISSIVE
+          - ENFORCING

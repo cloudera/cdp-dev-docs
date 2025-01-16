@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.128 (BETA)
+  version: 0.9.129 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -1631,6 +1631,10 @@ definitions:
         default: false
         type: boolean
         description: Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+      security:
+        $ref: '#/definitions/SecurityResponse'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   ClusterExtension:
     type: object
     description: Cluster extensions for Data Hub cluster.
@@ -2743,6 +2747,11 @@ definitions:
       recoveryMode:
         type: string
         description: Recovery mode for the instance group.
+      availabilityZones:
+        type: array
+        items:
+          type: string
+        description: List of availability zones that this instance group is associated with.
   DatahubDatabaseType:
     type: string
     description: 'Database type for datahub. Currently supported values: NONE, NON_HA, HA'
@@ -2831,6 +2840,10 @@ definitions:
         type: integer
         format: int32
         description: Configure the major version of Java on the cluster.
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateAWSClusterResponse:
     type: object
     description: Response object for create AWS cluster request.
@@ -2899,6 +2912,10 @@ definitions:
         type: integer
         format: int32
         description: Configure the major version of Java on the cluster.
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateAWSGovCloudClusterResponse:
     type: object
     description: Response object for create AWS cluster request on GovCloud.
@@ -2978,6 +2995,10 @@ definitions:
         type: integer
         format: int32
         description: Configure the major version of Java on the cluster.
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateAzureClusterResponse:
     type: object
     description: Response object for create Azure cluster request.
@@ -3038,6 +3059,14 @@ definitions:
         type: integer
         format: int32
         description: Configure the major version of Java on the cluster.
+      multiAz:
+        default: false
+        type: boolean
+        description: Creates CDP Data Hub distributed across multiple availability zones in GCP region
+      security:
+        $ref: '#/definitions/SecurityRequest'
+        description: Security related configurations for Data Hub clusters.
+        x-no-compatibility-guarantee: true
   CreateGCPClusterResponse:
     type: object
     description: Response object for create GCP cluster request.
@@ -4542,9 +4571,9 @@ definitions:
       operationId:
         type: string
         description: Identifier of the operation.
-      operationType:
+      operationName:
         type: string
-        description: Type of the operation.
+        description: Name of the operation.
       operationStatus:
         type: string
         description: Status of the operation.
@@ -4554,10 +4583,14 @@ definitions:
           - FAILED
           - FINISHED
           - CANCELLED
-      progress:
-        type: integer
-        format: int32
-        description: Progress percentage of the operation.
+      started:
+        type: string
+        format: date-time
+        description: Start time of the operation.
+      ended:
+        type: string
+        format: date-time
+        description: End time of the operation.
   RotateSecretsRequest:
     type: object
     description: Request object for starting secret rotation for datahub.
@@ -5027,6 +5060,10 @@ definitions:
       javaVersion:
         type: string
         description: The Java version to set as default.
+      rollingRestart:
+        default: false
+        type: boolean
+        description: If set to true Cloudera Manager will use Rolling Restart to restart services running on the cluster. This operation can take a long time. Default value is false.
   SetDefaultJavaVersionResponse:
     type: object
     description: Response object for setting the default Java version on the Data Hub cluster.
@@ -5034,3 +5071,25 @@ definitions:
       operationId:
         type: string
         description: The id of the related operation.
+  SecurityRequest:
+    type: object
+    description: Security related configuration for Data Hub cluster.
+    properties:
+      seLinux:
+        x-entitlement: CDP_SECURITY_ENFORCING_SELINUX
+        type: string
+        description: Override default SELinux configuration which is PERMISSIVE by default
+        enum:
+          - PERMISSIVE
+          - ENFORCING
+  SecurityResponse:
+    type: object
+    description: Security related configuration for Data Hub cluster.
+    properties:
+      seLinux:
+        x-entitlement: CDP_SECURITY_ENFORCING_SELINUX
+        type: string
+        description: Override default SELinux configuration which is PERMISSIVE by default
+        enum:
+          - PERMISSIVE
+          - ENFORCING

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="copyright" content="Copyright © 2024 Cloudera, Inc. All rights reserved.">
+<meta name="copyright" content="Copyright © 2025 Cloudera, Inc. All rights reserved.">
 <title>Cloudera Environments Service</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
@@ -1320,74 +1320,81 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_90">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateorchestratorstate">Run orchestrator engine state update on the FreeIPA cluster.</a>
+<li><a href="#_updategcpavailabilityzones">Update the Availability Zones for the GCP environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_91">Description</a></li>
 <li><a href="#_parameters_91">Parameters</a></li>
 <li><a href="#_responses_91">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateproxyconfig">Updates the proxy config of the given environment.</a>
+<li><a href="#_updateorchestratorstate">Run orchestrator engine state update on the FreeIPA cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_92">Description</a></li>
 <li><a href="#_parameters_92">Parameters</a></li>
 <li><a href="#_responses_92">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatesecurityaccess">Updates the security access settings of the given environment.</a>
+<li><a href="#_updateproxyconfig">Updates the proxy config of the given environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_93">Description</a></li>
 <li><a href="#_parameters_93">Parameters</a></li>
 <li><a href="#_responses_93">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatesshkey">Updates the designated SSH key for the given environment.</a>
+<li><a href="#_updatesecurityaccess">Updates the security access settings of the given environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_94">Description</a></li>
 <li><a href="#_parameters_94">Parameters</a></li>
 <li><a href="#_responses_94">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatesubnet">Updates the subnet(s) of the given environment.</a>
+<li><a href="#_updatesshkey">Updates the designated SSH key for the given environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_95">Description</a></li>
 <li><a href="#_parameters_95">Parameters</a></li>
 <li><a href="#_responses_95">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeccm">Upgrades Cluster Connectivity Manager on the environment to the latest available version.</a>
+<li><a href="#_updatesubnet">Updates the subnet(s) of the given environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_96">Description</a></li>
 <li><a href="#_parameters_96">Parameters</a></li>
 <li><a href="#_responses_96">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradefreeipa">Upgrades FreeIPA to the latest or defined image.</a>
+<li><a href="#_upgradeccm">Upgrades Cluster Connectivity Manager on the environment to the latest available version.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_97">Description</a></li>
 <li><a href="#_parameters_97">Parameters</a></li>
 <li><a href="#_responses_97">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upscalefreeipa">Upscales FreeIPA instances.</a>
+<li><a href="#_upgradefreeipa">Upgrades FreeIPA to the latest or defined image.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_98">Description</a></li>
 <li><a href="#_parameters_98">Parameters</a></li>
 <li><a href="#_responses_98">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_validateawscloudstorage">Validates AWS cloud storage settings of the given environment.</a>
+<li><a href="#_upscalefreeipa">Upscales FreeIPA instances.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_99">Description</a></li>
 <li><a href="#_parameters_99">Parameters</a></li>
 <li><a href="#_responses_99">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_validateazurecloudstorage">Validates Azure cloud storage settings of the given environment.</a>
+<li><a href="#_validateawscloudstorage">Validates AWS cloud storage settings of the given environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_100">Description</a></li>
 <li><a href="#_parameters_100">Parameters</a></li>
 <li><a href="#_responses_100">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_validateazurecloudstorage">Validates Azure cloud storage settings of the given environment.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_101">Description</a></li>
+<li><a href="#_parameters_101">Parameters</a></li>
+<li><a href="#_responses_101">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1591,6 +1598,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_secrettyperesponse">SecretTypeResponse</a></li>
 <li><a href="#_securityaccess">SecurityAccess</a></li>
 <li><a href="#_securityaccessrequest">SecurityAccessRequest</a></li>
+<li><a href="#_securityrequest">SecurityRequest</a></li>
+<li><a href="#_securityresponse">SecurityResponse</a></li>
 <li><a href="#_setawsauditcredentialrequest">SetAWSAuditCredentialRequest</a></li>
 <li><a href="#_setawsauditcredentialresponse">SetAWSAuditCredentialResponse</a></li>
 <li><a href="#_setawsgovcloudauditcredentialrequest">SetAWSGovCloudAuditCredentialRequest</a></li>
@@ -1657,6 +1666,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_updatefreeipatoawsimdsv1response">UpdateFreeipaToAwsImdsV1Response</a></li>
 <li><a href="#_updatefreeipatoawsimdsv2request">UpdateFreeipaToAwsImdsV2Request</a></li>
 <li><a href="#_updatefreeipatoawsimdsv2response">UpdateFreeipaToAwsImdsV2Response</a></li>
+<li><a href="#_updategcpavailabilityzonesrequest">UpdateGcpAvailabilityZonesRequest</a></li>
+<li><a href="#_updategcpavailabilityzonesresponse">UpdateGcpAvailabilityZonesResponse</a></li>
 <li><a href="#_updateorchestratorstaterequest">UpdateOrchestratorStateRequest</a></li>
 <li><a href="#_updateorchestratorstateresponse">UpdateOrchestratorStateResponse</a></li>
 <li><a href="#_updateproxyconfigrequest">UpdateProxyConfigRequest</a></li>
@@ -1692,7 +1703,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.128 (BETA)</p>
+<p><em>Version</em> : 0.9.129 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -9474,6 +9485,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_updategcpavailabilityzones">Update the Availability Zones for the GCP environment.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/environments2/updateGcpAvailabilityZones</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_91">Description</h4>
+<div class="paragraph">
+<p>Updates the Availability Zones for the GCP environment.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_91">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updategcpavailabilityzonesrequest">UpdateGcpAvailabilityZonesRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_91">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updategcpavailabilityzonesresponse">UpdateGcpAvailabilityZonesResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_updateorchestratorstate">Run orchestrator engine state update on the FreeIPA cluster.</h3>
 <div class="literalblock">
 <div class="content">
@@ -9481,13 +9578,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_91">Description</h4>
+<h4 id="_description_92">Description</h4>
 <div class="paragraph">
 <p>Run orchestrator engine state update on the FreeIPA cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_91">Parameters</h4>
+<h4 id="_parameters_92">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -9518,7 +9615,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_91">Responses</h4>
+<h4 id="_responses_92">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9567,13 +9664,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_92">Description</h4>
+<h4 id="_description_93">Description</h4>
 <div class="paragraph">
 <p>Updates the proxy config of the given environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_92">Parameters</h4>
+<h4 id="_parameters_93">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -9604,7 +9701,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_92">Responses</h4>
+<h4 id="_responses_93">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9653,13 +9750,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_93">Description</h4>
+<h4 id="_description_94">Description</h4>
 <div class="paragraph">
 <p>Updates the security access settings of the given environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_93">Parameters</h4>
+<h4 id="_parameters_94">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -9690,7 +9787,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_93">Responses</h4>
+<h4 id="_responses_94">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9739,13 +9836,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_94">Description</h4>
+<h4 id="_description_95">Description</h4>
 <div class="paragraph">
 <p>Updates the designated SSH key for the given environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_94">Parameters</h4>
+<h4 id="_parameters_95">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -9776,7 +9873,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_94">Responses</h4>
+<h4 id="_responses_95">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9825,13 +9922,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_95">Description</h4>
+<h4 id="_description_96">Description</h4>
 <div class="paragraph">
 <p>Updates the subnet(s) of the given environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_95">Parameters</h4>
+<h4 id="_parameters_96">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -9862,7 +9959,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_95">Responses</h4>
+<h4 id="_responses_96">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9911,13 +10008,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_96">Description</h4>
+<h4 id="_description_97">Description</h4>
 <div class="paragraph">
 <p>Upgrades Cluster Connectivity Manager on the environment to the latest available version.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_96">Parameters</h4>
+<h4 id="_parameters_97">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -9948,7 +10045,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_96">Responses</h4>
+<h4 id="_responses_97">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -9997,13 +10094,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_97">Description</h4>
+<h4 id="_description_98">Description</h4>
 <div class="paragraph">
 <p>FreeIPA is an integrated Identity and Authentication solution that can be used for any of CM, CDP services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_97">Parameters</h4>
+<h4 id="_parameters_98">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -10034,7 +10131,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_97">Responses</h4>
+<h4 id="_responses_98">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -10083,13 +10180,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_98">Description</h4>
+<h4 id="_description_99">Description</h4>
 <div class="paragraph">
 <p>FreeIPA is an integrated Identity and Authentication solution that can be used for any of CM, CDP services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_98">Parameters</h4>
+<h4 id="_parameters_99">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -10120,7 +10217,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_98">Responses</h4>
+<h4 id="_responses_99">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -10169,13 +10266,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_99">Description</h4>
+<h4 id="_description_100">Description</h4>
 <div class="paragraph">
 <p>Validates AWS cloud storage settings of the given environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_99">Parameters</h4>
+<h4 id="_parameters_100">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -10206,7 +10303,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_99">Responses</h4>
+<h4 id="_responses_100">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -10255,13 +10352,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_100">Description</h4>
+<h4 id="_description_101">Description</h4>
 <div class="paragraph">
 <p>Validates Azure cloud storage settings of the given environment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_100">Parameters</h4>
+<h4 id="_parameters_101">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -10292,7 +10389,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_100">Responses</h4>
+<h4 id="_responses_101">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -11819,18 +11916,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>string</p>
 </div></div></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>userManagedIdentity</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>User managed identity for encryption. (deprecated)</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -13285,7 +13370,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>When true, this will report additional diagnostic information back to Cloudera.</p>
+<p>[Deprecated] When true, this will report additional diagnostic information back to Cloudera.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -13301,6 +13387,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>security</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Security related configurations for Data Hub clusters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_securityrequest">SecurityRequest</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13722,7 +13820,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>When true, this will report additional diagnostic information back to Cloudera.</p>
+<p>[Deprecated] When true, this will report additional diagnostic information back to Cloudera.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -13738,6 +13837,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>security</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Security related configurations for Data Hub clusters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_securityrequest">SecurityRequest</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14346,7 +14457,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>When true, this will report additional diagnostic information back to Cloudera.</p>
+<p>[Deprecated] When true, this will report additional diagnostic information back to Cloudera.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -14362,6 +14474,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>security</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Security related configurations for Data Hub clusters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_securityrequest">SecurityRequest</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14790,10 +14914,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>When true, this will report additional diagnostic information back to Cloudera.</p>
+<p>[Deprecated] When true, this will report additional diagnostic information back to Cloudera.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>security</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Security related configurations for Data Hub clusters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_securityrequest">SecurityRequest</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -16490,10 +16627,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>When true, this will report additional diagnostic information back to Cloudera.</p>
+<p>[Deprecated] When true, this will report additional diagnostic information back to Cloudera.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>security</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Security related configurations for Data Hub clusters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_securityresponse">SecurityResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -17975,6 +18125,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>multiAz</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Flag that enables deployment of the FreeIPA in a multi-availability zone.<br>
+<strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>recipes</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -18208,7 +18371,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Flag to enable account level deployment log collection. (that will be used as a default for environment)</p>
+<p>[Deprecated] Flag to enable account level deployment log collection. (that will be used as a default for environment)<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -18275,7 +18439,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Flag to enable account level deployment log collection. (that will be used as a default for environment)</p>
+<p>[Deprecated] Flag to enable account level deployment log collection. (that will be used as a default for environment)<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -19589,11 +19754,35 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>ended</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>End time of the operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string (date-time)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>operationId</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Identifier of the operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>operationName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the operation.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -19613,26 +19802,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>operationType</strong><br>
+<p><strong>started</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Type of the operation.</p>
+<p>Start time of the operation.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>progress</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Progress percentage of the operation.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int32)</p>
+<p>string (date-time)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -22519,6 +22696,74 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_securityrequest">SecurityRequest</h3>
+<div class="paragraph">
+<p>Security related configuration for Data Hub cluster.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>seLinux</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Override default SELinux configuration which is PERMISSIVE by default</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (PERMISSIVE, ENFORCING)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_securityresponse">SecurityResponse</h3>
+<div class="paragraph">
+<p>Security related configuration for Data Hub cluster.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>seLinux</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Override default SELinux configuration which is PERMISSIVE by default</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (PERMISSIVE, ENFORCING)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_setawsauditcredentialrequest">SetAWSAuditCredentialRequest</h3>
 <div class="paragraph">
 <p>Request object for a set AWS audit credential request.</p>
@@ -22679,7 +22924,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Flag to enable account level deployment log collection. (that will be used as a default for environment)</p>
+<p>[Deprecated] Flag to enable environment level deployment log collection.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -22737,7 +22983,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Flag to enable account level deployment log collection. (that will be used as a default for environment)</p>
+<p>[Deprecated] Flag to enable account level deployment log collection. (that will be used as a default for environment)<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -23552,7 +23799,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Flag to enable environment level deployment log collection.</p>
+<p>[Deprecated] Flag to enable environment level deployment log collection.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -25062,18 +25310,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>string</p>
 </div></div></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>userManagedIdentity</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>User managed identity for encryption. (deprecated)</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -25411,6 +25647,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_updategcpavailabilityzonesrequest">UpdateGcpAvailabilityZonesRequest</h3>
+<div class="paragraph">
+<p>Request object to update Availability Zones for GCP environment.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>availabilityZones</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>List of availability zones for the environment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environment</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the environment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updategcpavailabilityzonesresponse">UpdateGcpAvailabilityZonesResponse</h3>
+<div class="paragraph">
+<p>Response object for a update GCP Availability Zones request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environment</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The environment summary.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_environment">Environment</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_updateorchestratorstaterequest">UpdateOrchestratorStateRequest</h3>
@@ -26310,12 +26626,12 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-12-11 11:13:51 -0800
+Last updated 2025-01-15 12:37:15 -0800
 </div>
 </div>
 <br>
 <p style="margin-left: 2em">
-  Copyright © 2024 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
+  Copyright © 2025 <a href="https://www.cloudera.com/">Cloudera, Inc.</a> All rights reserved.
 </p>
 </body>
 </html>
