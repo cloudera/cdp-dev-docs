@@ -1,5 +1,27 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.129 (2025-01-15)
+* compute: Change descriptions of `EngCloudProvider` and `ComputePlatform` enums.
+* dfworkload: Add `Error` schema to default responses of `downloadClientCertificateEncoded`, `downloadClientCertificatesEncoded`, `downloadClientPrivateKeyEncoded`, `createInboundConnectionEndpoint`, `deleteInboundConnectionEndpoint`, `describeInboundConnectionEndpoint`, `listInboundConnectionEndpoints`, and `renewCertificates` commands.
+* dfworkload: Change description of `type` property in `FlowParameter` object.
+* dw: Deprecate `computeInstanceTypes` property in response of `createAwsCluster` and `createAzureCluster` commands.
+* dw: Deprecate `computeInstanceTypes` property in `AwsActivationOptions`, `AzureActivationOptions`, and `ClusterSummeryResponse` objects.
+* dw: Add new `resetServerSettings` command.
+* dw: Add `includeAutomaticBackups` parameter to `listBackups` command.
+* environments: Add `started` and `ended` properties to response of `getOperation` command.
+* environments: Add `skipOrgPolicyDecisions` and `verifyPermissions` properties to `Credential` object.
+* environments: Deprecate `reportDeploymentLogs` parameter in `createAWSEnvironment`, `createAWSGovCloudEnvironment`, `createAzureEnvironment`, `createGCPEnvironment`, `setTelemetryFeatures`, and `setAccountTelemetry` commands.
+* environments: Deprecate `reportDeploymentLogs` property in response of `setAccountTelemetry`, `getAccountTelemetry`, and `getAccountTelemetryDefault` commands.
+* environments: Deprecate `reportDeploymentLogs` in `Environment` object.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated property `headroom` and `waitQueueSize` from `CreateApplicationResourcesBreakdown` object
+* dw: Remove deprecated properties headRoom and waitQueueSize from `UpdateApplicationResourcesBreakdown` and `ApplicationResourcesBreakdown` object
+* environments: Rename property `operationType` to `operationName` in the response of `getOperation` command.
+* environments: Remove property `progress` from response of `getOperation` command.
+* environments: Remove deprecated `userManagedIdentity` parameter from `updateAzureEncryptionResources` command.
+* environments: remove deprecated `userManagedIdentity` property from  AzureResourceEncryptionParameters object.
+
 ## 0.9.128 (2024-12-11)
 * iam: Add `migrateUsersToIdentityProvider` command.
 * datahub: Deprecate `rotateSaltPassword` command.
