@@ -991,8 +991,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_restoresnapshot">RestoreSnapshot</a></li>
 <li><a href="#_restoresnapshotrequest">RestoreSnapshotRequest</a></li>
 <li><a href="#_restoresnapshotresponse">RestoreSnapshotResponse</a></li>
+<li><a href="#_selinux">SELinux</a></li>
 <li><a href="#_scaletype">ScaleType</a></li>
 <li><a href="#_scalingevent">ScalingEvent</a></li>
+<li><a href="#_securityrequest">SecurityRequest</a></li>
+<li><a href="#_securityresponse">SecurityResponse</a></li>
 <li><a href="#_snapshot">Snapshot</a></li>
 <li><a href="#_snapshotstatustype">SnapshotStatusType</a></li>
 <li><a href="#_startdatabaserequest">StartDatabaseRequest</a></li>
@@ -1030,7 +1033,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.129 (BETA)</p>
+<p><em>Version</em> : 0.9.130 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -5117,6 +5120,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>securityRequest</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Specifies the Security related configuration of the cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_securityrequest">SecurityRequest</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>storageLocation</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5795,6 +5810,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_scaletype">ScaleType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>securityResponse</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Specifies the Security related configuration of the cluster nodes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_securityresponse">SecurityResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -8979,6 +9006,16 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_selinux">SELinux</h3>
+<div class="paragraph">
+<p>SELinux configurations for the cluster
+ <code>PERMISSIVE</code> - PERMISSIVE policy is used for the cluster. <code>ENFORCING</code> - ENFORCING policy is used for the cluster.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (PERMISSIVE, ENFORCING)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_scaletype">ScaleType</h3>
 <div class="paragraph">
 <p>Scale type.
@@ -9077,6 +9114,74 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_securityrequest">SecurityRequest</h3>
+<div class="paragraph">
+<p>Security related configurations for the clusters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>seLinux</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SELinux enforcement policy, can be PERMISSIVE or ENFORCING</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_selinux">SELinux</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_securityresponse">SecurityResponse</h3>
+<div class="paragraph">
+<p>Security related configurations for the clusters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>seLinux</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SELinux enforcement policy, can be PERMISSIVE or ENFORCING</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_selinux">SELinux</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -9453,7 +9558,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h3 id="_storagetype">StorageType</h3>
 <div class="paragraph">
 <p>Storage type for clusters.
- <code>CLOUD_WITH_EPHEMERAL</code> - Cloud with ephemeral storage. <code>CLOUD</code> - Cloud storage without ephemeral storage. <code>HDFS</code> - HDFS storage. <code>CLOUD_WITH_EPHEMERAL_DATATIERING</code> - Cloud with Ephemeral Storage and Datatiering.</p>
+ <code>CLOUD_WITH_EPHEMERAL</code> - Cloud with ephemeral storage. <code>CLOUD</code> - Cloud storage without ephemeral storage. <code>HDFS</code> - HDFS storage.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : enum (CLOUD_WITH_EPHEMERAL, CLOUD, HDFS)</p>
@@ -10254,7 +10359,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-01-15 12:37:15 -0800
+Last updated 2025-01-23 07:01:49 -0800
 </div>
 </div>
 <br>
