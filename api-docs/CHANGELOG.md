@@ -1,5 +1,16 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.130 (2025-01-23)
+* dw: Deprecate `memorySize` property in the `create-dbc` and `update-dbc` commands.
+* dw: Deprecate `memorySize` property in the `DbcSummary` object.
+* dw: Add `resourceTemplateId` property in the `create-dbc`, and `update-dbc` commands.
+* dw: Add `resourceTemplateId` property in the `DbcSummary` object.
+* environments: Add new enum value to the `targetAvailabilityType` property of the `upscale-freeipa` command (TWO_NODE_BASED).
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated property `downloadOptions` from `create-dbc-diagnostic-data-job` and `create-cluster-diagnostic-data-job` commands.
+* dw: Remove deprecated properties `hiveDownloadOptions` and `impalaDownloadOptions` from `create-vw-diagnostic-data-job` command.
+
 ## 0.9.129 (2025-01-15)
 * compute: Change descriptions of `EngCloudProvider` and `ComputePlatform` enums.
 * dfworkload: Add `Error` schema to default responses of `downloadClientCertificateEncoded`, `downloadClientCertificatesEncoded`, `downloadClientPrivateKeyEncoded`, `createInboundConnectionEndpoint`, `deleteInboundConnectionEndpoint`, `describeInboundConnectionEndpoint`, `listInboundConnectionEndpoints`, and `renewCertificates` commands.
