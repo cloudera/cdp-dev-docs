@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-workspace &#8212; CDP CLI 0.9.130 (BETA) documentation</title>
+    <title>create-workspace &#8212; CDP CLI 0.9.131 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-model-registry.html" title="create-model-registry"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.130 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.131 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-workspace</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera AI workbench.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.130</p>
+<dd class="field-even"><p>0.9.131</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -76,6 +76,7 @@
 <span class="o">[</span>--static-subdomain &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cdsw-migration-mode &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--outbound-types &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--resource-pool-config &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -348,6 +349,45 @@ Possible values:
 *   <span class="sb">``</span>OUTBOUND_TYPE_UDR<span class="sb">``</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--resource-pool-config</span></code> (object)</p>
+<blockquote>
+<div><p>Resource pool configuration for quota management.</p>
+<p>parentPoolName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the parent resource pool.</p>
+</div></blockquote>
+<p>workspaceQuota -&gt; (object)</p>
+<blockquote>
+<div><p>Quota configuration for quota management.</p>
+<p>cpuQuota -&gt; (string)</p>
+<blockquote>
+<div><p>The quota for CPU resource.</p>
+</div></blockquote>
+<p>memoryQuota -&gt; (string)</p>
+<blockquote>
+<div><p>The quota for memory resource.</p>
+</div></blockquote>
+<p>gpuQuota -&gt; (string)</p>
+<blockquote>
+<div><p>The quota for gpu resource.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">parentPoolName</span><span class="o">=</span>string,workspaceQuota<span class="o">={</span><span class="nv">cpuQuota</span><span class="o">=</span>string,memoryQuota<span class="o">=</span>string,gpuQuota<span class="o">=</span>string<span class="o">}</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;parentPoolName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;workspaceQuota&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;cpuQuota&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;memoryQuota&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;gpuQuota&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -414,7 +454,7 @@ Possible values:
         <li class="right" >
           <a href="create-model-registry.html" title="create-model-registry"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.130 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.131 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-workspace</a></li> 
       </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-flow &#8212; CDP CLI 0.9.131 (BETA) documentation</title>
+    <title>get-operation &#8212; CDP CLI 0.9.131 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="describe-project" href="describe-project.html" />
-    <link rel="prev" title="describe-deployment-event-detail" href="describe-deployment-event-detail.html" /> 
+    <link rel="next" title="list-datalake-backups" href="list-datalake-backups.html" />
+    <link rel="prev" title="get-datalake-log-descriptors" href="get-datalake-log-descriptors.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="describe-project.html" title="describe-project"
+          <a href="list-datalake-backups.html" title="list-datalake-backups"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="describe-deployment-event-detail.html" title="describe-deployment-event-detail"
+          <a href="get-datalake-log-descriptors.html" title="get-datalake-log-descriptors"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.131 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-flow</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-operation</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="describe-flow">
-<span id="cli-cdp-df-describe-flow"></span><h1>describe-flow<a class="headerlink" href="#describe-flow" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="get-operation">
+<span id="cli-cdp-datalake-get-operation"></span><h1>get-operation<a class="headerlink" href="#get-operation" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Describe flow.</p>
+<dd class="field-odd"><p>Used for retrieving operation status for the datalake cluster, defaulting to the most recent operation. Provide an operationId to view details of a specific historical operation.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.131</p>
@@ -51,12 +51,13 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Gets the details for the specified flow.</p>
+<p>Used for retrieving operation status for the datalake cluster, defaulting to the most recent operation. Provide an operation-id to view details of a specific historical operation.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-flow
---flow-crn &lt;value&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-operation
+--crn &lt;value&gt;
+<span class="o">[</span>--operation-id &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -64,9 +65,13 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--flow-crn</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--crn</span></code> (string)</p>
 <blockquote>
-<div><p>The flow CRN</p>
+<div><p>CRN of the datalake resource.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--operation-id</span></code> (string)</p>
+<blockquote>
+<div><p>Filter by operation id.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -79,93 +84,25 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>flowDetail -&gt; (object)</p>
+<p>operationId -&gt; (string)</p>
 <blockquote>
-<div><p>A representation of a versioned data flow.</p>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>The artifact CRN</p>
+<div><p>Identifier of the operation.</p>
 </div></blockquote>
-<p>name -&gt; (string)</p>
+<p>operationName -&gt; (string)</p>
 <blockquote>
-<div><p>The artifact name.</p>
+<div><p>Name of the operation.</p>
 </div></blockquote>
-<p>versionCount -&gt; (integer)</p>
+<p>operationStatus -&gt; (string)</p>
 <blockquote>
-<div><p>The number of versions uploaded to the catalog.</p>
+<div><p>Status of the operation.</p>
 </div></blockquote>
-<p>createdTimestamp -&gt; (integer)</p>
+<p>started -&gt; (datetime)</p>
 <blockquote>
-<div><p>The created timestamp.</p>
+<div><p>Start time of the operation.</p>
 </div></blockquote>
-<p>author -&gt; (string)</p>
+<p>ended -&gt; (datetime)</p>
 <blockquote>
-<div><p>Author of the most recent version</p>
-</div></blockquote>
-<p>description -&gt; (string)</p>
-<blockquote>
-<div><p>The artifact description.</p>
-</div></blockquote>
-<p>modifiedTimestamp -&gt; (integer)</p>
-<blockquote>
-<div><p>The modified timestamp.</p>
-</div></blockquote>
-<p>versions -&gt; (array)</p>
-<blockquote>
-<div><p>The list of artifactDetail versions</p>
-<p>item -&gt; (object)</p>
-<blockquote>
-<div><p>A representation of a flow detail version</p>
-<p>crn -&gt; (string)</p>
-<blockquote>
-<div><p>The flow version CRN</p>
-</div></blockquote>
-<p>bucketIdentifier -&gt; (string)</p>
-<blockquote>
-<div><p>The bucketIdentifier of the flow</p>
-</div></blockquote>
-<p>author -&gt; (string)</p>
-<blockquote>
-<div><p>The author of the flow</p>
-</div></blockquote>
-<p>version -&gt; (integer)</p>
-<blockquote>
-<div><p>The version of the flow</p>
-</div></blockquote>
-<p>timestamp -&gt; (integer)</p>
-<blockquote>
-<div><p>The timestamp of the flow</p>
-</div></blockquote>
-<p>deploymentCount -&gt; (integer)</p>
-<blockquote>
-<div><p>The number of deployments of the flow</p>
-</div></blockquote>
-<p>comments -&gt; (string)</p>
-<blockquote>
-<div><p>Comments about the flow</p>
-</div></blockquote>
-<p>draftCount -&gt; (integer)</p>
-<blockquote>
-<div><p>The number of draft flows associated with the version.</p>
-</div></blockquote>
-<p>tags -&gt; (array)</p>
-<blockquote>
-<div><p>The list of tags associated with the flow version.</p>
-<p>item -&gt; (object)</p>
-<blockquote>
-<div><p>A representation of an artifact version tag.</p>
-<p>tagName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the version tag.</p>
-</div></blockquote>
-<p>tagColor -&gt; (string)</p>
-<blockquote>
-<div><p>The color of the version tag (optional).</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
+<div><p>End time of the operation.</p>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -183,7 +120,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">describe-flow</a><ul>
+<li><a class="reference internal" href="#">get-operation</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -194,11 +131,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="describe-deployment-event-detail.html"
-                        title="previous chapter">describe-deployment-event-detail</a></p>
+  <p class="topless"><a href="get-datalake-log-descriptors.html"
+                        title="previous chapter">get-datalake-log-descriptors</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="describe-project.html"
-                        title="next chapter">describe-project</a></p>
+  <p class="topless"><a href="list-datalake-backups.html"
+                        title="next chapter">list-datalake-backups</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -217,14 +154,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="describe-project.html" title="describe-project"
+          <a href="list-datalake-backups.html" title="list-datalake-backups"
              >next</a></li>
         <li class="right" >
-          <a href="describe-deployment-event-detail.html" title="describe-deployment-event-detail"
+          <a href="get-datalake-log-descriptors.html" title="get-datalake-log-descriptors"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.131 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">describe-flow</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-operation</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

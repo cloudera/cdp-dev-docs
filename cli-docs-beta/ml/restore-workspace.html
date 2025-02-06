@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>restore-workspace &#8212; CDP CLI 0.9.130 (BETA) documentation</title>
+    <title>restore-workspace &#8212; CDP CLI 0.9.131 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="request-workflow-cancellation.html" title="request-workflow-cancellation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.130 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.131 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restore-workspace</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Restore a Cloudera AI workbench.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.130</p>
+<dd class="field-even"><p>0.9.131</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -267,6 +267,30 @@
 <div><p>List of possible Outbound types.</p>
 </div></blockquote>
 </div></blockquote>
+<p>resourcePoolConfig -&gt; (object)</p>
+<blockquote>
+<div><p>Resource pool configuration for quota management.</p>
+<p>parentPoolName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the parent resource pool.</p>
+</div></blockquote>
+<p>workspaceQuota -&gt; (object)</p>
+<blockquote>
+<div><p>Quota configuration for quota management.</p>
+<p>cpuQuota -&gt; (string)</p>
+<blockquote>
+<div><p>The quota for CPU resource.</p>
+</div></blockquote>
+<p>memoryQuota -&gt; (string)</p>
+<blockquote>
+<div><p>The quota for memory resource.</p>
+</div></blockquote>
+<p>gpuQuota -&gt; (string)</p>
+<blockquote>
+<div><p>The quota for gpu resource.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
@@ -328,7 +352,15 @@
   <span class="s2">&quot;subnetsForLoadBalancers&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
   <span class="s2">&quot;staticSubdomain&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;cdswMigrationMode&quot;</span>: <span class="s2">&quot;string&quot;</span>,
-  <span class="s2">&quot;outboundTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;UNKNOWN&quot;</span><span class="p">|</span><span class="s2">&quot;OUTBOUND_TYPE_UDR&quot;</span>, ...<span class="o">]</span>
+  <span class="s2">&quot;outboundTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;UNKNOWN&quot;</span><span class="p">|</span><span class="s2">&quot;OUTBOUND_TYPE_UDR&quot;</span>, ...<span class="o">]</span>,
+  <span class="s2">&quot;resourcePoolConfig&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;parentPoolName&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;workspaceQuota&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;cpuQuota&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;memoryQuota&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+      <span class="s2">&quot;gpuQuota&quot;</span>: <span class="s2">&quot;string&quot;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -414,7 +446,7 @@
         <li class="right" >
           <a href="request-workflow-cancellation.html" title="request-workflow-cancellation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.130 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.131 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">restore-workspace</a></li> 
       </ul>
