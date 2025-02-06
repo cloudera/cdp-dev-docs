@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.130 (BETA)
+  version: 0.9.131 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -1333,7 +1333,6 @@ paths:
       description: Get the latest (in progress or finished) operation for the datahub cluster.
       operationId: getOperation
       x-mutating: false
-      x-no-compatibility-guarantee: true
       parameters:
         - name: input
           in: body
@@ -1711,6 +1710,9 @@ definitions:
       result:
         type: string
         description: The result of the operation.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   InstanceTemplate:
     type: object
     description: Instance template configuration(s).
@@ -2197,6 +2199,9 @@ definitions:
       cluster:
         $ref: '#/definitions/Cluster'
         description: The cluster.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ListClusterLifecycleEventsRequest:
     type: object
     description: Request object for listing cluster events.
@@ -2853,6 +2858,9 @@ definitions:
       cluster:
         $ref: '#/definitions/Cluster'
         description: The cluster.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CreateAWSGovCloudClusterRequest:
     type: object
     description: Request object for creating AWS  Data Hub cluster request on GovCloud.
@@ -2925,6 +2933,9 @@ definitions:
       cluster:
         $ref: '#/definitions/Cluster'
         description: The cluster.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CreateAzureClusterRequest:
     type: object
     description: Request object for create Azure cluster request.
@@ -3008,6 +3019,9 @@ definitions:
       cluster:
         $ref: '#/definitions/Cluster'
         description: The cluster.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CreateGCPClusterRequest:
     type: object
     description: Request object for create GCP cluster request.
@@ -3076,6 +3090,9 @@ definitions:
       cluster:
         $ref: '#/definitions/Cluster'
         description: The cluster.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   DeleteClusterRequest:
     type: object
     description: Request object for delete cluster request.
@@ -3091,6 +3108,10 @@ definitions:
   DeleteClusterResponse:
     type: object
     description: Response object for delete cluster request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   DescribeClusterRequest:
     type: object
     description: Request object for describe cluster request.
@@ -3202,6 +3223,10 @@ definitions:
   RotateDbCertificateResponse:
     type: object
     description: Response object to rotate ssl certificate a datahub.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RepairInstancesRequest:
     type: object
     description: Details for repair instances.
@@ -3226,6 +3251,10 @@ definitions:
   StartClusterResponse:
     type: object
     description: Response object for start cluster request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   StopClusterRequest:
     type: object
     description: Request object for stop cluster request.
@@ -3238,6 +3267,10 @@ definitions:
   StopClusterResponse:
     type: object
     description: Response object for stop cluster request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RetryClusterRequest:
     type: object
     description: Request object for retry cluster request.
@@ -3283,6 +3316,10 @@ definitions:
   RepairClusterResponse:
     type: object
     description: Response object for repair cluster request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RestartClusterInstancesRequest:
     type: object
     description: Request object for restart cluster instances request.
@@ -3301,6 +3338,10 @@ definitions:
   RestartClusterInstancesResponse:
     type: object
     description: Response object for restart cluster instances request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   SyncClusterRequest:
     type: object
     description: Request object for sync cluster request.
@@ -3334,6 +3375,10 @@ definitions:
   ScaleClusterResponse:
     type: object
     description: Response object for scale cluster request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CreateRecipeRequest:
     type: object
     description: Request object for create recipe request.
@@ -4330,6 +4375,10 @@ definitions:
   CollectDatahubDiagnosticsResponse:
     type: object
     description: Response object for collecting DataHub diagnostics.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ListDatahubDiagnosticsRequest:
     type: object
     description: Request object for listing recent Datahub diagnostics collections.
@@ -4473,6 +4522,10 @@ definitions:
   CollectCmDiagnosticsResponse:
     type: object
     description: Response object for collecting Datahub diagnostics.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   GetCmRolesRequest:
     type: object
     description: Request object for obtaining Cloudera Manger roles. (that can be used for filtering in CM based diagnostics collection)
@@ -4551,7 +4604,6 @@ definitions:
         description: JSON string with metadata as key value pairs.
   GetOperationRequest:
     type: object
-    x-no-compatibility-guarantee: true
     description: Request object for tracking the latest (current/last) operation on the datahub resource.
     required:
       - crn
@@ -4562,10 +4614,8 @@ definitions:
       operationId:
         type: string
         description: Filter by operation id.
-        x-no-compatibility-guarantee: true
   GetOperationResponse:
     type: object
-    x-no-compatibility-guarantee: true
     description: Response object for tracking the latest (current/last) operation on the datahub resource.
     properties:
       operationId:
@@ -4609,6 +4659,10 @@ definitions:
   RotateSecretsResponse:
     type: object
     description: Response object for rotating secrets.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ListDatahubSecretTypesRequest:
     type: object
     description: Request for listing possible secret values for Datahub.
@@ -4653,10 +4707,18 @@ definitions:
     type: object
     description: Response object to rotate autotls certificates on datahub's hosts, deprecated.
     x-deprecated: true
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RenewCertificateResponse:
     type: object
     description: Response object for renew certificate request, deprecated.
     x-deprecated: true
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ImageComponentVersions:
     type: object
     description: Versions of the image components.
@@ -4739,6 +4801,9 @@ definitions:
       reason:
         type: string
         description: The reason why upgrade is not possible.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   PrepareClusterUpgradeRequest:
     type: object
     description: Request object to Data Hub upgrade preparation. This command indicates the upgrade preparation for a specific image or a selected runtime version. Important to note that the imageId or the runtime parameter must be present in the request.
@@ -4770,6 +4835,9 @@ definitions:
       reason:
         type: string
         description: The reason why upgrade is not possible.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   StartDatabaseUpgradeRequest:
     type: object
     description: Request object for Data Hub database upgrade.
@@ -4795,6 +4863,9 @@ definitions:
       targetVersion:
         type: string
         description: The database engine major version to upgrade to.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   DescribeDatabaseServerRequest:
     x-no-compatibility-guarantee: true
     type: object
@@ -4932,6 +5003,10 @@ definitions:
   SyncComponentVersionsFromCmResponse:
     type: object
     description: Datahub sync CM component versions response.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RotatePrivateCertificatesRequest:
     type: object
     description: Request object to rotate private certificates on the hosts of Datahub.
@@ -4944,6 +5019,10 @@ definitions:
   RotatePrivateCertificatesResponse:
     type: object
     description: Response object to rotate private certificates on the hosts of Datahub.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RenewPublicCertificateRequest:
     type: object
     description: Request object for renewing the Datahub public certificate.
@@ -4956,6 +5035,10 @@ definitions:
   RenewPublicCertificateResponse:
     type: object
     description: Response object for renew public certificate request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   StartInstancesRequest:
     type: object
     description: Request object to start instances of a host group on a Data Hub.
@@ -4976,6 +5059,10 @@ definitions:
   StartInstancesResponse:
     type: object
     description: Response object to start instances of a host group on Data Hub.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   StopInstancesRequest:
     type: object
     description: Request object to stop instances of a host group on a Data Hub.
@@ -4997,6 +5084,10 @@ definitions:
   StopInstancesResponse:
     type: object
     description: Response object to a stop instances of a host group on a Data Hub.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RotateSaltPasswordRequest:
     type: object
     description: Request object for rotating SaltStack user password on Data Hub instances (Deprecated).
@@ -5011,6 +5102,10 @@ definitions:
     type: object
     description: Response object for rotating SaltStack user password on Data Hub instances (Deprecated).
     x-deprecated: true
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   UpdateOrchestratorStateRequest:
     type: object
     description: Request object for running orchestrator engine state update on the Data Hub cluster.
@@ -5023,6 +5118,10 @@ definitions:
   UpdateOrchestratorStateResponse:
     type: object
     description: Response object for running orchestrator engine state update on the Data Hub cluster.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   UpdateToAwsImdsV2Request:
     description: Request object for updating Data Hub to use AWS IMDSv2.
     type: object
@@ -5035,6 +5134,10 @@ definitions:
   UpdateToAwsImdsV2Response:
     type: object
     description: Response object for updating Data Hub to AWS IMDSv2.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   UpdateToAwsImdsV1Request:
     description: Request object for updating Data Hub to use AWS IMDSv1.
     type: object
@@ -5047,6 +5150,10 @@ definitions:
   UpdateToAwsImdsV1Response:
     type: object
     description: Response object for updating Data Hub to AWS IMDSv1.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   SetDefaultJavaVersionRequest:
     type: object
     description: Request object for setting the default Java version on the Data Hub cluster.

@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.130 (BETA)
+  version: 0.9.131 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -820,6 +820,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datalake/getOperation:
+    post:
+      summary: Used for retrieving operation status for the datalake cluster, defaulting to the most recent operation. Provide an operationId to view details of a specific historical operation.
+      description: Used for retrieving operation status for the datalake cluster, defaulting to the most recent operation. Provide an operationId to view details of a specific historical operation.
+      operationId: getOperation
+      x-mutating: false
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetOperationRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/GetOperationResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
   /api/v1/datalake/rotateAutoTlsCertificates:
     post:
       summary: Rotate autotls certificates on the datalake's hosts
@@ -1246,6 +1267,9 @@ definitions:
       result:
         type: string
         description: The result of the operation.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   InstanceTemplate:
     type: object
     description: Instance template that specifies the core information for the vertical scale.
@@ -1762,6 +1786,9 @@ definitions:
       datalake:
         $ref: '#/definitions/Datalake'
         description: The datalake.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CreateAWSGovCloudDatalakeRequest:
     type: object
     description: Request object for createing AWS Data Lake request on GovCloud.
@@ -1829,6 +1856,9 @@ definitions:
       datalake:
         $ref: '#/definitions/Datalake'
         description: The Data Lake.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CreateAzureDatalakeRequest:
     type: object
     description: Request object for create Azure datalake request.
@@ -1909,6 +1939,9 @@ definitions:
       datalake:
         $ref: '#/definitions/Datalake'
         description: The datalake.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CreateGCPDatalakeRequest:
     type: object
     description: Request object for create GCP Data Lake request.
@@ -1977,6 +2010,9 @@ definitions:
       datalake:
         $ref: '#/definitions/Datalake'
         description: The datalake.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   DatalakeScaleType:
     type: string
     description: Represents the available datalake scales. Defaults to LIGHT_DUTY if not set.
@@ -2027,9 +2063,17 @@ definitions:
   DeleteDatalakeResponse:
     type: object
     description: Response object for delete datalake request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RetryDatalakeResponse:
     type: object
     description: Response object for retry datalake request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RetryDatalakeRequest:
     type: object
     description: Request object for retry datalake request.
@@ -2090,6 +2134,10 @@ definitions:
   RepairDatalakeResponse:
     type: object
     description: Response object for repair datalake request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RepairInstancesRequest:
     type: object
     description: Details for repair instances.
@@ -2117,6 +2165,10 @@ definitions:
   RestartDatalakeInstancesResponse:
     type: object
     description: Response object for restart datalake instances request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   GetClusterServiceStatusRequest:
     type: object
     description: Request object to get service status.
@@ -2224,6 +2276,10 @@ definitions:
   RotateDbCertificateResponse:
     type: object
     description: Response object to rotate ssl certificate a datalake.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   StopDatalakeRequest:
     type: object
     description: Request object to stop a datalake, deprecated.
@@ -2883,6 +2939,9 @@ definitions:
       reason:
         type: string
         description: The reason why upgrade is not possible
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   PrepareDatalakeUpgradeRequest:
     type: object
     description: Request object to prepare Data Lake upgrade. This command indicates the upgrade preparation for a specific image or a selected runtime version. Important to note that the imageId or the runtime parameter must be present in the request.
@@ -2914,6 +2973,9 @@ definitions:
       reason:
         type: string
         description: The reason why upgrade is not possible
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   StartDatabaseUpgradeRequest:
     type: object
     description: Request object for Data Lake database upgrade.
@@ -2939,6 +3001,9 @@ definitions:
       targetVersion:
         type: string
         description: The database engine major version to upgrade to.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   DatalakeVmLogRequest:
     type: object
     description: Log descriptor, contains a path and label pair. Used for diagnostics collections.
@@ -3047,6 +3112,10 @@ definitions:
   CollectDatalakeDiagnosticsResponse:
     type: object
     description: Response object for collecting DataLake diagnostics.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ListDatalakeDiagnosticsRequest:
     type: object
     description: Request object for listing recent Datalake diagnostics collections.
@@ -3187,6 +3256,10 @@ definitions:
   CollectCmDiagnosticsResponse:
     type: object
     description: Response object for collecting DataLake diagnostics.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   GetCmRolesRequest:
     type: object
     description: Request object for obtaining Cloudera Manger roles. (that can be used for filtering in CM based diagnostics collection)
@@ -3217,6 +3290,45 @@ definitions:
         description: Array of log descriptors. (useful for diagnostics collection filtering)
         items:
           $ref: '#/definitions/DatalakeVmLogResponse'
+  GetOperationRequest:
+    type: object
+    description: Request object for tracking the latest (current/last) operation on the datalake resource.
+    required:
+      - crn
+    properties:
+      crn:
+        type: string
+        description: CRN of the datalake resource.
+      operationId:
+        type: string
+        description: Filter by operation id.
+  GetOperationResponse:
+    type: object
+    description: Response object for tracking the latest (current/last) operation on the datalake resource.
+    properties:
+      operationId:
+        type: string
+        description: Identifier of the operation.
+      operationName:
+        type: string
+        description: Name of the operation.
+      operationStatus:
+        type: string
+        description: Status of the operation.
+        enum:
+          - UNKNOWN
+          - RUNNING
+          - FAILED
+          - FINISHED
+          - CANCELLED
+      started:
+        type: string
+        format: date-time
+        description: Start time of the operation.
+      ended:
+        type: string
+        format: date-time
+        description: End time of the operation.
   RotateAutoTlsCertificatesRequest:
     type: object
     description: Request object to rotate autotls certificates on datalake's hosts, deprecated.
@@ -3231,10 +3343,18 @@ definitions:
     type: object
     description: Response object to rotate autotls certificates on datalake's hosts, deprecated.
     x-deprecated: true
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RenewCertificateResponse:
     type: object
     description: Response object for renew certificate request, deprecated.
     x-deprecated: true
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   DescribeDatabaseServerRequest:
     type: object
     description: Request object for obtaining Database Server details.
@@ -3524,6 +3644,9 @@ definitions:
         description: Datalake tags object containing the tag values defined for the datalake.
         items:
           $ref: '#/definitions/DatalakeResourceTag'
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ScaleHorizontallyRequest:
     type: object
     description: Data Lake horizontal scaling request.
@@ -3557,6 +3680,9 @@ definitions:
       datalakeName:
         type: string
         description: The name of the datalake.
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ReplaceRecipesRequest:
     type: object
     description: The request for replacing recipes.
@@ -3604,6 +3730,10 @@ definitions:
   RotateSecretsResponse:
     type: object
     description: Response object for rotating secrets.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   ListDatalakeSecretTypesRequest:
     type: object
     description: Request for listing possible secret values for Datalake.
@@ -3683,6 +3813,10 @@ definitions:
   RecoverDatalakeResponse:
     type: object
     description: Datalake recover response.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   SetCatalogRequest:
     type: object
     description: The request object to set catalog for a DataLake.
@@ -3713,6 +3847,10 @@ definitions:
     x-no-compatibility-guarantee: true
     type: object
     description: Datalake sync CM component versions response.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   EnableRangerRazRequest:
     type: object
     description: The enable Ranger Raz request.
@@ -3737,6 +3875,10 @@ definitions:
   RotatePrivateCertificatesResponse:
     type: object
     description: Response object to rotate private certificates on datalake's hosts.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   RenewPublicCertificateRequest:
     type: object
     description: Request object to renew the public certificate for Datalake.
@@ -3749,6 +3891,10 @@ definitions:
   RenewPublicCertificateResponse:
     type: object
     description: Response object for renew public certificate request.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   SdxInstanceGroupRequest:
     description: Request object for host group level custom configurations.
     type: object
@@ -3775,6 +3921,10 @@ definitions:
     type: object
     description: Response object for rotating SaltStack user password on DataLake instances (Deprecated).
     x-deprecated: true
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   UpdateOrchestratorStateRequest:
     type: object
     description: Request object for running orchestrator engine state update on the Data Lake cluster.
@@ -3787,6 +3937,10 @@ definitions:
   UpdateOrchestratorStateResponse:
     type: object
     description: Response object for running orchestrator engine state update on the Data Lake cluster.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   UpdateToAwsImdsV2Request:
     description: Request object for updating Data Lake to use AWS IMDSv2.
     type: object
@@ -3799,6 +3953,10 @@ definitions:
   UpdateToAwsImdsV2Response:
     type: object
     description: Response object for updating Data Lake to AWS IMDSv2.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   UpdateToAwsImdsV1Request:
     description: Request object for updating Data Lake to use AWS IMDSv1.
     type: object
@@ -3811,6 +3969,10 @@ definitions:
   UpdateToAwsImdsV1Response:
     type: object
     description: Response object for updating Data Lake to AWS IMDSv1.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
   CustomInstanceType:
     type: object
     description: Request object for modified instance type.

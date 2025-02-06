@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.131 (2025-02-05)
+* datalake: Add `getOperation` command.
+* datahub: Add `getOperation` command.
+* datalake: Add `getOperation` command.
+* environments: Add `operationId` property environment commands.
+* ml: Add properties `resourcePoolName`, `parentResourcePoolName`, `quota`, and `availableQuota` to response of `describeWorkspace` command.
+* ml: Add property `resourcePoolConfig` to `createWorkspace` command.
+
 ## 0.9.130 (2025-01-23)
 * dw: Deprecate `memorySize` property in the `create-dbc` and `update-dbc` commands.
 * dw: Deprecate `memorySize` property in the `DbcSummary` object.
