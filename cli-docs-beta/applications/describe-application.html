@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>describe-application &#8212; CDP CLI 0.9.132 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-applications" href="list-applications.html" />
+    <link rel="prev" title="delete-application" href="delete-application.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-applications.html" title="list-applications"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="delete-application.html" title="delete-application"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.132 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-application</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="describe-application">
+<span id="cli-cdp-applications-describe-application"></span><h1>describe-application<a class="headerlink" href="#describe-application" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Describe Application</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.132</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Describes an application.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-application
+--environment &lt;value&gt;
+--application &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the environment.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--application</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the pplication.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>application -&gt; (object)</p>
+<blockquote>
+<div><p>Details of an application.</p>
+<p>applicationCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of application.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of application.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>CDP Application Type. <cite>AIRFLOW</cite> - Airflow <cite>CSS</cite> - Cloudera Semantic Search <cite>NOTEBOOK</cite> - Standalone Notebook Service <cite>RAY</cite> - Standalone Ray Service</p>
+</div></blockquote>
+<p>applicationVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the installed application.</p>
+</div></blockquote>
+<p>size -&gt; (string)</p>
+<blockquote>
+<div><p>The size of the application refers to the specific amount of resources, such as CPU, memory, GPU and storage, that are allocated and guaranteed for that instance. Example Values: <cite>TINY</cite>,`SMALL`, <cite>LARGE</cite>, <cite>XLARGE</cite>, etc</p>
+</div></blockquote>
+<p>applicationSpotPolicy -&gt; (string)</p>
+<blockquote>
+<div><p>Application policy for using spot tier in public cloud <cite>DEFAULT</cite> - By default application infra services and workload master would run on on-demand instances and the application workload executor will run on spot instances. <cite>WORKLOAD</cite> - <cite>WORKLOAD</cite> will run all application workloads including workload master (driver) on spot instamces. <cite>NONE</cite> - <cite>NONE</cite> will run all application services on on-demand instances. <cite>ALL</cite> - <cite>ALL</cite> will run all application services on spot instances.</p>
+<p>Form Factors: public</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Health status of an Application. <cite>HEALTHY</cite> - Application is in a Healthy status. <cite>UNHEALTHY</cite> - Application is in an Unhealthy status. <cite>UNKNOWN</cite> - Application is in an Unknown status</p>
+</div></blockquote>
+<p>actualState -&gt; (string)</p>
+<blockquote>
+<div><p>Health state of an Application. <cite>INFRA_PROVISIONING</cite> - Application is provisioning and configuring required infra. <cite>INFRA_PROVISIONED</cite> - Underlying infra has been provisioned and configured. <cite>INFRA_PROVISIONING_FAILED</cite> - Underlying infra has been provisioned and configured. <cite>STARTING</cite> - Application is starting. <cite>STARTED</cite> - Application has started. <cite>STARTING_FAILED</cite> - Application starting failed. <cite>STOPPING</cite> - Application is stopping. <cite>STOPPED</cite> - Application is stopped. <cite>STOPPING_FAILED</cite> - Application stopping failed. <cite>DELETING</cite> - Application is being deleted. <cite>DELETED</cite> - Application is deleted. <cite>DELETING_FAILED</cite> - Application deleting failed.</p>
+</div></blockquote>
+<p>desiredState -&gt; (string)</p>
+<blockquote>
+<div><p>Health state of an Application. <cite>INFRA_PROVISIONING</cite> - Application is provisioning and configuring required infra. <cite>INFRA_PROVISIONED</cite> - Underlying infra has been provisioned and configured. <cite>INFRA_PROVISIONING_FAILED</cite> - Underlying infra has been provisioned and configured. <cite>STARTING</cite> - Application is starting. <cite>STARTED</cite> - Application has started. <cite>STARTING_FAILED</cite> - Application starting failed. <cite>STOPPING</cite> - Application is stopping. <cite>STOPPED</cite> - Application is stopped. <cite>STOPPING_FAILED</cite> - Application stopping failed. <cite>DELETING</cite> - Application is being deleted. <cite>DELETED</cite> - Application is deleted. <cite>DELETING_FAILED</cite> - Application deleting failed.</p>
+</div></blockquote>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The compute cluster used by the application.</p>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The Environment CRN for the application.</p>
+</div></blockquote>
+<p>tags -&gt; (map)</p>
+<blockquote>
+<div><p>Tags to added to the cloud provider resources created.</p>
+<p>Form Factors: public</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-application</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="delete-application.html"
+                        title="previous chapter">delete-application</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-applications.html"
+                        title="next chapter">list-applications</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-applications.html" title="list-applications"
+             >next</a></li>
+        <li class="right" >
+          <a href="delete-application.html" title="delete-application"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.132 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-application</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
