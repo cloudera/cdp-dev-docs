@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.132 (2025-02-19)
+* compute: Add a new enum value to the `ComputeClusterType` enum (DedicatedExternal).
+* environments: Update summary and description for `updateSshKey`, `updateSubnet`, `updateSecurityAccess` and `updateProxyConfig` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated properties `reservedComputeNodes` and `reservedSharedServicesNodes` from `createCluster`, `createAwsCluster`, `createAzureCluster` and `listClusters` commands. 
+* environments: Deprecate `networkCidr` property in the request of `createAWSEnvironment` and `createAWSGovCloudEnvironment` commands.
+
 ## 0.9.131 (2025-02-05)
 * datalake: Add `getOperation` command.
 * datahub: Add `getOperation` command.
