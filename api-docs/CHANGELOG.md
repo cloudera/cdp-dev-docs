@@ -1,5 +1,10 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.134 (2025-03-19)
+* de: Add `cpuRequests`, `memoryRequests`, and `resourcePool` properties in `ServiceResources` object.
+* datahub: Add `restart-cluster-instances` command.
+* datalake: Add `restart-datalake-instances` command.
+
 ## 0.9.133 (2025-03-13)
 * environments: Add `update-tags` command.
 * environments: Add `aksPrivateDnsZoneId` property in `update-data-service-resources` command.
