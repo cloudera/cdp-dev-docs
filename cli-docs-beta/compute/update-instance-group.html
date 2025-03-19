@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>resume-cluster &#8212; CDP CLI 0.9.134 (BETA) documentation</title>
+    <title>update-instance-group &#8212; CDP CLI 0.9.134 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="rollback-deployment" href="rollback-deployment.html" />
-    <link rel="prev" title="list-users" href="list-users.html" /> 
+    <link rel="next" title="upgrade-deployment" href="upgrade-deployment.html" />
+    <link rel="prev" title="update-cluster" href="update-cluster.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="rollback-deployment.html" title="rollback-deployment"
+          <a href="upgrade-deployment.html" title="upgrade-deployment"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="list-users.html" title="list-users"
+          <a href="update-cluster.html" title="update-cluster"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.134 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">compute</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">resume-cluster</a></li> 
+        <li class="nav-item nav-item-this"><a href="">update-instance-group</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="resume-cluster">
-<span id="cli-cdp-compute-resume-cluster"></span><h1>resume-cluster<a class="headerlink" href="#resume-cluster" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="update-instance-group">
+<span id="cli-cdp-compute-update-instance-group"></span><h1>update-instance-group<a class="headerlink" href="#update-instance-group" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Resume Cluster</p>
+<dd class="field-odd"><p>Update instance group</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.134</p>
@@ -51,12 +51,14 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Resumes the compute cluster</p>
+<p>Updates an instance group of a compute cluster.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  resume-cluster
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-instance-group
 --cluster-crn &lt;value&gt;
+--instance-group &lt;value&gt;
+--cluster-state-version &lt;value&gt;
 <span class="o">[</span>--skip-validation <span class="p">|</span> --no-skip-validation<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
@@ -68,6 +70,105 @@
 <p><code class="docutils literal notranslate"><span class="pre">--cluster-crn</span></code> (string)</p>
 <blockquote>
 <div><p>Compute cluster CRN.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--instance-group</span></code> (object)</p>
+<blockquote>
+<div><p>Instance group structure.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name.</p>
+</div></blockquote>
+<p>instanceCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Instance count.</p>
+</div></blockquote>
+<p>autoscaling -&gt; (object)</p>
+<blockquote>
+<div><p>AutoScaling structure.</p>
+<p>Form Factors: public</p>
+<p>maxInstance -&gt; (integer)</p>
+<blockquote>
+<div><p>Max instances.</p>
+</div></blockquote>
+<p>minInstance -&gt; (integer)</p>
+<blockquote>
+<div><p>Min instances.</p>
+</div></blockquote>
+<p>enabled -&gt; (boolean)</p>
+<blockquote>
+<div><p>Enable flag.</p>
+</div></blockquote>
+</div></blockquote>
+<p>instanceTier -&gt; (string)</p>
+<blockquote>
+<div><p>Instance tier.</p>
+</div></blockquote>
+<p>labels -&gt; (map)</p>
+<blockquote>
+<div><p>Labels.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>rootVolume -&gt; (object)</p>
+<blockquote>
+<div><p>Root volume structure.</p>
+<p>Form Factors: public</p>
+<p>size -&gt; (integer)</p>
+<blockquote>
+<div><p>Root volume size.</p>
+</div></blockquote>
+</div></blockquote>
+<p>singleZone -&gt; (boolean)</p>
+<blockquote>
+<div><p>Use single availability zone. Simple boolean for EKS. AKS is used in conjunction with UseAvailabilityZones.</p>
+</div></blockquote>
+<p>taints -&gt; (map)</p>
+<blockquote>
+<div><p>Taints.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+<p>useAvailabilityZones -&gt; (boolean)</p>
+<blockquote>
+<div><p>Used for Azure clusters only.</p>
+</div></blockquote>
+<p>instanceTypes -&gt; (array)</p>
+<blockquote>
+<div><p>Instance types. General purpose: M4, M5, M5a, M5ad, and M5d. Compute optimized: C3, C4, C5, C5d, C5n, and cc2.8xlarge. Memory optimized: cr1.8xlarge, R3, R4, R5, R5a, R5ad, R5d, X1, X1e, and z1d. Storage optimized: D2, H1, hs1.8xlarge, I2, I3, and I3en. Accelerated computing: F1, G2, G3, P2, and P3.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">name</span><span class="o">=</span>string,instanceCount<span class="o">=</span>integer,autoscaling<span class="o">={</span><span class="nv">maxInstance</span><span class="o">=</span>integer,minInstance<span class="o">=</span>integer,enabled<span class="o">=</span>boolean<span class="o">}</span>,instanceTier<span class="o">=</span>string,labels<span class="o">={</span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string<span class="o">}</span>,rootVolume<span class="o">={</span><span class="nv">size</span><span class="o">=</span>integer<span class="o">}</span>,singleZone<span class="o">=</span>boolean,taints<span class="o">={</span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string<span class="o">}</span>,useAvailabilityZones<span class="o">=</span>boolean,instanceTypes<span class="o">=</span>string,string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;instanceCount&quot;</span>: integer,
+  <span class="s2">&quot;autoscaling&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;maxInstance&quot;</span>: integer,
+    <span class="s2">&quot;minInstance&quot;</span>: integer,
+    <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;instanceTier&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;labels&quot;</span>: <span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
+    ...<span class="o">}</span>,
+  <span class="s2">&quot;rootVolume&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;size&quot;</span>: integer
+  <span class="o">}</span>,
+  <span class="s2">&quot;singleZone&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;taints&quot;</span>: <span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
+    ...<span class="o">}</span>,
+  <span class="s2">&quot;useAvailabilityZones&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;instanceTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Form Factors: public</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-state-version</span></code> (integer)</p>
+<blockquote>
+<div><p>Cluster state version.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--skip-validation</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-validation</span></code> (boolean)</p>
 <blockquote>
@@ -84,6 +185,10 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Compute cluster CRN.</p>
+</div></blockquote>
 <p>clusterStatus -&gt; (object)</p>
 <blockquote>
 <div><p>Cluster status structure.</p>
@@ -95,6 +200,10 @@
 <blockquote>
 <div><p>Status.</p>
 </div></blockquote>
+</div></blockquote>
+<p>uri -&gt; (string)</p>
+<blockquote>
+<div><p>Uniform resource identifier of cluster.</p>
 </div></blockquote>
 <p>validationResponse -&gt; (object)</p>
 <blockquote>
@@ -187,7 +296,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">resume-cluster</a><ul>
+<li><a class="reference internal" href="#">update-instance-group</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -198,11 +307,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="list-users.html"
-                        title="previous chapter">list-users</a></p>
+  <p class="topless"><a href="update-cluster.html"
+                        title="previous chapter">update-cluster</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="rollback-deployment.html"
-                        title="next chapter">rollback-deployment</a></p>
+  <p class="topless"><a href="upgrade-deployment.html"
+                        title="next chapter">upgrade-deployment</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -221,14 +330,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="rollback-deployment.html" title="rollback-deployment"
+          <a href="upgrade-deployment.html" title="upgrade-deployment"
              >next</a></li>
         <li class="right" >
-          <a href="list-users.html" title="list-users"
+          <a href="update-cluster.html" title="update-cluster"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.134 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >compute</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">resume-cluster</a></li> 
+        <li class="nav-item nav-item-this"><a href="">update-instance-group</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
