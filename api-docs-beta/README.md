@@ -1,31 +1,31 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.132 (BETA)*
+*Version: 0.9.134 (BETA)*
 
 Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [applications](./applications/index.html) | 0.9.132 |
-| [audit](./audit/index.html) | 0.9.132 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.132 |
-| [compute](./compute/index.html) | 0.9.132 |
-| [consumption](./consumption/index.html) | 0.9.132 |
-| [datacatalog](./datacatalog/index.html) | 0.9.132 |
-| [datahub](./datahub/index.html) | 0.9.132 |
-| [datalake](./datalake/index.html) | 0.9.132 |
-| [de](./de/index.html) | 0.9.132 |
-| [df](./df/index.html) | 0.9.132 |
-| [dfworkload](./dfworkload/index.html) | 0.9.132 |
-| [drscp](./drscp/index.html) | 0.9.132 |
-| [dw](./dw/index.html) | 0.9.132 |
-| [environments](./environments/index.html) | 0.9.132 |
-| [iam](./iam/index.html) | 0.9.132 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.132 |
-| [metrics](./metrics/index.html) | 0.9.132 |
-| [ml](./ml/index.html) | 0.9.132 |
-| [opdb](./opdb/index.html) | 0.9.132 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.132 |
+| [applications](./applications/index.html) | 0.9.134 |
+| [audit](./audit/index.html) | 0.9.134 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.134 |
+| [compute](./compute/index.html) | 0.9.134 |
+| [consumption](./consumption/index.html) | 0.9.134 |
+| [datacatalog](./datacatalog/index.html) | 0.9.134 |
+| [datahub](./datahub/index.html) | 0.9.134 |
+| [datalake](./datalake/index.html) | 0.9.134 |
+| [de](./de/index.html) | 0.9.134 |
+| [df](./df/index.html) | 0.9.134 |
+| [dfworkload](./dfworkload/index.html) | 0.9.134 |
+| [drscp](./drscp/index.html) | 0.9.134 |
+| [dw](./dw/index.html) | 0.9.134 |
+| [environments](./environments/index.html) | 0.9.134 |
+| [iam](./iam/index.html) | 0.9.134 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.134 |
+| [metrics](./metrics/index.html) | 0.9.134 |
+| [ml](./ml/index.html) | 0.9.134 |
+| [opdb](./opdb/index.html) | 0.9.134 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.134 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).
