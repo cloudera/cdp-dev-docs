@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-ml-serving-app &#8212; CDP CLI 0.9.134 documentation</title>
+    <title>create-ml-serving-app &#8212; CDP CLI 0.9.135 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="backup-workspace.html" title="backup-workspace"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.134 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.135 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-ml-serving-app</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.134</p>
+<dd class="field-even"><p>0.9.135</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -58,13 +58,14 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  create-ml-serving-app
 --app-name &lt;value&gt;
 --environment-crn &lt;value&gt;
---cluster-crn &lt;value&gt;
+<span class="o">[</span>--cluster-crn &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--provision-k8s-request &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--use-public-load-balancer <span class="p">|</span> --no-use-public-load-balancer<span class="o">]</span>
 <span class="o">[</span>--skip-validation <span class="p">|</span> --no-skip-validation<span class="o">]</span>
 <span class="o">[</span>--load-balancer-ip-whitelists &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--subnets-for-load-balancers &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--static-subdomain &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--ozone-s3-creds &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -87,6 +88,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">--provision-k8s-request</span></code> (object)</p>
 <blockquote>
 <div><p>Request object for provisioning Cloudera AI Inference Service instance groups.</p>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the environment for the cluster to create.</p>
+</div></blockquote>
 <p>instanceGroups -&gt; (array)</p>
 <blockquote>
 <div><p>The instance groups.</p>
@@ -107,7 +112,7 @@
 </div></blockquote>
 <p>name -&gt; (string)</p>
 <blockquote>
-<div><p>The unique name of the instance group.</p>
+<div><p>The unique name for the instance or resource group of the workbench.</p>
 </div></blockquote>
 <p>ingressRules -&gt; (array)</p>
 <blockquote>
@@ -139,10 +144,6 @@
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
-</div></blockquote>
-<p>environmentCrn -&gt; (string)</p>
-<blockquote>
-<div><p>The CRN of the environment for the cluster to create.</p>
 </div></blockquote>
 <p>tags -&gt; (array)</p>
 <blockquote>
@@ -180,6 +181,7 @@
 </div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;environmentCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;instanceGroups&quot;</span>: <span class="o">[</span>
     <span class="o">{</span>
       <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>,
@@ -198,7 +200,6 @@
     <span class="o">}</span>
     ...
   <span class="o">]</span>,
-  <span class="s2">&quot;environmentCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;tags&quot;</span>: <span class="o">[</span>
     <span class="o">{</span>
       <span class="s2">&quot;key&quot;</span>: <span class="s2">&quot;string&quot;</span>,
@@ -243,6 +244,39 @@
 <blockquote>
 <div><p>The static subdomain to be used for the Cloudera AI Inference Service instance.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--ozone-s3-creds</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for the MlServingOzoneCreds method.</p>
+<p>s3AccessID -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 access key ID name.</p>
+</div></blockquote>
+<p>s3SecretAccessKey -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 secret access key name.</p>
+</div></blockquote>
+<p>s3EndPointUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 end point.</p>
+</div></blockquote>
+<p>s3CaCertBundle -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 CA bundle.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">s3AccessID</span><span class="o">=</span>string,s3SecretAccessKey<span class="o">=</span>string,s3EndPointUrl<span class="o">=</span>string,s3CaCertBundle<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;s3AccessID&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;s3SecretAccessKey&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;s3EndPointUrl&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;s3CaCertBundle&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -313,7 +347,7 @@
         <li class="right" >
           <a href="backup-workspace.html" title="backup-workspace"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.134 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.135 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-ml-serving-app</a></li> 
       </ul>
