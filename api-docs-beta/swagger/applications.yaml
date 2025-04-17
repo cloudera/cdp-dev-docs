@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.134 (BETA)
+  version: 0.9.135 (BETA)
   title: Cloudera Applications Service
   license:
     name: Apache 2.0
@@ -198,6 +198,9 @@ definitions:
         additionalProperties:
           type: string
         x-form-factors: public
+      environmentName:
+        type: string
+        description: The Environment name for the application.
   DescribeApplicationRequest:
     type: object
     description: Request object for the DescribeApplication method.
@@ -221,8 +224,6 @@ definitions:
   ListApplicationsRequest:
     type: object
     description: Request object for the ListApplications method.
-    required:
-      - environment
     properties:
       environment:
         type: string

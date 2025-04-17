@@ -1,5 +1,24 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.135 (2025-04-09)
+* compute: All compute commands no longer require an entitlement.
+* datahub: Add property `clusterName` to `getOperation` command.
+* datahub: Deprecate `crn` property in `getOperation` command.
+* datalake: Add property `datalakeName` to `getOperation` command.
+* datalake: Deprecate `crn` property in `getOperation` command.
+* ml: Add property `name` to `WorkspaceInstanceGroup` object.
+* ml: Add property `enableEnhancedPerformance` to `CreateWorkspaceRequest` object.
+* ml: Remove `clusterCrn` as required parameter in `createMlServingApp` command.
+* ml: Add property `ozoneS3Creds` of the new object `MlServingOzoneCreds` to `CreateWorkspaceRequest` object.
+* ml: Remove `instanceGroups` as required parameter in `MlServingProvisionK8sRequest` object.
+* ml: Add property `loadBalancerIPWhitelists` to `MlServingApp` object.
+* ml: Deprecate `isPublic` and `ipAllowlist` properties in `KubernetesCluster` command.
+* opdb: Add `architecture` property of the new enum `ArchitectureType` in `DatabaseDetails` object and `createDatabase` command.
+
+BACKWARD INCOMPATIBILITIES:
+* environments: Remove deprecated property `networkCidr` from `createAWSEnvironment` command.
+* environments: Remove deprecated property `newNetworkParams` from `CreateAzureEnvironment` command.
+
 ## 0.9.134 (2025-03-19)
 * de: Add `cpuRequests`, `memoryRequests`, and `resourcePool` properties in `ServiceResources` object.
 * datahub: Add `restart-cluster-instances` command.
