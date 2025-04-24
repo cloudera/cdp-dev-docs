@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-cluster &#8212; CDP CLI 0.9.135 documentation</title>
+    <title>create-cluster &#8212; CDP CLI 0.9.136 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.135 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Cloudera Data Warehouse cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.135</p>
+<dd class="field-even"><p>0.9.136</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -174,9 +174,25 @@
 <blockquote>
 <div><p>Use this option to activate the environment with fewer than half of the standard required IAM permissions on your AWS cross-account IAM role.</p>
 </div></blockquote>
+<p>nonTransparentProxy -&gt; (object)</p>
+<blockquote>
+<div><p>Activation options for an AWS environment to enable non-transparent proxy. Read more: <a class="reference external" href="https://docs.cloudera.com/data-warehouse/cloud/aws-environments/topics/dw-aws-use-non-transparent-proxy.html">https://docs.cloudera.com/data-warehouse/cloud/aws-environments/topics/dw-aws-use-non-transparent-proxy.html</a></p>
+<p>use -&gt; (boolean)</p>
+<blockquote>
+<div><p>Switch using the default non-transparent proxy on/off.</p>
+</div></blockquote>
+<p>bypassedDomains -&gt; (array)</p>
+<blockquote>
+<div><p>Domains where the proxy is getting by-passed.</p>
+<p>item -&gt; (string)</p>
+<blockquote>
+<div><p>Domain.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">enablePrivateEKS</span><span class="o">=</span>boolean,workerSubnetIds<span class="o">=</span>string,string,lbSubnetIds<span class="o">=</span>string,string,customAmiId<span class="o">=</span>string,nodeRoleCDWManagedPolicyArn<span class="o">=</span>string,enableSpotInstances<span class="o">=</span>boolean,reducedPermissionMode<span class="o">=</span>boolean,computeInstanceTypes<span class="o">=</span>string,string
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">enablePrivateEKS</span><span class="o">=</span>boolean,workerSubnetIds<span class="o">=</span>string,string,lbSubnetIds<span class="o">=</span>string,string,customAmiId<span class="o">=</span>string,nodeRoleCDWManagedPolicyArn<span class="o">=</span>string,enableSpotInstances<span class="o">=</span>boolean,reducedPermissionMode<span class="o">=</span>boolean,nonTransparentProxy<span class="o">={</span><span class="nv">use</span><span class="o">=</span>boolean,bypassedDomains<span class="o">=[</span>string,string<span class="o">]}</span>
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -188,7 +204,10 @@
   <span class="s2">&quot;nodeRoleCDWManagedPolicyArn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;enableSpotInstances&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;reducedPermissionMode&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;computeInstanceTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+  <span class="s2">&quot;nonTransparentProxy&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;use&quot;</span>: true<span class="p">|</span>false,
+    <span class="s2">&quot;bypassedDomains&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -245,7 +264,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">userAssignedManagedIdentity</span><span class="o">=</span>string,subnetId<span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,computeInstanceTypes<span class="o">=</span>string,string,logAnalyticsWorkspaceId<span class="o">=</span>string,outboundType<span class="o">=</span>string,aksPodCIDR<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateSQLSubnetName<span class="o">=</span>string,privateDNSZoneSQL<span class="o">=</span>string,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">userAssignedManagedIdentity</span><span class="o">=</span>string,subnetId<span class="o">=</span>string,enableAZ<span class="o">=</span>boolean,enableSpotInstances<span class="o">=</span>boolean,logAnalyticsWorkspaceId<span class="o">=</span>string,outboundType<span class="o">=</span>string,aksPodCIDR<span class="o">=</span>string,enablePrivateSQL<span class="o">=</span>boolean,privateSQLSubnetName<span class="o">=</span>string,privateDNSZoneSQL<span class="o">=</span>string,privateDNSZoneAKS<span class="o">=</span>string,enablePrivateAks<span class="o">=</span>boolean
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -254,7 +273,6 @@
   <span class="s2">&quot;subnetId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;enableAZ&quot;</span>: true<span class="p">|</span>false,
   <span class="s2">&quot;enableSpotInstances&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;computeInstanceTypes&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>,
   <span class="s2">&quot;logAnalyticsWorkspaceId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
   <span class="s2">&quot;outboundType&quot;</span>: <span class="s2">&quot;LoadBalancer&quot;</span><span class="p">|</span><span class="s2">&quot;UserAssignedNATGateway&quot;</span><span class="p">|</span><span class="s2">&quot;UserDefinedRouting&quot;</span>,
   <span class="s2">&quot;aksPodCIDR&quot;</span>: <span class="s2">&quot;string&quot;</span>,
@@ -391,7 +409,7 @@
         <li class="right" >
           <a href="create-backup.html" title="create-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.135 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-cluster</a></li> 
       </ul>
