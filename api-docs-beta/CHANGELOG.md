@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.136 (2025-04-23)
+* dw: Add `startDbc` command.
+* dw: Add `nonTransparentProxy` property to `createAwsCluster` command.
+* dw: Add `nonTransparentProxy` property to `AwsActivationOptions` and `AwsOptionsResponse` objects.
+* dw: Add `cdwHueRestorePlans` property to response of `restoreCluster` command.
+* dw: Add `forceRefresh` property to `startVw` command.
+* dw: Deprecate `restartDbc` and `restartVw` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated `computeInstanceType` property from `createAwsCluster` and `createAzureCluster` commands.
+* dw: Remove deprecated `computeInstanceType` property from `AwsActivationOptions` and `AzureActiviationOptions` objects.
+* dw: Remove deprecated `computeInstanceType` property from response of `clusterSummary` command.
+
 ## 0.9.135 (2025-04-09)
 * compute: All compute commands no longer require an entitlement.
 * datahub: Add property `clusterName` to `getOperation` command.
