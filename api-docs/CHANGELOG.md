@@ -1,5 +1,37 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.137 (2025-05-14)
+* datahub: Add `rotateSecrets` and `listDatahubSecretTypes` commands.
+* datalake: Add `rotateSecrets` and `listDatalakeSecretTypes` commands.
+* datalake: Add `imageDetails` to `DatalakeDetails` object.
+* df: Add `assignToCollection`, `createCollection`, `deleteCollection`, `describeCollection`, `listCollections`, `rotatePassword` and `updateCollection` commands.
+* df: Add `collectionCrn` to `ImportFlowDefinitionRequest` object.
+* df: Add `collectionCrn` and `collectionName` to `ImportFlowDefinitionResponse` object.
+* df: Add `collectionCrn` and `collectionName` to `Flow` and `FlowSummary` objects.
+* df: Add `collectionCrn` to `ListFlowDefinitionsRequest` object.
+* df: Add `VALKEY` enum value to `DiagnosticsEnvironmentComponent`.
+* df: Add `ROTATING_PASSWORD` enum value to `ServiceState`.
+* df: Add `upgradeDeploymentsNiFiVersion` to `Service` and `ServiceSummary` objects.
+* dfworkload: Rename `InboundConnectionEndpointClientPrivateKeyResponse` to `InboundConnectionEndpointClientCertificatesResponse`.
+* dfworkload: Add `AWSNodeStorageProfile`, `AWSNodeStorageProfileMetaData`, `AssetReference` and `AzureNodeStorageProfileMetaData` objects.
+* dfworkload: Add `inboundConnectionAuthorizedIpRanges` and `nodeStorage` properties to `CreateDeploymentRequest` object.
+* dfworkload: Hide `CUSTOM_AWS`, `CUSTOM_AZURE`, `TEST_SESSION_AWS`, `TEST_SESSION_AZURE` enum values of `nodeStorageProfileName` property in `CreateDeploymentRequest` object.
+* dfworkload: Add `sourceParameterGroupId` to `FlowParameter` object.
+* dfworkload: Add `inheritedParameterGroups` to `FlowParameterGroup` object.
+* dfworkload: Add `authorizedIpRanges` to `InboundConnectionEndpointSummary` object.
+* dfworkload: Add `NodeStorage` object.
+* dfworkload: Add `CUSTOM_AWS`, `CUSTOM_AZURE`, `TEST_SESSION_AWS`, `TEST_SESSION_AZURE` enum values to `name` property in `NodeStorageProfileMetadata` object.
+* dfworkload: Add `azureNodeStorageProfileMetaData` and `awsNodeStorageProfileMetaData` properties to `NodeStorageProfileMetadata` object.
+* dfworkload: Add `runtimeStatus`, `nodeStorage`, `targetProcessGroupId` and `inboundConnectionAuthorizedIpRanges` properties to `RpcDeployment` object.
+* dfworkload: Add `CUSTOM_AWS`, `CUSTOM_AZURE`, `TEST_SESSION_AWS`, `TEST_SESSION_AZURE` enum values to `nodeStorageProfileName` in `RpcDeploymentConfiguration` object.
+* dfworkload: Add `nodeStorage` property to `RpcDeploymentConfiguration` object.
+* dfworkload: Add `inboundConnectionAuthorizedIpRanges` and `nodeStorage` properties to `RpcImportedDeploymentConfiguration` object.
+* dfworload: Add `VersionedParameterGroupReference` object to `ValidateCustomPythonConfigurationResponse` object.
+* environments2: Add `rotateFreeipaSecrets` and `listFreeipaSecretTypes` commands.
+* environments2: Add `environmentQuota` to `CreatePrivateEnvironmentRequest` object. 
+* ml: Deprecate `describeModelRegistry` command.
+* ml: Add `getLatestModelRegistryVersion` command.
+
 ## 0.9.136 (2025-04-23)
 * dw: Add `startDbc` command.
 * dw: Add `nonTransparentProxy` property to `createAwsCluster` command.
