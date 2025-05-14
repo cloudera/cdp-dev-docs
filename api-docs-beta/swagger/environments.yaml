@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.136 (BETA)
+  version: 0.9.137 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -2963,6 +2963,9 @@ definitions:
         description: The name of the cluster(s) to use as a Datalake for the environment.
         items:
           type: string
+      environmentQuota:
+        description: Set quota for resources in this Environment.
+        $ref: '#/definitions/EnvironmentQuota'
       kubeConfig:
         type: string
         description: Name of credentials holding kubeconfig for access to the kubernetes cluster paired with this Environment.
@@ -6901,6 +6904,25 @@ definitions:
       message:
         type: string
         description: The detail of the success or failure.
+  EnvironmentQuota:
+    type: object
+    description: Resource pool quota for the Environment.
+    properties:
+      cpuQuota:
+        type: integer
+        format: int64
+        minimum: 1
+        description: CPU quota (in Cores) for the Environment. Must be a positive number. By default, a quota won't be set for this resource type in the environment.
+      memoryQuota:
+        type: integer
+        format: int64
+        minimum: 1
+        description: Memory quota (in GigaBytes) for the Environment. Must be a positive number. By default, a quota won't be set for this resource type in the environment.
+      gpuQuota:
+        type: integer
+        format: int64
+        minimum: 1
+        description: GPU quota (in Cores) for the Environment. Must be a positive number. By default, a quota won't be set for this resource type in the environment.
   SecurityRequest:
     type: object
     description: Security related configuration for Data Hub cluster.

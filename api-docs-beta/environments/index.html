@@ -1496,6 +1496,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_downscalefreeiparesponse">DownscaleFreeipaResponse</a></li>
 <li><a href="#_envvalidation">EnvValidation</a></li>
 <li><a href="#_environment">Environment</a></li>
+<li><a href="#_environmentquota">EnvironmentQuota</a></li>
 <li><a href="#_environmentsummary">EnvironmentSummary</a></li>
 <li><a href="#_environmenttags">EnvironmentTags</a></li>
 <li><a href="#_error">Error</a></li>
@@ -1712,7 +1713,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.136 (BETA)</p>
+<p><em>Version</em> : 0.9.137 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -15236,6 +15237,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environmentQuota</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Set quota for resources in this Environment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_environmentquota">EnvironmentQuota</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>kubeConfig</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -16922,6 +16935,67 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_environmentquota">EnvironmentQuota</h3>
+<div class="paragraph">
+<p>Resource pool quota for the Environment.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cpuQuota</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CPU quota (in Cores) for the Environment. Must be a positive number. By default, a quota won&#8217;t be set for this resource type in the environment.<br>
+<strong>Minimum value</strong> : <code>1</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gpuQuota</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>GPU quota (in Cores) for the Environment. Must be a positive number. By default, a quota won&#8217;t be set for this resource type in the environment.<br>
+<strong>Minimum value</strong> : <code>1</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memoryQuota</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Memory quota (in GigaBytes) for the Environment. Must be a positive number. By default, a quota won&#8217;t be set for this resource type in the environment.<br>
+<strong>Minimum value</strong> : <code>1</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -27069,7 +27143,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-23 13:58:46 -0700
+Last updated 2025-05-14 11:18:30 -0700
 </div>
 </div>
 <br>
