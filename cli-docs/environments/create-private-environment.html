@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-private-environment &#8212; CDP CLI 0.9.136 documentation</title>
+    <title>create-private-environment &#8212; CDP CLI 0.9.137 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-gcp-environment.html" title="create-gcp-environment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.137 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-private-environment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a new Private Cloud environment by providing the Cloudera Manager address and credentials.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.136</p>
+<dd class="field-even"><p>0.9.137</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -61,6 +61,7 @@
 --user &lt;value&gt;
 --authentication-token &lt;value&gt;
 --cluster-names &lt;value&gt;
+<span class="o">[</span>--environment-quota &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--kube-config &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--authentication-token-type &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--namespace-prefix &lt;value&gt;<span class="o">]</span>
@@ -99,6 +100,34 @@
 </div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-quota</span></code> (object)</p>
+<blockquote>
+<div><p>Resource pool quota for the Environment.</p>
+<p>cpuQuota -&gt; (integer)</p>
+<blockquote>
+<div><p>CPU quota (in Cores) for the Environment. Must be a positive number. By default, a quota won’t be set for this resource type in the environment.</p>
+</div></blockquote>
+<p>memoryQuota -&gt; (integer)</p>
+<blockquote>
+<div><p>Memory quota (in GigaBytes) for the Environment. Must be a positive number. By default, a quota won’t be set for this resource type in the environment.</p>
+</div></blockquote>
+<p>gpuQuota -&gt; (integer)</p>
+<blockquote>
+<div><p>GPU quota (in Cores) for the Environment. Must be a positive number. By default, a quota won’t be set for this resource type in the environment.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">cpuQuota</span><span class="o">=</span>integer,memoryQuota<span class="o">=</span>integer,gpuQuota<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;cpuQuota&quot;</span>: integer,
+  <span class="s2">&quot;memoryQuota&quot;</span>: integer,
+  <span class="s2">&quot;gpuQuota&quot;</span>: integer
+<span class="o">}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--kube-config</span></code> (string)</p>
@@ -797,7 +826,7 @@
         <li class="right" >
           <a href="create-gcp-environment.html" title="create-gcp-environment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.137 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >environments</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-private-environment</a></li> 
       </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-deployment &#8212; CDP CLI 0.9.136 documentation</title>
+    <title>create-deployment &#8212; CDP CLI 0.9.137 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-custom-python-configuration.html" title="create-custom-python-configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.137 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates a deployment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.136</p>
+<dd class="field-even"><p>0.9.137</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -72,7 +72,9 @@
 <span class="o">[</span>--cluster-size &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--inbound-hostname &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--listen-components &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--inbound-connection-authorized-ip-ranges &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--node-storage-profile-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--node-storage &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--custom-nar-configuration-crn &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--custom-python-configuration-crn &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--project-crn &lt;value&gt;<span class="o">]</span>
@@ -118,7 +120,15 @@
           <span class="o">{</span> ... recursive ... <span class="o">}</span>
           ...
         <span class="o">]</span>,
-        <span class="s2">&quot;valueSet&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+        <span class="s2">&quot;valueSet&quot;</span>: true<span class="p">|</span>false,
+        <span class="s2">&quot;sourceParameterGroupId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+      <span class="o">}</span>
+      ...
+    <span class="o">]</span>,
+    <span class="s2">&quot;inheritedParameterGroups&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">&quot;groupId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;version&quot;</span>: integer
       <span class="o">}</span>
       ...
     <span class="o">]</span>
@@ -240,6 +250,14 @@
 <span class="o">]</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--inbound-connection-authorized-ip-ranges</span></code> (array)</p>
+<blockquote>
+<div><p>Set of authorized CIDR ranges for the inbound connections.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--node-storage-profile-name</span></code> (string)</p>
 <blockquote>
 <div><p>The node storage profile name.</p>
@@ -247,11 +265,106 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">STANDARD_AWS</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">STANDARD_AZURE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEST_SESSION_AWS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEST_SESSION_AZURE</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PERFORMANCE_AWS</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PERFORMANCE_AZURE</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOCAL_K8S</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CUSTOM_AWS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CUSTOM_AZURE</span></code></p></li>
 </ul>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--node-storage</span></code> (object)</p>
+<blockquote>
+<div><p>Node storage parameters.</p>
+<p>azureContentRepoProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure content repository profile.</p>
+</div></blockquote>
+<p>azureProvenanceRepoProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure provenance repository profile.</p>
+</div></blockquote>
+<p>azureFlowFileRepoProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure flow file repository profile.</p>
+</div></blockquote>
+<p>awsContentRepoProfile -&gt; (object)</p>
+<blockquote>
+<div><p>Custom AWS node storage parameters.</p>
+<p>repoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of the repository in GB.</p>
+</div></blockquote>
+<p>iops -&gt; (string)</p>
+<blockquote>
+<div><p>The IOPS of the repository.</p>
+</div></blockquote>
+<p>throughput -&gt; (string)</p>
+<blockquote>
+<div><p>The throughput of the repository.</p>
+</div></blockquote>
+</div></blockquote>
+<p>awsProvenanceRepoProfile -&gt; (object)</p>
+<blockquote>
+<div><p>Custom AWS node storage parameters.</p>
+<p>repoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of the repository in GB.</p>
+</div></blockquote>
+<p>iops -&gt; (string)</p>
+<blockquote>
+<div><p>The IOPS of the repository.</p>
+</div></blockquote>
+<p>throughput -&gt; (string)</p>
+<blockquote>
+<div><p>The throughput of the repository.</p>
+</div></blockquote>
+</div></blockquote>
+<p>awsFlowFileRepoProfile -&gt; (object)</p>
+<blockquote>
+<div><p>Custom AWS node storage parameters.</p>
+<p>repoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of the repository in GB.</p>
+</div></blockquote>
+<p>iops -&gt; (string)</p>
+<blockquote>
+<div><p>The IOPS of the repository.</p>
+</div></blockquote>
+<p>throughput -&gt; (string)</p>
+<blockquote>
+<div><p>The throughput of the repository.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">azureContentRepoProfile</span><span class="o">=</span>string,azureProvenanceRepoProfile<span class="o">=</span>string,azureFlowFileRepoProfile<span class="o">=</span>string,awsContentRepoProfile<span class="o">={</span><span class="nv">repoSize</span><span class="o">=</span>integer,iops<span class="o">=</span>string,throughput<span class="o">=</span>string<span class="o">}</span>,awsProvenanceRepoProfile<span class="o">={</span><span class="nv">repoSize</span><span class="o">=</span>integer,iops<span class="o">=</span>string,throughput<span class="o">=</span>string<span class="o">}</span>,awsFlowFileRepoProfile<span class="o">={</span><span class="nv">repoSize</span><span class="o">=</span>integer,iops<span class="o">=</span>string,throughput<span class="o">=</span>string<span class="o">}</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;azureContentRepoProfile&quot;</span>: <span class="s2">&quot;AZURE_P6&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P10&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P15&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P30&quot;</span>,
+  <span class="s2">&quot;azureProvenanceRepoProfile&quot;</span>: <span class="s2">&quot;AZURE_P6&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P10&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P15&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P30&quot;</span>,
+  <span class="s2">&quot;azureFlowFileRepoProfile&quot;</span>: <span class="s2">&quot;AZURE_P6&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P10&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P15&quot;</span><span class="p">|</span><span class="s2">&quot;AZURE_P30&quot;</span>,
+  <span class="s2">&quot;awsContentRepoProfile&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;repoSize&quot;</span>: integer,
+    <span class="s2">&quot;iops&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;throughput&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;awsProvenanceRepoProfile&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;repoSize&quot;</span>: integer,
+    <span class="s2">&quot;iops&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;throughput&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;awsFlowFileRepoProfile&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;repoSize&quot;</span>: integer,
+    <span class="s2">&quot;iops&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;throughput&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--custom-nar-configuration-crn</span></code> (string)</p>
 <blockquote>
 <div><p>The CRN of the custom NAR configuration.</p>
@@ -333,6 +446,22 @@
 <p>crn -&gt; (string)</p>
 <blockquote>
 <div><p>The CRN of the deployment.</p>
+</div></blockquote>
+<p>runtimeStatus -&gt; (object)</p>
+<blockquote>
+<div><p>The state and state message associated with a deployment.</p>
+<p>detailedState -&gt; (string)</p>
+<blockquote>
+<div><p>The detailed state that the deployment is currently in.</p>
+</div></blockquote>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>The state that the deployment is currently in.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Detail message relating to the current status of the deployment.</p>
+</div></blockquote>
 </div></blockquote>
 <p>activeInfoAlertCount -&gt; (integer)</p>
 <blockquote>
@@ -523,6 +652,79 @@
 <blockquote>
 <div><p>The node storage profile.</p>
 </div></blockquote>
+<p>nodeStorage -&gt; (object)</p>
+<blockquote>
+<div><p>Node storage parameters.</p>
+<p>azureContentRepoProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure content repository profile.</p>
+</div></blockquote>
+<p>azureProvenanceRepoProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure provenance repository profile.</p>
+</div></blockquote>
+<p>azureFlowFileRepoProfile -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure flow file repository profile.</p>
+</div></blockquote>
+<p>awsContentRepoProfile -&gt; (object)</p>
+<blockquote>
+<div><p>Custom AWS node storage parameters.</p>
+<p>repoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of the repository in GB.</p>
+</div></blockquote>
+<p>iops -&gt; (string)</p>
+<blockquote>
+<div><p>The IOPS of the repository.</p>
+</div></blockquote>
+<p>throughput -&gt; (string)</p>
+<blockquote>
+<div><p>The throughput of the repository.</p>
+</div></blockquote>
+</div></blockquote>
+<p>awsProvenanceRepoProfile -&gt; (object)</p>
+<blockquote>
+<div><p>Custom AWS node storage parameters.</p>
+<p>repoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of the repository in GB.</p>
+</div></blockquote>
+<p>iops -&gt; (string)</p>
+<blockquote>
+<div><p>The IOPS of the repository.</p>
+</div></blockquote>
+<p>throughput -&gt; (string)</p>
+<blockquote>
+<div><p>The throughput of the repository.</p>
+</div></blockquote>
+</div></blockquote>
+<p>awsFlowFileRepoProfile -&gt; (object)</p>
+<blockquote>
+<div><p>Custom AWS node storage parameters.</p>
+<p>repoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The size of the repository in GB.</p>
+</div></blockquote>
+<p>iops -&gt; (string)</p>
+<blockquote>
+<div><p>The IOPS of the repository.</p>
+</div></blockquote>
+<p>throughput -&gt; (string)</p>
+<blockquote>
+<div><p>The throughput of the repository.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>targetProcessGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>The target process group ID of the deployment.</p>
+</div></blockquote>
+<p>inboundConnectionAuthorizedIpRanges -&gt; (array)</p>
+<blockquote>
+<div><p>Set of authorized IP ranges for the inbound connections.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
 <p>projectCrn -&gt; (string)</p>
 <blockquote>
 <div><p>The crn of the project this deployment belongs to, or null if does not belong to a project.</p>
@@ -583,7 +785,7 @@
         <li class="right" >
           <a href="create-custom-python-configuration.html" title="create-custom-python-configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.137 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-deployment</a></li> 
       </ul>
