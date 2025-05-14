@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>get-deployment-configuration-metadata &#8212; CDP CLI 0.9.136 (BETA) documentation</title>
+    <title>get-deployment-configuration-metadata &#8212; CDP CLI 0.9.137 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="get-deployment-configuration.html" title="get-deployment-configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.137 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration-metadata</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Retrieves the deployment configuration metadata.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.136</p>
+<dd class="field-even"><p>0.9.137</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -187,6 +187,26 @@
 <p>valueSet -&gt; (boolean)</p>
 <blockquote>
 <div><p>Indicates if the value of this parameter is set (i.e. not null)</p>
+</div></blockquote>
+<p>sourceParameterGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the shared parameter group where the value should come from.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>inheritedParameterGroups -&gt; (array)</p>
+<blockquote>
+<div><p>The names and versions of the inherited parameter groups</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>A reference to a specific version of a shared parameter group</p>
+<p>groupId -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the parameter group</p>
+</div></blockquote>
+<p>version -&gt; (integer)</p>
+<blockquote>
+<div><p>The version of the parameter group. Empty or null means the latest version.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -407,6 +427,52 @@
 <blockquote>
 <div><p>The text (i.e., the human readable name) for this Storage Profile</p>
 </div></blockquote>
+<p>azureNodeStorageProfileMetaData -&gt; (array)</p>
+<blockquote>
+<div><p>Provides details about the node storage custom disk sizes and performance options.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Azure node storage profile metadata.</p>
+<p>profileName -&gt; (string)</p>
+<blockquote>
+<div><p>Azure node storage profile name.</p>
+</div></blockquote>
+<p>repoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>Azure node storage profile repo size.</p>
+</div></blockquote>
+<p>iops -&gt; (string)</p>
+<blockquote>
+<div><p>Azure node storage profile iops.</p>
+</div></blockquote>
+<p>throughput -&gt; (string)</p>
+<blockquote>
+<div><p>Azure node storage profile throughput.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>awsNodeStorageProfileMetaData -&gt; (object)</p>
+<blockquote>
+<div><p>Custom AWS node storage limits.</p>
+<p>minRepoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The minimum size of the volume in GB.</p>
+</div></blockquote>
+<p>maxRepoSize -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum size of the volume in GB.</p>
+</div></blockquote>
+<p>iops -&gt; (array)</p>
+<blockquote>
+<div><p>The IOPS values of the volume.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>throughput -&gt; (array)</p>
+<blockquote>
+<div><p>The throughput values of the volume.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -465,7 +531,7 @@
         <li class="right" >
           <a href="get-deployment-configuration.html" title="get-deployment-configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.136 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.137 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration-metadata</a></li> 
       </ul>
