@@ -1,5 +1,21 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.138 (2025-05-28)
+* datahub: Add property `preferredSubnetIds` to `scaleCluster` command.
+* environments: Add property `imageDetails` of the new object `ImageInfo` to `FreeipaDetails` object.
+
+BACKWARD INCOMPATIBILITIES:
+* df: Remove `SUSPENDING_FLOW` value from enum `DeploymentState`.
+* df: Remove property `clusterUsable` in `ServiceSummary` and `Service` objects.
+* dfworkload: Remove `transition-flow`, `download-client-certificate-encoded` and `download-client-private-key-encoded` commands.
+* dfworkload: Remove property `clusterSizeName` in `create-deployment` and `update-deployment` commands.
+* dfworkload: Remove property `clusterSizeName` in `RpcDeploymentConfiguration` and `RpcImportedDeploymentConfiguration` objects.
+* dfworkload: Remove `FAILED_TO_START` and `SUSPENDING_FLOW` values from enum `detailedState` in `DeploymentStatus` object.
+* dfworkload: Remove `SUSPENDING_FLOW` value from enum `state` in `DeploymentStatus` object.
+* dfworkload: Remove `SUSPEND_FLOW` value from enum `validActions` in `RpcDeployment` object.
+* dfworkload: Remove `clusterSize`, `coresPerNode`, `heapSize`, and `memoryLimit` properties in `RpcDeployment` object.
+
+
 ## 0.9.137 (2025-05-14)
 * datahub: Add `rotateSecrets` and `listDatahubSecretTypes` commands.
 * datalake: Add `rotateSecrets` and `listDatalakeSecretTypes` commands.
