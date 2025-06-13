@@ -1,5 +1,20 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.139 (2025-06-12)
+* cloudprivatelinks: Add parameter `resourceTags` to `create-private-link-endpoint` command.
+* datahub: Add parameter `architecture` to `create-aws-cluster` command.
+* datalake: Add parameter `customInstanceGroups` to `create-aws-datalake`, `create-aws-gov-cloud-datalake`, `create-azure-datalake` and `create-gcp-datalake` commands.
+* dw: Add parameter `logHiveQueries` to `create-vw` and `update-vw` commands.
+* dw: Add parameter `resourcePool` to `update-dbc` command.
+* opdb: Add parameter `force` to `drop-database` command.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated `resourcePool` parameter from `create-cluster` and `create-private-cluster` commands.
+* dw: Remove deprecated `securityContextConstraintName` parameter from `create-private-cluster` command.
+* dw: Remove deprecated `dbHue` parameter from `create-private-cluster` command.
+* dw: Remove deprecated `dbDas` parameter from `PrivateCloudActivationOptions` object.
+* dw: Remove deprecated `dbMetastore` parameter from `create-dbc` command.
+
 ## 0.9.138 (2025-05-28)
 * datahub: Add property `preferredSubnetIds` to `scaleCluster` command.
 * environments: Add property `imageDetails` of the new object `ImageInfo` to `FreeipaDetails` object.
@@ -44,7 +59,7 @@ BACKWARD INCOMPATIBILITIES:
 * dfworkload: Add `inboundConnectionAuthorizedIpRanges` and `nodeStorage` properties to `RpcImportedDeploymentConfiguration` object.
 * dfworload: Add `VersionedParameterGroupReference` object to `ValidateCustomPythonConfigurationResponse` object.
 * environments2: Add `rotateFreeipaSecrets` and `listFreeipaSecretTypes` commands.
-* environments2: Add `environmentQuota` to `CreatePrivateEnvironmentRequest` object. 
+* environments2: Add `environmentQuota` to `CreatePrivateEnvironmentRequest` object.
 * ml: Deprecate `describeModelRegistry` command.
 * ml: Add `getLatestModelRegistryVersion` command.
 
