@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-gcp-datalake &#8212; CDP CLI 0.9.138 documentation</title>
+    <title>create-gcp-datalake &#8212; CDP CLI 0.9.139 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-azure-datalake.html" title="create-azure-datalake"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.138 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.139 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-datalake</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Creates an GCP Data Lake.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.138</p>
+<dd class="field-even"><p>0.9.139</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -64,7 +64,9 @@
 <span class="o">[</span>--runtime &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--image &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--recipes &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--custom-instance-groups &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--java-version &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--multi-az <span class="p">|</span> --no-multi-az<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -181,9 +183,31 @@
 <span class="o">]</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">--custom-instance-groups</span></code> (array)</p>
+<blockquote>
+<div><p>Configure custom properties on an instance group level.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">name</span><span class="o">=</span>string,instanceType<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;instanceType&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--java-version</span></code> (integer)</p>
 <blockquote>
 <div><p>Configure the major version of Java on the cluster.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--multi-az</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-multi-az</span></code> (boolean)</p>
+<blockquote>
+<div><p>Creates CDP datalake distributed across multiple availability zones in GCP region.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -311,7 +335,7 @@
         <li class="right" >
           <a href="create-azure-datalake.html" title="create-azure-datalake"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.138 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.139 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >datalake</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-gcp-datalake</a></li> 
       </ul>
