@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list-saml-providers &#8212; CDP CLI 0.9.139 (BETA) documentation</title>
+    <title>list-applications-metadata &#8212; CDP CLI 0.9.139 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="list-scim-access-tokens" href="list-scim-access-tokens.html" />
-    <link rel="prev" title="list-roles" href="list-roles.html" /> 
+    <link rel="next" title="audit" href="../audit/index.html" />
+    <link rel="prev" title="list-applications" href="list-applications.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-scim-access-tokens.html" title="list-scim-access-tokens"
+          <a href="../audit/index.html" title="audit"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="list-roles.html" title="list-roles"
+          <a href="list-applications.html" title="list-applications"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.139 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">list-saml-providers</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-applications-metadata</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="list-saml-providers">
-<span id="cli-cdp-iam-list-saml-providers"></span><h1>list-saml-providers<a class="headerlink" href="#list-saml-providers" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="list-applications-metadata">
+<span id="cli-cdp-applications-list-applications-metadata"></span><h1>list-applications-metadata<a class="headerlink" href="#list-applications-metadata" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Lists SAML providers in CDP account.</p>
+<dd class="field-odd"><p>List of Applications Metadata</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.139</p>
@@ -51,13 +51,12 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Lists SAML providers in CDP account.</p>
-<p><code class="docutils literal notranslate"><span class="pre">list-saml-providers</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
+<p>Provides a list of applications metadata.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list-applications-metadata</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-saml-providers
-<span class="o">[</span>--saml-provider-names &lt;value&gt;<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-applications-metadata
 <span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
@@ -68,17 +67,9 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--saml-provider-names</span></code> (array)</p>
-<blockquote>
-<div><p>The SAML providers names or CRNs to retrieve. If empty all SAML providers will be returned.</p>
-</div></blockquote>
-<p>Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
-</pre></div>
-</div>
 <p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
 <blockquote>
-<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 100 is used.</p>
+<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 20 is used.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)</p>
 <blockquote>
@@ -99,63 +90,71 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>samlProviders -&gt; (array)</p>
+<p>applicationsMetadata -&gt; (array)</p>
 <blockquote>
-<div><p>The SAML providers.</p>
+<div><p>A detailed list of installable applications</p>
 <p>item -&gt; (object)</p>
 <blockquote>
-<div><p>Information used to connect a CDP account to an external identity provider.</p>
-<p>crn -&gt; (string)</p>
+<div><p>Application metadata details of an application that can be installed.</p>
+<p>displayName -&gt; (string)</p>
 <blockquote>
-<div><p>CRN of the SAML provider in CDP.</p>
+<div><p>the display name of the application.</p>
 </div></blockquote>
-<p>creationDate -&gt; (datetime)</p>
+<p>type -&gt; (string)</p>
 <blockquote>
-<div><p>The date when this SAML provider record was created.</p>
+<div><p>the type of the application.</p>
 </div></blockquote>
-<p>samlProviderName -&gt; (string)</p>
+<p>shortDescription -&gt; (string)</p>
 <blockquote>
-<div><p>Name of the SAML provider.</p>
+<div><p>the short description of the application.</p>
 </div></blockquote>
-<p>samlProviderId -&gt; (string)</p>
+<p>longDescription -&gt; (string)</p>
 <blockquote>
-<div><p>The unique ID of the saml provider.</p>
+<div><p>the long description of the application.</p>
 </div></blockquote>
-<p>syncGroupsOnLogin -&gt; (boolean)</p>
+<p>tags -&gt; (array)</p>
 <blockquote>
-<div><p>Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the <a class="reference external" href="https://cdp.cloudera.com/SAML/Attributes/groups">https://cdp.cloudera.com/SAML/Attributes/groups</a> SAML assertion.</p>
+<div><p>Arbitrary list of identifying tags. Can be used for search in the future.</p>
+<p>item -&gt; (string)</p>
 </div></blockquote>
-<p>generateWorkloadUsernameByEmail -&gt; (boolean)</p>
+<p>status -&gt; (string)</p>
 <blockquote>
-<div><p>Whether to generate users’ workload username by email or by identity provider user ID (SAML NameID).</p>
+<div><p>Describes the overall application maturity and availability. E.g. “LIMITED_SUPPORT”, “GA_SUPPORT”, “DEPRECATED”, “IN_DEVELOPMENT”</p>
 </div></blockquote>
-<p>enableScim -&gt; (boolean)</p>
+<p>versions -&gt; (array)</p>
 <blockquote>
-<div><p>Whether SCIM is enabled on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP. It is omitted for Cloudera for Government.</p>
-<p>Form Factors: public</p>
-</div></blockquote>
-<p>scimUrl -&gt; (string)</p>
+<div><p>List of app versions that can be installed.</p>
+<p>item -&gt; (object)</p>
 <blockquote>
-<div><p>The SCIM URL if SCIM is enabled. It is omitted for Cloudera for Government.</p>
-</div></blockquote>
-<p>samlMetadataDocument -&gt; (string)</p>
+<div><p>Application metadata for available versions of applications.</p>
+<p>version -&gt; (string)</p>
 <blockquote>
-<div><p>The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for list-saml-providers API response.</p>
+<div><p>The version of the application.</p>
 </div></blockquote>
-<p>cdpSpMetadata -&gt; (string)</p>
+<p>buildNum -&gt; (string)</p>
 <blockquote>
-<div><p>The Service Provider SAML metadata specific to this CDP SAML provider. This field will only be set for create-saml-provider and describe-saml-provider API calls.</p>
+<div><p>The build number of the application.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status describes the overall application maturity and availability for this specific release version. E.g. “LIMITED_SUPPORT”, “GA_SUPPORT”, “DEPRECATED”, “IN_DEVELOPMENT”</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The application description for this version.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
-<p>nextToken -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>nextPageToken -&gt; (string)</p>
 <blockquote>
 <div><p>The token to use when requesting the next set of results. If not present, there are no additional results.</p>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
 <h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
-<p>public, private</p>
+<p>public</p>
 </div>
 </div>
 
@@ -168,7 +167,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">list-saml-providers</a><ul>
+<li><a class="reference internal" href="#">list-applications-metadata</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -179,11 +178,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="list-roles.html"
-                        title="previous chapter">list-roles</a></p>
+  <p class="topless"><a href="list-applications.html"
+                        title="previous chapter">list-applications</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="list-scim-access-tokens.html"
-                        title="next chapter">list-scim-access-tokens</a></p>
+  <p class="topless"><a href="../audit/index.html"
+                        title="next chapter">audit</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -202,14 +201,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-scim-access-tokens.html" title="list-scim-access-tokens"
+          <a href="../audit/index.html" title="audit"
              >next</a></li>
         <li class="right" >
-          <a href="list-roles.html" title="list-roles"
+          <a href="list-applications.html" title="list-applications"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.139 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">list-saml-providers</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-applications-metadata</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
