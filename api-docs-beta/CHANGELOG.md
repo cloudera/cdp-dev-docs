@@ -1,5 +1,8 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.140 (2025-06-25)
+* ml: Add `describeWorkspaceBackup` command.
+
 ## 0.9.139 (2025-06-12)
 * cloudprivatelinks: Add parameter `resourceTags` to `create-private-link-endpoint` command.
 * datahub: Add parameter `architecture` to `create-aws-cluster` command.

@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.139 (BETA)
+  version: 0.9.140 (BETA)
   title: Cloudera Data hub Service
   license:
     name: Apache 2.0
@@ -1514,6 +1514,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/SetDefaultJavaVersionResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datahub/migrateSkus:
+    post:
+      summary: Migrate Data Hub cluster SKUs.
+      description: Migrate Data Hub cluster SKUs.
+      operationId: migrateSkus
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/MigrateSkusRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/MigrateSkusResponse'
         default:
           description: The default response on an error.
           schema:
@@ -5216,3 +5237,22 @@ definitions:
         enum:
           - PERMISSIVE
           - ENFORCING
+  MigrateSkusRequest:
+    type: object
+    description: Request object for migrating SKUs.
+    required:
+      - clusterName
+    properties:
+      clusterName:
+        type: string
+        description: The name or CRN of the Data Hub.
+      force:
+        type: boolean
+        description: Skips checking cloud resource SKUs before the migration.
+  MigrateSkusResponse:
+    type: object
+    description: Response object for migrating SKUs.
+    properties:
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.

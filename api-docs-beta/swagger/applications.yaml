@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.139 (BETA)
+  version: 0.9.140 (BETA)
   title: Cloudera Applications Service
   license:
     name: Apache 2.0
@@ -86,7 +86,7 @@ paths:
       x-mutating: false
   /api/v1/applications/listApplications:
     post:
-      summary: List of Applications
+      summary: Lists Applications
       description: Provides a list of applications.
       operationId: listApplications
       x-entitlement: DSP_APPLICATIONS_API_LIMITED_BETA
@@ -102,29 +102,6 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ListApplicationsResponse'
-        default:
-          description: The default response on an error.
-          schema:
-            $ref: '#/definitions/Error'
-      x-mutating: false
-  /api/v1/applications/listApplicationsMetadata:
-    post:
-      summary: List of Applications Metadata
-      description: Provides a list of applications metadata.
-      operationId: listApplicationsMetadata
-      x-entitlement: DSP_APPLICATIONS_IN_DEVELOPMENT_FEATURES
-      x-paging-default-max-items: 20
-      parameters:
-        - name: input
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/ListApplicationsMetadataRequest'
-      responses:
-        200:
-          description: Expected response to a valid request.
-          schema:
-            $ref: '#/definitions/ListApplicationsMetadataResponse'
         default:
           description: The default response on an error.
           schema:
@@ -224,51 +201,6 @@ definitions:
       environmentName:
         type: string
         description: The Environment name for the application.
-  ApplicationMetadataVersion:
-    type: object
-    description: Application metadata for available versions of applications.
-    properties:
-      version:
-        type: string
-        description: The version of the application.
-      buildNum:
-        type: string
-        description: The build number of the application.
-      status:
-        type: string
-        description: Status describes the overall application maturity and availability for this specific release version. E.g. "LIMITED_SUPPORT", "GA_SUPPORT", "DEPRECATED", "IN_DEVELOPMENT"
-      description:
-        type: string
-        description: The application description for this version.
-  ApplicationMetadata:
-    type: object
-    description: Application metadata details of an application that can be installed.
-    properties:
-      displayName:
-        type: string
-        description: the display name of the application.
-      type:
-        type: string
-        description: the type of the application.
-      shortDescription:
-        type: string
-        description: the short description of the application.
-      longDescription:
-        type: string
-        description: the long description of the application.
-      tags:
-        type: array
-        items:
-          type: string
-        description: Arbitrary list of identifying tags. Can be used for search in the future.
-      status:
-        type: string
-        description: Describes the overall application maturity and availability. E.g. "LIMITED_SUPPORT", "GA_SUPPORT", "DEPRECATED", "IN_DEVELOPMENT"
-      versions:
-        type: array
-        items:
-          $ref: '#/definitions/ApplicationMetadataVersion'
-        description: List of app versions that can be installed.
   DescribeApplicationRequest:
     type: object
     description: Request object for the DescribeApplication method.
@@ -396,33 +328,4 @@ definitions:
         type: integer
         format: int64
         description: The request id to track the progress of the delete operation.
-  ListApplicationsMetadataRequest:
-    type: object
-    description: Request object for the ListApplicationsMetadata method.
-    properties:
-      pageSize:
-        type: integer
-        format: int32
-        minimum: 5
-        maximum: 20
-        x-paging-page-size: true
-        description: The page size.
-      pageToken:
-        type: string
-        x-paging-input-token: true
-        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response.
-  ListApplicationsMetadataResponse:
-    type: object
-    description: Response object for the ListApplicationsMetadata method.
-    properties:
-      applicationsMetadata:
-        type: array
-        x-paging-result: true
-        items:
-          $ref: '#/definitions/ApplicationMetadata'
-        description: A detailed list of installable applications
-      nextPageToken:
-        type: string
-        x-paging-output-token: true
-        description: The token to use when requesting the next set of results. If not present, there are no additional results.
 x-audit: true
