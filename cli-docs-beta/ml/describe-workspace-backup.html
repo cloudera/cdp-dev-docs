@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>describe-workspace-backup &#8212; CDP CLI 0.9.140 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get-audit-events" href="get-audit-events.html" />
+    <link rel="prev" title="describe-workspace" href="describe-workspace.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-audit-events.html" title="get-audit-events"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="describe-workspace.html" title="describe-workspace"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.140 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-workspace-backup</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="describe-workspace-backup">
+<span id="cli-cdp-ml-describe-workspace-backup"></span><h1>describe-workspace-backup<a class="headerlink" href="#describe-workspace-backup" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Describe backup snaphot of a workbench.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.140</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Describe backup snaphot of a workbench.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-workspace-backup
+<span class="o">[</span>--backup-crn &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--backup-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the backup snaphot.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>backupCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the backup snaphot.</p>
+</div></blockquote>
+<p>backupName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the backup snapshot.</p>
+</div></blockquote>
+<p>createdAt -&gt; (datetime)</p>
+<blockquote>
+<div><p>The creation time of the backup snapshot.</p>
+</div></blockquote>
+<p>creatorCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the creator.</p>
+</div></blockquote>
+<p>workspaceVersionAtBackup -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the backed-up workbench at the time of backup.</p>
+</div></blockquote>
+<p>backupStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the backup.</p>
+</div></blockquote>
+<p>isCrossNsBackup -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates whether the backup has cross namespace enabled.</p>
+</div></blockquote>
+<p>instanceGroups -&gt; (array)</p>
+<blockquote>
+<div><p>The list of instance groups.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Instance group information to show in workbench details.</p>
+<p>instanceType -&gt; (string)</p>
+<blockquote>
+<div><p>The cloud provider instance type for the node instance.</p>
+</div></blockquote>
+<p>instanceCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The initial number of instance node.</p>
+</div></blockquote>
+<p>instanceGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>The system-assigned name of the instance group.</p>
+</div></blockquote>
+<p>minInstances -&gt; (integer)</p>
+<blockquote>
+<div><p>The minimum number of instances that can be deployed to this instance group. If the value is 0, the group might be empty.</p>
+</div></blockquote>
+<p>maxInstances -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum number of instances that can be deployed to this instance group.</p>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>Instances in the instance group.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Represents each instance in an instance group.</p>
+<p>instanceId -&gt; (string)</p>
+<blockquote>
+<div><p>Unique instance Id generated by the cloud provider.</p>
+</div></blockquote>
+<p>availabilityZone -&gt; (string)</p>
+<blockquote>
+<div><p>Availability zone the instance belongs to.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>tags -&gt; (array)</p>
+<blockquote>
+<div><p>Tags are key/value pairs that are applied to all tag-able resources deployed in the workbench’s cloud environment.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Contains a single tag entry associated with a workbench.</p>
+<p>key -&gt; (string)</p>
+<blockquote>
+<div><p>The name for the tag.</p>
+</div></blockquote>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>The value for the tag.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>cpu -&gt; (string)</p>
+<blockquote>
+<div><p>Number of CPUs attached to this instance type.</p>
+</div></blockquote>
+<p>gpu -&gt; (string)</p>
+<blockquote>
+<div><p>Number of GPUs attached to this instance type.</p>
+</div></blockquote>
+<p>memory -&gt; (string)</p>
+<blockquote>
+<div><p>Memory in GiB attached to this instance type.</p>
+</div></blockquote>
+<p>rootVolumeSize -&gt; (integer)</p>
+<blockquote>
+<div><p>Root volume size in GiB attached to this instance type.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The unique name for the instance or resource group of the workbench.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-workspace-backup</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="describe-workspace.html"
+                        title="previous chapter">describe-workspace</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get-audit-events.html"
+                        title="next chapter">get-audit-events</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-audit-events.html" title="get-audit-events"
+             >next</a></li>
+        <li class="right" >
+          <a href="describe-workspace.html" title="describe-workspace"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.140 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">describe-workspace-backup</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
