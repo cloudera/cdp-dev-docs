@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.141 (2025-07-09)
+* datacatalog: Add parameters `profilers`, `instanceTypes`, and `maxNodes` to `launchProfilers` command.
+* datahub: Add command `migrateSkus`.
+* datalake: Add command `migrateSkus`.
+* environments: Add parameter `force` to `downscaleFreeipa` command.
+* ml: Add parameter `disableObjectStoreCsiDriver` to `createModelRegistry` command.
+* ml: Add parameter `disableObjectStoreCsiDriver` to `updateModelRegistry` command.
+* ml: Add parameter `enableYunikorn` to `createWorkspace` command.
+* ml: Add required parameters `environmentName` and `productType` to `listInstanceTypeConfiguration` command.
+* ml: Add required parameters `environmentName` and `productType` to `listRelevantInstances` command.
+* ml: Deprecate parameters `region` and `cloudProvider` from `listInstanceTypeConfiguration` command and remove from required parameters.
+* ml: Deprecate parameters `region` and `cloudProvider` from `listRelevantInstances` command and remove from required parameters.
+
 ## 0.9.140 (2025-06-25)
 * ml: Add `describeWorkspaceBackup` command.
 

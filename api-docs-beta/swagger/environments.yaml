@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.140 (BETA)
+  version: 0.9.141 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -2432,6 +2432,9 @@ definitions:
         type: boolean
         default: false
         description: Whether to verify permissions upon saving or not.
+      defaultRegion:
+        type: string
+        description: The default region for the Credential to be used during API interactions.
   UpdateAwsCredentialResponse:
     type: object
     properties:
@@ -2532,6 +2535,9 @@ definitions:
       govCloud:
         type: boolean
         description: Flag that indicates that the given AWS credential is GovCloud specific.
+      defaultRegion:
+        type: string
+        description: The default region for the Credential to be used during API interactions.
   AzureCredentialProperties:
     type: object
     description: The credential properties that closely related to those that have been created on Azure.
@@ -5248,6 +5254,12 @@ definitions:
       multiAz:
         type: boolean
         description: Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
+      architecture:
+        type: string
+        description: Specifies the CPU architecture of freeipa instance type. Values are ARM64, X86_64.
+        enum:
+          - ARM64
+          - X86_64
   AzureFreeIpaCreationRequest:
     description: Request object for creating FreeIPA in the environment.
     type: object
@@ -6476,6 +6488,10 @@ definitions:
         items:
           type: string
         description: The instance Ids to downscale.
+      force:
+        type: boolean
+        description: Force the downscale regardless of the status of the FreeIPA nodes and skip some validations.
+        default: false
   DownscaleFreeipaResponse:
     type: object
     description: The response object for FreeIPA downscale.
