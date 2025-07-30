@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.142 (2025-07-30)
+* compute: Add `egressType`, `aksManagedIdentity`, `privateDnsZone`, and `oidcIssuerURL` parameters to the `describeCluster` command response.
+* datahub: Add `preferredZones` parameter to the `scaleCluster` command.
+* de: Add `sparkOSName` parameter to the `createVc` command.
+* environments: Add `loadBalancer` parameter to the `freeipa` parameter of the `environment` parameter. 
+* iam: Add `enableUserWorkloadPasswordChangedNotifications` and `disableUserWorkloadPasswordChangedNotifications` commands.
+* ml: Add `createFileReplica`, `deleteFileReplica`, and `failOverFileSystem` commands.
+* ml: Add `enableFineGrainedAccessControl` parameter to the `createMlServingApp` command.
+
 ## 0.9.141 (2025-07-09)
 * datacatalog: Add parameters `profilers`, `instanceTypes`, and `maxNodes` to `launchProfilers` command.
 * datahub: Add command `migrateSkus`.
