@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.142 (BETA)
+  version: 0.9.143 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -2655,7 +2655,7 @@ definitions:
         description: Compute cluster CRN.
       id:
         type: string
-        description: User ID. Specify user or role ARN.
+        description: User ID. Specify user email address for GCP, IAM user ARN for AWS, or Azure AD user object ID for Azure.
       groups:
         type: array
         items:
@@ -2677,7 +2677,7 @@ definitions:
     properties:
       id:
         type: string
-        description: User ID.
+        description: User email address for GCP, IAM user ARN for AWS, or Azure AD user object ID for Azure.
       status:
         type: string
         description: User Status.
@@ -2694,7 +2694,7 @@ definitions:
         description: Compute cluster CRN.
       id:
         type: string
-        description: ID of user to be deleted.
+        description: User email address for GCP, IAM user ARN for AWS, or Azure AD user object ID for Azure.
     x-form-factors: public
   DeleteUserResponse:
     type: object
@@ -2702,7 +2702,7 @@ definitions:
     properties:
       id:
         type: string
-        description: User ID.
+        description: User email address for GCP, IAM user ARN for AWS, or Azure AD user object ID for Azure.
       status:
         type: string
         description: User Status.
@@ -2719,7 +2719,7 @@ definitions:
         description: Compute cluster CRN.
       id:
         type: string
-        description: User ID.
+        description: User email address for GCP, IAM user ARN for AWS, or Azure AD user object ID for Azure.
     x-form-factors: public
   User:
     type: object
@@ -2732,7 +2732,7 @@ definitions:
         description: K8s RBAC cluster role bindings.
       id:
         type: string
-        description: User ID.
+        description: User email address for GCP, IAM user ARN for AWS, or Azure AD user object ID for Azure.
       isAdmin:
         type: boolean
         description: True if added user is an admin.
