@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.143 (2025-08-14)
+* dw: Deprecate `id` parameter in `createResourceTemplate` command.
+* dw: Deprecate `dedicatedExecutorNodes` parameter in `createPrivateCluster` command and `PrivateCloudActivationOptions` object.
+* dw: Deprecate `resourcePool` parameter in `updateVw` and `updateDbc` commands and `VizConfig` object.
+* ml: Add `warnings` property to response of `restoreWorkspace` and `backupWorkspace` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* ml: Remove `disableObjectStoreCsiDriver` parameter from `createModelRegistry` and `upgradeModelRegistry` commands.
+
 ## 0.9.142 (2025-07-30)
 * compute: Add `egressType`, `aksManagedIdentity`, `privateDnsZone`, and `oidcIssuerURL` parameters to the `describeCluster` command response.
 * datahub: Add `preferredZones` parameter to the `scaleCluster` command.
