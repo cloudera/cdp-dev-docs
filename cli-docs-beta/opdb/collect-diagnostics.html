@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>collect-diagnostics &#8212; CDP CLI 0.9.143 (BETA) documentation</title>
+    <title>collect-diagnostics &#8212; CDP CLI 0.9.144 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="add-coprocessor.html" title="add-coprocessor"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.143 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.144 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">collect-diagnostics</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Collect diagnostic data bundles from the database</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.143</p>
+<dd class="field-even"><p>0.9.144</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -60,6 +60,9 @@
 --database-name &lt;value&gt;
 --end-time &lt;value&gt;
 <span class="o">[</span>--start-time &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--destination &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--case-number &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--bundle-size-bytes &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -69,11 +72,11 @@
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">--environment-name</span></code> (string)</p>
 <blockquote>
-<div><p>The name of the environment</p>
+<div><p>The name of the environment.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--database-name</span></code> (string)</p>
 <blockquote>
-<div><p>The name of the database</p>
+<div><p>The name of the database.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--end-time</span></code> (string)</p>
 <blockquote>
@@ -82,6 +85,23 @@
 <p><code class="docutils literal notranslate"><span class="pre">--start-time</span></code> (string)</p>
 <blockquote>
 <div><p>The start time (in ISO 8601 format) of the period to collection statistics for.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--destination</span></code> (string)</p>
+<blockquote>
+<div><p>Destination of the created diagnostics bundle.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UPLOAD_TO_CLOUDERA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DOWNLOAD</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--case-number</span></code> (string)</p>
+<blockquote>
+<div><p>The CSH case number to associate the bundle.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--bundle-size-bytes</span></code> (integer)</p>
+<blockquote>
+<div><p>Bundle size limit.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -96,30 +116,38 @@
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
 <p>diagnosticsBundle -&gt; (object)</p>
 <blockquote>
-<div><p>Describe a diagnostics bundle</p>
+<div><p>Describe a diagnostics bundle.</p>
 <p>id -&gt; (string)</p>
 <blockquote>
-<div><p>Identifier for each bundle collection</p>
+<div><p>Identifier for each bundle collection.</p>
 </div></blockquote>
 <p>crn -&gt; (string)</p>
 <blockquote>
-<div><p>The object on which diagnostics was collected</p>
+<div><p>The object on which diagnostics was collected.</p>
 </div></blockquote>
 <p>startTime -&gt; (datetime)</p>
 <blockquote>
-<div><p>Start time</p>
+<div><p>Start time.</p>
 </div></blockquote>
 <p>endTime -&gt; (datetime)</p>
 <blockquote>
 <div><p>The end time, if the command is finished.</p>
 </div></blockquote>
+<p>destination -&gt; (string)</p>
+<blockquote>
+<div><p>Destination of the created diagnostics bundle.</p>
+</div></blockquote>
+<p>caseNumber -&gt; (string)</p>
+<blockquote>
+<div><p>CSH case number.</p>
+</div></blockquote>
 <p>status -&gt; (string)</p>
 <blockquote>
-<div><p>A status of the diagnostics collection process</p>
+<div><p>A status of the diagnostics collection process.</p>
 </div></blockquote>
 <p>result -&gt; (string)</p>
 <blockquote>
-<div><p>If this is a download, a link to the download location of the bundle</p>
+<div><p>If this is a download, a link to the download location of the bundle.</p>
 </div></blockquote>
 </div></blockquote>
 </div>
@@ -177,7 +205,7 @@
         <li class="right" >
           <a href="add-coprocessor.html" title="add-coprocessor"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.143 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.144 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >opdb</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">collect-diagnostics</a></li> 
       </ul>
