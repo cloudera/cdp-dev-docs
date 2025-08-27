@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.144 (2025-08-26)
+* datahub: Add `VERSION_17` support for Postgres DB Upgrade.
+* datalake: Add `VERSION_17` support for Postgres DB Upgrade.
+* dw: Deprecate Unified Analytics (FENG) in Virtual Warehouse related commands.
+* opdb: Add `DiagnosticDestination` enum.
+* opdb: Add `destination`, `caseNumber` and `bundleSizeBytes` properties to `DiagnosticsBundle` and `CollectDiagnosticsRequest` objects.
+
 ## 0.9.143 (2025-08-14)
 * dw: Deprecate `id` parameter in `createResourceTemplate` command.
 * dw: Deprecate `dedicatedExecutorNodes` parameter in `createPrivateCluster` command and `PrivateCloudActivationOptions` object.

@@ -946,6 +946,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_describehbaseconfigurationresponse">DescribeHbaseConfigurationResponse</a></li>
 <li><a href="#_describeupgradedatabaserequest">DescribeUpgradeDatabaseRequest</a></li>
 <li><a href="#_describeupgradedatabaseresponse">DescribeUpgradeDatabaseResponse</a></li>
+<li><a href="#_diagnosticdestination">DiagnosticDestination</a></li>
 <li><a href="#_diagnosticsbundle">DiagnosticsBundle</a></li>
 <li><a href="#_dropdatabaserequest">DropDatabaseRequest</a></li>
 <li><a href="#_dropdatabaseresponse">DropDatabaseResponse</a></li>
@@ -1033,7 +1034,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.143 (BETA)</p>
+<p><em>Version</em> : 0.9.144 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -4392,14 +4393,50 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>bundleSizeBytes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Bundle size limit.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>caseNumber</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CSH case number to associate the bundle.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>databaseName</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database</p>
+<p>The name of the database.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>destination</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>This defines where to put the resulting bundle.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_diagnosticdestination">DiagnosticDestination</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4420,7 +4457,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
+<p>The name of the environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4444,7 +4481,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_collectdiagnosticsresponse">CollectDiagnosticsResponse</h3>
 <div class="paragraph">
-<p>Information about diagnostic bundle generation</p>
+<p>Information about diagnostic bundle generation.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -4466,7 +4503,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Details of requested diagnostic bundle collection</p>
+<p>Details of requested diagnostic bundle collection.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_diagnosticsbundle">DiagnosticsBundle</a></p>
@@ -5920,6 +5957,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>force</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Forcefully delete the snapshot.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>snapshotName</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -6466,9 +6515,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_diagnosticdestination">DiagnosticDestination</h3>
+<div class="paragraph">
+<p>Destination of the created diagnostics bundle.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (UPLOAD_TO_CLOUDERA, DOWNLOAD)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_diagnosticsbundle">DiagnosticsBundle</h3>
 <div class="paragraph">
-<p>Describe a diagnostics bundle</p>
+<p>Describe a diagnostics bundle.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -6486,14 +6544,38 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>caseNumber</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CSH case number.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>crn</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The object on which diagnostics was collected</p>
+<p>The object on which diagnostics was collected.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>destination</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Requested destination of the bundle.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_diagnosticdestination">DiagnosticDestination</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -6514,7 +6596,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Identifier for each bundle collection</p>
+<p>Identifier for each bundle collection.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6526,7 +6608,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If this is a download, a link to the download location of the bundle</p>
+<p>If this is a download, a link to the download location of the bundle.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6538,7 +6620,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Start time</p>
+<p>Start time.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string (date-time)</p>
@@ -6550,7 +6632,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A status of the diagnostics collection process</p>
+<p>A status of the diagnostics collection process.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7489,7 +7571,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the database</p>
+<p>The name of the database.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7501,7 +7583,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the environment</p>
+<p>The name of the environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7513,7 +7595,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_listdiagnosticsresponse">ListDiagnosticsResponse</h3>
 <div class="paragraph">
-<p>The list of in-progress diagnostic bundle operations</p>
+<p>The list of in-progress diagnostic bundle operations.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -7535,7 +7617,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>List of diagnostics operations</p>
+<p>List of diagnostics operations.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_diagnosticsbundle">DiagnosticsBundle</a> &gt; array</p>
@@ -10443,7 +10525,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-08-14 20:09:44 -0700
+Last updated 2025-08-27 10:19:47 -0700
 </div>
 </div>
 <br>
