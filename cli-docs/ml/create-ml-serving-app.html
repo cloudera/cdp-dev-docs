@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-ml-serving-app &#8212; CDP CLI 0.9.144 documentation</title>
+    <title>create-ml-serving-app &#8212; CDP CLI 0.9.145 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-file-replica.html" title="create-file-replica"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.144 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.145 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-ml-serving-app</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.144</p>
+<dd class="field-even"><p>0.9.145</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -144,6 +144,18 @@
 <div><p>The boolean flag to enable the auto scaling.</p>
 </div></blockquote>
 </div></blockquote>
+<p>accelerator -&gt; (object)</p>
+<blockquote>
+<div><p>Accelerator, i.e. GPU configurations.</p>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The GPU type.</p>
+</div></blockquote>
+<p>count -&gt; (integer)</p>
+<blockquote>
+<div><p>The GPU count.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 <p>tags -&gt; (array)</p>
@@ -178,6 +190,14 @@
 <p>item -&gt; (string)</p>
 </div></blockquote>
 </div></blockquote>
+<p>gcp -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the information about gcp.</p>
+<p>secondaryPodRangeName -&gt; (string)</p>
+<blockquote>
+<div><p>The secondary pod range name for GCP.</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 <p>JSON Syntax:</p>
@@ -197,6 +217,10 @@
         <span class="s2">&quot;minInstances&quot;</span>: integer,
         <span class="s2">&quot;maxInstances&quot;</span>: integer,
         <span class="s2">&quot;enabled&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+      <span class="o">}</span>,
+      <span class="s2">&quot;accelerator&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;count&quot;</span>: integer
       <span class="o">}</span>
     <span class="o">}</span>
     ...
@@ -212,6 +236,9 @@
     <span class="s2">&quot;plugin&quot;</span>: <span class="s2">&quot;string&quot;</span>,
     <span class="s2">&quot;topology&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;subnets&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;gcp&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;secondaryPodRangeName&quot;</span>: <span class="s2">&quot;string&quot;</span>
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -352,7 +379,7 @@
         <li class="right" >
           <a href="create-file-replica.html" title="create-file-replica"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.144 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.145 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-ml-serving-app</a></li> 
       </ul>
