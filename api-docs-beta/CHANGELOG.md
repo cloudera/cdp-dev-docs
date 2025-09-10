@@ -1,5 +1,17 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.145 (2025-09-10)
+* iam: Add parameter `excludeGroups` to `generateWorkloadAuthToken` command.
+* environments: Change parameter `existingNetworkParams` as required in `createAzureEnvironment` command.
+* dw: Change description of `minClusters` and `maxClusters` properties in `AutoscalingOptionsUpdateRequest`, `AutoscalingOptionsResponse` and `AutoscalingOptionsCreateRequest` objects.
+* dfworkload: Add parameter `pythonWorkDirectorySize` to `createDeployment` command and `RpcDeploymentConfiguration` object.
+* ml: Add parameter `accelerator` of the new object `Accelerator` to `InstanceGroup` object.
+* ml: Add parameter `accelerator` of the new object `AcceleratorResponse` to `WorkspaceInstanceGroup` object.
+* ml: Add parameter `gcp` of the new object `Gcp` to `OverlayNetwork` object.
+* ml: Add parameter `enableGlobalAccessLoadBalancer` to `createWorkspace` command.
+* ml: Add parameters `secondaryPodRangeNames` and `enableGlobalAccessLoadBalancer` to `Workspace` object.
+* ml: Add parameter `accelerator` of the new object `Accelerator` to `modifyClusterInstanceGroup` command.
+
 ## 0.9.144 (2025-08-26)
 * datahub: Add `VERSION_17` support for Postgres DB Upgrade.
 * datalake: Add `VERSION_17` support for Postgres DB Upgrade.

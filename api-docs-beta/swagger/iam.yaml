@@ -7,7 +7,7 @@ x-cdp-releases: PUBLIC
 x-audit: true
 x-extensions: pvcapipath
 info:
-  version: 0.9.144 (BETA)
+  version: 0.9.145 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -4099,6 +4099,10 @@ definitions:
       environmentCrn:
         type: string
         description: The environment CRN, required by DF.
+      excludeGroups:
+        type: boolean
+        description: Whether to exclude 'groups' claim from the token.
+        x-form-factors: private
   GenerateWorkloadAuthTokenResponse:
     type: object
     description: Response object for GenerateWorkloadAuthToken method.
