@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.145
+  version: 0.9.147
   title: Cloudera AI
   license:
     name: Apache 2.0
@@ -2687,6 +2687,9 @@ definitions:
         items:
           type: string
         description: The whitelist of CIDR blocks which can access the API server.
+      disableObjectStoreCsiDriver:
+        type: boolean
+        description: If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the "Storage Account Contributor" role on Azure.
   CreateModelRegistryResponse:
     type: object
     description: Response for creating model registry request.
@@ -2789,6 +2792,19 @@ definitions:
       crn:
         type: string
         description: The CRN of the model registry to be upgraded.
+      disableObjectStoreCsiDriver:
+        type: boolean
+        description: If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the "Storage Account Contributor" role on Azure.
+      azureOptions:
+        description: AzureUpgradeOptions options for model registry upgrade when using User Defined Routing (UDR).
+        $ref: '#/definitions/AzureUpgradeOptions'
+  AzureUpgradeOptions:
+    type: object
+    description: AzureUpgradeOptions upgrade options for model registry. This message contains configuration options specific to Azure deployments when using User Defined Routing (UDR).
+    properties:
+      udrNetwork:
+        description: OverlayNetwork configuration for UDR-based deployments. This defines the network settings required for Azure environments that use custom routing tables.
+        $ref: '#/definitions/OverlayNetwork'
   UpgradeModelRegistryResponse:
     type: object
     description: Response for upgrading model registry.

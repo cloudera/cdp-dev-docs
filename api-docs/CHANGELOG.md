@@ -1,5 +1,15 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.147 (2025-09-26)
+* datahub: Deprecate `clusterStatus` parameter in `Cluster` and `ClusterLifecycleEvents` objects.
+* ml: Add `disableObjectStoreCsiDriver` parameter to `createModelRegistry` and `updateModelRegistry` commands.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated commands `restartVw` and `restartDbc`.
+
+## 0.9.146 (2025-09-15)
+* ml: Add parameter `azureOptions` in the `upgrade-model-registry` command.
+
 ## 0.9.145 (2025-09-10)
 * iam: Add parameter `excludeGroups` to `generateWorkloadAuthToken` command.
 * environments: Change parameter `existingNetworkParams` as required in `createAzureEnvironment` command.
@@ -32,7 +42,7 @@ BACKWARD INCOMPATIBILITIES:
 * compute: Add `egressType`, `aksManagedIdentity`, `privateDnsZone`, and `oidcIssuerURL` parameters to the `describeCluster` command response.
 * datahub: Add `preferredZones` parameter to the `scaleCluster` command.
 * de: Add `sparkOSName` parameter to the `createVc` command.
-* environments: Add `loadBalancer` parameter to the `freeipa` parameter of the `environment` parameter. 
+* environments: Add `loadBalancer` parameter to the `freeipa` parameter of the `environment` parameter.
 * iam: Add `enableUserWorkloadPasswordChangedNotifications` and `disableUserWorkloadPasswordChangedNotifications` commands.
 * ml: Add `createFileReplica`, `deleteFileReplica`, and `failOverFileSystem` commands.
 * ml: Add `enableFineGrainedAccessControl` parameter to the `createMlServingApp` command.
