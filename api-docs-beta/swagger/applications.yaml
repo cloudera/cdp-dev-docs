@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: BETA
 info:
-  version: 0.9.145 (BETA)
+  version: 0.9.147 (BETA)
   title: Cloudera Applications Service
   license:
     name: Apache 2.0
@@ -84,6 +84,28 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: false
+  /api/v1/applications/getApplicationMetadataConfiguration:
+    post:
+      summary: Get Application Metadata Configuration
+      description: Retrieves the configuration schema and field definitions for a specific application type and version.
+      operationId: getApplicationMetadataConfiguration
+      x-entitlement: DSP_APPLICATIONS_API_LIMITED_BETA
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GetApplicationMetadataConfigurationRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/GetApplicationMetadataConfigurationResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
   /api/v1/applications/listApplications:
     post:
       summary: Lists Applications
@@ -107,6 +129,52 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: false
+  /api/v1/applications/listApplicationsMetadata:
+    post:
+      summary: Lists Applications Metadata
+      description: Provides a list of applications metadata.
+      operationId: listApplicationsMetadata
+      x-entitlement: DSP_APPLICATIONS_API_LIMITED_BETA
+      x-paging-default-max-items: 20
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListApplicationsMetadataRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListApplicationsMetadataResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
+  /api/v1/applications/listAvailableClusters:
+    post:
+      summary: Lists available clusters
+      description: Provides a list of available clusters.
+      operationId: listAvailableClusters
+      x-entitlement: DSP_APPLICATIONS_API_LIMITED_BETA
+      x-paging-default-max-items: 20
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListAvailableClustersRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListAvailableClustersResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
 definitions:
   Error:
     type: object
@@ -122,6 +190,7 @@ definitions:
     type: string
     description: "CDP Application Type.\n `AIRFLOW` - Airflow `CSS` - Cloudera Semantic Search `NOTEBOOK` - Standalone Notebook Service `RAY` - Standalone Ray Service `HTTPBIN` - HTTPBin Service"
     enum:
+      - AIRFLOW
       - CSS
   ApplicationHealthStatus:
     type: string
@@ -201,6 +270,212 @@ definitions:
       environmentName:
         type: string
         description: The Environment name for the application.
+      endpoints:
+        type: array
+        items:
+          $ref: '#/definitions/Endpoint'
+        description: Application endpoint URL.
+      clusterName:
+        type: string
+        description: The name of compute cluster used by the application.
+  ApplicationMetadataVersion:
+    type: object
+    description: Application metadata for available versions of applications.
+    properties:
+      version:
+        type: string
+        description: The version of the application.
+      buildNum:
+        type: string
+        description: The build number of the application.
+      status:
+        type: string
+        description: Status describes the overall application maturity and availability for this specific release version. E.g. "LIMITED_SUPPORT", "GA_SUPPORT", "DEPRECATED", "IN_DEVELOPMENT"
+      description:
+        type: string
+        description: The application description for this version.
+      sizes:
+        type: array
+        items:
+          type: string
+        description: The available sizes for instance group creation.
+  ApplicationMetadata:
+    type: object
+    description: Application metadata details of an application that can be installed.
+    properties:
+      displayName:
+        type: string
+        description: the display name of the application.
+      type:
+        type: string
+        description: the type of the application.
+      description:
+        type: string
+        description: the description of the application.
+      summary:
+        type: string
+        description: the summary of the application.
+      tags:
+        type: array
+        items:
+          type: string
+        description: Arbitrary list of identifying tags. Can be used for search in the future.
+      status:
+        type: string
+        description: Describes the overall application maturity and availability. E.g. "LIMITED_SUPPORT", "GA_SUPPORT", "DEPRECATED", "IN_DEVELOPMENT"
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationMetadataVersion'
+        description: List of app versions that can be installed.
+  PlatformMessageDetails:
+    type: object
+    description: Platform message details for a cluster status message.
+    properties:
+      errorMessage:
+        type: string
+        description: Error message from the cloud provider.
+  ClusterStatusMessage:
+    type: object
+    description: Cluster status message detail.
+    properties:
+      status:
+        type: string
+        description: The status. e.g. "RUNNING", "CREATING".
+      message:
+        type: string
+        description: The status message. Typically an error message.
+      platformMessageDetails:
+        description: The cloud provider details.
+        $ref: '#/definitions/PlatformMessageDetails'
+  ClusterInfo:
+    type: object
+    description: Cluster information for an application.
+    properties:
+      clusterCrn:
+        type: string
+        description: The CRN of the cluster.
+      name:
+        type: string
+        description: The name of the cluster.
+      environmentName:
+        type: string
+        description: The environment name.
+      cloudProvider:
+        type: string
+        description: The cloud provider of the cluster, e.g. "AWS", "AZURE", "GCP".
+      statusMessage:
+        description: The status of the cluster.
+        $ref: '#/definitions/ClusterStatusMessage'
+  EndpointType:
+    type: string
+    description: "Endpoint Type.\n `UI` - UI endpoint `API` - API endpoint"
+    enum:
+      - UI
+      - API
+  Endpoint:
+    type: object
+    description: Endpoint details for an application. Can contain UI endpoints, API endpoints, etc.
+    properties:
+      name:
+        type: string
+        description: The Name of the Url.
+      serviceUrl:
+        type: string
+        description: The endpoint URL for the application.
+      description:
+        type: string
+        description: The description of the endpoint.
+      endpointType:
+        description: The type of the endpoint. eg. UI, API.
+        $ref: '#/definitions/EndpointType'
+  FieldDefinition:
+    type: object
+    description: Structure, validation, and UI behavior for configurable application parameters.
+    required:
+      - title
+      - type
+    properties:
+      title:
+        type: string
+        description: The display title of the field shown to users in forms or UI.
+      type:
+        type: string
+        description: The type of the field (string, integer, boolean, object).
+      description:
+        type: string
+        description: The description of the field.
+      placeholder:
+        type: string
+        description: The placeholder text for the field.
+      required:
+        type: boolean
+        description: Whether the field is required.
+      ui:
+        description: UI-specific hints for how a client should render the field.
+        $ref: '#/definitions/UiHints'
+      default:
+        type: string
+        description: The default value for the field.
+      pattern:
+        type: string
+        description: The regex validation pattern for the field.
+      enum:
+        type: array
+        items:
+          type: string
+        description: The enum options for the field.
+      minimum:
+        type: integer
+        format: int64
+        description: The minimum value for the field.
+      maximum:
+        type: integer
+        format: int64
+        description: The maximum value for the field.
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+        description: The nested properties for object-type fields.
+  UiHints:
+    type: object
+    description: UI-specific hints for how a client should render the field.
+    properties:
+      sensitive:
+        type: boolean
+        description: Whether this field contains sensitive data that should be masked or hidden in UI.
+      isVisibleDuringInstallation:
+        type: boolean
+        description: Whether this field should be visible and configurable during application installation.
+      isEditable:
+        type: boolean
+        description: Whether this field can be edited after initial configuration or installation.
+  CloudProviderType:
+    type: string
+    description: "Cloud Provider Type.\n `AWS` - AWS cloud provider `AZURE` - AZURE cloud provider `GCP` - GCP cloud provider"
+    enum:
+      - AWS
+  Property:
+    type: object
+    description: Represents a key-value property pair.
+    required:
+      - key
+      - value
+    properties:
+      key:
+        type: string
+        description: The property name/key.
+      value:
+        description: The field definition for this property.
+        $ref: '#/definitions/FieldDefinition'
+  DatabaseType:
+    type: string
+    description: "Application Database Type.\n `EMBEDDED` - Embedded Database `EXTERNAL` - External Database"
+    enum:
+      - EMBEDDED
+      - EXTERNAL
+    x-form-factors: public
   DescribeApplicationRequest:
     type: object
     description: Request object for the DescribeApplication method.
@@ -293,6 +568,14 @@ definitions:
         type: boolean
         description: Skip pre-flight validations if requested.
         default: false
+      configOverrides:
+        type: object
+        description: A map of configOverrides to put in custom configurations. There will be a list all configurations feature in the future.
+        additionalProperties:
+          type: string
+      dbType:
+        description: Which DB type (external/embedded) to request for the app if it supports a DB. If not used, will default to what's in the appspec.
+        $ref: '#/definitions/DatabaseType'
   CreateApplicationResponse:
     type: object
     description: Response object for the CreateApplication method.
@@ -331,4 +614,104 @@ definitions:
         type: integer
         format: int64
         description: The request id to track the progress of the delete operation.
+  ListApplicationsMetadataRequest:
+    type: object
+    description: Request object for the ListApplicationsMetadata method.
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 20
+        x-paging-page-size: true
+        description: The page size.
+      pageToken:
+        type: string
+        x-paging-input-token: true
+        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response.
+      cloudProvider:
+        description: Cloud provider platform.
+        $ref: '#/definitions/CloudProviderType'
+  ListApplicationsMetadataResponse:
+    type: object
+    description: Response object for the ListApplicationsMetadata method.
+    properties:
+      applicationsMetadata:
+        type: array
+        x-paging-result: true
+        items:
+          $ref: '#/definitions/ApplicationMetadata'
+        description: A detailed list of installable applications
+      nextPageToken:
+        type: string
+        x-paging-output-token: true
+        description: The token to use when requesting the next set of results. If not present, there are no additional results.
+  GetApplicationMetadataConfigurationRequest:
+    type: object
+    description: Request object for the GetApplicationMetadataConfiguration method.
+    required:
+      - type
+      - applicationVersion
+    properties:
+      type:
+        description: The type of application for which to retrieve configuration metadata.
+        $ref: '#/definitions/ApplicationType'
+      applicationVersion:
+        type: string
+        description: The specific version of the application to retrieve configuration for.
+      size:
+        type: string
+        description: 'The deployment size tier for the application, which affects available configuration options. Example Values: `TINY`,`SMALL`, `LARGE`, `XLARGE`, etc'
+  GetApplicationMetadataConfigurationResponse:
+    type: object
+    description: Response object for the GetApplicationMetadataConfiguration method.
+    properties:
+      title:
+        type: string
+        description: The display title for the configuration form or schema.
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+        description: Configuration properties describing the structure and validation rules for each configurable parameter.
+  ListAvailableClustersRequest:
+    type: object
+    description: Request object for the ListAvailableClusters method.
+    required:
+      - environment
+    properties:
+      environment:
+        type: string
+        description: The name or CRN of the environment to list clusters for.
+      type:
+        description: The type of application.
+        $ref: '#/definitions/ApplicationType'
+      applicationVersion:
+        type: string
+        description: The version of the application.
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 20
+        x-paging-page-size: true
+        description: The page size.
+      pageToken:
+        type: string
+        x-paging-input-token: true
+        description: A token to specify where to start paginating. This is the nextToken from a previously truncated response.
+  ListAvailableClustersResponse:
+    type: object
+    description: Response object for the ListAvailableClusters method.
+    properties:
+      clusters:
+        type: array
+        x-paging-result: true
+        items:
+          $ref: '#/definitions/ClusterInfo'
+        description: A detailed list of available clusters in the environment.
+      nextPageToken:
+        type: string
+        x-paging-output-token: true
+        description: The token to use when requesting the next set of results. If not present, there are no additional results.
 x-audit: true
