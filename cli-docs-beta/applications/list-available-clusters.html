@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-available-clusters &#8212; CDP CLI 0.9.147 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="audit" href="../audit/index.html" />
+    <link rel="prev" title="list-applications-metadata" href="list-applications-metadata.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../audit/index.html" title="audit"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-applications-metadata.html" title="list-applications-metadata"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-available-clusters</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-available-clusters">
+<span id="cli-cdp-applications-list-available-clusters"></span><h1>list-available-clusters<a class="headerlink" href="#list-available-clusters" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Lists available clusters</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.147</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Provides a list of available clusters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list-available-clusters</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-available-clusters
+--environment &lt;value&gt;
+<span class="o">[</span>--type &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--application-version &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--environment</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the environment to list clusters for.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--type</span></code> (string)</p>
+<blockquote>
+<div><p>CDP Application Type. <cite>AIRFLOW</cite> - Airflow <cite>CSS</cite> - Cloudera Semantic Search <cite>NOTEBOOK</cite> - Standalone Notebook Service <cite>RAY</cite> - Standalone Ray Service <cite>HTTPBIN</cite> - HTTPBin Service</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AIRFLOW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CSS</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--application-version</span></code> (string)</p>
+<blockquote>
+<div><p>The version of the application.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
+<blockquote>
+<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 20 is used.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)</p>
+<blockquote>
+<div><p>A token to specify where to start paginating. This is the <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> from a previously truncated response.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--page-size</span></code> (integer)</p>
+<blockquote>
+<div><p>The size of each page. Generally this does not need to be set and the default page size used is appropriate.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>clusters -&gt; (array)</p>
+<blockquote>
+<div><p>A detailed list of available clusters in the environment.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Cluster information for an application.</p>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the cluster.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the cluster.</p>
+</div></blockquote>
+<p>environmentName -&gt; (string)</p>
+<blockquote>
+<div><p>The environment name.</p>
+</div></blockquote>
+<p>cloudProvider -&gt; (string)</p>
+<blockquote>
+<div><p>The cloud provider of the cluster, e.g. “AWS”, “AZURE”, “GCP”.</p>
+</div></blockquote>
+<p>statusMessage -&gt; (object)</p>
+<blockquote>
+<div><p>Cluster status message detail.</p>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>The status. e.g. “RUNNING”, “CREATING”.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>The status message. Typically an error message.</p>
+</div></blockquote>
+<p>platformMessageDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Platform message details for a cluster status message.</p>
+<p>errorMessage -&gt; (string)</p>
+<blockquote>
+<div><p>Error message from the cloud provider.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>nextPageToken -&gt; (string)</p>
+<blockquote>
+<div><p>The token to use when requesting the next set of results. If not present, there are no additional results.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-available-clusters</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-applications-metadata.html"
+                        title="previous chapter">list-applications-metadata</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../audit/index.html"
+                        title="next chapter">audit</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../audit/index.html" title="audit"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-applications-metadata.html" title="list-applications-metadata"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-available-clusters</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

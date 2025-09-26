@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>upgrade-model-registry &#8212; CDP CLI 0.9.145 (BETA) documentation</title>
+    <title>upgrade-model-registry &#8212; CDP CLI 0.9.147 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="upgrade-ml-serving-app.html" title="upgrade-ml-serving-app"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.145 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">upgrade-model-registry</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Upgrade a model registry.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.145</p>
+<dd class="field-even"><p>0.9.147</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -57,6 +57,8 @@
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  upgrade-model-registry
 <span class="o">[</span>--crn &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--disable-object-store-csi-driver <span class="p">|</span> --no-disable-object-store-csi-driver<span class="o">]</span>
+<span class="o">[</span>--azure-options &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -68,6 +70,53 @@
 <blockquote>
 <div><p>The CRN of the model registry to be upgraded.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--disable-object-store-csi-driver</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-disable-object-store-csi-driver</span></code> (boolean)</p>
+<blockquote>
+<div><p>If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the “Storage Account Contributor” role on Azure.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--azure-options</span></code> (object)</p>
+<blockquote>
+<div><p>AzureUpgradeOptions upgrade options for model registry. This message contains configuration options specific to Azure deployments when using User Defined Routing (UDR).</p>
+<p>udrNetwork -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the information about overlay network.</p>
+<p>plugin -&gt; (string)</p>
+<blockquote>
+<div><p>The plugin specifies specific cni vendor, ex: calico, weave etc.</p>
+</div></blockquote>
+<p>topology -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the information about topology.</p>
+<p>subnets -&gt; (array)</p>
+<blockquote>
+<div><p>The options for subnets.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>gcp -&gt; (object)</p>
+<blockquote>
+<div><p>Contains the information about gcp.</p>
+<p>secondaryPodRangeName -&gt; (string)</p>
+<blockquote>
+<div><p>The secondary pod range name for GCP.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;udrNetwork&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;plugin&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;topology&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;subnets&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;gcp&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;secondaryPodRangeName&quot;</span>: <span class="s2">&quot;string&quot;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -138,7 +187,7 @@
         <li class="right" >
           <a href="upgrade-ml-serving-app.html" title="upgrade-ml-serving-app"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.145 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">upgrade-model-registry</a></li> 
       </ul>

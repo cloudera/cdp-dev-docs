@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-application &#8212; CDP CLI 0.9.145 (BETA) documentation</title>
+    <title>create-application &#8212; CDP CLI 0.9.147 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="index.html" title="applications"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.145 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">applications</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-application</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create Application</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.145</p>
+<dd class="field-even"><p>0.9.147</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -65,6 +65,8 @@
 <span class="o">[</span>--cluster-crn &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--tags &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--skip-validation <span class="p">|</span> --no-skip-validation<span class="o">]</span>
+<span class="o">[</span>--config-overrides &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--db-type &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -85,6 +87,7 @@
 <div><p>CDP Application Type. <cite>AIRFLOW</cite> - Airflow <cite>CSS</cite> - Cloudera Semantic Search <cite>NOTEBOOK</cite> - Standalone Notebook Service <cite>RAY</cite> - Standalone Ray Service <cite>HTTPBIN</cite> - HTTPBin Service</p>
 <p>Possible values:</p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AIRFLOW</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CSS</span></code></p></li>
 </ul>
 </div></blockquote>
@@ -129,6 +132,29 @@
 <blockquote>
 <div><p>Skip pre-flight validations if requested.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--config-overrides</span></code> (map)</p>
+<blockquote>
+<div><p>A map of config-overrides to put in custom configurations. There will be a list all configurations feature in the future.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">KeyName1</span><span class="o">=</span>string,KeyName2<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s2">&quot;string&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  ...<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--db-type</span></code> (string)</p>
+<blockquote>
+<div><p>Application Database Type. <cite>EMBEDDED</cite> - Embedded Database <cite>EXTERNAL</cite> - External Database</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EMBEDDED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTERNAL</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Form Factors: public</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -199,6 +225,34 @@
 <blockquote>
 <div><p>The Environment name for the application.</p>
 </div></blockquote>
+<p>endpoints -&gt; (array)</p>
+<blockquote>
+<div><p>Application endpoint URL.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Endpoint details for an application. Can contain UI endpoints, API endpoints, etc.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The Name of the Url.</p>
+</div></blockquote>
+<p>serviceUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The endpoint URL for the application.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The description of the endpoint.</p>
+</div></blockquote>
+<p>endpointType -&gt; (string)</p>
+<blockquote>
+<div><p>Endpoint Type. <cite>UI</cite> - UI endpoint <cite>API</cite> - API endpoint</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of compute cluster used by the application.</p>
+</div></blockquote>
 </div></blockquote>
 <p>requestId -&gt; (integer)</p>
 <blockquote>
@@ -259,7 +313,7 @@
         <li class="right" >
           <a href="index.html" title="applications"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.145 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >applications</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-application</a></li> 
       </ul>

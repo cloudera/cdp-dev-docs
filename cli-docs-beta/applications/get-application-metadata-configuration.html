@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get-application-metadata-configuration &#8212; CDP CLI 0.9.147 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-applications" href="list-applications.html" />
+    <link rel="prev" title="describe-application" href="describe-application.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-applications.html" title="list-applications"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="describe-application.html" title="describe-application"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-application-metadata-configuration</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get-application-metadata-configuration">
+<span id="cli-cdp-applications-get-application-metadata-configuration"></span><h1>get-application-metadata-configuration<a class="headerlink" href="#get-application-metadata-configuration" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Get Application Metadata Configuration</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.147</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Retrieves the configuration schema and field definitions for a specific application type and version.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-application-metadata-configuration
+--type &lt;value&gt;
+--application-version &lt;value&gt;
+<span class="o">[</span>--size &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--type</span></code> (string)</p>
+<blockquote>
+<div><p>CDP Application Type. <cite>AIRFLOW</cite> - Airflow <cite>CSS</cite> - Cloudera Semantic Search <cite>NOTEBOOK</cite> - Standalone Notebook Service <cite>RAY</cite> - Standalone Ray Service <cite>HTTPBIN</cite> - HTTPBin Service</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AIRFLOW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CSS</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--application-version</span></code> (string)</p>
+<blockquote>
+<div><p>The specific version of the application to retrieve configuration for.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--size</span></code> (string)</p>
+<blockquote>
+<div><p>The deployment size tier for the application, which affects available configuration options. Example Values: <cite>TINY</cite>,`SMALL`, <cite>LARGE</cite>, <cite>XLARGE</cite>, etc</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>title -&gt; (string)</p>
+<blockquote>
+<div><p>The display title for the configuration form or schema.</p>
+</div></blockquote>
+<p>properties -&gt; (array)</p>
+<blockquote>
+<div><p>Configuration properties describing the structure and validation rules for each configurable parameter.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Represents a key-value property pair.</p>
+<p>key -&gt; (string)</p>
+<blockquote>
+<div><p>The property name/key.</p>
+</div></blockquote>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>Structure, validation, and UI behavior for configurable application parameters.</p>
+<p>title -&gt; (string)</p>
+<blockquote>
+<div><p>The display title of the field shown to users in forms or UI.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The type of the field (string, integer, boolean, object).</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The description of the field.</p>
+</div></blockquote>
+<p>placeholder -&gt; (string)</p>
+<blockquote>
+<div><p>The placeholder text for the field.</p>
+</div></blockquote>
+<p>required -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the field is required.</p>
+</div></blockquote>
+<p>ui -&gt; (object)</p>
+<blockquote>
+<div><p>UI-specific hints for how a client should render the field.</p>
+<p>sensitive -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether this field contains sensitive data that should be masked or hidden in UI.</p>
+</div></blockquote>
+<p>isVisibleDuringInstallation -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether this field should be visible and configurable during application installation.</p>
+</div></blockquote>
+<p>isEditable -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether this field can be edited after initial configuration or installation.</p>
+</div></blockquote>
+</div></blockquote>
+<p>default -&gt; (string)</p>
+<blockquote>
+<div><p>The default value for the field.</p>
+</div></blockquote>
+<p>pattern -&gt; (string)</p>
+<blockquote>
+<div><p>The regex validation pattern for the field.</p>
+</div></blockquote>
+<p>enum -&gt; (array)</p>
+<blockquote>
+<div><p>The enum options for the field.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>minimum -&gt; (integer)</p>
+<blockquote>
+<div><p>The minimum value for the field.</p>
+</div></blockquote>
+<p>maximum -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum value for the field.</p>
+</div></blockquote>
+<p>properties -&gt; (array)</p>
+<blockquote>
+<div><p>The nested properties for object-type fields.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Represents a key-value property pair.</p>
+<p>key -&gt; (string)</p>
+<blockquote>
+<div><p>The property name/key.</p>
+</div></blockquote>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>Structure, validation, and UI behavior for configurable application parameters.</p>
+<p>title -&gt; (string)</p>
+<blockquote>
+<div><p>The display title of the field shown to users in forms or UI.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The type of the field (string, integer, boolean, object).</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The description of the field.</p>
+</div></blockquote>
+<p>placeholder -&gt; (string)</p>
+<blockquote>
+<div><p>The placeholder text for the field.</p>
+</div></blockquote>
+<p>required -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the field is required.</p>
+</div></blockquote>
+<p>ui -&gt; (object)</p>
+<blockquote>
+<div><p>UI-specific hints for how a client should render the field.</p>
+<p>sensitive -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether this field contains sensitive data that should be masked or hidden in UI.</p>
+</div></blockquote>
+<p>isVisibleDuringInstallation -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether this field should be visible and configurable during application installation.</p>
+</div></blockquote>
+<p>isEditable -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether this field can be edited after initial configuration or installation.</p>
+</div></blockquote>
+</div></blockquote>
+<p>default -&gt; (string)</p>
+<blockquote>
+<div><p>The default value for the field.</p>
+</div></blockquote>
+<p>pattern -&gt; (string)</p>
+<blockquote>
+<div><p>The regex validation pattern for the field.</p>
+</div></blockquote>
+<p>enum -&gt; (array)</p>
+<blockquote>
+<div><p>The enum options for the field.</p>
+</div></blockquote>
+<p>minimum -&gt; (integer)</p>
+<blockquote>
+<div><p>The minimum value for the field.</p>
+</div></blockquote>
+<p>maximum -&gt; (integer)</p>
+<blockquote>
+<div><p>The maximum value for the field.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-application-metadata-configuration</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="describe-application.html"
+                        title="previous chapter">describe-application</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-applications.html"
+                        title="next chapter">list-applications</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-applications.html" title="list-applications"
+             >next</a></li>
+        <li class="right" >
+          <a href="describe-application.html" title="describe-application"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.147 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >applications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-application-metadata-configuration</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
