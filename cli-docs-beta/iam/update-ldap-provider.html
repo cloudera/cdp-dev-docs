@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update-ldap-provider &#8212; CDP CLI 0.9.148 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="update-saml-provider" href="update-saml-provider.html" />
+    <link rel="prev" title="update-group" href="update-group.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="update-saml-provider.html" title="update-saml-provider"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="update-group.html" title="update-group"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.148 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-ldap-provider</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="update-ldap-provider">
+<span id="cli-cdp-iam-update-ldap-provider"></span><h1>update-ldap-provider<a class="headerlink" href="#update-ldap-provider" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>UpdateLdapProvider</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.148</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Update an LDAP provider.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-ldap-provider
+--ldap-provider-name &lt;value&gt;
+--url &lt;value&gt;
+--user-search-base &lt;value&gt;
+--user-search-filter &lt;value&gt;
+--group-search-base &lt;value&gt;
+--group-search-filter &lt;value&gt;
+--username-mapping-attribute &lt;value&gt;
+<span class="o">[</span>--bind-dn &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--bind-password &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--user-bind-property &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--group-dn-property &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--email-mapping-attribute &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--first-name-mapping-attribute &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--last-name-mapping-attribute &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--group-name-mapping-attribute &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--tls-ca-certificates &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--skip-group-sync-on-login <span class="p">|</span> --no-skip-group-sync-on-login<span class="o">]</span>
+<span class="o">[</span>--start-tls <span class="p">|</span> --no-start-tls<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--ldap-provider-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of LDAP provider to update.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--url</span></code> (string)</p>
+<blockquote>
+<div><p>The URL of the LDAP server. The URL must be prefixed with <a class="reference external" href="ldap://">ldap://</a> or ldaps://. The URL can optionally specify a custom port, for example ldaps://ldap.example.org:663.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--user-search-base</span></code> (string)</p>
+<blockquote>
+<div><p>Part of the directory tree under which to search for users. For example, ou=users,dc=example,dc=org.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--user-search-filter</span></code> (string)</p>
+<blockquote>
+<div><p>The search filter to use for finding users. For example, (uid={{username}}).</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--group-search-base</span></code> (string)</p>
+<blockquote>
+<div><p>The distinguished name indicating the path within the directory information tree to begin user searches from. For example, ou=groups,dc=example,dc=com.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--group-search-filter</span></code> (string)</p>
+<blockquote>
+<div><p>The search filter to use for finding groups for authorization of authenticated users.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--username-mapping-attribute</span></code> (string)</p>
+<blockquote>
+<div><p>The LDAP displayName attribute name, will be used as the user’s name. For example, uid, sAMAccountName.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--bind-dn</span></code> (string)</p>
+<blockquote>
+<div><p>Bind DN. For example, uid=myapp,ou=users,dc=example,dc=org.Optional. It is required if bind is not anonymous.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--bind-password</span></code> (string)</p>
+<blockquote>
+<div><p>The password of the bind user.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--user-bind-property</span></code> (string)</p>
+<blockquote>
+<div><p>Property of the LDAP user object to use when binding to verify the password. For example, dn.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--group-dn-property</span></code> (string)</p>
+<blockquote>
+<div><p>The property of user object to use in {{dn}} interpolation of groupSearchFilter.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--email-mapping-attribute</span></code> (string)</p>
+<blockquote>
+<div><p>The LDAP email attribute name, will be used as the user’s email. For example, mail.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--first-name-mapping-attribute</span></code> (string)</p>
+<blockquote>
+<div><p>The LDAP attribute used as firstname , will be used as the user’s firstname. For example, givenName.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--last-name-mapping-attribute</span></code> (string)</p>
+<blockquote>
+<div><p>The LDAP sn attribute name, will be used as the user’s lastname. For example, sn.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--group-name-mapping-attribute</span></code> (string)</p>
+<blockquote>
+<div><p>The LDAP group attribute name, will be used for user’s group. For example, cn, name.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--tls-ca-certificates</span></code> (array)</p>
+<blockquote>
+<div><p>If the ldaps:// server uses a self-signed SSL certificate or a certificate issued by a private Certificate Authority (CA), you need to provide the trusted certificates that can be used to validate the LDAP server certificate.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--skip-group-sync-on-login</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-skip-group-sync-on-login</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to skip syncing groups.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--start-tls</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-start-tls</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether a start TLS request should be initiated on connect.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>ldapProvider -&gt; (object)</p>
+<blockquote>
+<div><p>LDAP Provider details.</p>
+<p>identityProviderConnectorId -&gt; (string)</p>
+<blockquote>
+<div><p>The unique ID of the LDAP provider.</p>
+</div></blockquote>
+<p>ldapProviderName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the LDAP provider connector.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The LDAP provider connector CRN.</p>
+</div></blockquote>
+<p>skipGroupSyncOnLogin -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates whether group sync is skipped or not.</p>
+</div></blockquote>
+<p>creationDate -&gt; (integer)</p>
+<blockquote>
+<div><p>The creation date in ms from the java epoch of 1970-01-01T00:00:00Z.</p>
+</div></blockquote>
+<p>ldapDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Information about an LDAP provider connector.</p>
+<p>url -&gt; (string)</p>
+<blockquote>
+<div><p>The URL of the LDAP server.</p>
+</div></blockquote>
+<p>userSearchBase -&gt; (string)</p>
+<blockquote>
+<div><p>Part of the directory tree under which to search for users.</p>
+</div></blockquote>
+<p>userSearchFilter -&gt; (string)</p>
+<blockquote>
+<div><p>The search filter to use for finding users.</p>
+</div></blockquote>
+<p>groupSearchBase -&gt; (string)</p>
+<blockquote>
+<div><p>Part of the directory tree under which group searches should be performed.</p>
+</div></blockquote>
+<p>groupSearchFilter -&gt; (string)</p>
+<blockquote>
+<div><p>Filter which is used to search for group membership.</p>
+</div></blockquote>
+<p>bindDn -&gt; (string)</p>
+<blockquote>
+<div><p>Bind DN.</p>
+</div></blockquote>
+<p>userBindProperty -&gt; (string)</p>
+<blockquote>
+<div><p>Property of the LDAP user object to use when binding to the LDAP directory.</p>
+</div></blockquote>
+<p>groupDnProperty -&gt; (string)</p>
+<blockquote>
+<div><p>The property of user object to use in {{dn}} interpolation of groupSearchFilter.</p>
+</div></blockquote>
+<p>usernameMappingAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>The LDAP displayName attribute name, will be used as the user’s name.</p>
+</div></blockquote>
+<p>emailMappingAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>The LDAP email attribute name, will be used as the user’s email.</p>
+</div></blockquote>
+<p>firstNameMappingAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>The LDAP attribute used as firstname , will be used as the user’s firstname.</p>
+</div></blockquote>
+<p>lastNameMappingAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>The LDAP sn attribute name, will be used as the user’s lastname.</p>
+</div></blockquote>
+<p>groupNameMappingAttribute -&gt; (string)</p>
+<blockquote>
+<div><p>The LDAP group attribute name, will be used as for user’s group.</p>
+</div></blockquote>
+<p>tlsCaCertificates -&gt; (array)</p>
+<blockquote>
+<div><p>If your ldaps:// server uses a self-signed SSL certificate or a certificate issued by a private Certificate Authority (CA), you need to provide the trusted certificates that can be used to validate the LDAP server certificate.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>startTls -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates whether a start TLS request should be initiated on connect.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-ldap-provider</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="update-group.html"
+                        title="previous chapter">update-group</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="update-saml-provider.html"
+                        title="next chapter">update-saml-provider</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="update-saml-provider.html" title="update-saml-provider"
+             >next</a></li>
+        <li class="right" >
+          <a href="update-group.html" title="update-group"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.148 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-ldap-provider</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
