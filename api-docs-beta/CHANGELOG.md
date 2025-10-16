@@ -1,5 +1,8 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.148 (2025-10-15)
+* iam: Add new commands `createLdapProvider` and `updateLdapProvider`.
+
 ## 0.9.147 (2025-09-26)
 * datahub: Deprecate `clusterStatus` parameter in `Cluster` and `ClusterLifecycleEvents` objects.
 * ml: Add `disableObjectStoreCsiDriver` parameter to `createModelRegistry` and `updateModelRegistry` commands.
