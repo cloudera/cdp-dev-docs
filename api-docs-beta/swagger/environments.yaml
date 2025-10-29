@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.148 (BETA)
+  version: 0.9.149 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -742,7 +742,6 @@ paths:
       summary: Gets the the automated sync status for the environment.
       description: Gets the the automated sync status for the environment.
       operationId: getAutomatedSyncEnvironmentStatus
-      x-no-compatibility-guarantee: true
       x-entitlement: WORKLOAD_IAM_SYNC
       x-mutating: false
       parameters:
@@ -763,8 +762,9 @@ paths:
   /api/v1/environments2/synchronizeAllEnvironments:
     post:
       summary: Synchronizes all environments in the calling account.
-      description: Invokes the automated user sync service to synchronize all environments in the calling account.
+      description: Deprecated. No plans to release this API.
       operationId: synchronizeAllEnvironments
+      x-deprecated: true
       x-no-compatibility-guarantee: true
       x-right: environments/synchronizeAllEnvironments
       x-entitlement: WORKLOAD_IAM_SYNC
@@ -4236,6 +4236,14 @@ definitions:
       endTime:
         type: string
         description: Sync operation end timestamp.
+      startDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation started.
+      endDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation ended. Omitted if operation has not ended.
   SyncUserRequest:
     type: object
     description: Request Object for single user sync operation.
@@ -4273,6 +4281,14 @@ definitions:
       endTime:
         type: string
         description: Sync operation end timestamp.
+      startDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation started.
+      endDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation ended. Omitted if operation has not ended.
   SetPasswordRequest:
     type: object
     description: Request object for set password request. (deprecated)
@@ -4324,6 +4340,14 @@ definitions:
       endTime:
         type: string
         description: Sync operation end timestamp.
+      startDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation started.
+      endDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation ended. Omitted if operation has not ended.
   SyncStatusRequest:
     type: object
     description: Request object for Sync Status.
@@ -4367,11 +4391,17 @@ definitions:
       endTime:
         type: string
         description: Sync operation end timestamp.
+      startDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation started.
+      endDate:
+        type: string
+        format: date-time
+        description: Date when the sync operation ended. Omitted if operation has not ended.
   LastSyncStatusRequest:
     type: object
     description: Request object for Sync Status.
-    required:
-      - envNameOrCrn
     properties:
       envNameOrCrn:
         type: string
@@ -4532,16 +4562,19 @@ definitions:
           - SYNC_PENDING
           - SYNCED
           - SYNC_HALTED
+          - QUARANTINED
       lastSyncStatus:
         description: Status of the last automated sync operation for the environment.
         $ref: '#/definitions/LastAutomatedSyncDetails'
   SynchronizeAllEnvironmentsRequest:
     type: object
-    description: Request object for synchronizing all environments.
+    description: Deprecated. Request object for synchronizing all environments.
+    x-deprecated: true
     x-no-compatibility-guarantee: true
   SynchronizeAllEnvironmentsResponse:
     type: object
-    description: Response object for synchronizing all environments.
+    description: Deprecated. Response object for synchronizing all environments.
+    x-deprecated: true
     x-no-compatibility-guarantee: true
   GetIdBrokerMappingsRequest:
     type: object
