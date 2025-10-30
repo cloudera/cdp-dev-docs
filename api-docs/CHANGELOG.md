@@ -1,5 +1,16 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.149 (2025-10-28)
+* datahub: Add enum property `diskType` to `ModifyDisks` object.
+* datalake: Add enum property `diskType` to `ModifyDisks` object.
+* de: Split the command `suspendResumeVc` into two separate commands `suspendVc` and `resumeVc`.
+* environments: Add new command `getAutomatedSyncEnvironmentStatus`.
+* environments: Add `startDate` and `endDate` properties to `SyncAllUsersResponse`, `SyncUserRequest`, `SetPasswordResponse` and `SyncStatusResponse` objects.
+* environments: Add new object `LastAutomatedSyncDetails`.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated property `observabilityConfig` from `updateCluster`, `updateAwsCluster` and `updateAzureCluster` commands.
+
 ## 0.9.148 (2025-10-15)
 * iam: Add new commands `createLdapProvider` and `updateLdapProvider`.
 
