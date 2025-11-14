@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set-saml-authn-request-signing-key &#8212; CDP CLI 0.9.150 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="set-saml-response-decryption-key" href="set-saml-response-decryption-key.html" />
+    <link rel="prev" title="set-default-identity-provider" href="set-default-identity-provider.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="set-saml-response-decryption-key.html" title="set-saml-response-decryption-key"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="set-default-identity-provider.html" title="set-default-identity-provider"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.150 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set-saml-authn-request-signing-key</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="set-saml-authn-request-signing-key">
+<span id="cli-cdp-iam-set-saml-authn-request-signing-key"></span><h1>set-saml-authn-request-signing-key<a class="headerlink" href="#set-saml-authn-request-signing-key" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Sets the SAML AuthnRequest signing key and verification certificate.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.150</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Sets the SAML AuthnRequest signing key and verification certificate. The signing key will be used by CDP to sign the AuthnRequest and the verification certificate(s) will be used by the customer’s Identity Provider to verify the AuthnRequest. These keys are generated and managed by the customer. The API always replaces the previously stored signing key and verification certificates with the given key and certificates. The parameters that are omitted from the request will be cleared.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  set-saml-authn-request-signing-key
+--saml-provider &lt;value&gt;
+<span class="o">[</span>--authn-request-signing-key &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--current-authn-request-verification-certificate &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--next-authn-request-verification-certificate &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--saml-provider</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the SAML Provider associated with the signing key.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--authn-request-signing-key</span></code> (string)</p>
+<blockquote>
+<div><p>The private key used for signing AuthnRequests sent from CDP to the customer’s SAML provider. It must be in PEM format. It must be non-empty and valid when ‘currentAuthnRequestVerificationCertificate’ is set. Omitting it from request will remove this key.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--current-authn-request-verification-certificate</span></code> (string)</p>
+<blockquote>
+<div><p>The certificate used by SAML provider to verify AuthnRequests sent from CDP. It must be in PEM format. It must be non-empty and valid when ‘authnRequestSigningKey’ is set. Omitting it from request will remove this certificate.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--next-authn-request-verification-certificate</span></code> (string)</p>
+<blockquote>
+<div><p>The next verification certificate used by the SAML provider to verify AuthnRequests sent from CDP. It must be in PEM format. It is used for rotating verification certificate, and is expected to be empty after certification rotation completes. When both the current and next AuthnRequest certificates are set, both will appear in the CDP SP SAML metadata, indicating the Identity Provider should validate if either of the certificates validates the signature of the AuthnRequest. Both must be valid certificates, not expired. Once the Identity Provider has been updated with the new CDP SP SAML metadata to use both certificates, the signing key can be updated to correspond to the next certificate, the current certificate set to what had been next, and the next certificate cleared. The CDP SP SAML metadata can then be updated in the Identity Provider to use only a single certificate before the previous certificate expires. This allows rotating the signing key without downtime. Omitting it from request will remove this certificate.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>authnRequestConfigurationLastUpdated -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date when SAML AuthnRequest signing key and verification certificates were set or cleared.</p>
+</div></blockquote>
+<p>authnRequestSigningKeyDefined -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the AuthnRequest signing key is set or cleared.</p>
+</div></blockquote>
+<p>currentAuthnRequestVerificationCertificateDefined -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the current AuthnRequest verification certificate is set or cleared.</p>
+</div></blockquote>
+<p>nextAuthnRequestVerificationCertificateDefined -&gt; (boolean)</p>
+<blockquote>
+<div><p>Whether the next AuthnRequest verification certificate is set or cleared.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">set-saml-authn-request-signing-key</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="set-default-identity-provider.html"
+                        title="previous chapter">set-default-identity-provider</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="set-saml-response-decryption-key.html"
+                        title="next chapter">set-saml-response-decryption-key</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="set-saml-response-decryption-key.html" title="set-saml-response-decryption-key"
+             >next</a></li>
+        <li class="right" >
+          <a href="set-default-identity-provider.html" title="set-default-identity-provider"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.150 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set-saml-authn-request-signing-key</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
