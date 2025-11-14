@@ -1,5 +1,24 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.150 (2025-11-12)
+* cloudprivatelinks: Add new command `getPrivateLinkStatus`.
+* dw: Add new commands `registerSecret`, `listSecrets` and `deleteSecret`.
+* dw: Add property `event` to `listEvents` command.
+* dw: Add property `dwxSecretsRestorePlans` to `RestoreClusterResponse` object.
+* dw: Add property `kmsKey` to `AwsOptionsResponse` object.
+* dw: Add property `warning` to `RebuildVwResponse`, `UpgradeVwResponse` and `DeleteVwResponse` objects.
+* dw: Add properties `message` and `warning` to `UpdateVwResponse` and `SuspendVwResponse` objects.
+* dw: Add property `resourcePool` to `createDataVisualization`, `upgradeDataVisualization` and `upgradeVw` commands.
+* dw: Add property `rebuild` to `restoreBackup` command.
+* dw: Add property `impalaEnableGlobalAdmissionController` to `ImpalaHASettingsUpdateRequest` and `ImpalaHASettingsOptionsResponse` objects.
+* environments: Add property `environment` to `lastSyncStatus` command.
+* iam: Add new properties `authnRequestConfigurationLastUpdated`, `authnRequestSigningKeyDefined`, `currentAuthnRequestVerificationCertificateDefined`, `nextAuthnRequestVerificationCertificateDefined`, `samlResponseEncryptionDecryptionConfigurationLastUpdated`, `samlResponseEncryptionCertificateDefined`, `currentSamlResponseDecryptionKeyDefined` and `nextSamlResponseDecryptionKeyDefined` to `SamlProvider` object.
+* iam: Add new commands `setSamlAuthnRequestSigningKey` and `setSamlResponseDecryptionKey`.
+
+BACKWARD INCOMPATIBILITIES:
+* dw: Remove deprecated properties `delegationUsername` and `delegationPassword` from `createPrivateCluster` command and `PrivateCloudActivationOptions` object.
+* dw: Remove deprecated property `resourcePool` from `updateVw` command and `VizConfig` object.
+
 ## 0.9.149 (2025-10-28)
 * datahub: Add enum property `diskType` to `ModifyDisks` object.
 * datalake: Add enum property `diskType` to `ModifyDisks` object.

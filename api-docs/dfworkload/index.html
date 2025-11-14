@@ -875,7 +875,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_tags_24">Tags</a></li>
 </ul>
 </li>
-<li><a href="#_getdeploymentrequestdetails">Retrieves deployment request details.</a>
+<li><a href="#_getdeploymentrequestdetails">Retrieves deployment request details and registers the deployment request.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_24">Description</a></li>
 <li><a href="#_parameters_24">Parameters</a></li>
@@ -1190,7 +1190,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.149</p>
+<p><em>Version</em> : 0.9.150</p>
 </div>
 </div>
 <div class="sect2">
@@ -3565,7 +3565,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getdeploymentrequestdetails">Retrieves deployment request details.</h3>
+<h3 id="_getdeploymentrequestdetails">Retrieves deployment request details and registers the deployment request.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /dfx/api/rpc-v1/deployments/get-deployment-request-details</pre>
@@ -3574,7 +3574,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_24">Description</h4>
 <div class="paragraph">
-<p>Retrieves deployment request details.</p>
+<p>Retrieves deployment request details and registers the deployment request.</p>
 </div>
 </div>
 <div class="sect3">
@@ -11518,7 +11518,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CRN of the user who deployed the flow.</p>
+<p>The CRN of the user who deployed the first flow.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11578,7 +11578,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the person who deployed the flow.</p>
+<p>The name of the person who deployed the first flow.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11590,7 +11590,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The username of the person who deployed the flow.</p>
+<p>The username of the person who deployed the first flow.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12196,7 +12196,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>read-only</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Indicates whether or not the current KPIs have successfully been deployed as alert rules.</p>
+<p>Indicates whether or not the current KPIs have successfully been deployed as alert rules, at the deployment level. Use kpisDirty inside deployedFlowConfigurations for any flow-level KPIs.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -12269,7 +12269,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of flow parameter groups.</p>
+<p>The list of flow parameter groups, for the first deployed flow.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_flowparametergroup">FlowParameterGroup</a> &gt; array</p>
@@ -13602,7 +13602,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_updatedeploymentrequest">UpdateDeploymentRequest</h3>
 <div class="paragraph">
-<p>Provides all of the configuration that dictates how a flow should be deployed.</p>
+<p>Provides all of the configuration that dictates how a deployment should be updated.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -13732,7 +13732,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The list of configured KPIs.</p>
+<p>The list of Key Performance Indicators (KPIs) with which to replace the current list of configured KPIs. Only deployment-level KPIs are allowed. To configure flow-level KPIs, use update-flow-in-deployment. If the list is empty, all KPIs are deleted; however, if it is not specified, the current KPI settings are not updated.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_configuredkpi">ConfiguredKpi</a> &gt; array</p>
@@ -14263,7 +14263,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-10-28 13:47:03 -0700
+Last updated 2025-11-14 06:35:13 -0800
 </div>
 </div>
 <br>
