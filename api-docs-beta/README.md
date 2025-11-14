@@ -1,32 +1,32 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.149 (BETA)*
+*Version: 0.9.150 (BETA)*
 
 Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [applications](./applications/index.html) | 0.9.149 |
-| [audit](./audit/index.html) | 0.9.149 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.149 |
-| [compute](./compute/index.html) | 0.9.149 |
-| [consumption](./consumption/index.html) | 0.9.149 |
-| [datacatalog](./datacatalog/index.html) | 0.9.149 |
-| [datahub](./datahub/index.html) | 0.9.149 |
-| [datalake](./datalake/index.html) | 0.9.149 |
-| [de](./de/index.html) | 0.9.149 |
-| [df](./df/index.html) | 0.9.149 |
-| [dfworkload](./dfworkload/index.html) | 0.9.149 |
-| [drscp](./drscp/index.html) | 0.9.149 |
-| [dw](./dw/index.html) | 0.9.149 |
-| [environments](./environments/index.html) | 0.9.149 |
-| [iam](./iam/index.html) | 0.9.149 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.149 |
-| [metrics](./metrics/index.html) | 0.9.149 |
-| [ml](./ml/index.html) | 0.9.149 |
-| [notification](./notification/index.html) | 0.9.149 |
-| [opdb](./opdb/index.html) | 0.9.149 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.149 |
+| [applications](./applications/index.html) | 0.9.150 |
+| [audit](./audit/index.html) | 0.9.150 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.150 |
+| [compute](./compute/index.html) | 0.9.150 |
+| [consumption](./consumption/index.html) | 0.9.150 |
+| [datacatalog](./datacatalog/index.html) | 0.9.150 |
+| [datahub](./datahub/index.html) | 0.9.150 |
+| [datalake](./datalake/index.html) | 0.9.150 |
+| [de](./de/index.html) | 0.9.150 |
+| [df](./df/index.html) | 0.9.150 |
+| [dfworkload](./dfworkload/index.html) | 0.9.150 |
+| [drscp](./drscp/index.html) | 0.9.150 |
+| [dw](./dw/index.html) | 0.9.150 |
+| [environments](./environments/index.html) | 0.9.150 |
+| [iam](./iam/index.html) | 0.9.150 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.150 |
+| [metrics](./metrics/index.html) | 0.9.150 |
+| [ml](./ml/index.html) | 0.9.150 |
+| [notification](./notification/index.html) | 0.9.150 |
+| [opdb](./opdb/index.html) | 0.9.150 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.150 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).

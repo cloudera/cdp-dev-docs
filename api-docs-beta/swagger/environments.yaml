@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.149 (BETA)
+  version: 0.9.150 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -2174,6 +2174,28 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/InitializeAzureComputeClusterResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/updateRootVolumeFreeipa:
+    post:
+      summary: Update root volume size and type in FreeIPA instances.
+      description: This updates the root volume size and type for the FreeIPA instances.
+      operationId: updateRootVolumeFreeipa
+      x-mutating: true
+      x-form-factors: public
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateRootVolumeFreeipaRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/UpdateRootVolumeFreeipaResponse'
         default:
           description: The default response on an error.
           schema:
@@ -4405,7 +4427,11 @@ definitions:
     properties:
       envNameOrCrn:
         type: string
-        description: Name or Crn of the environment.
+        description: Deprecated. Please use 'environment' field instead.
+        x-deprecated: true
+      environment:
+        type: string
+        description: The name or CRN of the environment.
   ListConnectedDataServicesRequest:
     type: object
     description: Request object for listing connected Data Service(s) for a given environment.
@@ -7030,3 +7056,43 @@ definitions:
         enum:
           - PERMISSIVE
           - ENFORCING
+  UpdateRootVolumeFreeipaRequest:
+    type: object
+    description: Request object for FreeIpa root volume update.
+    required:
+      - environmentCrn
+    properties:
+      environmentCrn:
+        type: string
+        description: The CRN of the environment.
+      rootDiskOptions:
+        description: Disk options for modifying disks.
+        $ref: '#/definitions/RootDiskOptions'
+  RootDiskOptions:
+    type: object
+    description: Root volume properties to modify.
+    properties:
+      modifyDisks:
+        description: Modifies root volume attached to all instances in a group.
+        $ref: '#/definitions/ModifyDisks'
+  ModifyDisks:
+    type: object
+    description: Volume configuration.
+    required:
+      - size
+      - volumeType
+    properties:
+      size:
+        type: integer
+        format: int32
+        description: Size of disks to modify to on all the instances in GB.
+      volumeType:
+        type: string
+        description: Type of disks to modify to on all the instances.
+  UpdateRootVolumeFreeipaResponse:
+    type: object
+    description: The response object for FreeIpa root volume update.
+    properties:
+      result:
+        type: string
+        description: The result of the operation.
