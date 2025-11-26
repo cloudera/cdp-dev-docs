@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update-ml-serving-app-s3-creds &#8212; CDP CLI 0.9.151 documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="upgrade-ml-serving-app" href="upgrade-ml-serving-app.html" />
+    <link rel="prev" title="suspend-workspace" href="suspend-workspace.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="upgrade-ml-serving-app.html" title="upgrade-ml-serving-app"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="suspend-workspace.html" title="suspend-workspace"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.151 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-ml-serving-app-s3-creds</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="update-ml-serving-app-s3-creds">
+<span id="cli-cdp-ml-update-ml-serving-app-s3-creds"></span><h1>update-ml-serving-app-s3-creds<a class="headerlink" href="#update-ml-serving-app-s3-creds" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Update S3 credentials for a Cloudera AI Inference Service.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.151</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Update S3 credentials for a Cloudera AI Inference Service.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-ml-serving-app-s3-creds
+--app-crn &lt;value&gt;
+--s-3-creds &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--app-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the Cloudera AI Inference Service to update.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--s-3-creds</span></code> (object)</p>
+<blockquote>
+<div><p>Request object for the MlServingOzoneCreds method.</p>
+<p>s3AccessID -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 access key ID name.</p>
+</div></blockquote>
+<p>s3SecretAccessKey -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 secret access key name.</p>
+</div></blockquote>
+<p>s3EndPointUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 end point.</p>
+</div></blockquote>
+<p>s3CaCertBundle -&gt; (string)</p>
+<blockquote>
+<div><p>The Ozone S3 CA bundle.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">s3AccessID</span><span class="o">=</span>string,s3SecretAccessKey<span class="o">=</span>string,s3EndPointUrl<span class="o">=</span>string,s3CaCertBundle<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;s3AccessID&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;s3SecretAccessKey&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;s3EndPointUrl&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;s3CaCertBundle&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-ml-serving-app-s3-creds</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="suspend-workspace.html"
+                        title="previous chapter">suspend-workspace</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="upgrade-ml-serving-app.html"
+                        title="next chapter">upgrade-ml-serving-app</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="upgrade-ml-serving-app.html" title="upgrade-ml-serving-app"
+             >next</a></li>
+        <li class="right" >
+          <a href="suspend-workspace.html" title="suspend-workspace"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.151 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-ml-serving-app-s3-creds</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
