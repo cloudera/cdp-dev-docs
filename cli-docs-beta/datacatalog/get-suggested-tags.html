@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get-suggested-tags &#8212; CDP CLI 0.9.151 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="launch-profilers" href="launch-profilers.html" />
+    <link rel="prev" title="datacatalog" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="launch-profilers.html" title="launch-profilers"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="datacatalog"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.151 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datacatalog</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-suggested-tags</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get-suggested-tags">
+<span id="cli-cdp-datacatalog-get-suggested-tags"></span><h1>get-suggested-tags<a class="headerlink" href="#get-suggested-tags" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Get Suggested tags by the Data Compliance profiler.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.151</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Get the tags suggested by the Data Compliance profiler.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-suggested-tags
+--datalake-crn &lt;value&gt;
+<span class="o">[</span>--table-fqn &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--column-fqn &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--profiled-since &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--datalake-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the Datalake.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--table-fqn</span></code> (string)</p>
+<blockquote>
+<div><p>The fully qualified name of the table.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--column-fqn</span></code> (string)</p>
+<blockquote>
+<div><p>The fully qualified name of the column.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--profiled-since</span></code> (datetime)</p>
+<blockquote>
+<div><p>Tags suggested by the profiler since this date.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>suggestedTags -&gt; (array)</p>
+<blockquote>
+<div><p>List of suggested tags.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Details of the suggested tags.</p>
+<p>qualifiedName -&gt; (string)</p>
+<blockquote>
+<div><p>The fully qualified name of the asset.</p>
+</div></blockquote>
+<p>tags -&gt; (array)</p>
+<blockquote>
+<div><p>List of suggested tags.</p>
+<p>item -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the suggested tag.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-suggested-tags</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">datacatalog</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="launch-profilers.html"
+                        title="next chapter">launch-profilers</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="launch-profilers.html" title="launch-profilers"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="datacatalog"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.151 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datacatalog</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-suggested-tags</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
