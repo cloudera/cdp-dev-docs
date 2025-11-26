@@ -1,5 +1,13 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.151 (2025-11-26)
+* cloudprivatelinks: Add new command `migratePrivateLinkEndpoints`.
+* cloudprivatelinks: Deprecate `subnetIds` field in the `getPrivateLinkStatus` command.
+* datacatalog: Add new commands `getSuggestedTags` and `reviewSuggestedTags`.
+* de: Add `SPARK3_5_4` option to the `sparkVersion` parameter of the `createVc` command.
+* dw: Add property `impalaEnableGlobalAdmissionController` for the `impalaHASettingsUpdate` command.
+* ml: Add `refreshAiInference`, `refreshAiRegistry` and `updateMlServingAppS3Creds` commands.
+
 ## 0.9.150 (2025-11-12)
 * cloudprivatelinks: Add new command `getPrivateLinkStatus`.
 * dw: Add new commands `registerSecret`, `listSecrets` and `deleteSecret`.
