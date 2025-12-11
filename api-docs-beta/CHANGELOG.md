@@ -1,5 +1,8 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.152 (2025-12-11)
+* compute: Add new commands `getOperationDetails`, `getOperationStatus`, `retryOperation`, and `upgradeCluster`.
+
 ## 0.9.151 (2025-11-26)
 * cloudprivatelinks: Add new command `migratePrivateLinkEndpoints`.
 * cloudprivatelinks: Deprecate `subnetIds` field in the `getPrivateLinkStatus` command.
