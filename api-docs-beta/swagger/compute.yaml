@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.152 (BETA)
+  version: 0.9.153 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -2455,6 +2455,13 @@ definitions:
         type: string
         description: Deployment profile to use. Currently supported are cml and cde.
         x-form-factors: public
+      timeout:
+        type: integer
+        format: int32
+        description: The amount of time, in seconds, to wait before returning a timeout.
+      forceChartVersion:
+        type: boolean
+        description: If true, will bypass validation for chart version and Kubernetes version.
   InstallDeploymentResponse:
     type: object
     description: Response structure for installing a deployment.

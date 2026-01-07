@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.153 (2026-01-07)
+* datahub: Add `DATABASE_DISK` value to enum property diskType in `ModifyDisks` object.
+* datalake: Add parameter `architecture` to `createAWSDatalake` command.
+* dfworkload: Remove `customPythonConfigurationCrn` as required parameter in `getCustomPythonConfiguration` command.
+* environments: Add parameter `architecture` to `AWSFreeIpaCreationRequest` object.
+
 ## 0.9.152 (2025-12-11)
 * compute: Add new commands `getOperationDetails`, `getOperationStatus`, `retryOperation`, and `upgradeCluster`.
 
