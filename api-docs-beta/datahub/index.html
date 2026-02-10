@@ -1194,25 +1194,32 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_72">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatetoawsimdsv1">Updates Data Hub AWS cluster to use IMDSv1.</a>
+<li><a href="#_updatepublicdnsentries">Update public DNS entries of a Data Hub cluster by name or CRN.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_73">Description</a></li>
 <li><a href="#_parameters_73">Parameters</a></li>
 <li><a href="#_responses_73">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatetoawsimdsv2">Updates Data Hub AWS cluster to use IMDSv2.</a>
+<li><a href="#_updatetoawsimdsv1">Updates Data Hub AWS cluster to use IMDSv1.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_74">Description</a></li>
 <li><a href="#_parameters_74">Parameters</a></li>
 <li><a href="#_responses_74">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<li><a href="#_updatetoawsimdsv2">Updates Data Hub AWS cluster to use IMDSv2.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_75">Description</a></li>
 <li><a href="#_parameters_75">Parameters</a></li>
 <li><a href="#_responses_75">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradecluster">Upgrades the OS or data platform on a datahub cluster.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_76">Description</a></li>
+<li><a href="#_parameters_76">Parameters</a></li>
+<li><a href="#_responses_76">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1430,6 +1437,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_updateautoscalerulesresponse">UpdateAutoScaleRulesResponse</a></li>
 <li><a href="#_updateorchestratorstaterequest">UpdateOrchestratorStateRequest</a></li>
 <li><a href="#_updateorchestratorstateresponse">UpdateOrchestratorStateResponse</a></li>
+<li><a href="#_updatepublicdnsentriesrequest">UpdatePublicDnsEntriesRequest</a></li>
+<li><a href="#_updatepublicdnsentriesresponse">UpdatePublicDnsEntriesResponse</a></li>
 <li><a href="#_updatetoawsimdsv1request">UpdateToAwsImdsV1Request</a></li>
 <li><a href="#_updatetoawsimdsv1response">UpdateToAwsImdsV1Response</a></li>
 <li><a href="#_updatetoawsimdsv2request">UpdateToAwsImdsV2Request</a></li>
@@ -1453,7 +1462,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.153 (BETA)</p>
+<p><em>Version</em> : 0.9.154 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -7687,6 +7696,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_updatepublicdnsentries">Update public DNS entries of a Data Hub cluster by name or CRN.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datahub/updatePublicDnsEntries</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_73">Description</h4>
+<div class="paragraph">
+<p>Update public DNS entries of a Data Hub cluster by name or CRN.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_73">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updatepublicdnsentriesrequest">UpdatePublicDnsEntriesRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_73">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updatepublicdnsentriesresponse">UpdatePublicDnsEntriesResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_updatetoawsimdsv1">Updates Data Hub AWS cluster to use IMDSv1.</h3>
 <div class="literalblock">
 <div class="content">
@@ -7694,13 +7789,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_73">Description</h4>
+<h4 id="_description_74">Description</h4>
 <div class="paragraph">
 <p>Updates Data Hub AWS cluster to use IMDSv1.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_73">Parameters</h4>
+<h4 id="_parameters_74">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7731,7 +7826,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_73">Responses</h4>
+<h4 id="_responses_74">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7780,13 +7875,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_74">Description</h4>
+<h4 id="_description_75">Description</h4>
 <div class="paragraph">
 <p>Updates Data Hub AWS cluster to use IMDSv2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_74">Parameters</h4>
+<h4 id="_parameters_75">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7817,7 +7912,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_74">Responses</h4>
+<h4 id="_responses_75">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -7866,13 +7961,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_75">Description</h4>
+<h4 id="_description_76">Description</h4>
 <div class="paragraph">
 <p>Upgrades the OS or data platform on a datahub cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_75">Parameters</h4>
+<h4 id="_parameters_76">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7903,7 +7998,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_75">Responses</h4>
+<h4 id="_responses_76">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -20587,6 +20682,74 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_updatepublicdnsentriesrequest">UpdatePublicDnsEntriesRequest</h3>
+<div class="paragraph">
+<p>Request object for updating public DNS entries.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datahub</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The name or CRN of the Data Hub.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updatepublicdnsentriesresponse">UpdatePublicDnsEntriesResponse</h3>
+<div class="paragraph">
+<p>Response object for updating public DNS entries.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>operationId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updatetoawsimdsv1request">UpdateToAwsImdsV1Request</h3>
 <div class="paragraph">
 <p>Request object for updating Data Hub to use AWS IMDSv1.</p>
@@ -21007,7 +21170,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-01-07 06:29:21 -0800
+Last updated 2026-01-28 12:04:58 -0800
 </div>
 </div>
 <br>

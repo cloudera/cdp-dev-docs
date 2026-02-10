@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.153 (BETA)
+  version: 0.9.154 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -2413,7 +2413,6 @@ definitions:
       - environment
       - kdcType
       - activeDirectoryCommands
-      - mitCommands
       - baseClusterCommands
     properties:
       environment:
@@ -2425,12 +2424,12 @@ definitions:
       activeDirectoryCommands:
         $ref: '#/definitions/ActiveDirectoryCommands'
         description: Commands to be run on the Active Directory server.
-      mitCommands:
-        $ref: '#/definitions/MitCommands'
-        description: Commands to be run on the MIT KDC server.
       baseClusterCommands:
         $ref: '#/definitions/BaseClusterCommands'
         description: Commands to be run on the base cluster.
+      mitCommands:
+        $ref: '#/definitions/MitCommands'
+        description: Commands to be run on the MIT KDC server.
   ActiveDirectoryCommands:
     type: object
     description: Commands to be run on the Active Directory server.
@@ -2478,7 +2477,6 @@ definitions:
       - environment
       - kdcType
       - activeDirectoryCommands
-      - mitCommands
       - baseClusterCommands
     properties:
       environment:
@@ -2490,12 +2488,12 @@ definitions:
       activeDirectoryCommands:
         $ref: '#/definitions/ActiveDirectoryCommands'
         description: The commands to be run on the Active Directory server to cancel trust.
-      mitCommands:
-        $ref: '#/definitions/MitCommands'
-        description: Commands to be run on the MIT KDC server.
       baseClusterCommands:
         $ref: '#/definitions/BaseClusterCommands'
         description: The commands to be run on the base cluster to cancel trust.
+      mitCommands:
+        $ref: '#/definitions/MitCommands'
+        description: Commands to be run on the MIT KDC server.
   FinishSetupTrustRequest:
     type: object
     description: Request object to create an Trust finish setup command.
