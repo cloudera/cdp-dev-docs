@@ -1,5 +1,8 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.154 (2026-01-28)
+* environments: Add new commands `cancelTrust`, `finishSetupTrust`, `getTrustCleanupCommands`, `getTrustSetupCommands`, `repairTrust`, and `setupActiveDirectoryTrust`.
+
 ## 0.9.153 (2026-01-07)
 * datahub: Add `DATABASE_DISK` value to enum property diskType in `ModifyDisks` object.
 * datalake: Add parameter `architecture` to `createAWSDatalake` command.
