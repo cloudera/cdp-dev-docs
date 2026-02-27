@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.154 (BETA)
+  version: 0.9.155 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -3864,10 +3864,6 @@ definitions:
       encryptionAtHost:
         type: boolean
         description: When this is enabled, we will provision resources with host encrypted true flag.
-      userManagedIdentity:
-        type: string
-        description: User managed identity for encryption. (deprecated)
-        x-deprecated: true
       encryptionUserManagedIdentity:
         type: string
         description: User managed identity for encryption.
@@ -4368,6 +4364,10 @@ definitions:
       securityAccess:
         description: Security control for FreeIPA and Data Lake deployment.
         $ref: '#/definitions/SecurityAccess'
+      notification:
+        description: Notification configuration for all the environment notification.
+        $ref: '#/definitions/EnvironmentNotification'
+        x-no-compatibility-guarantee: true
       description:
         type: string
         description: Description of the environment
@@ -7504,6 +7504,13 @@ definitions:
         enum:
           - PERMISSIVE
           - ENFORCING
+  EnvironmentNotification:
+    type: object
+    description: Notification configuration for all the environment notification.
+    properties:
+      distributionList:
+        type: string
+        description: DistributionList name for notifications.
   UpdateRootVolumeFreeipaRequest:
     type: object
     description: Request object for FreeIpa root volume update.

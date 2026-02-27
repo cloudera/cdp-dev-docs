@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.155 (2026-02-25)
+* cloudprivatelinks: Add new command `updatePrivateLinkEndpoint`.
+* dw: Add new command `createSecret`.
+* dw: Add parameter `additionalQuota` to `createVw` command.
+* dw: Add property `additionalQuota` to `VwSummary` object.
+* dw: Add parameter `customKerberosPrincipalHostname` to `createPrivateCluster` command.
+* dw: Add property `customKerberosPrincipalHostname` to `PrivateCloudActivationOptions` object.
+* dw: Add property `restorePlan` to response of `restoreBackup` command.
+* ml: Add property `versionCompatibility` to `MlServingApp` object.
+
+BACKWARD INCOMPATIBILITIES:
+* environments: Remove deprecated parameter `userManagedIdentity` from `createAzureEnvironment` command.
+
 ## 0.9.154 (2026-01-28)
 * environments: Add new commands `cancelTrust`, `finishSetupTrust`, `getTrustCleanupCommands`, `getTrustSetupCommands`, `repairTrust`, and `setupActiveDirectoryTrust`.
 

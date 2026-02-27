@@ -746,6 +746,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_8">Responses</a></li>
 </ul>
 </li>
+<li><a href="#_updateprivatelinkendpoint">Update existing Private Link endpoint.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_9">Description</a></li>
+<li><a href="#_parameters_9">Parameters</a></li>
+<li><a href="#_responses_9">Responses</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_definitions">Definitions</a>
@@ -780,6 +787,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_revokeprivatelinkserviceaccessrequest">RevokePrivateLinkServiceAccessRequest</a></li>
 <li><a href="#_revokeprivatelinkserviceaccessresponse">RevokePrivateLinkServiceAccessResponse</a></li>
 <li><a href="#_revokeprivatelinkserviceaccessresult">RevokePrivateLinkServiceAccessResult</a></li>
+<li><a href="#_updateoperation">UpdateOperation</a></li>
+<li><a href="#_updateprivatelinkendpointrequest">UpdatePrivateLinkEndpointRequest</a></li>
+<li><a href="#_updateprivatelinkendpointresponse">UpdatePrivateLinkEndpointResponse</a></li>
 </ul>
 </li>
 </ul>
@@ -795,7 +805,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.154 (BETA)</p>
+<p><em>Version</em> : 0.9.155 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -1507,6 +1517,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_revokeprivatelinkserviceaccessresponse">RevokePrivateLinkServiceAccessResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updateprivatelinkendpoint">Update existing Private Link endpoint.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/cloudprivatelinks/updatePrivateLinkEndpoint</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_9">Description</h4>
+<div class="paragraph">
+<p>Updates existing Private Link endpoints in AWS or AZURE. Returns a tracking ID.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_9">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateprivatelinkendpointrequest">UpdatePrivateLinkEndpointRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_9">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateprivatelinkendpointresponse">UpdatePrivateLinkEndpointResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3209,12 +3305,162 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_updateoperation">UpdateOperation</h3>
+<div class="paragraph">
+<p>Update Operation to be performed.
+ <code>APPEND</code> - Append operation - provided subnet IDs are appended. This is taken as default. <code>REPLACE</code> - Replace operation - provided subnet IDs replaces the existing ones.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (APPEND, REPLACE)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updateprivatelinkendpointrequest">UpdatePrivateLinkEndpointRequest</h3>
+<div class="paragraph">
+<p>Request object for the UpdatePrivateLinkEndpoints method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>awsAccountInfo</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>AWS account information in which the private endpoint is already created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_awsaccountinfo">AWSAccountInfo</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureAccountInfo</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure account information in which the private endpoint is already created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_azureaccountinfo">AzureAccountInfo</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cloudServiceProvider</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cloud Service Provider. Currently supporting AWS and AZURE.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_cloudserviceprovider">CloudServiceProvider</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceGroup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The resource group in which the private endpoint is already created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceTags</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>New tags that are to be applied during the private endpoint update.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_resourcetag">ResourceTag</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>subnetIds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>New subnet IDs to be applied during the private endpoint update.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>updateOperation</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Update operation to perform - APPEND/REPLACE subnet IDs.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updateoperation">UpdateOperation</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_updateprivatelinkendpointresponse">UpdatePrivateLinkEndpointResponse</h3>
+<div class="paragraph">
+<p>Response object for the UpdatePrivateLinkEndpoint method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>trackingId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Tracking ID for the update request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-01-28 12:04:58 -0800
+Last updated 2026-02-26 14:18:40 -0800
 </div>
 </div>
 <br>
