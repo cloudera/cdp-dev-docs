@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update-private-link-endpoint &#8212; CDP CLI 0.9.155 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="compute" href="../compute/index.html" />
+    <link rel="prev" title="revoke-private-link-service-access" href="revoke-private-link-service-access.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../compute/index.html" title="compute"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="revoke-private-link-service-access.html" title="revoke-private-link-service-access"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">cloudprivatelinks</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-private-link-endpoint</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="update-private-link-endpoint">
+<span id="cli-cdp-cloudprivatelinks-update-private-link-endpoint"></span><h1>update-private-link-endpoint<a class="headerlink" href="#update-private-link-endpoint" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Update existing Private Link endpoint.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.155</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Updates existing Private Link endpoints in AWS or AZURE. Returns a tracking ID.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  update-private-link-endpoint
+<span class="o">[</span>--cloud-service-provider &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--aws-account-info &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--azure-account-info &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--subnet-ids &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--resource-tags &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--update-operation &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--resource-group &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--cloud-service-provider</span></code> (string)</p>
+<blockquote>
+<div><p>Supported cloud providers <cite>AWS</cite> - A value indicating AWS as supported cloud provider for creating Private Links. <cite>AZURE</cite> - A value indicating Azure as supported cloud provider for creating Private Links.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AWS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AZURE</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--aws-account-info</span></code> (object)</p>
+<blockquote>
+<div><p>Details of the cloud network and the cross-account role required to delete the Private Link endpoint.</p>
+<p>crossAccountRoleDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Customer cross account role details.</p>
+<p>crossAccountRole -&gt; (string)</p>
+<blockquote>
+<div><p>Cross-account role.</p>
+</div></blockquote>
+<p>externalId -&gt; (string)</p>
+<blockquote>
+<div><p>External ID associated with the cross-account role.</p>
+</div></blockquote>
+</div></blockquote>
+<p>credentialCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CDP Credential CRN to fetch the AWS cross-account roleArn for the account where the endpoint gets deleted.</p>
+</div></blockquote>
+<p>region -&gt; (string)</p>
+<blockquote>
+<div><p>Region in which VPC exists.</p>
+</div></blockquote>
+<p>vpcId -&gt; (string)</p>
+<blockquote>
+<div><p>VPC ID in which the vpc endpoint should be deleted.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">crossAccountRoleDetails</span><span class="o">={</span><span class="nv">crossAccountRole</span><span class="o">=</span>string,externalId<span class="o">=</span>string<span class="o">}</span>,credentialCrn<span class="o">=</span>string,region<span class="o">=</span>string,vpcId<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;crossAccountRoleDetails&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;crossAccountRole&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;externalId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;credentialCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;region&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;vpcId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--azure-account-info</span></code> (object)</p>
+<blockquote>
+<div><p>Details of the cloud network and the cross-account role required to delete the Private Link endpoint.</p>
+<p>azureClientSecretCredential -&gt; (object)</p>
+<blockquote>
+<div><p>Azure client secret credential, either this or credential CRN should be passed.</p>
+<p>clientId -&gt; (string)</p>
+<blockquote>
+<div><p>The client (application) ID of the service principal</p>
+</div></blockquote>
+<p>clientSecret -&gt; (string)</p>
+<blockquote>
+<div><p>A client secret that was generated for the App Registration used to authenticate the client.</p>
+</div></blockquote>
+<p>tenantId -&gt; (string)</p>
+<blockquote>
+<div><p>The Azure Active Directory tenant (directory) Id of the service principal.</p>
+</div></blockquote>
+</div></blockquote>
+<p>credentialCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CDP Credential CRN to fetch the Azure client secret credentials, either this or AzureClientSecretCredential should be passed.</p>
+</div></blockquote>
+<p>location -&gt; (string)</p>
+<blockquote>
+<div><p>Region in which VPC exists.</p>
+</div></blockquote>
+<p>vNetId -&gt; (string)</p>
+<blockquote>
+<div><p>vNet ID in which the Private Link should be created.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">azureClientSecretCredential</span><span class="o">={</span><span class="nv">clientId</span><span class="o">=</span>string,clientSecret<span class="o">=</span>string,tenantId<span class="o">=</span>string<span class="o">}</span>,credentialCrn<span class="o">=</span>string,location<span class="o">=</span>string,vNetId<span class="o">=</span>string
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;azureClientSecretCredential&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;clientId&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;clientSecret&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;tenantId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;credentialCrn&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;location&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+  <span class="s2">&quot;vNetId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--subnet-ids</span></code> (array)</p>
+<blockquote>
+<div><p>New subnet IDs to be applied during the private endpoint update.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--resource-tags</span></code> (array)</p>
+<blockquote>
+<div><p>New tags that are to be applied during the private endpoint update.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">key</span><span class="o">=</span>string,value<span class="o">=</span>string ... <span class="o">(</span>separate items with spaces<span class="o">)</span>
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;key&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+    <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;string&quot;</span>
+  <span class="o">}</span>
+  ...
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--update-operation</span></code> (string)</p>
+<blockquote>
+<div><p>Update Operation to be performed. <cite>APPEND</cite> - Append operation - provided subnet IDs are appended. This is taken as default. <cite>REPLACE</cite> - Replace operation - provided subnet IDs replaces the existing ones.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">APPEND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REPLACE</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--resource-group</span></code> (string)</p>
+<blockquote>
+<div><p>The resource group in which the private endpoint is already created.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>trackingId -&gt; (string)</p>
+<blockquote>
+<div><p>Tracking ID for the update request.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-private-link-endpoint</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="revoke-private-link-service-access.html"
+                        title="previous chapter">revoke-private-link-service-access</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../compute/index.html"
+                        title="next chapter">compute</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../compute/index.html" title="compute"
+             >next</a></li>
+        <li class="right" >
+          <a href="revoke-private-link-service-access.html" title="revoke-private-link-service-access"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >cloudprivatelinks</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">update-private-link-endpoint</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

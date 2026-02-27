@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-vw &#8212; CDP CLI 0.9.154 (BETA) documentation</title>
+    <title>describe-vw &#8212; CDP CLI 0.9.155 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="describe-server-setting.html" title="describe-server-setting"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.154 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.154</p>
+<dd class="field-even"><p>0.9.155</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -107,6 +107,10 @@
 <blockquote>
 <div><p>The underlying instance type for this Virtual Warehouse.</p>
 <p>Form Factors: public</p>
+</div></blockquote>
+<p>imageVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Version of the Virtual Warehouse.</p>
 </div></blockquote>
 <p>dbcId -&gt; (string)</p>
 <blockquote>
@@ -587,6 +591,19 @@
 <div><p>The name of the Resource Pool the Virtual Warehouse is in.</p>
 <p>Form Factors: private</p>
 </div></blockquote>
+<p>additionalQuota -&gt; (object)</p>
+<blockquote>
+<div><p>Quota for the Virtual Warehouse.</p>
+<p>Form Factors: private</p>
+<p>cpu -&gt; (float)</p>
+<blockquote>
+<div><p>CPU quota in cores.</p>
+</div></blockquote>
+<p>memory -&gt; (integer)</p>
+<blockquote>
+<div><p>Memory quota in MB.</p>
+</div></blockquote>
+</div></blockquote>
 <p>ebsLLAPSpillGB -&gt; (integer)</p>
 <blockquote>
 <div><p>Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.</p>
@@ -657,6 +674,38 @@
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
+<p>impalaRestCatalogConnectors -&gt; (array)</p>
+<blockquote>
+<div><p>List of Impala Iceberg REST Catalog connectors.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Impala REST Catalog Connector settings.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the Impala REST Catalog Connector.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>Description of the Impala REST Catalog Connector.</p>
+</div></blockquote>
+<p>config -&gt; (array)</p>
+<blockquote>
+<div><p>Key-value type configurations for the Impala REST Catalog Connector.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Impala REST Catalog Connector Configuration Entry.</p>
+<p>key -&gt; (string)</p>
+<blockquote>
+<div><p>Configuration key.</p>
+</div></blockquote>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Configuration value.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -713,7 +762,7 @@
         <li class="right" >
           <a href="describe-server-setting.html" title="describe-server-setting"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.154 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-vw</a></li> 
       </ul>

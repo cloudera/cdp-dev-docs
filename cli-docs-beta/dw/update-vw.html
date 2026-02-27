@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-vw &#8212; CDP CLI 0.9.154 (BETA) documentation</title>
+    <title>update-vw &#8212; CDP CLI 0.9.155 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="update-ssh-key.html" title="update-ssh-key"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.154 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Update the configuration of a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.154</p>
+<dd class="field-even"><p>0.9.155</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -68,6 +68,7 @@
 <span class="o">[</span>--impala-query-log <span class="p">|</span> --no-impala-query-log<span class="o">]</span>
 <span class="o">[</span>--log-hive-queries <span class="p">|</span> --no-log-hive-queries<span class="o">]</span>
 <span class="o">[</span>--hive-server-ha-mode &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--additional-quota &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -587,6 +588,30 @@
 <div><p>If specified, modifies Hive Server High Availability mode in Private Cloud: * <cite>DISABLED</cite> - Disables Hive Server high availability. * <cite>ACTIVE_PASSIVE</cite> - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.</p>
 </div></blockquote>
 <p>Form Factors: private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--additional-quota</span></code> (object)</p>
+<blockquote>
+<div><p>Quota in requests for the Virtual Warehouse.</p>
+<p>cpu -&gt; (float)</p>
+<blockquote>
+<div><p>CPU quota in cores.</p>
+</div></blockquote>
+<p>memory -&gt; (integer)</p>
+<blockquote>
+<div><p>Memory quota in MB.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">cpu</span><span class="o">=</span>float,memory<span class="o">=</span>integer
+</pre></div>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;cpu&quot;</span>: float,
+  <span class="s2">&quot;memory&quot;</span>: integer
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Form Factors: private</p>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
 <div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
@@ -661,7 +686,7 @@
         <li class="right" >
           <a href="update-ssh-key.html" title="update-ssh-key"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.154 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vw</a></li> 
       </ul>
