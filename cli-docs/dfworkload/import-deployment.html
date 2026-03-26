@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>import-deployment &#8212; CDP CLI 0.9.155 documentation</title>
+    <title>import-deployment &#8212; CDP CLI 0.9.156 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,19 +16,19 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="list-deployment-archives" href="list-deployment-archives.html" />
-    <link rel="prev" title="get-deployment-request-details" href="get-deployment-request-details.html" /> 
+    <link rel="next" title="import-flow-into-deployment" href="import-flow-into-deployment.html" />
+    <link rel="prev" title="get-flow-request-details-in-deployment" href="get-flow-request-details-in-deployment.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-deployment-archives.html" title="list-deployment-archives"
+          <a href="import-flow-into-deployment.html" title="import-flow-into-deployment"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="get-deployment-request-details.html" title="get-deployment-request-details"
+          <a href="get-flow-request-details-in-deployment.html" title="get-flow-request-details-in-deployment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">import-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Import deployment configuration.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.155</p>
+<dd class="field-even"><p>0.9.156</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -59,6 +59,7 @@
 --environment-crn &lt;value&gt;
 --deployment-request-crn &lt;value&gt;
 <span class="o">[</span>--archive-name &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--flow-name &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -77,6 +78,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">--archive-name</span></code> (string)</p>
 <blockquote>
 <div><p>Search term to filter exported archives by deployment name.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--flow-name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the deployed flow in the exported archive.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -131,6 +136,82 @@
 <p>kpis -&gt; (array)</p>
 <blockquote>
 <div><p>The list of configured KPIs imported from archive.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>An instantiated KPI specifying a metric on which to alert</p>
+<p>metricId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the associated metric</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the KPI; used only when viewing and editing existing KPIs</p>
+</div></blockquote>
+<p>metricComponentType -&gt; (string)</p>
+<blockquote>
+<div><p>The component type of the associated metric</p>
+</div></blockquote>
+<p>alert -&gt; (object)</p>
+<blockquote>
+<div><p>An alert configuration that specifies a configured frequency with lower and/or upper thresholds</p>
+<p>thresholdMoreThan -&gt; (object)</p>
+<blockquote>
+<div><p>A configured alert threshold to pair together a statistical unit and value</p>
+<p>unitId -&gt; (string)</p>
+<blockquote>
+<div><p>The identifier of the alert threshold unit to associate with the given threshold value</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The threshold value whose triggering causes an alert</p>
+</div></blockquote>
+</div></blockquote>
+<p>thresholdLessThan -&gt; (object)</p>
+<blockquote>
+<div><p>A configured alert threshold to pair together a statistical unit and value</p>
+<p>unitId -&gt; (string)</p>
+<blockquote>
+<div><p>The identifier of the alert threshold unit to associate with the given threshold value</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The threshold value whose triggering causes an alert</p>
+</div></blockquote>
+</div></blockquote>
+<p>frequencyTolerance -&gt; (object)</p>
+<blockquote>
+<div><p>An alert configuration frequency tolerance for measuring an amount of time and unit for alert triggering</p>
+<p>unit -&gt; (object)</p>
+<blockquote>
+<div><p>The alert frequency unit to use in KPI tolerances and metrics</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the frequency unit</p>
+</div></blockquote>
+<p>label -&gt; (string)</p>
+<blockquote>
+<div><p>The user-friendly label of the frequency unit</p>
+</div></blockquote>
+<p>abbreviation -&gt; (string)</p>
+<blockquote>
+<div><p>The abbreviation for frequency unit</p>
+</div></blockquote>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The amount of time, associated with the given unit, a metric value can persist outside its boundaries before an alert is generated</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>componentId -&gt; (string)</p>
+<blockquote>
+<div><p>The optional process group ID, processor ID, or connection ID. This is a composite ID containing a chain of process group IDs representing the component’s full ancestry</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>deployedFlowKpis -&gt; (array)</p>
+<blockquote>
+<div><p>The list of configured component KPIs imported from archive.</p>
 <p>item -&gt; (object)</p>
 <blockquote>
 <div><p>An instantiated KPI specifying a metric on which to alert</p>
@@ -270,6 +351,10 @@
 <div><p>The version of the parameter group. Empty or null means the latest version.</p>
 </div></blockquote>
 </div></blockquote>
+</div></blockquote>
+<p>otherName -&gt; (string)</p>
+<blockquote>
+<div><p>The other name that can be used to reference this group in a flow. This is used when multiple flows with same parameter group are deployed in to same NiFi cluster.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -414,11 +499,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="get-deployment-request-details.html"
-                        title="previous chapter">get-deployment-request-details</a></p>
+  <p class="topless"><a href="get-flow-request-details-in-deployment.html"
+                        title="previous chapter">get-flow-request-details-in-deployment</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="list-deployment-archives.html"
-                        title="next chapter">list-deployment-archives</a></p>
+  <p class="topless"><a href="import-flow-into-deployment.html"
+                        title="next chapter">import-flow-into-deployment</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -437,12 +522,12 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="list-deployment-archives.html" title="list-deployment-archives"
+          <a href="import-flow-into-deployment.html" title="import-flow-into-deployment"
              >next</a></li>
         <li class="right" >
-          <a href="get-deployment-request-details.html" title="get-deployment-request-details"
+          <a href="get-flow-request-details-in-deployment.html" title="get-flow-request-details-in-deployment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">import-deployment</a></li> 
       </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>get-deployment-configuration &#8212; CDP CLI 0.9.155 documentation</title>
+    <title>get-deployment-configuration &#8212; CDP CLI 0.9.156 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="get-deployment-configuration-metadata" href="get-deployment-configuration-metadata.html" />
-    <link rel="prev" title="get-default-custom-nar-configuration" href="get-default-custom-nar-configuration.html" /> 
+    <link rel="prev" title="get-custom-python-configuration" href="get-custom-python-configuration.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="get-deployment-configuration-metadata.html" title="get-deployment-configuration-metadata"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="get-default-custom-nar-configuration.html" title="get-default-custom-nar-configuration"
+          <a href="get-custom-python-configuration.html" title="get-custom-python-configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Retrieves the deployment configuration.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.155</p>
+<dd class="field-even"><p>0.9.156</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -157,6 +157,10 @@
 <div><p>The version of the parameter group. Empty or null means the latest version.</p>
 </div></blockquote>
 </div></blockquote>
+</div></blockquote>
+<p>otherName -&gt; (string)</p>
+<blockquote>
+<div><p>The other name that can be used to reference this group in a flow. This is used when multiple flows with same parameter group are deployed in to same NiFi cluster.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -296,10 +300,6 @@
 <blockquote>
 <div><p>Node storage profile name.</p>
 </div></blockquote>
-<p>parametersDirty -&gt; (boolean)</p>
-<blockquote>
-<div><p>Indicates whether or not all current parameter values have successfully been applied to NiFi.</p>
-</div></blockquote>
 <p>kpisDirty -&gt; (boolean)</p>
 <blockquote>
 <div><p>Indicates whether or not the current KPIs have successfully been deployed as alert rules, at the deployment level. Use kpisDirty inside deployedFlowConfigurations for any flow-level KPIs.</p>
@@ -307,6 +307,14 @@
 <p>sizingAndScalingDirty -&gt; (boolean)</p>
 <blockquote>
 <div><p>Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes.</p>
+</div></blockquote>
+<p>customNarConfigurationDirty -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates whether or not the current custom NAR configuration has been successfully applied.</p>
+</div></blockquote>
+<p>customPythonConfigurationDirty -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates whether or not the current custom Python configuration has been successfully applied.</p>
 </div></blockquote>
 <p>lastUpdatedByUsername -&gt; (string)</p>
 <blockquote>
@@ -412,6 +420,14 @@
 <blockquote>
 <div><p>The size of the extra volume mounted for flows containing python.</p>
 </div></blockquote>
+<p>customNarConfigurationId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the custom NAR configuration associated with the deployment.</p>
+</div></blockquote>
+<p>customPythonConfigurationId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the custom Python configuration associated with the deployment.</p>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
@@ -440,8 +456,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="get-default-custom-nar-configuration.html"
-                        title="previous chapter">get-default-custom-nar-configuration</a></p>
+  <p class="topless"><a href="get-custom-python-configuration.html"
+                        title="previous chapter">get-custom-python-configuration</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="get-deployment-configuration-metadata.html"
                         title="next chapter">get-deployment-configuration-metadata</a></p>
@@ -466,9 +482,9 @@
           <a href="get-deployment-configuration-metadata.html" title="get-deployment-configuration-metadata"
              >next</a></li>
         <li class="right" >
-          <a href="get-default-custom-nar-configuration.html" title="get-default-custom-nar-configuration"
+          <a href="get-custom-python-configuration.html" title="get-custom-python-configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">get-deployment-configuration</a></li> 
       </ul>

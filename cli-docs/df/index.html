@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>df &#8212; CDP CLI 0.9.155 documentation</title>
+    <title>df &#8212; CDP CLI 0.9.156 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,19 +16,19 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="add-readyflow" href="add-readyflow.html" />
+    <link rel="next" title="add-flow-to-deployment" href="add-flow-to-deployment.html" />
     <link rel="prev" title="upgrade-service" href="../de/upgrade-service.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="add-readyflow.html" title="add-readyflow"
+          <a href="add-flow-to-deployment.html" title="add-flow-to-deployment"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="../de/upgrade-service.html" title="upgrade-service"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">df</a></li> 
       </ul>
     </div>  
@@ -45,7 +45,7 @@
 <dd class="field-odd"><p>Cloudera DataFlow Service</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.155</p>
+<dd class="field-even"><p>0.9.156</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -56,10 +56,12 @@
 <h2>Available Subcommands<a class="headerlink" href="#available-subcommands" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="add-flow-to-deployment.html">add-flow-to-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="add-readyflow.html">add-readyflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assign-to-collection.html">assign-to-collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cancel-delete-project.html">cancel-delete-project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="change-flow-version.html">change-flow-version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change-flow-version-in-deployment.html">change-flow-version-in-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create-collection.html">create-collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create-deployment.html">create-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create-flow-version-tag.html">create-flow-version-tag</a></li>
@@ -74,6 +76,8 @@
 <li class="toctree-l1"><a class="reference internal" href="describe-deployment.html">describe-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="describe-deployment-event-detail.html">describe-deployment-event-detail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="describe-flow.html">describe-flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-flow-event-detail-in-deployment.html">describe-flow-event-detail-in-deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-flow-in-deployment.html">describe-flow-in-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="describe-project.html">describe-project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="describe-readyflow.html">describe-readyflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="describe-service.html">describe-service</a></li>
@@ -86,6 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="import-flow-definition.html">import-flow-definition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="import-flow-definition-version.html">import-flow-definition-version</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initiate-deployment.html">initiate-deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initiate-flow-in-deployment.html">initiate-flow-in-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-collections.html">list-collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-deployable-services-for-new-deployments.html">list-deployable-services-for-new-deployments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-deployment-active-alerts.html">list-deployment-active-alerts</a></li>
@@ -95,9 +100,13 @@
 <li class="toctree-l1"><a class="reference internal" href="list-deployments.html">list-deployments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-diagnostics.html">list-diagnostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-filter-options.html">list-filter-options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-flow-active-alerts-in-deployment.html">list-flow-active-alerts-in-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-flow-definition-versions.html">list-flow-definition-versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-flow-definitions.html">list-flow-definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-flow-events-in-deployment.html">list-flow-events-in-deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-flow-kpis-in-deployment.html">list-flow-kpis-in-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-flow-version-tags.html">list-flow-version-tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-flows-in-deployment.html">list-flows-in-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-notifications.html">list-notifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-project-filter-options.html">list-project-filter-options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list-projects.html">list-projects</a></li>
@@ -110,10 +119,12 @@
 <li class="toctree-l1"><a class="reference internal" href="renew-certificates.html">renew-certificates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reset-service.html">reset-service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="retry-change-flow-version.html">retry-change-flow-version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retry-change-flow-version-in-deployment.html">retry-change-flow-version-in-deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revoke-user-kubernetes-access.html">revoke-user-kubernetes-access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotate-password.html">rotate-password</a></li>
 <li class="toctree-l1"><a class="reference internal" href="start-get-diagnostics-collection.html">start-get-diagnostics-collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update-collection.html">update-collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update-node-images.html">update-node-images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update-project.html">update-project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update-service.html">update-service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="upgrade-service.html">upgrade-service</a></li>
@@ -142,8 +153,8 @@
   <p class="topless"><a href="../de/upgrade-service.html"
                         title="previous chapter">upgrade-service</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="add-readyflow.html"
-                        title="next chapter">add-readyflow</a></p>
+  <p class="topless"><a href="add-flow-to-deployment.html"
+                        title="next chapter">add-flow-to-deployment</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -162,12 +173,12 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="add-readyflow.html" title="add-readyflow"
+          <a href="add-flow-to-deployment.html" title="add-flow-to-deployment"
              >next</a></li>
         <li class="right" >
           <a href="../de/upgrade-service.html" title="upgrade-service"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">df</a></li> 
       </ul>
     </div>
