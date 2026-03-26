@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>suspend-deployment &#8212; CDP CLI 0.9.155 (BETA) documentation</title>
+    <title>suspend-deployment &#8212; CDP CLI 0.9.156 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -17,7 +17,7 @@
     
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="terminate-deployment" href="terminate-deployment.html" />
-    <link rel="prev" title="stop-flow" href="stop-flow.html" /> 
+    <link rel="prev" title="stop-flow-in-deployment" href="stop-flow-in-deployment.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,9 +26,9 @@
           <a href="terminate-deployment.html" title="terminate-deployment"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="stop-flow.html" title="stop-flow"
+          <a href="stop-flow-in-deployment.html" title="stop-flow-in-deployment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">suspend-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Suspends a deployment.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.155</p>
+<dd class="field-even"><p>0.9.156</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -272,29 +272,9 @@
 <blockquote>
 <div><p>The static number of nodes of the deployment; can only be used when autoscalingEnabled is false.</p>
 </div></blockquote>
-<p>flowName -&gt; (string)</p>
-<blockquote>
-<div><p>The name of the flow.</p>
-</div></blockquote>
-<p>flowVersion -&gt; (integer)</p>
-<blockquote>
-<div><p>The version of the flow.</p>
-</div></blockquote>
-<p>flowVersionCrn -&gt; (string)</p>
-<blockquote>
-<div><p>The deployment’s current flow version CRN.</p>
-</div></blockquote>
-<p>flowCrn -&gt; (string)</p>
-<blockquote>
-<div><p>The deployment’s current flow CRN.</p>
-</div></blockquote>
 <p>creatorCrn -&gt; (string)</p>
 <blockquote>
 <div><p>The CRN of the user who deployed the first flow.</p>
-</div></blockquote>
-<p>artifactTypeName -&gt; (string)</p>
-<blockquote>
-<div><p>The type of artifact of the flow.</p>
 </div></blockquote>
 <p>currentNodeCount -&gt; (integer)</p>
 <blockquote>
@@ -412,14 +392,247 @@
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
-<p>targetProcessGroupId -&gt; (string)</p>
-<blockquote>
-<div><p>The target process group ID of the deployment.</p>
-</div></blockquote>
 <p>inboundConnectionAuthorizedIpRanges -&gt; (array)</p>
 <blockquote>
 <div><p>Set of authorized IP ranges for the inbound connections.</p>
 <p>item -&gt; (string)</p>
+</div></blockquote>
+<p>deployedFlows -&gt; (array)</p>
+<blockquote>
+<div><p>The details about the flows that are deployed into the NiFi cluster.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>A deployed flow on a NiFi cluster</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the deployed flow.</p>
+</div></blockquote>
+<p>status -&gt; (object)</p>
+<blockquote>
+<div><p>The state and state message associated with a deployed flow.</p>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>The state that the deployed flow is currently in.</p>
+</div></blockquote>
+<p>detailedState -&gt; (string)</p>
+<blockquote>
+<div><p>The detailed state that the deployed flow is currently in.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Detail message relating to the current status of the deployed flow.</p>
+</div></blockquote>
+</div></blockquote>
+<p>deploymentId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the deployment.</p>
+</div></blockquote>
+<p>configurationVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>The version of this configuration.</p>
+</div></blockquote>
+<p>targetProcessGroupId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the process group in NiFi.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the deployed flow.</p>
+</div></blockquote>
+<p>activeInfoAlertCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Current count of active alerts classified as an info.</p>
+</div></blockquote>
+<p>activeWarningAlertCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Current count of active alerts classified as a warning.</p>
+</div></blockquote>
+<p>activeErrorAlertCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Current count of active alerts classified as an error.</p>
+</div></blockquote>
+<p>environmentId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the environment.</p>
+</div></blockquote>
+<p>environment -&gt; (object)</p>
+<blockquote>
+<div><p>Metadata about the workload.</p>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the environment.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the environment.</p>
+</div></blockquote>
+<p>cloudPlatform -&gt; (string)</p>
+<blockquote>
+<div><p>The cloudPlatform flag of the environment.</p>
+</div></blockquote>
+<p>region -&gt; (object)</p>
+<blockquote>
+<div><p>A cloud region</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the cloud region</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>Display-friendly name of the cloud region</p>
+</div></blockquote>
+</div></blockquote>
+<p>cloudbreakCrn -&gt; (string)</p>
+<blockquote>
+<div><p>Crn of associated cloudbreak environment.</p>
+</div></blockquote>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The internal ID of the environment.</p>
+</div></blockquote>
+<p>localUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The DataFlow Service contact url.</p>
+</div></blockquote>
+<p>workloadVersion -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the DataFlow Service.</p>
+</div></blockquote>
+<p>environmentStatus -&gt; (object)</p>
+<blockquote>
+<div><p>Environment status.</p>
+<p>detailedState -&gt; (string)</p>
+<blockquote>
+<div><p>The detailed state that the environment is currently in.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Detail message relating to the current status of the environment.</p>
+</div></blockquote>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>The state that the environment is currently in.</p>
+</div></blockquote>
+</div></blockquote>
+<p>accountId -&gt; (string)</p>
+<blockquote>
+<div><p>The account ID from the CRN.</p>
+</div></blockquote>
+</div></blockquote>
+<p>deploymentName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the deployment.</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the deployed flow.</p>
+</div></blockquote>
+<p>projectId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the project the deployment belongs to, or null if does not belong to a project.</p>
+</div></blockquote>
+<p>project -&gt; (object)</p>
+<blockquote>
+<div><p>The meta information about a project.</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the project</p>
+</div></blockquote>
+<p>crn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the project</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the group</p>
+</div></blockquote>
+</div></blockquote>
+<p>artifactName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the flow definition.</p>
+</div></blockquote>
+<p>catalogItemId -&gt; (string)</p>
+<blockquote>
+<div><p>The id of the catalog item. Will either be the flow definition id or the id of the imported ready flow.</p>
+</div></blockquote>
+<p>flowVersion -&gt; (integer)</p>
+<blockquote>
+<div><p>The version of the flow.</p>
+</div></blockquote>
+<p>flowVersionCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The deployed flow definition version CRN.</p>
+</div></blockquote>
+<p>flowCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The deployed flow definition CRN.</p>
+</div></blockquote>
+<p>creatorCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the user who deployed the flow.</p>
+</div></blockquote>
+<p>artifactTypeName -&gt; (string)</p>
+<blockquote>
+<div><p>The type of artifact of the flow definition.</p>
+</div></blockquote>
+<p>deployedByUsername -&gt; (string)</p>
+<blockquote>
+<div><p>The username of the person who deployed the flow.</p>
+</div></blockquote>
+<p>deployedByName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the person who deployed the flow.</p>
+</div></blockquote>
+<p>flowVersionId -&gt; (string)</p>
+<blockquote>
+<div><p>The deployed flow definition version id.</p>
+</div></blockquote>
+<p>created -&gt; (integer)</p>
+<blockquote>
+<div><p>Timestamp of the first time the flow deployed into a NiFi cluster.</p>
+</div></blockquote>
+<p>updated -&gt; (integer)</p>
+<blockquote>
+<div><p>Timestamp of the last time the deployed flow was modified.</p>
+</div></blockquote>
+<p>validActions -&gt; (array)</p>
+<blockquote>
+<div><p>Valid actions that can be applied to the deployed flow in its current state.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>dataSent -&gt; (array)</p>
+<blockquote>
+<div><p>The dataSent values, if requested.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>A metric value.</p>
+<p>timestamp -&gt; (integer)</p>
+<blockquote>
+<div><p>Timestamp of the metric value.</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The value of the metric.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>dataReceived -&gt; (array)</p>
+<blockquote>
+<div><p>The dataReceived values, if requested.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>A metric value.</p>
+<p>timestamp -&gt; (integer)</p>
+<blockquote>
+<div><p>Timestamp of the metric value.</p>
+</div></blockquote>
+<p>value -&gt; (double)</p>
+<blockquote>
+<div><p>The value of the metric.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 <p>projectCrn -&gt; (string)</p>
 <blockquote>
@@ -453,8 +666,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="stop-flow.html"
-                        title="previous chapter">stop-flow</a></p>
+  <p class="topless"><a href="stop-flow-in-deployment.html"
+                        title="previous chapter">stop-flow-in-deployment</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="terminate-deployment.html"
                         title="next chapter">terminate-deployment</a></p>
@@ -479,9 +692,9 @@
           <a href="terminate-deployment.html" title="terminate-deployment"
              >next</a></li>
         <li class="right" >
-          <a href="stop-flow.html" title="stop-flow"
+          <a href="stop-flow-in-deployment.html" title="stop-flow-in-deployment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.155 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.156 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dfworkload</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">suspend-deployment</a></li> 
       </ul>
