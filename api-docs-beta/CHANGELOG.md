@@ -1,5 +1,32 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.156 (2026-03-25)
+* de: Add parameters `azureServiceManagedIdentity`, `azureVirtualClusterManagedIdentities` and `disableArm64` to `enableService` command.
+* de: Add parameters `servicePropertyOverride` to `restoreService` command.
+* df: Add new commands `describeFlowEventDetailInDeployment`, `describeFlowInDeployment`, `initiateFlowInDeployment`, `listFlowActiveAlertsInDeployment`, `listFlowEventsInDeployment`, `listFlowKpisInDeployment`, `listFlowsInDeployment` and `updateNodeImages`.
+* df: Add parameters `enforceProject` to `enableService` command.
+* df: Add parameters `searchTerm` to `listDeployments` command.
+* df: Add properties `enforceProject` to `Service` and `ServiceSummary` objects.
+* dfworkload: Add new commands `abortFlowRequestInDeployment`, `addFlowToDeployment`, `cancelChangeFlowVersionInDeployment`, `changeFlowVersionInDeployment`, `getFlowConfigurationInDeployment`, `getFlowConfigurationMetadataInDeployment`, `getFlowRequestDetailsInDeployment`, `importFlowIntoDeployment`, `startAllFlowsInDeployment`, `startFlowInDeployment`, `stopAllFlowsInDeployment`, `stopFlowInDeployment`, `terminateFlowInDeployment` and `updateFlowInDeployment`.
+* dfworkload: Add parameters `deployedFlowCrn` to `abortAssetUpdateRequest` and `createAssetUpdateRequest` commands.
+* dfworkload: Add parameters `ignoreCustomNarConfigurationCheck`, `ignoreCustomPythonConfigurationCheck` and `ignoreDeploymentInboundConfigurationChecks` to `changeFlowVersion` command.
+* dfworkload: Add parameters `deployedFlowName` and `ignoreDeploymentInboundConfigurationChecks` to `createDeployment` command.
+* dfworkload: Add parameters `deploymentCrn` to `getCustomNarConfiguration` and `getCustomPythonConfiguration` commands.
+* dfworkload: Add parameters `flowName` to `importDeployment` command.
+* dfworkload: Add parameters `cliSupportsMultiFlow`, `customNarConfigurationCrn`, `customPythonConfigurationCrn`, `deactivateInboundConnection`, `inboundConnectionAuthorizedIpRanges`, `inboundHostname` and `listenComponents` to `updateDeployment` command.
+* dfworkload: Add parameters `deployedFlowName` to `uploadAsset` command.
+* dfworkload: Add enum values `DEPLOYING_FLOW`, `TEST_SESSION_SUSPENDED`, `TEST_SESSION_TERMINATED` to `detailedState` in `DeploymentStatus` object.
+* dfworkload: Add enum values `TERMINATED` to `state` in `DeploymentStatus` object.
+* dfworkload: Add properties `otherName` to `FlowParameterGroup` object.
+* dfworkload: Add properties `deployedFlows` to `RpcDeployment` and `RpcDeploymentArchiveMetadata` objects.
+* dfworkload: Add properties `customNarConfigurationDirty`, `customNarConfigurationId`, `customPythonConfigurationDirty` and `customPythonConfigurationId` to `RpcDeploymentConfiguration` object.
+* dfworkload: Add properties `deployedFlowKpis` to `RpcImportedDeploymentConfiguration` object.
+* ml: Add new command `requestWorkflowRollback`.
+* ml: Add parameters `skipValidation` to `upgradeWorkspace` command.
+
+BACKWARD INCOMPATIBILITIES:
+* dfworkload: Remove parameters `autoScalingEnabled` and `flowMetricsScalingEnabled` from `updateDeployment` command.
+
 ## 0.9.155 (2026-02-25)
 * cloudprivatelinks: Add new command `updatePrivateLinkEndpoint`.
 * dw: Add new command `createSecret`.
