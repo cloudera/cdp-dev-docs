@@ -1,5 +1,9 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.157 (2026-04-01)
+* datacatalog: Add new commands `addAssetsToDataShare`, `createDataShare`, `createExternalUsers`, `deleteDataShare`, `deleteExternalUser`, `getDataShare`, `grantAccessToExternalUsersOnDataShare`, `listDataShares`, `listExternalUsers`, `regenerateExternalUserCredentials`, `removeAccessOfExternalUsersOnDataShare`, `removeAssetsFromDataShare`, `revokeExternalUserCredentials`, `shareDataShare`, `unshareDataShare`, `updateAccessOfExternalUsersOnDataShare` and `updateDataShare`.
+* de: Add new commands `getSuspendResumeStatus`, `resumeVc` and `suspendVc`.
+
 ## 0.9.156 (2026-03-25)
 * de: Add parameters `azureServiceManagedIdentity`, `azureVirtualClusterManagedIdentities` and `disableArm64` to `enableService` command.
 * de: Add parameters `servicePropertyOverride` to `restoreService` command.
