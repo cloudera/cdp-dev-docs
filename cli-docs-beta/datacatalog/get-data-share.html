@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get-data-share &#8212; CDP CLI 0.9.157 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get-suggested-tags" href="get-suggested-tags.html" />
+    <link rel="prev" title="delete-external-user" href="delete-external-user.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-suggested-tags.html" title="get-suggested-tags"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="delete-external-user.html" title="delete-external-user"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.157 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datacatalog</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-data-share</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get-data-share">
+<span id="cli-cdp-datacatalog-get-data-share"></span><h1>get-data-share<a class="headerlink" href="#get-data-share" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Get a Data Share by its ID.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.157</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Retrieve detailed information about a Data Share including its metadata, assets, external users, and configuration settings.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-data-share
+--datalake-crn &lt;value&gt;
+--environment-crn &lt;value&gt;
+--data-share-id &lt;value&gt;
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--datalake-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the Data Lake where the Data Share is located.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--environment-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the Environment where the Data Share is located.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--data-share-id</span></code> (string)</p>
+<blockquote>
+<div><p>The unique identifier of the Data Share to be retrieved.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>dataShareId -&gt; (string)</p>
+<blockquote>
+<div><p>The unique identifier of the Data Share.</p>
+</div></blockquote>
+<p>dataShareName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the Data Share.</p>
+</div></blockquote>
+<p>isShared -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates whether the Data Share is in Shared state or not.</p>
+</div></blockquote>
+<p>createdAt -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date and time when the Data Share was created.</p>
+</div></blockquote>
+<p>updatedAt -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date and time when the Data Share was last updated.</p>
+</div></blockquote>
+<p>createdBy -&gt; (string)</p>
+<blockquote>
+<div><p>The CDP user who created the Data Share.</p>
+</div></blockquote>
+<p>keywords -&gt; (array)</p>
+<blockquote>
+<div><p>List of keywords associated with the Data Share.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>tags -&gt; (array)</p>
+<blockquote>
+<div><p>List of the Atlas tags associated with the Data Share.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>expiryTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date and time when the Data Share will expire.</p>
+</div></blockquote>
+<p>assets -&gt; (array)</p>
+<blockquote>
+<div><p>List of assets included in the Data Share.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Details of an asset to be included in the Data Share.</p>
+<p>resourceId -&gt; (string)</p>
+<blockquote>
+<div><p>The unique identifier of the resource.</p>
+</div></blockquote>
+<p>guid -&gt; (string)</p>
+<blockquote>
+<div><p>The unique identifier of the asset (asset guid from the Atlas).</p>
+</div></blockquote>
+<p>createTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date and time when the asset was created.</p>
+</div></blockquote>
+<p>createdBy -&gt; (string)</p>
+<blockquote>
+<div><p>The user who created the asset.</p>
+</div></blockquote>
+<p>updateTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date and time when the asset was last updated.</p>
+</div></blockquote>
+<p>updatedBy -&gt; (string)</p>
+<blockquote>
+<div><p>The user who last updated the asset.</p>
+</div></blockquote>
+<p>databaseName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the database containing the asset.</p>
+</div></blockquote>
+<p>tableName -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the table containing the asset.</p>
+</div></blockquote>
+<p>columns -&gt; (array)</p>
+<blockquote>
+<div><p>List of columns in the asset (default all is included).</p>
+<p>item -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the column.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>externalUsers -&gt; (array)</p>
+<blockquote>
+<div><p>List of external users granted access to the Data Share.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Details of an external user with access to a Data Share.</p>
+<p>userId -&gt; (integer)</p>
+<blockquote>
+<div><p>The unique identifier of the external user.</p>
+</div></blockquote>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>The username of the external user.</p>
+</div></blockquote>
+<p>clientId -&gt; (string)</p>
+<blockquote>
+<div><p>The Client ID of the external user that will be used for authentication.</p>
+</div></blockquote>
+<p>companyName -&gt; (string)</p>
+<blockquote>
+<div><p>The company name of the external user.</p>
+</div></blockquote>
+<p>permissions -&gt; (array)</p>
+<blockquote>
+<div><p>List of permissions granted to the external user for the Data Share.</p>
+<p>item -&gt; (string)</p>
+</div></blockquote>
+<p>sharedOn -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date and time when the Data Share was shared with the external user.</p>
+</div></blockquote>
+<p>validTill -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date and time when the access of Data Share will expire for the external user.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>summary -&gt; (string)</p>
+<blockquote>
+<div><p>A brief summary of the Data Share.</p>
+</div></blockquote>
+<p>termsOfUse -&gt; (string)</p>
+<blockquote>
+<div><p>The terms of use for the Data Share.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-data-share</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="delete-external-user.html"
+                        title="previous chapter">delete-external-user</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get-suggested-tags.html"
+                        title="next chapter">get-suggested-tags</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-suggested-tags.html" title="get-suggested-tags"
+             >next</a></li>
+        <li class="right" >
+          <a href="delete-external-user.html" title="delete-external-user"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.157 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datacatalog</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-data-share</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
