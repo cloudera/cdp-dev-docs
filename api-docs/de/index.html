@@ -781,60 +781,81 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_13">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_getupgradestatus">Get CDE Service Upgrade Status.</a>
+<li><a href="#_getsuspendresumestatus">Get CDE Service Suspend Resume Status.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_14">Description</a></li>
 <li><a href="#_parameters_14">Parameters</a></li>
 <li><a href="#_responses_14">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listbackups">List Cloudera Data Engineering(CDE) Service Backups</a>
+<li><a href="#_getupgradestatus">Get CDE Service Upgrade Status.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_15">Description</a></li>
 <li><a href="#_parameters_15">Parameters</a></li>
 <li><a href="#_responses_15">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listservices">List Cloudera Data Engineering(CDE) Services</a>
+<li><a href="#_listbackups">List Cloudera Data Engineering(CDE) Service Backups</a>
 <ul class="sectlevel3">
 <li><a href="#_description_16">Description</a></li>
 <li><a href="#_parameters_16">Parameters</a></li>
 <li><a href="#_responses_16">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_listvcs">List Virtual Clusters</a>
+<li><a href="#_listservices">List Cloudera Data Engineering(CDE) Services</a>
 <ul class="sectlevel3">
 <li><a href="#_description_17">Description</a></li>
 <li><a href="#_parameters_17">Parameters</a></li>
 <li><a href="#_responses_17">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_restoreservice">Restore Cloudera Data Engineering(CDE) Service</a>
+<li><a href="#_listvcs">List Virtual Clusters</a>
 <ul class="sectlevel3">
 <li><a href="#_description_18">Description</a></li>
 <li><a href="#_parameters_18">Parameters</a></li>
 <li><a href="#_responses_18">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateservice">Update Cloudera Data Engineering (CDE) Service</a>
+<li><a href="#_restoreservice">Restore Cloudera Data Engineering(CDE) Service</a>
 <ul class="sectlevel3">
 <li><a href="#_description_19">Description</a></li>
 <li><a href="#_parameters_19">Parameters</a></li>
 <li><a href="#_responses_19">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatevc">Update Cloudera Data Engineering (CDE) Virtual Cluster</a>
+<li><a href="#_resumevc">Initiates resume on the requested VC.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_20">Description</a></li>
 <li><a href="#_parameters_20">Parameters</a></li>
 <li><a href="#_responses_20">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradeservice">Trigger a particular step (prepare, backup, upgrade, resume) of the upgrade framework.</a>
+<li><a href="#_suspendvc">Initiates suspend on the requested VC.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_21">Description</a></li>
 <li><a href="#_parameters_21">Parameters</a></li>
 <li><a href="#_responses_21">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updateservice">Update Cloudera Data Engineering (CDE) Service</a>
+<ul class="sectlevel3">
+<li><a href="#_description_22">Description</a></li>
+<li><a href="#_parameters_22">Parameters</a></li>
+<li><a href="#_responses_22">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_updatevc">Update Cloudera Data Engineering (CDE) Virtual Cluster</a>
+<ul class="sectlevel3">
+<li><a href="#_description_23">Description</a></li>
+<li><a href="#_parameters_23">Parameters</a></li>
+<li><a href="#_responses_23">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_upgradeservice">Trigger a particular step (prepare, backup, upgrade, resume) of the upgrade framework.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_24">Description</a></li>
+<li><a href="#_parameters_24">Parameters</a></li>
+<li><a href="#_responses_24">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -875,6 +896,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_getkubeconfigresponse">GetKubeconfigResponse</a></li>
 <li><a href="#_getserviceinitlogsrequest">GetServiceInitLogsRequest</a></li>
 <li><a href="#_getserviceinitlogsresponse">GetServiceInitLogsResponse</a></li>
+<li><a href="#_getsuspendresumestatusrequest">GetSuspendResumeStatusRequest</a></li>
+<li><a href="#_getsuspendresumestatusresponse">GetSuspendResumeStatusResponse</a></li>
 <li><a href="#_getupgradestatusrequest">GetUpgradeStatusRequest</a></li>
 <li><a href="#_getupgradestatusresponse">GetUpgradeStatusResponse</a></li>
 <li><a href="#_listbackupsrequest">ListBackupsRequest</a></li>
@@ -886,11 +909,15 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_order">Order</a></li>
 <li><a href="#_restoreservicerequest">RestoreServiceRequest</a></li>
 <li><a href="#_restoreserviceresponse">RestoreServiceResponse</a></li>
+<li><a href="#_resumevcrequest">ResumeVcRequest</a></li>
+<li><a href="#_resumevcresponse">ResumeVcResponse</a></li>
 <li><a href="#_servicedescription">ServiceDescription</a></li>
 <li><a href="#_serviceresources">ServiceResources</a></li>
 <li><a href="#_servicesummary">ServiceSummary</a></li>
 <li><a href="#_smtpconfigrequest">SmtpConfigRequest</a></li>
 <li><a href="#_smtpconfigresponse">SmtpConfigResponse</a></li>
+<li><a href="#_suspendvcrequest">SuspendVcRequest</a></li>
+<li><a href="#_suspendvcresponse">SuspendVcResponse</a></li>
 <li><a href="#_updateservicerequest">UpdateServiceRequest</a></li>
 <li><a href="#_updateserviceresponse">UpdateServiceResponse</a></li>
 <li><a href="#_updatevcrequest">UpdateVcRequest</a></li>
@@ -915,7 +942,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.155</p>
+<p><em>Version</em> : 0.9.157</p>
 </div>
 </div>
 <div class="sect2">
@@ -2075,6 +2102,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_getsuspendresumestatus">Get CDE Service Suspend Resume Status.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/de/getSuspendResumeStatus</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_14">Description</h4>
+<div class="paragraph">
+<p>The current status of the CDE Service suspend/resume process. After a particular step triggered by suspend-resume-service is completed, nextStep would point to the next step to take. If all the steps are completed, allStepsCompleted would be true.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_14">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_getsuspendresumestatusrequest">GetSuspendResumeStatusRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_14">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_getsuspendresumestatusresponse">GetSuspendResumeStatusResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_getupgradestatus">Get CDE Service Upgrade Status.</h3>
 <div class="literalblock">
 <div class="content">
@@ -2082,13 +2195,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_14">Description</h4>
+<h4 id="_description_15">Description</h4>
 <div class="paragraph">
 <p>The current status of the CDE Service upgrade. If all the steps are completed allStepsCompleted would be true. After a particular step triggered by upgrade-service is completed nextStep would point to the next step to take.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_14">Parameters</h4>
+<h4 id="_parameters_15">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2119,7 +2232,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_14">Responses</h4>
+<h4 id="_responses_15">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2168,13 +2281,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_15">Description</h4>
+<h4 id="_description_16">Description</h4>
 <div class="paragraph">
 <p>List all service backups.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_15">Parameters</h4>
+<h4 id="_parameters_16">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2205,7 +2318,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_15">Responses</h4>
+<h4 id="_responses_16">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2254,13 +2367,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_16">Description</h4>
+<h4 id="_description_17">Description</h4>
 <div class="paragraph">
 <p>Returns list of cde services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_16">Parameters</h4>
+<h4 id="_parameters_17">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2291,7 +2404,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_16">Responses</h4>
+<h4 id="_responses_17">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2340,13 +2453,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_17">Description</h4>
+<h4 id="_description_18">Description</h4>
 <div class="paragraph">
 <p>Returns a list of virtual clusters for a given CDE service.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_17">Parameters</h4>
+<h4 id="_parameters_18">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2377,7 +2490,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_17">Responses</h4>
+<h4 id="_responses_18">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2426,13 +2539,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_18">Description</h4>
+<h4 id="_description_19">Description</h4>
 <div class="paragraph">
 <p>Initiates the service restoration process and returns the ID of the service being restored.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_18">Parameters</h4>
+<h4 id="_parameters_19">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2463,7 +2576,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_18">Responses</h4>
+<h4 id="_responses_19">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2505,6 +2618,178 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_resumevc">Initiates resume on the requested VC.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/de/resumeVc</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_20">Description</h4>
+<div class="paragraph">
+<p>Initiates resume on the requested VC.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_20">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_resumevcrequest">ResumeVcRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_20">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_resumevcresponse">ResumeVcResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_suspendvc">Initiates suspend on the requested VC.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/de/suspendVc</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_21">Description</h4>
+<div class="paragraph">
+<p>Initiates suspend on the requested VC.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_21">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_suspendvcrequest">SuspendVcRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_21">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_suspendvcresponse">SuspendVcResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_updateservice">Update Cloudera Data Engineering (CDE) Service</h3>
 <div class="literalblock">
 <div class="content">
@@ -2512,13 +2797,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_19">Description</h4>
+<h4 id="_description_22">Description</h4>
 <div class="paragraph">
 <p>Returns update response consisting of operation ID that can be used to log update events.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_19">Parameters</h4>
+<h4 id="_parameters_22">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2549,7 +2834,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_19">Responses</h4>
+<h4 id="_responses_22">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2598,13 +2883,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_20">Description</h4>
+<h4 id="_description_23">Description</h4>
 <div class="paragraph">
 <p>Updates Cloudera Data Engineering (CDE) Virtual Cluster and returns details of updated CDE service.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_20">Parameters</h4>
+<h4 id="_parameters_23">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2635,7 +2920,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_20">Responses</h4>
+<h4 id="_responses_23">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -2684,13 +2969,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_21">Description</h4>
+<h4 id="_description_24">Description</h4>
 <div class="paragraph">
 <p>Trigger a particular step (prepare, backup, upgrade, resume) of the multi-step upgrade process. Use get-upgrade-status to know what is the next step to take.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_21">Parameters</h4>
+<h4 id="_parameters_24">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -2721,7 +3006,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_21">Responses</h4>
+<h4 id="_responses_24">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -4487,6 +4772,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureServiceManagedIdentity</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure managed identity resource ID for service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azureVirtualClusterManagedIdentities</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure managed identity resource IDs for virtual cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>chartValueOverrides</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4517,6 +4826,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>If set to "true", the previous version of the CDE service will be deployed.<br>
 <strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disableArm64</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>When set to true, disables ARM64 (Graviton) instances for the CDE service database. When set to false (default), Graviton instances may be used for the database. If Graviton instances are not available, the system falls back to x86.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -5129,6 +5450,110 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_getsuspendresumestatusrequest">GetSuspendResumeStatusRequest</h3>
+<div class="paragraph">
+<p>Request object for GetSuspendResumeStatus method.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster ID of the service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Virtual Cluster ID.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_getsuspendresumestatusresponse">GetSuspendResumeStatusResponse</h3>
+<div class="paragraph">
+<p>Response object for GetSuspendResumeStatus request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>allStepsCompleted</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Indicates if all steps in the multi-step suspend/resume process were successfully completed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>nextStep</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The next step to take in the multi-step suspend/resume process.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>statusMessage</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status of the suspend/resume operation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_getupgradestatusrequest">GetUpgradeStatusRequest</h3>
 <div class="paragraph">
 <p>Request object for GetUpgradeStatus method.</p>
@@ -5564,6 +5989,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>servicePropertyOverride</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Optional service property override. Specified properties will be merged with backup properties.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -5593,6 +6030,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The ID of the service being restored.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_resumevcrequest">ResumeVcRequest</h3>
+<div class="paragraph">
+<p>Request object for suspending a virtual cluster.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster ID of the service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Virtual Cluster ID.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_resumevcresponse">ResumeVcResponse</h3>
+<div class="paragraph">
+<p>Response object for ResumeVc request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status message of vc resume operation.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6393,6 +6910,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>SMTP username.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_suspendvcrequest">SuspendVcRequest</h3>
+<div class="paragraph">
+<p>Request object for suspending a virtual cluster.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cluster ID of the service.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vcId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Virtual Cluster ID.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_suspendvcresponse">SuspendVcResponse</h3>
+<div class="paragraph">
+<p>Response object for SuspendVc request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The status message of vc suspend operation.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7314,7 +7911,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-02-26 14:18:39 -0800
+Last updated 2026-03-31 14:09:26 -0700
 </div>
 </div>
 <br>
