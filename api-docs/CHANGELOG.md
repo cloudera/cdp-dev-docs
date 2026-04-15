@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.158 (2026-04-15)
+* dw: Add enum value `waa` (Workload Aware Autoscaling) to `tShirtSize` in `createVw` and `updateVw` commands.
+* dw: Add properties `impalaEnableGlobalAdmissionController` to `ImpalaHASettingsCreateRequest` object.
+* dw: Add enum value `ImpalaAdmissiond` to `component` in `updateVwConfig` command.
+* ml: Add parameters `knoxTopologyName` and `rangerServicePrincipal` to `createMlServingApp` command.
+
 ## 0.9.157 (2026-04-01)
 * datacatalog: Add new commands `addAssetsToDataShare`, `createDataShare`, `createExternalUsers`, `deleteDataShare`, `deleteExternalUser`, `getDataShare`, `grantAccessToExternalUsersOnDataShare`, `listDataShares`, `listExternalUsers`, `regenerateExternalUserCredentials`, `removeAccessOfExternalUsersOnDataShare`, `removeAssetsFromDataShare`, `revokeExternalUserCredentials`, `shareDataShare`, `unshareDataShare`, `updateAccessOfExternalUsersOnDataShare` and `updateDataShare`.
 * de: Add new commands `getSuspendResumeStatus`, `resumeVc` and `suspendVc`.
