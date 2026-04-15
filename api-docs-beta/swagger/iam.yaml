@@ -7,7 +7,7 @@ x-cdp-releases: PUBLIC
 x-audit: true
 x-extensions: pvcapipath
 info:
-  version: 0.9.157 (BETA)
+  version: 0.9.158 (BETA)
   title: Cloudera IAM Service
   license:
     name: Apache 2.0
@@ -3967,6 +3967,12 @@ definitions:
         format: int32
         minimum: 0
         description: The expiration, in seconds, of the UI session token. Set the value to '0' to use system default expiration (which is 12 hours for CDP). The value will be set to '0' if not provided.
+        x-no-compatibility-guarantee: true
+      workloadAuthTokenExpirationSec:
+        type: integer
+        format: int32
+        minimum: 0
+        description: The expiration, in seconds, of the workload authentication token. Set the value to '0' to use system default expiration (which is 1 hour for CDP). The value will be set to '0' if not provided.
         x-no-compatibility-guarantee: true
       clientIpAddressesAllowed:
         type: array
