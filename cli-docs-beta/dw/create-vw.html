@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vw &#8212; CDP CLI 0.9.157 (BETA) documentation</title>
+    <title>create-vw &#8212; CDP CLI 0.9.158 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-secret.html" title="create-secret"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.157 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.158 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.157</p>
+<dd class="field-even"><p>0.9.158</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -126,6 +126,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">small</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">medium</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">large</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waa</span></code></p></li>
 </ul>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--node-count</span></code> (integer)</p>
@@ -186,9 +187,13 @@
 <blockquote>
 <div><p>Enables a backup instance for Impala Statestore to ensure high availability.</p>
 </div></blockquote>
+<p>impalaEnableGlobalAdmissionController -&gt; (boolean)</p>
+<blockquote>
+<div><p>Set whether the Impala Global Admission Controller is enabled. This feature can only be used with high-availability mode ACTIVE_ACTIVE.</p>
+</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">highAvailabilityMode</span><span class="o">=</span>string,enableShutdownOfCoordinator<span class="o">=</span>boolean,shutdownOfCoordinatorDelaySeconds<span class="o">=</span>integer,numOfActiveCoordinators<span class="o">=</span>integer,enableCatalogHighAvailability<span class="o">=</span>boolean,enableStatestoreHighAvailability<span class="o">=</span>boolean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">highAvailabilityMode</span><span class="o">=</span>string,enableShutdownOfCoordinator<span class="o">=</span>boolean,shutdownOfCoordinatorDelaySeconds<span class="o">=</span>integer,numOfActiveCoordinators<span class="o">=</span>integer,enableCatalogHighAvailability<span class="o">=</span>boolean,enableStatestoreHighAvailability<span class="o">=</span>boolean,impalaEnableGlobalAdmissionController<span class="o">=</span>boolean
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -198,7 +203,8 @@
   <span class="s2">&quot;shutdownOfCoordinatorDelaySeconds&quot;</span>: integer,
   <span class="s2">&quot;numOfActiveCoordinators&quot;</span>: integer,
   <span class="s2">&quot;enableCatalogHighAvailability&quot;</span>: true<span class="p">|</span>false,
-  <span class="s2">&quot;enableStatestoreHighAvailability&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
+  <span class="s2">&quot;enableStatestoreHighAvailability&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;impalaEnableGlobalAdmissionController&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -788,7 +794,7 @@
         <li class="right" >
           <a href="create-secret.html" title="create-secret"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.157 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.158 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
