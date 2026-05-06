@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get-health &#8212; CDP CLI 0.9.159 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get-namespaces" href="get-namespaces.html" />
+    <link rel="prev" title="get-datahub-crn" href="get-datahub-crn.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-namespaces.html" title="get-namespaces"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="get-datahub-crn.html" title="get-datahub-crn"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.159 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">lakehouseopt</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-health</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="get-health">
+<span id="cli-cdp-lakehouseopt-get-health"></span><h1>get-health<a class="headerlink" href="#get-health" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Performs health check on CLO components.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.159</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Returns the CLO component (Scheduler, dispatcher, DAO) wise health check result. Service specific result will include the state of the service (healthy or unhealthy) and additional details.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  get-health
+--datahub-crn &lt;value&gt;
+<span class="o">[</span>--scope &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--datahub-crn</span></code> (string)</p>
+<blockquote>
+<div><p>The CRN of the CLO Data Hub.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--scope</span></code> (string)</p>
+<blockquote>
+<div><p>Health check scope. The supported values are “Full” and “Partial”. The “Full” performs a deep health check along with livy session creation. The “Partial” performs a shallow health check which doesn’t involve session creation.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Full</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Partial</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>result -&gt; (map)</p>
+<blockquote>
+<div><p>Map containing the service wise health check result.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>Health check result.</p>
+<p>isHealthy -&gt; (boolean)</p>
+<blockquote>
+<div><p>Service health status. The supported values are true or false. “true” represents the service is healthy and “false” represents the service is in an unhealthy state.</p>
+</div></blockquote>
+<p>message -&gt; (string)</p>
+<blockquote>
+<div><p>Service health check message.</p>
+</div></blockquote>
+<p>error -&gt; (string)</p>
+<blockquote>
+<div><p>Exception during health checks.</p>
+</div></blockquote>
+<p>details -&gt; (map)</p>
+<blockquote>
+<div><p>Map with additional service specific details.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Additional service details encoded as a string (Example: “Tasks”: “[]”, “Dispatched count”: “5”, “Scheduled count”: “2”)</p>
+</div></blockquote>
+</div></blockquote>
+<p>time -&gt; (integer)</p>
+<blockquote>
+<div><p>Time when the health check was performed. It will be in milliseconds.</p>
+</div></blockquote>
+<p>duration -&gt; (integer)</p>
+<blockquote>
+<div><p>Health check duration in millis.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>action -&gt; (string)</p>
+<blockquote>
+<div><p>Action performed. For example, READ or NOOP or CREATE.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-health</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="get-datahub-crn.html"
+                        title="previous chapter">get-datahub-crn</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get-namespaces.html"
+                        title="next chapter">get-namespaces</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="get-namespaces.html" title="get-namespaces"
+             >next</a></li>
+        <li class="right" >
+          <a href="get-datahub-crn.html" title="get-datahub-crn"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.159 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >lakehouseopt</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get-health</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
