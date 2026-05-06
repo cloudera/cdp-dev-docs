@@ -1,5 +1,12 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.159 (2026-04-29)
+* datahub: Add `migrateZookeeperToKraft`, `finalizeZookeeperToKraftMigration`, and `rollbackZookeeperToKraftMigration` commands.
+* dw: Remove deprecated `FENG` fields from `Virtual Warehouse` objects.
+* environments: Remove `CDP_HYBRID_CLOUD` entitlement from trust commands.
+* lakehouseopt: Add new Lakehouse Optimization service APIs and CLI support.
+* ml: Add `AWS capacity` reservation fields
+
 ## 0.9.158 (2026-04-15)
 * dw: Add enum value `waa` (Workload Aware Autoscaling) to `tShirtSize` in `createVw` and `updateVw` commands.
 * dw: Add properties `impalaEnableGlobalAdmissionController` to `ImpalaHASettingsCreateRequest` object.
