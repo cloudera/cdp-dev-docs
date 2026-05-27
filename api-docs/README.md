@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.158*
+*Version: 0.9.160*
 
 [CHANGELOG](CHANGELOG.md)
 
@@ -8,24 +8,25 @@ Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.158 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.158 |
-| [compute](./compute/index.html) | 0.9.158 |
-| [consumption](./consumption/index.html) | 0.9.158 |
-| [datacatalog](./datacatalog/index.html) | 0.9.158 |
-| [datahub](./datahub/index.html) | 0.9.158 |
-| [datalake](./datalake/index.html) | 0.9.158 |
-| [de](./de/index.html) | 0.9.158 |
-| [df](./df/index.html) | 0.9.158 |
-| [dfworkload](./dfworkload/index.html) | 0.9.158 |
-| [drscp](./drscp/index.html) | 0.9.158 |
-| [dw](./dw/index.html) | 0.9.158 |
-| [environments](./environments/index.html) | 0.9.158 |
-| [iam](./iam/index.html) | 0.9.158 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.158 |
-| [ml](./ml/index.html) | 0.9.158 |
-| [opdb](./opdb/index.html) | 0.9.158 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.158 |
+| [audit](./audit/index.html) | 0.9.160 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.160 |
+| [compute](./compute/index.html) | 0.9.160 |
+| [consumption](./consumption/index.html) | 0.9.160 |
+| [datacatalog](./datacatalog/index.html) | 0.9.160 |
+| [datahub](./datahub/index.html) | 0.9.160 |
+| [datalake](./datalake/index.html) | 0.9.160 |
+| [de](./de/index.html) | 0.9.160 |
+| [df](./df/index.html) | 0.9.160 |
+| [dfworkload](./dfworkload/index.html) | 0.9.160 |
+| [drscp](./drscp/index.html) | 0.9.160 |
+| [dw](./dw/index.html) | 0.9.160 |
+| [environments](./environments/index.html) | 0.9.160 |
+| [iam](./iam/index.html) | 0.9.160 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.160 |
+| [lakehouseopt](./lakehouseopt/index.html) | 0.9.160 |
+| [ml](./ml/index.html) | 0.9.160 |
+| [opdb](./opdb/index.html) | 0.9.160 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.160 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).
