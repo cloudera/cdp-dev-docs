@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>change-flow-version-in-deployment &#8212; CDP CLI 0.9.159 documentation</title>
+    <title>change-flow-version-in-deployment &#8212; CDP CLI 0.9.160 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="change-flow-version.html" title="change-flow-version"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.159 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.160 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">change-flow-version-in-deployment</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Initiate and change the flow version of a flow in a deployment</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.159</p>
+<dd class="field-even"><p>0.9.160</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -62,6 +62,7 @@
 --deployed-flow-crn &lt;value&gt;
 <span class="o">[</span>--strategy &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--wait-for-flow-to-stop-in-minutes &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--update-shared-parameter-group-crns &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--parameter-groups &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--kpis &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--ignore-deployment-inbound-configuration-checks <span class="p">|</span> --no-ignore-deployment-inbound-configuration-checks<span class="o">]</span>
@@ -102,9 +103,17 @@
 <blockquote>
 <div><p>The max time in minutes to wait for flow to bleed out. This is only relevant when using the default change flow version strategy (STOP_AND_PROCESS_DATA). The default wait time is 15 minutes.</p>
 </div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--update-shared-parameter-group-crns</span></code> (array)</p>
+<blockquote>
+<div><p>The CRNs of the shared parameter groups to update. They will be updated across all parameter groups. Mutually exclusive with –parameter-groups.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">--parameter-groups</span></code> (array)</p>
 <blockquote>
-<div><p>Parameter groups with each requiring a value or assets.</p>
+<div><p>Parameter groups with each parameter requiring a value or assets. When updating shared parameters, individual shared parameters cannot be updated. All parameters referencing a given shared parameter group need to be updated simultaneously by providing the group’s id under inheritedParameterGroups, and also explicitly providing these parameters with the sourceParameterGroupId populated.</p>
 </div></blockquote>
 <p>JSON Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
@@ -124,7 +133,9 @@
     <span class="o">]</span>,
     <span class="s2">&quot;inheritedParameterGroups&quot;</span>: <span class="o">[</span>
       <span class="o">{</span>
-        <span class="s2">&quot;groupId&quot;</span>: <span class="s2">&quot;string&quot;</span>
+        <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;string&quot;</span>,
+        <span class="s2">&quot;assetReferences&quot;</span>: <span class="o">[</span><span class="s2">&quot;string&quot;</span>, ...<span class="o">]</span>
       <span class="o">}</span>
       ...
     <span class="o">]</span>
@@ -237,7 +248,7 @@
         <li class="right" >
           <a href="change-flow-version.html" title="change-flow-version"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.159 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.160 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >df</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">change-flow-version-in-deployment</a></li> 
       </ul>
