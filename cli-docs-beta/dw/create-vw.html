@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vw &#8212; CDP CLI 0.9.159 (BETA) documentation</title>
+    <title>create-vw &#8212; CDP CLI 0.9.160 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-secret.html" title="create-secret"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.159 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.160 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.159</p>
+<dd class="field-even"><p>0.9.160</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -407,9 +407,33 @@
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
+<p>trinoDisableAutoScaling -&gt; (boolean)</p>
+<blockquote>
+<div><p>Disables Auto-scaling for Trino VW.</p>
+</div></blockquote>
+<p>trinoMaxWorkerCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of worker nodes in a Trino VW.</p>
+</div></blockquote>
+<p>trinoMinWorkerCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum number of worker nodes in a Trino VW.</p>
+</div></blockquote>
+<p>trinoShutdownGracePeriod -&gt; (integer)</p>
+<blockquote>
+<div><p>Grace period in seconds before shutting down Trino workers.</p>
+</div></blockquote>
+<p>trinoScaleDownDelaySeconds -&gt; (integer)</p>
+<blockquote>
+<div><p>Scale down threshold in seconds. If not provided, the defaults will apply.</p>
+</div></blockquote>
+<p>trinoScaleUpDelaySeconds -&gt; (integer)</p>
+<blockquote>
+<div><p>Scale up threshold in seconds. If not provided defaults will apply.</p>
+</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">minClusters</span><span class="o">=</span>integer,maxClusters<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,autoSuspendTimeoutSeconds<span class="o">=</span>integer,hiveScaleWaitTimeSeconds<span class="o">=</span>integer,hiveDesiredFreeCapacity<span class="o">=</span>integer,impalaHighAvailabilityMode<span class="o">=</span>string,impalaScaleUpDelaySeconds<span class="o">=</span>integer,impalaScaleDownDelaySeconds<span class="o">=</span>integer,impalaEnableShutdownOfCoordinator<span class="o">=</span>boolean,impalaShutdownOfCoordinatorDelaySeconds<span class="o">=</span>integer,impalaNumOfActiveCoordinators<span class="o">=</span>integer,impalaEnableCatalogHighAvailability<span class="o">=</span>boolean,impalaExecutorGroupSets<span class="o">={</span><span class="nv">small</span><span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,custom1<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,custom2<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,custom3<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,large<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}}</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">minClusters</span><span class="o">=</span>integer,maxClusters<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,autoSuspendTimeoutSeconds<span class="o">=</span>integer,hiveScaleWaitTimeSeconds<span class="o">=</span>integer,hiveDesiredFreeCapacity<span class="o">=</span>integer,impalaHighAvailabilityMode<span class="o">=</span>string,impalaScaleUpDelaySeconds<span class="o">=</span>integer,impalaScaleDownDelaySeconds<span class="o">=</span>integer,impalaEnableShutdownOfCoordinator<span class="o">=</span>boolean,impalaShutdownOfCoordinatorDelaySeconds<span class="o">=</span>integer,impalaNumOfActiveCoordinators<span class="o">=</span>integer,impalaEnableCatalogHighAvailability<span class="o">=</span>boolean,impalaExecutorGroupSets<span class="o">={</span><span class="nv">small</span><span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,custom1<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,custom2<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,custom3<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}</span>,large<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer<span class="o">}}</span>,trinoDisableAutoScaling<span class="o">=</span>boolean,trinoMaxWorkerCount<span class="o">=</span>integer,trinoMinWorkerCount<span class="o">=</span>integer,trinoShutdownGracePeriod<span class="o">=</span>integer,trinoScaleDownDelaySeconds<span class="o">=</span>integer,trinoScaleUpDelaySeconds<span class="o">=</span>integer
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -473,7 +497,13 @@
       <span class="s2">&quot;triggerScaleUpDelay&quot;</span>: integer,
       <span class="s2">&quot;triggerScaleDownDelay&quot;</span>: integer
     <span class="o">}</span>
-  <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;trinoDisableAutoScaling&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;trinoMaxWorkerCount&quot;</span>: integer,
+  <span class="s2">&quot;trinoMinWorkerCount&quot;</span>: integer,
+  <span class="s2">&quot;trinoShutdownGracePeriod&quot;</span>: integer,
+  <span class="s2">&quot;trinoScaleDownDelaySeconds&quot;</span>: integer,
+  <span class="s2">&quot;trinoScaleUpDelaySeconds&quot;</span>: integer
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -793,7 +823,7 @@
         <li class="right" >
           <a href="create-secret.html" title="create-secret"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.159 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.160 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
