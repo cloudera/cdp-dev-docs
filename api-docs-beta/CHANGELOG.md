@@ -1,5 +1,18 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.160 (2026-05-27)
+* dfworkload: Add new commands `createParameterGroup`,
+`deleteFlowDraft`, `deleteParameterGroup`, `describeParameterGroup`, `duplicateParameterGroup`, `listFlowDrafts`, `listParameterGroups`, `listTestSessions`, `restartTestSession`, `suspendTestSession`, `terminateTestSession`, `updateParameterGroup` and `uploadParameterAsset`.
+* dfworkload: Add parameter `useSharedParameterGroupCrn` to `createDeployment` and `addFlowToDeployment` commands.
+* dfworkload: Add parameter `updateSharedParameterGroupCrns` to `changeFlowVersionInDeployment` and `updateFlowInDeployment` commands.
+* dw: Add new commands `createConnector`, `deleteConnector`, `listConnectors` and `updateConnector`.
+* dw: Add parameters `trinoShutdownGracePeriod`, `trinoDisableAutoScaling`, `trinoScaleDownDelaySeconds`, `trinoMaxWorkerCount`, `trinoMinWorkerCount` and `trinoScaleUpDelaySeconds` to `autoscalingOptionsCreate` command.
+* dw: Add property `trinoRestorePlans` to `restoreCluster` command.
+* dw: Add parameter `associatedConnectors` to `updateVw` command.
+* dw: Add properties `associatedConnectors` and `imageVersion` to `VwSummary` object.
+* imagecatalog: Add paramater `architecture` to `findDefaultImage` command.
+* opdb: Add new command `prepareUpgradeDatabase`.
+
 ## 0.9.159 (2026-04-29)
 * datahub: Add `migrateZookeeperToKraft`, `finalizeZookeeperToKraftMigration`, and `rollbackZookeeperToKraftMigration` commands.
 * dw: Remove deprecated `FENG` fields from `Virtual Warehouse` objects.

@@ -1,33 +1,33 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.159 (BETA)*
+*Version: 0.9.160 (BETA)*
 
 Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [applications](./applications/index.html) | 0.9.159 |
-| [audit](./audit/index.html) | 0.9.159 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.159 |
-| [compute](./compute/index.html) | 0.9.159 |
-| [consumption](./consumption/index.html) | 0.9.159 |
-| [datacatalog](./datacatalog/index.html) | 0.9.159 |
-| [datahub](./datahub/index.html) | 0.9.159 |
-| [datalake](./datalake/index.html) | 0.9.159 |
-| [de](./de/index.html) | 0.9.159 |
-| [df](./df/index.html) | 0.9.159 |
-| [dfworkload](./dfworkload/index.html) | 0.9.159 |
-| [drscp](./drscp/index.html) | 0.9.159 |
-| [dw](./dw/index.html) | 0.9.159 |
-| [environments](./environments/index.html) | 0.9.159 |
-| [iam](./iam/index.html) | 0.9.159 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.159 |
-| [lakehouseopt](./lakehouseopt/index.html) | 0.9.159 |
-| [metrics](./metrics/index.html) | 0.9.159 |
-| [ml](./ml/index.html) | 0.9.159 |
-| [notification](./notification/index.html) | 0.9.159 |
-| [opdb](./opdb/index.html) | 0.9.159 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.159 |
+| [applications](./applications/index.html) | 0.9.160 |
+| [audit](./audit/index.html) | 0.9.160 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.160 |
+| [compute](./compute/index.html) | 0.9.160 |
+| [consumption](./consumption/index.html) | 0.9.160 |
+| [datacatalog](./datacatalog/index.html) | 0.9.160 |
+| [datahub](./datahub/index.html) | 0.9.160 |
+| [datalake](./datalake/index.html) | 0.9.160 |
+| [de](./de/index.html) | 0.9.160 |
+| [df](./df/index.html) | 0.9.160 |
+| [dfworkload](./dfworkload/index.html) | 0.9.160 |
+| [drscp](./drscp/index.html) | 0.9.160 |
+| [dw](./dw/index.html) | 0.9.160 |
+| [environments](./environments/index.html) | 0.9.160 |
+| [iam](./iam/index.html) | 0.9.160 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.160 |
+| [lakehouseopt](./lakehouseopt/index.html) | 0.9.160 |
+| [metrics](./metrics/index.html) | 0.9.160 |
+| [ml](./ml/index.html) | 0.9.160 |
+| [notification](./notification/index.html) | 0.9.160 |
+| [opdb](./opdb/index.html) | 0.9.160 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.160 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).

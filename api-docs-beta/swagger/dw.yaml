@@ -4,7 +4,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.159 (BETA)
+  version: 0.9.160 (BETA)
   title: Cloudera Data Warehouse [EXPERIMENTAL]
   license:
     name: Apache 2.0
@@ -3034,6 +3034,11 @@ definitions:
         description: Information about the restore-plan of the Impala Virtual Warehouses.
         items:
           $ref: '#/definitions/RestoreClusterEntityPlan'
+      trinoRestorePlans:
+        type: array
+        description: Information about the restore-plan of the Trino Virtual Warehouses.
+        items:
+          $ref: '#/definitions/RestoreClusterEntityPlan'
       vizRestorePlans:
         type: array
         description: Information about the restore-plan of the Data Visualization Apps.
@@ -4722,6 +4727,35 @@ definitions:
       impalaExecutorGroupSets:
         $ref: '#/definitions/ImpalaExecutorGroupSetsCreateRequest'
         description: Configures executor group sets for workload aware autoscaling.
+      trinoDisableAutoScaling:
+        type: boolean
+        description: Disables Auto-scaling for Trino VW.
+        default: true
+      trinoMaxWorkerCount:
+        type: integer
+        format: int32
+        description: Maximum number of worker nodes in a Trino VW.
+        default: 10
+      trinoMinWorkerCount:
+        type: integer
+        format: int32
+        description: Minimum number of worker nodes in a Trino VW.
+        default: 1
+      trinoShutdownGracePeriod:
+        type: integer
+        format: int32
+        description: Grace period in seconds before shutting down Trino workers.
+        default: 300
+      trinoScaleDownDelaySeconds:
+        type: integer
+        format: int32
+        description: Scale down threshold in seconds. If not provided, the defaults will apply.
+        default: 30
+      trinoScaleUpDelaySeconds:
+        type: integer
+        format: int32
+        description: Scale up threshold in seconds. If not provided defaults will apply.
+        default: 15
   ImpalaOptionsCreateRequest:
     type: object
     description: Impala specific options. It cannot be provided for Virtual Warehouse types other than Impala.
@@ -6057,6 +6091,29 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/VwSummaryImpalaRestCatalogConnectorResponse'
+      associatedConnectors:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/ConnectorData'
+        description: Map of connector ID to connector information for the Virtual Warehouse.
+        x-omitempty: true
+        x-nullable: true
+  ConnectorData:
+    type: object
+    description: Information about a connector associated with a Virtual Warehouse.
+    properties:
+      name:
+        type: string
+        description: The name of the connector
+        x-omitempty: true
+        x-nullable: true
+      configId:
+        type: string
+        description: The config UUID of the connector
+        x-omitempty: true
+        x-nullable: true
+    x-omitempty: true
+    x-nullable: true
   VwSummaryImpalaRestCatalogConnectorResponse:
     type: object
     description: Impala REST Catalog Connector settings.
@@ -6334,6 +6391,12 @@ definitions:
         x-nullable: true
         x-form-factors: private
         description: 'If specified, modifies Hive Server High Availability mode in Private Cloud: * `DISABLED` - Disables Hive Server high availability. * `ACTIVE_PASSIVE` - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.'
+      associatedConnectors:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/ConnectorData'
+        description: Map of connector ID to connector information for the VW.
+        x-nullable: true
       additionalQuota:
         x-nullable: true
         x-form-factors: private
