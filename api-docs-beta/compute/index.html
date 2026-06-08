@@ -891,6 +891,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_commonautoscaling">CommonAutoScaling</a></li>
 <li><a href="#_commonautoscaler">CommonAutoscaler</a></li>
 <li><a href="#_commonautoscalerresp">CommonAutoscalerResp</a></li>
+<li><a href="#_commonazureupdateclusterspec">CommonAzureUpdateClusterSpec</a></li>
 <li><a href="#_commondeploymentprofiledetailsresp">CommonDeploymentProfileDetailsResp</a></li>
 <li><a href="#_commondeploymentsresp">CommonDeploymentsResp</a></li>
 <li><a href="#_commonevent">CommonEvent</a></li>
@@ -978,6 +979,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_rollbackdeploymentresponse">RollbackDeploymentResponse</a></li>
 <li><a href="#_suspendclusterrequest">SuspendClusterRequest</a></li>
 <li><a href="#_suspendclusterresponse">SuspendClusterResponse</a></li>
+<li><a href="#_updatebootstrapscriptspec">UpdateBootstrapScriptSpec</a></li>
 <li><a href="#_updateclusterrequest">UpdateClusterRequest</a></li>
 <li><a href="#_updateclusterresponse">UpdateClusterResponse</a></li>
 <li><a href="#_updateinstancegrouprequest">UpdateInstanceGroupRequest</a></li>
@@ -1009,7 +1011,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.160 (BETA)</p>
+<p><em>Version</em> : 0.9.161 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -5430,6 +5432,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_commonazureupdateclusterspec">CommonAzureUpdateClusterSpec</h3>
+<div class="paragraph">
+<p>Azure specific update cluster spec</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>updateAksManagedIdentity</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Updates the ManagedIdentity used by the AKS cluster.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_commondeploymentprofiledetailsresp">CommonDeploymentProfileDetailsResp</h3>
 <div class="paragraph">
 <p>Deployment Profile details response structure.</p>
@@ -7192,6 +7228,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>azure</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Azure specific update options.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_commonazureupdateclusterspec">CommonAzureUpdateClusterSpec</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>bootstrapScript</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Update Bootstrap Script.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_updatebootstrapscriptspec">UpdateBootstrapScriptSpec</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>deployments</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -7208,7 +7268,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Update Helm on compute the compute cluster.</p>
+<p>Update Helm on the compute cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_commonhelm">CommonHelm</a></p>
@@ -12162,6 +12222,40 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_updatebootstrapscriptspec">UpdateBootstrapScriptSpec</h3>
+<div class="paragraph">
+<p>Update Bootstrap Script.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>script</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Bootstrap script.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updateclusterrequest">UpdateClusterRequest</h3>
 <div class="paragraph">
 <p>Update compute cluster request.</p>
@@ -13226,7 +13320,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-05-27 09:10:36 -0700
+Last updated 2026-06-05 07:38:09 -0700
 </div>
 </div>
 <br>

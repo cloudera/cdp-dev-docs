@@ -1,5 +1,11 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.161 (2026-06-06)
+* compute: Add new command `updateCluster`.
+* de: Add parameter `enableComputeOverride` to `createVc` and `updateVc` commands.
+* de: Add property `version` to `ServiceDescription` object used in the response of `describeService` command.
+* dw: Add new commands `createConnectorTestJob` and `listConnectorTestJobs`.
+
 ## 0.9.160 (2026-05-27)
 * dfworkload: Add new commands `createParameterGroup`,
 `deleteFlowDraft`, `deleteParameterGroup`, `describeParameterGroup`, `duplicateParameterGroup`, `listFlowDrafts`, `listParameterGroups`, `listTestSessions`, `restartTestSession`, `suspendTestSession`, `terminateTestSession`, `updateParameterGroup` and `uploadParameterAsset`.

@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.160 (BETA)
+  version: 0.9.161 (BETA)
   title: Cloudera Compute Service
   license:
     name: Apache 2.0
@@ -464,7 +464,7 @@ paths:
       summary: Update cluster
       description: Updates compute cluster.
       operationId: updateCluster
-      x-entitlement: COMPUTE_API_LIFTIE_BETA
+      x-entitlement: COMPUTE_API_LIFTIE
       x-form-factors: public
       parameters:
         - name: input
@@ -1968,7 +1968,7 @@ definitions:
         description: Update deployments on the compute cluster.
         $ref: '#/definitions/CommonUpdateClusterDeployments'
       helm:
-        description: Update Helm on compute the compute cluster.
+        description: Update Helm on the compute cluster.
         $ref: '#/definitions/CommonHelm'
       security:
         description: Update security settings for the compute cluster.
@@ -1982,6 +1982,26 @@ definitions:
       refreshInstanceGroups:
         type: boolean
         description: Whether to refresh nodes of instance groups belonging to the compute cluster.
+      azure:
+        description: Azure specific update options.
+        $ref: '#/definitions/CommonAzureUpdateClusterSpec'
+      bootstrapScript:
+        description: Update Bootstrap Script.
+        $ref: '#/definitions/UpdateBootstrapScriptSpec'
+  CommonAzureUpdateClusterSpec:
+    type: object
+    description: Azure specific update cluster spec
+    properties:
+      updateAksManagedIdentity:
+        type: boolean
+        description: Updates the ManagedIdentity used by the AKS cluster.
+  UpdateBootstrapScriptSpec:
+    type: object
+    description: Update Bootstrap Script.
+    properties:
+      script:
+        type: string
+        description: Bootstrap script.
   CommonUpdateClusterMetadata:
     type: object
     description: Update cluster metadata structure.
