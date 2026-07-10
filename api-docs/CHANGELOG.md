@@ -1,5 +1,16 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.162 (2026-06-24)
+* datahub: Add new command `setDefaultJavaVersion`.
+* datalake: Add new command `setDefaultJavaVersion`.
+* dw: Add value `trino` to `VwType` enum.
+* ml: Add new command `fetchAiRegistriesStorageConfig`.
+* ml: Add parameters `registryNamespace`, `linkRegistry` and `envName` to `updateMlServingAppS3Creds` command.
+* ml: Add parameter `overrideUpgrade` to `upgradeWorkspace` command.
+
+BACKWARD INCOMPATIBILITIES:
+* ml: Remove parameters `knoxTopologyName` and `rangerServicePrincipal` from `createMlServingApp` command.
+
 ## 0.9.161 (2026-06-06)
 * compute: Add new command `updateCluster`.
 * de: Add parameter `enableComputeOverride` to `createVc` and `updateVc` commands.
