@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>set-authentication-policy &#8212; CDP CLI 0.9.161 (BETA) documentation</title>
+    <title>set-authentication-policy &#8212; CDP CLI 0.9.162 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="set-account-messages.html" title="set-account-messages"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.161 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.162 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iam</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">set-authentication-policy</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Set the authentication policy for the account.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.161</p>
+<dd class="field-even"><p>0.9.162</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -63,6 +63,7 @@
 <span class="o">[</span>--workload-auth-token-expiration-sec &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--client-ip-addresses-allowed &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--client-ip-addresses-blocked &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--allowed-workload-subdomains &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -101,6 +102,14 @@
 <p><code class="docutils literal notranslate"><span class="pre">--client-ip-addresses-blocked</span></code> (array)</p>
 <blockquote>
 <div><p>The list of IP addresses and/or CIDRs used for blocking client access to the UI and API services. Duplicated values will be removed automatically. Both the allowed list and the blocked list will be used to determine whether to grant or block the client’s access. The blocked list takes precedence over the allowed list. When the list is empty or not set, client IP address will not be validated to be absent from the blocked list.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--allowed-workload-subdomains</span></code> (array)</p>
+<blockquote>
+<div><p>The list of allowed domains from which a workload-initiated SSO is allowed. Setting it will allow workload-initiated SSO from these domains as well as Cloudera’s default workload domains.</p>
 </div></blockquote>
 <p>Syntax:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
@@ -172,7 +181,7 @@
         <li class="right" >
           <a href="set-account-messages.html" title="set-account-messages"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.161 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.162 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >iam</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">set-authentication-policy</a></li> 
       </ul>

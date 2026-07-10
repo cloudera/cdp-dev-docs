@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>renew-public-certificate &#8212; CDP CLI 0.9.162 (BETA) documentation</title>
+    <title>fetch-ai-registries-storage-config &#8212; CDP CLI 0.9.162 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -16,21 +16,21 @@
     <script src="../static/doctools.js"></script>
     
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="repair-cluster" href="repair-cluster.html" />
-    <link rel="prev" title="prepare-cluster-upgrade" href="prepare-cluster-upgrade.html" /> 
+    <link rel="next" title="get-audit-events" href="get-audit-events.html" />
+    <link rel="prev" title="fail-over-file-system" href="fail-over-file-system.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="repair-cluster.html" title="repair-cluster"
+          <a href="get-audit-events.html" title="get-audit-events"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="prepare-cluster-upgrade.html" title="prepare-cluster-upgrade"
+          <a href="fail-over-file-system.html" title="fail-over-file-system"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.162 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">renew-public-certificate</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ml</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">fetch-ai-registries-storage-config</a></li> 
       </ul>
     </div>  
 
@@ -39,11 +39,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="renew-public-certificate">
-<span id="cli-cdp-datahub-renew-public-certificate"></span><h1>renew-public-certificate<a class="headerlink" href="#renew-public-certificate" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="fetch-ai-registries-storage-config">
+<span id="cli-cdp-ml-fetch-ai-registries-storage-config"></span><h1>fetch-ai-registries-storage-config<a class="headerlink" href="#fetch-ai-registries-storage-config" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">subtitle</dt>
-<dd class="field-odd"><p>Renews public certificate on a Datahub cluster by name or CRN.</p>
+<dd class="field-odd"><p>Fetch AI Registry storage configuration for a Cloudera AI Inference Service.</p>
 </dd>
 <dt class="field-even">version</dt>
 <dd class="field-even"><p>0.9.162</p>
@@ -51,12 +51,12 @@
 </dl>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Renews public certificate on a Datahub cluster by name or CRN.</p>
+<p>Returns installed AI Registries in the environment with S3 fields from the database and link status from cluster secrets.</p>
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  renew-public-certificate
---datahub &lt;value&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  fetch-ai-registries-storage-config
+--app-crn &lt;value&gt;
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -64,9 +64,9 @@
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">--datahub</span></code> (string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--app-crn</span></code> (string)</p>
 <blockquote>
-<div><p>The name or CRN of the datahub.</p>
+<div><p>The CRN of the Cloudera AI Inference Service.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -79,14 +79,44 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>operationId -&gt; (string)</p>
+<p>registries -&gt; (map)</p>
 <blockquote>
-<div><p>Unique operation ID assigned to this command execution. Use this identifier with ‘get-operation’ to track status and retrieve detailed results.</p>
+<div><p>Map from AI Registry Kubernetes namespace to storage config.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>One AI Registry storage row keyed by Kubernetes namespace in FetchAiRegistriesStorageConfigResponse.</p>
+<p>Form Factors: private</p>
+<p>s3AccessId -&gt; (string)</p>
+<blockquote>
+<div><p>S3-compatible access key ID from the database.</p>
+</div></blockquote>
+<p>s3SecretKey -&gt; (string)</p>
+<blockquote>
+<div><p>S3-compatible secret access key from the database.</p>
+</div></blockquote>
+<p>s3EndpointUrl -&gt; (string)</p>
+<blockquote>
+<div><p>S3-compatible endpoint URL from the database.</p>
+</div></blockquote>
+<p>s3Region -&gt; (string)</p>
+<blockquote>
+<div><p>S3-compatible region from the database.</p>
+</div></blockquote>
+<p>linkRegistry -&gt; (boolean)</p>
+<blockquote>
+<div><p>True when this registry is linked per ai-registry-secrets for its namespace.</p>
+</div></blockquote>
+<p>environmentName -&gt; (string)</p>
+<blockquote>
+<div><p>CDP environment name for this AI Registry (from the database).</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="form-factors">
 <h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
-<p>public</p>
+<p>private</p>
 </div>
 </div>
 
@@ -99,7 +129,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">renew-public-certificate</a><ul>
+<li><a class="reference internal" href="#">fetch-ai-registries-storage-config</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
@@ -110,11 +140,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="prepare-cluster-upgrade.html"
-                        title="previous chapter">prepare-cluster-upgrade</a></p>
+  <p class="topless"><a href="fail-over-file-system.html"
+                        title="previous chapter">fail-over-file-system</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="repair-cluster.html"
-                        title="next chapter">repair-cluster</a></p>
+  <p class="topless"><a href="get-audit-events.html"
+                        title="next chapter">get-audit-events</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -133,14 +163,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="repair-cluster.html" title="repair-cluster"
+          <a href="get-audit-events.html" title="get-audit-events"
              >next</a></li>
         <li class="right" >
-          <a href="prepare-cluster-upgrade.html" title="prepare-cluster-upgrade"
+          <a href="fail-over-file-system.html" title="fail-over-file-system"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.162 (BETA) documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">renew-public-certificate</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >ml</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">fetch-ai-registries-storage-config</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
