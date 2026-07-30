@@ -1,5 +1,10 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.163 (2026-07-29)
+
+BACKWARD INCOMPATIBILITIES:
+* environments: Remove deprecated parameter `reportDeploymentLogs` from environment creation and telemetry commands.
+
 ## 0.9.162 (2026-06-24)
 * datahub: Add new command `setDefaultJavaVersion`.
 * datalake: Add new command `setDefaultJavaVersion`.
