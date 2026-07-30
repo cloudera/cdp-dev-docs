@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Swagger Service Definitions
 
-*Version: 0.9.162 (BETA)*
+*Version: 0.9.163 (BETA)*
 
 These service definitions files are the basis for official CDP API artifacts,
 and you can use them to create your own client-side code. They adhere to the
@@ -15,28 +15,28 @@ API requests must be signed according to the
 
 | Service Definition | Version |
 | --- | --- |
-| [applications.yaml](./applications.yaml) | 0.9.162 |
-| [audit.yaml](./audit.yaml) | 0.9.162 |
-| [cloudprivatelinks.yaml](./cloudprivatelinks.yaml) | 0.9.162 |
-| [compute.yaml](./compute.yaml) | 0.9.162 |
-| [consumption.yaml](./consumption.yaml) | 0.9.162 |
-| [datacatalog.yaml](./datacatalog.yaml) | 0.9.162 |
-| [datahub.yaml](./datahub.yaml) | 0.9.162 |
-| [datalake.yaml](./datalake.yaml) | 0.9.162 |
-| [de.yaml](./de.yaml) | 0.9.162 |
-| [df.yaml](./df.yaml) | 0.9.162 |
-| [dfworkload.yaml](./dfworkload.yaml) | 0.9.162 |
-| [drscp.yaml](./drscp.yaml) | 0.9.162 |
-| [dw.yaml](./dw.yaml) | 0.9.162 |
-| [environments.yaml](./environments.yaml) | 0.9.162 |
-| [iam.yaml](./iam.yaml) | 0.9.162 |
-| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.162 |
-| [lakehouseopt.yaml](./lakehouseopt.yaml) | 0.9.162 |
-| [metrics.yaml](./metrics.yaml) | 0.9.162 |
-| [ml.yaml](./ml.yaml) | 0.9.162 |
-| [notification.yaml](./notification.yaml) | 0.9.162 |
-| [opdb.yaml](./opdb.yaml) | 0.9.162 |
-| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.162 |
+| [applications.yaml](./applications.yaml) | 0.9.163 |
+| [audit.yaml](./audit.yaml) | 0.9.163 |
+| [cloudprivatelinks.yaml](./cloudprivatelinks.yaml) | 0.9.163 |
+| [compute.yaml](./compute.yaml) | 0.9.163 |
+| [consumption.yaml](./consumption.yaml) | 0.9.163 |
+| [datacatalog.yaml](./datacatalog.yaml) | 0.9.163 |
+| [datahub.yaml](./datahub.yaml) | 0.9.163 |
+| [datalake.yaml](./datalake.yaml) | 0.9.163 |
+| [de.yaml](./de.yaml) | 0.9.163 |
+| [df.yaml](./df.yaml) | 0.9.163 |
+| [dfworkload.yaml](./dfworkload.yaml) | 0.9.163 |
+| [drscp.yaml](./drscp.yaml) | 0.9.163 |
+| [dw.yaml](./dw.yaml) | 0.9.163 |
+| [environments.yaml](./environments.yaml) | 0.9.163 |
+| [iam.yaml](./iam.yaml) | 0.9.163 |
+| [imagecatalog.yaml](./imagecatalog.yaml) | 0.9.163 |
+| [lakehouseopt.yaml](./lakehouseopt.yaml) | 0.9.163 |
+| [metrics.yaml](./metrics.yaml) | 0.9.163 |
+| [ml.yaml](./ml.yaml) | 0.9.163 |
+| [notification.yaml](./notification.yaml) | 0.9.163 |
+| [opdb.yaml](./opdb.yaml) | 0.9.163 |
+| [replicationmanager.yaml](./replicationmanager.yaml) | 0.9.163 |
 
 See all the files at once in this site's
 [Github repository](https://github.com/cloudera/cdp-dev-docs/tree/master/api-docs/swagger).

@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public
 x-cdp-releases: PUBLIC
 info:
-  version: 0.9.162 (BETA)
+  version: 0.9.163 (BETA)
   title: Image catalog service
   license:
     name: Apache 2.0
@@ -341,6 +341,27 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       x-mutating: true
+  /api/v1/imagecatalog/listImages:
+    post:
+      summary: List images from a catalog
+      description: Lists images from the specified catalog, optionally filtered by provider, image type, runtime version, and architecture.
+      operationId: listImages
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ListImagesRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ListImagesResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+      x-mutating: false
 definitions:
   Error:
     type: object
@@ -816,4 +837,54 @@ definitions:
       - CREATED
       - UPDATED
       - FAILED
+  ListImagesRequest:
+    type: object
+    description: The request object to filter images from a specified image catalog.
+    required:
+      - catalog
+      - provider
+      - imageType
+    properties:
+      catalog:
+        type: string
+        description: The name of the image catalog to list images from.
+      provider:
+        description: Cloud provider - either AWS, AZURE or GCP
+        $ref: '#/definitions/VmImageProvider'
+      imageType:
+        description: Image type - either "FREEIPA" or "RUNTIME"
+        $ref: '#/definitions/VmImageType'
+      runtimeVersion:
+        type: string
+        description: Cloudera runtime version
+      architecture:
+        type: string
+        default: X86_64
+        description: Specifies the CPU architecture. Values are ARM64, X86_64. Default is X86_64.
+        enum:
+          - ARM64
+          - X86_64
+  ListImagesResponse:
+    type: object
+    description: The response object containing a list of images from the specified catalog.
+    required:
+      - images
+    properties:
+      images:
+        type: array
+        items:
+          $ref: '#/definitions/ListImagesItem'
+        description: The list of images matching the request filters.
+  ListImagesItem:
+    type: object
+    description: Details of a single image from the catalog.
+    properties:
+      imageId:
+        type: string
+        description: Image UUID
+      vmImages:
+        type: array
+        items:
+          $ref: '#/definitions/VmImageResponse'
+        description: List of images
 x-audit: true
