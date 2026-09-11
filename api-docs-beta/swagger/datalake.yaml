@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.163 (BETA)
+  version: 0.9.164 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1411,6 +1411,27 @@ paths:
           description: The default response on an error.
           schema:
             $ref: '#/definitions/Error'
+  /api/v1/datalake/triggerDiskSync:
+    post:
+      summary: Triggers disk sync job for a datalake either in dry run or persist mode.
+      description: Triggers disk sync job for a datalake cluster.
+      operationId: triggerDiskSync
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TriggerDiskSyncRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/TriggerDiskSyncResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
   Error:
     type: object
@@ -1508,6 +1529,11 @@ definitions:
       instanceType:
         type: string
         description: The type of the instance.
+      fallbackInstanceTypes:
+        type: array
+        items:
+          type: string
+        description: A list of fallback instance types, ordered by priority, to be used if the primary instanceType is unavailable in the specified zone.
   DiskOptions:
     type: object
     description: Attached disk configuration(s).
@@ -4280,6 +4306,11 @@ definitions:
       instanceType:
         type: string
         description: Cloud provider instance type to create instances with.
+      fallbackInstanceTypes:
+        type: array
+        items:
+          type: string
+        description: A list of fallback instance types, ordered by priority, to be used if the primary instanceType is unavailable in the specified zone.
   RotateSaltPasswordRequest:
     type: object
     description: Request object for rotating SaltStack user password on DataLake instances (Deprecated).
@@ -4543,6 +4574,29 @@ definitions:
       reason:
         type: string
         description: Additional information about the current migration status.
+  TriggerDiskSyncRequest:
+    type: object
+    description: Request object to trigger disk sync.
+    required:
+      - datalakeCrn
+      - diskSyncMode
+    properties:
+      datalakeCrn:
+        type: string
+        description: The CRN of the datalake.
+      diskSyncMode:
+        type: string
+        description: Specifies whether the identified discrepancies should be persisted. Use DRY_RUN to log without saving, or PERSIST to save changes.
+        enum:
+          - DRY_RUN
+          - PERSIST
+  TriggerDiskSyncResponse:
+    type: object
+    description: Response object for triggering disk sync request.
+    properties:
+      flowIdentifier:
+        type: string
+        description: The identifier of the flow that was triggered.
   CertificateExpirationState:
     type: string
     description: Indicates the certificate expiration status on the cluster.

@@ -1096,60 +1096,67 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_58">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updateorchestratorstate">Run orchestrator engine state update on the Data Lake cluster.</a>
+<li><a href="#_triggerdisksync">Triggers disk sync job for a datalake either in dry run or persist mode.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_59">Description</a></li>
 <li><a href="#_parameters_59">Parameters</a></li>
 <li><a href="#_responses_59">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatepublicdnsentries">Update public DNS entries of a Data Lake cluster by name or CRN.</a>
+<li><a href="#_updateorchestratorstate">Run orchestrator engine state update on the Data Lake cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_60">Description</a></li>
 <li><a href="#_parameters_60">Parameters</a></li>
 <li><a href="#_responses_60">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatetoawsimdsv1">Updates Data Lake AWS cluster to use IMDSv1.</a>
+<li><a href="#_updatepublicdnsentries">Update public DNS entries of a Data Lake cluster by name or CRN.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_61">Description</a></li>
 <li><a href="#_parameters_61">Parameters</a></li>
 <li><a href="#_responses_61">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatetoawsimdsv2">Updates Data Lake AWS cluster to use IMDSv2.</a>
+<li><a href="#_updatetoawsimdsv1">Updates Data Lake AWS cluster to use IMDSv1.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_62">Description</a></li>
 <li><a href="#_parameters_62">Parameters</a></li>
 <li><a href="#_responses_62">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
+<li><a href="#_updatetoawsimdsv2">Updates Data Lake AWS cluster to use IMDSv2.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_63">Description</a></li>
 <li><a href="#_parameters_63">Parameters</a></li>
 <li><a href="#_responses_63">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_validateawscloudstorage">Validates AWS cloud storage.</a>
+<li><a href="#_upgradedatalake">OS or data platform upgrade for the SDX cluster.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_64">Description</a></li>
 <li><a href="#_parameters_64">Parameters</a></li>
 <li><a href="#_responses_64">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_validateazurecloudstorage">Validates Azure cloud storage.</a>
+<li><a href="#_validateawscloudstorage">Validates AWS cloud storage.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_65">Description</a></li>
 <li><a href="#_parameters_65">Parameters</a></li>
 <li><a href="#_responses_65">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_zookeepertokraftmigrationstatus">Returns the status of the Zookeeper to KRaft migration.</a>
+<li><a href="#_validateazurecloudstorage">Validates Azure cloud storage.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_66">Description</a></li>
 <li><a href="#_parameters_66">Parameters</a></li>
 <li><a href="#_responses_66">Responses</a></li>
+</ul>
+</li>
+<li><a href="#_zookeepertokraftmigrationstatus">Returns the status of the Zookeeper to KRaft migration.</a>
+<ul class="sectlevel3">
+<li><a href="#_description_67">Description</a></li>
+<li><a href="#_parameters_67">Parameters</a></li>
+<li><a href="#_responses_67">Responses</a></li>
 </ul>
 </li>
 </ul>
@@ -1329,6 +1336,8 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_stopdatalakeresponse">StopDatalakeResponse</a></li>
 <li><a href="#_synccomponentversionsfromcmrequest">SyncComponentVersionsFromCmRequest</a></li>
 <li><a href="#_synccomponentversionsfromcmresponse">SyncComponentVersionsFromCmResponse</a></li>
+<li><a href="#_triggerdisksyncrequest">TriggerDiskSyncRequest</a></li>
+<li><a href="#_triggerdisksyncresponse">TriggerDiskSyncResponse</a></li>
 <li><a href="#_updateorchestratorstaterequest">UpdateOrchestratorStateRequest</a></li>
 <li><a href="#_updateorchestratorstateresponse">UpdateOrchestratorStateResponse</a></li>
 <li><a href="#_updatepublicdnsentriesrequest">UpdatePublicDnsEntriesRequest</a></li>
@@ -1360,7 +1369,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.163 (BETA)</p>
+<p><em>Version</em> : 0.9.164 (BETA)</p>
 </div>
 </div>
 <div class="sect2">
@@ -6390,6 +6399,92 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
+<h3 id="_triggerdisksync">Triggers disk sync job for a datalake either in dry run or persist mode.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /api/v1/datalake/triggerDiskSync</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_59">Description</h4>
+<div class="paragraph">
+<p>Triggers disk sync job for a datalake cluster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_59">Parameters</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>input</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_triggerdisksyncrequest">TriggerDiskSyncRequest</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_59">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Expected response to a valid request.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_triggerdisksyncresponse">TriggerDiskSyncResponse</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>default</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The default response on an error.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_error">Error</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_updateorchestratorstate">Run orchestrator engine state update on the Data Lake cluster.</h3>
 <div class="literalblock">
 <div class="content">
@@ -6397,13 +6492,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_59">Description</h4>
+<h4 id="_description_60">Description</h4>
 <div class="paragraph">
 <p>Run orchestrator engine state update on the Data Lake cluster.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_59">Parameters</h4>
+<h4 id="_parameters_60">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6434,7 +6529,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_59">Responses</h4>
+<h4 id="_responses_60">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6483,13 +6578,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_60">Description</h4>
+<h4 id="_description_61">Description</h4>
 <div class="paragraph">
 <p>Update public DNS entries of a Data Lake cluster by name or CRN.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_60">Parameters</h4>
+<h4 id="_parameters_61">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6520,7 +6615,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_60">Responses</h4>
+<h4 id="_responses_61">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6569,13 +6664,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_61">Description</h4>
+<h4 id="_description_62">Description</h4>
 <div class="paragraph">
 <p>Updates Data Lake AWS cluster to use IMDSv1.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_61">Parameters</h4>
+<h4 id="_parameters_62">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6606,7 +6701,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_61">Responses</h4>
+<h4 id="_responses_62">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6655,13 +6750,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_62">Description</h4>
+<h4 id="_description_63">Description</h4>
 <div class="paragraph">
 <p>Updates Data Lake AWS cluster to use IMDSv2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_62">Parameters</h4>
+<h4 id="_parameters_63">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6692,7 +6787,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_62">Responses</h4>
+<h4 id="_responses_63">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6741,13 +6836,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_63">Description</h4>
+<h4 id="_description_64">Description</h4>
 <div class="paragraph">
 <p>OS or data platform upgrade for the SDX cluster. You have the option to either specify one of 'imageId', 'runtime' or 'lockComponents' or both 'imageId' and 'lockComponents' or none of the parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_63">Parameters</h4>
+<h4 id="_parameters_64">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6778,7 +6873,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_63">Responses</h4>
+<h4 id="_responses_64">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6827,13 +6922,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_64">Description</h4>
+<h4 id="_description_65">Description</h4>
 <div class="paragraph">
 <p>Validates AWS cloud storage for Data Lake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_64">Parameters</h4>
+<h4 id="_parameters_65">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6864,7 +6959,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_64">Responses</h4>
+<h4 id="_responses_65">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6913,13 +7008,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_65">Description</h4>
+<h4 id="_description_66">Description</h4>
 <div class="paragraph">
 <p>Validates Azure cloud storage for Data Lake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_65">Parameters</h4>
+<h4 id="_parameters_66">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -6950,7 +7045,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_65">Responses</h4>
+<h4 id="_responses_66">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -6999,13 +7094,13 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_66">Description</h4>
+<h4 id="_description_67">Description</h4>
 <div class="paragraph">
 <p>Returns the current status of the migration from Zookeeper to KRaft broker on the given Data Lake.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_66">Parameters</h4>
+<h4 id="_parameters_67">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -7036,7 +7131,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_66">Responses</h4>
+<h4 id="_responses_67">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
@@ -13211,6 +13306,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>fallbackInstanceTypes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>A list of fallback instance types, ordered by priority, to be used if the primary instanceType is unavailable in the specified zone.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>instanceType</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -16121,6 +16228,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>fallbackInstanceTypes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>A list of fallback instance types, ordered by priority, to be used if the primary instanceType is unavailable in the specified zone.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>instanceType</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -17123,6 +17242,86 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
+<h3 id="_triggerdisksyncrequest">TriggerDiskSyncRequest</h3>
+<div class="paragraph">
+<p>Request object to trigger disk sync.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>datalakeCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the datalake.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>diskSyncMode</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Specifies whether the identified discrepancies should be persisted. Use DRY_RUN to log without saving, or PERSIST to save changes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (DRY_RUN, PERSIST)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_triggerdisksyncresponse">TriggerDiskSyncResponse</h3>
+<div class="paragraph">
+<p>Response object for triggering disk sync request.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>flowIdentifier</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The identifier of the flow that was triggered.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_updateorchestratorstaterequest">UpdateOrchestratorStateRequest</h3>
 <div class="paragraph">
 <p>Request object for running orchestrator engine state update on the Data Lake cluster.</p>
@@ -18103,7 +18302,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-07-29 17:50:23 UTC
+Last updated 2026-09-10 20:03:59 UTC
 </div>
 </div>
 <br>

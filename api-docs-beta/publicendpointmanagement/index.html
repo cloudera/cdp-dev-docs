@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="copyright" content="Copyright © 2026 Cloudera, Inc. All rights reserved.">
-<title>Cloudera Control Plane Monitoring Metrics Administration</title>
+<title>PublicEndpointManagement Public Service</title>
 <style>
 @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
 @import url(//fonts.googleapis.com/css?family=Noticia+Text:400,400italic);
@@ -675,7 +675,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Cloudera Control Plane Monitoring Metrics Administration</h1>
+<h1>PublicEndpointManagement Public Service</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -690,76 +690,44 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </li>
 <li><a href="#_paths">Paths</a>
 <ul class="sectlevel2">
-<li><a href="#_createremotewriteconfig">Create remote storage configuration</a>
+<li><a href="#_creatednsentry">Create or update a DNS entry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description">Description</a></li>
 <li><a href="#_parameters">Parameters</a></li>
 <li><a href="#_responses">Responses</a></li>
-<li><a href="#_tags">Tags</a></li>
 </ul>
 </li>
-<li><a href="#_deleteremotewriteconfig">Delete remote storage configuration</a>
+<li><a href="#_deletednsentry">Delete a DNS entry.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_parameters_2">Parameters</a></li>
 <li><a href="#_responses_2">Responses</a></li>
-<li><a href="#_tags_2">Tags</a></li>
 </ul>
 </li>
-<li><a href="#_describeremotewriteconfig">Describe remote storage configuration</a>
+<li><a href="#_listdnsentries">List all DNS entries.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_3">Description</a></li>
 <li><a href="#_parameters_3">Parameters</a></li>
 <li><a href="#_responses_3">Responses</a></li>
-<li><a href="#_tags_3">Tags</a></li>
-</ul>
-</li>
-<li><a href="#_listremotewriteconfigs">List remote storage configurations</a>
-<ul class="sectlevel3">
-<li><a href="#_description_4">Description</a></li>
-<li><a href="#_parameters_4">Parameters</a></li>
-<li><a href="#_responses_4">Responses</a></li>
-<li><a href="#_tags_4">Tags</a></li>
-</ul>
-</li>
-<li><a href="#_updateremotewriteconfig">Update remote storage configuration</a>
-<ul class="sectlevel3">
-<li><a href="#_description_5">Description</a></li>
-<li><a href="#_parameters_5">Parameters</a></li>
-<li><a href="#_responses_5">Responses</a></li>
-<li><a href="#_tags_5">Tags</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
-<li><a href="#_authheader">AuthHeader</a></li>
-<li><a href="#_authheaderforresponse">AuthHeaderForResponse</a></li>
-<li><a href="#_basicauth">BasicAuth</a></li>
-<li><a href="#_basicauthforresponse">BasicAuthForResponse</a></li>
-<li><a href="#_createremotewriteconfigrequest">CreateRemoteWriteConfigRequest</a></li>
-<li><a href="#_createremotewriteconfigresponse">CreateRemoteWriteConfigResponse</a></li>
-<li><a href="#_deleteremotewriteconfigrequest">DeleteRemoteWriteConfigRequest</a></li>
-<li><a href="#_deleteremotewriteconfigresponse">DeleteRemoteWriteConfigResponse</a></li>
-<li><a href="#_describeremotewriteconfigrequest">DescribeRemoteWriteConfigRequest</a></li>
-<li><a href="#_describeremotewriteconfigresponse">DescribeRemoteWriteConfigResponse</a></li>
+<li><a href="#_creatednsentryrequest">CreateDnsEntryRequest</a></li>
+<li><a href="#_creatednsentryresponse">CreateDnsEntryResponse</a></li>
+<li><a href="#_deletednsentryrequest">DeleteDnsEntryRequest</a></li>
+<li><a href="#_deletednsentryresponse">DeleteDnsEntryResponse</a></li>
+<li><a href="#_dnsentryresponse">DnsEntryResponse</a></li>
+<li><a href="#_dnsrecordtype">DnsRecordType</a></li>
+<li><a href="#_dnstarget">DnsTarget</a></li>
+<li><a href="#_dnstargetrecord">DnsTargetRecord</a></li>
 <li><a href="#_error">Error</a></li>
-<li><a href="#_integrationconfig">IntegrationConfig</a></li>
-<li><a href="#_integrationconfigforresponse">IntegrationConfigForResponse</a></li>
-<li><a href="#_listremotewriteconfigsrequest">ListRemoteWriteConfigsRequest</a></li>
-<li><a href="#_listremotewriteconfigsresponse">ListRemoteWriteConfigsResponse</a></li>
-<li><a href="#_remotewriteconfigrequestforcreate">RemoteWriteConfigRequestForCreate</a></li>
-<li><a href="#_remotewriteconfigresponse">RemoteWriteConfigResponse</a></li>
-<li><a href="#_remotewriteconfigscope">RemoteWriteConfigScope</a></li>
-<li><a href="#_remotewriteconfigscopeforresponse">RemoteWriteConfigScopeForResponse</a></li>
-<li><a href="#_remotewritestoragerequestforupdate">RemoteWriteStorageRequestForUpdate</a></li>
-<li><a href="#_requestsignercertificate">RequestSignerCertificate</a></li>
-<li><a href="#_requestsignercertificateforresponse">RequestSignerCertificateForResponse</a></li>
-<li><a href="#_tlsconfig">TlsConfig</a></li>
-<li><a href="#_tlsconfigforresponse">TlsConfigForResponse</a></li>
-<li><a href="#_updateremotewriteconfigrequest">UpdateRemoteWriteConfigRequest</a></li>
-<li><a href="#_updateremotewriteconfigresponse">UpdateRemoteWriteConfigResponse</a></li>
+<li><a href="#_ips">IPs</a></li>
+<li><a href="#_listdnsentriesrequest">ListDnsEntriesRequest</a></li>
+<li><a href="#_listdnsentriesresponse">ListDnsEntriesResponse</a></li>
+<li><a href="#_resourcerecords">ResourceRecords</a></li>
 </ul>
 </li>
 </ul>
@@ -770,7 +738,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloudera Private Cloud Control Plane Monitoring Metrics Administration API</p>
+<p>PublicEndpointManagement Public Service is a web service for CDP applications to manage public DNS entries and TLS certificates.</p>
 </div>
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
@@ -782,7 +750,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h3 id="_license_information">License information</h3>
 <div class="paragraph">
 <p><em>License</em> : Apache 2.0<br>
-<em>Terms of service</em> : null</p>
+<em>Terms of service</em> : <a href="https://www.cloudera.com/legal/commercial-terms-and-conditions.html" class="bare">https://www.cloudera.com/legal/commercial-terms-and-conditions.html</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -817,32 +785,30 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_paths">Paths</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_createremotewriteconfig">Create remote storage configuration</h3>
+<h3 id="_creatednsentry">Create or update a DNS entry.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/metrics/createRemoteWriteConfig</pre>
+<pre>POST /api/v1/publicendpointmanagement/createDnsEntry</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description">Description</h4>
 <div class="paragraph">
-<p>Creates a new remote storage configuration.</p>
+<p>Create or update a DNS entry.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_parameters">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Type</th>
 <th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -856,10 +822,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>CreateRemoteWriteConfigRequest request params</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_createremotewriteconfigrequest">CreateRemoteWriteConfigRequest</a></p>
+<p><a href="#_creatednsentryrequest">CreateDnsEntryRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -886,10 +849,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p><strong>200</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>OK</p>
+<p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_createremotewriteconfigresponse">CreateRemoteWriteConfigResponse</a></p>
+<p><a href="#_creatednsentryresponse">CreateDnsEntryResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -906,44 +869,32 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_tags">Tags</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>remote storage configuration</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_deleteremotewriteconfig">Delete remote storage configuration</h3>
+<h3 id="_deletednsentry">Delete a DNS entry.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/metrics/deleteRemoteWriteConfig</pre>
+<pre>POST /api/v1/publicendpointmanagement/deleteDnsEntry</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_2">Description</h4>
 <div class="paragraph">
-<p>Deletes a remote storage configuration.</p>
+<p>Delete a DNS entry.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_parameters_2">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Type</th>
 <th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -957,10 +908,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DeleteRemoteWriteConfigRequest request params</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_deleteremotewriteconfigrequest">DeleteRemoteWriteConfigRequest</a></p>
+<p><a href="#_deletednsentryrequest">DeleteDnsEntryRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -987,10 +935,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p><strong>200</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>OK</p>
+<p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_deleteremotewriteconfigresponse">DeleteRemoteWriteConfigResponse</a></p>
+<p><a href="#_deletednsentryresponse">DeleteDnsEntryResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1007,44 +955,32 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_tags_2">Tags</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>remote storage configuration</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_describeremotewriteconfig">Describe remote storage configuration</h3>
+<h3 id="_listdnsentries">List all DNS entries.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /api/v1/metrics/describeRemoteWriteConfig</pre>
+<pre>POST /api/v1/publicendpointmanagement/listDnsEntries</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_3">Description</h4>
 <div class="paragraph">
-<p>Returns a remote storage configuration</p>
+<p>List all DNS entries for an accountId.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_parameters_3">Parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Type</th>
 <th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -1058,10 +994,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DescribeRemoteWriteConfigRequest request params</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describeremotewriteconfigrequest">DescribeRemoteWriteConfigRequest</a></p>
+<p><a href="#_listdnsentriesrequest">ListDnsEntriesRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1088,10 +1021,10 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p><strong>200</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>OK</p>
+<p>Expected response to a valid request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_describeremotewriteconfigresponse">DescribeRemoteWriteConfigResponse</a></p>
+<p><a href="#_listdnsentriesresponse">ListDnsEntriesResponse</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1107,218 +1040,6 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect3">
-<h4 id="_tags_3">Tags</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>remote storage configuration</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_listremotewriteconfigs">List remote storage configurations</h3>
-<div class="literalblock">
-<div class="content">
-<pre>POST /api/v1/metrics/listRemoteWriteConfigs</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_4">Description</h4>
-<div class="paragraph">
-<p>Returns all remote storage configurations in the given account</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_4">Parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>input</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ListRemoteWriteConfigsRequest request params</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listremotewriteconfigsrequest">ListRemoteWriteConfigsRequest</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_4">Responses</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_listremotewriteconfigsresponse">ListRemoteWriteConfigsResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The default response on an error.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_error">Error</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_tags_4">Tags</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>remote storage configuration</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_updateremotewriteconfig">Update remote storage configuration</h3>
-<div class="literalblock">
-<div class="content">
-<pre>POST /api/v1/metrics/updateRemoteWriteConfig</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_5">Description</h4>
-<div class="paragraph">
-<p>Updates remote storage configuration.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_5">Parameters</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>input</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UpdateRemoteWriteConfigRequest request params</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_updateremotewriteconfigrequest">UpdateRemoteWriteConfigRequest</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_5">Responses</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_updateremotewriteconfigresponse">UpdateRemoteWriteConfigResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The default response on an error.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_error">Error</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_tags_5">Tags</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>remote storage configuration</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -1327,9 +1048,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_authheader">AuthHeader</h3>
+<h3 id="_creatednsentryrequest">CreateDnsEntryRequest</h3>
 <div class="paragraph">
-<p>Authorization header configuration</p>
+<p>Request object for the CreateDnsEntry method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1347,23 +1068,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>credentials</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authorization header credentials</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>shouldUpdateCredentialsField</strong><br>
+<p><strong>addWildcard</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Returns true if the credentials field was changed and should be updated</p>
+<p>Adds the wildcard entry if TRUE.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -1371,81 +1080,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>type</strong><br>
+<p><strong>dnsTarget</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The DNS target set for this domain name</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_dnstarget">DnsTarget</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>endpoint</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authorization header type<br>
-<strong>Default</strong> : <code>"Bearer"</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_authheaderforresponse">AuthHeaderForResponse</h3>
-<div class="paragraph">
-<p>Authorization header configuration response</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>type</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authorization header type<br>
-<strong>Default</strong> : <code>"Bearer"</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_basicauth">BasicAuth</h3>
-<div class="paragraph">
-<p>Basic auth configuration</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>password</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Password for the remote storage config</p>
+<p>The endpoint for this cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1453,23 +1104,11 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>shouldUpdatePasswordField</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Returns true if the password field was changed and should be updated</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>username</strong><br>
+<p><strong>environmentCrn</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Username for the remote storage configuration</p>
+<p>The CRN of the environment for which the DNS entry is to be created.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1479,154 +1118,18 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_basicauthforresponse">BasicAuthForResponse</h3>
+<h3 id="_creatednsentryresponse">CreateDnsEntryResponse</h3>
 <div class="paragraph">
-<p>Basic auth configuration response</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>username</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Username for the remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_createremotewriteconfigrequest">CreateRemoteWriteConfigRequest</h3>
-<div class="paragraph">
-<p>Create remote write storage configuration request</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>remoteWriteConfig</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewriteconfigrequestforcreate">RemoteWriteConfigRequestForCreate</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_createremotewriteconfigresponse">CreateRemoteWriteConfigResponse</h3>
-<div class="paragraph">
-<p>Create remote write storage configuration response</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>remoteWriteConfig</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewriteconfigresponse">RemoteWriteConfigResponse</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_deleteremotewriteconfigrequest">DeleteRemoteWriteConfigRequest</h3>
-<div class="paragraph">
-<p>Delete remote write storage configuration request</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>id</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UUID of the remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_deleteremotewriteconfigresponse">DeleteRemoteWriteConfigResponse</h3>
-<div class="paragraph">
-<p>Delete remote write storage configuration response</p>
+<p>Response object for the CreateDnsEntry method.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_describeremotewriteconfigrequest">DescribeRemoteWriteConfigRequest</h3>
+<h3 id="_deletednsentryrequest">DeleteDnsEntryRequest</h3>
 <div class="paragraph">
-<p>Describe remote write storage configuration request</p>
+<p>Request object for the DeleteDnsEntry method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1644,23 +1147,68 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>id</strong><br>
+<p><strong>dnsTarget</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UUID of the remote storage configuration</p>
+<p>The DNS target set for this domain name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_dnstarget">DnsTarget</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>endpoint</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The endpoint for this cluster.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>environmentCrn</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The CRN of the environment, for which the DNS entry is to be deleted.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>removeWildcard</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Removes the wildcard entry if TRUE.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_describeremotewriteconfigresponse">DescribeRemoteWriteConfigResponse</h3>
+<h3 id="_deletednsentryresponse">DeleteDnsEntryResponse</h3>
 <div class="paragraph">
-<p>Describe remote write storage configuration response</p>
+<p>Response object for the DeleteDnsEntry method.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dnsentryresponse">DnsEntryResponse</h3>
+<div class="paragraph">
+<p>DnsEntryResponse represents a DNS entry with its name, type, target records, and optional TTL.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1678,14 +1226,140 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>remoteWriteConfig</strong><br>
-<em>required</em></p>
+<p><strong>dnsRecordName</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Remote storage configuration</p>
+<p>The DNS name for this entry, e.g. example.com.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewriteconfigresponse">RemoteWriteConfigResponse</a></p>
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>dnsRecordType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The record type of the DNS entry, e.g. A, CNAME, etc.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_dnsrecordtype">DnsRecordType</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>dnsTTL</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Time to live for the DNS entry, in seconds.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>dnsTargetRecords</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The target for this DNS entry, which can be an IP address, CNAME, or AWS ELB DNS.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_dnstargetrecord">DnsTargetRecord</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dnsrecordtype">DnsRecordType</h3>
+<div class="paragraph">
+<p>The type of DNS record.
+ <code>A</code> - A record type (IPv4 address). <code>TXT</code> - TXT record type (text record). <code>CNAME</code> - CNAME record type (canonical name).</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (A, TXT, CNAME)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dnstarget">DnsTarget</h3>
+<div class="paragraph">
+<p>DnsTarget represents the target of a DNS entry, which can be a set of IPs, a CNAME, or an AWS ELB DNS target.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>targetCname</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CNAME target for the DNS entry, e.g. "example.com".</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>targetIPs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>IP addresses for the DNS entry, e.g. ["192.168.1.1", "10.0.0.1"].</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_ips">IPs</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dnstargetrecord">DnsTargetRecord</h3>
+<div class="paragraph">
+<p>DnsTargetRecord represents the target of a DNS entry.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceRecords</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Resource records for the DNS entry, such as IP addresses or CNAMEs.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_resourcerecords">ResourceRecords</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1738,9 +1412,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_integrationconfig">IntegrationConfig</h3>
+<h3 id="_ips">IPs</h3>
 <div class="paragraph">
-<p>The configuration for public cloud metric integration</p>
+<p>IPs holds a list of IP addresses for a DNS entry.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1758,432 +1432,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requestSignerCertificate</strong><br>
-<em>required</em></p>
+<p><strong>ips</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The public cloud side certificate to use for request signing</p>
+<p>IP addresses for a DNS entry.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_requestsignercertificate">RequestSignerCertificate</a></p>
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_integrationconfigforresponse">IntegrationConfigForResponse</h3>
+<h3 id="_listdnsentriesrequest">ListDnsEntriesRequest</h3>
 <div class="paragraph">
-<p>The configuration for public cloud metric integration</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requestSignerCertificate</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The public cloud side certificate to use for request signing</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_requestsignercertificateforresponse">RequestSignerCertificateForResponse</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_listremotewriteconfigsrequest">ListRemoteWriteConfigsRequest</h3>
-<div class="paragraph">
-<p>List remote write storage configurations request</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_listremotewriteconfigsresponse">ListRemoteWriteConfigsResponse</h3>
-<div class="paragraph">
-<p>List remote write storage configurations response</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>remoteWriteConfigs</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>List of remote storage configs</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_remotewriteconfigresponse">RemoteWriteConfigResponse</a> &gt; array</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_remotewriteconfigrequestforcreate">RemoteWriteConfigRequestForCreate</h3>
-<div class="paragraph">
-<p>Remote write storage configuration request for create</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>address</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Address of the remote storage</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>authHeader</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authorization header parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_authheader">AuthHeader</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>authMethod</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authentication method of the remote storage</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>basicAuth</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Basic auth parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_basicauth">BasicAuth</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>customHeaders</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Additional custom HTTP header key-value pairs that are sent along with each remote write request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string, string &gt; map</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enabled</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enabled state of the remote storage config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>integrationConfig</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The configuration for public cloud metric integration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_integrationconfig">IntegrationConfig</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>scope</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The scope of this remote storage config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewriteconfigscope">RemoteWriteConfigScope</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tls</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tls configuration parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_tlsconfig">TlsConfig</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>writeRelabelConfigs</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Relabeling and filtering rules to be applied to the remote write config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_remotewriteconfigresponse">RemoteWriteConfigResponse</h3>
-<div class="paragraph">
-<p>Remote write storage configuration</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>accountId</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Account ID which the remote storage configuration belongs to</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>address</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Address of the remote storage</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>authHeader</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authorization header parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_authheaderforresponse">AuthHeaderForResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>authMethod</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authentication method of the remote storage</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>basicAuth</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Basic auth parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_basicauthforresponse">BasicAuthForResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>customHeaders</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Additional custom HTTP header key-value pairs that are sent along with each remote write request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string, string &gt; map</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enabled</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enabled state of the remote storage config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>id</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UUID of the remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>integrationConfig</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The configuration for public cloud metric integration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_integrationconfigforresponse">IntegrationConfigForResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>scope</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The scope of this remote storage config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewriteconfigscopeforresponse">RemoteWriteConfigScopeForResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tls</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tls configuration parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_tlsconfigforresponse">TlsConfigForResponse</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>writeRelabelConfigs</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Relabeling and filtering rules to be applied to the remote write config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_remotewriteconfigscope">RemoteWriteConfigScope</h3>
-<div class="paragraph">
-<p>Remote write storage configuration scope</p>
+<p>Request object for the ListDnsEntries method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2205,7 +1470,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Environment CRN filter for the scope. Empty means no filtering</p>
+<p>The CRN of the environment, for which the DNS entries are being listed.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2213,23 +1478,49 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>type</strong><br>
-<em>required</em></p>
+<p><strong>pageSize</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The type of this remote storage config. Allowed values: all | controlplane | environments</p>
+<p>The page size.<br>
+<strong>Minimum value</strong> : <code>20</code><br>
+<strong>Maximum value</strong> : <code>100</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>pageToken</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The page token.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>recordType</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The record type to filter on, e.g. A, CNAME, etc.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_dnsrecordtype">DnsRecordType</a></p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_remotewriteconfigscopeforresponse">RemoteWriteConfigScopeForResponse</h3>
+<h3 id="_listdnsentriesresponse">ListDnsEntriesResponse</h3>
 <div class="paragraph">
-<p>Remote write storage configuration scope for response</p>
+<p>Response object for the ListDnsEntries method.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2247,23 +1538,23 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>environmentCrn</strong><br>
-<em>required</em></p>
+<p><strong>dnsEntries</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Environment CRN filter for the scope. Empty means no filtering</p>
+<p>List of DNS entries for the specified environment.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>&lt; <a href="#_dnsentryresponse">DnsEntryResponse</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>type</strong><br>
-<em>required</em></p>
+<p><strong>nextPageToken</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The type of this remote storage configuration. Allowed values: all | controlplane | environments</p>
+<p>The page token for requesting the next page of results.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2273,9 +1564,9 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </table>
 </div>
 <div class="sect2">
-<h3 id="_remotewritestoragerequestforupdate">RemoteWriteStorageRequestForUpdate</h3>
+<h3 id="_resourcerecords">ResourceRecords</h3>
 <div class="paragraph">
-<p>Remote write storage configuration request for update</p>
+<p>ResourceRecords holds a list of values for DNS resource records, such as IP addresses or CNAMEs.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2293,458 +1584,14 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>address</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Address of the remote storage</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>authHeader</strong><br>
+<p><strong>values</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authorization header parameters</p>
+<p>Values can be IP addresses or CNAMEs.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_authheader">AuthHeader</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>authMethod</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Authentication method of the remote storage</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>basicAuth</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Basic auth parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_basicauth">BasicAuth</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>customHeaders</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Additional custom HTTP header key-value pairs that are sent along with each remote write request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string, string &gt; map</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>enabled</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Enabled state of the remote storage config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>id</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UUID of the remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>integrationConfig</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The configuration for public cloud metric integration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_integrationconfig">IntegrationConfig</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>scope</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The scope of this remote storage config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewriteconfigscope">RemoteWriteConfigScope</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tls</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tls configuration parameters</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_tlsconfig">TlsConfig</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>writeRelabelConfigs</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Relabeling and filtering rules to be applied to the remote write config</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_requestsignercertificate">RequestSignerCertificate</h3>
-<div class="paragraph">
-<p>The configuration for public cloud metric integration</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cdpAccessKeyId</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The key id of the public cloud certificate</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>privateKey</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The key information of the certificate</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_requestsignercertificateforresponse">RequestSignerCertificateForResponse</h3>
-<div class="paragraph">
-<p>The configuration for public cloud metric integration</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cdpAccessKeyId</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The key id of the public cloud certificate</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>privateKey</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The key information of the certificate</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_tlsconfig">TlsConfig</h3>
-<div class="paragraph">
-<p>Tls configuration</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>clientCertificate</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Certificate for client cert authentication to the server</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>clientKey</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Key for client cert authentication to the server</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>insecureSkipVerify</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Skip tls verification</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>serverName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tls ServerName extension to indicate the name of the server.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>shouldUpdateClientKeyField</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Returns true if the ClientKey field was changed and should be updated</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_tlsconfigforresponse">TlsConfigForResponse</h3>
-<div class="paragraph">
-<p>Tls configuration for response</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>clientCertificate</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Certificate for client cert authentication to the server</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>insecureSkipVerify</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Skip tls verification</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>isClientKeyFieldEmpty</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Returns true if the ClientKey field is empty</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>serverName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tls ServerName extension to indicate the name of the server.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_updateremotewriteconfigrequest">UpdateRemoteWriteConfigRequest</h3>
-<div class="paragraph">
-<p>Update remote write storage configuration request</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>remoteWriteConfig</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewritestoragerequestforupdate">RemoteWriteStorageRequestForUpdate</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_updateremotewriteconfigresponse">UpdateRemoteWriteConfigResponse</h3>
-<div class="paragraph">
-<p>Update remote write storage configuration response</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>remoteWriteConfig</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Remote storage configuration</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_remotewriteconfigresponse">RemoteWriteConfigResponse</a></p>
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>

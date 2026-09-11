@@ -5,7 +5,7 @@ x-products: CDP
 x-form-factors: public,private
 x-cdp-releases: BETA
 info:
-  version: 0.9.163 (BETA)
+  version: 0.9.164 (BETA)
   title: Notification API Service
   license:
     name: Apache 2.0
@@ -507,8 +507,11 @@ definitions:
         type: string
         description: The name of the resource to be subscribed.
       distributionListManagementType:
-        description: Attribute to identify system vs user managed distribution list.
+        description: Identifies who may modify this distribution list and who is expected to create it.
         $ref: '#/definitions/DistributionListManagementType'
+      distributionListGroupId:
+        type: string
+        description: The identifier of the distribution list group this list belongs to.
   ResourceSubscription:
     type: object
     description: ResourceSubscription holds a list of subscribed events and delivery details for a particular resource.
@@ -535,7 +538,7 @@ definitions:
         description: CRN of the parent resource of the resource for which the notification event is subscribed.
   DistributionListManagementType:
     type: string
-    description: Represents the management types of distribution list.
+    description: "Represents the management policy of a distribution list.\n `USER_MANAGED` - Modifiable by users. May be created by either system or user. `SYSTEM_MANAGED` - Modifiable only by system. Should be created by system."
     enum:
       - USER_MANAGED
       - SYSTEM_MANAGED
@@ -719,7 +722,7 @@ definitions:
         description: The name of the resource to be subscribed.
       distributionListManagementType:
         type: string
-        description: 'SYSTEM_MANAGED: Created by internal actors, modifiable only by internal users. USER_MANAGED: Created by non-internal actors, modifiable by internal or external users'
+        description: 'USER_MANAGED: Modifiable by users; may be created by system or user. SYSTEM_MANAGED: Modifiable only by system; should be created by system.'
       eventChannelPreferences:
         type: array
         items:
