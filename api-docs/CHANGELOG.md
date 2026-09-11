@@ -1,5 +1,14 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.164 (2026-09-09)
+* datacatalog: Add new command `getFgacStatusByAssets`.
+* environments: Add new command `prepareFreeipaUpgrade`.
+* iam: Add parameter `excludeGroups` to `generateWorkloadAuthToken` command for Public Cloud.
+* iam: Add new command `setLocalAdminUsername` for Private Cloud.
+* ml: Add new commands `suspendMlServingApp`, `resumeMlServingApp`, `uploadCertificate` and `uploadModelRegistryCertificate`.
+* ml: Add properties `serviceQuota` and `serviceAvailableQuota` to `Workspace` object.
+* opdb: Add parameter `encryptionProfile` to `createDatabase` command.
+
 ## 0.9.163 (2026-07-29)
 
 BACKWARD INCOMPATIBILITIES:

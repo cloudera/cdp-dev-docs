@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.163*
+*Version: 0.9.164*
 
 [CHANGELOG](CHANGELOG.md)
 
@@ -8,25 +8,25 @@ Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.163 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.163 |
-| [compute](./compute/index.html) | 0.9.163 |
-| [consumption](./consumption/index.html) | 0.9.163 |
-| [datacatalog](./datacatalog/index.html) | 0.9.163 |
-| [datahub](./datahub/index.html) | 0.9.163 |
-| [datalake](./datalake/index.html) | 0.9.163 |
-| [de](./de/index.html) | 0.9.163 |
-| [df](./df/index.html) | 0.9.163 |
-| [dfworkload](./dfworkload/index.html) | 0.9.163 |
-| [drscp](./drscp/index.html) | 0.9.163 |
-| [dw](./dw/index.html) | 0.9.163 |
-| [environments](./environments/index.html) | 0.9.163 |
-| [iam](./iam/index.html) | 0.9.163 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.163 |
-| [lakehouseopt](./lakehouseopt/index.html) | 0.9.163 |
-| [ml](./ml/index.html) | 0.9.163 |
-| [opdb](./opdb/index.html) | 0.9.163 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.163 |
+| [audit](./audit/index.html) | 0.9.164 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.164 |
+| [compute](./compute/index.html) | 0.9.164 |
+| [consumption](./consumption/index.html) | 0.9.164 |
+| [datacatalog](./datacatalog/index.html) | 0.9.164 |
+| [datahub](./datahub/index.html) | 0.9.164 |
+| [datalake](./datalake/index.html) | 0.9.164 |
+| [de](./de/index.html) | 0.9.164 |
+| [df](./df/index.html) | 0.9.164 |
+| [dfworkload](./dfworkload/index.html) | 0.9.164 |
+| [drscp](./drscp/index.html) | 0.9.164 |
+| [dw](./dw/index.html) | 0.9.164 |
+| [environments](./environments/index.html) | 0.9.164 |
+| [iam](./iam/index.html) | 0.9.164 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.164 |
+| [lakehouseopt](./lakehouseopt/index.html) | 0.9.164 |
+| [ml](./ml/index.html) | 0.9.164 |
+| [opdb](./opdb/index.html) | 0.9.164 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.164 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).
