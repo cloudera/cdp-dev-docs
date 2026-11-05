@@ -6,7 +6,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.164 (BETA)
+  version: 0.9.165 (BETA)
   title: Cloudera Datalake Service
   license:
     name: Apache 2.0
@@ -1344,6 +1344,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/MigrateZookeeperToKraftResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/datalake/resetJvmParams:
+    post:
+      summary: Reset JVM memory params of a Data Lake cluster by name or CRN.
+      description: Reset JVM memory params of a Data Lake cluster by name or CRN.
+      operationId: resetJvmParams
+      x-mutating: true
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ResetJvmParamsRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/ResetJvmParamsResponse'
         default:
           description: The default response on an error.
           schema:
@@ -4518,6 +4539,72 @@ definitions:
       datalake:
         type: string
         description: The name or CRN of the Data Lake.
+  JvmConfigRecord:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Config parameter name.
+      value:
+        type: string
+        description: Config parameter value.
+      roleConfigGroupName:
+        type: string
+        description: Name of the role config group that owns this config.
+      clusterName:
+        type: string
+        description: Name of the cluster the owning service belongs to.
+      serviceName:
+        type: string
+        description: Name of the service that owns this config.
+      applicability:
+        type: string
+        description: Indicates whether this config will be changed by the recalculation.
+        enum:
+          - RECONFIGURABLE
+          - UNAFFECTED_DUE_TO_EQUAL_VALUE
+          - UNAFFECTED_CONFIGURED_BY_USER
+    description: Configs whose value has changed (or would change) due to the recalculation.
+  ResetJvmParamsDiff:
+    type: object
+    properties:
+      configsBefore:
+        type: array
+        description: Configs with their values before recalculation. Only populated for dry-run requests.
+        items:
+          $ref: '#/definitions/JvmConfigRecord'
+      configsAfter:
+        type: array
+        description: List of configs whose value has changed (or would change) due to the recalculation.
+        items:
+          $ref: '#/definitions/JvmConfigRecord'
+    description: Diff of JVM parameter changes computed before the operation was triggered.
+  ResetJvmParamsResponse:
+    type: object
+    description: Response object for reset JVM Params.
+    properties:
+      result:
+        type: string
+        description: Human-readable message about the reset JVM params operation
+      operationId:
+        type: string
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
+      resetJvmParamsDiff:
+        $ref: '#/definitions/ResetJvmParamsDiff'
+        description: JVM parameter configs computed before and after the operation.
+  ResetJvmParamsRequest:
+    type: object
+    description: Request object for reset JVM Params.
+    required:
+      - datalake
+    properties:
+      datalake:
+        type: string
+        description: The name or CRN of the Data Lake.
+      dryRun:
+        type: boolean
+        description: If true, only validates the operation without triggering the actual flow.
+        default: false
   FinalizeZookeeperToKraftMigrationResponse:
     type: object
     description: Response object to finalize the migration of Zookeeper to KRaft.

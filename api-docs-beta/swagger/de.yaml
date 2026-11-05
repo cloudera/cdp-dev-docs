@@ -5,7 +5,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.164 (BETA)
+  version: 0.9.165 (BETA)
   title: Cloudera Data Engineering
   license:
     name: Apache 2.0
@@ -838,6 +838,9 @@ definitions:
         type: string
         description: Indicates whether the job-level override is enabled for how drivers and executors run in the Virtual Cluster.
         x-form-factors: public
+      runtimeImageResourceName:
+        type: string
+        description: The resource name that points to the custom runtime image to be used by the Virtual Cluster.
   VcResources:
     type: object
     properties:
@@ -1625,6 +1628,25 @@ definitions:
         type: boolean
         description: Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
         x-form-factors: public
+      runtimeImageResourceName:
+        type: string
+        description: The resource name that points to the custom runtime image to be used by the Virtual Cluster.
+      encodedDbCaCert:
+        type: string
+        description: Base64-encoded PEM certificate bundle applied to dex-app, Airflow, and Airflow API database connections. Cannot be used together with encodedDbCaCertApi, encodedDbCaCertAirflow, or encodedDbCaCertAirflowAPI.
+        x-sensitive: true
+      encodedDbCaCertApi:
+        type: string
+        description: Base64-encoded PEM certificate bundle for the dex-app API database connection. Cannot be used together with encodedDbCaCert.
+        x-sensitive: true
+      encodedDbCaCertAirflow:
+        type: string
+        description: Base64-encoded PEM certificate bundle for the Airflow database connection. Cannot be used together with encodedDbCaCert.
+        x-sensitive: true
+      encodedDbCaCertAirflowAPI:
+        type: string
+        description: Base64-encoded PEM certificate bundle for the Airflow API database connection. Cannot be used together with encodedDbCaCert.
+        x-sensitive: true
   UpdateVcResponse:
     type: object
     description: Response object for updateVc method.
@@ -1989,6 +2011,10 @@ definitions:
       serviceConfigReplacement:
         type: string
         description: Optional final service config override as a JSON string, passed through to the restore backend as-is. At most one of serviceConfigReplacement or servicePropertyOverride may be specified.
+      forceSecureSparkOs:
+        type: boolean
+        default: false
+        description: When true, sets spark.osname to the security-hardened on every restored virtual cluster. Defaults to false.
   RestoreServiceResponse:
     type: object
     description: Response object for Restore Service command.

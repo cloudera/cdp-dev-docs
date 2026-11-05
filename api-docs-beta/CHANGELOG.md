@@ -1,5 +1,23 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.165 (2026-10-27)
+* datahub: Add new command `refreshDatalakeConfigurations`.
+* de: Add parameter `serviceConfigReplacement` to `restoreService` command.
+* de: Add parameter `includeRestoreRequest` to `describeBackup` command, add property `restoreRequest` to `describeBackup` response.
+* diagnostics: Add new command `deleteBundles`.
+* diagnostics: Add value `FAILED` to `currentState` enum in `status` command response.
+* diagnostics: Add values `PAUSED`, `CANCELLING` and `CANCELLED` to `BundleStatus` enum used in `listBundles` command.
+* dw: Add parameters `trinoShutdownGracePeriod`, `trinoDisableAutoScaling`, `trinoScaleDownDelaySeconds`, `trinoMaxWorkerCount`, `trinoMinWorkerCount` and `trinoScaleUpDelaySeconds` to `updateVw` command.
+* dw: Add properties `trinoShutdownGracePeriod`, `trinoDisableAutoScaling`, `trinoScaleDownDelaySeconds`, `trinoMaxWorkerCount`, `trinoMinWorkerCount` and `trinoScaleUpDelaySeconds` to `AutoscalingOptionsResponse` object.
+* dw: Add value `custom` to `tShirtSize` enum in `updateVw` command.
+* environments: Add parameter `updateTagsOnExistingResources` to `updateTags` command.
+* iam: Add new command `setSamlAuthnRequestSigningKey`.
+* iam: Add properties `authnRequestConfigurationLastUpdated`, `authnRequestSigningKeyDefined`, `currentAuthnRequestVerificationCertificateDefined` and `nextAuthnRequestVerificationCertificateDefined` to `SamlProvider` object.
+* publicendpointmanagement: **New Service** to manage DNS entries of an account, with new commands `createDnsEntry`, `deleteDnsEntry` and `listDnsEntries`. The commands require the `CDP_PEM_CUSTOMER_MANAGED_DNS` entitlement.
+
+BACKWARD INCOMPATIBILITIES:
+* diagnostics: Reduce maximum `pageSize` value for `listBundles` command from 10000 to 100.
+
 ## 0.9.164 (2026-09-09)
 * datacatalog: Add new command `getFgacStatusByAssets`.
 * environments: Add new command `prepareFreeipaUpgrade`.
@@ -766,7 +784,7 @@ IMPROVEMENTS:
 IMPROVEMENTS:
 * de: Add `networkOutboundType` to `ServiceDescription` object. Currently `udr` is the only supported.
 * de: Update description of `enablePrivateNetwork` field.
-* * dw: Add `impalaKerberosJdbc`, `fengImpalaShell`, and `kerberosImpalaShell` endpoints.
+* dw: Add `impalaKerberosJdbc`, `fengImpalaShell`, and `kerberosImpalaShell` endpoints.
 * dw: Add `hiveAuthenticationMode` field to `CreateVwRequest` object.
 * iam: Add new APIs to set and retrieve default IdP used during Workload initiated SSO. These APIs are - `/iam/getDefaultIdentityProvider` and `/iam/setDefaultIdentityProvider`.
 

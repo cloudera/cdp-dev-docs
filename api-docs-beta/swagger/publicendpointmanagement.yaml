@@ -3,9 +3,9 @@ swagger: '2.0'
 x-endpoint-name: publicendpointmanagement
 x-products: CDP
 x-form-factors: public
-x-cdp-releases: BETA
+x-cdp-releases: PUBLIC
 info:
-  version: 0.9.164 (BETA)
+  version: 0.9.165 (BETA)
   title: PublicEndpointManagement Public Service
   license:
     name: Apache 2.0
@@ -23,6 +23,7 @@ paths:
       summary: Create or update a DNS entry.
       description: Create or update a DNS entry.
       operationId: createDnsEntry
+      x-entitlement: CDP_PEM_CUSTOMER_MANAGED_DNS
       x-right: publicendpointmanagement/createDnsEntry
       parameters:
         - name: input
@@ -45,6 +46,7 @@ paths:
       summary: Delete a DNS entry.
       description: Delete a DNS entry.
       operationId: deleteDnsEntry
+      x-entitlement: CDP_PEM_CUSTOMER_MANAGED_DNS
       x-right: publicendpointmanagement/deleteDnsEntry
       parameters:
         - name: input
@@ -67,6 +69,7 @@ paths:
       summary: List all DNS entries.
       description: List all DNS entries for an accountId.
       operationId: listDnsEntries
+      x-entitlement: CDP_PEM_CUSTOMER_MANAGED_DNS
       x-right: publicendpointmanagement/listDnsEntries
       x-paging-default-max-items: 100
       parameters:
@@ -105,6 +108,16 @@ definitions:
         items:
           type: string
         description: IP addresses for a DNS entry.
+  AWSElbDnsTarget:
+    type: object
+    description: AWSElbDnsTarget represents an AWS ELB (e.g. ALB/NLB) alias target for a DNS entry.
+    properties:
+      dnsName:
+        type: string
+        description: The DNS name of the AWS ELB, e.g. "my-alb-123.elb.eu-west-1.amazonaws.com".
+      hostedZoneId:
+        type: string
+        description: The Route53 hosted zone id of the AWS ELB.
   DnsTarget:
     type: object
     description: DnsTarget represents the target of a DNS entry, which can be a set of IPs, a CNAME, or an AWS ELB DNS target.
@@ -115,6 +128,9 @@ definitions:
       targetCname:
         type: string
         description: CNAME target for the DNS entry, e.g. "example.com".
+      targetAWSELBDns:
+        description: AWS ELB alias target for the DNS entry, used to point the record at a customer-owned ALB/NLB.
+        $ref: '#/definitions/AWSElbDnsTarget'
   CreateDnsEntryRequest:
     type: object
     description: Request object for the CreateDnsEntry method.
