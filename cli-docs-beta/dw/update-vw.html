@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>update-vw &#8212; CDP CLI 0.9.164 (BETA) documentation</title>
+    <title>update-vw &#8212; CDP CLI 0.9.165 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="update-ssh-key.html" title="update-ssh-key"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.164 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Update the configuration of a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.164</p>
+<dd class="field-even"><p>0.9.165-dirty</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -68,6 +68,9 @@
 <span class="o">[</span>--impala-query-log <span class="p">|</span> --no-impala-query-log<span class="o">]</span>
 <span class="o">[</span>--log-hive-queries <span class="p">|</span> --no-log-hive-queries<span class="o">]</span>
 <span class="o">[</span>--hive-server-ha-mode &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--trino-retry-policy &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--trino-spooling-buffer-size-mb &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--trino-ha-mode &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--associated-connectors &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--additional-quota &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
@@ -95,6 +98,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">medium</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">large</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">waa</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">custom</span></code></p></li>
 </ul>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--node-count</span></code> (integer)</p>
@@ -448,9 +452,33 @@
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
+<p>trinoDisableAutoScaling -&gt; (boolean)</p>
+<blockquote>
+<div><p>Disables Auto-scaling for Trino VW.</p>
+</div></blockquote>
+<p>trinoMaxWorkerCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Maximum number of worker nodes in a Trino VW.</p>
+</div></blockquote>
+<p>trinoMinWorkerCount -&gt; (integer)</p>
+<blockquote>
+<div><p>Minimum number of worker nodes in a Trino VW.</p>
+</div></blockquote>
+<p>trinoShutdownGracePeriod -&gt; (integer)</p>
+<blockquote>
+<div><p>Grace period in seconds before shutting down Trino workers.</p>
+</div></blockquote>
+<p>trinoScaleDownDelaySeconds -&gt; (integer)</p>
+<blockquote>
+<div><p>Scale down threshold in seconds.</p>
+</div></blockquote>
+<p>trinoScaleUpDelaySeconds -&gt; (integer)</p>
+<blockquote>
+<div><p>Scale up threshold in seconds.</p>
+</div></blockquote>
 </div></blockquote>
 <p>Shorthand Syntax:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">minClusters</span><span class="o">=</span>integer,maxClusters<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,autoSuspendTimeoutSeconds<span class="o">=</span>integer,hiveScaleWaitTimeSeconds<span class="o">=</span>integer,hiveDesiredFreeCapacity<span class="o">=</span>integer,impalaScaleUpDelaySeconds<span class="o">=</span>integer,impalaScaleDownDelaySeconds<span class="o">=</span>integer,impalaShutdownOfCoordinatorDelaySeconds<span class="o">=</span>integer,impalaNumOfActiveCoordinators<span class="o">=</span>integer,impalaExecutorGroupSets<span class="o">={</span><span class="nv">small</span><span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,custom1<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,custom2<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,custom3<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,large<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}}</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">minClusters</span><span class="o">=</span>integer,maxClusters<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,autoSuspendTimeoutSeconds<span class="o">=</span>integer,hiveScaleWaitTimeSeconds<span class="o">=</span>integer,hiveDesiredFreeCapacity<span class="o">=</span>integer,impalaScaleUpDelaySeconds<span class="o">=</span>integer,impalaScaleDownDelaySeconds<span class="o">=</span>integer,impalaShutdownOfCoordinatorDelaySeconds<span class="o">=</span>integer,impalaNumOfActiveCoordinators<span class="o">=</span>integer,impalaExecutorGroupSets<span class="o">={</span><span class="nv">small</span><span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,custom1<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,custom2<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,custom3<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}</span>,large<span class="o">={</span><span class="nv">execGroupSize</span><span class="o">=</span>integer,minExecutorGroups<span class="o">=</span>integer,maxExecutorGroups<span class="o">=</span>integer,autoSuspendTimeoutSeconds<span class="o">=</span>integer,disableAutoSuspend<span class="o">=</span>boolean,triggerScaleUpDelay<span class="o">=</span>integer,triggerScaleDownDelay<span class="o">=</span>integer,deleteGroupSet<span class="o">=</span>boolean<span class="o">}}</span>,trinoDisableAutoScaling<span class="o">=</span>boolean,trinoMaxWorkerCount<span class="o">=</span>integer,trinoMinWorkerCount<span class="o">=</span>integer,trinoShutdownGracePeriod<span class="o">=</span>integer,trinoScaleDownDelaySeconds<span class="o">=</span>integer,trinoScaleUpDelaySeconds<span class="o">=</span>integer
 </pre></div>
 </div>
 <p>JSON Syntax:</p>
@@ -516,7 +544,13 @@
       <span class="s2">&quot;triggerScaleDownDelay&quot;</span>: integer,
       <span class="s2">&quot;deleteGroupSet&quot;</span>: true<span class="p">|</span><span class="nb">false</span>
     <span class="o">}</span>
-  <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;trinoDisableAutoScaling&quot;</span>: true<span class="p">|</span>false,
+  <span class="s2">&quot;trinoMaxWorkerCount&quot;</span>: integer,
+  <span class="s2">&quot;trinoMinWorkerCount&quot;</span>: integer,
+  <span class="s2">&quot;trinoShutdownGracePeriod&quot;</span>: integer,
+  <span class="s2">&quot;trinoScaleDownDelaySeconds&quot;</span>: integer,
+  <span class="s2">&quot;trinoScaleUpDelaySeconds&quot;</span>: integer
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -590,6 +624,28 @@
 <div><p>If specified, modifies Hive Server High Availability mode in Private Cloud: * <cite>DISABLED</cite> - Disables Hive Server high availability. * <cite>ACTIVE_PASSIVE</cite> - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.</p>
 </div></blockquote>
 <p>Form Factors: private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--trino-retry-policy</span></code> (string)</p>
+<blockquote>
+<div><p>If specified, modifies the Trino query retry policy: <cite>NONE</cite>, or <cite>QUERY</cite>.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QUERY</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--trino-spooling-buffer-size-mb</span></code> (integer)</p>
+<blockquote>
+<div><p>If specified, updates the buffer size (in MB) used by Trino spooling.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--trino-ha-mode</span></code> (string)</p>
+<blockquote>
+<div><p>If specified, modifies Trino Server High Availability mode: * <cite>DISABLED</cite> - Disables Trino Server high availability. * <cite>ACTIVE_PASSIVE</cite> - Runs two Trino Server instances, one active and one passive.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DISABLED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE_PASSIVE</span></code></p></li>
+</ul>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--associated-connectors</span></code> (map)</p>
 <blockquote>
 <div><p>Map of connector ID to connector information for the VW.</p>
@@ -704,7 +760,7 @@
         <li class="right" >
           <a href="update-ssh-key.html" title="update-ssh-key"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.164 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">update-vw</a></li> 
       </ul>

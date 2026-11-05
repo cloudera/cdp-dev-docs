@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list-clusters &#8212; CDP CLI 0.9.165 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="list-locations" href="list-locations.html" />
+    <link rel="prev" title="list-cluster-services" href="list-cluster-services.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-locations.html" title="list-locations"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="list-cluster-services.html" title="list-cluster-services"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">onpremises</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-clusters</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-clusters">
+<span id="cli-cdp-onpremises-list-clusters"></span><h1>list-clusters<a class="headerlink" href="#list-clusters" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Lists all registered clusters.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.165-dirty</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Lists all registered on-premise clusters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list-clusters</span></code> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <code class="docutils literal notranslate"><span class="pre">--no-paginate</span></code> argument.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  list-clusters
+<span class="o">[</span>--manager-type &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--services &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--operator &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cluster-type &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cluster-state &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--max-items &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--starting-token &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--page-size &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--manager-type</span></code> (string)</p>
+<blockquote>
+<div><p>Manager type of the cluster. <cite>AMBARI</cite> - Ambari as manager type. <cite>CLOUDERA_MANAGER</cite> - Cloudera Manager as manager type.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AMBARI</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CLOUDERA_MANAGER</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Form Factors: public, private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--services</span></code> (array)</p>
+<blockquote>
+<div><p>Services in the cluster.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;string&quot;</span> <span class="s2">&quot;string&quot;</span> ...
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--operator</span></code> (string)</p>
+<blockquote>
+<div><p>The type of operator. <cite>AND</cite> - AND operator. <cite>OR</cite> - OR operator.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OR</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Form Factors: public, private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-type</span></code> (string)</p>
+<blockquote>
+<div><p>The type of on-premise cluster. <cite>CDH</cite> - Legacy CDH Cluster. <cite>CDPDC</cite> - CDPDC Cluster.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CDH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CDPDC</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Form Factors: public, private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cluster-state</span></code> (string)</p>
+<blockquote>
+<div><p>State of the on-premise cluster. <cite>TO_SYNC</cite> - Cluster yet to be synced. <cite>SYNC_IN_PROGRESS</cite> - Cluster sync in-progress. <cite>SYNCED</cite> - Cluster sync successful. <cite>SYNC_ERROR</cite> - Cluster sync error.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TO_SYNC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SYNC_IN_PROGRESS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SYNCED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SYNC_ERROR</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Form Factors: public, private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--max-items</span></code> (integer)</p>
+<blockquote>
+<div><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> will be provided in the output that you can use to resume pagination. This <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> response element should <strong>not</strong> be used directly outside of the CDP CLI. This option cannnot be combined with the <code class="docutils literal notranslate"><span class="pre">no-paginate</span></code> CLI option. If no max-items value is specified, then a default value of 20 is used.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--starting-token</span></code> (string)</p>
+<blockquote>
+<div><p>A token to specify where to start paginating. This is the <code class="docutils literal notranslate"><span class="pre">nextToken</span></code> from a previously truncated response.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--page-size</span></code> (integer)</p>
+<blockquote>
+<div><p>The size of each page. Generally this does not need to be set and the default page size used is appropriate.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>nextPageToken -&gt; (string)</p>
+<blockquote>
+<div><p>The token to use when requesting the next set of results. If not present, there are no additional results.</p>
+</div></blockquote>
+<p>clusters -&gt; (array)</p>
+<blockquote>
+<div><p>List of clusters.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing the cluster information.</p>
+<p>Form Factors: public, private</p>
+<p>clusterCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The clusterCrn of the registered cluster.</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the registered cluster.</p>
+</div></blockquote>
+<p>datacenterName -&gt; (string)</p>
+<blockquote>
+<div><p>The data center name of the registered cluster.</p>
+</div></blockquote>
+<p>id -&gt; (integer)</p>
+<blockquote>
+<div><p>The clusterId of the registered cluster.</p>
+</div></blockquote>
+<p>ipAddress -&gt; (string)</p>
+<blockquote>
+<div><p>The IP address of the registered cluster.</p>
+</div></blockquote>
+<p>clusterType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of on-premise cluster. <cite>CDH</cite> - Legacy CDH Cluster. <cite>CDPDC</cite> - CDPDC Cluster.</p>
+<p>Form Factors: public, private</p>
+</div></blockquote>
+<p>state -&gt; (string)</p>
+<blockquote>
+<div><p>State of the on-premise cluster. <cite>TO_SYNC</cite> - Cluster yet to be synced. <cite>SYNC_IN_PROGRESS</cite> - Cluster sync in-progress. <cite>SYNCED</cite> - Cluster sync successful. <cite>SYNC_ERROR</cite> - Cluster sync error.</p>
+<p>Form Factors: public, private</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The description of the registered cluster.</p>
+</div></blockquote>
+<p>lastCreateTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The time at which the cluster was registered.</p>
+</div></blockquote>
+<p>lastUpdatedTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The time at which the cluster was updated.</p>
+</div></blockquote>
+<p>updatedUtc -&gt; (datetime)</p>
+<blockquote>
+<div><p>The time at which the cluster was updated. Its value is in Coordinated Universal Time.</p>
+</div></blockquote>
+<p>data -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing the discovered cluster information.</p>
+<p>Form Factors: public, private</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the cluster.</p>
+</div></blockquote>
+<p>version -&gt; (string)</p>
+<blockquote>
+<div><p>The version of the cluster.</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>The display name of the discovered cluster.</p>
+</div></blockquote>
+<p>url -&gt; (string)</p>
+<blockquote>
+<div><p>The cluster URL of the discovered cluster.</p>
+</div></blockquote>
+<p>secured -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates if the cluster is secured or not.</p>
+</div></blockquote>
+<p>kerberosUser -&gt; (string)</p>
+<blockquote>
+<div><p>The Kerberos user of the cluster.</p>
+</div></blockquote>
+<p>kerberosTicketLocation -&gt; (string)</p>
+<blockquote>
+<div><p>The Kerberos ticket location of the cluster.</p>
+</div></blockquote>
+<p>clusterDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing cluster details.</p>
+<p>Form Factors: public, private</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the cluster.</p>
+</div></blockquote>
+<p>displayName -&gt; (string)</p>
+<blockquote>
+<div><p>Display name of the cluster.</p>
+</div></blockquote>
+<p>version -&gt; (string)</p>
+<blockquote>
+<div><p>Cluster version.</p>
+</div></blockquote>
+<p>fullVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Full version of the cluster.</p>
+</div></blockquote>
+<p>clusterUrl -&gt; (string)</p>
+<blockquote>
+<div><p>URL of the cluster.</p>
+</div></blockquote>
+<p>hostsUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The URL to access hosts of this cluster.</p>
+</div></blockquote>
+<p>entityStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The single value used by the Cloudera Manager to represent the status of the entity. <cite>UNKNOWN</cite> - Unknown. <cite>NONE</cite> - None. <cite>STOPPED</cite> - Stopped. <cite>DOWN</cite> - Down. <cite>UNKNOWN_HEALTH</cite> - Unknown health. <cite>DISABLED_HEALTH</cite> - Disabled health. <cite>CONCERNING_HEALTH</cite> - Concerning health. <cite>BAD_HEALTH</cite> - Bad health. <cite>GOOD_HEALTH</cite> - Good health. <cite>STARTING</cite> - Starting. <cite>STOPPING</cite> - Stopping. <cite>HISTORY_NOT_AVAILABLE</cite> - History not available.</p>
+<p>Form Factors: public, private</p>
+</div></blockquote>
+<p>uuid -&gt; (string)</p>
+<blockquote>
+<div><p>Uuid of the cluster.</p>
+</div></blockquote>
+<p>clouderaManagerClusterType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of cluster. If unspecified, defaults to either BASE_CLUSTER (if no data contexts are provided) or COMPUTE_CLUSTER (if one or more data contexts are provided). <cite>BASE_CLUSTER</cite> - CDP Base cluster being managed by Cloudera Manager. <cite>COMPUTE_CLUSTER</cite> - OnPremises containerized compute cluster being managed by the Cloudera control plane.</p>
+<p>Form Factors: public, private</p>
+</div></blockquote>
+</div></blockquote>
+<p>stats -&gt; (string)</p>
+<blockquote>
+<div><p>The stats of the discovered cluster.</p>
+</div></blockquote>
+</div></blockquote>
+<p>username -&gt; (string)</p>
+<blockquote>
+<div><p>The user name of the cluster.</p>
+</div></blockquote>
+<p>password -&gt; (string)</p>
+<blockquote>
+<div><p>The password of the cluster.</p>
+</div></blockquote>
+<p>allowUntrusted -&gt; (boolean)</p>
+<blockquote>
+<div><p>Indicates if the service should make untrusted connections (without verifying TLS) to the cluster.</p>
+</div></blockquote>
+<p>managerType -&gt; (string)</p>
+<blockquote>
+<div><p>Manager type of the cluster. <cite>AMBARI</cite> - Ambari as manager type. <cite>CLOUDERA_MANAGER</cite> - Cloudera Manager as manager type.</p>
+<p>Form Factors: public, private</p>
+</div></blockquote>
+<p>managerUri -&gt; (string)</p>
+<blockquote>
+<div><p>The manager URI of the registered cluster.</p>
+</div></blockquote>
+<p>createdBy -&gt; (string)</p>
+<blockquote>
+<div><p>The owner of the registered cluster.</p>
+</div></blockquote>
+<p>newKeyId -&gt; (string)</p>
+<blockquote>
+<div><p>The key ID of the registered cluster.</p>
+</div></blockquote>
+<p>location -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing the location of the data center.</p>
+<p>Form Factors: public, private</p>
+<p>id -&gt; (integer)</p>
+<blockquote>
+<div><p>ID of the location.</p>
+</div></blockquote>
+<p>city -&gt; (string)</p>
+<blockquote>
+<div><p>City in which the data center is located.</p>
+</div></blockquote>
+<p>province -&gt; (string)</p>
+<blockquote>
+<div><p>Province in which the data center is located.</p>
+</div></blockquote>
+<p>country -&gt; (string)</p>
+<blockquote>
+<div><p>Country in which the data center is located.</p>
+</div></blockquote>
+<p>iso2 -&gt; (string)</p>
+<blockquote>
+<div><p>ISO2 of the location.</p>
+</div></blockquote>
+<p>latitude -&gt; (string)</p>
+<blockquote>
+<div><p>Latitude of the location.</p>
+</div></blockquote>
+<p>longitude -&gt; (string)</p>
+<blockquote>
+<div><p>Longitude of the location.</p>
+</div></blockquote>
+</div></blockquote>
+<p>properties -&gt; (string)</p>
+<blockquote>
+<div><p>The properties of the particular cluster as a JSON string.</p>
+</div></blockquote>
+<p>cmClusterUuid -&gt; (string)</p>
+<blockquote>
+<div><p>The UUID of the CM Base Cluster.</p>
+</div></blockquote>
+<p>environmentCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the Private Cloud environment.</p>
+</div></blockquote>
+<p>pvcCrn -&gt; (string)</p>
+<blockquote>
+<div><p>CRN of the Private Cloud Control plane.</p>
+</div></blockquote>
+<p>onPremEnvironmentDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing the on-premises Environment details.</p>
+<p>Form Factors: public, private</p>
+<p>cmHost -&gt; (string)</p>
+<blockquote>
+<div><p>Cloudera Manager Host.</p>
+</div></blockquote>
+<p>applications -&gt; (map)</p>
+<blockquote>
+<div><p>A map of applications that provide services for the Service Discovery.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing the details of a service discovery application.</p>
+<p>Form Factors: public, private</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the application.</p>
+</div></blockquote>
+<p>services -&gt; (map)</p>
+<blockquote>
+<div><p>The services provided by the application.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing the details of a service discovery service.</p>
+<p>Form Factors: public, private</p>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>Type of service.</p>
+</div></blockquote>
+<p>endpoints -&gt; (array)</p>
+<blockquote>
+<div><p>List of endpoints that the service presents.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing the details of endpoint of a Service Discovery Service.</p>
+<p>Form Factors: public, private</p>
+<p>host -&gt; (string)</p>
+<blockquote>
+<div><p>Endpoint hostname or IP address.</p>
+</div></blockquote>
+<p>port -&gt; (integer)</p>
+<blockquote>
+<div><p>Endpoint port.</p>
+</div></blockquote>
+<p>uri -&gt; (string)</p>
+<blockquote>
+<div><p>Connection URI of the endpoint.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>config -&gt; (map)</p>
+<blockquote>
+<div><p>Configuration key values for a service.</p>
+<p>key -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>config -&gt; (map)</p>
+<blockquote>
+<div><p>Configuration key values for an application.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>cmVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Cloudera Manager Version.</p>
+</div></blockquote>
+<p>clouderaRuntimeVersion -&gt; (string)</p>
+<blockquote>
+<div><p>Cloudera Runtime Version.</p>
+</div></blockquote>
+<p>onPremDatalakeDetails -&gt; (object)</p>
+<blockquote>
+<div><p>Object containing on-premises Data Lake details.</p>
+<p>Form Factors: public, private</p>
+<p>datalakeName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the Data Lake.</p>
+</div></blockquote>
+<p>enableRangerRaz -&gt; (boolean)</p>
+<blockquote>
+<div><p>Inidicates whether Ranger RAZ is enabled for the Data Lake.</p>
+</div></blockquote>
+<p>creationTimeEpochMillis -&gt; (integer)</p>
+<blockquote>
+<div><p>The timestamp in Unix epoch when the Data Lake was created.</p>
+</div></blockquote>
+<p>cmFqdn -&gt; (string)</p>
+<blockquote>
+<div><p>The Cloudera Manager FQDN.</p>
+</div></blockquote>
+<p>cmIp -&gt; (string)</p>
+<blockquote>
+<div><p>The Cloudera Manager IP.</p>
+</div></blockquote>
+<p>cmServerId -&gt; (string)</p>
+<blockquote>
+<div><p>The Cloudera Manager server ID.</p>
+</div></blockquote>
+<p>status -&gt; (string)</p>
+<blockquote>
+<div><p>Status of the on-premises Data Lake. <cite>AVAILABLE</cite> - Data Lake is available. <cite>NOT_AVAILABLE</cite> - Data Lake is unavailable.</p>
+<p>Form Factors: public, private</p>
+</div></blockquote>
+<p>instances -&gt; (array)</p>
+<blockquote>
+<div><p>The list of instances within the on premises Data Lake cluster.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Information for instance within the on premises Data Lake cluster.</p>
+<p>Form Factors: public, private</p>
+<p>id -&gt; (string)</p>
+<blockquote>
+<div><p>The ID of the instance.</p>
+</div></blockquote>
+<p>fqdn -&gt; (string)</p>
+<blockquote>
+<div><p>The fully qualified domain name of the instance in the cluster.</p>
+</div></blockquote>
+<p>privateIp -&gt; (string)</p>
+<blockquote>
+<div><p>The private IP of the instance.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>kerberosInfo -&gt; (object)</p>
+<blockquote>
+<div><p>The kerberos information for on premises Data Lake cluster.</p>
+<p>Form Factors: public, private</p>
+<p>kdcType -&gt; (string)</p>
+<blockquote>
+<div><p>The type of Key Distribution Center.</p>
+</div></blockquote>
+<p>kerberosRealm -&gt; (string)</p>
+<blockquote>
+<div><p>Kerberos realm.</p>
+</div></blockquote>
+<p>kdcHost -&gt; (string)</p>
+<blockquote>
+<div><p>Key Distribution Center host.</p>
+</div></blockquote>
+<p>kerberized -&gt; (boolean)</p>
+<blockquote>
+<div><p>Denotes whether kerberized or not.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public, private</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-clusters</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list-cluster-services.html"
+                        title="previous chapter">list-cluster-services</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list-locations.html"
+                        title="next chapter">list-locations</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="list-locations.html" title="list-locations"
+             >next</a></li>
+        <li class="right" >
+          <a href="list-cluster-services.html" title="list-cluster-services"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >onpremises</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list-clusters</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

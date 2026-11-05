@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create-vw &#8212; CDP CLI 0.9.164 (BETA) documentation</title>
+    <title>create-vw &#8212; CDP CLI 0.9.165 (BETA) documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="create-secret.html" title="create-secret"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.164 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Create a Virtual Warehouse.</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.164</p>
+<dd class="field-even"><p>0.9.165-dirty</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -78,6 +78,9 @@
 <span class="o">[</span>--log-hive-queries <span class="p">|</span> --no-log-hive-queries<span class="o">]</span>
 <span class="o">[</span>--ebs-llap-spill-gb &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--hive-server-ha-mode &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--trino-retry-policy &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--trino-spooling-buffer-size-mb &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--trino-ha-mode &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--impala-rest-catalog-connectors &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
@@ -729,6 +732,28 @@
 <div><p>Set Hive Server High Availability mode in Private Cloud: * <cite>DISABLED</cite> (default) - Disables Hive Server high availability. * <cite>ACTIVE_PASSIVE</cite> - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.</p>
 </div></blockquote>
 <p>Form Factors: private</p>
+<p><code class="docutils literal notranslate"><span class="pre">--trino-retry-policy</span></code> (string)</p>
+<blockquote>
+<div><p>Trino query retry policy for a Trino Virtual Warehouse: <cite>NONE</cite>, or <cite>QUERY</cite>.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NONE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QUERY</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--trino-spooling-buffer-size-mb</span></code> (integer)</p>
+<blockquote>
+<div><p>Buffer size (in MB) used by Trino spooling.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--trino-ha-mode</span></code> (string)</p>
+<blockquote>
+<div><p>Set Trino Server High Availability mode: * <cite>DISABLED</cite> (default) - Disables Trino Server high availability. * <cite>ACTIVE_PASSIVE</cite> - Runs two Trino Server instances, one active and one passive.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DISABLED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACTIVE_PASSIVE</span></code></p></li>
+</ul>
+</div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--impala-rest-catalog-connectors</span></code> (array)</p>
 <blockquote>
 <div><p>Iceberg REST Catalog connectors.</p>
@@ -824,7 +849,7 @@
         <li class="right" >
           <a href="create-secret.html" title="create-secret"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.164 (BETA) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >dw</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">create-vw</a></li> 
       </ul>

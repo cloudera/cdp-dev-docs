@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register-on-prem-control-plane &#8212; CDP CLI 0.9.165 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rotate-agent-credentials" href="rotate-agent-credentials.html" />
+    <link rel="prev" title="register-cluster" href="register-cluster.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="rotate-agent-credentials.html" title="rotate-agent-credentials"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="register-cluster.html" title="register-cluster"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">onpremises</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">register-on-prem-control-plane</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="register-on-prem-control-plane">
+<span id="cli-cdp-onpremises-register-on-prem-control-plane"></span><h1>register-on-prem-control-plane<a class="headerlink" href="#register-on-prem-control-plane" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Register a Private Cloud control plane.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.165-dirty</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Register a Private Cloud control plane in Public Cloud.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  register-on-prem-control-plane
+--pvc-id &lt;value&gt;
+--name &lt;value&gt;
+--base-url &lt;value&gt;
+--saml-identity-provider &lt;value&gt;
+<span class="o">[</span>--description &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--pvc-id</span></code> (string)</p>
+<blockquote>
+<div><p>The account ID of the Private Cloud control plane.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--name</span></code> (string)</p>
+<blockquote>
+<div><p>The name of the Private Cloud control plane.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--base-url</span></code> (string)</p>
+<blockquote>
+<div><p>The base URL of the Private Cloud control plane.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--saml-identity-provider</span></code> (string)</p>
+<blockquote>
+<div><p>The name or ID or CRN of the SAML identity provider from Public Cloud control plane in which users are allowed to operate on the Private Cloud control plane. The same or equivalent SAML IDP should be used by the Public Cloud control plane and the Private Cloud control plane, in order for the user to be mapped by SAML user ID.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--description</span></code> (string)</p>
+<blockquote>
+<div><p>The description of the Private Cloud control plane.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>controlPlaneConfiguration -&gt; (object)</p>
+<blockquote>
+<div><p>Private Cloud control plane configuration.</p>
+<p>Form Factors: public, private</p>
+<p>pvcId -&gt; (string)</p>
+<blockquote>
+<div><p>The account ID of the Private Cloud control plane.</p>
+</div></blockquote>
+<p>pvcCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The CRN of the Private Cloud control plane.</p>
+</div></blockquote>
+<p>type -&gt; (string)</p>
+<blockquote>
+<div><p>The type of a remote cluster. <cite>CDP_PVC</cite> - CDP Private Cloud control plane.</p>
+<p>Form Factors: public, private</p>
+</div></blockquote>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>The name of the Private Cloud control plane.</p>
+</div></blockquote>
+<p>description -&gt; (string)</p>
+<blockquote>
+<div><p>The description of the Private Cloud control plane.</p>
+</div></blockquote>
+<p>baseUrl -&gt; (string)</p>
+<blockquote>
+<div><p>The base URL of the Private Cloud control plane.</p>
+</div></blockquote>
+<p>idpCrn -&gt; (string)</p>
+<blockquote>
+<div><p>The IDP CRN of the user.</p>
+</div></blockquote>
+<p>pvcStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the Private Cloud control plane.</p>
+</div></blockquote>
+<p>pvcEnvironmentCount -&gt; (integer)</p>
+<blockquote>
+<div><p>The total number of environments in the Private Cloud control plane.</p>
+</div></blockquote>
+<p>lastUpdatedTime -&gt; (datetime)</p>
+<blockquote>
+<div><p>The date/time for the last updated time.</p>
+</div></blockquote>
+<p>agentSecretRotationStatus -&gt; (string)</p>
+<blockquote>
+<div><p>The status of the Jumpgate Agent Secret Rotation in the Private Cloud control plane.</p>
+</div></blockquote>
+</div></blockquote>
+<p>connectivityConfiguration -&gt; (string)</p>
+<blockquote>
+<div><p>The connectivity configuration to be used by the Private Cloud control plane.</p>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">register-on-prem-control-plane</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="register-cluster.html"
+                        title="previous chapter">register-cluster</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rotate-agent-credentials.html"
+                        title="next chapter">rotate-agent-credentials</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="rotate-agent-credentials.html" title="rotate-agent-credentials"
+             >next</a></li>
+        <li class="right" >
+          <a href="register-cluster.html" title="register-cluster"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >onpremises</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">register-on-prem-control-plane</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>

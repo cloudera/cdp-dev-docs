@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reset-jvm-params &#8212; CDP CLI 0.9.165 (BETA) documentation</title>
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="restart-cluster-instances" href="restart-cluster-instances.html" />
+    <link rel="prev" title="replace-recipes" href="replace-recipes.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="restart-cluster-instances.html" title="restart-cluster-instances"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="replace-recipes.html" title="replace-recipes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">reset-jvm-params</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reset-jvm-params">
+<span id="cli-cdp-datahub-reset-jvm-params"></span><h1>reset-jvm-params<a class="headerlink" href="#reset-jvm-params" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">subtitle</dt>
+<dd class="field-odd"><p>Reset JVM memory params of a Data Hub cluster by name or CRN.</p>
+</dd>
+<dt class="field-even">version</dt>
+<dd class="field-even"><p>0.9.165-dirty</p>
+</dd>
+</dl>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Reset JVM memory params of a Data Hub cluster by name or CRN.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  reset-jvm-params
+--datahub &lt;value&gt;
+<span class="o">[</span>--dry-run <span class="p">|</span> --no-dry-run<span class="o">]</span>
+<span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
+<span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--datahub</span></code> (string)</p>
+<blockquote>
+<div><p>The name or CRN of the Data Hub.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-dry-run</span></code> (boolean)</p>
+<blockquote>
+<div><p>If true, only validates the operation without triggering the actual flow.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
+<blockquote>
+<div><p>Performs service operation based on the JSON string provided. The JSON string follows the format provided by <code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--generate-cli-skeleton</span></code> (boolean)</p>
+<blockquote>
+<div><p>Prints a sample input JSON to standard output. Note the specified operation is not run if this argument is specified. The sample input can be used as an argument for <code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>result -&gt; (string)</p>
+<blockquote>
+<div><p>Human-readable message about the reset JVM params operation</p>
+</div></blockquote>
+<p>operationId -&gt; (string)</p>
+<blockquote>
+<div><p>Unique operation ID assigned to this command execution. Use this identifier with ‘get-operation’ to track status and retrieve detailed results.</p>
+</div></blockquote>
+<p>resetJvmParamsDiff -&gt; (object)</p>
+<blockquote>
+<div><p>Diff of JVM parameter changes computed before the operation was triggered.</p>
+<p>configsBefore -&gt; (array)</p>
+<blockquote>
+<div><p>Configs with their values before recalculation. Only populated for dry-run requests.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Configs whose value has changed (or would change) due to the recalculation.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Config parameter name.</p>
+</div></blockquote>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Config parameter value.</p>
+</div></blockquote>
+<p>roleConfigGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the role config group that owns this config.</p>
+</div></blockquote>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the cluster the owning service belongs to.</p>
+</div></blockquote>
+<p>serviceName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the service that owns this config.</p>
+</div></blockquote>
+<p>applicability -&gt; (string)</p>
+<blockquote>
+<div><p>Indicates whether this config will be changed by the recalculation.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>configsAfter -&gt; (array)</p>
+<blockquote>
+<div><p>List of configs whose value has changed (or would change) due to the recalculation.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Configs whose value has changed (or would change) due to the recalculation.</p>
+<p>name -&gt; (string)</p>
+<blockquote>
+<div><p>Config parameter name.</p>
+</div></blockquote>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>Config parameter value.</p>
+</div></blockquote>
+<p>roleConfigGroupName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the role config group that owns this config.</p>
+</div></blockquote>
+<p>clusterName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the cluster the owning service belongs to.</p>
+</div></blockquote>
+<p>serviceName -&gt; (string)</p>
+<blockquote>
+<div><p>Name of the service that owns this config.</p>
+</div></blockquote>
+<p>applicability -&gt; (string)</p>
+<blockquote>
+<div><p>Indicates whether this config will be changed by the recalculation.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="form-factors">
+<h2>Form Factors<a class="headerlink" href="#form-factors" title="Permalink to this headline">¶</a></h2>
+<p>public</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">reset-jvm-params</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#form-factors">Form Factors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="replace-recipes.html"
+                        title="previous chapter">replace-recipes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="restart-cluster-instances.html"
+                        title="next chapter">restart-cluster-instances</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="restart-cluster-instances.html" title="restart-cluster-instances"
+             >next</a></li>
+        <li class="right" >
+          <a href="replace-recipes.html" title="replace-recipes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 (BETA) documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >datahub</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">reset-jvm-params</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Cloudera, Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+  </body>
+</html>
