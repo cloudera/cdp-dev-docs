@@ -1383,7 +1383,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <li><a href="#_responses_99">Responses</a></li>
 </ul>
 </li>
-<li><a href="#_updatetags">Updates the user defined tags of the given environment. The newly added tags will only be used for the Cloudera Data Hub clusters created within the environment after the new tags were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain with the tags originally defined during environment creation.</a>
+<li><a href="#_updatetags">Updates the user-defined tags of the given environment.</a>
 <ul class="sectlevel3">
 <li><a href="#_description_100">Description</a></li>
 <li><a href="#_parameters_100">Parameters</a></li>
@@ -1739,7 +1739,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect2">
 <h3 id="_version_information">Version information</h3>
 <div class="paragraph">
-<p><em>Version</em> : 0.9.164</p>
+<p><em>Version</em> : 0.9.165</p>
 </div>
 </div>
 <div class="sect2">
@@ -10295,7 +10295,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_updatetags">Updates the user defined tags of the given environment. The newly added tags will only be used for the Cloudera Data Hub clusters created within the environment after the new tags were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain with the tags originally defined during environment creation.</h3>
+<h3 id="_updatetags">Updates the user-defined tags of the given environment.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /api/v1/environments2/updateTags</pre>
@@ -10304,7 +10304,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <div class="sect3">
 <h4 id="_description_100">Description</h4>
 <div class="paragraph">
-<p>Updates the user defined tags of the given environment. The newly added tags will only be used for the Cloudera Data Hub clusters created within the environment after the new tags were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain with the tags originally defined during environment creation.</p>
+<p>Updates the user-defined tags of the given environment. Resources created after the update inherit the updated tags. By default, tags on existing resources remain unchanged. Set updateTagsOnExistingResources to true to also propagate the updated tags to existing resources in the environment, including FreeIPA, Data Lake, and Data Hub resources. Updating tags on existing cloud resources may require additional permissions in the environment credential.</p>
 </div>
 </div>
 <div class="sect3">
@@ -27150,6 +27150,19 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 <p>&lt; string, string &gt; map</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>updateTagsOnExistingResources</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>When true, propagates the updated user-defined environment tags to existing resources in the environment. When false or omitted, tags on existing resources remain unchanged. Updating tags on existing cloud resources may require additional permissions in the environment credential.<br>
+<strong>Default</strong> : <code>false</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -27724,7 +27737,7 @@ table.tableblock.grid-all { -webkit-border-radius: 0; border-radius: 0; -webkit-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-09-10 19:55:06 UTC
+Last updated 2026-10-27 18:39:50 UTC
 </div>
 </div>
 <br>
