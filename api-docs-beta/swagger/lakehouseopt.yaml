@@ -5,7 +5,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.165 (BETA)
+  version: 0.9.166 (BETA)
   title: Cloudera Lakehouse Optimizer Service
   license:
     name: Apache 2.0
@@ -1918,10 +1918,12 @@ definitions:
         description: The catalog.
       status:
         type: string
-        description: The catalog status.
+        description: The catalog status. Possible values are ERROR, SUCCESS, AUTO_PAUSED, USER_PAUSED, PAUSED, WARNING and UNAVAILABLE. ERROR indicates that a recent task has failed or a table is paused due to exceptions, SUCCESS indicates that there are no recent task failures or paused tables, AUTO_PAUSED indicates that the catalog is paused automatically due to errors, USER_PAUSED indicates that the catalog is paused by a user, PAUSED indicates that the catalog is paused for maintenance actions, WARNING indicates that a table is paused by a user, UNAVAILABLE indicates that no tasks have run yet.
         enum:
           - ERROR
           - SUCCESS
+          - AUTO_PAUSED
+          - USER_PAUSED
           - PAUSED
           - WARNING
           - UNAVAILABLE
@@ -1940,10 +1942,12 @@ definitions:
         description: The namespace.
       status:
         type: string
-        description: The namespace status.
+        description: The namespace status. Possible values are ERROR, SUCCESS, AUTO_PAUSED, USER_PAUSED, PAUSED, WARNING and UNAVAILABLE. ERROR indicates that a recent task has failed or a table is paused due to exceptions, SUCCESS indicates that there are no recent task failures or paused tables, AUTO_PAUSED indicates that the namespace is paused automatically due to errors, USER_PAUSED indicates that the namespace is paused by a user, PAUSED indicates that the namespace is paused for maintenance actions, WARNING indicates that a table is paused by a user, UNAVAILABLE indicates that no tasks have run yet.
         enum:
           - ERROR
           - SUCCESS
+          - AUTO_PAUSED
+          - USER_PAUSED
           - PAUSED
           - WARNING
           - UNAVAILABLE

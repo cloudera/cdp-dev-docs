@@ -6,7 +6,7 @@ x-form-factors: public,private
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.165 (BETA)
+  version: 0.9.166 (BETA)
   title: Cloudera Environments Service
   license:
     name: Apache 2.0
@@ -2553,6 +2553,27 @@ paths:
           description: Expected response to a valid request.
           schema:
             $ref: '#/definitions/ListVmTypesForEnvironmentResponse'
+        default:
+          description: The default response on an error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/v1/environments2/migrateFreeipaToMultiAz:
+    post:
+      x-mutating: true
+      summary: Migrate the FreeIPA from a single- to a multi-availability zone deployment.
+      description: Migrate the FreeIPA from a single- to a multi-availability zone deployment. For multi-node deployments, this operation will spread the nodes evenly across the available AZs.
+      operationId: migrateFreeipaToMultiAz
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/MigrateFreeipaToMultiAzRequest'
+      responses:
+        200:
+          description: Expected response to a valid request.
+          schema:
+            $ref: '#/definitions/MigrateFreeipaToMultiAzResponse'
         default:
           description: The default response on an error.
           schema:
@@ -8159,3 +8180,22 @@ definitions:
         description: List of VM type entries per cloud platform.
         items:
           $ref: '#/definitions/PlatformVmTypes'
+  MigrateFreeipaToMultiAzRequest:
+    type: object
+    description: Request object for migrating FreeIPA to multi-AZ.
+    required:
+      - environmentCrn
+    properties:
+      environmentCrn:
+        type: string
+        description: The CRN of the environment.
+  MigrateFreeipaToMultiAzResponse:
+    type: object
+    description: Response object for migrating FreeIPA to multi-AZ.
+    properties:
+      flowId:
+        type: string
+        description: Flow ID of the FreeIPA multi-AZ migration flow.
+      operationId:
+        description: Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
+        type: string

@@ -5,7 +5,7 @@ x-form-factors: public
 x-cdp-releases: PUBLIC
 x-audit: true
 info:
-  version: 0.9.165 (BETA)
+  version: 0.9.166 (BETA)
   title: Cloudera DataCatalog Service
   license:
     name: Apache 2.0
@@ -1108,9 +1108,9 @@ definitions:
         description: The company name of the external user.
       permissions:
         type: array
+        description: List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
         items:
           type: string
-        description: List of permissions granted to the external user for the Data Share.
       sharedOn:
         type: string
         format: date-time
@@ -1265,6 +1265,11 @@ definitions:
         type: string
         format: date-time
         description: The date and time when the access of Data Share will expire for the external user.
+      permissions:
+        type: array
+        description: List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
+        items:
+          type: string
   UpdateAccessOfExternalUsersOnDataShareResponse:
     type: object
     description: Response of the Update access of external users on Data Share operation.
