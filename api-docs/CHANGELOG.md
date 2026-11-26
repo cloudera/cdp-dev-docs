@@ -1,5 +1,16 @@
 # CDP Control Plane Public API Changelog
 
+## 0.9.166 (2026-11-23)
+* datacatalog: Add property `permissions` to `ExternalUserAccessUpdate` object used in `updateAccessOfExternalUsersOnDataShare` command, and document allowed values (`READ` and `WRITE`) for `permissions` in `DataShareExternalUser` object.
+* de: Add parameter `forceSecureSparkOs` to `restoreService` command.
+* de: Add parameters `encodedDbCaCert`, `encodedDbCaCertApi`, `encodedDbCaCertAirflow` and `encodedDbCaCertAirflowAPI` to `updateVc` command.
+* imagecatalog: Add parameter `withVmImages` to `describeCustomCatalog` command.
+* imagecatalog: Add property `vmImages` to `ImageItemResponse` object.
+* opdb: Add property `encryptionProfile` to `DatabaseDetails` object.
+
+BACKWARD INCOMPATIBILITIES:
+* lakehouseopt: Add new enum values (`AUTO_PAUSED` and `USER_PAUSED`) for the `status` property of the `StarAssociationDetails` and `NamespacePolicyAssociation` objects.
+
 ## 0.9.165 (2026-10-27)
 * datahub: Add new command `refreshDatalakeConfigurations`.
 * de: Add parameter `serviceConfigReplacement` to `restoreService` command.

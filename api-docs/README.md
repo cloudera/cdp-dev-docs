@@ -1,6 +1,6 @@
 # CDP Control Plane Public API Documentation
 
-*Version: 0.9.165*
+*Version: 0.9.166*
 
 [CHANGELOG](CHANGELOG.md)
 
@@ -8,26 +8,26 @@ Available documentation is listed by service below.
 
 | Service | Version |
 | --- | --- |
-| [audit](./audit/index.html) | 0.9.165 |
-| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.165 |
-| [compute](./compute/index.html) | 0.9.165 |
-| [consumption](./consumption/index.html) | 0.9.165 |
-| [datacatalog](./datacatalog/index.html) | 0.9.165 |
-| [datahub](./datahub/index.html) | 0.9.165 |
-| [datalake](./datalake/index.html) | 0.9.165 |
-| [de](./de/index.html) | 0.9.165 |
-| [df](./df/index.html) | 0.9.165 |
-| [dfworkload](./dfworkload/index.html) | 0.9.165 |
-| [drscp](./drscp/index.html) | 0.9.165 |
-| [dw](./dw/index.html) | 0.9.165 |
-| [environments](./environments/index.html) | 0.9.165 |
-| [iam](./iam/index.html) | 0.9.165 |
-| [imagecatalog](./imagecatalog/index.html) | 0.9.165 |
-| [lakehouseopt](./lakehouseopt/index.html) | 0.9.165 |
-| [ml](./ml/index.html) | 0.9.165 |
-| [opdb](./opdb/index.html) | 0.9.165 |
-| [publicendpointmanagement](./publicendpointmanagement/index.html) | 0.9.165 |
-| [replicationmanager](./replicationmanager/index.html) | 0.9.165 |
+| [audit](./audit/index.html) | 0.9.166 |
+| [cloudprivatelinks](./cloudprivatelinks/index.html) | 0.9.166 |
+| [compute](./compute/index.html) | 0.9.166 |
+| [consumption](./consumption/index.html) | 0.9.166 |
+| [datacatalog](./datacatalog/index.html) | 0.9.166 |
+| [datahub](./datahub/index.html) | 0.9.166 |
+| [datalake](./datalake/index.html) | 0.9.166 |
+| [de](./de/index.html) | 0.9.166 |
+| [df](./df/index.html) | 0.9.166 |
+| [dfworkload](./dfworkload/index.html) | 0.9.166 |
+| [drscp](./drscp/index.html) | 0.9.166 |
+| [dw](./dw/index.html) | 0.9.166 |
+| [environments](./environments/index.html) | 0.9.166 |
+| [iam](./iam/index.html) | 0.9.166 |
+| [imagecatalog](./imagecatalog/index.html) | 0.9.166 |
+| [lakehouseopt](./lakehouseopt/index.html) | 0.9.166 |
+| [ml](./ml/index.html) | 0.9.166 |
+| [opdb](./opdb/index.html) | 0.9.166 |
+| [publicendpointmanagement](./publicendpointmanagement/index.html) | 0.9.166 |
+| [replicationmanager](./replicationmanager/index.html) | 0.9.166 |
 
 API documentation uses the Adoc Riak stylesheet from
 [https://github.com/darshandsoni/asciidoctor-skins](https://github.com/darshandsoni/asciidoctor-skins).
