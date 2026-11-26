@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>describe-custom-catalog &#8212; CDP CLI 0.9.165 documentation</title>
+    <title>describe-custom-catalog &#8212; CDP CLI 0.9.166 documentation</title>
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../static/cdpcli.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../static/cdpcli.css" />
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="delete-runtime-image.html" title="delete-runtime-image"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.166 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">imagecatalog</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-custom-catalog</a></li> 
       </ul>
@@ -46,7 +46,7 @@
 <dd class="field-odd"><p>Describe custom image catalog</p>
 </dd>
 <dt class="field-even">version</dt>
-<dd class="field-even"><p>0.9.165-dirty</p>
+<dd class="field-even"><p>0.9.166-dirty</p>
 </dd>
 </dl>
 <div class="section" id="description">
@@ -57,6 +57,7 @@
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  describe-custom-catalog
 --catalog-name &lt;value&gt;
+<span class="o">[</span>--with-vm-images <span class="p">|</span> --no-with-vm-images<span class="o">]</span>
 <span class="o">[</span>--cli-input-json &lt;value&gt;<span class="o">]</span>
 <span class="o">[</span>--generate-cli-skeleton<span class="o">]</span>
 </pre></div>
@@ -67,6 +68,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">--catalog-name</span></code> (string)</p>
 <blockquote>
 <div><p>Image catalog name</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">--with-vm-images</span></code> | <code class="docutils literal notranslate"><span class="pre">--no-with-vm-images</span></code> (boolean)</p>
+<blockquote>
+<div><p>Whether to include VM images (cloud provider image references, e.g. AMI IDs for AWS) for each image in the response. Defaults to false.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">--cli-input-json</span></code> (string)</p>
 <blockquote>
@@ -122,6 +127,22 @@
 <p>provider -&gt; (string)</p>
 <blockquote>
 <div><p>Object representing a valid cloud provider name. <cite>AWS</cite> - The image is an AWS VM image <cite>AZURE</cite> - The image is an Azure VM image <cite>GCP</cite> - The image is a GCP VM image</p>
+</div></blockquote>
+<p>vmImages -&gt; (array)</p>
+<blockquote>
+<div><p>Cloud provider specific VM image references (e.g. AMI IDs for AWS, image URNs for Azure, image names for GCP). Only populated when with-vm-images is set to true in the request.</p>
+<p>item -&gt; (object)</p>
+<blockquote>
+<div><p>Model holding information about a custom VM image and the cloud region it belongs to. The format of the image reference is specific to the cloud provider, e.g. URL in case of Azure, AMI ID in case of AWS.</p>
+<p>region -&gt; (string)</p>
+<blockquote>
+<div><p>Region</p>
+</div></blockquote>
+<p>imageReference -&gt; (string)</p>
+<blockquote>
+<div><p>Image reference</p>
+</div></blockquote>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
@@ -180,7 +201,7 @@
         <li class="right" >
           <a href="delete-runtime-image.html" title="delete-runtime-image"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.165 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CDP CLI 0.9.166 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >imagecatalog</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">describe-custom-catalog</a></li> 
       </ul>
